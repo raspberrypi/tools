@@ -1,0 +1,1479 @@
+This is gdbint.info, produced by makeinfo version 4.8 from
+./gdbint.texinfo.
+
+INFO-DIR-SECTION Software development
+START-INFO-DIR-ENTRY
+* Gdb-Internals: (gdbint).	The GNU debugger's internals.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009, 2010 Free Software
+Foundation, Inc.  Contributed by Cygnus Solutions.  Written by John
+Gilmore.  Second Edition by Stan Shebs.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+   This file documents the internals of the GNU debugger GDB.
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009, 2010 Free Software
+Foundation, Inc.  Contributed by Cygnus Solutions.  Written by John
+Gilmore.  Second Edition by Stan Shebs.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+
+File: gdbint.info,  Node: GDB Observers,  Next: GNU Free Documentation License,  Prev: Hints,  Up: Top
+
+Appendix A GDB Currently available observers
+********************************************
+
+A.1 Implementation rationale
+============================
+
+An "observer" is an entity which is interested in being notified when
+GDB reaches certain states, or certain events occur in GDB.  The entity
+being observed is called the "subject".  To receive notifications, the
+observer attaches a callback to the subject.  One subject can have
+several observers.
+
+   `observer.c' implements an internal generic low-level event
+notification mechanism.  This generic event notification mechanism is
+then re-used to implement the exported high-level notification
+management routines for all possible notifications.
+
+   The current implementation of the generic observer provides support
+for contextual data.  This contextual data is given to the subject when
+attaching the callback.  In return, the subject will provide this
+contextual data back to the observer as a parameter of the callback.
+
+   Note that the current support for the contextual data is only
+partial, as it lacks a mechanism that would deallocate this data when
+the callback is detached.  This is not a problem so far, as this
+contextual data is only used internally to hold a function pointer.
+Later on, if a certain observer needs to provide support for user-level
+contextual data, then the generic notification mechanism will need to be
+enhanced to allow the observer to provide a routine to deallocate the
+data when attaching the callback.
+
+   The observer implementation is also currently not reentrant.  In
+particular, it is therefore not possible to call the attach or detach
+routines during a notification.
+
+A.2 Debugging
+=============
+
+Observer notifications can be traced using the command `set debug
+observer 1' (*note Optional messages about internal happenings:
+(gdb)Debugging Output.).
+
+A.3 `normal_stop' Notifications
+===============================
+
+GDB notifies all `normal_stop' observers when the inferior execution
+has just stopped, the associated messages and annotations have been
+printed, and the control is about to be returned to the user.
+
+   Note that the `normal_stop' notification is not emitted when the
+execution stops due to a breakpoint, and this breakpoint has a
+condition that is not met.  If the breakpoint has any associated
+commands list, the commands are executed after the notification is
+emitted.
+
+   The following interfaces are available to manage observers:
+
+ -- Function: extern struct observer *observer_attach_EVENT
+          (observer_EVENT_ftype *F)
+     Using the function F, create an observer that is notified when
+     ever EVENT occurs, return the observer.
+
+ -- Function: extern void observer_detach_EVENT (struct observer
+          *OBSERVER);
+     Remove OBSERVER from the list of observers to be notified when
+     EVENT occurs.
+
+ -- Function: extern void observer_notify_EVENT (void);
+     Send a notification to all EVENT observers.
+
+   The following observable events are defined:
+
+ -- Function: void normal_stop (struct bpstats *BS, int PRINT_FRAME)
+     The inferior has stopped for real.  The  BS argument describes the
+     breakpoints were are stopped at, if any.  Second argument
+     PRINT_FRAME non-zero means display the location where the inferior
+     has stopped.
+
+ -- Function: void target_changed (struct target_ops *TARGET)
+     The target's register contents have changed.
+
+ -- Function: void executable_changed (void)
+     The executable being debugged by GDB has changed: The user decided
+     to debug a different program, or the program he was debugging has
+     been modified since being loaded by the debugger (by being
+     recompiled, for instance).
+
+ -- Function: void inferior_created (struct target_ops *OBJFILE, int
+          FROM_TTY)
+     GDB has just connected to an inferior.  For `run', GDB calls this
+     observer while the inferior is still stopped at the entry-point
+     instruction.  For `attach' and `core', GDB calls this observer
+     immediately after connecting to the inferior, and before any
+     information on the inferior has been printed.
+
+ -- Function: void solib_loaded (struct so_list *SOLIB)
+     The shared library specified by SOLIB has been loaded.  Note that
+     when GDB calls this observer, the library's symbols probably
+     haven't been loaded yet.
+
+ -- Function: void solib_unloaded (struct so_list *SOLIB)
+     The shared library specified by SOLIB has been unloaded.  Note
+     that when GDB calls this observer, the library's symbols have not
+     been unloaded yet, and thus are still available.
+
+ -- Function: void new_objfile (struct objfile *OBJFILE)
+     The symbol file specified by OBJFILE has been loaded.  Called with
+     OBJFILE equal to `NULL' to indicate previously loaded symbol table
+     data has now been invalidated.
+
+ -- Function: void new_thread (struct thread_info *T)
+     The thread specified by T has been created.
+
+ -- Function: void thread_exit (struct thread_info *T, int SILENT)
+     The thread specified by T has exited.  The SILENT argument
+     indicates that GDB is removing the thread from its tables without
+     wanting to notify the user about it.
+
+ -- Function: void thread_stop_requested (ptid_t PTID)
+     An explicit stop request was issued to PTID.  If PTID equals
+     MINUS_ONE_PTID, the request applied to all threads.  If
+     `ptid_is_pid(ptid)' returns true, the request applied to all
+     threads of the process pointed at by PTID.  Otherwise, the request
+     applied to the single thread pointed at by PTID.
+
+ -- Function: void target_resumed (ptid_t PTID)
+     The target was resumed.  The PTID parameter specifies which thread
+     was resume, and may be RESUME_ALL if all threads are resumed.
+
+ -- Function: void about_to_proceed (void)
+     The target is about to be proceeded.
+
+ -- Function: void breakpoint_created (int BPNUM)
+     A new breakpoint has been created.  The argument BPNUM is the
+     number of the newly-created breakpoint.
+
+ -- Function: void breakpoint_deleted (int BPNUM)
+     A breakpoint has been destroyed.  The argument BPNUM is the number
+     of the newly-destroyed breakpoint.
+
+ -- Function: void breakpoint_modified (int BPNUM)
+     A breakpoint has been modified in some way.  The argument BPNUM is
+     the number of the modified breakpoint.
+
+ -- Function: void tracepoint_created (int TPNUM)
+     A new tracepoint has been created.  The argument TPNUM is the
+     number of the newly-created tracepoint.
+
+ -- Function: void tracepoint_deleted (int TPNUM)
+     A tracepoint has been destroyed.  The argument TPNUM is the number
+     of the newly-destroyed tracepoint.
+
+ -- Function: void tracepoint_modified (int TPNUM)
+     A tracepoint has been modified in some way.  The argument TPNUM is
+     the number of the modified tracepoint.
+
+ -- Function: void architecture_changed (struct gdbarch *NEWARCH)
+     The current architecture has changed.  The argument NEWARCH is a
+     pointer to the new architecture.
+
+ -- Function: void thread_ptid_changed (ptid_t OLD_PTID, ptid_t
+          NEW_PTID)
+     The thread's ptid has changed.  The OLD_PTID parameter specifies
+     the old value, and NEW_PTID specifies the new value.
+
+ -- Function: void inferior_added (struct inferior *INF)
+     The inferior INF has been added to the list of inferiors.  At this
+     point, it might not be associated with any process.
+
+ -- Function: void inferior_appeared (struct inferior *INF)
+     The inferior identified by INF has been attached to a process.
+
+ -- Function: void inferior_exit (struct inferior *INF)
+     Either the inferior associated with INF has been detached from the
+     process, or the process has exited.
+
+ -- Function: void inferior_removed (struct inferior *INF)
+     The inferior INF has been removed from the list of inferiors.
+     This method is called immediately before freeing INF.
+
+ -- Function: void memory_changed (CORE_ADDR ADDR, int LEN, const
+          bfd_byte *DATA)
+     Bytes from DATA to DATA + LEN have been written to the current
+     inferior at ADDR.
+
+ -- Function: void test_notification (int SOMEARG)
+     This observer is used for internal testing.  Do not use.  See
+     testsuite/gdb.gdb/observer.exp.
+
+
+File: gdbint.info,  Node: GNU Free Documentation License,  Next: Index,  Prev: GDB Observers,  Up: Top
+
+Appendix B GNU Free Documentation License
+*****************************************
+
+                     Version 1.3, 3 November 2008
+
+     Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+     `http://fsf.org/'
+
+     Everyone is permitted to copy and distribute verbatim copies
+     of this license document, but changing it is not allowed.
+
+  0. PREAMBLE
+
+     The purpose of this License is to make a manual, textbook, or other
+     functional and useful document "free" in the sense of freedom: to
+     assure everyone the effective freedom to copy and redistribute it,
+     with or without modifying it, either commercially or
+     noncommercially.  Secondarily, this License preserves for the
+     author and publisher a way to get credit for their work, while not
+     being considered responsible for modifications made by others.
+
+     This License is a kind of "copyleft", which means that derivative
+     works of the document must themselves be free in the same sense.
+     It complements the GNU General Public License, which is a copyleft
+     license designed for free software.
+
+     We have designed this License in order to use it for manuals for
+     free software, because free software needs free documentation: a
+     free program should come with manuals providing the same freedoms
+     that the software does.  But this License is not limited to
+     software manuals; it can be used for any textual work, regardless
+     of subject matter or whether it is published as a printed book.
+     We recommend this License principally for works whose purpose is
+     instruction or reference.
+
+  1. APPLICABILITY AND DEFINITIONS
+
+     This License applies to any manual or other work, in any medium,
+     that contains a notice placed by the copyright holder saying it
+     can be distributed under the terms of this License.  Such a notice
+     grants a world-wide, royalty-free license, unlimited in duration,
+     to use that work under the conditions stated herein.  The
+     "Document", below, refers to any such manual or work.  Any member
+     of the public is a licensee, and is addressed as "you".  You
+     accept the license if you copy, modify or distribute the work in a
+     way requiring permission under copyright law.
+
+     A "Modified Version" of the Document means any work containing the
+     Document or a portion of it, either copied verbatim, or with
+     modifications and/or translated into another language.
+
+     A "Secondary Section" is a named appendix or a front-matter section
+     of the Document that deals exclusively with the relationship of the
+     publishers or authors of the Document to the Document's overall
+     subject (or to related matters) and contains nothing that could
+     fall directly within that overall subject.  (Thus, if the Document
+     is in part a textbook of mathematics, a Secondary Section may not
+     explain any mathematics.)  The relationship could be a matter of
+     historical connection with the subject or with related matters, or
+     of legal, commercial, philosophical, ethical or political position
+     regarding them.
+
+     The "Invariant Sections" are certain Secondary Sections whose
+     titles are designated, as being those of Invariant Sections, in
+     the notice that says that the Document is released under this
+     License.  If a section does not fit the above definition of
+     Secondary then it is not allowed to be designated as Invariant.
+     The Document may contain zero Invariant Sections.  If the Document
+     does not identify any Invariant Sections then there are none.
+
+     The "Cover Texts" are certain short passages of text that are
+     listed, as Front-Cover Texts or Back-Cover Texts, in the notice
+     that says that the Document is released under this License.  A
+     Front-Cover Text may be at most 5 words, and a Back-Cover Text may
+     be at most 25 words.
+
+     A "Transparent" copy of the Document means a machine-readable copy,
+     represented in a format whose specification is available to the
+     general public, that is suitable for revising the document
+     straightforwardly with generic text editors or (for images
+     composed of pixels) generic paint programs or (for drawings) some
+     widely available drawing editor, and that is suitable for input to
+     text formatters or for automatic translation to a variety of
+     formats suitable for input to text formatters.  A copy made in an
+     otherwise Transparent file format whose markup, or absence of
+     markup, has been arranged to thwart or discourage subsequent
+     modification by readers is not Transparent.  An image format is
+     not Transparent if used for any substantial amount of text.  A
+     copy that is not "Transparent" is called "Opaque".
+
+     Examples of suitable formats for Transparent copies include plain
+     ASCII without markup, Texinfo input format, LaTeX input format,
+     SGML or XML using a publicly available DTD, and
+     standard-conforming simple HTML, PostScript or PDF designed for
+     human modification.  Examples of transparent image formats include
+     PNG, XCF and JPG.  Opaque formats include proprietary formats that
+     can be read and edited only by proprietary word processors, SGML or
+     XML for which the DTD and/or processing tools are not generally
+     available, and the machine-generated HTML, PostScript or PDF
+     produced by some word processors for output purposes only.
+
+     The "Title Page" means, for a printed book, the title page itself,
+     plus such following pages as are needed to hold, legibly, the
+     material this License requires to appear in the title page.  For
+     works in formats which do not have any title page as such, "Title
+     Page" means the text near the most prominent appearance of the
+     work's title, preceding the beginning of the body of the text.
+
+     The "publisher" means any person or entity that distributes copies
+     of the Document to the public.
+
+     A section "Entitled XYZ" means a named subunit of the Document
+     whose title either is precisely XYZ or contains XYZ in parentheses
+     following text that translates XYZ in another language.  (Here XYZ
+     stands for a specific section name mentioned below, such as
+     "Acknowledgements", "Dedications", "Endorsements", or "History".)
+     To "Preserve the Title" of such a section when you modify the
+     Document means that it remains a section "Entitled XYZ" according
+     to this definition.
+
+     The Document may include Warranty Disclaimers next to the notice
+     which states that this License applies to the Document.  These
+     Warranty Disclaimers are considered to be included by reference in
+     this License, but only as regards disclaiming warranties: any other
+     implication that these Warranty Disclaimers may have is void and
+     has no effect on the meaning of this License.
+
+  2. VERBATIM COPYING
+
+     You may copy and distribute the Document in any medium, either
+     commercially or noncommercially, provided that this License, the
+     copyright notices, and the license notice saying this License
+     applies to the Document are reproduced in all copies, and that you
+     add no other conditions whatsoever to those of this License.  You
+     may not use technical measures to obstruct or control the reading
+     or further copying of the copies you make or distribute.  However,
+     you may accept compensation in exchange for copies.  If you
+     distribute a large enough number of copies you must also follow
+     the conditions in section 3.
+
+     You may also lend copies, under the same conditions stated above,
+     and you may publicly display copies.
+
+  3. COPYING IN QUANTITY
+
+     If you publish printed copies (or copies in media that commonly
+     have printed covers) of the Document, numbering more than 100, and
+     the Document's license notice requires Cover Texts, you must
+     enclose the copies in covers that carry, clearly and legibly, all
+     these Cover Texts: Front-Cover Texts on the front cover, and
+     Back-Cover Texts on the back cover.  Both covers must also clearly
+     and legibly identify you as the publisher of these copies.  The
+     front cover must present the full title with all words of the
+     title equally prominent and visible.  You may add other material
+     on the covers in addition.  Copying with changes limited to the
+     covers, as long as they preserve the title of the Document and
+     satisfy these conditions, can be treated as verbatim copying in
+     other respects.
+
+     If the required texts for either cover are too voluminous to fit
+     legibly, you should put the first ones listed (as many as fit
+     reasonably) on the actual cover, and continue the rest onto
+     adjacent pages.
+
+     If you publish or distribute Opaque copies of the Document
+     numbering more than 100, you must either include a
+     machine-readable Transparent copy along with each Opaque copy, or
+     state in or with each Opaque copy a computer-network location from
+     which the general network-using public has access to download
+     using public-standard network protocols a complete Transparent
+     copy of the Document, free of added material.  If you use the
+     latter option, you must take reasonably prudent steps, when you
+     begin distribution of Opaque copies in quantity, to ensure that
+     this Transparent copy will remain thus accessible at the stated
+     location until at least one year after the last time you
+     distribute an Opaque copy (directly or through your agents or
+     retailers) of that edition to the public.
+
+     It is requested, but not required, that you contact the authors of
+     the Document well before redistributing any large number of
+     copies, to give them a chance to provide you with an updated
+     version of the Document.
+
+  4. MODIFICATIONS
+
+     You may copy and distribute a Modified Version of the Document
+     under the conditions of sections 2 and 3 above, provided that you
+     release the Modified Version under precisely this License, with
+     the Modified Version filling the role of the Document, thus
+     licensing distribution and modification of the Modified Version to
+     whoever possesses a copy of it.  In addition, you must do these
+     things in the Modified Version:
+
+       A. Use in the Title Page (and on the covers, if any) a title
+          distinct from that of the Document, and from those of
+          previous versions (which should, if there were any, be listed
+          in the History section of the Document).  You may use the
+          same title as a previous version if the original publisher of
+          that version gives permission.
+
+       B. List on the Title Page, as authors, one or more persons or
+          entities responsible for authorship of the modifications in
+          the Modified Version, together with at least five of the
+          principal authors of the Document (all of its principal
+          authors, if it has fewer than five), unless they release you
+          from this requirement.
+
+       C. State on the Title page the name of the publisher of the
+          Modified Version, as the publisher.
+
+       D. Preserve all the copyright notices of the Document.
+
+       E. Add an appropriate copyright notice for your modifications
+          adjacent to the other copyright notices.
+
+       F. Include, immediately after the copyright notices, a license
+          notice giving the public permission to use the Modified
+          Version under the terms of this License, in the form shown in
+          the Addendum below.
+
+       G. Preserve in that license notice the full lists of Invariant
+          Sections and required Cover Texts given in the Document's
+          license notice.
+
+       H. Include an unaltered copy of this License.
+
+       I. Preserve the section Entitled "History", Preserve its Title,
+          and add to it an item stating at least the title, year, new
+          authors, and publisher of the Modified Version as given on
+          the Title Page.  If there is no section Entitled "History" in
+          the Document, create one stating the title, year, authors,
+          and publisher of the Document as given on its Title Page,
+          then add an item describing the Modified Version as stated in
+          the previous sentence.
+
+       J. Preserve the network location, if any, given in the Document
+          for public access to a Transparent copy of the Document, and
+          likewise the network locations given in the Document for
+          previous versions it was based on.  These may be placed in
+          the "History" section.  You may omit a network location for a
+          work that was published at least four years before the
+          Document itself, or if the original publisher of the version
+          it refers to gives permission.
+
+       K. For any section Entitled "Acknowledgements" or "Dedications",
+          Preserve the Title of the section, and preserve in the
+          section all the substance and tone of each of the contributor
+          acknowledgements and/or dedications given therein.
+
+       L. Preserve all the Invariant Sections of the Document,
+          unaltered in their text and in their titles.  Section numbers
+          or the equivalent are not considered part of the section
+          titles.
+
+       M. Delete any section Entitled "Endorsements".  Such a section
+          may not be included in the Modified Version.
+
+       N. Do not retitle any existing section to be Entitled
+          "Endorsements" or to conflict in title with any Invariant
+          Section.
+
+       O. Preserve any Warranty Disclaimers.
+
+     If the Modified Version includes new front-matter sections or
+     appendices that qualify as Secondary Sections and contain no
+     material copied from the Document, you may at your option
+     designate some or all of these sections as invariant.  To do this,
+     add their titles to the list of Invariant Sections in the Modified
+     Version's license notice.  These titles must be distinct from any
+     other section titles.
+
+     You may add a section Entitled "Endorsements", provided it contains
+     nothing but endorsements of your Modified Version by various
+     parties--for example, statements of peer review or that the text
+     has been approved by an organization as the authoritative
+     definition of a standard.
+
+     You may add a passage of up to five words as a Front-Cover Text,
+     and a passage of up to 25 words as a Back-Cover Text, to the end
+     of the list of Cover Texts in the Modified Version.  Only one
+     passage of Front-Cover Text and one of Back-Cover Text may be
+     added by (or through arrangements made by) any one entity.  If the
+     Document already includes a cover text for the same cover,
+     previously added by you or by arrangement made by the same entity
+     you are acting on behalf of, you may not add another; but you may
+     replace the old one, on explicit permission from the previous
+     publisher that added the old one.
+
+     The author(s) and publisher(s) of the Document do not by this
+     License give permission to use their names for publicity for or to
+     assert or imply endorsement of any Modified Version.
+
+  5. COMBINING DOCUMENTS
+
+     You may combine the Document with other documents released under
+     this License, under the terms defined in section 4 above for
+     modified versions, provided that you include in the combination
+     all of the Invariant Sections of all of the original documents,
+     unmodified, and list them all as Invariant Sections of your
+     combined work in its license notice, and that you preserve all
+     their Warranty Disclaimers.
+
+     The combined work need only contain one copy of this License, and
+     multiple identical Invariant Sections may be replaced with a single
+     copy.  If there are multiple Invariant Sections with the same name
+     but different contents, make the title of each such section unique
+     by adding at the end of it, in parentheses, the name of the
+     original author or publisher of that section if known, or else a
+     unique number.  Make the same adjustment to the section titles in
+     the list of Invariant Sections in the license notice of the
+     combined work.
+
+     In the combination, you must combine any sections Entitled
+     "History" in the various original documents, forming one section
+     Entitled "History"; likewise combine any sections Entitled
+     "Acknowledgements", and any sections Entitled "Dedications".  You
+     must delete all sections Entitled "Endorsements."
+
+  6. COLLECTIONS OF DOCUMENTS
+
+     You may make a collection consisting of the Document and other
+     documents released under this License, and replace the individual
+     copies of this License in the various documents with a single copy
+     that is included in the collection, provided that you follow the
+     rules of this License for verbatim copying of each of the
+     documents in all other respects.
+
+     You may extract a single document from such a collection, and
+     distribute it individually under this License, provided you insert
+     a copy of this License into the extracted document, and follow
+     this License in all other respects regarding verbatim copying of
+     that document.
+
+  7. AGGREGATION WITH INDEPENDENT WORKS
+
+     A compilation of the Document or its derivatives with other
+     separate and independent documents or works, in or on a volume of
+     a storage or distribution medium, is called an "aggregate" if the
+     copyright resulting from the compilation is not used to limit the
+     legal rights of the compilation's users beyond what the individual
+     works permit.  When the Document is included in an aggregate, this
+     License does not apply to the other works in the aggregate which
+     are not themselves derivative works of the Document.
+
+     If the Cover Text requirement of section 3 is applicable to these
+     copies of the Document, then if the Document is less than one half
+     of the entire aggregate, the Document's Cover Texts may be placed
+     on covers that bracket the Document within the aggregate, or the
+     electronic equivalent of covers if the Document is in electronic
+     form.  Otherwise they must appear on printed covers that bracket
+     the whole aggregate.
+
+  8. TRANSLATION
+
+     Translation is considered a kind of modification, so you may
+     distribute translations of the Document under the terms of section
+     4.  Replacing Invariant Sections with translations requires special
+     permission from their copyright holders, but you may include
+     translations of some or all Invariant Sections in addition to the
+     original versions of these Invariant Sections.  You may include a
+     translation of this License, and all the license notices in the
+     Document, and any Warranty Disclaimers, provided that you also
+     include the original English version of this License and the
+     original versions of those notices and disclaimers.  In case of a
+     disagreement between the translation and the original version of
+     this License or a notice or disclaimer, the original version will
+     prevail.
+
+     If a section in the Document is Entitled "Acknowledgements",
+     "Dedications", or "History", the requirement (section 4) to
+     Preserve its Title (section 1) will typically require changing the
+     actual title.
+
+  9. TERMINATION
+
+     You may not copy, modify, sublicense, or distribute the Document
+     except as expressly provided under this License.  Any attempt
+     otherwise to copy, modify, sublicense, or distribute it is void,
+     and will automatically terminate your rights under this License.
+
+     However, if you cease all violation of this License, then your
+     license from a particular copyright holder is reinstated (a)
+     provisionally, unless and until the copyright holder explicitly
+     and finally terminates your license, and (b) permanently, if the
+     copyright holder fails to notify you of the violation by some
+     reasonable means prior to 60 days after the cessation.
+
+     Moreover, your license from a particular copyright holder is
+     reinstated permanently if the copyright holder notifies you of the
+     violation by some reasonable means, this is the first time you have
+     received notice of violation of this License (for any work) from
+     that copyright holder, and you cure the violation prior to 30 days
+     after your receipt of the notice.
+
+     Termination of your rights under this section does not terminate
+     the licenses of parties who have received copies or rights from
+     you under this License.  If your rights have been terminated and
+     not permanently reinstated, receipt of a copy of some or all of
+     the same material does not give you any rights to use it.
+
+ 10. FUTURE REVISIONS OF THIS LICENSE
+
+     The Free Software Foundation may publish new, revised versions of
+     the GNU Free Documentation License from time to time.  Such new
+     versions will be similar in spirit to the present version, but may
+     differ in detail to address new problems or concerns.  See
+     `http://www.gnu.org/copyleft/'.
+
+     Each version of the License is given a distinguishing version
+     number.  If the Document specifies that a particular numbered
+     version of this License "or any later version" applies to it, you
+     have the option of following the terms and conditions either of
+     that specified version or of any later version that has been
+     published (not as a draft) by the Free Software Foundation.  If
+     the Document does not specify a version number of this License,
+     you may choose any version ever published (not as a draft) by the
+     Free Software Foundation.  If the Document specifies that a proxy
+     can decide which future versions of this License can be used, that
+     proxy's public statement of acceptance of a version permanently
+     authorizes you to choose that version for the Document.
+
+ 11. RELICENSING
+
+     "Massive Multiauthor Collaboration Site" (or "MMC Site") means any
+     World Wide Web server that publishes copyrightable works and also
+     provides prominent facilities for anybody to edit those works.  A
+     public wiki that anybody can edit is an example of such a server.
+     A "Massive Multiauthor Collaboration" (or "MMC") contained in the
+     site means any set of copyrightable works thus published on the MMC
+     site.
+
+     "CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0
+     license published by Creative Commons Corporation, a not-for-profit
+     corporation with a principal place of business in San Francisco,
+     California, as well as future copyleft versions of that license
+     published by that same organization.
+
+     "Incorporate" means to publish or republish a Document, in whole or
+     in part, as part of another Document.
+
+     An MMC is "eligible for relicensing" if it is licensed under this
+     License, and if all works that were first published under this
+     License somewhere other than this MMC, and subsequently
+     incorporated in whole or in part into the MMC, (1) had no cover
+     texts or invariant sections, and (2) were thus incorporated prior
+     to November 1, 2008.
+
+     The operator of an MMC Site may republish an MMC contained in the
+     site under CC-BY-SA on the same site at any time before August 1,
+     2009, provided the MMC is eligible for relicensing.
+
+
+ADDENDUM: How to use this License for your documents
+====================================================
+
+To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and license
+notices just after the title page:
+
+       Copyright (C)  YEAR  YOUR NAME.
+       Permission is granted to copy, distribute and/or modify this document
+       under the terms of the GNU Free Documentation License, Version 1.3
+       or any later version published by the Free Software Foundation;
+       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+       Texts.  A copy of the license is included in the section entitled ``GNU
+       Free Documentation License''.
+
+   If you have Invariant Sections, Front-Cover Texts and Back-Cover
+Texts, replace the "with...Texts." line with this:
+
+         with the Invariant Sections being LIST THEIR TITLES, with
+         the Front-Cover Texts being LIST, and with the Back-Cover Texts
+         being LIST.
+
+   If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+
+   If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License, to
+permit their use in free software.
+
+
+File: gdbint.info,  Node: Index,  Prev: GNU Free Documentation License,  Up: Top
+
+Index
+*****
+
+ [index ]
+* Menu:
+
+* $fp:                                   Register Information Functions.
+                                                              (line 126)
+* $pc:                                   Register Architecture Functions & Variables.
+                                                              (line  58)
+* $ps:                                   Register Architecture Functions & Variables.
+                                                              (line  69)
+* $sp:                                   Register Architecture Functions & Variables.
+                                                              (line  49)
+* _initialize_ARCH_tdep <1>:             Adding a New Target. (line  22)
+* _initialize_ARCH_tdep:                 How an Architecture is Represented.
+                                                              (line  13)
+* _initialize_language:                  Language Support.    (line  79)
+* a.out format:                          Symbol Handling.     (line 218)
+* about_to_proceed:                      GDB Observers.       (line 133)
+* abstract interpretation of function prologues: Algorithms.  (line  48)
+* add_cmd:                               User Interface.      (line  21)
+* add_com:                               User Interface.      (line  21)
+* add_setshow_cmd:                       User Interface.      (line  26)
+* add_setshow_cmd_full:                  User Interface.      (line  26)
+* add_symtab_fns:                        Symbol Handling.     (line  37)
+* adding a new host:                     Host Definition.     (line  13)
+* adding a symbol-reading module:        Symbol Handling.     (line  37)
+* adding a target:                       Adding a New Target. (line   6)
+* adding debugging info reader:          Symbol Handling.     (line 365)
+* adding source language:                Language Support.    (line  17)
+* address classes:                       Address Classes.     (line   6)
+* address representation:                Pointers and Addresses.
+                                                              (line   6)
+* address spaces, separate data and code: Pointers and Addresses.
+                                                              (line   6)
+* address_class_name_to_type_flags:      Defining Other Architecture Features.
+                                                              (line  28)
+* address_class_name_to_type_flags_p:    Defining Other Architecture Features.
+                                                              (line  39)
+* algorithms:                            Algorithms.          (line   6)
+* align_down:                            Functions and Variable to Analyze Frames.
+                                                              (line  46)
+* align_up:                              Functions and Variable to Analyze Frames.
+                                                              (line  46)
+* allocate_symtab:                       Language Support.    (line  83)
+* ARCH-tdep.c:                           How an Architecture is Represented.
+                                                              (line  13)
+* architecture representation:           How an Architecture is Represented.
+                                                              (line   6)
+* architecture_changed:                  GDB Observers.       (line 160)
+* Array Containers:                      Support Libraries.   (line 131)
+* assumptions about targets:             Coding.              (line 519)
+* base of a frame:                       Frame Handling Terminology.
+                                                              (line  28)
+* BFD library:                           Support Libraries.   (line   9)
+* bfd_arch_info:                         Looking Up an Existing Architecture.
+                                                              (line  41)
+* BIG_BREAKPOINT:                        Defining Other Architecture Features.
+                                                              (line 100)
+* BPT_VECTOR:                            Defining Other Architecture Features.
+                                                              (line 536)
+* BREAKPOINT:                            Defining Other Architecture Features.
+                                                              (line  88)
+* breakpoint address adjusted:           Defining Other Architecture Features.
+                                                              (line 145)
+* breakpoint_created:                    GDB Observers.       (line 136)
+* breakpoint_deleted:                    GDB Observers.       (line 140)
+* breakpoint_modified:                   GDB Observers.       (line 144)
+* breakpoints:                           Algorithms.          (line 151)
+* bug-gdb mailing list:                  Getting Started.     (line  72)
+* build script:                          Debugging GDB.       (line  94)
+* C data types:                          Coding.              (line 389)
+* call frame information:                Algorithms.          (line  14)
+* call stack frame:                      Stack Frames.        (line   6)
+* calls to the inferior:                 Inferior Call Setup. (line   6)
+* CC_HAS_LONG_LONG:                      Host Definition.     (line 105)
+* CFI (call frame information):          Algorithms.          (line  14)
+* checkpoints:                           Algorithms.          (line 600)
+* cleanups:                              Coding.              (line  12)
+* CLI:                                   User Interface.      (line  12)
+* code pointers, word-addressed:         Pointers and Addresses.
+                                                              (line   6)
+* coding standards:                      Coding.              (line 215)
+* COFF debugging info:                   Symbol Handling.     (line 315)
+* COFF format:                           Symbol Handling.     (line 233)
+* command implementation:                Getting Started.     (line  60)
+* command interpreter:                   User Interface.      (line  12)
+* comment formatting:                    Coding.              (line 363)
+* compiler warnings:                     Coding.              (line 271)
+* Compressed DWARF 2 debugging info:     Symbol Handling.     (line 335)
+* computed values:                       Values.              (line  35)
+* configure.tgt:                         How an Architecture is Represented.
+                                                              (line  19)
+* converting between pointers and addresses: Pointers and Addresses.
+                                                              (line   6)
+* converting integers to addresses:      Defining Other Architecture Features.
+                                                              (line 274)
+* cooked register representation:        Raw and Cooked Registers.
+                                                              (line   6)
+* core files:                            Adding support for debugging core files.
+                                                              (line   6)
+* core_addr_greaterthan:                 Functions and Variable to Analyze Frames.
+                                                              (line  30)
+* core_addr_lessthan:                    Functions and Variable to Analyze Frames.
+                                                              (line  30)
+* CRLF_SOURCE_FILES:                     Host Definition.     (line  86)
+* current_language:                      Language Support.    (line  75)
+* D10V addresses:                        Pointers and Addresses.
+                                                              (line   6)
+* data output:                           User Interface.      (line 254)
+* data-pointer, per-architecture/per-module: Coding.          (line 100)
+* debugging GDB:                         Debugging GDB.       (line   6)
+* DEFAULT_PROMPT:                        Host Definition.     (line  93)
+* deprecate_cmd:                         User Interface.      (line  32)
+* DEPRECATED_IBM6000_TARGET:             Defining Other Architecture Features.
+                                                              (line 242)
+* deprecating commands:                  User Interface.      (line  32)
+* design:                                Coding.              (line 514)
+* DEV_TTY:                               Host Definition.     (line  96)
+* DIRNAME_SEPARATOR:                     Coding.              (line 584)
+* DISABLE_UNSETTABLE_BREAK:              Defining Other Architecture Features.
+                                                              (line 211)
+* discard_cleanups:                      Coding.              (line  39)
+* do_cleanups:                           Coding.              (line  35)
+* DOS text files:                        Host Definition.     (line  87)
+* dummy frames:                          About Dummy Frames.  (line   6)
+* DW_AT_address_class:                   Address Classes.     (line   6)
+* DW_AT_byte_size:                       Address Classes.     (line   6)
+* DWARF 2 debugging info:                Symbol Handling.     (line 328)
+* DWARF 3 debugging info:                Symbol Handling.     (line 355)
+* ECOFF debugging info:                  Symbol Handling.     (line 321)
+* ECOFF format:                          Symbol Handling.     (line 248)
+* ELF format:                            Symbol Handling.     (line 281)
+* evaluate_subexp:                       Language Support.    (line  58)
+* executable_changed:                    GDB Observers.       (line  85)
+* execution state:                       Managing Execution State.
+                                                              (line   6)
+* experimental branches:                 Versions and Branches.
+                                                              (line 116)
+* expression evaluation routines:        Language Support.    (line  58)
+* expression parser:                     Language Support.    (line  21)
+* extract_typed_address:                 Pointers and Addresses.
+                                                              (line  52)
+* field output functions:                User Interface.      (line 254)
+* file names, portability:               Coding.              (line 552)
+* FILENAME_CMP:                          Coding.              (line 578)
+* find_pc_function:                      Symbol Handling.     (line 136)
+* find_pc_line:                          Symbol Handling.     (line 136)
+* find_sym_fns:                          Symbol Handling.     (line  32)
+* finding a symbol:                      Symbol Handling.     (line 133)
+* fine-tuning gdbarch structure:         OS ABI Variant Handling.
+                                                              (line  23)
+* first floating point register:         Register Architecture Functions & Variables.
+                                                              (line  78)
+* FOPEN_RB:                              Host Definition.     (line 102)
+* fp0_regnum:                            Register Architecture Functions & Variables.
+                                                              (line  78)
+* frame:                                 Stack Frames.        (line   6)
+* frame ID:                              Stack Frames.        (line  41)
+* frame pointer:                         Register Information Functions.
+                                                              (line 126)
+* frame, definition of base of a frame:  Frame Handling Terminology.
+                                                              (line  28)
+* frame, definition of innermost frame:  Frame Handling Terminology.
+                                                              (line  24)
+* frame, definition of NEXT frame:       Frame Handling Terminology.
+                                                              (line  11)
+* frame, definition of PREVIOUS frame:   Frame Handling Terminology.
+                                                              (line  14)
+* frame, definition of sentinel frame:   Frame Handling Terminology.
+                                                              (line  52)
+* frame, definition of sniffing:         Frame Handling Terminology.
+                                                              (line  46)
+* frame, definition of THIS frame:       Frame Handling Terminology.
+                                                              (line   9)
+* frame, definition of unwinding:        Frame Handling Terminology.
+                                                              (line  41)
+* frame_align:                           Functions and Variable to Analyze Frames.
+                                                              (line  46)
+* frame_base:                            Analyzing Stacks---Frame Sniffers.
+                                                              (line  89)
+* frame_base_append_sniffer:             Analyzing Stacks---Frame Sniffers.
+                                                              (line  19)
+* frame_base_set_default:                Analyzing Stacks---Frame Sniffers.
+                                                              (line  22)
+* frame_num_args:                        Functions to Access Frame Data.
+                                                              (line  43)
+* frame_red_zone_size:                   Functions and Variable to Analyze Frames.
+                                                              (line  63)
+* frame_register_unwind:                 Stack Frames.        (line  15)
+* frame_unwind:                          Analyzing Stacks---Frame Sniffers.
+                                                              (line  36)
+* frame_unwind_append_sniffer:           Analyzing Stacks---Frame Sniffers.
+                                                              (line  16)
+* frame_unwind_append_unwinder:          Stack Frames.        (line  30)
+* frame_unwind_got_address:              Stack Frames.        (line 105)
+* frame_unwind_got_constant:             Stack Frames.        (line 101)
+* frame_unwind_got_memory:               Stack Frames.        (line  98)
+* frame_unwind_got_optimized:            Stack Frames.        (line  90)
+* frame_unwind_got_register:             Stack Frames.        (line  93)
+* frame_unwind_prepend_unwinder:         Stack Frames.        (line  30)
+* full symbol table:                     Symbol Handling.     (line 104)
+* function prologue:                     Prologue Caches.     (line   6)
+* function prototypes:                   Coding.              (line 411)
+* function usage:                        Coding.              (line 393)
+* fundamental types:                     Symbol Handling.     (line 183)
+* GCC2_COMPILED_FLAG_SYMBOL:             Defining Other Architecture Features.
+                                                              (line 225)
+* GCC_COMPILED_FLAG_SYMBOL:              Defining Other Architecture Features.
+                                                              (line 225)
+* GDB source tree structure:             Overall Structure.   (line  83)
+* gdb_byte:                              Register Caching.    (line  23)
+* GDB_OSABI_AIX:                         OS ABI Variant Handling.
+                                                              (line  90)
+* GDB_OSABI_CYGWIN:                      OS ABI Variant Handling.
+                                                              (line  87)
+* GDB_OSABI_FREEBSD_AOUT:                OS ABI Variant Handling.
+                                                              (line  51)
+* GDB_OSABI_FREEBSD_ELF:                 OS ABI Variant Handling.
+                                                              (line  54)
+* GDB_OSABI_GO32:                        OS ABI Variant Handling.
+                                                              (line  69)
+* GDB_OSABI_HPUX_ELF:                    OS ABI Variant Handling.
+                                                              (line  78)
+* GDB_OSABI_HPUX_SOM:                    OS ABI Variant Handling.
+                                                              (line  81)
+* GDB_OSABI_HURD:                        OS ABI Variant Handling.
+                                                              (line  39)
+* GDB_OSABI_INTERIX:                     OS ABI Variant Handling.
+                                                              (line  75)
+* GDB_OSABI_IRIX:                        OS ABI Variant Handling.
+                                                              (line  72)
+* GDB_OSABI_LINUX:                       OS ABI Variant Handling.
+                                                              (line  48)
+* GDB_OSABI_NETBSD_AOUT:                 OS ABI Variant Handling.
+                                                              (line  57)
+* GDB_OSABI_NETBSD_ELF:                  OS ABI Variant Handling.
+                                                              (line  60)
+* GDB_OSABI_OPENBSD_ELF:                 OS ABI Variant Handling.
+                                                              (line  63)
+* GDB_OSABI_OSF1:                        OS ABI Variant Handling.
+                                                              (line  45)
+* GDB_OSABI_QNXNTO:                      OS ABI Variant Handling.
+                                                              (line  84)
+* GDB_OSABI_SOLARIS:                     OS ABI Variant Handling.
+                                                              (line  42)
+* GDB_OSABI_SVR4:                        OS ABI Variant Handling.
+                                                              (line  36)
+* GDB_OSABI_UNINITIALIZED:               OS ABI Variant Handling.
+                                                              (line  29)
+* GDB_OSABI_UNKNOWN:                     OS ABI Variant Handling.
+                                                              (line  32)
+* GDB_OSABI_WINCE:                       OS ABI Variant Handling.
+                                                              (line  66)
+* gdbarch:                               How an Architecture is Represented.
+                                                              (line  19)
+* gdbarch accessor functions:            Creating a New Architecture.
+                                                              (line  14)
+* gdbarch lookup:                        Looking Up an Existing Architecture.
+                                                              (line   6)
+* gdbarch register architecture functions: Register Architecture Functions & Variables.
+                                                              (line   6)
+* gdbarch register information functions: Register Information Functions.
+                                                              (line   6)
+* gdbarch_addr_bits_remove:              Defining Other Architecture Features.
+                                                              (line  11)
+* gdbarch_address_class_name_to_type_flags: Address Classes.  (line  30)
+* gdbarch_address_class_type_flags <1>:  Defining Other Architecture Features.
+                                                              (line  43)
+* gdbarch_address_class_type_flags:      Address Classes.     (line  18)
+* gdbarch_address_class_type_flags_p:    Defining Other Architecture Features.
+                                                              (line  52)
+* gdbarch_address_class_type_flags_to_name <1>: Defining Other Architecture Features.
+                                                              (line  56)
+* gdbarch_address_class_type_flags_to_name: Address Classes.  (line  25)
+* gdbarch_address_class_type_flags_to_name_p: Defining Other Architecture Features.
+                                                              (line  60)
+* gdbarch_address_to_pointer <1>:        Defining Other Architecture Features.
+                                                              (line  65)
+* gdbarch_address_to_pointer:            Pointers and Addresses.
+                                                              (line 114)
+* gdbarch_adjust_breakpoint_address:     Defining Other Architecture Features.
+                                                              (line 145)
+* gdbarch_alloc:                         Creating a New Architecture.
+                                                              (line   6)
+* gdbarch_believe_pcc_promotion:         Defining Other Architecture Features.
+                                                              (line  72)
+* gdbarch_bits_big_endian:               Defining Other Architecture Features.
+                                                              (line  77)
+* gdbarch_breakpoint_from_pc:            Defining Other Architecture Features.
+                                                              (line 106)
+* gdbarch_call_dummy_location:           Defining Other Architecture Features.
+                                                              (line 178)
+* gdbarch_cannot_fetch_register:         Defining Other Architecture Features.
+                                                              (line 184)
+* gdbarch_cannot_store_register:         Defining Other Architecture Features.
+                                                              (line 188)
+* gdbarch_char_signed:                   Defining Other Architecture Features.
+                                                              (line 461)
+* gdbarch_convert_register_p <1>:        Defining Other Architecture Features.
+                                                              (line 195)
+* gdbarch_convert_register_p:            Register and Memory Data.
+                                                              (line  30)
+* gdbarch_data:                          Coding.              (line 133)
+* gdbarch_data_register_post_init:       Coding.              (line 118)
+* gdbarch_data_register_pre_init:        Coding.              (line 108)
+* gdbarch_decr_pc_after_break:           Defining Other Architecture Features.
+                                                              (line 205)
+* gdbarch_deprecated_fp_regnum:          Defining Other Architecture Features.
+                                                              (line 446)
+* gdbarch_double_bit:                    Defining Other Architecture Features.
+                                                              (line 471)
+* gdbarch_dummy_id:                      Defining Other Architecture Features.
+                                                              (line 523)
+* gdbarch_dwarf2_reg_to_regnum:          Defining Other Architecture Features.
+                                                              (line 216)
+* gdbarch_ecoff_reg_to_regnum:           Defining Other Architecture Features.
+                                                              (line 220)
+* gdbarch_float_bit:                     Defining Other Architecture Features.
+                                                              (line 475)
+* gdbarch_fp0_regnum:                    Defining Other Architecture Features.
+                                                              (line 200)
+* gdbarch_get_longjmp_target <1>:        Defining Other Architecture Features.
+                                                              (line 231)
+* gdbarch_get_longjmp_target:            Algorithms.          (line 263)
+* gdbarch_have_nonsteppable_watchpoint:  Algorithms.          (line 396)
+* gdbarch_in_function_epilogue_p:        Defining Other Architecture Features.
+                                                              (line 253)
+* gdbarch_in_solib_return_trampoline:    Defining Other Architecture Features.
+                                                              (line 259)
+* gdbarch_info:                          Looking Up an Existing Architecture.
+                                                              (line  22)
+* gdbarch_init_osabi:                    OS ABI Variant Handling.
+                                                              (line 125)
+* gdbarch_int_bit:                       Defining Other Architecture Features.
+                                                              (line 478)
+* gdbarch_integer_to_address:            Defining Other Architecture Features.
+                                                              (line 274)
+* gdbarch_list_lookup_by_info:           Looking Up an Existing Architecture.
+                                                              (line  22)
+* gdbarch_long_bit:                      Defining Other Architecture Features.
+                                                              (line 481)
+* gdbarch_long_double_bit:               Defining Other Architecture Features.
+                                                              (line 485)
+* gdbarch_long_long_bit:                 Defining Other Architecture Features.
+                                                              (line 489)
+* gdbarch_lookup_osabi:                  OS ABI Variant Handling.
+                                                              (line 119)
+* gdbarch_memory_insert_breakpoint:      Defining Other Architecture Features.
+                                                              (line 130)
+* gdbarch_memory_remove_breakpoint:      Defining Other Architecture Features.
+                                                              (line 130)
+* gdbarch_osabi_name:                    OS ABI Variant Handling.
+                                                              (line  97)
+* gdbarch_pointer_to_address <1>:        Defining Other Architecture Features.
+                                                              (line 295)
+* gdbarch_pointer_to_address:            Pointers and Addresses.
+                                                              (line 105)
+* gdbarch_print_insn:                    Defining Other Architecture Features.
+                                                              (line 513)
+* gdbarch_ptr_bit:                       Defining Other Architecture Features.
+                                                              (line 493)
+* gdbarch_push_dummy_call:               Defining Other Architecture Features.
+                                                              (line 363)
+* gdbarch_push_dummy_code:               Defining Other Architecture Features.
+                                                              (line 375)
+* gdbarch_register <1>:                  Adding a New Target. (line  40)
+* gdbarch_register:                      How an Architecture is Represented.
+                                                              (line  19)
+* gdbarch_register_osabi:                OS ABI Variant Handling.
+                                                              (line 103)
+* gdbarch_register_osabi_sniffer:        OS ABI Variant Handling.
+                                                              (line 112)
+* gdbarch_register_to_value <1>:         Defining Other Architecture Features.
+                                                              (line 301)
+* gdbarch_register_to_value:             Register and Memory Data.
+                                                              (line  46)
+* gdbarch_return_value:                  Defining Other Architecture Features.
+                                                              (line 394)
+* gdbarch_sdb_reg_to_regnum:             Defining Other Architecture Features.
+                                                              (line 390)
+* gdbarch_short_bit:                     Defining Other Architecture Features.
+                                                              (line 497)
+* gdbarch_skip_permanent_breakpoint:     Defining Other Architecture Features.
+                                                              (line 430)
+* gdbarch_skip_trampoline_code:          Defining Other Architecture Features.
+                                                              (line 441)
+* gdbarch_stab_reg_to_regnum:            Defining Other Architecture Features.
+                                                              (line 450)
+* gdbarch_stabs_argument_has_addr:       Defining Other Architecture Features.
+                                                              (line 359)
+* gdbarch_tdep definition:               Creating a New Architecture.
+                                                              (line  34)
+* gdbarch_tdep when allocating new gdbarch: Creating a New Architecture.
+                                                              (line   6)
+* gdbarch_value_to_register <1>:         Defining Other Architecture Features.
+                                                              (line 529)
+* gdbarch_value_to_register:             Register and Memory Data.
+                                                              (line  62)
+* gdbarch_virtual_frame_pointer:         Defining Other Architecture Features.
+                                                              (line 501)
+* GDBINIT_FILENAME:                      Host Definition.     (line  74)
+* generic host support:                  Host Definition.     (line  38)
+* generic_elf_osabi_sniff_abi_tag_sections: OS ABI Variant Handling.
+                                                              (line 133)
+* get_frame_register:                    Stack Frames.        (line  15)
+* get_frame_type:                        Stack Frames.        (line  22)
+* hardware breakpoints:                  Algorithms.          (line 158)
+* hardware watchpoints:                  Algorithms.          (line 280)
+* HAVE_CONTINUABLE_WATCHPOINT:           Algorithms.          (line 402)
+* HAVE_DOS_BASED_FILE_SYSTEM:            Coding.              (line 561)
+* HAVE_STEPPABLE_WATCHPOINT:             Algorithms.          (line 386)
+* host:                                  Overall Structure.   (line  50)
+* host, adding:                          Host Definition.     (line  13)
+* i386_cleanup_dregs:                    Algorithms.          (line 576)
+* I386_DR_LOW_GET_STATUS:                Algorithms.          (line 489)
+* I386_DR_LOW_RESET_ADDR:                Algorithms.          (line 485)
+* I386_DR_LOW_SET_ADDR:                  Algorithms.          (line 482)
+* I386_DR_LOW_SET_CONTROL:               Algorithms.          (line 479)
+* i386_insert_hw_breakpoint:             Algorithms.          (line 564)
+* i386_insert_watchpoint:                Algorithms.          (line 536)
+* i386_region_ok_for_watchpoint:         Algorithms.          (line 514)
+* i386_remove_hw_breakpoint:             Algorithms.          (line 564)
+* i386_remove_watchpoint:                Algorithms.          (line 536)
+* i386_stopped_by_watchpoint:            Algorithms.          (line 528)
+* i386_stopped_data_address:             Algorithms.          (line 521)
+* I386_USE_GENERIC_WATCHPOINTS:          Algorithms.          (line 461)
+* in_dynsym_resolve_code:                Defining Other Architecture Features.
+                                                              (line 263)
+* inferior_added:                        GDB Observers.       (line 169)
+* inferior_appeared:                     GDB Observers.       (line 173)
+* inferior_created:                      GDB Observers.       (line  92)
+* inferior_exit:                         GDB Observers.       (line 176)
+* inferior_removed:                      GDB Observers.       (line 180)
+* inner_than:                            Functions and Variable to Analyze Frames.
+                                                              (line  30)
+* innermost frame:                       Frame Handling Terminology.
+                                                              (line  24)
+* insert or remove hardware breakpoint:  Algorithms.          (line 234)
+* insert or remove hardware watchpoint:  Algorithms.          (line 347)
+* insert or remove software breakpoint:  Algorithms.          (line 211)
+* IS_ABSOLUTE_PATH:                      Coding.              (line 572)
+* IS_DIR_SEPARATOR:                      Coding.              (line 567)
+* ISATTY:                                Host Definition.     (line  99)
+* item output functions:                 User Interface.      (line 254)
+* language parser:                       Language Support.    (line  25)
+* language support:                      Language Support.    (line   6)
+* legal papers for code contributions:   Debugging GDB.       (line  42)
+* length_of_subexp:                      Language Support.    (line  58)
+* libgdb:                                libgdb.              (line   9)
+* libiberty library:                     Support Libraries.   (line  52)
+* line wrap in output:                   Coding.              (line 191)
+* lint:                                  Host Definition.     (line 119)
+* list output functions:                 User Interface.      (line 131)
+* LITTLE_BREAKPOINT:                     Defining Other Architecture Features.
+                                                              (line 100)
+* long long data type:                   Host Definition.     (line 106)
+* longjmp debugging:                     Algorithms.          (line 258)
+* lookup_symbol:                         Symbol Handling.     (line 142)
+* LSEEK_NOT_LINEAR:                      Host Definition.     (line 114)
+* lval_type enumeration, for values.:    Values.              (line  19)
+* make_cleanup:                          Coding.              (line  28)
+* make_cleanup_ui_out_list_begin_end:    User Interface.      (line 247)
+* make_cleanup_ui_out_tuple_begin_end:   User Interface.      (line 223)
+* making a new release of gdb:           Releasing GDB.       (line   6)
+* memory representation:                 Register and Memory Data.
+                                                              (line   6)
+* memory_changed:                        GDB Observers.       (line 185)
+* minimal symbol table:                  Symbol Handling.     (line 111)
+* minsymtabs:                            Symbol Handling.     (line 111)
+* multi-arch data:                       Coding.              (line 100)
+* NATDEPFILES:                           Native Debugging.    (line   8)
+* native conditionals:                   Native Debugging.    (line  75)
+* native debugging:                      Native Debugging.    (line   6)
+* nesting level in ui_out functions:     User Interface.      (line 143)
+* new year procedure:                    Start of New Year Procedure.
+                                                              (line   6)
+* new_objfile:                           GDB Observers.       (line 109)
+* new_thread:                            GDB Observers.       (line 114)
+* NEXT frame:                            Frame Handling Terminology.
+                                                              (line  11)
+* normal_stop:                           GDB Observers.       (line  76)
+* normal_stop observer:                  GDB Observers.       (line  48)
+* notification about inferior execution stop: GDB Observers.  (line  48)
+* notifications about changes in internals: Algorithms.       (line 630)
+* object file formats:                   Symbol Handling.     (line 215)
+* observer pattern interface:            Algorithms.          (line 630)
+* observers implementation rationale:    GDB Observers.       (line   9)
+* obstacks:                              Support Libraries.   (line  69)
+* op_print_tab:                          Language Support.    (line  91)
+* opcodes library:                       Support Libraries.   (line  39)
+* OS ABI variants:                       OS ABI Variant Handling.
+                                                              (line   6)
+* parse_exp_1:                           Language Support.    (line  97)
+* partial symbol table:                  Symbol Handling.     (line 114)
+* pc_regnum:                             Register Architecture Functions & Variables.
+                                                              (line  58)
+* PE-COFF format:                        Symbol Handling.     (line 272)
+* per-architecture module data:          Coding.              (line 100)
+* pointer representation:                Pointers and Addresses.
+                                                              (line   6)
+* portability:                           Coding.              (line 535)
+* portable file name handling:           Coding.              (line 552)
+* porting to new machines:               Porting GDB.         (line   6)
+* prefixify_subexp:                      Language Support.    (line  58)
+* PREVIOUS frame:                        Frame Handling Terminology.
+                                                              (line  14)
+* print_float_info:                      Register Information Functions.
+                                                              (line  80)
+* print_registers_info:                  Register Information Functions.
+                                                              (line  53)
+* print_subexp:                          Language Support.    (line  91)
+* print_vector_info:                     Register Information Functions.
+                                                              (line  96)
+* PRINTF_HAS_LONG_LONG:                  Host Definition.     (line 109)
+* processor status register:             Register Architecture Functions & Variables.
+                                                              (line  69)
+* program counter <1>:                   Register Architecture Functions & Variables.
+                                                              (line  58)
+* program counter:                       Algorithms.          (line 158)
+* prologue analysis:                     Algorithms.          (line  14)
+* prologue cache:                        Prologue Caches.     (line  12)
+* prologue of a function:                Prologue Caches.     (line   6)
+* prologue-value.c:                      Algorithms.          (line  48)
+* prompt:                                Host Definition.     (line  94)
+* ps_regnum:                             Register Architecture Functions & Variables.
+                                                              (line  69)
+* pseudo-evaluation of function prologues: Algorithms.        (line  48)
+* pseudo_register_read:                  Register Architecture Functions & Variables.
+                                                              (line  29)
+* pseudo_register_write:                 Register Architecture Functions & Variables.
+                                                              (line  33)
+* psymtabs:                              Symbol Handling.     (line 107)
+* push_dummy_call:                       Functions Creating Dummy Frames.
+                                                              (line  13)
+* push_dummy_code:                       Functions Creating Dummy Frames.
+                                                              (line  57)
+* raw register representation:           Raw and Cooked Registers.
+                                                              (line   6)
+* read_pc:                               Register Architecture Functions & Variables.
+                                                              (line  10)
+* reading of symbols:                    Symbol Handling.     (line  25)
+* readline library:                      Support Libraries.   (line  45)
+* regcache_cooked_read:                  Register Caching.    (line  23)
+* regcache_cooked_read_signed:           Register Caching.    (line  23)
+* regcache_cooked_read_unsigned:         Register Caching.    (line  23)
+* regcache_cooked_write:                 Register Caching.    (line  23)
+* regcache_cooked_write_signed:          Register Caching.    (line  23)
+* regcache_cooked_write_unsigned:        Register Caching.    (line  23)
+* register caching:                      Register Caching.    (line   6)
+* register data formats, converting:     Register and Memory Data.
+                                                              (line   6)
+* register representation:               Register and Memory Data.
+                                                              (line   6)
+* REGISTER_CONVERT_TO_RAW:               Defining Other Architecture Features.
+                                                              (line 311)
+* REGISTER_CONVERT_TO_VIRTUAL:           Defining Other Architecture Features.
+                                                              (line 306)
+* register_name:                         Register Information Functions.
+                                                              (line  10)
+* register_reggroup_p:                   Register Information Functions.
+                                                              (line 110)
+* register_type:                         Register Information Functions.
+                                                              (line  33)
+* regset_from_core_section:              Defining Other Architecture Features.
+                                                              (line 316)
+* regular expressions library:           Support Libraries.   (line 110)
+* Release Branches:                      Versions and Branches.
+                                                              (line  93)
+* remote debugging support:              Host Definition.     (line  41)
+* REMOTE_BPT_VECTOR:                     Defining Other Architecture Features.
+                                                              (line 540)
+* representation of architecture:        How an Architecture is Represented.
+                                                              (line   6)
+* representations, raw and cooked registers: Raw and Cooked Registers.
+                                                              (line   6)
+* representations, register and memory:  Register and Memory Data.
+                                                              (line   6)
+* requirements for GDB:                  Requirements.        (line   6)
+* restart:                               Algorithms.          (line 600)
+* running the test suite:                Testsuite.           (line  19)
+* secondary symbol file:                 Symbol Handling.     (line  47)
+* sentinel frame <1>:                    Frame Handling Terminology.
+                                                              (line  52)
+* sentinel frame:                        Stack Frames.        (line  22)
+* SENTINEL_FRAME:                        Stack Frames.        (line  22)
+* separate data and code address spaces: Pointers and Addresses.
+                                                              (line   6)
+* serial line support:                   Host Definition.     (line  41)
+* set_gdbarch functions:                 Creating a New Architecture.
+                                                              (line  14)
+* set_gdbarch_bits_big_endian:           Defining Other Architecture Features.
+                                                              (line  83)
+* set_gdbarch_sofun_address_maybe_missing: Defining Other Architecture Features.
+                                                              (line 330)
+* SIGWINCH_HANDLER:                      Host Definition.     (line  78)
+* SIGWINCH_HANDLER_BODY:                 Host Definition.     (line  82)
+* skip_prologue:                         Functions and Variable to Analyze Frames.
+                                                              (line  12)
+* SKIP_SOLIB_RESOLVER:                   Defining Other Architecture Features.
+                                                              (line 267)
+* SLASH_STRING:                          Coding.              (line 589)
+* sniffing:                              Frame Handling Terminology.
+                                                              (line  46)
+* software breakpoints:                  Algorithms.          (line 184)
+* software watchpoints:                  Algorithms.          (line 280)
+* SOFTWARE_SINGLE_STEP:                  Defining Other Architecture Features.
+                                                              (line 324)
+* SOFTWARE_SINGLE_STEP_P:                Defining Other Architecture Features.
+                                                              (line 320)
+* SOLIB_ADD:                             Native Debugging.    (line  86)
+* SOLIB_CREATE_INFERIOR_HOOK:            Native Debugging.    (line  92)
+* solib_loaded:                          GDB Observers.       (line  99)
+* solib_unloaded:                        GDB Observers.       (line 104)
+* SOM debugging info:                    Symbol Handling.     (line 360)
+* SOM format:                            Symbol Handling.     (line 291)
+* source code formatting:                Coding.              (line 323)
+* sp_regnum:                             Register Architecture Functions & Variables.
+                                                              (line  49)
+* spaces, separate data and code address: Pointers and Addresses.
+                                                              (line   6)
+* stabs debugging info:                  Symbol Handling.     (line 305)
+* stack frame, definition of base of a frame: Frame Handling Terminology.
+                                                              (line  28)
+* stack frame, definition of innermost frame: Frame Handling Terminology.
+                                                              (line  24)
+* stack frame, definition of NEXT frame: Frame Handling Terminology.
+                                                              (line  11)
+* stack frame, definition of PREVIOUS frame: Frame Handling Terminology.
+                                                              (line  14)
+* stack frame, definition of sentinel frame: Frame Handling Terminology.
+                                                              (line  52)
+* stack frame, definition of sniffing:   Frame Handling Terminology.
+                                                              (line  46)
+* stack frame, definition of THIS frame: Frame Handling Terminology.
+                                                              (line   9)
+* stack frame, definition of unwinding:  Frame Handling Terminology.
+                                                              (line  41)
+* stack pointer:                         Register Architecture Functions & Variables.
+                                                              (line  49)
+* START_INFERIOR_TRAPS_EXPECTED:         Native Debugging.    (line  96)
+* status register:                       Register Architecture Functions & Variables.
+                                                              (line  69)
+* STOPPED_BY_WATCHPOINT:                 Algorithms.          (line 408)
+* store_typed_address:                   Pointers and Addresses.
+                                                              (line  70)
+* struct:                                GDB Observers.       (line  62)
+* struct gdbarch creation:               Creating a New Architecture.
+                                                              (line   6)
+* struct regcache:                       Register Caching.    (line  10)
+* struct value, converting register contents to: Register and Memory Data.
+                                                              (line   6)
+* submitting patches:                    Debugging GDB.       (line  30)
+* sym_fns structure:                     Symbol Handling.     (line  37)
+* symbol files:                          Symbol Handling.     (line  25)
+* symbol lookup:                         Symbol Handling.     (line 133)
+* symbol reading:                        Symbol Handling.     (line  25)
+* SYMBOL_RELOADING_DEFAULT:              Defining Other Architecture Features.
+                                                              (line 454)
+* symtabs:                               Symbol Handling.     (line 104)
+* system dependencies:                   Coding.              (line 539)
+* table output functions:                User Interface.      (line 131)
+* target:                                Overall Structure.   (line  50)
+* target architecture definition:        Target Architecture Definition.
+                                                              (line   6)
+* target dependent files:                Adding a New Target. (line   8)
+* target descriptions:                   Target Descriptions. (line   6)
+* target descriptions, adding register support: Adding Target Described Register Support.
+                                                              (line   6)
+* target descriptions, implementation:   Target Descriptions Implementation.
+                                                              (line   6)
+* target vector:                         Target Vector Definition.
+                                                              (line   6)
+* TARGET_CAN_USE_HARDWARE_WATCHPOINT:    Algorithms.          (line 333)
+* target_changed:                        GDB Observers.       (line  82)
+* TARGET_CHAR_BIT:                       Defining Other Architecture Features.
+                                                              (line 458)
+* target_insert_breakpoint:              Algorithms.          (line 211)
+* target_insert_hw_breakpoint:           Algorithms.          (line 234)
+* target_insert_watchpoint:              Algorithms.          (line 347)
+* TARGET_REGION_OK_FOR_HW_WATCHPOINT:    Algorithms.          (line 343)
+* target_remove_breakpoint:              Algorithms.          (line 211)
+* target_remove_hw_breakpoint:           Algorithms.          (line 234)
+* target_remove_watchpoint:              Algorithms.          (line 347)
+* target_resumed:                        GDB Observers.       (line 129)
+* target_stopped_data_address:           Algorithms.          (line 364)
+* target_watchpoint_addr_within_range:   Algorithms.          (line 378)
+* targets:                               Existing Targets.    (line   6)
+* TCP remote support:                    Host Definition.     (line  57)
+* terminal device:                       Host Definition.     (line  97)
+* test suite:                            Testsuite.           (line   6)
+* test suite organization:               Testsuite.           (line 195)
+* test_notification:                     GDB Observers.       (line 189)
+* Testsuite Configuration:               Testsuite.           (line 167)
+* THIS frame:                            Frame Handling Terminology.
+                                                              (line   9)
+* thread_exit:                           GDB Observers.       (line 117)
+* thread_ptid_changed:                   GDB Observers.       (line 165)
+* thread_stop_requested:                 GDB Observers.       (line 122)
+* tracepoint_created:                    GDB Observers.       (line 148)
+* tracepoint_deleted:                    GDB Observers.       (line 152)
+* tracepoint_modified:                   GDB Observers.       (line 156)
+* tuple output functions:                User Interface.      (line 131)
+* type codes:                            Symbol Handling.     (line 191)
+* types:                                 Coding.              (line 405)
+* ui_out functions:                      User Interface.      (line  47)
+* ui_out functions, usage examples:      User Interface.      (line 398)
+* ui_out_field_core_addr:                User Interface.      (line 287)
+* ui_out_field_fmt:                      User Interface.      (line 261)
+* ui_out_field_fmt_int:                  User Interface.      (line 280)
+* ui_out_field_int:                      User Interface.      (line 273)
+* ui_out_field_skip:                     User Interface.      (line 352)
+* ui_out_field_stream:                   User Interface.      (line 320)
+* ui_out_field_string:                   User Interface.      (line 291)
+* ui_out_flush:                          User Interface.      (line 392)
+* ui_out_list_begin:                     User Interface.      (line 234)
+* ui_out_list_end:                       User Interface.      (line 240)
+* ui_out_message:                        User Interface.      (line 376)
+* ui_out_spaces:                         User Interface.      (line 371)
+* ui_out_stream_delete:                  User Interface.      (line 315)
+* ui_out_stream_new:                     User Interface.      (line 309)
+* ui_out_table_begin:                    User Interface.      (line 165)
+* ui_out_table_body:                     User Interface.      (line 191)
+* ui_out_table_end:                      User Interface.      (line 194)
+* ui_out_table_header:                   User Interface.      (line 178)
+* ui_out_text:                           User Interface.      (line 358)
+* ui_out_tuple_begin:                    User Interface.      (line 210)
+* ui_out_tuple_end:                      User Interface.      (line 216)
+* ui_out_wrap_hint:                      User Interface.      (line 382)
+* unwind frame:                          Stack Frames.        (line   9)
+* unwind_dummy_id:                       Functions Creating Dummy Frames.
+                                                              (line  38)
+* unwind_pc:                             Functions to Access Frame Data.
+                                                              (line  11)
+* unwind_sp:                             Functions to Access Frame Data.
+                                                              (line  27)
+* unwinding:                             Frame Handling Terminology.
+                                                              (line  41)
+* using ui_out functions:                User Interface.      (line 398)
+* value structure:                       Values.              (line   9)
+* value_as_address:                      Pointers and Addresses.
+                                                              (line  84)
+* value_from_pointer:                    Pointers and Addresses.
+                                                              (line  93)
+* values:                                Values.              (line   9)
+* VEC:                                   Support Libraries.   (line 131)
+* vendor branches:                       Versions and Branches.
+                                                              (line 108)
+* void:                                  GDB Observers.       (line  67)
+* volatile:                              Host Definition.     (line 122)
+* watchpoints:                           Algorithms.          (line 274)
+* watchpoints, on x86:                   Algorithms.          (line 449)
+* watchpoints, with threads:             Algorithms.          (line 425)
+* word-addressed machines:               Pointers and Addresses.
+                                                              (line   6)
+* wrap_here:                             Coding.              (line 191)
+* write_pc:                              Register Architecture Functions & Variables.
+                                                              (line  13)
+* writing tests:                         Testsuite.           (line 247)
+* x86 debug registers:                   Algorithms.          (line 449)
+* XCOFF format:                          Symbol Handling.     (line 256)
+
+

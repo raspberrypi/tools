@@ -1,0 +1,121 @@
+This is gdbint.info, produced by makeinfo version 4.8 from
+./gdbint.texinfo.
+
+INFO-DIR-SECTION Software development
+START-INFO-DIR-ENTRY
+* Gdb-Internals: (gdbint).	The GNU debugger's internals.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009, 2010 Free Software
+Foundation, Inc.  Contributed by Cygnus Solutions.  Written by John
+Gilmore.  Second Edition by Stan Shebs.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+   This file documents the internals of the GNU debugger GDB.
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009, 2010 Free Software
+Foundation, Inc.  Contributed by Cygnus Solutions.  Written by John
+Gilmore.  Second Edition by Stan Shebs.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+
+Indirect:
+gdbint.info-1: 1537
+gdbint.info-2: 299035
+
+Tag Table:
+(Indirect)
+Node: Top1537
+Node: Summary2418
+Node: Requirements2568
+Node: Contributors4047
+Node: Overall Structure5640
+Node: Algorithms10663
+Node: User Interface42105
+Ref: UI-Independent Output43960
+Ref: User Interface-Footnote-165931
+Ref: User Interface-Footnote-265980
+Node: libgdb66215
+Node: Values70166
+Node: Stack Frames73010
+Node: Symbol Handling77992
+Node: Language Support94797
+Node: Host Definition99523
+Node: Target Architecture Definition103882
+Node: OS ABI Variant Handling104702
+Node: Initialize New Architecture109547
+Node: How an Architecture is Represented109898
+Node: Looking Up an Existing Architecture111855
+Node: Creating a New Architecture114774
+Node: Registers and Memory116812
+Node: Pointers and Addresses117604
+Ref: Pointers and Addresses-Footnote-1123605
+Node: Address Classes123848
+Node: Register Representation127093
+Node: Raw and Cooked Registers127467
+Node: Register Architecture Functions & Variables128651
+Node: Register Information Functions132260
+Ref: Register Information Functions-Footnote-1138166
+Node: Register and Memory Data138585
+Node: Register Caching141734
+Node: Frame Interpretation143270
+Node: All About Stack Frames143676
+Ref: All About Stack Frames-Footnote-1149027
+Node: Frame Handling Terminology149259
+Node: Prologue Caches151786
+Node: Functions and Variable to Analyze Frames153467
+Ref: frame_align155565
+Node: Functions to Access Frame Data157079
+Node: Analyzing Stacks---Frame Sniffers159370
+Ref: Analyzing Stacks---Frame Sniffers-Footnote-1164020
+Node: Inferior Call Setup164517
+Node: About Dummy Frames164800
+Node: Functions Creating Dummy Frames165426
+Node: Adding support for debugging core files169483
+Node: Defining Other Architecture Features170027
+Ref: gdbarch_breakpoint_from_pc174874
+Ref: gdbarch_stabs_argument_has_addr187268
+Ref: gdbarch_push_dummy_call187515
+Ref: gdbarch_push_dummy_code188075
+Ref: gdbarch_return_value189057
+Ref: gdbarch_dummy_id194823
+Node: Adding a New Target195511
+Node: Target Descriptions197978
+Node: Target Descriptions Implementation198917
+Node: Adding Target Described Register Support200291
+Node: Target Vector Definition203237
+Node: Managing Execution State203769
+Node: Existing Targets205582
+Node: Native Debugging208097
+Node: Support Libraries211925
+Node: Coding223440
+Node: Porting GDB248550
+Node: Versions and Branches250419
+Ref: Tags256375
+Ref: experimental branch tags256706
+Node: Start of New Year Procedure257438
+Node: Releasing GDB259244
+Node: Testsuite277476
+Ref: Testsuite-Footnote-1289341
+Node: Hints289459
+Node: Getting Started289781
+Node: Debugging GDB293946
+Node: GDB Observers299035
+Node: GNU Free Documentation License307343
+Node: Index332510
+
+End Tag Table
