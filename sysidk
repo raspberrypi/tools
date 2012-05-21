@@ -1,0 +1,274 @@
+#!/bin/bash
+
+# sysidk: System Image Development Kit
+# Potentially stand-alone access to the sysidk scripts and installation
+# management
+
+cmd="$0"
+cmd_dir="`dirname -- "$cmd"`"
+cmd_dir=`(cd "$cmd_dir">/dev/null;pwd)`
+cmd_name="`basename -- $cmd`"
+
+dir_sysidk="$HOME/.sysidk"
+rc_sysidk="sysidk.rc"
+default_dir_bin="/opt/sysidk/bin"
+default_dir_pkg="/var/sysidk"
+
+[ -z "$DIR_BCM_RELEASES" ] || default_dir_pkg="$DIR_BCM_RELEASES"
+
+help()
+{
+    if [ "_$1" = "_commands" ]; then
+        sysidk_help_commands
+    else
+        echo "syntax: <command> <options>"
+        echo "        Run a system image development kit command"
+        echo "syntax: --setup [-n] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "        Place sysidk scripts in the installation directory"
+        echo "        -n   Do not execute as root when creating directories"
+        echo "        -b   Set binary directory for scripts ($default_dir_bin by default)"
+        echo "        -p   Set directory for storing packages ($default_dir_pkg by default)"
+        echo "syntax: --install [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "        Setup and install sysidk commands into your shell sessions"
+        echo "syntax: --add <package>..."
+        echo "        Install sysidk packages"
+        echo "syntax: --bindir"
+        echo "        Show installed binary directory"
+        echo "syntax: --pkgdir"
+        echo "        Show installed packages directory"
+        echo "syntax: --help commands"
+        echo "        List the <commands>"
+        echo "syntax: <command> --help"
+        echo "        Help about command"
+    fi
+}
+
+
+content_rc()
+{   local scripts="$1"; shift
+    local pkgs="$1"; shift
+    cat <<EOF
+# do no edit - written by $cmd_name --setup
+# this file is intended to be 'source'd by a bourne shell
+# last updated `date`
+dir_bcm_scripts="$scripts"
+DIR_BCM_RELEASES="$pkgs"
+EOF
+    return $?
+}
+
+
+setup_dir_sysidk()
+{   local do_update=false
+    local rc=0
+
+    [ "_$1" = "_-u" ] && { do_update=true; shift; }
+
+    if [ ! -d "$dir_sysidk" ]; then
+        mkdir "$dir_sysidk"
+        do_update=true
+    fi
+
+    if [ ! -d "$dir_sysidk" ]; then
+        echo "$cmd_name: can't set up $dir_sysidk - sorry"
+        rc=1
+    fi
+
+    return $rc
+}
+
+check_have_scripts()
+{   local rc=0
+    if [ -z "$dir_bcm_scripts" ]; then
+        echo "$cmd_name: Sorry - you need to install the scripts">&2
+        echo "$cmd_name: use --setup or --install">&2
+        rc=2
+    elif [ ! -d "$dir_bcm_scripts" ]; then
+        echo "$cmd_name: Your scripts directory doesn't exist - $dir_bcm_scripts">&2
+        echo "$cmd_name: try reinstalling using --setup or --install?">&2
+        rc=1
+    fi
+    return $rc
+}
+
+
+check_have_packages()
+{   local rc=0
+    if [ -z "$DIR_BCM_RELEASES" ]; then
+        echo "$cmd_name: Sorry - you need to install the scripts">&2
+        echo "$cmd_name: use --setup or --install">&2
+        rc=2
+    elif [ ! -d "$DIR_BCM_RELEASES" ]; then
+        echo "$cmd_name: Your packages directory doesn't exist - $DIR_BCM_RELEASES">&2
+        echo "$cmd_name: try reinstalling using --setup or --install?">&2
+        rc=1
+    fi
+    return $rc
+}
+
+
+sysidk_help_commands()
+{
+    if setup_dir_sysidk; then
+        [ -r "$dir_sysidk/$rc_sysidk" ] && . "$dir_sysidk/$rc_sysidk"
+        if check_have_scripts; then
+            echo "commands:"
+            ls "$dir_bcm_scripts" | xargs -I ^ echo "    ^"
+        fi
+    fi
+}
+
+
+sysidk_add()
+{   local rc=0
+    local pk
+    local type
+    local opts=
+
+    if ! PATH="$dir_bcm_scripts:$PATH" type sysipk>/dev/null 2>/dev/null; then
+        echo "$cmd_name: your installed scripts don't include the 'sysipk' command">&2
+        echo "$cmd_name: add the scripts package first?">&2
+        rc=1
+    else
+        for pk in "$@"; do
+            case "$pk" in
+                -* | --*) opts="$opts $pk";;
+                *-root-nodata.tgz | *-data-root.tgz | *-root.tgz) type=root;;
+                *-boot.tgz) type=boot;;
+                *-trk.tgz) type=track;;
+                *-bin.tgz) type=scripts;;
+            esac
+            if [ -z "$type" ]; then
+                echo "$cmd_name: sorry - don't recognize the package type of '$pk'"
+                rc=1
+            fi
+            PATH="$dir_bcm_scripts:$PATH" sysipk $type $opts --install "$@"
+            rc=$?
+        done
+    fi    
+    return $rc
+}
+
+
+sysidk_setup()
+{   local scripts="$default_dir_bin"
+    local pkgs="$default_dir_pkg"
+    local rc=0
+    local cmd_sudo=sudo
+
+    [ "_$1" = "_-n" -o "_$1" = "_--noroot" ] && { cmd_sudo=; shift; }
+    [ "_$1" = "_-p" -o "_$1" = "_--package" ] && { pkgs="$1"; shift; }
+    [ "_$1" = "_-b" -o "_$1" = "_--bin" ] && { scripts="$1"; shift; }
+
+    if [ ! -z "$cmd_sudo" ] && \
+       ! type $cmd_sudo >/dev/null 2>/dev/null; then
+        echo "$cmd_name: sorry - this scripts needs a '$cmd_sudo' command to execute as root" >&2
+    elif ! $cmd_sudo mkdir -p "$scripts"; then
+        echo "$cmd_name: can't create a place for your scripts - do you need root access?">&2
+        rc=1
+    elif ! $cmd_sudo mkdir -p "$pkgs"; then
+        echo "$cmd_name: can't create a place for your packages - $pkgs">&2
+        rc=2
+    else
+        $cmd_sudo chgrp users "$pkgs" "$scripts"
+        $cmd_sudo chmod g+rw "$pkgs" "$scripts"
+        echo "$cmd_name: creating $dir_sysidk/$rc_sysidk">&2
+        content_rc "$scripts" "$pkgs" > "$dir_sysidk/$rc_sysidk"
+        rc=$?
+    fi
+    
+    if [ $rc -eq 0 -a $# -gt 0 ]; then
+        local script_pkg="$1"; shift
+        local unpack=
+        
+        case "$script_pkg" in
+            *-bin.tgz) unpack="-xzf";;
+            *) ;;
+        esac
+        if [ -z "$unpack" ]; then
+            echo "$cmd_name: scripts package name has unrecognized format">&2
+            rc=3
+        else
+            echo "$cmd_name: unpacking scripts into $scripts">&2
+            tar -C "$scripts" $unpack "$script_pkg"
+            rc=$?
+        fi
+    fi
+    
+    if [ $rc -eq 0 -a $# -gt 0 ]; then
+        . "$dir_sysidk/$rc_sysidk"
+        sysidk_add "$@"
+        rc=$?
+    fi
+    return $rc 
+}
+
+
+sysidk_install()
+{   # update the user's shell RC script to include the scripts on the cmd
+    rc_file=".bashrc"
+    case "$SHELL" in
+        */bash) rc_file=.bashrc;;
+        */dash) rc_file=.profile;;
+        */sh)   rc_file=.profile;;
+        # *csh)  rc_file=.cshrc;; # not a bourne shell
+        *)      rc_file=.bashrc
+                echo "$cmd_name: sorry don't recongize your SHELL '$SHELL' - updating $rc_file">&2
+                ;;
+    esac
+    #echo "Installing into $rc_file";
+}
+
+rc=0
+
+if [ "_$1" = "_--help" -o "_$1" = "_-h" ]; then
+    shift
+    help "$@" >&2
+    exit 1
+elif [ "_$1" = "_--bindir" -o "_$1" = "_-b" ]; then
+    echo "$dir_bcm_scripts"
+    test ! -z "$dir_bcm_scripts"
+    exit $?
+elif [ "_$1" = "_--pkgdir" -o "_$1" = "_-p" ]; then
+    echo "$DIR_BCM_RELEASES"
+    test ! -z "$DIR_BCM_RELEASES"
+    exit $?
+elif ! setup_dir_sysidk; then
+    exit 1
+fi
+
+if [ "_$1" = "_--install" -o "_$1" = "_--setup" ]; then
+    op="$1"
+    shift
+    sysidk_setup "$@"
+    rc=$?
+    if [ $rc -eq 0 -a "_$op" = "_--install" ]; then
+        sysidk_install "$@"
+        rc=$?
+    fi
+    exit $rc
+fi
+
+. "$dir_sysidk/$rc_sysidk"
+
+
+    
+if [ "_$1" = "_--add" -o "_$1" = "_-a" ]; then
+    shift
+    if check_have_scripts && check_have_releases; then
+        sysidk_add "$@"
+        rc=$?
+    else
+        rc=2
+    fi
+else
+    # run the command without requiring previous installation
+    if check_have_scripts && check_have_releases; then
+        PATH="$dir_bcm_scripts:$PATH" "$@"
+        rc=$?
+    else
+        rc=2
+    fi
+fi
+
+exit $rc
