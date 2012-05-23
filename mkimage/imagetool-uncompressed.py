@@ -3,6 +3,7 @@
 import os
 import os.path
 import re
+import shutil
 import sys
 
 app = sys.argv.pop(0)
@@ -43,11 +44,13 @@ def load_to_mem(name, addr):
 load_to_mem(bootloader_fn, 0x00000000)
 load_to_mem(atags_fn, 0x00000100)
 
-f = open("first32k.bin", "wb")
+image_f = open(image_fn, "wb")
 
 for m in mem:
-   f.write(chr(m))
+   image_f.write(chr(m))
 
-f.close()
+kernel_f = open(kernel_fn, "rb")
+shutil.copyfileobj(kernel_f, image_f)
+kernel_f.close()
 
-os.system("cat first32k.bin " + kernel_fn + " > " + image_fn)
+image_f.close()
