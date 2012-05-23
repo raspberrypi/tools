@@ -22,22 +22,33 @@ if len(sys.argv):
 else:
     image_fn = "kernel.img"
 
-re_line = re.compile(r"0x(?P<value>[0-9a-f]{8})")
-
 mem = [0 for i in range(32768)]
 
 def load_to_mem(name, addr):
    f = open(name)
 
+   line = 0
    for l in f.readlines():
-      m = re_line.match(l)
+      line = line + 1
+      try:
+         semi = l.index(";")
+         l = l[:semi]
+      except:
+         pass
 
-      if m:
-         value = int(m.group("value"), 16)
+      l = l.strip()
+      if not l:
+         continue
 
-         for i in range(4):
-            mem[addr] = int(value >> i * 8 & 0xff)
-            addr += 1
+      try:
+         value = int(l, 16)
+      except:
+         print >>sys.stderr, name + ":" + str(line) + ": syntax error"
+         sys.exit(1)
+
+      for i in range(4):
+         mem[addr] = int(value >> i * 8 & 0xff)
+         addr += 1
 
    f.close()
 
