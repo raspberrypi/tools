@@ -12,7 +12,7 @@ except:
 if kernel_image == "":
   print("usage : imagetool-uncompressed.py <kernel image>");
   sys.exit(0)
-   
+
 re_line = re.compile(r"0x(?P<value>[0-9a-f]{8})")
 
 mem = [0 for i in range(32768)]
