@@ -5,20 +5,21 @@ import os.path
 import re
 import sys
 
-app = sys.argv[0]
+app = sys.argv.pop(0)
 appdir = os.path.dirname(app)
 
 bootloader_fn = os.path.join(appdir, "boot-uncompressed.txt")
 atags_fn = os.path.join(appdir, "args-uncompressed.txt")
 
-try:
-   kernel_image = sys.argv[1]
-except:
-   kernel_image = ""
+if len(sys.argv) < 1:
+    print >>sys.stderr, "usage: imagetool-uncompressed.py kernel [image]";
+    sys.exit(1)
 
-if kernel_image == "":
-  print("usage : imagetool-uncompressed.py <kernel image>");
-  sys.exit(0)
+kernel_fn = sys.argv.pop(0)
+if len(sys.argv):
+    image_fn = sys.argv.pop(0)
+else:
+    image_fn = "kernel.img"
 
 re_line = re.compile(r"0x(?P<value>[0-9a-f]{8})")
 
@@ -49,4 +50,4 @@ for m in mem:
 
 f.close()
 
-os.system("cat first32k.bin " + kernel_image + " > kernel.img")
+os.system("cat first32k.bin " + kernel_fn + " > " + image_fn)
