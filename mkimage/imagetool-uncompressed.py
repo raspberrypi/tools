@@ -1,8 +1,15 @@
 #!/usr/bin/env python2
 
 import os
+import os.path
 import re
 import sys
+
+app = sys.argv[0]
+appdir = os.path.dirname(app)
+
+bootloader_fn = os.path.join(appdir, "boot-uncompressed.txt")
+atags_fn = os.path.join(appdir, "args-uncompressed.txt")
 
 try:
    kernel_image = sys.argv[1]
@@ -32,8 +39,8 @@ def load_to_mem(name, addr):
 
    f.close()
 
-load_to_mem("boot-uncompressed.txt", 0x00000000)
-load_to_mem("args-uncompressed.txt", 0x00000100)
+load_to_mem(bootloader_fn, 0x00000000)
+load_to_mem(atags_fn, 0x00000100)
 
 f = open("first32k.bin", "wb")
 
