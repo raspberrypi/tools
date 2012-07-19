@@ -25,27 +25,37 @@ help()
     if [ "_$1" = "_commands" ]; then
         sysidk_help_commands
     else
-        echo "syntax: --install [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
-        echo "        Setup (see below) and install sysidk commands into your shell sessions"
-        echo "syntax: --setup [-n] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
-        echo "        Place sysidk scripts in the installation directory"
-        echo "        -l   Use local directories - no need to setup with root access"
-        echo "        -b   Set binary directory for scripts"
-        echo "             ($default_dir_bin by default or $default_dir_localbin if using -l)"
-        echo "        -p   Set directory for storing packages"
-        echo "             ($default_dir_pkg by default or $default_dir_localpkg if using -l)"
-        echo "syntax: --add <package>..."
-        echo "        Install sysidk packages"
-        echo "syntax: --bindir"
-        echo "        Show installed binary directory"
-        echo "syntax: --pkgdir"
-        echo "        Show installed packages directory"
         echo "syntax: <command> <options>"
         echo "        Run a system image development kit command"
         echo "syntax: --help commands"
         echo "        List the <commands>"
         echo "syntax: <command> --help"
         echo "        Help about command"
+        echo
+        echo "syntax: --setup [-n] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "        Place sysidk scripts in the installation directory"
+        echo "        -l   Use local directories - no need to setup with root access"
+        echo "        -b   Set binary directory for scripts"
+        echo "             ($default_dir_bin by default or "
+        echo "              $default_dir_localbin if using -l)"
+        echo "        -p   Set directory for storing packages"
+        echo "             ($default_dir_pkg by default or "
+        echo "              $default_dir_localpkg if using -l)"
+        echo "syntax: --add <package>..."
+        echo "        Install sysidk packages"
+        echo "        (Use 'sysidk sysipk -h' for other package management options)"
+        echo
+        echo "syntax: --install [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "        Setup (as --setup below) and install sysidk commands into your"
+        echo "        shell sessions (on next logon)"
+        echo "syntax: --uninstall"
+        echo "        Uninstall sysidk commands from your shell sessions (effective"
+        echo "        after you next logon)"
+        echo
+        echo "syntax: --bindir"
+        echo "        Show installed binary directory"
+        echo "syntax: --pkgdir"
+        echo "        Show installed packages directory"
     fi
 }
 
@@ -233,6 +243,8 @@ sysidk_setup()
 
 sysidk_install()
 {   # update the user's shell RC script to include the scripts on the cmd
+    local remove=false
+    [ "_$1" = "_-d" ] && { shift; remove=true; }
     local rc_file=".bashrc"
     local firstline="#=== sysidk set-up"
     local lastline="#=== end of sysidk set-up"
@@ -249,11 +261,19 @@ sysidk_install()
                 ;;
     esac
 
+    rc_file="$HOME/$rc_file"
     # rc_file=test.rc
-    echo "$cmd_name: updatng $rc_file";
+    echo "$cmd_name: updating $rc_file";
     if [ ! -r "$rc_file" ]; then
-        echo "$cmd_name: you haven't defined a $rc_file shell initialization file!"&2
+        echo "$cmd_name: you haven't defined a $rc_file shell initialization file!">&2
         rc=1
+    elif $remove; then
+        if grep "^$firstline" "$rc_file" >/dev/null; then
+            sed -itmp -e "/$firstline/,/$lastline/ d" "$rc_file"
+            rm -f "$rc_file.tmp"
+        else
+            echo "$cmd_name: no installation found in $rc_file">&2
+        fi
     else
         {   echo "$firstline"
             echo "# (please leave '#===' lines) last updated `date`"
@@ -283,15 +303,27 @@ elif ! setup_dir_sysidk; then
     exit 1
 fi
 
-if [ "_$1" = "_--install" -o "_$1" = "_--setup" ]; then
+if [ "_$1" = "_--install" -o \
+     "_$1" = "_--uninstall" -o \
+     "_$1" = "_--setup" ]; then
     op="$1"
     shift
-    sysidk_setup "$@"
-    rc=$?
-    if [ $rc -eq 0 -a "_$op" = "_--install" ]; then
-        sysidk_install "$@"
+    
+    if  [ "_$op" = "_--install" ]; then
+        sysidk_setup "$@"
+        rc=$?
+        [ $rc -eq 0 ] && {
+            sysidk_install "$@"
+            rc=$?
+        }
+    elif [ "_$op" = "_--uninstall" ]; then
+        sysidk_install -d "$@"
+        rc=$?
+    else
+        sysidk_setup "$@"
         rc=$?
     fi
+    
     exit $rc
 fi
 
