@@ -4,15 +4,6 @@
 #include <linux/types.h>
 #include <linux/elf-em.h>
 
-struct file;
-
-#ifndef elf_read_implies_exec
-  /* Executables for which elf_read_implies_exec() returns TRUE will
-     have the READ_IMPLIES_EXEC personality flag set automatically.
-     Override in asm/elf.h as needed.  */
-# define elf_read_implies_exec(ex, have_pt_gnu_stack)	0
-#endif
-
 /* 32-bit ELF base types. */
 typedef __u32	Elf32_Addr;
 typedef __u16	Elf32_Half;
@@ -392,6 +383,7 @@ typedef struct elf64_shdr {
 #define NT_S390_CTRS	0x304		/* s390 control registers */
 #define NT_S390_PREFIX	0x305		/* s390 prefix register */
 #define NT_S390_LAST_BREAK	0x306	/* s390 breaking event address */
+#define NT_S390_SYSTEM_CALL	0x307	/* s390 system call restart data */
 #define NT_ARM_VFP	0x400		/* ARM VFP/NEON registers */
 
 

@@ -6,6 +6,8 @@
  * Copyright (C) 1998 Paul Mackerras.
  */
 
+#ifndef _LINUX_PMU_H
+#define _LINUX_PMU_H
 
 #define PMU_DRIVER_VERSION	2
 
@@ -133,3 +135,5 @@ enum {
 /* no param, but historically was _IOR('B', 6, 0), meaning 4 bytes */
 #define PMU_IOC_GRAB_BACKLIGHT	_IOR('B', 6, size_t) 
 
+
+#endif /* _LINUX_PMU_H */

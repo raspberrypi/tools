@@ -112,7 +112,6 @@ __BEGIN_DECLS
 # define AT_SYMLINK_FOLLOW	0x400	/* Follow symbolic links.  */
 # define AT_NO_AUTOMOUNT	0x800	/* Suppress terminal automount
 					   traversal.  */
-# define AT_EMPTY_PATH		0x1000	/* Allow empty relative pathname.  */
 # define AT_EACCESS		0x200	/* Test access permitted for
 					   effective IDs, not real IDs.  */
 #endif
@@ -242,7 +241,7 @@ extern int posix_fadvise64 (int __fd, __off64_t __offset, __off64_t __len,
 
 /* Reserve storage for the data of the file associated with FD.
 
-   This function is a possible cancellation point and therefore not
+   This function is a possible cancellation points and therefore not
    marked with __THROW.  */
 # ifndef __USE_FILE_OFFSET64
 extern int posix_fallocate (int __fd, __off_t __offset, __off_t __len);

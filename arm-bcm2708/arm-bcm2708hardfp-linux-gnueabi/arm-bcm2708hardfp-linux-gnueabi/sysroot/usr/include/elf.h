@@ -1,5 +1,5 @@
 /* This file defines standard ELF types, structures, and macros.
-   Copyright (C) 1995-2003,2004,2005,2006,2007,2008,2009,2010,2011
+   Copyright (C) 1995-2003,2004,2005,2006,2007,2008,2009,2010
 	Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -580,6 +580,7 @@ typedef struct
 #define PT_GNU_EH_FRAME	0x6474e550	/* GCC .eh_frame_hdr segment */
 #define PT_GNU_STACK	0x6474e551	/* Indicates stack executability */
 #define PT_GNU_RELRO	0x6474e552	/* Read-only after relocation */
+#define PT_PAX_FLAGS	0x65041580	/* Indicates PaX flag markings */
 #define PT_LOSUNW	0x6ffffffa
 #define PT_SUNWBSS	0x6ffffffa	/* Sun Specific segment */
 #define PT_SUNWSTACK	0x6ffffffb	/* Stack segment */
@@ -593,6 +594,18 @@ typedef struct
 #define PF_X		(1 << 0)	/* Segment is executable */
 #define PF_W		(1 << 1)	/* Segment is writable */
 #define PF_R		(1 << 2)	/* Segment is readable */
+#define PF_PAGEEXEC	(1 << 4)	/* Enable  PAGEEXEC */
+#define PF_NOPAGEEXEC	(1 << 5)	/* Disable PAGEEXEC */
+#define PF_SEGMEXEC	(1 << 6)	/* Enable  SEGMEXEC */
+#define PF_NOSEGMEXEC	(1 << 7)	/* Disable SEGMEXEC */
+#define PF_MPROTECT	(1 << 8)	/* Enable  MPROTECT */
+#define PF_NOMPROTECT	(1 << 9)	/* Disable MPROTECT */
+#define PF_RANDEXEC	(1 << 10)	/* Enable  RANDEXEC */
+#define PF_NORANDEXEC	(1 << 11)	/* Disable RANDEXEC */
+#define PF_EMUTRAMP	(1 << 12)	/* Enable  EMUTRAMP */
+#define PF_NOEMUTRAMP	(1 << 13)	/* Disable EMUTRAMP */
+#define PF_RANDMMAP	(1 << 14)	/* Enable  RANDMMAP */
+#define PF_NORANDMMAP	(1 << 15)	/* Disable RANDMMAP */
 #define PF_MASKOS	0x0ff00000	/* OS-specific */
 #define PF_MASKPROC	0xf0000000	/* Processor-specific */
 
@@ -2318,8 +2331,7 @@ typedef Elf32_Addr Elf32_Conflict;
 #define R_ARM_THM_PC22		10
 #define R_ARM_THM_PC8		11
 #define R_ARM_AMP_VCALL9	12
-#define R_ARM_SWI24		13	/* Obsolete static relocation.  */
-#define R_ARM_TLS_DESC		13      /* Dynamic relocation.  */
+#define R_ARM_SWI24		13
 #define R_ARM_THM_SWI8		14
 #define R_ARM_XPC25		15
 #define R_ARM_THM_XPC22		16
@@ -2340,10 +2352,6 @@ typedef Elf32_Addr Elf32_Conflict;
 #define R_ARM_LDR_SBREL_11_0	35
 #define R_ARM_ALU_SBREL_19_12	36
 #define R_ARM_ALU_SBREL_27_20	37
-#define R_ARM_TLS_GOTDESC	90
-#define R_ARM_TLS_CALL		91
-#define R_ARM_TLS_DESCSEQ	92
-#define R_ARM_THM_TLS_CALL	93
 #define R_ARM_GNU_VTENTRY	100
 #define R_ARM_GNU_VTINHERIT	101
 #define R_ARM_THM_PC11		102	/* thumb unconditional branch */
@@ -2358,8 +2366,6 @@ typedef Elf32_Addr Elf32_Conflict;
 					   static TLS block offset */
 #define R_ARM_TLS_LE32		108	/* 32 bit offset relative to static
 					   TLS block */
-#define	R_ARM_THM_TLS_DESCSEQ	129
-#define R_ARM_IRELATIVE		160
 #define R_ARM_RXPC25		249
 #define R_ARM_RSBREL32		250
 #define R_ARM_THM_RPC22		251

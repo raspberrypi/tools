@@ -50,12 +50,8 @@ namespace __gnu_debug
       typedef typename _It::iterator_type _BaseIt;
 
       static bool
-      _S_Is(_BaseIt, const _Sequence*)
+      _M_Is(_BaseIt __it, const _Sequence* __seq)
       { return false; }
-
-      static bool
-      _S_Is_Beginnest(_BaseIt __it, const _Sequence* __seq)
-      { return __it == __seq->_M_base().begin(); }
     };
 
   /** Iterators that derive from _Safe_iterator_base but that aren't
@@ -466,15 +462,7 @@ namespace __gnu_debug
       /// any?
       bool _M_is_before_begin() const
       {
-	return _BeforeBeginHelper<_Sequence>::_S_Is(base(), _M_get_sequence());
-      }
-
-      /// Is this iterator equal to the sequence's before_begin() iterator if
-      /// any or begin() otherwise?
-      bool _M_is_beginnest() const
-      {
-	return _BeforeBeginHelper<_Sequence>::_S_Is_Beginnest(base(),
-							  _M_get_sequence());
+	return _BeforeBeginHelper<_Sequence>::_M_Is(base(), _M_get_sequence());
       }
     };
 

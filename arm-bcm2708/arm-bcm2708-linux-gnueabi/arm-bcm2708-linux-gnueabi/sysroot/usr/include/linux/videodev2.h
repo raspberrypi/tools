@@ -337,6 +337,8 @@ struct v4l2_pix_format {
 #define V4L2_PIX_FMT_NV21    v4l2_fourcc('N', 'V', '2', '1') /* 12  Y/CrCb 4:2:0  */
 #define V4L2_PIX_FMT_NV16    v4l2_fourcc('N', 'V', '1', '6') /* 16  Y/CbCr 4:2:2  */
 #define V4L2_PIX_FMT_NV61    v4l2_fourcc('N', 'V', '6', '1') /* 16  Y/CrCb 4:2:2  */
+#define V4L2_PIX_FMT_NV24    v4l2_fourcc('N', 'V', '2', '4') /* 24  Y/CbCr 4:4:4  */
+#define V4L2_PIX_FMT_NV42    v4l2_fourcc('N', 'V', '4', '2') /* 24  Y/CrCb 4:4:4  */
 
 /* two non contiguous planes - one Y, one Cr + Cb interleaved  */
 #define V4L2_PIX_FMT_NV12M   v4l2_fourcc('N', 'M', '1', '2') /* 12  Y/CbCr 4:2:0  */
@@ -395,6 +397,7 @@ struct v4l2_pix_format {
 #define V4L2_PIX_FMT_SPCA561  v4l2_fourcc('S', '5', '6', '1') /* compressed GBRG bayer */
 #define V4L2_PIX_FMT_PAC207   v4l2_fourcc('P', '2', '0', '7') /* compressed BGGR bayer */
 #define V4L2_PIX_FMT_MR97310A v4l2_fourcc('M', '3', '1', '0') /* compressed BGGR bayer */
+#define V4L2_PIX_FMT_JL2005BCD v4l2_fourcc('J', 'L', '2', '0') /* compressed RGGB bayer */
 #define V4L2_PIX_FMT_SN9C2028 v4l2_fourcc('S', 'O', 'N', 'X') /* compressed GBRG bayer */
 #define V4L2_PIX_FMT_SQ905C   v4l2_fourcc('9', '0', '5', 'C') /* compressed RGGB bayer */
 #define V4L2_PIX_FMT_PJPG     v4l2_fourcc('P', 'J', 'P', 'G') /* Pixart 73xx JPEG */
@@ -647,6 +650,10 @@ struct v4l2_buffer {
 #define V4L2_BUF_FLAG_ERROR	0x0040
 #define V4L2_BUF_FLAG_TIMECODE	0x0100	/* timecode field is valid */
 #define V4L2_BUF_FLAG_INPUT     0x0200  /* input field is valid */
+#define V4L2_BUF_FLAG_PREPARED	0x0400	/* Buffer is prepared for queuing */
+/* Cache handling flags */
+#define V4L2_BUF_FLAG_NO_CACHE_INVALIDATE	0x0800
+#define V4L2_BUF_FLAG_NO_CACHE_CLEAN		0x1000
 
 /*
  *	O V E R L A Y   P R E V I E W
@@ -732,6 +739,48 @@ struct v4l2_crop {
 	struct v4l2_rect        c;
 };
 
+/* Hints for adjustments of selection rectangle */
+#define V4L2_SEL_FLAG_GE	0x00000001
+#define V4L2_SEL_FLAG_LE	0x00000002
+
+/* Selection targets */
+
+/* current cropping area */
+#define V4L2_SEL_TGT_CROP_ACTIVE	0
+/* default cropping area */
+#define V4L2_SEL_TGT_CROP_DEFAULT	1
+/* cropping bounds */
+#define V4L2_SEL_TGT_CROP_BOUNDS	2
+/* current composing area */
+#define V4L2_SEL_TGT_COMPOSE_ACTIVE	256
+/* default composing area */
+#define V4L2_SEL_TGT_COMPOSE_DEFAULT	257
+/* composing bounds */
+#define V4L2_SEL_TGT_COMPOSE_BOUNDS	258
+/* current composing area plus all padding pixels */
+#define V4L2_SEL_TGT_COMPOSE_PADDED	259
+
+/**
+ * struct v4l2_selection - selection info
+ * @type:	buffer type (do not use *_MPLANE types)
+ * @target:	selection target, used to choose one of possible rectangles
+ * @flags:	constraints flags
+ * @r:		coordinates of selection window
+ * @reserved:	for future use, rounds structure size to 64 bytes, set to zero
+ *
+ * Hardware may use multiple helper window to process a video stream.
+ * The structure is used to exchange this selection areas between
+ * an application and a driver.
+ */
+struct v4l2_selection {
+	__u32			type;
+	__u32			target;
+	__u32                   flags;
+	struct v4l2_rect        r;
+	__u32                   reserved[9];
+};
+
+
 /*
  *      A N A L O G   V I D E O   S T A N D A R D
  */
@@ -753,10 +802,10 @@ typedef __u64 v4l2_std_id;
 #define V4L2_STD_PAL_Nc         ((v4l2_std_id)0x00000400)
 #define V4L2_STD_PAL_60         ((v4l2_std_id)0x00000800)
 
-#define V4L2_STD_NTSC_M         ((v4l2_std_id)0x00001000)
-#define V4L2_STD_NTSC_M_JP      ((v4l2_std_id)0x00002000)
+#define V4L2_STD_NTSC_M         ((v4l2_std_id)0x00001000)	/* BTSC */
+#define V4L2_STD_NTSC_M_JP      ((v4l2_std_id)0x00002000)	/* EIA-J */
 #define V4L2_STD_NTSC_443       ((v4l2_std_id)0x00004000)
-#define V4L2_STD_NTSC_M_KR      ((v4l2_std_id)0x00008000)
+#define V4L2_STD_NTSC_M_KR      ((v4l2_std_id)0x00008000)	/* FM A2 */
 
 #define V4L2_STD_SECAM_B        ((v4l2_std_id)0x00010000)
 #define V4L2_STD_SECAM_D        ((v4l2_std_id)0x00020000)
@@ -780,47 +829,86 @@ typedef __u64 v4l2_std_id;
    v4l2-common.c should be fixed.
  */
 
-/* some merged standards */
-#define V4L2_STD_MN	(V4L2_STD_PAL_M|V4L2_STD_PAL_N|V4L2_STD_PAL_Nc|V4L2_STD_NTSC)
-#define V4L2_STD_B	(V4L2_STD_PAL_B|V4L2_STD_PAL_B1|V4L2_STD_SECAM_B)
-#define V4L2_STD_GH	(V4L2_STD_PAL_G|V4L2_STD_PAL_H|V4L2_STD_SECAM_G|V4L2_STD_SECAM_H)
-#define V4L2_STD_DK	(V4L2_STD_PAL_DK|V4L2_STD_SECAM_DK)
+/*
+ * Some macros to merge video standards in order to make live easier for the
+ * drivers and V4L2 applications
+ */
 
-/* some common needed stuff */
-#define V4L2_STD_PAL_BG		(V4L2_STD_PAL_B		|\
-				 V4L2_STD_PAL_B1	|\
-				 V4L2_STD_PAL_G)
-#define V4L2_STD_PAL_DK		(V4L2_STD_PAL_D		|\
-				 V4L2_STD_PAL_D1	|\
-				 V4L2_STD_PAL_K)
-#define V4L2_STD_PAL		(V4L2_STD_PAL_BG	|\
-				 V4L2_STD_PAL_DK	|\
-				 V4L2_STD_PAL_H		|\
-				 V4L2_STD_PAL_I)
+/*
+ * "Common" NTSC/M - It should be noticed that V4L2_STD_NTSC_443 is
+ * Missing here.
+ */
 #define V4L2_STD_NTSC           (V4L2_STD_NTSC_M	|\
 				 V4L2_STD_NTSC_M_JP     |\
 				 V4L2_STD_NTSC_M_KR)
+/* Secam macros */
 #define V4L2_STD_SECAM_DK      	(V4L2_STD_SECAM_D	|\
 				 V4L2_STD_SECAM_K	|\
 				 V4L2_STD_SECAM_K1)
+/* All Secam Standards */
 #define V4L2_STD_SECAM		(V4L2_STD_SECAM_B	|\
 				 V4L2_STD_SECAM_G	|\
 				 V4L2_STD_SECAM_H	|\
 				 V4L2_STD_SECAM_DK	|\
 				 V4L2_STD_SECAM_L       |\
 				 V4L2_STD_SECAM_LC)
+/* PAL macros */
+#define V4L2_STD_PAL_BG		(V4L2_STD_PAL_B		|\
+				 V4L2_STD_PAL_B1	|\
+				 V4L2_STD_PAL_G)
+#define V4L2_STD_PAL_DK		(V4L2_STD_PAL_D		|\
+				 V4L2_STD_PAL_D1	|\
+				 V4L2_STD_PAL_K)
+/*
+ * "Common" PAL - This macro is there to be compatible with the old
+ * V4L1 concept of "PAL": /BGDKHI.
+ * Several PAL standards are mising here: /M, /N and /Nc
+ */
+#define V4L2_STD_PAL		(V4L2_STD_PAL_BG	|\
+				 V4L2_STD_PAL_DK	|\
+				 V4L2_STD_PAL_H		|\
+				 V4L2_STD_PAL_I)
+/* Chroma "agnostic" standards */
+#define V4L2_STD_B		(V4L2_STD_PAL_B		|\
+				 V4L2_STD_PAL_B1	|\
+				 V4L2_STD_SECAM_B)
+#define V4L2_STD_G		(V4L2_STD_PAL_G		|\
+				 V4L2_STD_SECAM_G)
+#define V4L2_STD_H		(V4L2_STD_PAL_H		|\
+				 V4L2_STD_SECAM_H)
+#define V4L2_STD_L		(V4L2_STD_SECAM_L	|\
+				 V4L2_STD_SECAM_LC)
+#define V4L2_STD_GH		(V4L2_STD_G		|\
+				 V4L2_STD_H)
+#define V4L2_STD_DK		(V4L2_STD_PAL_DK	|\
+				 V4L2_STD_SECAM_DK)
+#define V4L2_STD_BG		(V4L2_STD_B		|\
+				 V4L2_STD_G)
+#define V4L2_STD_MN		(V4L2_STD_PAL_M		|\
+				 V4L2_STD_PAL_N		|\
+				 V4L2_STD_PAL_Nc	|\
+				 V4L2_STD_NTSC)
 
+/* Standards where MTS/BTSC stereo could be found */
+#define V4L2_STD_MTS		(V4L2_STD_NTSC_M	|\
+				 V4L2_STD_PAL_M		|\
+				 V4L2_STD_PAL_N		|\
+				 V4L2_STD_PAL_Nc)
+
+/* Standards for Countries with 60Hz Line frequency */
 #define V4L2_STD_525_60		(V4L2_STD_PAL_M		|\
 				 V4L2_STD_PAL_60	|\
 				 V4L2_STD_NTSC		|\
 				 V4L2_STD_NTSC_443)
+/* Standards for Countries with 50Hz Line frequency */
 #define V4L2_STD_625_50		(V4L2_STD_PAL		|\
 				 V4L2_STD_PAL_N		|\
 				 V4L2_STD_PAL_Nc	|\
 				 V4L2_STD_SECAM)
+
 #define V4L2_STD_ATSC           (V4L2_STD_ATSC_8_VSB    |\
 				 V4L2_STD_ATSC_16_VSB)
-
+/* Macros with none and all analog standards */
 #define V4L2_STD_UNKNOWN        0
 #define V4L2_STD_ALL            (V4L2_STD_525_60	|\
 				 V4L2_STD_625_50)
@@ -1076,11 +1164,13 @@ struct v4l2_querymenu {
 #define V4L2_CTRL_FLAG_INACTIVE 	0x0010
 #define V4L2_CTRL_FLAG_SLIDER 		0x0020
 #define V4L2_CTRL_FLAG_WRITE_ONLY 	0x0040
+#define V4L2_CTRL_FLAG_VOLATILE		0x0080
 
 /*  Query flag, to be ORed with the control ID */
 #define V4L2_CTRL_FLAG_NEXT_CTRL	0x80000000
 
 /*  User-class control IDs defined by V4L2 */
+#define V4L2_CID_MAX_CTRLS		1024
 #define V4L2_CID_BASE			(V4L2_CTRL_CLASS_USER | 0x900)
 #define V4L2_CID_USER_BASE 		V4L2_CID_BASE
 /*  IDs reserved for driver specific controls */
@@ -1119,6 +1209,7 @@ enum v4l2_power_line_frequency {
 	V4L2_CID_POWER_LINE_FREQUENCY_DISABLED	= 0,
 	V4L2_CID_POWER_LINE_FREQUENCY_50HZ	= 1,
 	V4L2_CID_POWER_LINE_FREQUENCY_60HZ	= 2,
+	V4L2_CID_POWER_LINE_FREQUENCY_AUTO	= 3,
 };
 #define V4L2_CID_HUE_AUTO			(V4L2_CID_BASE+25)
 #define V4L2_CID_WHITE_BALANCE_TEMPERATURE	(V4L2_CID_BASE+26)
@@ -1153,10 +1244,10 @@ enum v4l2_colorfx {
 #define V4L2_CID_MIN_BUFFERS_FOR_CAPTURE	(V4L2_CID_BASE+39)
 #define V4L2_CID_MIN_BUFFERS_FOR_OUTPUT		(V4L2_CID_BASE+40)
 
-/* last CID + 1 */
-#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+41)
+#define V4L2_CID_ALPHA_COMPONENT		(V4L2_CID_BASE+41)
 
-/* Minimum number of buffer neede by the device */
+/* last CID + 1 */
+#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+42)
 
 /*  MPEG-class control IDs defined by V4L2 */
 #define V4L2_CID_MPEG_BASE 			(V4L2_CTRL_CLASS_MPEG | 0x900)
@@ -1631,6 +1722,8 @@ enum v4l2_flash_strobe_source {
 #define V4L2_FLASH_FAULT_TIMEOUT		(1 << 1)
 #define V4L2_FLASH_FAULT_OVER_TEMPERATURE	(1 << 2)
 #define V4L2_FLASH_FAULT_SHORT_CIRCUIT		(1 << 3)
+#define V4L2_FLASH_FAULT_OVER_CURRENT		(1 << 4)
+#define V4L2_FLASH_FAULT_INDICATOR		(1 << 5)
 
 #define V4L2_CID_FLASH_CHARGE			(V4L2_CID_FLASH_CLASS_BASE + 11)
 #define V4L2_CID_FLASH_READY			(V4L2_CID_FLASH_CLASS_BASE + 12)
@@ -2000,6 +2093,7 @@ struct v4l2_streamparm {
 #define V4L2_EVENT_VSYNC			1
 #define V4L2_EVENT_EOS				2
 #define V4L2_EVENT_CTRL				3
+#define V4L2_EVENT_FRAME_SYNC			4
 #define V4L2_EVENT_PRIVATE_START		0x08000000
 
 /* Payload for V4L2_EVENT_VSYNC */
@@ -2026,12 +2120,17 @@ struct v4l2_event_ctrl {
 	__s32 default_value;
 };
 
+struct v4l2_event_frame_sync {
+	__u32 frame_sequence;
+};
+
 struct v4l2_event {
 	__u32				type;
 	union {
-		struct v4l2_event_vsync vsync;
-		struct v4l2_event_ctrl	ctrl;
-		__u8			data[64];
+		struct v4l2_event_vsync		vsync;
+		struct v4l2_event_ctrl		ctrl;
+		struct v4l2_event_frame_sync	frame_sync;
+		__u8				data[64];
 	} u;
 	__u32				pending;
 	__u32				sequence;
@@ -2085,6 +2184,23 @@ struct v4l2_dbg_chip_ident {
 	__u32 ident;       /* chip identifier as specified in <media/v4l2-chip-ident.h> */
 	__u32 revision;    /* chip revision, chip specific */
 } __attribute__ ((packed));
+
+/**
+ * struct v4l2_create_buffers - VIDIOC_CREATE_BUFS argument
+ * @index:	on return, index of the first created buffer
+ * @count:	entry: number of requested buffers,
+ *		return: number of created buffers
+ * @memory:	buffer memory type
+ * @format:	frame format, for which buffers are requested
+ * @reserved:	future extensions
+ */
+struct v4l2_create_buffers {
+	__u32			index;
+	__u32			count;
+	enum v4l2_memory        memory;
+	struct v4l2_format	format;
+	__u32			reserved[8];
+};
 
 /*
  *	I O C T L   C O D E S   F O R   V I D E O   D E V I C E S
@@ -2175,6 +2291,15 @@ struct v4l2_dbg_chip_ident {
 #define	VIDIOC_DQEVENT		 _IOR('V', 89, struct v4l2_event)
 #define	VIDIOC_SUBSCRIBE_EVENT	 _IOW('V', 90, struct v4l2_event_subscription)
 #define	VIDIOC_UNSUBSCRIBE_EVENT _IOW('V', 91, struct v4l2_event_subscription)
+
+/* Experimental, the below two ioctls may change over the next couple of kernel
+   versions */
+#define VIDIOC_CREATE_BUFS	_IOWR('V', 92, struct v4l2_create_buffers)
+#define VIDIOC_PREPARE_BUF	_IOWR('V', 93, struct v4l2_buffer)
+
+/* Experimental selection API */
+#define VIDIOC_G_SELECTION	_IOWR('V', 94, struct v4l2_selection)
+#define VIDIOC_S_SELECTION	_IOWR('V', 95, struct v4l2_selection)
 
 /* Reminder: when adding new ioctls please add support for them to
    drivers/media/video/v4l2-compat-ioctl32.c as well! */

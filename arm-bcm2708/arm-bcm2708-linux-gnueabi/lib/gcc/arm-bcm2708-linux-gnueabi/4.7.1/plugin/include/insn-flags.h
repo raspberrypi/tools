@@ -44,7 +44,6 @@
 #define HAVE_movmem8b (TARGET_THUMB1)
 #define HAVE_cbranchsi4_insn (TARGET_THUMB1)
 #define HAVE_cbranchsi4_scratch (TARGET_THUMB1)
-#define HAVE_arm_cond_branch (TARGET_32BIT)
 #define HAVE_cstoresi_nltu_thumb1 (TARGET_THUMB1)
 #define HAVE_cstoresi_ltu_thumb1 (TARGET_THUMB1)
 #define HAVE_thumb1_addsi3_addgeu (TARGET_THUMB1)
@@ -331,7 +330,6 @@
 #define HAVE_negv4si2 (TARGET_NEON)
 #define HAVE_negv2sf2 (TARGET_NEON)
 #define HAVE_negv4sf2 (TARGET_NEON)
-#define HAVE_negdi2_neon (TARGET_NEON)
 #define HAVE_vashlv8qi3 (TARGET_NEON)
 #define HAVE_vashlv16qi3 (TARGET_NEON)
 #define HAVE_vashlv4hi3 (TARGET_NEON)
@@ -1183,24 +1181,24 @@
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_addqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_subqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_orqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_iorqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xorqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_andqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_addhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_subhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_orhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_iorhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xorhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_andhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_addsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_subsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_orsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_iorsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xorsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_andsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_adddi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_subdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_ordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
+#define HAVE_atomic_iordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
@@ -1213,24 +1211,24 @@
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_addqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_subqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_fetch_orqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_fetch_iorqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_xorqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_andqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_addhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_subhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_fetch_orhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_fetch_iorhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_xorhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_andhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_addsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_subsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_fetch_orsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_fetch_iorsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_xorsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_andsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_adddi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_subdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_fetch_ordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
+#define HAVE_atomic_fetch_iordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_fetch_xordi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
@@ -1243,24 +1241,24 @@
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_add_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_sub_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_or_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_ior_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xor_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_and_fetchqi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_add_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_sub_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_or_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_ior_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xor_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_and_fetchhi (TARGET_HAVE_LDREXBH && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_add_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_sub_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_or_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
+#define HAVE_atomic_ior_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xor_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_and_fetchsi (TARGET_HAVE_LDREX && TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_add_fetchdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_sub_fetchdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
-#define HAVE_atomic_or_fetchdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
+#define HAVE_atomic_ior_fetchdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
 #define HAVE_atomic_xor_fetchdi (TARGET_HAVE_LDREXD && ARM_DOUBLEWORD_ALIGN \
 	&& TARGET_HAVE_MEMORY_BARRIER)
@@ -2317,7 +2315,6 @@ extern rtx        gen_movmem12b                         (rtx, rtx, rtx, rtx);
 extern rtx        gen_movmem8b                          (rtx, rtx, rtx, rtx);
 extern rtx        gen_cbranchsi4_insn                   (rtx, rtx, rtx, rtx);
 extern rtx        gen_cbranchsi4_scratch                (rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_arm_cond_branch                   (rtx, rtx, rtx);
 extern rtx        gen_cstoresi_nltu_thumb1              (rtx, rtx, rtx);
 extern rtx        gen_cstoresi_ltu_thumb1               (rtx, rtx, rtx);
 extern rtx        gen_thumb1_addsi3_addgeu              (rtx, rtx, rtx, rtx, rtx);
@@ -2622,7 +2619,6 @@ extern rtx        gen_negv2si2                          (rtx, rtx);
 extern rtx        gen_negv4si2                          (rtx, rtx);
 extern rtx        gen_negv2sf2                          (rtx, rtx);
 extern rtx        gen_negv4sf2                          (rtx, rtx);
-extern rtx        gen_negdi2_neon                       (rtx, rtx);
 extern rtx        gen_vashlv8qi3                        (rtx, rtx, rtx);
 extern rtx        gen_vashlv16qi3                       (rtx, rtx, rtx);
 extern rtx        gen_vashlv4hi3                        (rtx, rtx, rtx);
@@ -3472,22 +3468,22 @@ extern rtx        gen_atomic_exchangesi                 (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_exchangedi                 (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_addqi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_subqi                      (rtx, rtx, rtx);
-extern rtx        gen_atomic_orqi                       (rtx, rtx, rtx);
+extern rtx        gen_atomic_iorqi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_xorqi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_andqi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_addhi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_subhi                      (rtx, rtx, rtx);
-extern rtx        gen_atomic_orhi                       (rtx, rtx, rtx);
+extern rtx        gen_atomic_iorhi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_xorhi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_andhi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_addsi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_subsi                      (rtx, rtx, rtx);
-extern rtx        gen_atomic_orsi                       (rtx, rtx, rtx);
+extern rtx        gen_atomic_iorsi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_xorsi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_andsi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_adddi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_subdi                      (rtx, rtx, rtx);
-extern rtx        gen_atomic_ordi                       (rtx, rtx, rtx);
+extern rtx        gen_atomic_iordi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_xordi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_anddi                      (rtx, rtx, rtx);
 extern rtx        gen_atomic_nandqi                     (rtx, rtx, rtx);
@@ -3496,22 +3492,22 @@ extern rtx        gen_atomic_nandsi                     (rtx, rtx, rtx);
 extern rtx        gen_atomic_nanddi                     (rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_addqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_subqi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_fetch_orqi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_fetch_iorqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_xorqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_andqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_addhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_subhi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_fetch_orhi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_fetch_iorhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_xorhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_andhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_addsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_subsi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_fetch_orsi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_fetch_iorsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_xorsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_andsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_adddi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_subdi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_fetch_ordi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_fetch_iordi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_xordi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_anddi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_nandqi               (rtx, rtx, rtx, rtx);
@@ -3520,22 +3516,22 @@ extern rtx        gen_atomic_fetch_nandsi               (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_fetch_nanddi               (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_add_fetchqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_sub_fetchqi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_or_fetchqi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_ior_fetchqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_xor_fetchqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_and_fetchqi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_add_fetchhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_sub_fetchhi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_or_fetchhi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_ior_fetchhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_xor_fetchhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_and_fetchhi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_add_fetchsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_sub_fetchsi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_or_fetchsi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_ior_fetchsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_xor_fetchsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_and_fetchsi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_add_fetchdi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_sub_fetchdi                (rtx, rtx, rtx, rtx);
-extern rtx        gen_atomic_or_fetchdi                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_atomic_ior_fetchdi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_xor_fetchdi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_and_fetchdi                (rtx, rtx, rtx, rtx);
 extern rtx        gen_atomic_nand_fetchqi               (rtx, rtx, rtx, rtx);

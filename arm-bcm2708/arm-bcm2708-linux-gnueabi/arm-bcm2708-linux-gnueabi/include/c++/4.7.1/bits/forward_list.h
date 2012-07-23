@@ -53,6 +53,15 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
     _Fwd_list_node_base* _M_next;
 
     _Fwd_list_node_base*
+    _M_transfer_after(_Fwd_list_node_base* __begin)
+    {
+      _Fwd_list_node_base* __end = __begin;
+      while (__end && __end->_M_next)
+	__end = __end->_M_next;
+      return _M_transfer_after(__begin, __end);
+    }
+
+    _Fwd_list_node_base*
     _M_transfer_after(_Fwd_list_node_base* __begin,
 		      _Fwd_list_node_base* __end)
     {
@@ -917,8 +926,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        *  does not invalidate iterators and references.
        */
       iterator
-      insert_after(const_iterator __pos, std::initializer_list<_Tp> __il)
-      { return insert_after(__pos, __il.begin(), __il.end()); }
+      insert_after(const_iterator __pos, std::initializer_list<_Tp> __il);
 
       /**
        *  @brief  Removes the element pointed to by the iterator following
@@ -1040,12 +1048,8 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       splice_after(const_iterator __pos, forward_list&& __list)
       {
 	if (!__list.empty())
-	  _M_splice_after(__pos, __list.before_begin(), __list.end());
+	  _M_splice_after(__pos, std::move(__list));
       }
-
-      void
-      splice_after(const_iterator __pos, forward_list& __list)
-      { splice_after(__pos, std::move(__list)); }
 
       /**
        *  @brief  Insert element from another %forward_list.
@@ -1059,12 +1063,15 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       void
       splice_after(const_iterator __pos, forward_list&& __list,
-                   const_iterator __i);
-
-      void
-      splice_after(const_iterator __pos, forward_list& __list,
                    const_iterator __i)
-      { splice_after(__pos, std::move(__list), __i); }
+      {
+	const_iterator __j = __i;
+	++__j;
+	if (__pos == __i || __pos == __j)
+	  return;
+
+	splice_after(__pos, std::move(__list), __i, __j);
+      }
 
       /**
        *  @brief  Insert range from another %forward_list.
@@ -1080,14 +1087,8 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        *  Undefined if @a __pos is in (__before,__last).
        */
       void
-      splice_after(const_iterator __pos, forward_list&&,
-                   const_iterator __before, const_iterator __last)
-      { _M_splice_after(__pos, __before, __last); }
-
-      void
-      splice_after(const_iterator __pos, forward_list&,
-                   const_iterator __before, const_iterator __last)
-      { _M_splice_after(__pos, __before, __last); }
+      splice_after(const_iterator __pos, forward_list&& __list,
+                   const_iterator __before, const_iterator __last);
 
       /**
        *  @brief  Remove all elements equal to value.
@@ -1130,7 +1131,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       void
       unique()
-      { unique(std::equal_to<_Tp>()); }
+      { this->unique(std::equal_to<_Tp>()); }
 
       /**
        *  @brief  Remove consecutive elements satisfying a predicate.
@@ -1159,11 +1160,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       void
       merge(forward_list&& __list)
-      { merge(std::move(__list), std::less<_Tp>()); }
-
-      void
-      merge(forward_list& __list)
-      { merge(std::move(__list)); }
+      { this->merge(std::move(__list), std::less<_Tp>()); }
 
       /**
        *  @brief  Merge sorted lists according to comparison function.
@@ -1180,11 +1177,6 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
         void
         merge(forward_list&& __list, _Comp __comp);
 
-      template<typename _Comp>
-        void
-        merge(forward_list& __list, _Comp __comp)
-        { merge(std::move(__list), __comp); }
-
       /**
        *  @brief  Sort the elements of the list.
        *
@@ -1193,7 +1185,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       void
       sort()
-      { sort(std::less<_Tp>()); }
+      { this->sort(std::less<_Tp>()); }
 
       /**
        *  @brief  Sort the forward_list using a comparison function.
@@ -1233,8 +1225,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
       // Called by splice_after and insert_after.
       iterator
-      _M_splice_after(const_iterator __pos, const_iterator __before,
-		      const_iterator __last);
+      _M_splice_after(const_iterator __pos, forward_list&& __list);
 
       // Called by forward_list(n).
       void

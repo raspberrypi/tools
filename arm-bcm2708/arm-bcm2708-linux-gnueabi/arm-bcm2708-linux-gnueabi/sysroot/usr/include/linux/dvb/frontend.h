@@ -72,7 +72,7 @@ typedef enum fe_caps {
 
 struct dvb_frontend_info {
 	char       name[128];
-	fe_type_t  type;
+	fe_type_t  type;			/* DEPRECATED. Use DTV_ENUM_DELSYS instead */
 	__u32      frequency_min;
 	__u32      frequency_max;
 	__u32      frequency_stepsize;
@@ -191,7 +191,6 @@ typedef enum fe_bandwidth {
 	BANDWIDTH_1_712_MHZ,
 } fe_bandwidth_t;
 
-
 typedef enum fe_guard_interval {
 	GUARD_INTERVAL_1_32,
 	GUARD_INTERVAL_1_16,
@@ -250,7 +249,6 @@ struct dvb_frontend_parameters {
 		struct dvb_vsb_parameters vsb;
 	} u;
 };
-
 
 struct dvb_frontend_event {
 	fe_status_t status;
@@ -316,7 +314,9 @@ struct dvb_frontend_event {
 
 #define DTV_DVBT2_PLP_ID	43
 
-#define DTV_MAX_COMMAND				DTV_DVBT2_PLP_ID
+#define DTV_ENUM_DELSYS		44
+
+#define DTV_MAX_COMMAND				DTV_ENUM_DELSYS
 
 typedef enum fe_pilot {
 	PILOT_ON,
@@ -333,7 +333,7 @@ typedef enum fe_rolloff {
 
 typedef enum fe_delivery_system {
 	SYS_UNDEFINED,
-	SYS_DVBC_ANNEX_AC,
+	SYS_DVBC_ANNEX_A,
 	SYS_DVBC_ANNEX_B,
 	SYS_DVBT,
 	SYS_DSS,
@@ -349,7 +349,13 @@ typedef enum fe_delivery_system {
 	SYS_CMMB,
 	SYS_DAB,
 	SYS_DVBT2,
+	SYS_TURBO,
+	SYS_DVBC_ANNEX_C,
 } fe_delivery_system_t;
+
+
+#define SYS_DVBC_ANNEX_AC	SYS_DVBC_ANNEX_A
+
 
 struct dtv_cmds_h {
 	char	*name;		/* A display name for debugging purposes */

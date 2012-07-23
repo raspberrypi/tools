@@ -1092,9 +1092,9 @@
 #endif
 
 
-/* Define to 1 if using GNU as. */
+/* Define if using GNU as. */
 #ifndef USED_FOR_TARGET
-#define HAVE_GNU_AS 1
+#define HAVE_GNU_AS 0
 #endif
 
 
@@ -1104,9 +1104,9 @@
 #endif
 
 
-/* Define to 1 if using GNU ld. */
+/* Define if using GNU ld. */
 #ifndef USED_FOR_TARGET
-#define HAVE_GNU_LD 1
+#define HAVE_GNU_LD 0
 #endif
 
 

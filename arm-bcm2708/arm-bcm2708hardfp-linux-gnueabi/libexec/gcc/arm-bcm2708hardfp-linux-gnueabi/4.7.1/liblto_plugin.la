@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/dc4/x-tools/arm-bcm2708hardfp-linux-gnueabi/libexec/gcc/arm-bcm2708hardfp-linux-gnueabi/4.7.1'
+libdir='/home/dc4/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/libexec/gcc/arm-bcm2708hardfp-linux-gnueabi/4.7.1'

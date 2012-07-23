@@ -1,6 +1,6 @@
 /* Definitions for data structures and routines for the regular
    expression library.
-   Copyright (C) 1985,1989-93,1995-98,2000,2001,2002,2003,2005,2006,2008,2011
+   Copyright (C) 1985,1989-93,1995-98,2000,2001,2002,2003,2005,2006,2008
    Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -62,10 +62,10 @@ typedef unsigned long int reg_syntax_t;
 /* If this bit is set, then ^ and $ are always anchors (outside bracket
      expressions, of course).
    If this bit is not set, then it depends:
-	^  is an anchor if it is at the beginning of a regular
-	   expression or after an open-group or an alternation operator;
-	$  is an anchor if it is at the end of a regular expression, or
-	   before a close-group or an alternation operator.
+        ^  is an anchor if it is at the beginning of a regular
+           expression or after an open-group or an alternation operator;
+        $  is an anchor if it is at the end of a regular expression, or
+           before a close-group or an alternation operator.
 
    This bit could be (re)combined with RE_CONTEXT_INDEP_OPS, because
    POSIX draft 11.2 says that * etc. in leading positions is undefined.
@@ -194,19 +194,16 @@ extern reg_syntax_t re_syntax_options;
    | RE_NO_BK_PARENS              | RE_NO_BK_REFS			\
    | RE_NO_BK_VBAR                | RE_NO_EMPTY_RANGES			\
    | RE_DOT_NEWLINE		  | RE_CONTEXT_INDEP_ANCHORS		\
-   | RE_CHAR_CLASSES							\
    | RE_UNMATCHED_RIGHT_PAREN_ORD | RE_NO_GNU_OPS)
 
 #define RE_SYNTAX_GNU_AWK						\
-  ((RE_SYNTAX_POSIX_EXTENDED | RE_BACKSLASH_ESCAPE_IN_LISTS		\
-    | RE_INVALID_INTERVAL_ORD)						\
-   & ~(RE_DOT_NOT_NULL | RE_CONTEXT_INDEP_OPS				\
-      | RE_CONTEXT_INVALID_OPS ))
+  ((RE_SYNTAX_POSIX_EXTENDED | RE_BACKSLASH_ESCAPE_IN_LISTS | RE_DEBUG)	\
+   & ~(RE_DOT_NOT_NULL | RE_INTERVALS | RE_CONTEXT_INDEP_OPS		\
+       | RE_CONTEXT_INVALID_OPS ))
 
 #define RE_SYNTAX_POSIX_AWK						\
   (RE_SYNTAX_POSIX_EXTENDED | RE_BACKSLASH_ESCAPE_IN_LISTS		\
-   | RE_INTERVALS	    | RE_NO_GNU_OPS				\
-   | RE_INVALID_INTERVAL_ORD)
+   | RE_INTERVALS	    | RE_NO_GNU_OPS)
 
 #define RE_SYNTAX_GREP							\
   (RE_BK_PLUS_QM              | RE_CHAR_CLASSES				\
@@ -339,9 +336,9 @@ typedef enum
 
 /* This data structure represents a compiled pattern.  Before calling
    the pattern compiler, the fields `buffer', `allocated', `fastmap',
-   and `translate' can be set.  After the pattern has been compiled,
-   the fields `re_nsub', `not_bol' and `not_eol' are available.  All
-   other fields are private to the regex routines.  */
+   `translate', and `no_sub' can be set.  After the pattern has been
+   compiled, the `re_nsub' field is available.  All other fields are
+   private to the regex routines.  */
 
 #ifndef RE_TRANSLATE_TYPE
 # define __RE_TRANSLATE_TYPE unsigned char *
@@ -466,12 +463,7 @@ extern reg_syntax_t re_set_syntax (reg_syntax_t __syntax);
 
 /* Compile the regular expression PATTERN, with length LENGTH
    and syntax given by the global `re_syntax_options', into the buffer
-   BUFFER.  Return NULL if successful, and an error string if not.
-
-   To free the allocated storage, you must call `regfree' on BUFFER.
-   Note that the translate table must either have been initialised by
-   `regcomp', with a malloc'ed value, or set to NULL before calling
-   `regfree'.  */
+   BUFFER.  Return NULL if successful, and an error string if not.  */
 extern const char *re_compile_pattern (const char *__pattern, size_t __length,
 				       struct re_pattern_buffer *__buffer);
 

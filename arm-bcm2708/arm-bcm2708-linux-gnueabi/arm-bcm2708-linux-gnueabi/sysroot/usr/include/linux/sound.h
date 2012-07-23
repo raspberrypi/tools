@@ -1,3 +1,5 @@
+#ifndef _LINUX_SOUND_H
+#define _LINUX_SOUND_H
 
 /*
  * Minor numbers for the sound driver.
@@ -25,3 +27,5 @@
 #define SND_DEV_AMIDI		13	/* Like /dev/midi (obsolete) */
 #define SND_DEV_ADMMIDI		14	/* Like /dev/dmmidi (onsolete) */
 
+
+#endif /* _LINUX_SOUND_H */

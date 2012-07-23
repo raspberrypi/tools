@@ -414,10 +414,6 @@ namespace __debug
       }
 
       void
-      splice_after(const_iterator __pos, forward_list& __list)
-      { splice_after(__pos, std::move(__list)); }
-
-      void
       splice_after(const_iterator __pos, forward_list&& __list,
 		   const_iterator __i)
       {
@@ -438,11 +434,6 @@ namespace __debug
 	_Base::splice_after(__pos.base(), std::move(__list._M_base()),
 			    __i.base());
       }
-
-      void
-      splice_after(const_iterator __pos, forward_list& __list,
-		   const_iterator __i)
-      { splice_after(__pos, std::move(__list), __i); }
 
       void
       splice_after(const_iterator __pos, forward_list&& __list,
@@ -488,11 +479,6 @@ namespace __debug
 	_Base::splice_after(__pos.base(), std::move(__list._M_base()),
 			    __before.base(), __last.base());
       }
-
-      void
-      splice_after(const_iterator __pos, forward_list& __list,
-		   const_iterator __before, const_iterator __last)
-      { splice_after(__pos, std::move(__list), __before, __last); }
 
       void
       remove(const _Tp& __val)
@@ -575,10 +561,6 @@ namespace __debug
 	}
       }
 
-      void
-      merge(forward_list& __list)
-      { merge(std::move(__list)); }
-
       template<typename _Comp>
         void
         merge(forward_list&& __list, _Comp __comp)
@@ -597,11 +579,6 @@ namespace __debug
 	    _Base::merge(std::move(__list._M_base()), __comp);
 	  }
 	}
-
-      template<typename _Comp>
-        void
-        merge(forward_list& __list, _Comp __comp)
-        { merge(std::move(__list), __comp); }
 
       using _Base::sort;
       using _Base::reverse;
@@ -756,12 +733,8 @@ namespace __gnu_debug
       typedef typename _It::iterator_type _BaseIt;
 
       static bool
-      _S_Is(_BaseIt __it, const _Sequence* __seq)
+      _M_Is(_BaseIt __it, const _Sequence* __seq)
       { return __it == __seq->_M_base().cbefore_begin(); }
-
-      static bool
-      _S_Is_Beginnest(_BaseIt __it, const _Sequence* __seq)
-      { return _S_Is(__it, __seq); }
     };
 }
 

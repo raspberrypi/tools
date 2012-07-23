@@ -21,7 +21,7 @@ eval "exec /usr/bin/perl -S $0 $@"
 # Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 # 02111-1307 USA.
 
-$VERSION = "2.14.1";
+$VERSION = "2.13";
 $PACKAGE = "libc";
 $progname = $0;
 

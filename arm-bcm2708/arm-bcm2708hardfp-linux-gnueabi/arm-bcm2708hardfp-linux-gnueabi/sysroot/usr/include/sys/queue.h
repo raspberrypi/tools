@@ -136,6 +136,11 @@ struct {								\
 		(var);							\
 		(var) = ((var)->field.le_next))
 
+#define	LIST_FOREACH_SAFE(var, head, field, tvar)			\
+	for ((var) = LIST_FIRST((head));				\
+	    (var) && ((tvar) = LIST_NEXT((var), field), 1);		\
+	    (var) = (tvar))
+
 /*
  * List access methods.
  */
@@ -197,6 +202,16 @@ struct {								\
 #define	SLIST_FOREACH(var, head, field)					\
 	for((var) = (head)->slh_first; (var); (var) = (var)->field.sle_next)
 
+#define	SLIST_FOREACH_SAFE(var, head, field, tvar)			\
+	for ((var) = SLIST_FIRST((head));				\
+	    (var) && ((tvar) = SLIST_NEXT((var), field), 1);		\
+	    (var) = (tvar))
+
+#define	SLIST_FOREACH_PREVPTR(var, varp, head, field)			\
+	for ((varp) = &SLIST_FIRST((head));				\
+	    ((var) = *(varp)) != NULL;					\
+	    (varp) = &SLIST_NEXT((var), field))
+
 /*
  * Singly-linked List access methods.
  */
@@ -242,6 +257,12 @@ struct {								\
 	(head)->stqh_last = &(elm)->field.stqe_next;			\
 } while (/*CONSTCOND*/0)
 
+#define	STAILQ_LAST(head, type, field)					\
+	(STAILQ_EMPTY((head)) ?						\
+		NULL :							\
+	        ((struct type *)(void *)				\
+		((char *)((head)->stqh_last) - __offsetof(struct type, field))))
+
 #define	STAILQ_INSERT_AFTER(head, listelm, elm, field) do {		\
 	if (((elm)->field.stqe_next = (listelm)->field.stqe_next) == NULL)\
 		(head)->stqh_last = &(elm)->field.stqe_next;		\
@@ -270,6 +291,11 @@ struct {								\
 	for ((var) = ((head)->stqh_first);				\
 		(var);							\
 		(var) = ((var)->field.stqe_next))
+
+#define STAILQ_FOREACH_SAFE(var, head, field, tvar)			\
+	for ((var) = STAILQ_FIRST((head));				\
+		(var) && ((tvar) = STAILQ_NEXT((var), field), 1);	\
+		(var) = (tvar))
 
 #define	STAILQ_CONCAT(head1, head2) do {				\
 	if (!STAILQ_EMPTY((head2))) {					\
@@ -437,10 +463,20 @@ struct {								\
 		(var);							\
 		(var) = ((var)->field.tqe_next))
 
+#define TAILQ_FOREACH_SAFE(var, head, field, tvar)			\
+	for ((var) = TAILQ_FIRST((head));				\
+		(var) && ((tvar) = TAILQ_NEXT((var), field), 1);	\
+		(var) = (tvar))
+
 #define	TAILQ_FOREACH_REVERSE(var, head, headname, field)		\
 	for ((var) = (*(((struct headname *)((head)->tqh_last))->tqh_last));	\
 		(var);							\
 		(var) = (*(((struct headname *)((var)->field.tqe_prev))->tqh_last)))
+
+#define TAILQ_FOREACH_REVERSE_SAFE(var, head, headname, field, tvar)	\
+	for ((var) = TAILQ_LAST((head), headname);			\
+		(var) && ((tvar) = TAILQ_PREV((var), headname, field), 1);	\
+		(var) = (tvar))
 
 #define	TAILQ_CONCAT(head1, head2, field) do {				\
 	if (!TAILQ_EMPTY(head2)) {					\

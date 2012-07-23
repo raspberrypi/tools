@@ -1,5 +1,5 @@
 /* Generated automatically by the program 'build/genpreds'
-   from the machine description file '/home/dc4/crosstool/staging/.build/src/gcc-linaro-4.7-2012.04/gcc/config/arm/arm.md'.  */
+   from the machine description file '/home/extra/crosstool/staginghf/.build/src/gcc-linaro-4.7-2012.04/gcc/config/arm/arm.md'.  */
 
 #ifndef GCC_TM_PREDS_H
 #define GCC_TM_PREDS_H

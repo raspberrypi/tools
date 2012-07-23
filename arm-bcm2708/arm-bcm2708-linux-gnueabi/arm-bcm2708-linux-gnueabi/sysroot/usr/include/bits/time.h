@@ -1,5 +1,5 @@
-/* System-dependent timing definitions.  Linux version.
-   Copyright (C) 1996,1997,1999-2003,2010,2011 Free Software Foundation, Inc.
+/* System-dependent timing definitions.  Generic version.
+   Copyright (C) 1996,1997,1999-2002,2003,2010 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -20,21 +20,6 @@
 /*
  * Never include this file directly; use <time.h> instead.
  */
-
-#if defined __need_timeval || defined __USE_GNU
-# ifndef _STRUCT_TIMEVAL
-#  define _STRUCT_TIMEVAL	1
-#  include <bits/types.h>
-
-/* A time value that is accurate to the nearest
-   microsecond but also has a range of years.  */
-struct timeval
-  {
-    __time_t tv_sec;		/* Seconds.  */
-    __suseconds_t tv_usec;	/* Microseconds.  */
-  };
-# endif	/* struct timeval */
-#endif
 
 #ifndef __need_timeval
 # ifndef _BITS_TIME_H
@@ -71,29 +56,26 @@ extern long int __sysconf (int);
 #   define CLOCK_REALTIME_COARSE	5
 /* Monotonic system-wide clock, updated only on ticks.  */
 #   define CLOCK_MONOTONIC_COARSE	6
-/* Monotonic system-wide clock that includes time spent in suspension.  */
-#   define CLOCK_BOOTTIME		7
-/* Like CLOCK_REALTIME but also wakes suspended system.  */
-#   define CLOCK_REALTIME_ALARM		8
-/* Like CLOCK_BOOTTIME but also wakes suspended system.  */
-#   define CLOCK_BOOTTIME_ALARM		9
 
 /* Flag to indicate time is absolute.  */
 #   define TIMER_ABSTIME		1
 #  endif
 
-#  ifdef __USE_GNU
-#   include <bits/timex.h>
-
-__BEGIN_DECLS
-
-/* Tune a POSIX clock.  */
-extern int clock_adjtime (__clockid_t __clock_id, struct timex *__utx) __THROW;
-
-__END_DECLS
-#  endif /* use GNU */
-
 # endif	/* bits/time.h */
 #endif
 
-#undef __need_timeval
+#ifdef __need_timeval
+# undef __need_timeval
+# ifndef _STRUCT_TIMEVAL
+#  define _STRUCT_TIMEVAL	1
+#  include <bits/types.h>
+
+/* A time value that is accurate to the nearest
+   microsecond but also has a range of years.  */
+struct timeval
+  {
+    __time_t tv_sec;		/* Seconds.  */
+    __suseconds_t tv_usec;	/* Microseconds.  */
+  };
+# endif	/* struct timeval */
+#endif	/* need timeval */

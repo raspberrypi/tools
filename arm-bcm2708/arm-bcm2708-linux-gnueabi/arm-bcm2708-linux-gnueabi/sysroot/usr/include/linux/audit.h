@@ -26,6 +26,7 @@
 
 #include <linux/types.h>
 #include <linux/elf-em.h>
+#include <linux/ptrace.h>
 
 /* The netlink messages for the audit system is divided into blocks:
  * 1000 - 1099 are for commanding the audit system
@@ -181,6 +182,40 @@
  * AUDIT_UNUSED_BITS is updated if need be. */
 #define AUDIT_UNUSED_BITS	0x07FFFC00
 
+/* AUDIT_FIELD_COMPARE rule list */
+#define AUDIT_COMPARE_UID_TO_OBJ_UID	1
+#define AUDIT_COMPARE_GID_TO_OBJ_GID	2
+#define AUDIT_COMPARE_EUID_TO_OBJ_UID	3
+#define AUDIT_COMPARE_EGID_TO_OBJ_GID	4
+#define AUDIT_COMPARE_AUID_TO_OBJ_UID	5
+#define AUDIT_COMPARE_SUID_TO_OBJ_UID	6
+#define AUDIT_COMPARE_SGID_TO_OBJ_GID	7
+#define AUDIT_COMPARE_FSUID_TO_OBJ_UID	8
+#define AUDIT_COMPARE_FSGID_TO_OBJ_GID	9
+
+#define AUDIT_COMPARE_UID_TO_AUID	10
+#define AUDIT_COMPARE_UID_TO_EUID	11
+#define AUDIT_COMPARE_UID_TO_FSUID	12
+#define AUDIT_COMPARE_UID_TO_SUID	13
+
+#define AUDIT_COMPARE_AUID_TO_FSUID	14
+#define AUDIT_COMPARE_AUID_TO_SUID	15
+#define AUDIT_COMPARE_AUID_TO_EUID	16
+
+#define AUDIT_COMPARE_EUID_TO_SUID	17
+#define AUDIT_COMPARE_EUID_TO_FSUID	18
+
+#define AUDIT_COMPARE_SUID_TO_FSUID	19
+
+#define AUDIT_COMPARE_GID_TO_EGID	20
+#define AUDIT_COMPARE_GID_TO_FSGID	21
+#define AUDIT_COMPARE_GID_TO_SGID	22
+
+#define AUDIT_COMPARE_EGID_TO_FSGID	23
+#define AUDIT_COMPARE_EGID_TO_SGID	24
+#define AUDIT_COMPARE_SGID_TO_FSGID	25
+
+#define AUDIT_MAX_FIELD_COMPARE		AUDIT_COMPARE_SGID_TO_FSGID
 
 /* Rule fields */
 				/* These are useful when checking the
@@ -222,6 +257,9 @@
 #define AUDIT_PERM	106
 #define AUDIT_DIR	107
 #define AUDIT_FILETYPE	108
+#define AUDIT_OBJ_UID	109
+#define AUDIT_OBJ_GID	110
+#define AUDIT_FIELD_COMPARE	111
 
 #define AUDIT_ARG0      200
 #define AUDIT_ARG1      (AUDIT_ARG0+1)

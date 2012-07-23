@@ -20,7 +20,7 @@
 /* Endian macros. */
 #  include <endian.h>
 
-#if   defined(__BYTE_ORDER)
+#if defined(__BYTE_ORDER)
 #  if __BYTE_ORDER == __BIG_ENDIAN
 #    define _PATCHKEY(id) (0xfd00|id)
 #  elif __BYTE_ORDER == __LITTLE_ENDIAN

@@ -1,5 +1,5 @@
 /* Prototypes and definition for malloc implementation.
-   Copyright (C) 1996, 1997, 1999, 2000, 2002-2004, 2005, 2007, 2009, 2011
+   Copyright (C) 1996, 1997, 1999, 2000, 2002-2004, 2005, 2007, 2009
    Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -37,20 +37,10 @@
    functions.  */
 # define __MALLOC_PMT(args)	args
 
-# ifdef _LIBC
-#  define __MALLOC_HOOK_VOLATILE
-#  define __MALLOC_DEPRECATED
-# else
-#  define __MALLOC_HOOK_VOLATILE __volatile
-#  define __MALLOC_DEPRECATED __attribute_deprecated__
-# endif
-
 #else	/* Not GCC.  */
 
 # define __MALLOC_P(args)	args
 # define __MALLOC_PMT(args)	args
-# define __MALLOC_HOOK_VOLATILE
-# define __MALLOC_DEPRECATED __attribute_deprecated__
 
 #endif	/* GCC.  */
 
@@ -58,49 +48,50 @@
 __BEGIN_DECLS
 
 /* Allocate SIZE bytes of memory.  */
-extern void *malloc (size_t __size) __THROW __attribute_malloc__ __wur;
+extern void *malloc __MALLOC_P ((size_t __size)) __attribute_malloc__ __wur;
 
 /* Allocate NMEMB elements of SIZE bytes each, all initialized to 0.  */
-extern void *calloc (size_t __nmemb, size_t __size)
-     __THROW __attribute_malloc__ __wur;
+extern void *calloc __MALLOC_P ((size_t __nmemb, size_t __size))
+       __attribute_malloc__ __wur;
 
 /* Re-allocate the previously allocated block in __ptr, making the new
    block SIZE bytes long.  */
 /* __attribute_malloc__ is not used, because if realloc returns
    the same pointer that was passed to it, aliasing needs to be allowed
    between objects pointed by the old and new pointers.  */
-extern void *realloc (void *__ptr, size_t __size)
-     __THROW __attribute_warn_unused_result__;
+extern void *realloc __MALLOC_P ((void *__ptr, size_t __size))
+       __attribute_warn_unused_result__;
 
 /* Free a block allocated by `malloc', `realloc' or `calloc'.  */
-extern void free (void *__ptr) __THROW;
+extern void free __MALLOC_P ((void *__ptr));
 
 /* Free a block allocated by `calloc'. */
-extern void cfree (void *__ptr) __THROW;
+extern void cfree __MALLOC_P ((void *__ptr));
 
 /* Allocate SIZE bytes allocated to ALIGNMENT bytes.  */
-extern void *memalign (size_t __alignment, size_t __size)
-     __THROW __attribute_malloc__ __wur;
+extern void *memalign __MALLOC_P ((size_t __alignment, size_t __size))
+       __attribute_malloc__ __wur;
 
 /* Allocate SIZE bytes on a page boundary.  */
-extern void *valloc (size_t __size) __THROW __attribute_malloc__ __wur;
+extern void *valloc __MALLOC_P ((size_t __size))
+       __attribute_malloc__ __wur;
 
 /* Equivalent to valloc(minimum-page-that-holds(n)), that is, round up
    __size to nearest pagesize. */
-extern void * pvalloc (size_t __size) __THROW __attribute_malloc__ __wur;
+extern void * pvalloc __MALLOC_P ((size_t __size))
+       __attribute_malloc__ __wur;
 
 /* Underlying allocation function; successive calls should return
    contiguous pieces of memory.  */
-extern void *(*__morecore) (ptrdiff_t __size);
+extern void *(*__morecore) __MALLOC_PMT ((ptrdiff_t __size));
 
 /* Default value of `__morecore'.  */
-extern void *__default_morecore (ptrdiff_t __size)
-     __THROW __attribute_malloc__;
+extern void *__default_morecore __MALLOC_P ((ptrdiff_t __size))
+       __attribute_malloc__;
 
 /* SVID2/XPG mallinfo structure */
 
-struct mallinfo
-{
+struct mallinfo {
   int arena;    /* non-mmapped space allocated from system */
   int ordblks;  /* number of free chunks */
   int smblks;   /* number of fastbin blocks */
@@ -114,7 +105,7 @@ struct mallinfo
 };
 
 /* Returns a copy of the updated current mallinfo. */
-extern struct mallinfo mallinfo (void) __THROW;
+extern struct mallinfo mallinfo __MALLOC_P ((void));
 
 /* SVID2/XPG mallopt options */
 #ifndef M_MXFAST
@@ -141,53 +132,47 @@ extern struct mallinfo mallinfo (void) __THROW;
 #define M_ARENA_MAX	    -8
 
 /* General SVID/XPG interface to tunable parameters. */
-extern int mallopt (int __param, int __val) __THROW;
+extern int mallopt __MALLOC_P ((int __param, int __val));
 
 /* Release all but __pad bytes of freed top-most memory back to the
    system. Return 1 if successful, else 0. */
-extern int malloc_trim (size_t __pad) __THROW;
+extern int malloc_trim __MALLOC_P ((size_t __pad));
 
 /* Report the number of usable allocated bytes associated with allocated
    chunk __ptr. */
-extern size_t malloc_usable_size (void *__ptr) __THROW;
+extern size_t malloc_usable_size __MALLOC_P ((void *__ptr));
 
 /* Prints brief summary statistics on stderr. */
-extern void malloc_stats (void) __THROW;
+extern void malloc_stats __MALLOC_P ((void));
 
 /* Output information about state of allocator to stream FP.  */
-extern int malloc_info (int __options, FILE *__fp) __THROW;
+extern int malloc_info (int __options, FILE *__fp);
 
 /* Record the state of all malloc variables in an opaque data structure. */
-extern void *malloc_get_state (void) __THROW;
+extern void *malloc_get_state __MALLOC_P ((void));
 
 /* Restore the state of all malloc variables from data obtained with
    malloc_get_state(). */
-extern int malloc_set_state (void *__ptr) __THROW;
+extern int malloc_set_state __MALLOC_P ((void *__ptr));
 
 /* Called once when malloc is initialized; redefining this variable in
    the application provides the preferred way to set up the hook
    pointers. */
-extern void (*__MALLOC_HOOK_VOLATILE __malloc_initialize_hook) (void)
-     __MALLOC_DEPRECATED;
+extern void (*__malloc_initialize_hook) __MALLOC_PMT ((void));
 /* Hooks for debugging and user-defined versions. */
-extern void (*__MALLOC_HOOK_VOLATILE __free_hook) (void *__ptr,
-						   __const __malloc_ptr_t)
-     __MALLOC_DEPRECATED;
-extern void *(*__MALLOC_HOOK_VOLATILE __malloc_hook) (size_t __size,
-						      __const __malloc_ptr_t)
-     __MALLOC_DEPRECATED;
-extern void *(*__MALLOC_HOOK_VOLATILE __realloc_hook) (void *__ptr,
-						       size_t __size,
-						       __const __malloc_ptr_t)
-     __MALLOC_DEPRECATED;
-extern void *(*__MALLOC_HOOK_VOLATILE __memalign_hook) (size_t __alignment,
-							size_t __size,
-							__const __malloc_ptr_t)
-     __MALLOC_DEPRECATED;
-extern void (*__MALLOC_HOOK_VOLATILE __after_morecore_hook) (void);
+extern void (*__free_hook) __MALLOC_PMT ((void *__ptr,
+					__const __malloc_ptr_t));
+extern void *(*__malloc_hook) __MALLOC_PMT ((size_t __size,
+					     __const __malloc_ptr_t));
+extern void *(*__realloc_hook) __MALLOC_PMT ((void *__ptr, size_t __size,
+					      __const __malloc_ptr_t));
+extern void *(*__memalign_hook) __MALLOC_PMT ((size_t __alignment,
+					       size_t __size,
+					       __const __malloc_ptr_t));
+extern void (*__after_morecore_hook) __MALLOC_PMT ((void));
 
 /* Activate a standard set of debugging hooks. */
-extern void __malloc_check_init (void) __THROW __MALLOC_DEPRECATED;
+extern void __malloc_check_init __MALLOC_P ((void));
 
 
 __END_DECLS

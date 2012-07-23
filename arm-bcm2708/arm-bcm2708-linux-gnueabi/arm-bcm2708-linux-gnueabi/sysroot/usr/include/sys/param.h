@@ -1,5 +1,4 @@
-/* Copyright (C) 1995-1997,2000,2001,2003,2008,2011
-   Free Software Foundation, Inc.
+/* Copyright (C) 1995-1997,2000,2001,2003,2008 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -29,7 +28,7 @@
 #include <linux/param.h>
 
 /* The kernel headers defines ARG_MAX.  The value is wrong, though.  */
-#ifdef __undef_ARG_MAX
+#ifndef __undef_ARG_MAX
 # undef ARG_MAX
 # undef __undef_ARG_MAX
 #endif

@@ -41,6 +41,8 @@
 #include <linux/string.h>
 #include <asm/byteorder.h>
 
+#include <arpa/inet.h> /* for ntohs etc. */
+
 /*
  * Configuration
  *

@@ -114,7 +114,10 @@ typedef __ssize_t ssize_t;
 #ifdef	__USE_BSD
 # ifndef __daddr_t_defined
 typedef __daddr_t daddr_t;
+#  if ! defined(caddr_t) && ! defined(__caddr_t_defined)
 typedef __caddr_t caddr_t;
+#   define __caddr_t_defined
+#  endif
 #  define __daddr_t_defined
 # endif
 #endif

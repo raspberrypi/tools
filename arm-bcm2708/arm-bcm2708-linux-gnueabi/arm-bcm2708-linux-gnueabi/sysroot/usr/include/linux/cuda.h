@@ -5,6 +5,9 @@
  * Copyright (C) 1996 Paul Mackerras.
  */
 
+#ifndef _LINUX_CUDA_H
+#define _LINUX_CUDA_H
+
 /* CUDA commands (2nd byte) */
 #define CUDA_WARM_START		0
 #define CUDA_AUTOPOLL		1
@@ -26,3 +29,5 @@
 #define CUDA_GET_DEVICE_LIST	0x1a
 #define CUDA_GET_SET_IIC	0x22
 
+
+#endif /* _LINUX_CUDA_H */

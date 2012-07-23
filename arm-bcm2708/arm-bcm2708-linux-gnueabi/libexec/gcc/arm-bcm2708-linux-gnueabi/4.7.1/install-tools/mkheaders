@@ -53,7 +53,7 @@ if [ x$1 != x ] ; then
   prefix=$1
   shift
 else
-  prefix=/home/dc4/x-tools/arm-bcm2708-linux-gnueabi
+  prefix=/home/dc4/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi
 fi
 
 # Allow for alternate isysroot in which to find headers

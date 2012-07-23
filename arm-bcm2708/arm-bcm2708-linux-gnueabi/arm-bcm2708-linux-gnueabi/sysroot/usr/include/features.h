@@ -68,7 +68,6 @@
    __USE_UNIX98		Define Single Unix V2 things.
    __USE_XOPEN2K        Define XPG6 things.
    __USE_XOPEN2KXSI     Define XPG6 XSI things.
-   __USE_XOPEN2K8       Define XPG7 things.
    __USE_XOPEN2K8XSI    Define XPG7 XSI things.
    __USE_LARGEFILE	Define correct standard I/O things.
    __USE_LARGEFILE64	Define LFS things with separate names.
@@ -339,7 +338,7 @@
 /* Major and minor version number of the GNU C library package.  Use
    these macros to test for features in specific releases.  */
 #define	__GLIBC__	2
-#define	__GLIBC_MINOR__	14
+#define	__GLIBC_MINOR__	13
 
 #define __GLIBC_PREREQ(maj, min) \
 	((__GLIBC__ << 16) + __GLIBC_MINOR__ >= ((maj) << 16) + (min))

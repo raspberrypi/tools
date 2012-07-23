@@ -1,0 +1,6 @@
+python
+import sys
+sys.path.insert(0, '/home/dc4/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/share/gcc-4.7.1/python')
+from libstdcxx.v6.printers import register_libstdcxx_printers
+register_libstdcxx_printers (None)
+end

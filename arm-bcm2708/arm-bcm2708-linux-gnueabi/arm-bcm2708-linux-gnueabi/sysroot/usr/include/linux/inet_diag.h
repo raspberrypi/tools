@@ -34,6 +34,15 @@ struct inet_diag_req {
 	__u32	idiag_dbs;		/* Tables to dump (NI) */
 };
 
+struct inet_diag_req_v2 {
+	__u8	sdiag_family;
+	__u8	sdiag_protocol;
+	__u8	idiag_ext;
+	__u8	pad;
+	__u32	idiag_states;
+	struct inet_diag_sockid id;
+};
+
 enum {
 	INET_DIAG_REQ_NONE,
 	INET_DIAG_REQ_BYTECODE,
@@ -97,9 +106,12 @@ enum {
 	INET_DIAG_INFO,
 	INET_DIAG_VEGASINFO,
 	INET_DIAG_CONG,
+	INET_DIAG_TOS,
+	INET_DIAG_TCLASS,
+	INET_DIAG_SKMEMINFO,
 };
 
-#define INET_DIAG_MAX INET_DIAG_CONG
+#define INET_DIAG_MAX INET_DIAG_SKMEMINFO
 
 
 /* INET_DIAG_MEM */

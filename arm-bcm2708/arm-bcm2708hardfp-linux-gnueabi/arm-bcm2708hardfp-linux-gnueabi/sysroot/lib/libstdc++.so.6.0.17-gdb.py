@@ -19,8 +19,8 @@ import gdb
 import os
 import os.path
 
-pythondir = '/home/dc4/x-tools/arm-bcm2708hardfp-linux-gnueabi/share/gcc-4.7.1/python'
-libdir = '/home/dc4/x-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/lib'
+pythondir = '/home/dc4/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/share/gcc-4.7.1/python'
+libdir = '/home/dc4/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/lib'
 
 # This file might be loaded when there is no current objfile.  This
 # can happen if the user loads it manually.  In this case we don't
