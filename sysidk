@@ -32,7 +32,7 @@ help()
         echo "syntax: <command> --help"
         echo "        Help about command"
         echo
-        echo "syntax: --setup [-n] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "syntax: --setup [-l] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
         echo "        Place sysidk scripts in the installation directory"
         echo "        -l   Use local directories - no need to setup with root access"
         echo "        -b   Set binary directory for scripts"
@@ -45,7 +45,7 @@ help()
         echo "        Install sysidk packages"
         echo "        (Use 'sysidk sysipk -h' for other package management options)"
         echo
-        echo "syntax: --install [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
+        echo "syntax: --install [-l] [-b <install_dir>] [-p <pkg_dir>] <scripts package> "
         echo "        Setup (as --setup below) and install sysidk commands into your"
         echo "        shell sessions (on next logon)"
         echo "syntax: --uninstall"
@@ -152,15 +152,15 @@ sysidk_help_commands()
 
 sysidk_add()
 {   local rc=0
-    local pk
-    local type
-    local opts=
 
     if ! PATH="$dir_bcm_scripts:$PATH" type sysipk>/dev/null 2>/dev/null; then
         echo "$cmd_name: your installed scripts don't include the 'sysipk' command">&2
         echo "$cmd_name: add the scripts package first?">&2
         rc=1
     else
+        local opts=
+        local pk
+        local type
         for pk in "$@"; do
             case "$pk" in
                 -* | --*) opts="$opts $pk";;
@@ -168,13 +168,16 @@ sysidk_add()
                 *-boot.tgz) type=boot;;
                 *-trk.tgz) type=track;;
                 *-bin.tgz) type=scripts;;
+                *) type=unknown;;
             esac
-            if [ -z "$type" ]; then
+            if [ "$type" = "unknown" ]; then
                 echo "$cmd_name: sorry - don't recognize the package type of '$pk'"
                 rc=1
+            elif [ ! -z "$type" ]; then
+                # echo "sysipk $type $opts --install $pk">&2
+                PATH="$dir_bcm_scripts:$PATH" sysipk $type $opts --install "$pk"
+                rc=$?
             fi
-            PATH="$dir_bcm_scripts:$PATH" sysipk $type $opts --install "$@"
-            rc=$?
         done
     fi    
     return $rc
