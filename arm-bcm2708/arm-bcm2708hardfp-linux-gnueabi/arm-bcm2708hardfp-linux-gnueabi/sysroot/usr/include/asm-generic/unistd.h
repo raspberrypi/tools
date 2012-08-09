@@ -218,7 +218,7 @@ __SC_COMP(__NR_pwritev, sys_pwritev, compat_sys_pwritev)
 
 /* fs/sendfile.c */
 #define __NR3264_sendfile 71
-__SYSCALL(__NR3264_sendfile, sys_sendfile64)
+__SC_3264(__NR3264_sendfile, sys_sendfile64, sys_sendfile)
 
 /* fs/select.c */
 #define __NR_pselect6 72
@@ -685,15 +685,9 @@ __SYSCALL(__NR_syncfs, sys_syncfs)
 __SYSCALL(__NR_setns, sys_setns)
 #define __NR_sendmmsg 269
 __SC_COMP(__NR_sendmmsg, sys_sendmmsg, compat_sys_sendmmsg)
-#define __NR_process_vm_readv 270
-__SC_COMP(__NR_process_vm_readv, sys_process_vm_readv, \
-          compat_sys_process_vm_readv)
-#define __NR_process_vm_writev 271
-__SC_COMP(__NR_process_vm_writev, sys_process_vm_writev, \
-          compat_sys_process_vm_writev)
 
 #undef __NR_syscalls
-#define __NR_syscalls 272
+#define __NR_syscalls 270
 
 /*
  * All syscalls below here should go away really,

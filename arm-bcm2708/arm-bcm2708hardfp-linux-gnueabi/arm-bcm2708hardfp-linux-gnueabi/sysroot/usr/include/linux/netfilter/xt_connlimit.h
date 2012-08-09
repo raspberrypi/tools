@@ -2,7 +2,6 @@
 #define _XT_CONNLIMIT_H
 
 #include <linux/types.h>
-#include <linux/netfilter.h>
 
 struct xt_connlimit_data;
 

@@ -75,6 +75,5 @@
 #define SERIO_DYNAPRO	0x3a
 #define SERIO_HAMPSHIRE	0x3b
 #define SERIO_PS2MULT	0x3c
-#define SERIO_TSC40	0x3d
 
 #endif

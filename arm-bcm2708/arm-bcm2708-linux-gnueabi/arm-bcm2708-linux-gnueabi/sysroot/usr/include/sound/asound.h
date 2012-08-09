@@ -690,7 +690,7 @@ struct snd_timer_tread {
  *                                                                          *
  ****************************************************************************/
 
-#define SNDRV_CTL_VERSION		SNDRV_PROTOCOL_VERSION(2, 0, 7)
+#define SNDRV_CTL_VERSION		SNDRV_PROTOCOL_VERSION(2, 0, 6)
 
 struct snd_ctl_card_info {
 	int card;			/* card number */
@@ -787,8 +787,6 @@ struct snd_ctl_elem_info {
 			unsigned int items;	/* R: number of items */
 			unsigned int item;	/* W: item number */
 			char name[64];		/* R: value name */
-			__u64 names_ptr;	/* W: names list (ELEM_ADD only) */
-			unsigned int names_length;
 		} enumerated;
 		unsigned char reserved[128];
 	} value;

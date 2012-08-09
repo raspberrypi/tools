@@ -8,6 +8,8 @@
  * Copyright (c) 2002-2007 Volkswagen Group Electronic Research
  * All rights reserved.
  *
+ * Send feedback to <socketcan-users@lists.berlios.de>
+ *
  */
 
 #ifndef CAN_RAW_H

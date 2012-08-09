@@ -44,7 +44,7 @@ struct arpt_arp {
 	struct in_addr smsk, tmsk;
 
 	/* Device hw address length, src+target device addresses */
-	__u8 arhln, arhln_mask;
+	u_int8_t arhln, arhln_mask;
 	struct arpt_devaddr_info src_devaddr;
 	struct arpt_devaddr_info tgt_devaddr;
 
@@ -63,9 +63,9 @@ struct arpt_arp {
 	unsigned char iniface_mask[IFNAMSIZ], outiface_mask[IFNAMSIZ];
 
 	/* Flags word */
-	__u8 flags;
+	u_int8_t flags;
 	/* Inverse flags */
-	__u16 invflags;
+	u_int16_t invflags;
 };
 
 /* Values for "flag" field in struct arpt_ip (general arp structure).
@@ -94,9 +94,9 @@ struct arpt_entry
 	struct arpt_arp arp;
 
 	/* Size of arpt_entry + matches */
-	__u16 target_offset;
+	u_int16_t target_offset;
 	/* Size of arpt_entry + matches + target */
-	__u16 next_offset;
+	u_int16_t next_offset;
 
 	/* Back pointer */
 	unsigned int comefrom;

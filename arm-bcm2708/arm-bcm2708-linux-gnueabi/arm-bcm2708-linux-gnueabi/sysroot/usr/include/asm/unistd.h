@@ -402,8 +402,6 @@
 #define __NR_syncfs			(__NR_SYSCALL_BASE+373)
 #define __NR_sendmmsg			(__NR_SYSCALL_BASE+374)
 #define __NR_setns			(__NR_SYSCALL_BASE+375)
-#define __NR_process_vm_readv		(__NR_SYSCALL_BASE+376)
-#define __NR_process_vm_writev		(__NR_SYSCALL_BASE+377)
 
 /*
  * The following SWIs are ARM private.
@@ -424,7 +422,7 @@
 /*
  * The following syscalls are obsolete and no longer available for EABI.
  */
-#if defined(__ARM_EABI__)
+#if defined(__ARM_EABI__) && !defined(__KERNEL__)
 #undef __NR_time
 #undef __NR_umount
 #undef __NR_stime

@@ -5,6 +5,8 @@
  *
  * Copyright (c) 2009 Wolfgang Grandegger <wg@grandegger.com>
  *
+ * Send feedback to <socketcan-users@lists.berlios.de>
+ *
  */
 
 #ifndef CAN_NETLINK_H

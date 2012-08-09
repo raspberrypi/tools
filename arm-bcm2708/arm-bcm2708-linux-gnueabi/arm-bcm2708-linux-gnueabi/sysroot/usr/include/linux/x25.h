@@ -12,7 +12,6 @@
 #define	X25_KERNEL_H
 
 #include <linux/types.h>
-#include <linux/socket.h>
 
 #define	SIOCX25GSUBSCRIP	(SIOCPROTOPRIVATE + 0)
 #define	SIOCX25SSUBSCRIP	(SIOCPROTOPRIVATE + 1)
@@ -58,7 +57,7 @@ struct x25_address {
  *	Linux X.25 Address structure, used for bind, and connect mostly.
  */
 struct sockaddr_x25 {
-	__kernel_sa_family_t sx25_family;	/* Must be AF_X25 */
+	sa_family_t	   sx25_family;		/* Must be AF_X25 */
 	struct x25_address sx25_addr;		/* X.121 Address */
 };
 

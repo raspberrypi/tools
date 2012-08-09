@@ -193,8 +193,6 @@
 #define SYS_pread64 __NR_pread64
 #define SYS_preadv __NR_preadv
 #define SYS_prlimit64 __NR_prlimit64
-#define SYS_process_vm_readv __NR_process_vm_readv
-#define SYS_process_vm_writev __NR_process_vm_writev
 #define SYS_pselect6 __NR_pselect6
 #define SYS_ptrace __NR_ptrace
 #define SYS_pwrite64 __NR_pwrite64

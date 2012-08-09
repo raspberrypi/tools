@@ -73,14 +73,14 @@ struct ip6t_ip6 {
 	 *   MH do not match any packets.
 	 * - You also need to set IP6T_FLAGS_PROTO to "flags" to check protocol.
 	 */
-	__u16 proto;
+	u_int16_t proto;
 	/* TOS to match iff flags & IP6T_F_TOS */
-	__u8 tos;
+	u_int8_t tos;
 
 	/* Flags word */
-	__u8 flags;
+	u_int8_t flags;
 	/* Inverse flags */
-	__u8 invflags;
+	u_int8_t invflags;
 };
 
 /* Values for "flag" field in struct ip6t_ip6 (general ip6 structure). */
@@ -110,9 +110,9 @@ struct ip6t_entry {
 	unsigned int nfcache;
 
 	/* Size of ipt_entry + matches */
-	__u16 target_offset;
+	u_int16_t target_offset;
 	/* Size of ipt_entry + matches + target */
-	__u16 next_offset;
+	u_int16_t next_offset;
 
 	/* Back pointer */
 	unsigned int comefrom;
@@ -178,9 +178,9 @@ struct ip6t_error {
 
 /* ICMP matching stuff */
 struct ip6t_icmp {
-	__u8 type;				/* type to match */
-	__u8 code[2];				/* range of code */
-	__u8 invflags;				/* Inverse flags */
+	u_int8_t type;				/* type to match */
+	u_int8_t code[2];			/* range of code */
+	u_int8_t invflags;			/* Inverse flags */
 };
 
 /* Values for "inv" field for struct ipt_icmp. */

@@ -73,12 +73,12 @@ struct ipt_ip {
 	unsigned char iniface_mask[IFNAMSIZ], outiface_mask[IFNAMSIZ];
 
 	/* Protocol, 0 = ANY */
-	__u16 proto;
+	u_int16_t proto;
 
 	/* Flags word */
-	__u8 flags;
+	u_int8_t flags;
 	/* Inverse flags */
-	__u8 invflags;
+	u_int8_t invflags;
 };
 
 /* Values for "flag" field in struct ipt_ip (general ip structure). */
@@ -106,9 +106,9 @@ struct ipt_entry {
 	unsigned int nfcache;
 
 	/* Size of ipt_entry + matches */
-	__u16 target_offset;
+	u_int16_t target_offset;
 	/* Size of ipt_entry + matches + target */
-	__u16 next_offset;
+	u_int16_t next_offset;
 
 	/* Back pointer */
 	unsigned int comefrom;
@@ -141,9 +141,9 @@ struct ipt_entry {
 
 /* ICMP matching stuff */
 struct ipt_icmp {
-	__u8 type;				/* type to match */
-	__u8 code[2];				/* range of code */
-	__u8 invflags;				/* Inverse flags */
+	u_int8_t type;				/* type to match */
+	u_int8_t code[2];			/* range of code */
+	u_int8_t invflags;			/* Inverse flags */
 };
 
 /* Values for "inv" field for struct ipt_icmp. */

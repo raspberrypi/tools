@@ -9,7 +9,8 @@
 #define _LINUX_CAIF_SOCKET_H
 
 #include <linux/types.h>
-#include <linux/socket.h>
+
+#include <sys/socket.h>
 
 /**
  * enum caif_link_selector -    Physical Link Selection.
@@ -139,7 +140,7 @@ enum caif_debug_service {
  * CAIF Channel. It defines the service to connect to on the modem.
  */
 struct sockaddr_caif {
-	__kernel_sa_family_t  family;
+	sa_family_t  family;
 	union {
 		struct {
 			__u8  type;		/* type: enum caif_at_type */
