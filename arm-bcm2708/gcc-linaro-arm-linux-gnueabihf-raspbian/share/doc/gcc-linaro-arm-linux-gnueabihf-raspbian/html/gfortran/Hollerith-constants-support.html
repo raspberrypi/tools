@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>Hollerith constants support - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran" title="Extensions implemented in GNU Fortran">
+<link rel="prev" href="Implicitly-convert-LOGICAL-and-INTEGER-values.html#Implicitly-convert-LOGICAL-and-INTEGER-values" title="Implicitly convert LOGICAL and INTEGER values">
+<link rel="next" href="Cray-pointers.html#Cray-pointers" title="Cray pointers">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Hollerith-constants-support"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Cray-pointers.html#Cray-pointers">Cray pointers</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Implicitly-convert-LOGICAL-and-INTEGER-values.html#Implicitly-convert-LOGICAL-and-INTEGER-values">Implicitly convert LOGICAL and INTEGER values</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran">Extensions implemented in GNU Fortran</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.1.13 Hollerith constants support</h4>
+
+<p><a name="index-Hollerith-constants-331"></a>
+GNU Fortran supports Hollerith constants in assignments, function
+arguments, and <code>DATA</code> and <code>ASSIGN</code> statements.  A Hollerith
+constant is written as a string of characters preceded by an integer
+constant indicating the character count, and the letter <code>H</code> or
+<code>h</code>, and stored in bytewise fashion in a numeric (<code>INTEGER</code>,
+<code>REAL</code>, or <code>complex</code>) or <code>LOGICAL</code> variable.  The
+constant will be padded or truncated to fit the size of the variable in
+which it is stored.
+
+   <p>Examples of valid uses of Hollerith constants:
+<pre class="smallexample">           complex*16 x(2)
+           data x /16Habcdefghijklmnop, 16Hqrstuvwxyz012345/
+           x(1) = 16HABCDEFGHIJKLMNOP
+           call foo (4h abc)
+</pre>
+   <p>Invalid Hollerith constants examples:
+<pre class="smallexample">           integer*4 a
+           a = 8H12345678 ! Valid, but the Hollerith constant will be truncated.
+           a = 0H         ! At least one character is needed.
+</pre>
+   <p>In general, Hollerith constants were used to provide a rudimentary
+facility for handling character strings in early Fortran compilers,
+prior to the introduction of <code>CHARACTER</code> variables in Fortran 77;
+in those cases, the standard-compliant equivalent is to convert the
+program to use proper character strings.  On occasion, there may be a
+case where the intent is specifically to initialize a numeric variable
+with a given byte sequence.  In these cases, the same result can be
+obtained by using the <code>TRANSFER</code> statement, as in this example.
+<pre class="smallexample">           INTEGER(KIND=4) :: a
+           a = TRANSFER ("abcd", a)     ! equivalent to: a = 4Habcd
+</pre>
+   </body></html>
+

@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>IBITS - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="IBCLR.html#IBCLR" title="IBCLR">
+<link rel="next" href="IBSET.html#IBSET" title="IBSET">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="IBITS"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="IBSET.html#IBSET">IBSET</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="IBCLR.html#IBCLR">IBCLR</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.117 <code>IBITS</code> &mdash; Bit extraction</h3>
+
+<p><a name="index-IBITS-718"></a><a name="index-bits_002c-get-719"></a><a name="index-bits_002c-extract-720"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>IBITS</code> extracts a field of length <var>LEN</var> from <var>I</var>,
+starting from bit position <var>POS</var> and extending left for <var>LEN</var>
+bits.  The result is right-justified and the remaining bits are
+zeroed.  The value of <code>POS+LEN</code> must be less than or equal to the
+value <code>BIT_SIZE(I)</code>.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later
+
+     <br><dt><em>Class</em>:<dd>Elemental function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = IBITS(I, POS, LEN)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>I</var>   </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>POS</var> </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>LEN</var> </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value is of type <code>INTEGER</code> and of the same kind as
+<var>I</var>.
+
+     <br><dt><em>See also</em>:<dd><a href="BIT_005fSIZE.html#BIT_005fSIZE">BIT_SIZE</a>, <a href="IBCLR.html#IBCLR">IBCLR</a>, <a href="IBSET.html#IBSET">IBSET</a>, <a href="IAND.html#IAND">IAND</a>, <a href="IOR.html#IOR">IOR</a>, <a href="IEOR.html#IEOR">IEOR</a>
+</dl>
+
+   </body></html>
+

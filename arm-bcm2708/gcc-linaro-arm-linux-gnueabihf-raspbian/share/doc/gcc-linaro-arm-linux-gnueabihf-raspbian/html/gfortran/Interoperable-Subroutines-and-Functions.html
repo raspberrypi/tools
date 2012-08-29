@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+<title>Interoperable Subroutines and Functions - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Interoperability-with-C.html#Interoperability-with-C" title="Interoperability with C">
+<link rel="prev" href="Interoperable-Global-Variables.html#Interoperable-Global-Variables" title="Interoperable Global Variables">
+<link rel="next" href="Working-with-Pointers.html#Working-with-Pointers" title="Working with Pointers">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Interoperable-Subroutines-and-Functions"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Working-with-Pointers.html#Working-with-Pointers">Working with Pointers</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Interoperable-Global-Variables.html#Interoperable-Global-Variables">Interoperable Global Variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Interoperability-with-C.html#Interoperability-with-C">Interoperability with C</a>
+<hr>
+</div>
+
+<h4 class="subsection">7.1.4 Interoperable Subroutines and Functions</h4>
+
+<p>Subroutines and functions have to have the <code>BIND(C)</code> attribute to
+be compatible with C.  The dummy argument declaration is relatively
+straightforward.  However, one needs to be careful because C uses
+call-by-value by default while Fortran behaves usually similar to
+call-by-reference.  Furthermore, strings and pointers are handled
+differently.  Note that only explicit size and assumed-size arrays are
+supported but not assumed-shape or allocatable arrays.
+
+   <p>To pass a variable by value, use the <code>VALUE</code> attribute. 
+Thus the following C prototype
+
+<pre class="smallexample">     <code>int func(int i, int *j)</code>
+</pre>
+   <p>matches the Fortran declaration
+
+<pre class="smallexample">       integer(c_int) function func(i,j)
+         use iso_c_binding, only: c_int
+         integer(c_int), VALUE :: i
+         integer(c_int) :: j
+</pre>
+   <p>Note that pointer arguments also frequently need the <code>VALUE</code> attribute,
+see <a href="Working-with-Pointers.html#Working-with-Pointers">Working with Pointers</a>.
+
+   <p>Strings are handled quite differently in C and Fortran.  In C a string
+is a <code>NUL</code>-terminated array of characters while in Fortran each string
+has a length associated with it and is thus not terminated (by e.g. 
+<code>NUL</code>).  For example, if one wants to use the following C function,
+
+<pre class="smallexample">       #include &lt;stdio.h&gt;
+       void print_C(char *string) /* equivalent: char string[]  */
+       {
+          printf("%s\n", string);
+       }
+</pre>
+   <p>to print &ldquo;Hello World&rdquo; from Fortran, one can call it using
+
+<pre class="smallexample">       use iso_c_binding, only: C_CHAR, C_NULL_CHAR
+       interface
+         subroutine print_c(string) bind(C, name="print_C")
+           use iso_c_binding, only: c_char
+           character(kind=c_char) :: string(*)
+         end subroutine print_c
+       end interface
+       call print_c(C_CHAR_"Hello World"//C_NULL_CHAR)
+</pre>
+   <p>As the example shows, one needs to ensure that the
+string is <code>NUL</code> terminated.  Additionally, the dummy argument
+<var>string</var> of <code>print_C</code> is a length-one assumed-size
+array; using <code>character(len=*)</code> is not allowed.  The example
+above uses <code>c_char_"Hello World"</code> to ensure the string
+literal has the right type; typically the default character
+kind and <code>c_char</code> are the same and thus <code>"Hello World"</code>
+is equivalent.  However, the standard does not guarantee this.
+
+   <p>The use of strings is now further illustrated using the C library
+function <code>strncpy</code>, whose prototype is
+
+<pre class="smallexample">       char *strncpy(char *restrict s1, const char *restrict s2, size_t n);
+</pre>
+   <p>The function <code>strncpy</code> copies at most <var>n</var> characters from
+string <var>s2</var> to <var>s1</var> and returns <var>s1</var>.  In the following
+example, we ignore the return value:
+
+<pre class="smallexample">       use iso_c_binding
+       implicit none
+       character(len=30) :: str,str2
+       interface
+         ! Ignore the return value of strncpy -&gt; subroutine
+         ! "restrict" is always assumed if we do not pass a pointer
+         subroutine strncpy(dest, src, n) bind(C)
+           import
+           character(kind=c_char),  intent(out) :: dest(*)
+           character(kind=c_char),  intent(in)  :: src(*)
+           integer(c_size_t), value, intent(in) :: n
+         end subroutine strncpy
+       end interface
+       str = repeat('X',30) ! Initialize whole string with 'X'
+       call strncpy(str, c_char_"Hello World"//C_NULL_CHAR, &amp;
+                    len(c_char_"Hello World",kind=c_size_t))
+       print '(a)', str ! prints: "Hello WorldXXXXXXXXXXXXXXXXXXX"
+       end
+</pre>
+   <p>The intrinsic procedures are described in <a href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>.
+
+   </body></html>
+

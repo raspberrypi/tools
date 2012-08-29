@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+<title>About GNU Fortran - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Introduction.html#Introduction" title="Introduction">
+<link rel="next" href="GNU-Fortran-and-GCC.html#GNU-Fortran-and-GCC" title="GNU Fortran and GCC">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="About-GNU-Fortran"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="GNU-Fortran-and-GCC.html#GNU-Fortran-and-GCC">GNU Fortran and GCC</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Introduction.html#Introduction">Introduction</a>
+<hr>
+</div>
+
+<h3 class="section">1.1 About GNU Fortran</h3>
+
+<p>The GNU Fortran compiler supports the Fortran 77, 90 and 95 standards
+completely, parts of the Fortran 2003 and Fortran 2008 standards, and
+several vendor extensions.  The development goal is to provide the
+following features:
+
+     <ul>
+<li>Read a user's program,
+stored in a file and containing instructions written
+in Fortran 77, Fortran 90, Fortran 95, Fortran 2003 or Fortran 2008. 
+This file contains <dfn>source code</dfn>.
+
+     <li>Translate the user's program into instructions a computer
+can carry out more quickly than it takes to translate the
+instructions in the first
+place.  The result after compilation of a program is
+<dfn>machine code</dfn>,
+code designed to be efficiently translated and processed
+by a machine such as your computer. 
+Humans usually are not as good writing machine code
+as they are at writing Fortran (or C++, Ada, or Java),
+because it is easy to make tiny mistakes writing machine code.
+
+     <li>Provide the user with information about the reasons why
+the compiler is unable to create a binary from the source code. 
+Usually this will be the case if the source code is flawed. 
+The Fortran 90 standard requires that the compiler can point out
+mistakes to the user. 
+An incorrect usage of the language causes an <dfn>error message</dfn>.
+
+     <p>The compiler will also attempt to diagnose cases where the
+user's program contains a correct usage of the language,
+but instructs the computer to do something questionable. 
+This kind of diagnostics message is called a <dfn>warning message</dfn>.
+
+     <li>Provide optional information about the translation passes
+from the source code to machine code. 
+This can help a user of the compiler to find the cause of
+certain bugs which may not be obvious in the source code,
+but may be more easily found at a lower level compiler output. 
+It also helps developers to find bugs in the compiler itself.
+
+     <li>Provide information in the generated machine code that can
+make it easier to find bugs in the program (using a debugging tool,
+called a <dfn>debugger</dfn>, such as the GNU Debugger <samp><span class="command">gdb</span></samp>).
+
+     <li>Locate and gather machine code already generated to
+perform actions requested by statements in the user's program. 
+This machine code is organized into <dfn>modules</dfn> and is located
+and <dfn>linked</dfn> to the user program. 
+</ul>
+
+   <p>The GNU Fortran compiler consists of several components:
+
+     <ul>
+<li>A version of the <samp><span class="command">gcc</span></samp> command
+(which also might be installed as the system's <samp><span class="command">cc</span></samp> command)
+that also understands and accepts Fortran source code. 
+The <samp><span class="command">gcc</span></samp> command is the <dfn>driver</dfn> program for
+all the languages in the GNU Compiler Collection (GCC);
+With <samp><span class="command">gcc</span></samp>,
+you can compile the source code of any language for
+which a front end is available in GCC.
+
+     <li>The <samp><span class="command">gfortran</span></samp> command itself,
+which also might be installed as the
+system's <samp><span class="command">f95</span></samp> command. 
+<samp><span class="command">gfortran</span></samp> is just another driver program,
+but specifically for the Fortran compiler only. 
+The difference with <samp><span class="command">gcc</span></samp> is that <samp><span class="command">gfortran</span></samp>
+will automatically link the correct libraries to your program.
+
+     <li>A collection of run-time libraries. 
+These libraries contain the machine code needed to support
+capabilities of the Fortran language that are not directly
+provided by the machine code generated by the
+<samp><span class="command">gfortran</span></samp> compilation phase,
+such as intrinsic functions and subroutines,
+and routines for interaction with files and the operating system. 
+<!-- and mechanisms to spawn, -->
+<!-- unleash and pause threads in parallelized code. -->
+
+     <li>The Fortran compiler itself, (<samp><span class="command">f951</span></samp>). 
+This is the GNU Fortran parser and code generator,
+linked to and interfaced with the GCC backend library. 
+<samp><span class="command">f951</span></samp> &ldquo;translates&rdquo; the source code to
+assembler code.  You would typically not use this
+program directly;
+instead, the <samp><span class="command">gcc</span></samp> or <samp><span class="command">gfortran</span></samp> driver
+programs will call it for you. 
+</ul>
+
+<!--  -->
+<!-- GNU Fortran and GCC -->
+<!--  -->
+   </body></html>
+

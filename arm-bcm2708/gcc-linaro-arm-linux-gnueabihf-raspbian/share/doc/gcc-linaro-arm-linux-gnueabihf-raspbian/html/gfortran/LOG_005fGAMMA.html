@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>LOG_GAMMA - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="LOG10.html#LOG10" title="LOG10">
+<link rel="next" href="LOGICAL.html#LOGICAL" title="LOGICAL">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="LOG_GAMMA"></a>
+<a name="LOG_005fGAMMA"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="LOGICAL.html#LOGICAL">LOGICAL</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="LOG10.html#LOG10">LOG10</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.154 <code>LOG_GAMMA</code> &mdash; Logarithm of the Gamma function</h3>
+
+<p><a name="index-LOG_005fGAMMA-819"></a><a name="index-LGAMMA-820"></a><a name="index-ALGAMA-821"></a><a name="index-DLGAMA-822"></a><a name="index-Gamma-function_002c-logarithm-of-823"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>LOG_GAMMA(X)</code> computes the natural logarithm of the absolute value
+of the Gamma (\Gamma) function.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2008 and later
+
+     <br><dt><em>Class</em>:<dd>Elemental function
+
+     <br><dt><em>Syntax</em>:<dd><code>X = LOG_GAMMA(X)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>X</var> </td><td valign="top" width="70%">Shall be of type <code>REAL</code> and neither zero
+nor a negative integer.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value is of type <code>REAL</code> of the same kind as <var>X</var>.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program test_log_gamma
+            real :: x = 1.0
+            x = lgamma(x) ! returns 0.0
+          end program test_log_gamma
+</pre>
+     <br><dt><em>Specific names</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="20%">Name             </td><td valign="top" width="20%">Argument         </td><td valign="top" width="20%">Return type       </td><td valign="top" width="25%">Standard
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>LGAMMA(X)</code> </td><td valign="top" width="20%"><code>REAL(4) X</code> </td><td valign="top" width="20%"><code>REAL(4)</code>    </td><td valign="top" width="25%">GNU Extension
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>ALGAMA(X)</code> </td><td valign="top" width="20%"><code>REAL(4) X</code> </td><td valign="top" width="20%"><code>REAL(4)</code>    </td><td valign="top" width="25%">GNU Extension
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>DLGAMA(X)</code> </td><td valign="top" width="20%"><code>REAL(8) X</code> </td><td valign="top" width="20%"><code>REAL(8)</code>    </td><td valign="top" width="25%">GNU Extension
+     <br></td></tr></table>
+
+     <br><dt><em>See also</em>:<dd>Gamma function: <a href="GAMMA.html#GAMMA">GAMMA</a>
+
+   </dl>
+
+   </body></html>
+

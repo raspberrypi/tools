@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+<title>XOR - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="VERIFY.html#VERIFY" title="VERIFY">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="XOR"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="VERIFY.html#VERIFY">VERIFY</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.256 <code>XOR</code> &mdash; Bitwise logical exclusive OR</h3>
+
+<p><a name="index-XOR-1126"></a><a name="index-bitwise-logical-exclusive-or-1127"></a><a name="index-logical-exclusive-or_002c-bitwise-1128"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Bitwise logical exclusive or.
+
+     <p>This intrinsic routine is provided for backwards compatibility with
+GNU Fortran 77.  For integer arguments, programmers should consider
+the use of the <a href="IEOR.html#IEOR">IEOR</a> intrinsic and for logical arguments the
+<code>.NEQV.</code> operator, which are both defined by the Fortran standard.
+
+     <br><dt><em>Standard</em>:<dd>GNU extension
+
+     <br><dt><em>Class</em>:<dd>Function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = XOR(I, J)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>I</var> </td><td valign="top" width="70%">The type shall be either  a scalar <code>INTEGER</code>
+type or a scalar <code>LOGICAL</code> type. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>J</var> </td><td valign="top" width="70%">The type shall be the same as the type of <var>I</var>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return type is either a scalar <code>INTEGER</code> or a scalar
+<code>LOGICAL</code>.  If the kind type parameters differ, then the
+smaller kind type is implicitly converted to larger kind, and the
+return has the larger kind.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          PROGRAM test_xor
+            LOGICAL :: T = .TRUE., F = .FALSE.
+            INTEGER :: a, b
+            DATA a / Z'F' /, b / Z'3' /
+          
+            WRITE (*,*) XOR(T, T), XOR(T, F), XOR(F, T), XOR(F, F)
+            WRITE (*,*) XOR(a, b)
+          END PROGRAM
+</pre>
+     <br><dt><em>See also</em>:<dd>Fortran 95 elemental function: <a href="IEOR.html#IEOR">IEOR</a>
+</dl>
+
+   </body></html>
+

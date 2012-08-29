@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<title>GET_ENVIRONMENT_VARIABLE - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="GETENV.html#GETENV" title="GETENV">
+<link rel="next" href="GETGID.html#GETGID" title="GETGID">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="GET_ENVIRONMENT_VARIABLE"></a>
+<a name="GET_005fENVIRONMENT_005fVARIABLE"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="GETGID.html#GETGID">GETGID</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="GETENV.html#GETENV">GETENV</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.102 <code>GET_ENVIRONMENT_VARIABLE</code> &mdash; Get an environmental variable</h3>
+
+<p><a name="index-GET_005fENVIRONMENT_005fVARIABLE-676"></a><a name="index-environment-variable-677"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Get the <var>VALUE</var> of the environmental variable <var>NAME</var>.
+
+     <p>Note that <code>GET_ENVIRONMENT_VARIABLE</code> need not be thread-safe. It
+is the responsibility of the user to ensure that the environment is
+not being updated concurrently with a call to the
+<code>GET_ENVIRONMENT_VARIABLE</code> intrinsic.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2003 and later
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>CALL GET_ENVIRONMENT_VARIABLE(NAME[, VALUE, LENGTH, STATUS, TRIM_NAME)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NAME</var>      </td><td valign="top" width="70%">Shall be a scalar of type <code>CHARACTER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUE</var>     </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>CHARACTER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>LENGTH</var>    </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var>    </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>TRIM_NAME</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>LOGICAL</code>
+and of default kind.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>Stores the value of <var>NAME</var> in <var>VALUE</var>. If <var>VALUE</var> is
+not large enough to hold the data, it is truncated. If <var>NAME</var>
+is not set, <var>VALUE</var> will be filled with blanks. Argument <var>LENGTH</var>
+contains the length needed for storing the environment variable <var>NAME</var>
+or zero if it is not present. <var>STATUS</var> is -1 if <var>VALUE</var> is present
+but too short for the environment variable; it is 1 if the environment
+variable does not exist and 2 if the processor does not support environment
+variables; in all other cases <var>STATUS</var> is zero. If <var>TRIM_NAME</var> is
+present with the value <code>.FALSE.</code>, the trailing blanks in <var>NAME</var>
+are significant; otherwise they are not part of the environment variable
+name.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          PROGRAM test_getenv
+            CHARACTER(len=255) :: homedir
+            CALL get_environment_variable("HOME", homedir)
+            WRITE (*,*) TRIM(homedir)
+          END PROGRAM
+</pre>
+     </dl>
+
+   </body></html>
+

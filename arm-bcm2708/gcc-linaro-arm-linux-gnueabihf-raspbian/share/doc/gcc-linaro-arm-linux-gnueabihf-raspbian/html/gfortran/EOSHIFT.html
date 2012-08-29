@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+<title>EOSHIFT - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="DTIME.html#DTIME" title="DTIME">
+<link rel="next" href="EPSILON.html#EPSILON" title="EPSILON">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="EOSHIFT"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="EPSILON.html#EPSILON">EPSILON</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="DTIME.html#DTIME">DTIME</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.71 <code>EOSHIFT</code> &mdash; End-off shift elements of an array</h3>
+
+<p><a name="index-EOSHIFT-588"></a><a name="index-array_002c-shift-589"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>EOSHIFT(ARRAY, SHIFT[, BOUNDARY, DIM])</code> performs an end-off shift on
+elements of <var>ARRAY</var> along the dimension of <var>DIM</var>.  If <var>DIM</var> is
+omitted it is taken to be <code>1</code>.  <var>DIM</var> is a scalar of type
+<code>INTEGER</code> in the range of 1 \leq DIM \leq n) where n is the
+rank of <var>ARRAY</var>.  If the rank of <var>ARRAY</var> is one, then all elements of
+<var>ARRAY</var> are shifted by <var>SHIFT</var> places.  If rank is greater than one,
+then all complete rank one sections of <var>ARRAY</var> along the given dimension are
+shifted.  Elements shifted out one end of each rank one section are dropped.  If
+<var>BOUNDARY</var> is present then the corresponding value of from <var>BOUNDARY</var>
+is copied back in the other end.  If <var>BOUNDARY</var> is not present then the
+following are copied in depending on the type of <var>ARRAY</var>.
+
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><em>Array Type</em> </td><td valign="top" width="80%"><em>Boundary Value</em>
+<br></td></tr><tr align="left"><td valign="top" width="15%">Numeric  </td><td valign="top" width="80%">0 of the type and kind of <var>ARRAY</var>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%">Logical  </td><td valign="top" width="80%"><code>.FALSE.</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%">Character(<var>len</var>) </td><td valign="top" width="80%"><var>len</var> blanks.
+     <br></td></tr></table>
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later
+
+     <br><dt><em>Class</em>:<dd>Transformational function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = EOSHIFT(ARRAY, SHIFT [, BOUNDARY, DIM])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>ARRAY</var>  </td><td valign="top" width="70%">May be any type, not scalar. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>SHIFT</var>  </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>BOUNDARY</var> </td><td valign="top" width="70%">Same type as <var>ARRAY</var>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>DIM</var>    </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>Returns an array of same type and rank as the <var>ARRAY</var> argument.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program test_eoshift
+              integer, dimension(3,3) :: a
+              a = reshape( (/ 1, 2, 3, 4, 5, 6, 7, 8, 9 /), (/ 3, 3 /))
+              print '(3i3)', a(1,:)
+              print '(3i3)', a(2,:)
+              print '(3i3)', a(3,:)
+              a = EOSHIFT(a, SHIFT=(/1, 2, 1/), BOUNDARY=-5, DIM=2)
+              print *
+              print '(3i3)', a(1,:)
+              print '(3i3)', a(2,:)
+              print '(3i3)', a(3,:)
+          end program test_eoshift
+</pre>
+     </dl>
+
+   </body></html>
+

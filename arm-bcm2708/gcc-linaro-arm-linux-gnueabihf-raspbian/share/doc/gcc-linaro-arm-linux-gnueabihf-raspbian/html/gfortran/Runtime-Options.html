@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>Runtime Options - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" title="Invoking GNU Fortran">
+<link rel="prev" href="Link-Options.html#Link-Options" title="Link Options">
+<link rel="next" href="Code-Gen-Options.html#Code-Gen-Options" title="Code Gen Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Runtime-Options"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Code-Gen-Options.html#Code-Gen-Options">Code Gen Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Link-Options.html#Link-Options">Link Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>
+<hr>
+</div>
+
+<h3 class="section">2.8 Influencing runtime behavior</h3>
+
+<p><a name="index-options_002c-runtime-215"></a>
+These options affect the runtime behavior of programs compiled with GNU Fortran.
+
+     <dl>
+<dt><code>-fconvert=</code><var>conversion</var><dd><a name="index-g_t_0040code_007bfconvert_003d_007d_0040var_007bconversion_007d-216"></a>Specify the representation of data for unformatted files.  Valid
+values for conversion are: &lsquo;<samp><span class="samp">native</span></samp>&rsquo;, the default; &lsquo;<samp><span class="samp">swap</span></samp>&rsquo;,
+swap between big- and little-endian; &lsquo;<samp><span class="samp">big-endian</span></samp>&rsquo;, use big-endian
+representation for unformatted files; &lsquo;<samp><span class="samp">little-endian</span></samp>&rsquo;, use little-endian
+representation for unformatted files.
+
+     <p><em>This option has an effect only when used in the main program. 
+The </em><code>CONVERT</code><em> specifier and the GFORTRAN_CONVERT_UNIT environment
+variable override the default specified by </em><samp><span class="option">-fconvert</span></samp><em>.</em>
+
+     <br><dt><code>-fno-range-check</code><dd><a name="index-g_t_0040code_007bfno_002drange_002dcheck_007d-217"></a>Disable range checking of input values during integer <code>READ</code> operations. 
+For example, GNU Fortran will give an error if an input value is
+outside of the relevant range of [<code>-HUGE()</code>:<code>HUGE()</code>]. In other words,
+with <code>INTEGER (kind=4) :: i</code> , attempting to read -2147483648 will
+give an error unless <samp><span class="option">-fno-range-check</span></samp> is given.
+
+     <br><dt><code>-frecord-marker=</code><var>length</var><dd><a name="index-g_t_0040code_007bfrecord_002dmarker_003d_007d_0040var_007blength_007d-218"></a>Specify the length of record markers for unformatted files. 
+Valid values for <var>length</var> are 4 and 8.  Default is 4. 
+<em>This is different from previous versions of </em><samp><span class="command">gfortran</span></samp>,
+which specified a default record marker length of 8 on most
+systems.  If you want to read or write files compatible
+with earlier versions of <samp><span class="command">gfortran</span></samp>, use <samp><span class="option">-frecord-marker=8</span></samp>.
+
+     <br><dt><code>-fmax-subrecord-length=</code><var>length</var><dd><a name="index-g_t_0040code_007bfmax_002dsubrecord_002dlength_003d_007d_0040var_007blength_007d-219"></a>Specify the maximum length for a subrecord.  The maximum permitted
+value for length is 2147483639, which is also the default.  Only
+really useful for use by the gfortran testsuite.
+
+     <br><dt><code>-fsign-zero</code><dd><a name="index-g_t_0040code_007bfsign_002dzero_007d-220"></a>When enabled, floating point numbers of value zero with the sign bit set
+are written as negative number in formatted output and treated as
+negative in the <code>SIGN</code> intrinsic.  <samp><span class="option">-fno-sign-zero</span></samp> does not
+print the negative sign of zero values (or values rounded to zero for I/O)
+and regards zero as positive number in the <code>SIGN</code> intrinsic for
+compatibility with Fortran 77. The default is <samp><span class="option">-fsign-zero</span></samp>. 
+</dl>
+
+   </body></html>
+

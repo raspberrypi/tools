@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+<title>OpenMP Modules OMP_LIB and OMP_LIB_KINDS - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Modules.html#Intrinsic-Modules" title="Intrinsic Modules">
+<link rel="prev" href="ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING" title="ISO_C_BINDING">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="OpenMP-Modules-OMP_LIB-and-OMP_LIB_KINDS"></a>
+<a name="OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING">ISO_C_BINDING</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Modules.html#Intrinsic-Modules">Intrinsic Modules</a>
+<hr>
+</div>
+
+<h3 class="section">9.3 OpenMP Modules <code>OMP_LIB</code> and <code>OMP_LIB_KINDS</code></h3>
+
+     <dl>
+<dt><em>Standard</em>:<dd>OpenMP Application Program Interface v3.1
+</dl>
+
+   <p>The OpenMP Fortran runtime library routines are provided both in
+a form of two Fortran 90 modules, named <code>OMP_LIB</code> and
+<code>OMP_LIB_KINDS</code>, and in a form of a Fortran <code>include</code> file named
+<samp><span class="file">omp_lib.h</span></samp>. The procedures provided by <code>OMP_LIB</code> can be found
+in the <a href="../libgomp/index.html#Top">Introduction</a> manual,
+the named constants defined in the modules are listed
+below.
+
+   <p>For details refer to the actual
+<a href="http://www.openmp.org/mp-documents/spec31.pdf">OpenMP Application Program Interface v3.1</a>.
+
+   <p><code>OMP_LIB_KINDS</code> provides the following scalar default-integer
+named constants:
+
+     <dl>
+<dt><code>omp_lock_kind</code><br><dt><code>omp_nest_lock_kind</code><br><dt><code>omp_sched_kind</code><dd></dl>
+
+   <p><code>OMP_LIB</code> provides the scalar default-integer
+named constant <code>openmp_version</code> with a value of the form
+<var>yyyymm</var>, where <code>yyyy</code> is the year and <var>mm</var> the month
+of the OpenMP version; for OpenMP v3.1 the value is <code>201107</code>.
+
+   <p>And the following scalar integer named constants of the
+kind <code>omp_sched_kind</code>:
+
+     <dl>
+<dt><code>omp_sched_static</code><br><dt><code>omp_sched_dynamic</code><br><dt><code>omp_sched_guided</code><br><dt><code>omp_sched_auto</code><dd></dl>
+
+<!--  -->
+<!-- Contributing -->
+<!--  -->
+   </body></html>
+

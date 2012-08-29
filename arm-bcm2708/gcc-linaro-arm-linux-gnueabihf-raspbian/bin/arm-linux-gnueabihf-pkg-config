@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Wrapper script that calls the real pkg-config with the relocated
+# sysroot location
+#
+set -e
+
+GCC="${0%%-pkg-config}-gcc"
+MACHINE=`"$GCC" -dumpmachine`
+SYSROOT=`"$GCC" -print-sysroot`
+
+export PKG_CONFIG_DIR=
+export PKG_CONFIG_LIBDIR="${SYSROOT}/usr/lib/${MACHINE}/pkgconfig":"${SYSROOT}/usr/lib/pkgconfig":"${SYSROOT}/usr/share/pkgconfig"
+export PKG_CONFIG_SYSROOT_DIR="${SYSROOT}"
+
+exec "$0-real" "$@"

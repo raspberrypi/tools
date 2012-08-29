@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<title>GNU Fortran and GCC - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Introduction.html#Introduction" title="Introduction">
+<link rel="prev" href="About-GNU-Fortran.html#About-GNU-Fortran" title="About GNU Fortran">
+<link rel="next" href="Preprocessing-and-conditional-compilation.html#Preprocessing-and-conditional-compilation" title="Preprocessing and conditional compilation">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="GNU-Fortran-and-GCC"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Preprocessing-and-conditional-compilation.html#Preprocessing-and-conditional-compilation">Preprocessing and conditional compilation</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="About-GNU-Fortran.html#About-GNU-Fortran">About GNU Fortran</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Introduction.html#Introduction">Introduction</a>
+<hr>
+</div>
+
+<h3 class="section">1.2 GNU Fortran and GCC</h3>
+
+<p><a name="index-GNU-Compiler-Collection-2"></a><a name="index-GCC-3"></a>
+GNU Fortran is a part of GCC, the <dfn>GNU Compiler Collection</dfn>.  GCC
+consists of a collection of front ends for various languages, which
+translate the source code into a language-independent form called
+<dfn>GENERIC</dfn>.  This is then processed by a common middle end which
+provides optimization, and then passed to one of a collection of back
+ends which generate code for different computer architectures and
+operating systems.
+
+   <p>Functionally, this is implemented with a driver program (<samp><span class="command">gcc</span></samp>)
+which provides the command-line interface for the compiler.  It calls
+the relevant compiler front-end program (e.g., <samp><span class="command">f951</span></samp> for
+Fortran) for each file in the source code, and then calls the assembler
+and linker as appropriate to produce the compiled output.  In a copy of
+GCC which has been compiled with Fortran language support enabled,
+<samp><span class="command">gcc</span></samp> will recognize files with <samp><span class="file">.f</span></samp>, <samp><span class="file">.for</span></samp>, <samp><span class="file">.ftn</span></samp>,
+<samp><span class="file">.f90</span></samp>, <samp><span class="file">.f95</span></samp>, <samp><span class="file">.f03</span></samp> and <samp><span class="file">.f08</span></samp> extensions as
+Fortran source code, and compile it accordingly.  A <samp><span class="command">gfortran</span></samp>
+driver program is also provided, which is identical to <samp><span class="command">gcc</span></samp>
+except that it automatically links the Fortran runtime libraries into the
+compiled program.
+
+   <p>Source files with <samp><span class="file">.f</span></samp>, <samp><span class="file">.for</span></samp>, <samp><span class="file">.fpp</span></samp>, <samp><span class="file">.ftn</span></samp>, <samp><span class="file">.F</span></samp>,
+<samp><span class="file">.FOR</span></samp>, <samp><span class="file">.FPP</span></samp>, and <samp><span class="file">.FTN</span></samp> extensions are treated as fixed form. 
+Source files with <samp><span class="file">.f90</span></samp>, <samp><span class="file">.f95</span></samp>, <samp><span class="file">.f03</span></samp>, <samp><span class="file">.f08</span></samp>,
+<samp><span class="file">.F90</span></samp>, <samp><span class="file">.F95</span></samp>, <samp><span class="file">.F03</span></samp> and <samp><span class="file">.F08</span></samp> extensions are
+treated as free form.  The capitalized versions of either form are run
+through preprocessing.  Source files with the lower case <samp><span class="file">.fpp</span></samp>
+extension are also run through preprocessing.
+
+   <p>This manual specifically documents the Fortran front end, which handles
+the programming language's syntax and semantics.  The aspects of GCC
+which relate to the optimization passes and the back-end code generation
+are documented in the GCC manual; see
+<a href="../gcc/index.html#Top">Introduction</a>. 
+The two manuals together provide a complete reference for the GNU
+Fortran compiler.
+
+<!--  -->
+<!-- Preprocessing and conditional compilation -->
+<!--  -->
+   </body></html>
+

@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+<title>GET_COMMAND_ARGUMENT - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="GET_005fCOMMAND.html#GET_005fCOMMAND" title="GET_COMMAND">
+<link rel="next" href="GETCWD.html#GETCWD" title="GETCWD">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="GET_COMMAND_ARGUMENT"></a>
+<a name="GET_005fCOMMAND_005fARGUMENT"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="GETCWD.html#GETCWD">GETCWD</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="GET_005fCOMMAND.html#GET_005fCOMMAND">GET_COMMAND</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.99 <code>GET_COMMAND_ARGUMENT</code> &mdash; Get command line arguments</h3>
+
+<p><a name="index-GET_005fCOMMAND_005fARGUMENT-669"></a><a name="index-command_002dline-arguments-670"></a><a name="index-arguments_002c-to-program-671"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Retrieve the <var>NUMBER</var>-th argument that was passed on the
+command line when the containing program was invoked.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2003 and later
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>CALL GET_COMMAND_ARGUMENT(NUMBER [, VALUE, LENGTH, STATUS])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NUMBER</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code> and of
+default kind, <var>NUMBER</var> \geq 0
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUE</var>  </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>CHARACTER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>LENGTH</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
+and of default kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
+and of default kind.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>After <code>GET_COMMAND_ARGUMENT</code> returns, the <var>VALUE</var> argument holds the
+<var>NUMBER</var>-th command line argument. If <var>VALUE</var> can not hold the argument, it is
+truncated to fit the length of <var>VALUE</var>. If there are less than <var>NUMBER</var>
+arguments specified at the command line, <var>VALUE</var> will be filled with blanks. 
+If <var>NUMBER</var> = 0, <var>VALUE</var> is set to the name of the program (on
+systems that support this feature). The <var>LENGTH</var> argument contains the
+length of the <var>NUMBER</var>-th command line argument. If the argument retrieval
+fails, <var>STATUS</var> is a positive number; if <var>VALUE</var> contains a truncated
+command line argument, <var>STATUS</var> is -1; and otherwise the <var>STATUS</var> is
+zero.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          PROGRAM test_get_command_argument
+            INTEGER :: i
+            CHARACTER(len=32) :: arg
+          
+            i = 0
+            DO
+              CALL get_command_argument(i, arg)
+              IF (LEN_TRIM(arg) == 0) EXIT
+          
+              WRITE (*,*) TRIM(arg)
+              i = i+1
+            END DO
+          END PROGRAM
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="GET_005fCOMMAND.html#GET_005fCOMMAND">GET_COMMAND</a>, <a href="COMMAND_005fARGUMENT_005fCOUNT.html#COMMAND_005fARGUMENT_005fCOUNT">COMMAND_ARGUMENT_COUNT</a>
+</dl>
+
+   </body></html>
+

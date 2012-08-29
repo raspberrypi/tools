@@ -1,0 +1,519 @@
+<html lang="en">
+<head>
+<title>The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">The GNU Fortran Compiler</h1>
+<div class="shortcontents">
+<h2>Short Contents</h2>
+<ul>
+<li><a href="index.html#toc_Top">Introduction</a></li>
+<li><a href="index.html#toc_Introduction">1 Introduction</a></li>
+<li><a href="index.html#toc_Invoking-GNU-Fortran">2 GNU Fortran Command Options</a></li>
+<li><a href="index.html#toc_Runtime">3 Runtime:  Influencing runtime behavior with environment variables</a></li>
+<li><a href="index.html#toc_Fortran-2003-and-2008-status">4 Fortran 2003 and 2008 Status</a></li>
+<li><a href="index.html#toc_Compiler-Characteristics">5 Compiler Characteristics</a></li>
+<li><a href="index.html#toc_Extensions">6 Extensions</a></li>
+<li><a href="index.html#toc_Mixed_002dLanguage-Programming">7 Mixed-Language Programming</a></li>
+<li><a href="index.html#toc_Intrinsic-Procedures">8 Intrinsic Procedures</a></li>
+<li><a href="index.html#toc_Intrinsic-Modules">9 Intrinsic Modules</a></li>
+<li><a href="index.html#toc_Contributing">Contributing</a></li>
+<li><a href="index.html#toc_Copying">GNU General Public License</a></li>
+<li><a href="index.html#toc_GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
+<li><a href="index.html#toc_Funding">Funding Free Software</a></li>
+<li><a href="index.html#toc_Option-Index">Option Index</a></li>
+<li><a href="index.html#toc_Keyword-Index">Keyword Index</a></li>
+</ul>
+</div>
+
+
+
+   <div class="contents">
+<h2>Table of Contents</h2>
+<ul>
+<li><a name="toc_Top" href="index.html#Top">Introduction</a>
+<li><a name="toc_Introduction" href="Introduction.html#Introduction">1 Introduction</a>
+<ul>
+<li><a href="About-GNU-Fortran.html#About-GNU-Fortran">1.1 About GNU Fortran</a>
+<li><a href="GNU-Fortran-and-GCC.html#GNU-Fortran-and-GCC">1.2 GNU Fortran and GCC</a>
+<li><a href="Preprocessing-and-conditional-compilation.html#Preprocessing-and-conditional-compilation">1.3 Preprocessing and conditional compilation</a>
+<li><a href="GNU-Fortran-and-G77.html#GNU-Fortran-and-G77">1.4 GNU Fortran and G77</a>
+<li><a href="Project-Status.html#Project-Status">1.5 Project Status</a>
+<li><a href="Standards.html#Standards">1.6 Standards</a>
+<ul>
+<li><a href="Varying-Length-Character-Strings.html#Varying-Length-Character-Strings">1.6.1 Varying Length Character Strings</a>
+</li></ul>
+</li></ul>
+<li><a name="toc_Invoking-GNU-Fortran" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">2 GNU Fortran Command Options</a>
+<ul>
+<li><a href="Option-Summary.html#Option-Summary">2.1 Option summary</a>
+<li><a href="Fortran-Dialect-Options.html#Fortran-Dialect-Options">2.2 Options controlling Fortran dialect</a>
+<li><a href="Preprocessing-Options.html#Preprocessing-Options">2.3 Enable and customize preprocessing</a>
+<li><a href="Error-and-Warning-Options.html#Error-and-Warning-Options">2.4 Options to request or suppress errors and warnings</a>
+<li><a href="Debugging-Options.html#Debugging-Options">2.5 Options for debugging your program or GNU Fortran</a>
+<li><a href="Directory-Options.html#Directory-Options">2.6 Options for directory search</a>
+<li><a href="Link-Options.html#Link-Options">2.7 Influencing the linking step</a>
+<li><a href="Runtime-Options.html#Runtime-Options">2.8 Influencing runtime behavior</a>
+<li><a href="Code-Gen-Options.html#Code-Gen-Options">2.9 Options for code generation conventions</a>
+<li><a href="Environment-Variables.html#Environment-Variables">2.10 Environment variables affecting <samp><span class="command">gfortran</span></samp></a>
+</li></ul>
+<li><a name="toc_Runtime" href="Runtime.html#Runtime">3 Runtime:  Influencing runtime behavior with environment variables</a>
+<ul>
+<li><a href="GFORTRAN_005fSTDIN_005fUNIT.html#GFORTRAN_005fSTDIN_005fUNIT">3.1 <samp><span class="env">GFORTRAN_STDIN_UNIT</span></samp>&mdash;Unit number for standard input</a>
+<li><a href="GFORTRAN_005fSTDOUT_005fUNIT.html#GFORTRAN_005fSTDOUT_005fUNIT">3.2 <samp><span class="env">GFORTRAN_STDOUT_UNIT</span></samp>&mdash;Unit number for standard output</a>
+<li><a href="GFORTRAN_005fSTDERR_005fUNIT.html#GFORTRAN_005fSTDERR_005fUNIT">3.3 <samp><span class="env">GFORTRAN_STDERR_UNIT</span></samp>&mdash;Unit number for standard error</a>
+<li><a href="GFORTRAN_005fTMPDIR.html#GFORTRAN_005fTMPDIR">3.4 <samp><span class="env">GFORTRAN_TMPDIR</span></samp>&mdash;Directory for scratch files</a>
+<li><a href="GFORTRAN_005fUNBUFFERED_005fALL.html#GFORTRAN_005fUNBUFFERED_005fALL">3.5 <samp><span class="env">GFORTRAN_UNBUFFERED_ALL</span></samp>&mdash;Do not buffer I/O on all units</a>
+<li><a href="GFORTRAN_005fUNBUFFERED_005fPRECONNECTED.html#GFORTRAN_005fUNBUFFERED_005fPRECONNECTED">3.6 <samp><span class="env">GFORTRAN_UNBUFFERED_PRECONNECTED</span></samp>&mdash;Do not buffer I/O on preconnected units</a>
+<li><a href="GFORTRAN_005fSHOW_005fLOCUS.html#GFORTRAN_005fSHOW_005fLOCUS">3.7 <samp><span class="env">GFORTRAN_SHOW_LOCUS</span></samp>&mdash;Show location for runtime errors</a>
+<li><a href="GFORTRAN_005fOPTIONAL_005fPLUS.html#GFORTRAN_005fOPTIONAL_005fPLUS">3.8 <samp><span class="env">GFORTRAN_OPTIONAL_PLUS</span></samp>&mdash;Print leading + where permitted</a>
+<li><a href="GFORTRAN_005fDEFAULT_005fRECL.html#GFORTRAN_005fDEFAULT_005fRECL">3.9 <samp><span class="env">GFORTRAN_DEFAULT_RECL</span></samp>&mdash;Default record length for new files</a>
+<li><a href="GFORTRAN_005fLIST_005fSEPARATOR.html#GFORTRAN_005fLIST_005fSEPARATOR">3.10 <samp><span class="env">GFORTRAN_LIST_SEPARATOR</span></samp>&mdash;Separator for list output</a>
+<li><a href="GFORTRAN_005fCONVERT_005fUNIT.html#GFORTRAN_005fCONVERT_005fUNIT">3.11 <samp><span class="env">GFORTRAN_CONVERT_UNIT</span></samp>&mdash;Set endianness for unformatted I/O</a>
+<li><a href="GFORTRAN_005fERROR_005fBACKTRACE.html#GFORTRAN_005fERROR_005fBACKTRACE">3.12 <samp><span class="env">GFORTRAN_ERROR_BACKTRACE</span></samp>&mdash;Show backtrace on run-time errors</a>
+</li></ul>
+<li><a name="toc_Fortran-2003-and-2008-status" href="Fortran-2003-and-2008-status.html#Fortran-2003-and-2008-status">4 Fortran 2003 and 2008 Status</a>
+<ul>
+<li><a href="Fortran-2003-status.html#Fortran-2003-status">4.1 Fortran 2003 status</a>
+<li><a href="Fortran-2008-status.html#Fortran-2008-status">4.2 Fortran 2008 status</a>
+<li><a href="TS-29113-status.html#TS-29113-status">4.3 Technical Specification 29113 Status</a>
+</li></ul>
+<li><a name="toc_Compiler-Characteristics" href="Compiler-Characteristics.html#Compiler-Characteristics">5 Compiler Characteristics</a>
+<ul>
+<li><a href="KIND-Type-Parameters.html#KIND-Type-Parameters">5.1 KIND Type Parameters</a>
+<li><a href="Internal-representation-of-LOGICAL-variables.html#Internal-representation-of-LOGICAL-variables">5.2 Internal representation of LOGICAL variables</a>
+<li><a href="Thread_002dsafety-of-the-runtime-library.html#Thread_002dsafety-of-the-runtime-library">5.3 Thread-safety of the runtime library</a>
+<li><a href="Data-consistency-and-durability.html#Data-consistency-and-durability">5.4 Data consistency and durability</a>
+</li></ul>
+<li><a name="toc_Extensions" href="Extensions.html#Extensions">6 Extensions</a>
+<ul>
+<li><a href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran">6.1 Extensions implemented in GNU Fortran</a>
+<ul>
+<li><a href="Old_002dstyle-kind-specifications.html#Old_002dstyle-kind-specifications">6.1.1 Old-style kind specifications</a>
+<li><a href="Old_002dstyle-variable-initialization.html#Old_002dstyle-variable-initialization">6.1.2 Old-style variable initialization</a>
+<li><a href="Extensions-to-namelist.html#Extensions-to-namelist">6.1.3 Extensions to namelist</a>
+<li><a href="X-format-descriptor-without-count-field.html#X-format-descriptor-without-count-field">6.1.4 <code>X</code> format descriptor without count field</a>
+<li><a href="Commas-in-FORMAT-specifications.html#Commas-in-FORMAT-specifications">6.1.5 Commas in <code>FORMAT</code> specifications</a>
+<li><a href="Missing-period-in-FORMAT-specifications.html#Missing-period-in-FORMAT-specifications">6.1.6 Missing period in <code>FORMAT</code> specifications</a>
+<li><a href="I_002fO-item-lists.html#I_002fO-item-lists">6.1.7 I/O item lists</a>
+<li><a href="_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter.html#_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter">6.1.8 <code>Q</code> exponent-letter</a>
+<li><a href="BOZ-literal-constants.html#BOZ-literal-constants">6.1.9 BOZ literal constants</a>
+<li><a href="Real-array-indices.html#Real-array-indices">6.1.10 Real array indices</a>
+<li><a href="Unary-operators.html#Unary-operators">6.1.11 Unary operators</a>
+<li><a href="Implicitly-convert-LOGICAL-and-INTEGER-values.html#Implicitly-convert-LOGICAL-and-INTEGER-values">6.1.12 Implicitly convert <code>LOGICAL</code> and <code>INTEGER</code> values</a>
+<li><a href="Hollerith-constants-support.html#Hollerith-constants-support">6.1.13 Hollerith constants support</a>
+<li><a href="Cray-pointers.html#Cray-pointers">6.1.14 Cray pointers</a>
+<li><a href="CONVERT-specifier.html#CONVERT-specifier">6.1.15 <code>CONVERT</code> specifier</a>
+<li><a href="OpenMP.html#OpenMP">6.1.16 OpenMP</a>
+<li><a href="Argument-list-functions.html#Argument-list-functions">6.1.17 Argument list functions <code>%VAL</code>, <code>%REF</code> and <code>%LOC</code></a>
+</li></ul>
+<li><a href="Extensions-not-implemented-in-GNU-Fortran.html#Extensions-not-implemented-in-GNU-Fortran">6.2 Extensions not implemented in GNU Fortran</a>
+<ul>
+<li><a href="STRUCTURE-and-RECORD.html#STRUCTURE-and-RECORD">6.2.1 <code>STRUCTURE</code> and <code>RECORD</code></a>
+<li><a href="ENCODE-and-DECODE-statements.html#ENCODE-and-DECODE-statements">6.2.2 <code>ENCODE</code> and <code>DECODE</code> statements</a>
+<li><a href="Variable-FORMAT-expressions.html#Variable-FORMAT-expressions">6.2.3 Variable <code>FORMAT</code> expressions</a>
+<li><a href="Alternate-complex-function-syntax.html#Alternate-complex-function-syntax">6.2.4 Alternate complex function syntax</a>
+</li></ul>
+</li></ul>
+<li><a name="toc_Mixed_002dLanguage-Programming" href="Mixed_002dLanguage-Programming.html#Mixed_002dLanguage-Programming">7 Mixed-Language Programming</a>
+<ul>
+<li><a href="Interoperability-with-C.html#Interoperability-with-C">7.1 Interoperability with C</a>
+<ul>
+<li><a href="Intrinsic-Types.html#Intrinsic-Types">7.1.1 Intrinsic Types</a>
+<li><a href="Derived-Types-and-struct.html#Derived-Types-and-struct">7.1.2 Derived Types and struct</a>
+<li><a href="Interoperable-Global-Variables.html#Interoperable-Global-Variables">7.1.3 Interoperable Global Variables</a>
+<li><a href="Interoperable-Subroutines-and-Functions.html#Interoperable-Subroutines-and-Functions">7.1.4 Interoperable Subroutines and Functions</a>
+<li><a href="Working-with-Pointers.html#Working-with-Pointers">7.1.5 Working with Pointers</a>
+<li><a href="Further-Interoperability-of-Fortran-with-C.html#Further-Interoperability-of-Fortran-with-C">7.1.6 Further Interoperability of Fortran with C</a>
+</li></ul>
+<li><a href="GNU-Fortran-Compiler-Directives.html#GNU-Fortran-Compiler-Directives">7.2 GNU Fortran Compiler Directives</a>
+<li><a href="Non_002dFortran-Main-Program.html#Non_002dFortran-Main-Program">7.3 Non-Fortran Main Program</a>
+<ul>
+<li><a href="_005fgfortran_005fset_005fargs.html#_005fgfortran_005fset_005fargs">7.3.1 <code>_gfortran_set_args</code> &mdash; Save command-line arguments</a>
+<li><a href="_005fgfortran_005fset_005foptions.html#_005fgfortran_005fset_005foptions">7.3.2 <code>_gfortran_set_options</code> &mdash; Set library option flags</a>
+<li><a href="_005fgfortran_005fset_005fconvert.html#_005fgfortran_005fset_005fconvert">7.3.3 <code>_gfortran_set_convert</code> &mdash; Set endian conversion</a>
+<li><a href="_005fgfortran_005fset_005frecord_005fmarker.html#_005fgfortran_005fset_005frecord_005fmarker">7.3.4 <code>_gfortran_set_record_marker</code> &mdash; Set length of record markers</a>
+<li><a href="_005fgfortran_005fset_005ffpe.html#_005fgfortran_005fset_005ffpe">7.3.5 <code>_gfortran_set_fpe</code> &mdash; Enable floating point exception traps</a>
+<li><a href="_005fgfortran_005fset_005fmax_005fsubrecord_005flength.html#_005fgfortran_005fset_005fmax_005fsubrecord_005flength">7.3.6 <code>_gfortran_set_max_subrecord_length</code> &mdash; Set subrecord length</a>
+</li></ul>
+</li></ul>
+<li><a name="toc_Intrinsic-Procedures" href="Intrinsic-Procedures.html#Intrinsic-Procedures">8 Intrinsic Procedures</a>
+<ul>
+<li><a href="Introduction-to-Intrinsics.html#Introduction-to-Intrinsics">8.1 Introduction to intrinsic procedures</a>
+<li><a href="ABORT.html#ABORT">8.2 <code>ABORT</code> &mdash; Abort the program</a>
+<li><a href="ABS.html#ABS">8.3 <code>ABS</code> &mdash; Absolute value</a>
+<li><a href="ACCESS.html#ACCESS">8.4 <code>ACCESS</code> &mdash; Checks file access modes</a>
+<li><a href="ACHAR.html#ACHAR">8.5 <code>ACHAR</code> &mdash; Character in <acronym>ASCII</acronym> collating sequence</a>
+<li><a href="ACOS.html#ACOS">8.6 <code>ACOS</code> &mdash; Arccosine function</a>
+<li><a href="ACOSH.html#ACOSH">8.7 <code>ACOSH</code> &mdash; Inverse hyperbolic cosine function</a>
+<li><a href="ADJUSTL.html#ADJUSTL">8.8 <code>ADJUSTL</code> &mdash; Left adjust a string</a>
+<li><a href="ADJUSTR.html#ADJUSTR">8.9 <code>ADJUSTR</code> &mdash; Right adjust a string</a>
+<li><a href="AIMAG.html#AIMAG">8.10 <code>AIMAG</code> &mdash; Imaginary part of complex number</a>
+<li><a href="AINT.html#AINT">8.11 <code>AINT</code> &mdash; Truncate to a whole number</a>
+<li><a href="ALARM.html#ALARM">8.12 <code>ALARM</code> &mdash; Execute a routine after a given delay</a>
+<li><a href="ALL.html#ALL">8.13 <code>ALL</code> &mdash; All values in <var>MASK</var> along <var>DIM</var> are true</a>
+<li><a href="ALLOCATED.html#ALLOCATED">8.14 <code>ALLOCATED</code> &mdash; Status of an allocatable entity</a>
+<li><a href="AND.html#AND">8.15 <code>AND</code> &mdash; Bitwise logical AND</a>
+<li><a href="ANINT.html#ANINT">8.16 <code>ANINT</code> &mdash; Nearest whole number</a>
+<li><a href="ANY.html#ANY">8.17 <code>ANY</code> &mdash; Any value in <var>MASK</var> along <var>DIM</var> is true</a>
+<li><a href="ASIN.html#ASIN">8.18 <code>ASIN</code> &mdash; Arcsine function</a>
+<li><a href="ASINH.html#ASINH">8.19 <code>ASINH</code> &mdash; Inverse hyperbolic sine function</a>
+<li><a href="ASSOCIATED.html#ASSOCIATED">8.20 <code>ASSOCIATED</code> &mdash; Status of a pointer or pointer/target pair</a>
+<li><a href="ATAN.html#ATAN">8.21 <code>ATAN</code> &mdash; Arctangent function</a>
+<li><a href="ATAN2.html#ATAN2">8.22 <code>ATAN2</code> &mdash; Arctangent function</a>
+<li><a href="ATANH.html#ATANH">8.23 <code>ATANH</code> &mdash; Inverse hyperbolic tangent function</a>
+<li><a href="ATOMIC_005fDEFINE.html#ATOMIC_005fDEFINE">8.24 <code>ATOMIC_DEFINE</code> &mdash; Setting a variable atomically</a>
+<li><a href="ATOMIC_005fREF.html#ATOMIC_005fREF">8.25 <code>ATOMIC_REF</code> &mdash; Obtaining the value of a variable atomically</a>
+<li><a href="BESSEL_005fJ0.html#BESSEL_005fJ0">8.26 <code>BESSEL_J0</code> &mdash; Bessel function of the first kind of order 0</a>
+<li><a href="BESSEL_005fJ1.html#BESSEL_005fJ1">8.27 <code>BESSEL_J1</code> &mdash; Bessel function of the first kind of order 1</a>
+<li><a href="BESSEL_005fJN.html#BESSEL_005fJN">8.28 <code>BESSEL_JN</code> &mdash; Bessel function of the first kind</a>
+<li><a href="BESSEL_005fY0.html#BESSEL_005fY0">8.29 <code>BESSEL_Y0</code> &mdash; Bessel function of the second kind of order 0</a>
+<li><a href="BESSEL_005fY1.html#BESSEL_005fY1">8.30 <code>BESSEL_Y1</code> &mdash; Bessel function of the second kind of order 1</a>
+<li><a href="BESSEL_005fYN.html#BESSEL_005fYN">8.31 <code>BESSEL_YN</code> &mdash; Bessel function of the second kind</a>
+<li><a href="BGE.html#BGE">8.32 <code>BGE</code> &mdash; Bitwise greater than or equal to</a>
+<li><a href="BGT.html#BGT">8.33 <code>BGT</code> &mdash; Bitwise greater than</a>
+<li><a href="BIT_005fSIZE.html#BIT_005fSIZE">8.34 <code>BIT_SIZE</code> &mdash; Bit size inquiry function</a>
+<li><a href="BLE.html#BLE">8.35 <code>BLE</code> &mdash; Bitwise less than or equal to</a>
+<li><a href="BLT.html#BLT">8.36 <code>BLT</code> &mdash; Bitwise less than</a>
+<li><a href="BTEST.html#BTEST">8.37 <code>BTEST</code> &mdash; Bit test function</a>
+<li><a href="C_005fASSOCIATED.html#C_005fASSOCIATED">8.38 <code>C_ASSOCIATED</code> &mdash; Status of a C pointer</a>
+<li><a href="C_005fFUNLOC.html#C_005fFUNLOC">8.39 <code>C_FUNLOC</code> &mdash; Obtain the C address of a procedure</a>
+<li><a href="C_005fF_005fPROCPOINTER.html#C_005fF_005fPROCPOINTER">8.40 <code>C_F_PROCPOINTER</code> &mdash; Convert C into Fortran procedure pointer</a>
+<li><a href="C_005fF_005fPOINTER.html#C_005fF_005fPOINTER">8.41 <code>C_F_POINTER</code> &mdash; Convert C into Fortran pointer</a>
+<li><a href="C_005fLOC.html#C_005fLOC">8.42 <code>C_LOC</code> &mdash; Obtain the C address of an object</a>
+<li><a href="C_005fSIZEOF.html#C_005fSIZEOF">8.43 <code>C_SIZEOF</code> &mdash; Size in bytes of an expression</a>
+<li><a href="CEILING.html#CEILING">8.44 <code>CEILING</code> &mdash; Integer ceiling function</a>
+<li><a href="CHAR.html#CHAR">8.45 <code>CHAR</code> &mdash; Character conversion function</a>
+<li><a href="CHDIR.html#CHDIR">8.46 <code>CHDIR</code> &mdash; Change working directory</a>
+<li><a href="CHMOD.html#CHMOD">8.47 <code>CHMOD</code> &mdash; Change access permissions of files</a>
+<li><a href="CMPLX.html#CMPLX">8.48 <code>CMPLX</code> &mdash; Complex conversion function</a>
+<li><a href="COMMAND_005fARGUMENT_005fCOUNT.html#COMMAND_005fARGUMENT_005fCOUNT">8.49 <code>COMMAND_ARGUMENT_COUNT</code> &mdash; Get number of command line arguments</a>
+<li><a href="COMPILER_005fOPTIONS.html#COMPILER_005fOPTIONS">8.50 <code>COMPILER_OPTIONS</code> &mdash; Options passed to the compiler</a>
+<li><a href="COMPILER_005fVERSION.html#COMPILER_005fVERSION">8.51 <code>COMPILER_VERSION</code> &mdash; Compiler version string</a>
+<li><a href="COMPLEX.html#COMPLEX">8.52 <code>COMPLEX</code> &mdash; Complex conversion function</a>
+<li><a href="CONJG.html#CONJG">8.53 <code>CONJG</code> &mdash; Complex conjugate function</a>
+<li><a href="COS.html#COS">8.54 <code>COS</code> &mdash; Cosine function</a>
+<li><a href="COSH.html#COSH">8.55 <code>COSH</code> &mdash; Hyperbolic cosine function</a>
+<li><a href="COUNT.html#COUNT">8.56 <code>COUNT</code> &mdash; Count function</a>
+<li><a href="CPU_005fTIME.html#CPU_005fTIME">8.57 <code>CPU_TIME</code> &mdash; CPU elapsed time in seconds</a>
+<li><a href="CSHIFT.html#CSHIFT">8.58 <code>CSHIFT</code> &mdash; Circular shift elements of an array</a>
+<li><a href="CTIME.html#CTIME">8.59 <code>CTIME</code> &mdash; Convert a time into a string</a>
+<li><a href="DATE_005fAND_005fTIME.html#DATE_005fAND_005fTIME">8.60 <code>DATE_AND_TIME</code> &mdash; Date and time subroutine</a>
+<li><a href="DBLE.html#DBLE">8.61 <code>DBLE</code> &mdash; Double conversion function</a>
+<li><a href="DCMPLX.html#DCMPLX">8.62 <code>DCMPLX</code> &mdash; Double complex conversion function</a>
+<li><a href="DIGITS.html#DIGITS">8.63 <code>DIGITS</code> &mdash; Significant binary digits function</a>
+<li><a href="DIM.html#DIM">8.64 <code>DIM</code> &mdash; Positive difference</a>
+<li><a href="DOT_005fPRODUCT.html#DOT_005fPRODUCT">8.65 <code>DOT_PRODUCT</code> &mdash; Dot product function</a>
+<li><a href="DPROD.html#DPROD">8.66 <code>DPROD</code> &mdash; Double product function</a>
+<li><a href="DREAL.html#DREAL">8.67 <code>DREAL</code> &mdash; Double real part function</a>
+<li><a href="DSHIFTL.html#DSHIFTL">8.68 <code>DSHIFTL</code> &mdash; Combined left shift</a>
+<li><a href="DSHIFTR.html#DSHIFTR">8.69 <code>DSHIFTR</code> &mdash; Combined right shift</a>
+<li><a href="DTIME.html#DTIME">8.70 <code>DTIME</code> &mdash; Execution time subroutine (or function)</a>
+<li><a href="EOSHIFT.html#EOSHIFT">8.71 <code>EOSHIFT</code> &mdash; End-off shift elements of an array</a>
+<li><a href="EPSILON.html#EPSILON">8.72 <code>EPSILON</code> &mdash; Epsilon function</a>
+<li><a href="ERF.html#ERF">8.73 <code>ERF</code> &mdash; Error function</a>
+<li><a href="ERFC.html#ERFC">8.74 <code>ERFC</code> &mdash; Error function</a>
+<li><a href="ERFC_005fSCALED.html#ERFC_005fSCALED">8.75 <code>ERFC_SCALED</code> &mdash; Error function</a>
+<li><a href="ETIME.html#ETIME">8.76 <code>ETIME</code> &mdash; Execution time subroutine (or function)</a>
+<li><a href="EXECUTE_005fCOMMAND_005fLINE.html#EXECUTE_005fCOMMAND_005fLINE">8.77 <code>EXECUTE_COMMAND_LINE</code> &mdash; Execute a shell command</a>
+<li><a href="EXIT.html#EXIT">8.78 <code>EXIT</code> &mdash; Exit the program with status.</a>
+<li><a href="EXP.html#EXP">8.79 <code>EXP</code> &mdash; Exponential function</a>
+<li><a href="EXPONENT.html#EXPONENT">8.80 <code>EXPONENT</code> &mdash; Exponent function</a>
+<li><a href="EXTENDS_005fTYPE_005fOF.html#EXTENDS_005fTYPE_005fOF">8.81 <code>EXTENDS_TYPE_OF</code> &mdash;  Query dynamic type for extension</a>
+<li><a href="FDATE.html#FDATE">8.82 <code>FDATE</code> &mdash; Get the current time as a string</a>
+<li><a href="FGET.html#FGET">8.83 <code>FGET</code> &mdash; Read a single character in stream mode from stdin</a>
+<li><a href="FGETC.html#FGETC">8.84 <code>FGETC</code> &mdash; Read a single character in stream mode</a>
+<li><a href="FLOOR.html#FLOOR">8.85 <code>FLOOR</code> &mdash; Integer floor function</a>
+<li><a href="FLUSH.html#FLUSH">8.86 <code>FLUSH</code> &mdash; Flush I/O unit(s)</a>
+<li><a href="FNUM.html#FNUM">8.87 <code>FNUM</code> &mdash; File number function</a>
+<li><a href="FPUT.html#FPUT">8.88 <code>FPUT</code> &mdash; Write a single character in stream mode to stdout</a>
+<li><a href="FPUTC.html#FPUTC">8.89 <code>FPUTC</code> &mdash; Write a single character in stream mode</a>
+<li><a href="FRACTION.html#FRACTION">8.90 <code>FRACTION</code> &mdash; Fractional part of the model representation</a>
+<li><a href="FREE.html#FREE">8.91 <code>FREE</code> &mdash; Frees memory</a>
+<li><a href="FSEEK.html#FSEEK">8.92 <code>FSEEK</code> &mdash; Low level file positioning subroutine</a>
+<li><a href="FSTAT.html#FSTAT">8.93 <code>FSTAT</code> &mdash; Get file status</a>
+<li><a href="FTELL.html#FTELL">8.94 <code>FTELL</code> &mdash; Current stream position</a>
+<li><a href="GAMMA.html#GAMMA">8.95 <code>GAMMA</code> &mdash; Gamma function</a>
+<li><a href="GERROR.html#GERROR">8.96 <code>GERROR</code> &mdash; Get last system error message</a>
+<li><a href="GETARG.html#GETARG">8.97 <code>GETARG</code> &mdash; Get command line arguments</a>
+<li><a href="GET_005fCOMMAND.html#GET_005fCOMMAND">8.98 <code>GET_COMMAND</code> &mdash; Get the entire command line</a>
+<li><a href="GET_005fCOMMAND_005fARGUMENT.html#GET_005fCOMMAND_005fARGUMENT">8.99 <code>GET_COMMAND_ARGUMENT</code> &mdash; Get command line arguments</a>
+<li><a href="GETCWD.html#GETCWD">8.100 <code>GETCWD</code> &mdash; Get current working directory</a>
+<li><a href="GETENV.html#GETENV">8.101 <code>GETENV</code> &mdash; Get an environmental variable</a>
+<li><a href="GET_005fENVIRONMENT_005fVARIABLE.html#GET_005fENVIRONMENT_005fVARIABLE">8.102 <code>GET_ENVIRONMENT_VARIABLE</code> &mdash; Get an environmental variable</a>
+<li><a href="GETGID.html#GETGID">8.103 <code>GETGID</code> &mdash; Group ID function</a>
+<li><a href="GETLOG.html#GETLOG">8.104 <code>GETLOG</code> &mdash; Get login name</a>
+<li><a href="GETPID.html#GETPID">8.105 <code>GETPID</code> &mdash; Process ID function</a>
+<li><a href="GETUID.html#GETUID">8.106 <code>GETUID</code> &mdash; User ID function</a>
+<li><a href="GMTIME.html#GMTIME">8.107 <code>GMTIME</code> &mdash; Convert time to GMT info</a>
+<li><a href="HOSTNM.html#HOSTNM">8.108 <code>HOSTNM</code> &mdash; Get system host name</a>
+<li><a href="HUGE.html#HUGE">8.109 <code>HUGE</code> &mdash; Largest number of a kind</a>
+<li><a href="HYPOT.html#HYPOT">8.110 <code>HYPOT</code> &mdash; Euclidean distance function</a>
+<li><a href="IACHAR.html#IACHAR">8.111 <code>IACHAR</code> &mdash; Code in <acronym>ASCII</acronym> collating sequence</a>
+<li><a href="IALL.html#IALL">8.112 <code>IALL</code> &mdash; Bitwise AND of array elements</a>
+<li><a href="IAND.html#IAND">8.113 <code>IAND</code> &mdash; Bitwise logical and</a>
+<li><a href="IANY.html#IANY">8.114 <code>IANY</code> &mdash; Bitwise OR of array elements</a>
+<li><a href="IARGC.html#IARGC">8.115 <code>IARGC</code> &mdash; Get the number of command line arguments</a>
+<li><a href="IBCLR.html#IBCLR">8.116 <code>IBCLR</code> &mdash; Clear bit</a>
+<li><a href="IBITS.html#IBITS">8.117 <code>IBITS</code> &mdash; Bit extraction</a>
+<li><a href="IBSET.html#IBSET">8.118 <code>IBSET</code> &mdash; Set bit</a>
+<li><a href="ICHAR.html#ICHAR">8.119 <code>ICHAR</code> &mdash; Character-to-integer conversion function</a>
+<li><a href="IDATE.html#IDATE">8.120 <code>IDATE</code> &mdash; Get current local time subroutine (day/month/year)</a>
+<li><a href="IEOR.html#IEOR">8.121 <code>IEOR</code> &mdash; Bitwise logical exclusive or</a>
+<li><a href="IERRNO.html#IERRNO">8.122 <code>IERRNO</code> &mdash; Get the last system error number</a>
+<li><a href="IMAGE_005fINDEX.html#IMAGE_005fINDEX">8.123 <code>IMAGE_INDEX</code> &mdash; Function that converts a cosubscript to an image index</a>
+<li><a href="INDEX-intrinsic.html#INDEX-intrinsic">8.124 <code>INDEX</code> &mdash; Position of a substring within a string</a>
+<li><a href="INT.html#INT">8.125 <code>INT</code> &mdash; Convert to integer type</a>
+<li><a href="INT2.html#INT2">8.126 <code>INT2</code> &mdash; Convert to 16-bit integer type</a>
+<li><a href="INT8.html#INT8">8.127 <code>INT8</code> &mdash; Convert to 64-bit integer type</a>
+<li><a href="IOR.html#IOR">8.128 <code>IOR</code> &mdash; Bitwise logical or</a>
+<li><a href="IPARITY.html#IPARITY">8.129 <code>IPARITY</code> &mdash; Bitwise XOR of array elements</a>
+<li><a href="IRAND.html#IRAND">8.130 <code>IRAND</code> &mdash; Integer pseudo-random number</a>
+<li><a href="IS_005fIOSTAT_005fEND.html#IS_005fIOSTAT_005fEND">8.131 <code>IS_IOSTAT_END</code> &mdash; Test for end-of-file value</a>
+<li><a href="IS_005fIOSTAT_005fEOR.html#IS_005fIOSTAT_005fEOR">8.132 <code>IS_IOSTAT_EOR</code> &mdash; Test for end-of-record value</a>
+<li><a href="ISATTY.html#ISATTY">8.133 <code>ISATTY</code> &mdash; Whether a unit is a terminal device.</a>
+<li><a href="ISHFT.html#ISHFT">8.134 <code>ISHFT</code> &mdash; Shift bits</a>
+<li><a href="ISHFTC.html#ISHFTC">8.135 <code>ISHFTC</code> &mdash; Shift bits circularly</a>
+<li><a href="ISNAN.html#ISNAN">8.136 <code>ISNAN</code> &mdash; Test for a NaN</a>
+<li><a href="ITIME.html#ITIME">8.137 <code>ITIME</code> &mdash; Get current local time subroutine (hour/minutes/seconds)</a>
+<li><a href="KILL.html#KILL">8.138 <code>KILL</code> &mdash; Send a signal to a process</a>
+<li><a href="KIND.html#KIND">8.139 <code>KIND</code> &mdash; Kind of an entity</a>
+<li><a href="LBOUND.html#LBOUND">8.140 <code>LBOUND</code> &mdash; Lower dimension bounds of an array</a>
+<li><a href="LCOBOUND.html#LCOBOUND">8.141 <code>LCOBOUND</code> &mdash; Lower codimension bounds of an array</a>
+<li><a href="LEADZ.html#LEADZ">8.142 <code>LEADZ</code> &mdash; Number of leading zero bits of an integer</a>
+<li><a href="LEN.html#LEN">8.143 <code>LEN</code> &mdash; Length of a character entity</a>
+<li><a href="LEN_005fTRIM.html#LEN_005fTRIM">8.144 <code>LEN_TRIM</code> &mdash; Length of a character entity without trailing blank characters</a>
+<li><a href="LGE.html#LGE">8.145 <code>LGE</code> &mdash; Lexical greater than or equal</a>
+<li><a href="LGT.html#LGT">8.146 <code>LGT</code> &mdash; Lexical greater than</a>
+<li><a href="LINK.html#LINK">8.147 <code>LINK</code> &mdash; Create a hard link</a>
+<li><a href="LLE.html#LLE">8.148 <code>LLE</code> &mdash; Lexical less than or equal</a>
+<li><a href="LLT.html#LLT">8.149 <code>LLT</code> &mdash; Lexical less than</a>
+<li><a href="LNBLNK.html#LNBLNK">8.150 <code>LNBLNK</code> &mdash; Index of the last non-blank character in a string</a>
+<li><a href="LOC.html#LOC">8.151 <code>LOC</code> &mdash; Returns the address of a variable</a>
+<li><a href="LOG.html#LOG">8.152 <code>LOG</code> &mdash; Natural logarithm function</a>
+<li><a href="LOG10.html#LOG10">8.153 <code>LOG10</code> &mdash; Base 10 logarithm function</a>
+<li><a href="LOG_005fGAMMA.html#LOG_005fGAMMA">8.154 <code>LOG_GAMMA</code> &mdash; Logarithm of the Gamma function</a>
+<li><a href="LOGICAL.html#LOGICAL">8.155 <code>LOGICAL</code> &mdash; Convert to logical type</a>
+<li><a href="LONG.html#LONG">8.156 <code>LONG</code> &mdash; Convert to integer type</a>
+<li><a href="LSHIFT.html#LSHIFT">8.157 <code>LSHIFT</code> &mdash; Left shift bits</a>
+<li><a href="LSTAT.html#LSTAT">8.158 <code>LSTAT</code> &mdash; Get file status</a>
+<li><a href="LTIME.html#LTIME">8.159 <code>LTIME</code> &mdash; Convert time to local time info</a>
+<li><a href="MALLOC.html#MALLOC">8.160 <code>MALLOC</code> &mdash; Allocate dynamic memory</a>
+<li><a href="MASKL.html#MASKL">8.161 <code>MASKL</code> &mdash; Left justified mask</a>
+<li><a href="MASKR.html#MASKR">8.162 <code>MASKR</code> &mdash; Right justified mask</a>
+<li><a href="MATMUL.html#MATMUL">8.163 <code>MATMUL</code> &mdash; matrix multiplication</a>
+<li><a href="MAX.html#MAX">8.164 <code>MAX</code> &mdash; Maximum value of an argument list</a>
+<li><a href="MAXEXPONENT.html#MAXEXPONENT">8.165 <code>MAXEXPONENT</code> &mdash; Maximum exponent of a real kind</a>
+<li><a href="MAXLOC.html#MAXLOC">8.166 <code>MAXLOC</code> &mdash; Location of the maximum value within an array</a>
+<li><a href="MAXVAL.html#MAXVAL">8.167 <code>MAXVAL</code> &mdash; Maximum value of an array</a>
+<li><a href="MCLOCK.html#MCLOCK">8.168 <code>MCLOCK</code> &mdash; Time function</a>
+<li><a href="MCLOCK8.html#MCLOCK8">8.169 <code>MCLOCK8</code> &mdash; Time function (64-bit)</a>
+<li><a href="MERGE.html#MERGE">8.170 <code>MERGE</code> &mdash; Merge variables</a>
+<li><a href="MERGE_005fBITS.html#MERGE_005fBITS">8.171 <code>MERGE_BITS</code> &mdash; Merge of bits under mask</a>
+<li><a href="MIN.html#MIN">8.172 <code>MIN</code> &mdash; Minimum value of an argument list</a>
+<li><a href="MINEXPONENT.html#MINEXPONENT">8.173 <code>MINEXPONENT</code> &mdash; Minimum exponent of a real kind</a>
+<li><a href="MINLOC.html#MINLOC">8.174 <code>MINLOC</code> &mdash; Location of the minimum value within an array</a>
+<li><a href="MINVAL.html#MINVAL">8.175 <code>MINVAL</code> &mdash; Minimum value of an array</a>
+<li><a href="MOD.html#MOD">8.176 <code>MOD</code> &mdash; Remainder function</a>
+<li><a href="MODULO.html#MODULO">8.177 <code>MODULO</code> &mdash; Modulo function</a>
+<li><a href="MOVE_005fALLOC.html#MOVE_005fALLOC">8.178 <code>MOVE_ALLOC</code> &mdash; Move allocation from one object to another</a>
+<li><a href="MVBITS.html#MVBITS">8.179 <code>MVBITS</code> &mdash; Move bits from one integer to another</a>
+<li><a href="NEAREST.html#NEAREST">8.180 <code>NEAREST</code> &mdash; Nearest representable number</a>
+<li><a href="NEW_005fLINE.html#NEW_005fLINE">8.181 <code>NEW_LINE</code> &mdash; New line character</a>
+<li><a href="NINT.html#NINT">8.182 <code>NINT</code> &mdash; Nearest whole number</a>
+<li><a href="NORM2.html#NORM2">8.183 <code>NORM2</code> &mdash; Euclidean vector norms</a>
+<li><a href="NOT.html#NOT">8.184 <code>NOT</code> &mdash; Logical negation</a>
+<li><a href="NULL.html#NULL">8.185 <code>NULL</code> &mdash; Function that returns an disassociated pointer</a>
+<li><a href="NUM_005fIMAGES.html#NUM_005fIMAGES">8.186 <code>NUM_IMAGES</code> &mdash; Function that returns the number of images</a>
+<li><a href="OR.html#OR">8.187 <code>OR</code> &mdash; Bitwise logical OR</a>
+<li><a href="PACK.html#PACK">8.188 <code>PACK</code> &mdash; Pack an array into an array of rank one</a>
+<li><a href="PARITY.html#PARITY">8.189 <code>PARITY</code> &mdash; Reduction with exclusive OR</a>
+<li><a href="PERROR.html#PERROR">8.190 <code>PERROR</code> &mdash; Print system error message</a>
+<li><a href="PRECISION.html#PRECISION">8.191 <code>PRECISION</code> &mdash; Decimal precision of a real kind</a>
+<li><a href="POPCNT.html#POPCNT">8.192 <code>POPCNT</code> &mdash; Number of bits set</a>
+<li><a href="POPPAR.html#POPPAR">8.193 <code>POPPAR</code> &mdash; Parity of the number of bits set</a>
+<li><a href="PRESENT.html#PRESENT">8.194 <code>PRESENT</code> &mdash; Determine whether an optional dummy argument is specified</a>
+<li><a href="PRODUCT.html#PRODUCT">8.195 <code>PRODUCT</code> &mdash; Product of array elements</a>
+<li><a href="RADIX.html#RADIX">8.196 <code>RADIX</code> &mdash; Base of a model number</a>
+<li><a href="RAN.html#RAN">8.197 <code>RAN</code> &mdash; Real pseudo-random number</a>
+<li><a href="RAND.html#RAND">8.198 <code>RAND</code> &mdash; Real pseudo-random number</a>
+<li><a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">8.199 <code>RANDOM_NUMBER</code> &mdash; Pseudo-random number</a>
+<li><a href="RANDOM_005fSEED.html#RANDOM_005fSEED">8.200 <code>RANDOM_SEED</code> &mdash; Initialize a pseudo-random number sequence</a>
+<li><a href="RANGE.html#RANGE">8.201 <code>RANGE</code> &mdash; Decimal exponent range</a>
+<li><a href="RANK.html#RANK">8.202 <code>RANK</code> &mdash; Rank of a data object</a>
+<li><a href="REAL.html#REAL">8.203 <code>REAL</code> &mdash; Convert to real type</a>
+<li><a href="RENAME.html#RENAME">8.204 <code>RENAME</code> &mdash; Rename a file</a>
+<li><a href="REPEAT.html#REPEAT">8.205 <code>REPEAT</code> &mdash; Repeated string concatenation</a>
+<li><a href="RESHAPE.html#RESHAPE">8.206 <code>RESHAPE</code> &mdash; Function to reshape an array</a>
+<li><a href="RRSPACING.html#RRSPACING">8.207 <code>RRSPACING</code> &mdash; Reciprocal of the relative spacing</a>
+<li><a href="RSHIFT.html#RSHIFT">8.208 <code>RSHIFT</code> &mdash; Right shift bits</a>
+<li><a href="SAME_005fTYPE_005fAS.html#SAME_005fTYPE_005fAS">8.209 <code>SAME_TYPE_AS</code> &mdash;  Query dynamic types for equality</a>
+<li><a href="SCALE.html#SCALE">8.210 <code>SCALE</code> &mdash; Scale a real value</a>
+<li><a href="SCAN.html#SCAN">8.211 <code>SCAN</code> &mdash; Scan a string for the presence of a set of characters</a>
+<li><a href="SECNDS.html#SECNDS">8.212 <code>SECNDS</code> &mdash; Time function</a>
+<li><a href="SECOND.html#SECOND">8.213 <code>SECOND</code> &mdash; CPU time function</a>
+<li><a href="SELECTED_005fCHAR_005fKIND.html#SELECTED_005fCHAR_005fKIND">8.214 <code>SELECTED_CHAR_KIND</code> &mdash; Choose character kind</a>
+<li><a href="SELECTED_005fINT_005fKIND.html#SELECTED_005fINT_005fKIND">8.215 <code>SELECTED_INT_KIND</code> &mdash; Choose integer kind</a>
+<li><a href="SELECTED_005fREAL_005fKIND.html#SELECTED_005fREAL_005fKIND">8.216 <code>SELECTED_REAL_KIND</code> &mdash; Choose real kind</a>
+<li><a href="SET_005fEXPONENT.html#SET_005fEXPONENT">8.217 <code>SET_EXPONENT</code> &mdash; Set the exponent of the model</a>
+<li><a href="SHAPE.html#SHAPE">8.218 <code>SHAPE</code> &mdash; Determine the shape of an array</a>
+<li><a href="SHIFTA.html#SHIFTA">8.219 <code>SHIFTA</code> &mdash; Right shift with fill</a>
+<li><a href="SHIFTL.html#SHIFTL">8.220 <code>SHIFTL</code> &mdash; Left shift</a>
+<li><a href="SHIFTR.html#SHIFTR">8.221 <code>SHIFTR</code> &mdash; Right shift</a>
+<li><a href="SIGN.html#SIGN">8.222 <code>SIGN</code> &mdash; Sign copying function</a>
+<li><a href="SIGNAL.html#SIGNAL">8.223 <code>SIGNAL</code> &mdash; Signal handling subroutine (or function)</a>
+<li><a href="SIN.html#SIN">8.224 <code>SIN</code> &mdash; Sine function</a>
+<li><a href="SINH.html#SINH">8.225 <code>SINH</code> &mdash; Hyperbolic sine function</a>
+<li><a href="SIZE.html#SIZE">8.226 <code>SIZE</code> &mdash; Determine the size of an array</a>
+<li><a href="SIZEOF.html#SIZEOF">8.227 <code>SIZEOF</code> &mdash; Size in bytes of an expression</a>
+<li><a href="SLEEP.html#SLEEP">8.228 <code>SLEEP</code> &mdash; Sleep for the specified number of seconds</a>
+<li><a href="SPACING.html#SPACING">8.229 <code>SPACING</code> &mdash; Smallest distance between two numbers of a given type</a>
+<li><a href="SPREAD.html#SPREAD">8.230 <code>SPREAD</code> &mdash; Add a dimension to an array</a>
+<li><a href="SQRT.html#SQRT">8.231 <code>SQRT</code> &mdash; Square-root function</a>
+<li><a href="SRAND.html#SRAND">8.232 <code>SRAND</code> &mdash; Reinitialize the random number generator</a>
+<li><a href="STAT.html#STAT">8.233 <code>STAT</code> &mdash; Get file status</a>
+<li><a href="STORAGE_005fSIZE.html#STORAGE_005fSIZE">8.234 <code>STORAGE_SIZE</code> &mdash; Storage size in bits</a>
+<li><a href="SUM.html#SUM">8.235 <code>SUM</code> &mdash; Sum of array elements</a>
+<li><a href="SYMLNK.html#SYMLNK">8.236 <code>SYMLNK</code> &mdash; Create a symbolic link</a>
+<li><a href="SYSTEM.html#SYSTEM">8.237 <code>SYSTEM</code> &mdash; Execute a shell command</a>
+<li><a href="SYSTEM_005fCLOCK.html#SYSTEM_005fCLOCK">8.238 <code>SYSTEM_CLOCK</code> &mdash; Time function</a>
+<li><a href="TAN.html#TAN">8.239 <code>TAN</code> &mdash; Tangent function</a>
+<li><a href="TANH.html#TANH">8.240 <code>TANH</code> &mdash; Hyperbolic tangent function</a>
+<li><a href="THIS_005fIMAGE.html#THIS_005fIMAGE">8.241 <code>THIS_IMAGE</code> &mdash; Function that returns the cosubscript index of this image</a>
+<li><a href="TIME.html#TIME">8.242 <code>TIME</code> &mdash; Time function</a>
+<li><a href="TIME8.html#TIME8">8.243 <code>TIME8</code> &mdash; Time function (64-bit)</a>
+<li><a href="TINY.html#TINY">8.244 <code>TINY</code> &mdash; Smallest positive number of a real kind</a>
+<li><a href="TRAILZ.html#TRAILZ">8.245 <code>TRAILZ</code> &mdash; Number of trailing zero bits of an integer</a>
+<li><a href="TRANSFER.html#TRANSFER">8.246 <code>TRANSFER</code> &mdash; Transfer bit patterns</a>
+<li><a href="TRANSPOSE.html#TRANSPOSE">8.247 <code>TRANSPOSE</code> &mdash; Transpose an array of rank two</a>
+<li><a href="TRIM.html#TRIM">8.248 <code>TRIM</code> &mdash; Remove trailing blank characters of a string</a>
+<li><a href="TTYNAM.html#TTYNAM">8.249 <code>TTYNAM</code> &mdash; Get the name of a terminal device.</a>
+<li><a href="UBOUND.html#UBOUND">8.250 <code>UBOUND</code> &mdash; Upper dimension bounds of an array</a>
+<li><a href="UCOBOUND.html#UCOBOUND">8.251 <code>UCOBOUND</code> &mdash; Upper codimension bounds of an array</a>
+<li><a href="UMASK.html#UMASK">8.252 <code>UMASK</code> &mdash; Set the file creation mask</a>
+<li><a href="UNLINK.html#UNLINK">8.253 <code>UNLINK</code> &mdash; Remove a file from the file system</a>
+<li><a href="UNPACK.html#UNPACK">8.254 <code>UNPACK</code> &mdash; Unpack an array of rank one into an array</a>
+<li><a href="VERIFY.html#VERIFY">8.255 <code>VERIFY</code> &mdash; Scan a string for characters not a given set</a>
+<li><a href="XOR.html#XOR">8.256 <code>XOR</code> &mdash; Bitwise logical exclusive OR</a>
+</li></ul>
+<li><a name="toc_Intrinsic-Modules" href="Intrinsic-Modules.html#Intrinsic-Modules">9 Intrinsic Modules</a>
+<ul>
+<li><a href="ISO_005fFORTRAN_005fENV.html#ISO_005fFORTRAN_005fENV">9.1 <code>ISO_FORTRAN_ENV</code></a>
+<li><a href="ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING">9.2 <code>ISO_C_BINDING</code></a>
+<li><a href="OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS.html#OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS">9.3 OpenMP Modules <code>OMP_LIB</code> and <code>OMP_LIB_KINDS</code></a>
+</li></ul>
+<li><a name="toc_Contributing" href="Contributing.html#Contributing">Contributing</a>
+<ul>
+<li><a href="Contributors.html#Contributors">Contributors to GNU Fortran</a>
+<li><a href="Projects.html#Projects">Projects</a>
+<li><a href="Proposed-Extensions.html#Proposed-Extensions">Proposed Extensions</a>
+<ul>
+<li><a href="Proposed-Extensions.html#Proposed-Extensions">Compiler extensions:</a>
+<li><a href="Proposed-Extensions.html#Proposed-Extensions">Environment Options</a>
+</li></ul>
+</li></ul>
+<li><a name="toc_Copying" href="Copying.html#Copying">GNU General Public License</a>
+<li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>
+<ul>
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">ADDENDUM: How to use this License for your documents</a>
+</li></ul>
+<li><a name="toc_Funding" href="Funding.html#Funding">Funding Free Software</a>
+<li><a name="toc_Option-Index" href="Option-Index.html#Option-Index">Option Index</a>
+<li><a name="toc_Keyword-Index" href="Keyword-Index.html#Keyword-Index">Keyword Index</a>
+</li></ul>
+</div>
+
+<!--  -->
+<!-- TexInfo table of contents. -->
+<!--  -->
+<div class="node">
+<a name="Top"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Introduction.html#Introduction">Introduction</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
+<hr>
+</div>
+
+<h2 class="unnumbered">Introduction</h2>
+
+<p><a name="index-Introduction-1"></a>
+This manual documents the use of <samp><span class="command">gfortran</span></samp>,
+the GNU Fortran compiler.  You can find in this manual how to invoke
+<samp><span class="command">gfortran</span></samp>, as well as its features and incompatibilities.
+
+<!-- When you add a new menu item, please keep the right hand -->
+<!-- aligned to the same column.  Do not use tabs.  This provides -->
+<!-- better formatting. -->
+<ul class="menu">
+<li><a accesskey="1" href="Introduction.html#Introduction">Introduction</a>
+
+</li></ul>
+<p>Part I: Invoking GNU Fortran
+</p>
+<ul class="menu">
+<li><a accesskey="2" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>:  Command options supported by <samp><span class="command">gfortran</span></samp>. 
+<li><a accesskey="3" href="Runtime.html#Runtime">Runtime</a>:               Influencing runtime behavior with environment variables.
+
+</li></ul>
+<p>Part II: Language Reference
+</p>
+<ul class="menu">
+<li><a accesskey="4" href="Fortran-2003-and-2008-status.html#Fortran-2003-and-2008-status">Fortran 2003 and 2008 status</a>:   Fortran 2003 and 2008 features supported by GNU Fortran. 
+<li><a accesskey="5" href="Compiler-Characteristics.html#Compiler-Characteristics">Compiler Characteristics</a>:       User-visible implementation details. 
+<li><a accesskey="6" href="Mixed_002dLanguage-Programming.html#Mixed_002dLanguage-Programming">Mixed-Language Programming</a>:     Interoperability with C
+<li><a accesskey="7" href="Extensions.html#Extensions">Extensions</a>:            Language extensions implemented by GNU Fortran. 
+<li><a accesskey="8" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>:  Intrinsic procedures supported by GNU Fortran. 
+<li><a accesskey="9" href="Intrinsic-Modules.html#Intrinsic-Modules">Intrinsic Modules</a>:     Intrinsic modules supported by GNU Fortran.
+
+<li><a href="Contributing.html#Contributing">Contributing</a>:          How you can help. 
+<li><a href="Copying.html#Copying">Copying</a>:               GNU General Public License says
+                         how you can copy and share GNU Fortran. 
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>
+                         How you can copy and share this manual. 
+<li><a href="Funding.html#Funding">Funding</a>:               How to help assure continued work for free software. 
+<li><a href="Option-Index.html#Option-Index">Option Index</a>:          Index of command line options
+<li><a href="Keyword-Index.html#Keyword-Index">Keyword Index</a>:         Index of concepts
+</ul>
+
+<!--  -->
+<!-- Introduction -->
+<!--  -->
+   </body></html>
+

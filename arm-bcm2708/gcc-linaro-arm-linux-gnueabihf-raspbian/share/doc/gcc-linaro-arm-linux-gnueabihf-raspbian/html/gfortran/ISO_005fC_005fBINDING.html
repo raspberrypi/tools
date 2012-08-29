@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+<title>ISO_C_BINDING - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Modules.html#Intrinsic-Modules" title="Intrinsic Modules">
+<link rel="prev" href="ISO_005fFORTRAN_005fENV.html#ISO_005fFORTRAN_005fENV" title="ISO_FORTRAN_ENV">
+<link rel="next" href="OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS.html#OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS" title="OpenMP Modules OMP_LIB and OMP_LIB_KINDS">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="ISO_C_BINDING"></a>
+<a name="ISO_005fC_005fBINDING"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS.html#OpenMP-Modules-OMP_005fLIB-and-OMP_005fLIB_005fKINDS">OpenMP Modules OMP_LIB and OMP_LIB_KINDS</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ISO_005fFORTRAN_005fENV.html#ISO_005fFORTRAN_005fENV">ISO_FORTRAN_ENV</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Modules.html#Intrinsic-Modules">Intrinsic Modules</a>
+<hr>
+</div>
+
+<h3 class="section">9.2 <code>ISO_C_BINDING</code></h3>
+
+     <dl>
+<dt><em>Standard</em>:<dd>Fortran 2003 and later, GNU extensions
+</dl>
+
+   <p>The following intrinsic procedures are provided by the module; their
+definition can be found in the section Intrinsic Procedures of this
+manual.
+
+     <dl>
+<dt><code>C_ASSOCIATED</code><br><dt><code>C_F_POINTER</code><br><dt><code>C_F_PROCPOINTER</code><br><dt><code>C_FUNLOC</code><br><dt><code>C_LOC</code><br><dt><code>C_SIZEOF</code><dd></dl>
+   <!-- TODO: Vertical spacing between C_FUNLOC and C_LOC wrong in PDF, -->
+<!-- don't really know why. -->
+
+   <p>The <code>ISO_C_BINDING</code> module provides the following named constants of
+type default integer, which can be used as KIND type parameters.
+
+   <p>In addition to the integer named constants required by the Fortran 2003
+standard, GNU Fortran provides as an extension named constants for the
+128-bit integer types supported by the C compiler: <code>C_INT128_T,
+C_INT_LEAST128_T, C_INT_FAST128_T</code>. Furthermore, if <code>__float</code> is
+supported in C, the named constants <code>C_FLOAT128, C_FLOAT128_COMPLEX</code>
+are defined.
+
+   <p><table summary=""><tr align="left"><td valign="top" width="15%">Fortran Type  </td><td valign="top" width="35%">Named constant         </td><td valign="top" width="35%">C type                                </td><td valign="top" width="35%">Extension
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT</code>           </td><td valign="top" width="35%"><code>int</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_SHORT</code>         </td><td valign="top" width="35%"><code>short int</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_LONG</code>          </td><td valign="top" width="35%"><code>long int</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_LONG_LONG</code>     </td><td valign="top" width="35%"><code>long long int</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_SIGNED_CHAR</code>   </td><td valign="top" width="35%"><code>signed char</code>/<code>unsigned char</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_SIZE_T</code>        </td><td valign="top" width="35%"><code>size_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT8_T</code>        </td><td valign="top" width="35%"><code>int8_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT16_T</code>       </td><td valign="top" width="35%"><code>int16_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT32_T</code>       </td><td valign="top" width="35%"><code>int32_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT64_T</code>       </td><td valign="top" width="35%"><code>int64_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT128_T</code>      </td><td valign="top" width="35%"><code>int128_t</code>                      </td><td valign="top" width="35%">Ext. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_LEAST8_T</code>  </td><td valign="top" width="35%"><code>int_least8_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_LEAST16_T</code> </td><td valign="top" width="35%"><code>int_least16_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_LEAST32_T</code> </td><td valign="top" width="35%"><code>int_least32_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_LEAST64_T</code> </td><td valign="top" width="35%"><code>int_least64_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_LEAST128_T</code></td><td valign="top" width="35%"><code>int_least128_t</code>                </td><td valign="top" width="35%">Ext. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_FAST8_T</code>   </td><td valign="top" width="35%"><code>int_fast8_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_FAST16_T</code>  </td><td valign="top" width="35%"><code>int_fast16_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_FAST32_T</code>  </td><td valign="top" width="35%"><code>int_fast32_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_FAST64_T</code>  </td><td valign="top" width="35%"><code>int_fast64_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INT_FAST128_T</code> </td><td valign="top" width="35%"><code>int_fast128_t</code>                 </td><td valign="top" width="35%">Ext. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INTMAX_T</code>      </td><td valign="top" width="35%"><code>intmax_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>INTEGER</code></td><td valign="top" width="35%"><code>C_INTPTR_T</code>      </td><td valign="top" width="35%"><code>intptr_t</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>REAL</code>   </td><td valign="top" width="35%"><code>C_FLOAT</code>         </td><td valign="top" width="35%"><code>float</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>REAL</code>   </td><td valign="top" width="35%"><code>C_DOUBLE</code>        </td><td valign="top" width="35%"><code>double</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>REAL</code>   </td><td valign="top" width="35%"><code>C_LONG_DOUBLE</code>   </td><td valign="top" width="35%"><code>long double</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>REAL</code>   </td><td valign="top" width="35%"><code>C_FLOAT128</code>      </td><td valign="top" width="35%"><code>__float128</code>                    </td><td valign="top" width="35%">Ext. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>COMPLEX</code></td><td valign="top" width="35%"><code>C_FLOAT_COMPLEX</code> </td><td valign="top" width="35%"><code>float _Complex</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>COMPLEX</code></td><td valign="top" width="35%"><code>C_DOUBLE_COMPLEX</code></td><td valign="top" width="35%"><code>double _Complex</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>COMPLEX</code></td><td valign="top" width="35%"><code>C_LONG_DOUBLE_COMPLEX</code></td><td valign="top" width="35%"><code>long double _Complex</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>REAL</code>   </td><td valign="top" width="35%"><code>C_FLOAT128_COMPLEX</code>   </td><td valign="top" width="35%"><code>__float128 _Complex</code>      </td><td valign="top" width="35%">Ext. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>LOGICAL</code></td><td valign="top" width="35%"><code>C_BOOL</code>          </td><td valign="top" width="35%"><code>_Bool</code>
+<br></td></tr><tr align="left"><td valign="top" width="15%"><code>CHARACTER</code></td><td valign="top" width="35%"><code>C_CHAR</code>        </td><td valign="top" width="35%"><code>char</code>
+   <br></td></tr></table>
+
+   <p>Additionally, the following parameters of type <code>CHARACTER(KIND=C_CHAR)</code>
+are defined.
+
+   <p><table summary=""><tr align="left"><td valign="top" width="20%">Name                     </td><td valign="top" width="45%">C definition    </td><td valign="top" width="15%">Value
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_NULL_CHAR</code>       </td><td valign="top" width="45%">null character  </td><td valign="top" width="15%"><code>'\0'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_ALERT</code>           </td><td valign="top" width="45%">alert           </td><td valign="top" width="15%"><code>'\a'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_BACKSPACE</code>       </td><td valign="top" width="45%">backspace       </td><td valign="top" width="15%"><code>'\b'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_FORM_FEED</code>       </td><td valign="top" width="45%">form feed       </td><td valign="top" width="15%"><code>'\f'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_NEW_LINE</code>        </td><td valign="top" width="45%">new line        </td><td valign="top" width="15%"><code>'\n'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_CARRIAGE_RETURN</code> </td><td valign="top" width="45%">carriage return </td><td valign="top" width="15%"><code>'\r'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_HORIZONTAL_TAB</code>  </td><td valign="top" width="45%">horizontal tab  </td><td valign="top" width="15%"><code>'\t'</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_VERTICAL_TAB</code>    </td><td valign="top" width="45%">vertical tab    </td><td valign="top" width="15%"><code>'\v'</code>
+   <br></td></tr></table>
+
+   <p>Moreover, the following two named constants are defined:
+
+   <p><table summary=""><tr align="left"><td valign="top" width="20%">Name                 </td><td valign="top" width="80%">Type
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_NULL_PTR</code>    </td><td valign="top" width="80%"><code>C_PTR</code>
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>C_NULL_FUNPTR</code> </td><td valign="top" width="80%"><code>C_FUNPTR</code>
+   <br></td></tr></table>
+
+   <p>Both are equivalent to the value <code>NULL</code> in C.
+
+   </body></html>
+

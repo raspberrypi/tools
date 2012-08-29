@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>KIND Type Parameters - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Compiler-Characteristics.html#Compiler-Characteristics" title="Compiler Characteristics">
+<link rel="next" href="Internal-representation-of-LOGICAL-variables.html#Internal-representation-of-LOGICAL-variables" title="Internal representation of LOGICAL variables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="KIND-Type-Parameters"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Internal-representation-of-LOGICAL-variables.html#Internal-representation-of-LOGICAL-variables">Internal representation of LOGICAL variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Compiler-Characteristics.html#Compiler-Characteristics">Compiler Characteristics</a>
+<hr>
+</div>
+
+<h3 class="section">5.1 KIND Type Parameters</h3>
+
+<p><a name="index-kind-316"></a>
+The <code>KIND</code> type parameters supported by GNU Fortran for the primitive
+data types are:
+
+     <dl>
+<dt><code>INTEGER</code><dd>1, 2, 4, 8*, 16*, default: 4 (1)
+
+     <br><dt><code>LOGICAL</code><dd>1, 2, 4, 8*, 16*, default: 4 (1)
+
+     <br><dt><code>REAL</code><dd>4, 8, 10*, 16*, default: 4 (2)
+
+     <br><dt><code>COMPLEX</code><dd>4, 8, 10*, 16*, default: 4 (2)
+
+     <br><dt><code>CHARACTER</code><dd>1, 4, default: 1
+
+   </dl>
+
+<p class="noindent">* = not available on all systems <br>
+(1) Unless -fdefault-integer-8 is used <br>
+(2) Unless -fdefault-real-8 is used
+
+<p class="noindent">The <code>KIND</code> value matches the storage size in bytes, except for
+<code>COMPLEX</code> where the storage size is twice as much (or both real and
+imaginary part are a real value of the given size).  It is recommended to use
+the <code>SELECTED_CHAR_KIND</code>, <code>SELECTED_INT_KIND</code> and
+<code>SELECTED_REAL_KIND</code> intrinsics or the <code>INT8</code>, <code>INT16</code>,
+<code>INT32</code>, <code>INT64</code>, <code>REAL32</code>, <code>REAL64</code>, and <code>REAL128</code>
+parameters of the <code>ISO_FORTRAN_ENV</code> module instead of the concrete values. 
+The available kind parameters can be found in the constant arrays
+<code>CHARACTER_KINDS</code>, <code>INTEGER_KINDS</code>, <code>LOGICAL_KINDS</code> and
+<code>REAL_KINDS</code> in the <code>ISO_FORTRAN_ENV</code> module
+(see <a href="ISO_005fFORTRAN_005fENV.html#ISO_005fFORTRAN_005fENV">ISO_FORTRAN_ENV</a>).
+
+   </body></html>
+

@@ -1,0 +1,12 @@
+#
+# Testsuite failures, someone should be working towards
+# fixing these! They are listed here for the purpose of
+# regression testing during builds.
+# Format: <Failed test>, Error <Make error code> [(ignored)]
+#
+annexc.out, Error 1 (ignored)
+check-localplt.out, Error 1
+test-double.out, Error 1
+test-fenv.out, Error 1
+test-float.out, Error 1
+test-idouble.out, Error 1

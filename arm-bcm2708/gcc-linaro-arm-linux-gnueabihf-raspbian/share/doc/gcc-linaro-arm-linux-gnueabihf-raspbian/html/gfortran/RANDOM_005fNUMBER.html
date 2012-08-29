@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+<title>RANDOM_NUMBER - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="RADIX.html#RADIX" title="RADIX">
+<link rel="next" href="RANDOM_005fSEED.html#RANDOM_005fSEED" title="RANDOM_SEED">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="RANDOM_NUMBER"></a>
+<a name="RANDOM_005fNUMBER"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="RANDOM_005fSEED.html#RANDOM_005fSEED">RANDOM_SEED</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="RADIX.html#RADIX">RADIX</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.199 <code>RANDOM_NUMBER</code> &mdash; Pseudo-random number</h3>
+
+<p><a name="index-RANDOM_005fNUMBER-952"></a><a name="index-random-number-generation-953"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Returns a single pseudorandom number or an array of pseudorandom numbers
+from the uniform distribution over the range  0 \leq x &lt; 1.
+
+     <p>The runtime-library implements George Marsaglia's KISS (Keep It Simple
+Stupid) random number generator (RNG). This RNG combines:
+          <ol type=1 start=1>
+<li>The congruential generator x(n) = 69069 \cdot x(n-1) + 1327217885
+with a period of 2^32,
+<li>A 3-shift shift-register generator with a period of 2^32 - 1,
+<li>Two 16-bit multiply-with-carry generators with a period of
+597273182964842497 &gt; 2^59.
+          </ol>
+The overall period exceeds 2^123.
+
+     <p>Please note, this RNG is thread safe if used within OpenMP directives,
+i.e., its state will be consistent while called from multiple threads. 
+However, the KISS generator does not create random numbers in parallel
+from multiple sources, but in sequence from a single source. If an
+OpenMP-enabled application heavily relies on random numbers, one should
+consider employing a dedicated parallel random number generator instead.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>RANDOM_NUMBER(HARVEST)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>HARVEST</var> </td><td valign="top" width="70%">Shall be a scalar or an array of type <code>REAL</code>.
+     <br></td></tr></table>
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program test_random_number
+            REAL :: r(5,5)
+            CALL init_random_seed()         ! see example of RANDOM_SEED
+            CALL RANDOM_NUMBER(r)
+          end program
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="RANDOM_005fSEED.html#RANDOM_005fSEED">RANDOM_SEED</a>
+</dl>
+
+   </body></html>
+

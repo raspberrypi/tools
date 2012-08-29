@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+<title>BOZ literal constants - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran" title="Extensions implemented in GNU Fortran">
+<link rel="prev" href="I_002fO-item-lists.html#I_002fO-item-lists" title="I/O item lists">
+<link rel="next" href="_0040code_007bQ_007d-exponent_002dletter.html#g_t_0040code_007bQ_007d-exponent_002dletter" title="@code{Q} exponent-letter">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="BOZ-literal-constants"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter.html#g_t_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter">&lt;code&gt;Q&lt;/code&gt; exponent-letter</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="I_002fO-item-lists.html#I_002fO-item-lists">I/O item lists</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran">Extensions implemented in GNU Fortran</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.1.9 BOZ literal constants</h4>
+
+<p><a name="index-BOZ-literal-constants-326"></a>
+Besides decimal constants, Fortran also supports binary (<code>b</code>),
+octal (<code>o</code>) and hexadecimal (<code>z</code>) integer constants.  The
+syntax is: &lsquo;<samp><span class="samp">prefix quote digits quote</span></samp>&rsquo;, were the prefix is
+either <code>b</code>, <code>o</code> or <code>z</code>, quote is either <code>'</code> or
+<code>"</code> and the digits are for binary <code>0</code> or <code>1</code>, for
+octal between <code>0</code> and <code>7</code>, and for hexadecimal between
+<code>0</code> and <code>F</code>.  (Example: <code>b'01011101'</code>.)
+
+   <p>Up to Fortran 95, BOZ literals were only allowed to initialize
+integer variables in DATA statements.  Since Fortran 2003 BOZ literals
+are also allowed as argument of <code>REAL</code>, <code>DBLE</code>, <code>INT</code>
+and <code>CMPLX</code>; the result is the same as if the integer BOZ
+literal had been converted by <code>TRANSFER</code> to, respectively,
+<code>real</code>, <code>double precision</code>, <code>integer</code> or <code>complex</code>. 
+As GNU Fortran extension the intrinsic procedures <code>FLOAT</code>,
+<code>DFLOAT</code>, <code>COMPLEX</code> and <code>DCMPLX</code> are treated alike.
+
+   <p>As an extension, GNU Fortran allows hexadecimal BOZ literal constants to
+be specified using the <code>X</code> prefix, in addition to the standard
+<code>Z</code> prefix.  The BOZ literal can also be specified by adding a
+suffix to the string, for example, <code>Z'ABC'</code> and <code>'ABC'Z</code> are
+equivalent.
+
+   <p>Furthermore, GNU Fortran allows using BOZ literal constants outside
+DATA statements and the four intrinsic functions allowed by Fortran 2003. 
+In DATA statements, in direct assignments, where the right-hand side
+only contains a BOZ literal constant, and for old-style initializers of
+the form <code>integer i /o'0173'/</code>, the constant is transferred
+as if <code>TRANSFER</code> had been used; for <code>COMPLEX</code> numbers, only
+the real part is initialized unless <code>CMPLX</code> is used.  In all other
+cases, the BOZ literal constant is converted to an <code>INTEGER</code> value with
+the largest decimal representation.  This value is then converted
+numerically to the type and kind of the variable in question. 
+(For instance, <code>real :: r = b'0000001' + 1</code> initializes <code>r</code>
+with <code>2.0</code>.) As different compilers implement the extension
+differently, one should be careful when doing bitwise initialization
+of non-integer variables.
+
+   <p>Note that initializing an <code>INTEGER</code> variable with a statement such
+as <code>DATA i/Z'FFFFFFFF'/</code> will give an integer overflow error rather
+than the desired result of -1 when <code>i</code> is a 32-bit integer
+on a system that supports 64-bit integers.  The &lsquo;<samp><span class="samp">-fno-range-check</span></samp>&rsquo;
+option can be used as a workaround for legacy code that initializes
+integers in this manner.
+
+   </body></html>
+

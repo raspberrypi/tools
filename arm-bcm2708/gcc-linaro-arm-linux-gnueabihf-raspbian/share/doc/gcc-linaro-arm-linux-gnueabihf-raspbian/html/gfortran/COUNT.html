@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+<title>COUNT - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="COSH.html#COSH" title="COSH">
+<link rel="next" href="CPU_005fTIME.html#CPU_005fTIME" title="CPU_TIME">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="COUNT"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="CPU_005fTIME.html#CPU_005fTIME">CPU_TIME</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="COSH.html#COSH">COSH</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.56 <code>COUNT</code> &mdash; Count function</h3>
+
+<p><a name="index-COUNT-542"></a><a name="index-array_002c-conditionally-count-elements-543"></a><a name="index-array_002c-element-counting-544"></a><a name="index-array_002c-number-of-elements-545"></a>
+     <dl>
+<dt><em>Description</em>:<dd>
+Counts the number of <code>.TRUE.</code> elements in a logical <var>MASK</var>,
+or, if the <var>DIM</var> argument is supplied, counts the number of
+elements along each row of the array in the <var>DIM</var> direction. 
+If the array has zero size, or all of the elements of <var>MASK</var> are
+<code>.FALSE.</code>, then the result is <code>0</code>.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later, with <var>KIND</var> argument Fortran 2003 and later
+
+     <br><dt><em>Class</em>:<dd>Transformational function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = COUNT(MASK [, DIM, KIND])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>MASK</var> </td><td valign="top" width="70%">The type shall be <code>LOGICAL</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>DIM</var>  </td><td valign="top" width="70%">(Optional) The type shall be <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>KIND</var> </td><td valign="top" width="70%">(Optional) An <code>INTEGER</code> initialization
+expression indicating the kind parameter of the result.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value is of type <code>INTEGER</code> and of kind <var>KIND</var>. If
+<var>KIND</var> is absent, the return value is of default integer kind. 
+If <var>DIM</var> is present, the result is an array with a rank one less
+than the rank of <var>ARRAY</var>, and a size corresponding to the shape
+of <var>ARRAY</var> with the <var>DIM</var> dimension removed.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program test_count
+              integer, dimension(2,3) :: a, b
+              logical, dimension(2,3) :: mask
+              a = reshape( (/ 1, 2, 3, 4, 5, 6 /), (/ 2, 3 /))
+              b = reshape( (/ 0, 7, 3, 4, 5, 8 /), (/ 2, 3 /))
+              print '(3i3)', a(1,:)
+              print '(3i3)', a(2,:)
+              print *
+              print '(3i3)', b(1,:)
+              print '(3i3)', b(2,:)
+              print *
+              mask = a.ne.b
+              print '(3l3)', mask(1,:)
+              print '(3l3)', mask(2,:)
+              print *
+              print '(3i3)', count(mask)
+              print *
+              print '(3i3)', count(mask, 1)
+              print *
+              print '(3i3)', count(mask, 2)
+          end program test_count
+</pre>
+     </dl>
+
+   </body></html>
+

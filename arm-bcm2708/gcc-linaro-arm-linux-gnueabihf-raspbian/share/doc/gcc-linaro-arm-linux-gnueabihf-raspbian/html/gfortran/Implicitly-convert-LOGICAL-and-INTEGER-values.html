@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+<title>Implicitly convert LOGICAL and INTEGER values - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran" title="Extensions implemented in GNU Fortran">
+<link rel="prev" href="Unary-operators.html#Unary-operators" title="Unary operators">
+<link rel="next" href="Hollerith-constants-support.html#Hollerith-constants-support" title="Hollerith constants support">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Implicitly-convert-LOGICAL-and-INTEGER-values"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Hollerith-constants-support.html#Hollerith-constants-support">Hollerith constants support</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Unary-operators.html#Unary-operators">Unary operators</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.html#Extensions-implemented-in-GNU-Fortran">Extensions implemented in GNU Fortran</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.1.12 Implicitly convert <code>LOGICAL</code> and <code>INTEGER</code> values</h4>
+
+<p><a name="index-conversion_002c-to-integer-329"></a><a name="index-conversion_002c-to-logical-330"></a>
+As an extension for backwards compatibility with other compilers, GNU
+Fortran allows the implicit conversion of <code>LOGICAL</code> values to
+<code>INTEGER</code> values and vice versa.  When converting from a
+<code>LOGICAL</code> to an <code>INTEGER</code>, <code>.FALSE.</code> is interpreted as
+zero, and <code>.TRUE.</code> is interpreted as one.  When converting from
+<code>INTEGER</code> to <code>LOGICAL</code>, the value zero is interpreted as
+<code>.FALSE.</code> and any nonzero value is interpreted as <code>.TRUE.</code>.
+
+<pre class="smallexample">             LOGICAL :: l
+             l = 1
+</pre>
+   <pre class="smallexample">             INTEGER :: i
+             i = .TRUE.
+</pre>
+   <p>However, there is no implicit conversion of <code>INTEGER</code> values in
+<code>if</code>-statements, nor of <code>LOGICAL</code> or <code>INTEGER</code> values
+in I/O operations.
+
+   </body></html>
+

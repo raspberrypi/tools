@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+<title>RANDOM_SEED - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER" title="RANDOM_NUMBER">
+<link rel="next" href="RAND.html#RAND" title="RAND">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="RANDOM_SEED"></a>
+<a name="RANDOM_005fSEED"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="RAND.html#RAND">RAND</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">RANDOM_NUMBER</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.200 <code>RANDOM_SEED</code> &mdash; Initialize a pseudo-random number sequence</h3>
+
+<p><a name="index-RANDOM_005fSEED-954"></a><a name="index-random-number-generation_002c-seeding-955"></a><a name="index-seeding-a-random-number-generator-956"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Restarts or queries the state of the pseudorandom number generator used by
+<code>RANDOM_NUMBER</code>.
+
+     <p>If <code>RANDOM_SEED</code> is called without arguments, it is initialized to
+a default state. The example below shows how to initialize the random
+seed based on the system's time.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>CALL RANDOM_SEED([SIZE, PUT, GET])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>SIZE</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar and of type default
+<code>INTEGER</code>, with <code>INTENT(OUT)</code>. It specifies the minimum size
+of the arrays used with the <var>PUT</var> and <var>GET</var> arguments. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>PUT</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
+<code>INTEGER</code> and rank one. It is <code>INTENT(IN)</code> and the size of
+the array must be larger than or equal to the number returned by the
+<var>SIZE</var> argument. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>GET</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
+<code>INTEGER</code> and rank one. It is <code>INTENT(OUT)</code> and the size
+of the array must be larger than or equal to the number returned by
+the <var>SIZE</var> argument.
+     <br></td></tr></table>
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          SUBROUTINE init_random_seed()
+            INTEGER :: i, n, clock
+            INTEGER, DIMENSION(:), ALLOCATABLE :: seed
+          
+            CALL RANDOM_SEED(size = n)
+            ALLOCATE(seed(n))
+          
+            CALL SYSTEM_CLOCK(COUNT=clock)
+          
+            seed = clock + 37 * (/ (i - 1, i = 1, n) /)
+            CALL RANDOM_SEED(PUT = seed)
+          
+            DEALLOCATE(seed)
+          END SUBROUTINE
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">RANDOM_NUMBER</a>
+</dl>
+
+   </body></html>
+

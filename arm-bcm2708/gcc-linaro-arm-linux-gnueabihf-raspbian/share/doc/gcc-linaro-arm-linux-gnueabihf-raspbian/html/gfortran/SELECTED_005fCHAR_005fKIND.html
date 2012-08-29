@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+<title>SELECTED_CHAR_KIND - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="SECOND.html#SECOND" title="SECOND">
+<link rel="next" href="SELECTED_005fINT_005fKIND.html#SELECTED_005fINT_005fKIND" title="SELECTED_INT_KIND">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="SELECTED_CHAR_KIND"></a>
+<a name="SELECTED_005fCHAR_005fKIND"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="SELECTED_005fINT_005fKIND.html#SELECTED_005fINT_005fKIND">SELECTED_INT_KIND</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="SECOND.html#SECOND">SECOND</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.214 <code>SELECTED_CHAR_KIND</code> &mdash; Choose character kind</h3>
+
+<p><a name="index-SELECTED_005fCHAR_005fKIND-993"></a><a name="index-character-kind-994"></a><a name="index-kind_002c-character-995"></a>
+     <dl>
+<dt><em>Description</em>:<dd>
+<code>SELECTED_CHAR_KIND(NAME)</code> returns the kind value for the character
+set named <var>NAME</var>, if a character set with such a name is supported,
+or -1 otherwise. Currently, supported character sets include
+&ldquo;ASCII&rdquo; and &ldquo;DEFAULT&rdquo;, which are equivalent, and &ldquo;ISO_10646&rdquo;
+(Universal Character Set, UCS-4) which is commonly known as Unicode.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2003 and later
+
+     <br><dt><em>Class</em>:<dd>Transformational function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = SELECTED_CHAR_KIND(NAME)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NAME</var> </td><td valign="top" width="70%">Shall be a scalar and of the default character type.
+     <br></td></tr></table>
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program character_kind
+            use iso_fortran_env
+            implicit none
+            integer, parameter :: ascii = selected_char_kind ("ascii")
+            integer, parameter :: ucs4  = selected_char_kind ('ISO_10646')
+          
+            character(kind=ascii, len=26) :: alphabet
+            character(kind=ucs4,  len=30) :: hello_world
+          
+            alphabet = ascii_"abcdefghijklmnopqrstuvwxyz"
+            hello_world = ucs4_'Hello World and Ni Hao -- ' &amp;
+                          // char (int (z'4F60'), ucs4)     &amp;
+                          // char (int (z'597D'), ucs4)
+          
+            write (*,*) alphabet
+          
+            open (output_unit, encoding='UTF-8')
+            write (*,*) trim (hello_world)
+          end program character_kind
+</pre>
+     </dl>
+
+   </body></html>
+

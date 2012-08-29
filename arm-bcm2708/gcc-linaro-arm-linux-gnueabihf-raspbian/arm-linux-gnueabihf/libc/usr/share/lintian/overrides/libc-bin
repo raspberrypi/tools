@@ -1,0 +1,10 @@
+# ldconfig must be executable even when the libc is not configured, and
+# thus must be linked statically
+libc-bin: statically-linked-binary ./sbin/ldconfig
+
+# pt_chown must be setuid root, otherwise non-root users won't be able
+# to login
+libc-bin: setuid-binary usr/lib/pt_chown 4755 root/root
+
+# libc-bin depending on libc6 make apt crazy...
+libc-bin: missing-depends-line

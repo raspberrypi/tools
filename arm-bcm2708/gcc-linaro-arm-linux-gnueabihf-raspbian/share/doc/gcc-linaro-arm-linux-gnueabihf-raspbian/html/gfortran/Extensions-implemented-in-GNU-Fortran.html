@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>Extensions implemented in GNU Fortran - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensions.html#Extensions" title="Extensions">
+<link rel="next" href="Extensions-not-implemented-in-GNU-Fortran.html#Extensions-not-implemented-in-GNU-Fortran" title="Extensions not implemented in GNU Fortran">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Extensions-implemented-in-GNU-Fortran"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Extensions-not-implemented-in-GNU-Fortran.html#Extensions-not-implemented-in-GNU-Fortran">Extensions not implemented in GNU Fortran</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensions.html#Extensions">Extensions</a>
+<hr>
+</div>
+
+<h3 class="section">6.1 Extensions implemented in GNU Fortran</h3>
+
+<p><a name="index-extensions_002c-implemented-321"></a>
+GNU Fortran implements a number of extensions over standard
+Fortran.  This chapter contains information on their syntax and
+meaning.  There are currently two categories of GNU Fortran
+extensions, those that provide functionality beyond that provided
+by any standard, and those that are supported by GNU Fortran
+purely for backward compatibility with legacy compilers.  By default,
+<samp><span class="option">-std=gnu</span></samp> allows the compiler to accept both types of
+extensions, but to warn about the use of the latter.  Specifying
+either <samp><span class="option">-std=f95</span></samp>, <samp><span class="option">-std=f2003</span></samp> or <samp><span class="option">-std=f2008</span></samp>
+disables both types of extensions, and <samp><span class="option">-std=legacy</span></samp> allows both
+without warning.
+
+<ul class="menu">
+<li><a accesskey="1" href="Old_002dstyle-kind-specifications.html#Old_002dstyle-kind-specifications">Old-style kind specifications</a>
+<li><a accesskey="2" href="Old_002dstyle-variable-initialization.html#Old_002dstyle-variable-initialization">Old-style variable initialization</a>
+<li><a accesskey="3" href="Extensions-to-namelist.html#Extensions-to-namelist">Extensions to namelist</a>
+<li><a accesskey="4" href="X-format-descriptor-without-count-field.html#X-format-descriptor-without-count-field">X format descriptor without count field</a>
+<li><a accesskey="5" href="Commas-in-FORMAT-specifications.html#Commas-in-FORMAT-specifications">Commas in FORMAT specifications</a>
+<li><a accesskey="6" href="Missing-period-in-FORMAT-specifications.html#Missing-period-in-FORMAT-specifications">Missing period in FORMAT specifications</a>
+<li><a accesskey="7" href="I_002fO-item-lists.html#I_002fO-item-lists">I/O item lists</a>
+<li><a accesskey="8" href="BOZ-literal-constants.html#BOZ-literal-constants">BOZ literal constants</a>
+<li><a accesskey="9" href="_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter.html#g_t_003ccode_003eQ_003c_002fcode_003e-exponent_002dletter"><code>Q</code> exponent-letter</a>
+<li><a href="Real-array-indices.html#Real-array-indices">Real array indices</a>
+<li><a href="Unary-operators.html#Unary-operators">Unary operators</a>
+<li><a href="Implicitly-convert-LOGICAL-and-INTEGER-values.html#Implicitly-convert-LOGICAL-and-INTEGER-values">Implicitly convert LOGICAL and INTEGER values</a>
+<li><a href="Hollerith-constants-support.html#Hollerith-constants-support">Hollerith constants support</a>
+<li><a href="Cray-pointers.html#Cray-pointers">Cray pointers</a>
+<li><a href="CONVERT-specifier.html#CONVERT-specifier">CONVERT specifier</a>
+<li><a href="OpenMP.html#OpenMP">OpenMP</a>
+<li><a href="Argument-list-functions.html#Argument-list-functions">Argument list functions</a>
+</ul>
+
+   </body></html>
+

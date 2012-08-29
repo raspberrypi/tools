@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<title>NUM_IMAGES - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="NULL.html#NULL" title="NULL">
+<link rel="next" href="OR.html#OR" title="OR">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="NUM_IMAGES"></a>
+<a name="NUM_005fIMAGES"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="OR.html#OR">OR</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="NULL.html#NULL">NULL</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.186 <code>NUM_IMAGES</code> &mdash; Function that returns the number of images</h3>
+
+<p><a name="index-NUM_005fIMAGES-915"></a><a name="index-coarray_002c-_0040code_007bNUM_005fIMAGES_007d-916"></a><a name="index-images_002c-number-of-917"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Returns the number of images.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2008 and later
+
+     <br><dt><em>Class</em>:<dd>Transformational function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = NUM_IMAGES()</code>
+
+     <br><dt><em>Arguments</em>: None.
+<br><dt><em>Return value</em>:<dd>Scalar default-kind integer.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          INTEGER :: value[*]
+          INTEGER :: i
+          value = THIS_IMAGE()
+          SYNC ALL
+          IF (THIS_IMAGE() == 1) THEN
+            DO i = 1, NUM_IMAGES()
+              WRITE(*,'(2(a,i0))') 'value[', i, '] is ', value[i]
+            END DO
+          END IF
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="THIS_005fIMAGE.html#THIS_005fIMAGE">THIS_IMAGE</a>, <a href="IMAGE_005fINDEX.html#IMAGE_005fINDEX">IMAGE_INDEX</a>
+</dl>
+
+   </body></html>
+

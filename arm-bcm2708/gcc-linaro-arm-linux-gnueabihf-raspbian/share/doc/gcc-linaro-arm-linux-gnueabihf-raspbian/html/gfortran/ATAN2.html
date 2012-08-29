@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<title>ATAN2 - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="ATAN.html#ATAN" title="ATAN">
+<link rel="next" href="ATANH.html#ATANH" title="ATANH">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="ATAN2"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="ATANH.html#ATANH">ATANH</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ATAN.html#ATAN">ATAN</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.22 <code>ATAN2</code> &mdash; Arctangent function</h3>
+
+<p><a name="index-ATAN2-436"></a><a name="index-DATAN2-437"></a><a name="index-trigonometric-function_002c-tangent_002c-inverse-438"></a><a name="index-tangent_002c-inverse-439"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>ATAN2(Y, X)</code> computes the principal value of the argument
+function of the complex number X + i Y. This function can
+be used to transform from Cartesian into polar coordinates and
+allows to determine the angle in the correct quadrant.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 77 and later
+
+     <br><dt><em>Class</em>:<dd>Elemental function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = ATAN2(Y, X)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>Y</var> </td><td valign="top" width="70%">The type shall be <code>REAL</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>X</var> </td><td valign="top" width="70%">The type and kind type parameter shall be the same as <var>Y</var>. 
+If <var>Y</var> is zero, then <var>X</var> must be nonzero.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value has the same type and kind type parameter as <var>Y</var>. It
+is the principal value of the complex number X + i Y.  If <var>X</var>
+is nonzero, then it lies in the range -\pi \le \atan (x) \leq \pi. 
+The sign is positive if <var>Y</var> is positive.  If <var>Y</var> is zero, then
+the return value is zero if <var>X</var> is strictly positive, \pi if
+<var>X</var> is negative and <var>Y</var> is positive zero (or the processor does
+not handle signed zeros), and -\pi if <var>X</var> is negative and
+<var>Y</var> is negative zero.  Finally, if <var>X</var> is zero, then the
+magnitude of the result is \pi/2.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          program test_atan2
+            real(4) :: x = 1.e0_4, y = 0.5e0_4
+            x = atan2(y,x)
+          end program test_atan2
+</pre>
+     <br><dt><em>Specific names</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="20%">Name                </td><td valign="top" width="20%">Argument            </td><td valign="top" width="20%">Return type    </td><td valign="top" width="25%">Standard
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>ATAN2(X, Y)</code>  </td><td valign="top" width="20%"><code>REAL(4) X, Y</code> </td><td valign="top" width="20%"><code>REAL(4)</code> </td><td valign="top" width="25%">Fortran 77 and later
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>DATAN2(X, Y)</code> </td><td valign="top" width="20%"><code>REAL(8) X, Y</code> </td><td valign="top" width="20%"><code>REAL(8)</code> </td><td valign="top" width="25%">Fortran 77 and later
+     <br></td></tr></table>
+</dl>
+
+   </body></html>
+

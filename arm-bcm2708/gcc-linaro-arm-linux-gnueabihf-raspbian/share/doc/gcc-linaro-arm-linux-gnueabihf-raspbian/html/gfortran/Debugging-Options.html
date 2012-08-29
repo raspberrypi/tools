@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+<title>Debugging Options - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" title="Invoking GNU Fortran">
+<link rel="prev" href="Error-and-Warning-Options.html#Error-and-Warning-Options" title="Error and Warning Options">
+<link rel="next" href="Directory-Options.html#Directory-Options" title="Directory Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Debugging-Options"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Directory-Options.html#Directory-Options">Directory Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Error-and-Warning-Options.html#Error-and-Warning-Options">Error and Warning Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>
+<hr>
+</div>
+
+<h3 class="section">2.5 Options for debugging your program or GNU Fortran</h3>
+
+<p><a name="index-options_002c-debugging-185"></a><a name="index-debugging-information-options-186"></a>
+GNU Fortran has various special options that are used for debugging
+either your program or the GNU Fortran compiler.
+
+     <dl>
+<dt><code>-fdump-fortran-original</code><dd><a name="index-g_t_0040code_007bfdump_002dfortran_002doriginal_007d-187"></a>Output the internal parse tree after translating the source program
+into internal representation.  Only really useful for debugging the
+GNU Fortran compiler itself.
+
+     <br><dt><code>-fdump-optimized-tree</code><dd><a name="index-g_t_0040code_007bfdump_002dfortran_002doptimized_007d-188"></a>Output the parse tree after front-end optimization.  Only really
+useful for debugging the GNU Fortran compiler itself.
+
+     <p><a name="index-g_t_0040code_007bfdump_002dparse_002dtree_007d-189"></a>Output the internal parse tree after translating the source program
+into internal representation.  Only really useful for debugging the
+GNU Fortran compiler itself.  This option is deprecated; use
+<code>-fdump-fortran-original</code> instead.
+
+     <br><dt><code>-ffpe-trap=</code><var>list</var><dd><a name="index-g_t_0040code_007bffpe_002dtrap_003d_007d_0040var_007blist_007d-190"></a>Specify a list of floating point exception traps to enable.  On most
+systems, if a floating point exception occurs and the trap for that
+exception is enabled, a SIGFPE signal will be sent and the program
+being aborted, producing a core file useful for debugging.  <var>list</var>
+is a (possibly empty) comma-separated list of the following
+exceptions: &lsquo;<samp><span class="samp">invalid</span></samp>&rsquo; (invalid floating point operation, such as
+<code>SQRT(-1.0)</code>), &lsquo;<samp><span class="samp">zero</span></samp>&rsquo; (division by zero), &lsquo;<samp><span class="samp">overflow</span></samp>&rsquo;
+(overflow in a floating point operation), &lsquo;<samp><span class="samp">underflow</span></samp>&rsquo; (underflow
+in a floating point operation), &lsquo;<samp><span class="samp">inexact</span></samp>&rsquo; (loss of precision
+during operation), and &lsquo;<samp><span class="samp">denormal</span></samp>&rsquo; (operation performed on a
+denormal value).  The first five exceptions correspond to the five
+IEEE 754 exceptions, whereas the last one (&lsquo;<samp><span class="samp">denormal</span></samp>&rsquo;) is not
+part of the IEEE 754 standard but is available on some common
+architectures such as x86.
+
+     <p>The first three exceptions (&lsquo;<samp><span class="samp">invalid</span></samp>&rsquo;, &lsquo;<samp><span class="samp">zero</span></samp>&rsquo;, and
+&lsquo;<samp><span class="samp">overflow</span></samp>&rsquo;) often indicate serious errors, and unless the program
+has provisions for dealing with these exceptions, enabling traps for
+these three exceptions is probably a good idea.
+
+     <p>Many, if not most, floating point operations incur loss of precision
+due to rounding, and hence the <code>ffpe-trap=inexact</code> is likely to
+be uninteresting in practice.
+
+     <p>By default no exception traps are enabled.
+
+     <br><dt><code>-fno-backtrace</code><dd><a name="index-g_t_0040code_007bfno_002dbacktrace_007d-191"></a><a name="index-backtrace-192"></a><a name="index-trace-193"></a>When a serious runtime error is encountered or a deadly signal is
+emitted (segmentation fault, illegal instruction, bus error,
+floating-point exception, and the other POSIX signals that have the
+action &lsquo;<samp><span class="samp">core</span></samp>&rsquo;), the Fortran runtime library tries to output a
+backtrace of the error. <code>-fno-backtrace</code> disables the backtrace
+generation. This option only has influence for compilation of the
+Fortran main program.
+
+   </dl>
+
+   <p>See <a href="../gcc/Debugging-Options.html#Debugging-Options">Options for Debugging Your Program or GCC</a>, for more information on
+debugging options.
+
+   </body></html>
+

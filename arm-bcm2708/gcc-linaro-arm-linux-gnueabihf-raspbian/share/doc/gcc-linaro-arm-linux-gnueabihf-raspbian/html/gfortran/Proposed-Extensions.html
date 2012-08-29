@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+<title>Proposed Extensions - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Contributing.html#Contributing" title="Contributing">
+<link rel="prev" href="Projects.html#Projects" title="Projects">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Proposed-Extensions"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Projects.html#Projects">Projects</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Contributing.html#Contributing">Contributing</a>
+<hr>
+</div>
+
+<h3 class="section">Proposed Extensions</h3>
+
+<p>Here's a list of proposed extensions for the GNU Fortran compiler, in no particular
+order.  Most of these are necessary to be fully compatible with
+existing Fortran compilers, but they are not part of the official
+J3 Fortran 95 standard.
+
+<h4 class="subsection">Compiler extensions:</h4>
+
+     <ul>
+<li>User-specified alignment rules for structures.
+
+     <li>Automatically extend single precision constants to double.
+
+     <li>Compile code that conserves memory by dynamically allocating common and
+module storage either on stack or heap.
+
+     <li>Compile flag to generate code for array conformance checking (suggest -CC).
+
+     <li>User control of symbol names (underscores, etc).
+
+     <li>Compile setting for maximum size of stack frame size before spilling
+parts to static or heap.
+
+     <li>Flag to force local variables into static space.
+
+     <li>Flag to force local variables onto stack. 
+</ul>
+
+<h4 class="subsection">Environment Options</h4>
+
+     <ul>
+<li>Pluggable library modules for random numbers, linear algebra. 
+LA should use BLAS calling conventions.
+
+     <li>Environment variables controlling actions on arithmetic exceptions like
+overflow, underflow, precision loss&mdash;Generate NaN, abort, default. 
+action.
+
+     <li>Set precision for fp units that support it (i387).
+
+     <li>Variable for setting fp rounding mode.
+
+     <li>Variable to fill uninitialized variables with a user-defined bit
+pattern.
+
+     <li>Environment variable controlling filename that is opened for that unit
+number.
+
+     <li>Environment variable to clear/trash memory being freed.
+
+     <li>Environment variable to control tracing of allocations and frees.
+
+     <li>Environment variable to display allocated memory at normal program end.
+
+     <li>Environment variable for filename for * IO-unit.
+
+     <li>Environment variable for temporary file directory.
+
+     <li>Environment variable forcing standard output to be line buffered (unix).
+
+</ul>
+
+<!--  -->
+<!-- GNU General Public License -->
+<!--  -->
+   </body></html>
+

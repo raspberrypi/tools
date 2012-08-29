@@ -1,0 +1,4 @@
+# Those file are actually .o files not package in a ar archive, and
+# thus should not be stripped
+libc6-dev: unstripped-binary-or-object */libieee.a
+libc6-dev: unstripped-binary-or-object */libmcheck.a

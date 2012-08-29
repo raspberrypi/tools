@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>FREE - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="FRACTION.html#FRACTION" title="FRACTION">
+<link rel="next" href="FSEEK.html#FSEEK" title="FSEEK">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="FREE"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="FSEEK.html#FSEEK">FSEEK</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="FRACTION.html#FRACTION">FRACTION</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.91 <code>FREE</code> &mdash; Frees memory</h3>
+
+<p><a name="index-FREE-648"></a><a name="index-pointer_002c-cray-649"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Frees memory previously allocated by <code>MALLOC</code>. The <code>FREE</code>
+intrinsic is an extension intended to be used with Cray pointers, and is
+provided in GNU Fortran to allow user to compile legacy code. For
+new code using Fortran 95 pointers, the memory de-allocation intrinsic is
+<code>DEALLOCATE</code>.
+
+     <br><dt><em>Standard</em>:<dd>GNU extension
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>CALL FREE(PTR)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>PTR</var> </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>. It represents the
+location of the memory that should be de-allocated.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>None
+
+     <br><dt><em>Example</em>:<dd>See <code>MALLOC</code> for an example.
+
+     <br><dt><em>See also</em>:<dd><a href="MALLOC.html#MALLOC">MALLOC</a>
+</dl>
+
+   </body></html>
+

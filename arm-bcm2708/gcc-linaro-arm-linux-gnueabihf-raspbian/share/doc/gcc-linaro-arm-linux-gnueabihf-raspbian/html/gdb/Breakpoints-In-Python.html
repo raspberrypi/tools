@@ -1,0 +1,251 @@
+<html lang="en">
+<head>
+<title>Breakpoints In Python - Debugging with GDB</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Debugging with GDB">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Python-API.html#Python-API" title="Python API">
+<link rel="prev" href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python" title="Lazy Strings In Python">
+<link rel="next" href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python" title="Finish Breakpoints in Python">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
+1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
+Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Free Software'' and ``Free Software Needs
+Free Documentation'', with the Front-Cover Texts being ``A GNU Manual,''
+and with the Back-Cover Texts as in (a) below.
+
+(a) The FSF's Back-Cover Text is: ``You are free to copy and modify
+this GNU Manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom.''-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Breakpoints-In-Python"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">Finish Breakpoints in Python</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">Lazy Strings In Python</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API</a>
+<hr>
+</div>
+
+<h5 class="subsubsection">23.2.2.20 Manipulating breakpoints using Python</h5>
+
+<p><a name="index-breakpoints-in-python-2008"></a><a name="index-gdb_002eBreakpoint-2009"></a>
+Python code can manipulate breakpoints via the <code>gdb.Breakpoint</code>
+class.
+
+<div class="defun">
+&mdash; Function: <b>Breakpoint.__init__</b> (<var>spec </var><span class="roman">[</span><var>, type </var><span class="roman">[</span><var>, wp_class </var><span class="roman">[</span><var>,internal</var><span class="roman">]]]</span>)<var><a name="index-Breakpoint_002e_005f_005finit_005f_005f-2010"></a></var><br>
+<blockquote><p>Create a new breakpoint.  <var>spec</var> is a string naming the
+location of the breakpoint, or an expression that defines a
+watchpoint.  The contents can be any location recognized by the
+<code>break</code> command, or in the case of a watchpoint, by the <code>watch</code>
+command.  The optional <var>type</var> denotes the breakpoint to create
+from the types defined later in this chapter.  This argument can be
+either: <code>gdb.BP_BREAKPOINT</code> or <code>gdb.BP_WATCHPOINT</code>.  <var>type</var>
+defaults to <code>gdb.BP_BREAKPOINT</code>.  The optional <var>internal</var> argument
+allows the breakpoint to become invisible to the user.  The breakpoint
+will neither be reported when created, nor will it be listed in the
+output from <code>info breakpoints</code> (but will be listed with the
+<code>maint info breakpoints</code> command).  The optional <var>wp_class</var>
+argument defines the class of watchpoint to create, if <var>type</var> is
+<code>gdb.BP_WATCHPOINT</code>.  If a watchpoint class is not provided, it is
+assumed to be a <code>gdb.WP_WRITE</code> class. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Function: <b>Breakpoint.stop</b> (<var>self</var>)<var><a name="index-Breakpoint_002estop-2011"></a></var><br>
+<blockquote><p>The <code>gdb.Breakpoint</code> class can be sub-classed and, in
+particular, you may choose to implement the <code>stop</code> method. 
+If this method is defined as a sub-class of <code>gdb.Breakpoint</code>,
+it will be called when the inferior reaches any location of a
+breakpoint which instantiates that sub-class.  If the method returns
+<code>True</code>, the inferior will be stopped at the location of the
+breakpoint, otherwise the inferior will continue.
+
+        <p>If there are multiple breakpoints at the same location with a
+<code>stop</code> method, each one will be called regardless of the
+return status of the previous.  This ensures that all <code>stop</code>
+methods have a chance to execute at that location.  In this scenario
+if one of the methods returns <code>True</code> but the others return
+<code>False</code>, the inferior will still be stopped.
+
+        <p>You should not alter the execution state of the inferior (i.e., step,
+next, etc.), alter the current frame context (i.e., change the current
+active frame), or alter, add or delete any breakpoint.  As a general
+rule, you should not alter any data within <span class="sc">gdb</span> or the inferior
+at this time.
+
+        <p>Example <code>stop</code> implementation:
+
+     <pre class="smallexample">          class MyBreakpoint (gdb.Breakpoint):
+                def stop (self):
+                  inf_val = gdb.parse_and_eval("foo")
+                  if inf_val == 3:
+                    return True
+                  return False
+</pre>
+        </blockquote></div>
+
+   <p>The available watchpoint types represented by constants are defined in the
+<code>gdb</code> module:
+
+     
+<a name="index-WP_005fREAD-2012"></a>
+<a name="index-gdb_002eWP_005fREAD-2013"></a>
+<dl><dt><code>gdb.WP_READ</code><dd>Read only watchpoint.
+
+     <p><a name="index-WP_005fWRITE-2014"></a><a name="index-gdb_002eWP_005fWRITE-2015"></a><br><dt><code>gdb.WP_WRITE</code><dd>Write only watchpoint.
+
+     <p><a name="index-WP_005fACCESS-2016"></a><a name="index-gdb_002eWP_005fACCESS-2017"></a><br><dt><code>gdb.WP_ACCESS</code><dd>Read/Write watchpoint. 
+</dl>
+
+<div class="defun">
+&mdash; Function: <b>Breakpoint.is_valid</b> ()<var><a name="index-Breakpoint_002eis_005fvalid-2018"></a></var><br>
+<blockquote><p>Return <code>True</code> if this <code>Breakpoint</code> object is valid,
+<code>False</code> otherwise.  A <code>Breakpoint</code> object can become invalid
+if the user deletes the breakpoint.  In this case, the object still
+exists, but the underlying breakpoint does not.  In the cases of
+watchpoint scope, the watchpoint remains valid even if execution of the
+inferior leaves the scope of that watchpoint. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Function: <b>Breakpoint.delete</b><var><a name="index-Breakpoint_002edelete-2019"></a></var><br>
+<blockquote><p>Permanently deletes the <span class="sc">gdb</span> breakpoint.  This also
+invalidates the Python <code>Breakpoint</code> object.  Any further access
+to this object's attributes or methods will raise an error. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.enabled</b><var><a name="index-Breakpoint_002eenabled-2020"></a></var><br>
+<blockquote><p>This attribute is <code>True</code> if the breakpoint is enabled, and
+<code>False</code> otherwise.  This attribute is writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.silent</b><var><a name="index-Breakpoint_002esilent-2021"></a></var><br>
+<blockquote><p>This attribute is <code>True</code> if the breakpoint is silent, and
+<code>False</code> otherwise.  This attribute is writable.
+
+        <p>Note that a breakpoint can also be silent if it has commands and the
+first command is <code>silent</code>.  This is not reported by the
+<code>silent</code> attribute. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.thread</b><var><a name="index-Breakpoint_002ethread-2022"></a></var><br>
+<blockquote><p>If the breakpoint is thread-specific, this attribute holds the thread
+id.  If the breakpoint is not thread-specific, this attribute is
+<code>None</code>.  This attribute is writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.task</b><var><a name="index-Breakpoint_002etask-2023"></a></var><br>
+<blockquote><p>If the breakpoint is Ada task-specific, this attribute holds the Ada task
+id.  If the breakpoint is not task-specific (or the underlying
+language is not Ada), this attribute is <code>None</code>.  This attribute
+is writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.ignore_count</b><var><a name="index-Breakpoint_002eignore_005fcount-2024"></a></var><br>
+<blockquote><p>This attribute holds the ignore count for the breakpoint, an integer. 
+This attribute is writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.number</b><var><a name="index-Breakpoint_002enumber-2025"></a></var><br>
+<blockquote><p>This attribute holds the breakpoint's number &mdash; the identifier used by
+the user to manipulate the breakpoint.  This attribute is not writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.type</b><var><a name="index-Breakpoint_002etype-2026"></a></var><br>
+<blockquote><p>This attribute holds the breakpoint's type &mdash; the identifier used to
+determine the actual breakpoint type or use-case.  This attribute is not
+writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.visible</b><var><a name="index-Breakpoint_002evisible-2027"></a></var><br>
+<blockquote><p>This attribute tells whether the breakpoint is visible to the user
+when set, or when the &lsquo;<samp><span class="samp">info breakpoints</span></samp>&rsquo; command is run.  This
+attribute is not writable. 
+</p></blockquote></div>
+
+   <p>The available types are represented by constants defined in the <code>gdb</code>
+module:
+
+     
+<a name="index-BP_005fBREAKPOINT-2028"></a>
+<a name="index-gdb_002eBP_005fBREAKPOINT-2029"></a>
+<dl><dt><code>gdb.BP_BREAKPOINT</code><dd>Normal code breakpoint.
+
+     <p><a name="index-BP_005fWATCHPOINT-2030"></a><a name="index-gdb_002eBP_005fWATCHPOINT-2031"></a><br><dt><code>gdb.BP_WATCHPOINT</code><dd>Watchpoint breakpoint.
+
+     <p><a name="index-BP_005fHARDWARE_005fWATCHPOINT-2032"></a><a name="index-gdb_002eBP_005fHARDWARE_005fWATCHPOINT-2033"></a><br><dt><code>gdb.BP_HARDWARE_WATCHPOINT</code><dd>Hardware assisted watchpoint.
+
+     <p><a name="index-BP_005fREAD_005fWATCHPOINT-2034"></a><a name="index-gdb_002eBP_005fREAD_005fWATCHPOINT-2035"></a><br><dt><code>gdb.BP_READ_WATCHPOINT</code><dd>Hardware assisted read watchpoint.
+
+     <p><a name="index-BP_005fACCESS_005fWATCHPOINT-2036"></a><a name="index-gdb_002eBP_005fACCESS_005fWATCHPOINT-2037"></a><br><dt><code>gdb.BP_ACCESS_WATCHPOINT</code><dd>Hardware assisted access watchpoint. 
+</dl>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.hit_count</b><var><a name="index-Breakpoint_002ehit_005fcount-2038"></a></var><br>
+<blockquote><p>This attribute holds the hit count for the breakpoint, an integer. 
+This attribute is writable, but currently it can only be set to zero. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.location</b><var><a name="index-Breakpoint_002elocation-2039"></a></var><br>
+<blockquote><p>This attribute holds the location of the breakpoint, as specified by
+the user.  It is a string.  If the breakpoint does not have a location
+(that is, it is a watchpoint) the attribute's value is <code>None</code>.  This
+attribute is not writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.expression</b><var><a name="index-Breakpoint_002eexpression-2040"></a></var><br>
+<blockquote><p>This attribute holds a breakpoint expression, as specified by
+the user.  It is a string.  If the breakpoint does not have an
+expression (the breakpoint is not a watchpoint) the attribute's value
+is <code>None</code>.  This attribute is not writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.condition</b><var><a name="index-Breakpoint_002econdition-2041"></a></var><br>
+<blockquote><p>This attribute holds the condition of the breakpoint, as specified by
+the user.  It is a string.  If there is no condition, this attribute's
+value is <code>None</code>.  This attribute is writable. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Variable: <b>Breakpoint.commands</b><var><a name="index-Breakpoint_002ecommands-2042"></a></var><br>
+<blockquote><p>This attribute holds the commands attached to the breakpoint.  If
+there are commands, this attribute's value is a string holding all the
+commands, separated by newlines.  If there are no commands, this
+attribute is <code>None</code>.  This attribute is not writable. 
+</p></blockquote></div>
+
+   </body></html>
+

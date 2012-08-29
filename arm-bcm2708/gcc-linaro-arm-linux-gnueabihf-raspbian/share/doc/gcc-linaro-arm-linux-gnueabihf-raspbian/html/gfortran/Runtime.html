@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+<title>Runtime - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" title="Invoking GNU Fortran">
+<link rel="next" href="Fortran-2003-and-2008-status.html#Fortran-2003-and-2008-status" title="Fortran 2003 and 2008 status">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Runtime"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Fortran-2003-and-2008-status.html#Fortran-2003-and-2008-status">Fortran 2003 and 2008 status</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">3 Runtime:  Influencing runtime behavior with environment variables</h2>
+
+<p><a name="index-environment-variable-287"></a>
+The behavior of the <samp><span class="command">gfortran</span></samp> can be influenced by
+environment variables.
+
+   <p>Malformed environment variables are silently ignored.
+
+<ul class="menu">
+<li><a accesskey="1" href="GFORTRAN_005fSTDIN_005fUNIT.html#GFORTRAN_005fSTDIN_005fUNIT">GFORTRAN_STDIN_UNIT</a>:  Unit number for standard input
+<li><a accesskey="2" href="GFORTRAN_005fSTDOUT_005fUNIT.html#GFORTRAN_005fSTDOUT_005fUNIT">GFORTRAN_STDOUT_UNIT</a>:  Unit number for standard output
+<li><a accesskey="3" href="GFORTRAN_005fSTDERR_005fUNIT.html#GFORTRAN_005fSTDERR_005fUNIT">GFORTRAN_STDERR_UNIT</a>:  Unit number for standard error
+<li><a accesskey="4" href="GFORTRAN_005fTMPDIR.html#GFORTRAN_005fTMPDIR">GFORTRAN_TMPDIR</a>:  Directory for scratch files
+<li><a accesskey="5" href="GFORTRAN_005fUNBUFFERED_005fALL.html#GFORTRAN_005fUNBUFFERED_005fALL">GFORTRAN_UNBUFFERED_ALL</a>:  Do not buffer I/O for all units. 
+<li><a accesskey="6" href="GFORTRAN_005fUNBUFFERED_005fPRECONNECTED.html#GFORTRAN_005fUNBUFFERED_005fPRECONNECTED">GFORTRAN_UNBUFFERED_PRECONNECTED</a>:  Do not buffer I/O for preconnected units. 
+<li><a accesskey="7" href="GFORTRAN_005fSHOW_005fLOCUS.html#GFORTRAN_005fSHOW_005fLOCUS">GFORTRAN_SHOW_LOCUS</a>:   Show location for runtime errors
+<li><a accesskey="8" href="GFORTRAN_005fOPTIONAL_005fPLUS.html#GFORTRAN_005fOPTIONAL_005fPLUS">GFORTRAN_OPTIONAL_PLUS</a>:  Print leading + where permitted
+<li><a accesskey="9" href="GFORTRAN_005fDEFAULT_005fRECL.html#GFORTRAN_005fDEFAULT_005fRECL">GFORTRAN_DEFAULT_RECL</a>:  Default record length for new files
+<li><a href="GFORTRAN_005fLIST_005fSEPARATOR.html#GFORTRAN_005fLIST_005fSEPARATOR">GFORTRAN_LIST_SEPARATOR</a>:   Separator for list output
+<li><a href="GFORTRAN_005fCONVERT_005fUNIT.html#GFORTRAN_005fCONVERT_005fUNIT">GFORTRAN_CONVERT_UNIT</a>:   Set endianness for unformatted I/O
+<li><a href="GFORTRAN_005fERROR_005fBACKTRACE.html#GFORTRAN_005fERROR_005fBACKTRACE">GFORTRAN_ERROR_BACKTRACE</a>:  Show backtrace on run-time errors
+</ul>
+
+   </body></html>
+

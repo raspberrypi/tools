@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+<title>STRUCTURE and RECORD - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensions-not-implemented-in-GNU-Fortran.html#Extensions-not-implemented-in-GNU-Fortran" title="Extensions not implemented in GNU Fortran">
+<link rel="next" href="ENCODE-and-DECODE-statements.html#ENCODE-and-DECODE-statements" title="ENCODE and DECODE statements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="STRUCTURE-and-RECORD"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="ENCODE-and-DECODE-statements.html#ENCODE-and-DECODE-statements">ENCODE and DECODE statements</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-not-implemented-in-GNU-Fortran.html#Extensions-not-implemented-in-GNU-Fortran">Extensions not implemented in GNU Fortran</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.2.1 <code>STRUCTURE</code> and <code>RECORD</code></h4>
+
+<p><a name="index-g_t_0040code_007bSTRUCTURE_007d-340"></a><a name="index-g_t_0040code_007bRECORD_007d-341"></a>
+Structures are user-defined aggregate data types; this functionality was
+standardized in Fortran 90 with an different syntax, under the name of
+&ldquo;derived types&rdquo;.  Here is an example of code using the non portable
+structure syntax:
+
+<pre class="example">     ! Declaring a structure named ``item'' and containing three fields:
+     ! an integer ID, an description string and a floating-point price.
+     STRUCTURE /item/
+       INTEGER id
+       CHARACTER(LEN=200) description
+       REAL price
+     END STRUCTURE
+     
+     ! Define two variables, an single record of type ``item''
+     ! named ``pear'', and an array of items named ``store_catalog''
+     RECORD /item/ pear, store_catalog(100)
+     
+     ! We can directly access the fields of both variables
+     pear.id = 92316
+     pear.description = "juicy D'Anjou pear"
+     pear.price = 0.15
+     store_catalog(7).id = 7831
+     store_catalog(7).description = "milk bottle"
+     store_catalog(7).price = 1.2
+     
+     ! We can also manipulate the whole structure
+     store_catalog(12) = pear
+     print *, store_catalog(12)
+</pre>
+   <p class="noindent">This code can easily be rewritten in the Fortran 90 syntax as following:
+
+<pre class="example">     ! ``STRUCTURE /name/ ... END STRUCTURE'' becomes
+     ! ``TYPE name ... END TYPE''
+     TYPE item
+       INTEGER id
+       CHARACTER(LEN=200) description
+       REAL price
+     END TYPE
+     
+     ! ``RECORD /name/ variable'' becomes ``TYPE(name) variable''
+     TYPE(item) pear, store_catalog(100)
+     
+     ! Instead of using a dot (.) to access fields of a record, the
+     ! standard syntax uses a percent sign (%)
+     pear%id = 92316
+     pear%description = "juicy D'Anjou pear"
+     pear%price = 0.15
+     store_catalog(7)%id = 7831
+     store_catalog(7)%description = "milk bottle"
+     store_catalog(7)%price = 1.2
+     
+     ! Assignments of a whole variable do not change
+     store_catalog(12) = pear
+     print *, store_catalog(12)
+</pre>
+   <!-- @node UNION and MAP -->
+<!-- @subsection @code{UNION} and @code{MAP} -->
+<!-- @cindex @code{UNION} -->
+<!-- @cindex @code{MAP} -->
+<!-- For help writing this one, see -->
+<!-- http://www.eng.umd.edu/~nsw/ench250/fortran1.htm#UNION and -->
+<!-- http://www.tacc.utexas.edu/services/userguides/pgi/pgiws_ug/pgi32u06.htm -->
+   </body></html>
+

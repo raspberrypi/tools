@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+<title>C_ASSOCIATED - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="BTEST.html#BTEST" title="BTEST">
+<link rel="next" href="C_005fF_005fPOINTER.html#C_005fF_005fPOINTER" title="C_F_POINTER">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="C_ASSOCIATED"></a>
+<a name="C_005fASSOCIATED"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="C_005fF_005fPOINTER.html#C_005fF_005fPOINTER">C_F_POINTER</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="BTEST.html#BTEST">BTEST</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.38 <code>C_ASSOCIATED</code> &mdash; Status of a C pointer</h3>
+
+<p><a name="index-C_005fASSOCIATED-487"></a><a name="index-association-status_002c-C-pointer-488"></a><a name="index-pointer_002c-C-association-status-489"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>C_ASSOCIATED(c_prt_1[, c_ptr_2])</code> determines the status of the C pointer
+<var>c_ptr_1</var> or if <var>c_ptr_1</var> is associated with the target <var>c_ptr_2</var>.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2003 and later
+
+     <br><dt><em>Class</em>:<dd>Inquiry function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = C_ASSOCIATED(c_prt_1[, c_ptr_2])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>c_ptr_1</var> </td><td valign="top" width="70%">Scalar of the type <code>C_PTR</code> or <code>C_FUNPTR</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>c_ptr_2</var> </td><td valign="top" width="70%">(Optional) Scalar of the same type as <var>c_ptr_1</var>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value is of type <code>LOGICAL</code>; it is <code>.false.</code> if either
+<var>c_ptr_1</var> is a C NULL pointer or if <var>c_ptr1</var> and <var>c_ptr_2</var>
+point to different addresses.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          subroutine association_test(a,b)
+            use iso_c_binding, only: c_associated, c_loc, c_ptr
+            implicit none
+            real, pointer :: a
+            type(c_ptr) :: b
+            if(c_associated(b, c_loc(a))) &amp;
+               stop 'b and a do not point to same target'
+          end subroutine association_test
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="C_005fLOC.html#C_005fLOC">C_LOC</a>, <a href="C_005fFUNLOC.html#C_005fFUNLOC">C_FUNLOC</a>
+</dl>
+
+   </body></html>
+

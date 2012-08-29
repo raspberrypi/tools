@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+<title>Preprocessing Options - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" title="Invoking GNU Fortran">
+<link rel="prev" href="Fortran-Dialect-Options.html#Fortran-Dialect-Options" title="Fortran Dialect Options">
+<link rel="next" href="Error-and-Warning-Options.html#Error-and-Warning-Options" title="Error and Warning Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Preprocessing-Options"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Error-and-Warning-Options.html#Error-and-Warning-Options">Error and Warning Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Fortran-Dialect-Options.html#Fortran-Dialect-Options">Fortran Dialect Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>
+<hr>
+</div>
+
+<h3 class="section">2.3 Enable and customize preprocessing</h3>
+
+<p><a name="index-preprocessor-62"></a><a name="index-options_002c-preprocessor-63"></a><a name="index-CPP-64"></a>
+Preprocessor related options. See section
+<a href="Preprocessing-and-conditional-compilation.html#Preprocessing-and-conditional-compilation">Preprocessing and conditional compilation</a> for more detailed
+information on preprocessing in <samp><span class="command">gfortran</span></samp>.
+
+     <dl>
+<dt><code>-cpp</code><dt><code>-nocpp</code><dd><a name="index-g_t_0040code_007bcpp_007d-65"></a><a name="index-g_t_0040code_007bfpp_007d-66"></a><a name="index-preprocessor_002c-enable-67"></a><a name="index-preprocessor_002c-disable-68"></a>Enable preprocessing. The preprocessor is automatically invoked if
+the file extension is <samp><span class="file">.fpp</span></samp>, <samp><span class="file">.FPP</span></samp>,  <samp><span class="file">.F</span></samp>, <samp><span class="file">.FOR</span></samp>,
+<samp><span class="file">.FTN</span></samp>, <samp><span class="file">.F90</span></samp>, <samp><span class="file">.F95</span></samp>, <samp><span class="file">.F03</span></samp> or <samp><span class="file">.F08</span></samp>. Use
+this option to manually enable preprocessing of any kind of Fortran file.
+
+     <p>To disable preprocessing of files with any of the above listed extensions,
+use the negative form: <samp><span class="option">-nocpp</span></samp>.
+
+     <p>The preprocessor is run in traditional mode. Any restrictions of the
+file-format, especially the limits on line length, apply for
+preprocessed output as well, so it might be advisable to use the
+<samp><span class="option">-ffree-line-length-none</span></samp> or <samp><span class="option">-ffixed-line-length-none</span></samp>
+options.
+
+     <br><dt><code>-dM</code><dd><a name="index-g_t_0040code_007bdM_007d-69"></a><a name="index-preprocessor_002c-debugging-70"></a><a name="index-debugging_002c-preprocessor-71"></a>Instead of the normal output, generate a list of <code>'#define'</code>
+directives for all the macros defined during the execution of the
+preprocessor, including predefined macros. This gives you a way
+of finding out what is predefined in your version of the preprocessor. 
+Assuming you have no file <samp><span class="file">foo.f90</span></samp>, the command
+     <pre class="smallexample">            touch foo.f90; gfortran -cpp -E -dM foo.f90
+</pre>
+     <p>will show all the predefined macros.
+
+     <br><dt><code>-dD</code><dd><a name="index-g_t_0040code_007bdD_007d-72"></a><a name="index-preprocessor_002c-debugging-73"></a><a name="index-debugging_002c-preprocessor-74"></a>Like <samp><span class="option">-dM</span></samp> except in two respects: it does not include the
+predefined macros, and it outputs both the <code>#define</code> directives
+and the result of preprocessing. Both kinds of output go to the
+standard output file.
+
+     <br><dt><code>-dN</code><dd><a name="index-g_t_0040code_007bdN_007d-75"></a><a name="index-preprocessor_002c-debugging-76"></a><a name="index-debugging_002c-preprocessor-77"></a>Like <samp><span class="option">-dD</span></samp>, but emit only the macro names, not their expansions.
+
+     <br><dt><code>-dU</code><dd><a name="index-g_t_0040code_007bdU_007d-78"></a><a name="index-preprocessor_002c-debugging-79"></a><a name="index-debugging_002c-preprocessor-80"></a>Like <samp><span class="option">dD</span></samp> except that only macros that are expanded, or whose
+definedness is tested in preprocessor directives, are output; the
+output is delayed until the use or test of the macro; and <code>'#undef'</code>
+directives are also output for macros tested but undefined at the time.
+
+     <br><dt><code>-dI</code><dd><a name="index-g_t_0040code_007bdI_007d-81"></a><a name="index-preprocessor_002c-debugging-82"></a><a name="index-debugging_002c-preprocessor-83"></a>Output <code>'#include'</code> directives in addition to the result
+of preprocessing.
+
+     <br><dt><code>-fworking-directory</code><dd><a name="index-g_t_0040code_007bfworking_002ddirectory_007d-84"></a><a name="index-preprocessor_002c-working-directory-85"></a>Enable generation of linemarkers in the preprocessor output that will
+let the compiler know the current working directory at the time of
+preprocessing. When this option is enabled, the preprocessor will emit,
+after the initial linemarker, a second linemarker with the current
+working directory followed by two slashes. GCC will use this directory,
+when it is present in the preprocessed input, as the directory emitted
+as the current working directory in some debugging information formats. 
+This option is implicitly enabled if debugging information is enabled,
+but this can be inhibited with the negated form
+<samp><span class="option">-fno-working-directory</span></samp>. If the <samp><span class="option">-P</span></samp> flag is present
+in the command line, this option has no effect, since no <code>#line</code>
+directives are emitted whatsoever.
+
+     <br><dt><code>-idirafter </code><var>dir</var><dd><a name="index-g_t_0040code_007bidirafter-_0040var_007bdir_007d_007d-86"></a><a name="index-preprocessing_002c-include-path-87"></a>Search <var>dir</var> for include files, but do it after all directories
+specified with <samp><span class="option">-I</span></samp> and the standard system directories have
+been exhausted. <var>dir</var> is treated as a system include directory. 
+If dir begins with <code>=</code>, then the <code>=</code> will be replaced by
+the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
+
+     <br><dt><code>-imultilib </code><var>dir</var><dd><a name="index-g_t_0040code_007bimultilib-_0040var_007bdir_007d_007d-88"></a><a name="index-preprocessing_002c-include-path-89"></a>Use <var>dir</var> as a subdirectory of the directory containing target-specific
+C++ headers.
+
+     <br><dt><code>-iprefix </code><var>prefix</var><dd><a name="index-g_t_0040code_007biprefix-_0040var_007bprefix_007d_007d-90"></a><a name="index-preprocessing_002c-include-path-91"></a>Specify <var>prefix</var> as the prefix for subsequent <samp><span class="option">-iwithprefix</span></samp>
+options. If the <var>prefix</var> represents a directory, you should include
+the final <code>'/'</code>.
+
+     <br><dt><code>-isysroot </code><var>dir</var><dd><a name="index-g_t_0040code_007bisysroot-_0040var_007bdir_007d_007d-92"></a><a name="index-preprocessing_002c-include-path-93"></a>This option is like the <samp><span class="option">--sysroot</span></samp> option, but applies only to
+header files. See the <samp><span class="option">--sysroot</span></samp> option for more information.
+
+     <br><dt><code>-iquote </code><var>dir</var><dd><a name="index-g_t_0040code_007biquote-_0040var_007bdir_007d_007d-94"></a><a name="index-preprocessing_002c-include-path-95"></a>Search <var>dir</var> only for header files requested with <code>#include "file"</code>;
+they are not searched for <code>#include &lt;file&gt;</code>, before all directories
+specified by <samp><span class="option">-I</span></samp> and before the standard system directories. If
+<var>dir</var> begins with <code>=</code>, then the <code>=</code> will be replaced by the
+sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
+
+     <br><dt><code>-isystem </code><var>dir</var><dd><a name="index-g_t_0040code_007bisystem-_0040var_007bdir_007d_007d-96"></a><a name="index-preprocessing_002c-include-path-97"></a>Search <var>dir</var> for header files, after all directories specified by
+<samp><span class="option">-I</span></samp> but before the standard system directories. Mark it as a
+system directory, so that it gets the same special treatment as is
+applied to the standard system directories. If <var>dir</var> begins with
+<code>=</code>, then the <code>=</code> will be replaced by the sysroot prefix;
+see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
+
+     <br><dt><code>-nostdinc</code><dd><a name="index-g_t_0040code_007bnostdinc_007d-98"></a>Do not search the standard system directories for header files. Only
+the directories you have specified with <samp><span class="option">-I</span></samp> options (and the
+directory of the current file, if appropriate) are searched.
+
+     <br><dt><code>-undef</code><dd><a name="index-g_t_0040code_007bundef_007d-99"></a>Do not predefine any system-specific or GCC-specific macros. 
+The standard predefined macros remain defined.
+
+     <br><dt><code>-A</code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-g_t_0040code_007bA_0040var_007bpredicate_007d_003d_0040var_007banswer_007d_007d-100"></a><a name="index-preprocessing_002c-assertion-101"></a>Make an assertion with the predicate <var>predicate</var> and answer <var>answer</var>. 
+This form is preferred to the older form -A predicate(answer), which is still
+supported, because it does not use shell special characters.
+
+     <br><dt><code>-A-</code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-g_t_0040code_007bA_002d_0040var_007bpredicate_007d_003d_0040var_007banswer_007d_007d-102"></a><a name="index-preprocessing_002c-assertion-103"></a>Cancel an assertion with the predicate <var>predicate</var> and answer <var>answer</var>.
+
+     <br><dt><code>-C</code><dd><a name="index-g_t_0040code_007bC_007d-104"></a><a name="index-preprocessing_002c-keep-comments-105"></a>Do not discard comments. All comments are passed through to the output
+file, except for comments in processed directives, which are deleted
+along with the directive.
+
+     <p>You should be prepared for side effects when using <samp><span class="option">-C</span></samp>; it causes
+the preprocessor to treat comments as tokens in their own right. For example,
+comments appearing at the start of what would be a directive line have the
+effect of turning that line into an ordinary source line, since the first
+token on the line is no longer a <code>'#'</code>.
+
+     <p>Warning: this currently handles C-Style comments only. The preprocessor
+does not yet recognize Fortran-style comments.
+
+     <br><dt><code>-CC</code><dd><a name="index-g_t_0040code_007bCC_007d-106"></a><a name="index-preprocessing_002c-keep-comments-107"></a>Do not discard comments, including during macro expansion. This is like
+<samp><span class="option">-C</span></samp>, except that comments contained within macros are also passed
+through to the output file where the macro is expanded.
+
+     <p>In addition to the side-effects of the <samp><span class="option">-C</span></samp> option, the <samp><span class="option">-CC</span></samp>
+option causes all C++-style comments inside a macro to be converted to C-style
+comments. This is to prevent later use of that macro from inadvertently
+commenting out the remainder of the source line. The <samp><span class="option">-CC</span></samp> option
+is generally used to support lint comments.
+
+     <p>Warning: this currently handles C- and C++-Style comments only. The
+preprocessor does not yet recognize Fortran-style comments.
+
+     <br><dt><code>-D</code><var>name</var><dd><a name="index-g_t_0040code_007bD_0040var_007bname_007d_007d-108"></a><a name="index-preprocessing_002c-define-macros-109"></a>Predefine name as a macro, with definition <code>1</code>.
+
+     <br><dt><code>-D</code><var>name</var><code>=</code><var>definition</var><dd><a name="index-g_t_0040code_007bD_0040var_007bname_007d_003d_0040var_007bdefinition_007d_007d-110"></a><a name="index-preprocessing_002c-define-macros-111"></a>The contents of <var>definition</var> are tokenized and processed as if they
+appeared during translation phase three in a <code>'#define'</code> directive. 
+In particular, the definition will be truncated by embedded newline
+characters.
+
+     <p>If you are invoking the preprocessor from a shell or shell-like program
+you may need to use the shell's quoting syntax to protect characters such
+as spaces that have a meaning in the shell syntax.
+
+     <p>If you wish to define a function-like macro on the command line, write
+its argument list with surrounding parentheses before the equals sign
+(if any). Parentheses are meaningful to most shells, so you will need
+to quote the option. With sh and csh, <code>-D'name(args...)=definition'</code>
+works.
+
+     <p><samp><span class="option">-D</span></samp> and <samp><span class="option">-U</span></samp> options are processed in the order they are
+given on the command line. All -imacros file and -include file options
+are processed after all -D and -U options.
+
+     <br><dt><code>-H</code><dd><a name="index-g_t_0040code_007bH_007d-112"></a>Print the name of each header file used, in addition to other normal
+activities. Each name is indented to show how deep in the <code>'#include'</code>
+stack it is.
+
+     <br><dt><code>-P</code><dd><a name="index-g_t_0040code_007bP_007d-113"></a><a name="index-preprocessing_002c-no-linemarkers-114"></a>Inhibit generation of linemarkers in the output from the preprocessor. 
+This might be useful when running the preprocessor on something that
+is not C code, and will be sent to a program which might be confused
+by the linemarkers.
+
+     <br><dt><code>-U</code><var>name</var><dd><a name="index-g_t_0040code_007bU_0040var_007bname_007d_007d-115"></a><a name="index-preprocessing_002c-undefine-macros-116"></a>Cancel any previous definition of <var>name</var>, either built in or provided
+with a <samp><span class="option">-D</span></samp> option. 
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>LEADZ - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="LCOBOUND.html#LCOBOUND" title="LCOBOUND">
+<link rel="next" href="LEN.html#LEN" title="LEN">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="LEADZ"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="LEN.html#LEN">LEN</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="LCOBOUND.html#LCOBOUND">LCOBOUND</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.142 <code>LEADZ</code> &mdash; Number of leading zero bits of an integer</h3>
+
+<p><a name="index-LEADZ-779"></a><a name="index-zero-bits-780"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>LEADZ</code> returns the number of leading zero bits of an integer.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2008 and later
+
+     <br><dt><em>Class</em>:<dd>Elemental function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = LEADZ(I)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>I</var> </td><td valign="top" width="70%">Shall be of type <code>INTEGER</code>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The type of the return value is the default <code>INTEGER</code>. 
+If all the bits of <code>I</code> are zero, the result value is <code>BIT_SIZE(I)</code>.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          PROGRAM test_leadz
+            WRITE (*,*) BIT_SIZE(1)  ! prints 32
+            WRITE (*,*) LEADZ(1)     ! prints 31
+          END PROGRAM
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="BIT_005fSIZE.html#BIT_005fSIZE">BIT_SIZE</a>, <a href="TRAILZ.html#TRAILZ">TRAILZ</a>, <a href="POPCNT.html#POPCNT">POPCNT</a>, <a href="POPPAR.html#POPPAR">POPPAR</a>
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>Invoking GNU Fortran - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Introduction.html#Introduction" title="Introduction">
+<link rel="next" href="Runtime.html#Runtime" title="Runtime">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Invoking-GNU-Fortran"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Runtime.html#Runtime">Runtime</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Introduction.html#Introduction">Introduction</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">2 GNU Fortran Command Options</h2>
+
+<p><a name="index-GNU-Fortran-command-options-15"></a><a name="index-command-options-16"></a><a name="index-options_002c-_0040command_007bgfortran_007d-command-17"></a>
+<!-- man begin DESCRIPTION -->
+
+   <p>The <samp><span class="command">gfortran</span></samp> command supports all the options supported by the
+<samp><span class="command">gcc</span></samp> command.  Only options specific to GNU Fortran are documented
+here.
+
+   <p>See <a href="../gcc/Invoking-GCC.html#Invoking-GCC">GCC Command Options</a>, for information
+on the non-Fortran-specific aspects of the <samp><span class="command">gcc</span></samp> command (and,
+therefore, the <samp><span class="command">gfortran</span></samp> command).
+
+   <p><a name="index-options_002c-negative-forms-18"></a>All GCC and GNU Fortran options
+are accepted both by <samp><span class="command">gfortran</span></samp> and by <samp><span class="command">gcc</span></samp>
+(as well as any other drivers built at the same time,
+such as <samp><span class="command">g++</span></samp>),
+since adding GNU Fortran to the GCC distribution
+enables acceptance of GNU Fortran options
+by all of the relevant drivers.
+
+   <p>In some cases, options have positive and negative forms;
+the negative form of <samp><span class="option">-ffoo</span></samp> would be <samp><span class="option">-fno-foo</span></samp>. 
+This manual documents only one of these two forms, whichever
+one is not the default. 
+<!-- man end -->
+
+<ul class="menu">
+<li><a accesskey="1" href="Option-Summary.html#Option-Summary">Option Summary</a>:       Brief list of all <samp><span class="command">gfortran</span></samp> options,
+                        without explanations. 
+<li><a accesskey="2" href="Fortran-Dialect-Options.html#Fortran-Dialect-Options">Fortran Dialect Options</a>:   Controlling the variant of Fortran language
+                             compiled. 
+<li><a accesskey="3" href="Preprocessing-Options.html#Preprocessing-Options">Preprocessing Options</a>:   Enable and customize preprocessing. 
+<li><a accesskey="4" href="Error-and-Warning-Options.html#Error-and-Warning-Options">Error and Warning Options</a>:      How picky should the compiler be? 
+<li><a accesskey="5" href="Debugging-Options.html#Debugging-Options">Debugging Options</a>:    Symbol tables, measurements, and debugging dumps. 
+<li><a accesskey="6" href="Directory-Options.html#Directory-Options">Directory Options</a>:    Where to find module files
+<li><a accesskey="7" href="Link-Options.html#Link-Options">Link Options </a>:        Influencing the linking step
+<li><a accesskey="8" href="Runtime-Options.html#Runtime-Options">Runtime Options</a>:      Influencing runtime behavior
+<li><a accesskey="9" href="Code-Gen-Options.html#Code-Gen-Options">Code Gen Options</a>:     Specifying conventions for function calls, data layout
+                        and register usage. 
+<li><a href="Environment-Variables.html#Environment-Variables">Environment Variables</a>:  Environment variables that affect <samp><span class="command">gfortran</span></samp>. 
+</ul>
+
+   </body></html>
+

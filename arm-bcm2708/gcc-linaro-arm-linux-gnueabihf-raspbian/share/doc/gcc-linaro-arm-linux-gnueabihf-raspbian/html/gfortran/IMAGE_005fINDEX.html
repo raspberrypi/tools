@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<title>IMAGE_INDEX - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="IERRNO.html#IERRNO" title="IERRNO">
+<link rel="next" href="INDEX-intrinsic.html#INDEX-intrinsic" title="INDEX intrinsic">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="IMAGE_INDEX"></a>
+<a name="IMAGE_005fINDEX"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="INDEX-intrinsic.html#INDEX-intrinsic">INDEX intrinsic</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="IERRNO.html#IERRNO">IERRNO</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.123 <code>IMAGE_INDEX</code> &mdash; Function that converts a cosubscript to an image index</h3>
+
+<p><a name="index-IMAGE_005fINDEX-733"></a><a name="index-coarray_002c-_0040code_007bIMAGE_005fINDEX_007d-734"></a><a name="index-images_002c-cosubscript-to-image-index-conversion-735"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Returns the image index belonging to a cosubscript.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 2008 and later
+
+     <br><dt><em>Class</em>:<dd>Inquiry function.
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = IMAGE_INDEX(COARRAY, SUB)</code>
+
+     <br><dt><em>Arguments</em>: None.<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>COARRAY</var> </td><td valign="top" width="70%">Coarray of any type. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>SUB</var>     </td><td valign="top" width="70%">default integer rank-1 array of a size equal to
+the corank of <var>COARRAY</var>.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>Scalar default integer with the value of the image index which corresponds
+to the cosubscripts. For invalid cosubscripts the result is zero.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          INTEGER :: array[2,-1:4,8,*]
+          ! Writes  28 (or 0 if there are fewer than 28 images)
+          WRITE (*,*) IMAGE_INDEX (array, [2,0,3,1])
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="THIS_005fIMAGE.html#THIS_005fIMAGE">THIS_IMAGE</a>, <a href="NUM_005fIMAGES.html#NUM_005fIMAGES">NUM_IMAGES</a>
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+<title>LLT - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="LLE.html#LLE" title="LLE">
+<link rel="next" href="LNBLNK.html#LNBLNK" title="LNBLNK">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="LLT"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="LNBLNK.html#LNBLNK">LNBLNK</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="LLE.html#LLE">LLE</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.149 <code>LLT</code> &mdash; Lexical less than</h3>
+
+<p><a name="index-LLT-797"></a><a name="index-lexical-comparison-of-strings-798"></a><a name="index-string_002c-comparison-799"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Determines whether one string is lexically less than another string,
+where the two strings are interpreted as containing ASCII character
+codes.  If the String A and String B are not the same length, the
+shorter is compared as if spaces were appended to it to form a value
+that has the same length as the longer.
+
+     <p>In general, the lexical comparison intrinsics <code>LGE</code>, <code>LGT</code>,
+<code>LLE</code>, and <code>LLT</code> differ from the corresponding intrinsic
+operators <code>.GE.</code>, <code>.GT.</code>, <code>.LE.</code>, and <code>.LT.</code>, in
+that the latter use the processor's character ordering (which is not
+ASCII on some targets), whereas the former always use the ASCII
+ordering.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 77 and later
+
+     <br><dt><em>Class</em>:<dd>Elemental function
+
+     <br><dt><em>Syntax</em>:<dd><code>RESULT = LLT(STRING_A, STRING_B)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>STRING_A</var> </td><td valign="top" width="70%">Shall be of default <code>CHARACTER</code> type. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>STRING_B</var> </td><td valign="top" width="70%">Shall be of default <code>CHARACTER</code> type.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>Returns <code>.TRUE.</code> if <code>STRING_A &lt; STRING_B</code>, and <code>.FALSE.</code>
+otherwise, based on the ASCII ordering.
+
+     <br><dt><em>Specific names</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="20%">Name                           </td><td valign="top" width="20%">Argument          </td><td valign="top" width="20%">Return type       </td><td valign="top" width="25%">Standard
+<br></td></tr><tr align="left"><td valign="top" width="20%"><code>LLT(STRING_A, STRING_B)</code> </td><td valign="top" width="20%"><code>CHARACTER</code>  </td><td valign="top" width="20%"><code>LOGICAL</code>    </td><td valign="top" width="25%">Fortran 77 and later
+     <br></td></tr></table>
+
+     <br><dt><em>See also</em>:<dd><a href="LGE.html#LGE">LGE</a>, <a href="LGT.html#LGT">LGT</a>, <a href="LLE.html#LLE">LLE</a>
+</dl>
+
+   </body></html>
+

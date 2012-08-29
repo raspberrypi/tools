@@ -1,0 +1,206 @@
+<html lang="en">
+<head>
+<title>Fortran Dialect Options - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" title="Invoking GNU Fortran">
+<link rel="prev" href="Option-Summary.html#Option-Summary" title="Option Summary">
+<link rel="next" href="Preprocessing-Options.html#Preprocessing-Options" title="Preprocessing Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Fortran-Dialect-Options"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Preprocessing-Options.html#Preprocessing-Options">Preprocessing Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Option-Summary.html#Option-Summary">Option Summary</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GNU-Fortran.html#Invoking-GNU-Fortran">Invoking GNU Fortran</a>
+<hr>
+</div>
+
+<h3 class="section">2.2 Options controlling Fortran dialect</h3>
+
+<p><a name="index-dialect-options-19"></a><a name="index-language_002c-dialect-options-20"></a><a name="index-options_002c-dialect-21"></a>
+The following options control the details of the Fortran dialect
+accepted by the compiler:
+
+     <dl>
+<dt><code>-ffree-form</code><dt><code>-ffixed-form</code><dd><a name="index-g_t_0040code_007bffree_002dform_007d-22"></a><a name="index-g_t_0040code_007bfno_002dfixed_002dform_007d-23"></a><a name="index-options_002c-Fortran-dialect-24"></a><a name="index-file-format_002c-free-25"></a><a name="index-file-format_002c-fixed-26"></a>Specify the layout used by the source file.  The free form layout
+was introduced in Fortran 90.  Fixed form was traditionally used in
+older Fortran programs.  When neither option is specified, the source
+form is determined by the file extension.
+
+     <br><dt><code>-fall-intrinsics</code><dd><a name="index-g_t_0040code_007bfall_002dintrinsics_007d-27"></a>This option causes all intrinsic procedures (including the GNU-specific
+extensions) to be accepted.  This can be useful with <samp><span class="option">-std=f95</span></samp> to
+force standard-compliance but get access to the full range of intrinsics
+available with <samp><span class="command">gfortran</span></samp>.  As a consequence, <samp><span class="option">-Wintrinsics-std</span></samp>
+will be ignored and no user-defined procedure with the same name as any
+intrinsic will be called except when it is explicitly declared <code>EXTERNAL</code>.
+
+     <br><dt><code>-fd-lines-as-code</code><dt><code>-fd-lines-as-comments</code><dd><a name="index-g_t_0040code_007bfd_002dlines_002das_002dcode_007d-28"></a><a name="index-g_t_0040code_007bfd_002dlines_002das_002dcomments_007d-29"></a>Enable special treatment for lines beginning with <code>d</code> or <code>D</code>
+in fixed form sources.  If the <samp><span class="option">-fd-lines-as-code</span></samp> option is
+given they are treated as if the first column contained a blank.  If the
+<samp><span class="option">-fd-lines-as-comments</span></samp> option is given, they are treated as
+comment lines.
+
+     <br><dt><code>-fdefault-double-8</code><dd><a name="index-g_t_0040code_007bfdefault_002ddouble_002d8_007d-30"></a>Set the <code>DOUBLE PRECISION</code> type to an 8 byte wide type.  If
+<samp><span class="option">-fdefault-real-8</span></samp> is given, <code>DOUBLE PRECISION</code> would
+instead be promoted to 16 bytes if possible, and <samp><span class="option">-fdefault-double-8</span></samp>
+can be used to prevent this.  The kind of real constants like <code>1.d0</code> will
+not be changed by <samp><span class="option">-fdefault-real-8</span></samp> though, so also
+<samp><span class="option">-fdefault-double-8</span></samp> does not affect it.
+
+     <br><dt><code>-fdefault-integer-8</code><dd><a name="index-g_t_0040code_007bfdefault_002dinteger_002d8_007d-31"></a>Set the default integer and logical types to an 8 byte wide type. 
+Do nothing if this is already the default.  This option also affects
+the kind of integer constants like <code>42</code>.
+
+     <br><dt><code>-fdefault-real-8</code><dd><a name="index-g_t_0040code_007bfdefault_002dreal_002d8_007d-32"></a>Set the default real type to an 8 byte wide type. 
+Do nothing if this is already the default.  This option also affects
+the kind of non-double real constants like <code>1.0</code>, and does promote
+the default width of <code>DOUBLE PRECISION</code> to 16 bytes if possible, unless
+<code>-fdefault-double-8</code> is given, too.
+
+     <br><dt><code>-fdollar-ok</code><dd><a name="index-g_t_0040code_007bfdollar_002dok_007d-33"></a><a name="index-g_t_0040code_007b_0024_007d-34"></a><a name="index-symbol-names-35"></a><a name="index-character-set-36"></a>Allow &lsquo;<samp><span class="samp">$</span></samp>&rsquo; as a valid non-first character in a symbol name. Symbols
+that start with &lsquo;<samp><span class="samp">$</span></samp>&rsquo; are rejected since it is unclear which rules to
+apply to implicit typing as different vendors implement different rules. 
+Using &lsquo;<samp><span class="samp">$</span></samp>&rsquo; in <code>IMPLICIT</code> statements is also rejected.
+
+     <br><dt><code>-fbackslash</code><dd><a name="index-g_t_0040code_007bbackslash_007d-37"></a><a name="index-backslash-38"></a><a name="index-escape-characters-39"></a>Change the interpretation of backslashes in string literals from a single
+backslash character to &ldquo;C-style&rdquo; escape characters. The following
+combinations are expanded <code>\a</code>, <code>\b</code>, <code>\f</code>, <code>\n</code>,
+<code>\r</code>, <code>\t</code>, <code>\v</code>, <code>\\</code>, and <code>\0</code> to the ASCII
+characters alert, backspace, form feed, newline, carriage return,
+horizontal tab, vertical tab, backslash, and NUL, respectively. 
+Additionally, <code>\x</code><var>nn</var>, <code>\u</code><var>nnnn</var> and
+<code>\U</code><var>nnnnnnnn</var> (where each <var>n</var> is a hexadecimal digit) are
+translated into the Unicode characters corresponding to the specified code
+points. All other combinations of a character preceded by \ are
+unexpanded.
+
+     <br><dt><code>-fmodule-private</code><dd><a name="index-g_t_0040code_007bfmodule_002dprivate_007d-40"></a><a name="index-module-entities-41"></a><a name="index-private-42"></a>Set the default accessibility of module entities to <code>PRIVATE</code>. 
+Use-associated entities will not be accessible unless they are explicitly
+declared as <code>PUBLIC</code>.
+
+     <br><dt><code>-ffixed-line-length-</code><var>n</var><dd><a name="index-g_t_0040code_007bffixed_002dline_002dlength_002d_007d_0040var_007bn_007d-43"></a><a name="index-file-format_002c-fixed-44"></a>Set column after which characters are ignored in typical fixed-form
+lines in the source file, and through which spaces are assumed (as
+if padded to that length) after the ends of short fixed-form lines.
+
+     <p>Popular values for <var>n</var> include 72 (the
+standard and the default), 80 (card image), and 132 (corresponding
+to &ldquo;extended-source&rdquo; options in some popular compilers). 
+<var>n</var> may also be &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, meaning that the entire line is meaningful
+and that continued character constants never have implicit spaces appended
+to them to fill out the line. 
+<samp><span class="option">-ffixed-line-length-0</span></samp> means the same thing as
+<samp><span class="option">-ffixed-line-length-none</span></samp>.
+
+     <br><dt><code>-ffree-line-length-</code><var>n</var><dd><a name="index-g_t_0040code_007bffree_002dline_002dlength_002d_007d_0040var_007bn_007d-45"></a><a name="index-file-format_002c-free-46"></a>Set column after which characters are ignored in typical free-form
+lines in the source file. The default value is 132. 
+<var>n</var> may be &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, meaning that the entire line is meaningful. 
+<samp><span class="option">-ffree-line-length-0</span></samp> means the same thing as
+<samp><span class="option">-ffree-line-length-none</span></samp>.
+
+     <br><dt><code>-fmax-identifier-length=</code><var>n</var><dd><a name="index-g_t_0040code_007bfmax_002didentifier_002dlength_003d_007d_0040var_007bn_007d-47"></a>Specify the maximum allowed identifier length. Typical values are
+31 (Fortran 95) and 63 (Fortran 2003 and Fortran 2008).
+
+     <br><dt><code>-fimplicit-none</code><dd><a name="index-g_t_0040code_007bfimplicit_002dnone_007d-48"></a>Specify that no implicit typing is allowed, unless overridden by explicit
+<code>IMPLICIT</code> statements.  This is the equivalent of adding
+<code>implicit none</code> to the start of every procedure.
+
+     <br><dt><code>-finteger-4-integer-8</code><dd><a name="index-g_t_0040code_007bfinteger_002d4_002dinteger_002d8_007d-49"></a>Promote all <code>INTEGER(KIND=4)</code> entities to an <code>INTEGER(KIND=8)</code>
+entities.  If <code>KIND=8</code> is unavailable, then an error will be issued. 
+This option should be used with care and may not be suitable for your codes. 
+Areas of possible concern include calls to external procedures,
+alignment in <code>EQUIVALENCE</code> and/or <code>COMMON</code>, generic interfaces,
+BOZ literal constant conversion, and I/O.  Inspection of the intermediate
+representation of the translated Fortran code, produced by
+<samp><span class="option">-fdump-tree-original</span></samp>, is suggested.
+
+     <br><dt><code>-fcray-pointer</code><dd><a name="index-g_t_0040code_007bfcray_002dpointer_007d-50"></a>Enable the Cray pointer extension, which provides C-like pointer
+functionality.
+
+     <br><dt><code>-fopenmp</code><dd><a name="index-g_t_0040code_007bfopenmp_007d-51"></a><a name="index-OpenMP-52"></a>Enable the OpenMP extensions.  This includes OpenMP <code>!$omp</code> directives
+in free form
+and <code>c$omp</code>, <code>*$omp</code> and <code>!$omp</code> directives in fixed form,
+<code>!$</code> conditional compilation sentinels in free form
+and <code>c$</code>, <code>*$</code> and <code>!$</code> sentinels in fixed form,
+and when linking arranges for the OpenMP runtime library to be linked
+in.  The option <samp><span class="option">-fopenmp</span></samp> implies <samp><span class="option">-frecursive</span></samp>.
+
+     <br><dt><code>-fno-range-check</code><dd><a name="index-g_t_0040code_007bfrange_002dcheck_007d-53"></a>Disable range checking on results of simplification of constant
+expressions during compilation.  For example, GNU Fortran will give
+an error at compile time when simplifying <code>a = 1. / 0</code>. 
+With this option, no error will be given and <code>a</code> will be assigned
+the value <code>+Infinity</code>.  If an expression evaluates to a value
+outside of the relevant range of [<code>-HUGE()</code>:<code>HUGE()</code>],
+then the expression will be replaced by <code>-Inf</code> or <code>+Inf</code>
+as appropriate. 
+Similarly, <code>DATA i/Z'FFFFFFFF'/</code> will result in an integer overflow
+on most systems, but with <samp><span class="option">-fno-range-check</span></samp> the value will
+&ldquo;wrap around&rdquo; and <code>i</code> will be initialized to -1 instead.
+
+     <br><dt><code>-freal-4-real-8</code><dt><code>-freal-4-real-10</code><dt><code>-freal-8-real-4</code><dt><code>-freal-8-real-10</code><dt><code>-freal-8-real-16</code><dd><a name="index-g_t_0040code_007bfreal_002d4_002dreal_002d8_007d-54"></a><a name="index-g_t_0040code_007bfreal_002d4_002dreal_002d10_007d-55"></a><a name="index-g_t_0040code_007bfreal_002d4_002dreal_002d16_007d-56"></a><a name="index-g_t_0040code_007bfreal_002d8_002dreal_002d4_007d-57"></a><a name="index-g_t_0040code_007bfreal_002d8_002dreal_002d10_007d-58"></a><a name="index-g_t_0040code_007bfreal_002d8_002dreal_002d16_007d-59"></a><a name="index-options_002c-real-kind-type-promotion-60"></a>Promote all <code>REAL(KIND=M)</code> entities to <code>REAL(KIND=N)</code> entities. 
+If <code>REAL(KIND=N)</code> is unavailable, then an error will be issued. 
+All other real kind types are unaffected by this option. 
+These options should be used with care and may not be suitable for your
+codes.  Areas of possible concern include calls to external procedures,
+alignment in <code>EQUIVALENCE</code> and/or <code>COMMON</code>, generic interfaces,
+BOZ literal constant conversion, and I/O.  Inspection of the intermediate
+representation of the translated Fortran code, produced by
+<samp><span class="option">-fdump-tree-original</span></samp>, is suggested.
+
+     <br><dt><code>-std=</code><var>std</var><dd><a name="index-g_t_0040code_007bstd_003d_007d_0040var_007bstd_007d-option-61"></a>Specify the standard to which the program is expected to conform, which
+may be one of &lsquo;<samp><span class="samp">f95</span></samp>&rsquo;, &lsquo;<samp><span class="samp">f2003</span></samp>&rsquo;, &lsquo;<samp><span class="samp">f2008</span></samp>&rsquo;, &lsquo;<samp><span class="samp">gnu</span></samp>&rsquo;, or
+&lsquo;<samp><span class="samp">legacy</span></samp>&rsquo;.  The default value for <var>std</var> is &lsquo;<samp><span class="samp">gnu</span></samp>&rsquo;, which
+specifies a superset of the Fortran 95 standard that includes all of the
+extensions supported by GNU Fortran, although warnings will be given for
+obsolete extensions not recommended for use in new code.  The
+&lsquo;<samp><span class="samp">legacy</span></samp>&rsquo; value is equivalent but without the warnings for obsolete
+extensions, and may be useful for old non-standard programs.  The
+&lsquo;<samp><span class="samp">f95</span></samp>&rsquo;, &lsquo;<samp><span class="samp">f2003</span></samp>&rsquo; and &lsquo;<samp><span class="samp">f2008</span></samp>&rsquo; values specify strict
+conformance to the Fortran 95, Fortran 2003 and Fortran 2008 standards,
+respectively; errors are given for all extensions beyond the relevant
+language standard, and warnings are given for the Fortran 77 features
+that are permitted but obsolescent in later standards. &lsquo;<samp><span class="samp">-std=f2008ts</span></samp>&rsquo;
+allows the Fortran 2008 standard including the additions of the
+Technical Specification (TS) 29113 on Further Interoperability of Fortran
+with C.
+
+   </dl>
+
+   </body></html>
+

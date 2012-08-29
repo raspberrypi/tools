@@ -1,0 +1,33 @@
+Outstanding concerns
+====================
+
+ - no entry
+
+TODO
+====
+
+* General:
+
+ - Make sure that prep.sh and version aren't in the root of the source
+   package.
+
+* libc:
+ - Only add some libraries to the optimized packages instead of all of them?
+ - Add patch to display (or ignore) linux-gate.so.1 in ldd.
+ - Check dpkg-shlibdeps for linux-gate.so.1 handling.
+ - Don't do make install for libc6-i686 if we aren't going to use the
+   results - it's very slow.
+
+* libc-dev:
+
+ - What do we do for headers on 32/64 systems?  Do we generate
+   #if wrappers for /usr/include?  This looks like a non-issue since
+   only asm needs it.
+
+* locales:
+
+ - locales debconf template is a bit difficult for newbie users.
+   Using localedata/locales/*, it can be readable.  For example,
+   "ja_JP" -> "Japanese", "Japan".
+
+

@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+<title>SIZEOF - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="SIZE.html#SIZE" title="SIZE">
+<link rel="next" href="SLEEP.html#SLEEP" title="SLEEP">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="SIZEOF"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="SLEEP.html#SLEEP">SLEEP</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="SIZE.html#SIZE">SIZE</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.227 <code>SIZEOF</code> &mdash; Size in bytes of an expression</h3>
+
+<p><a name="index-SIZEOF-1039"></a><a name="index-expression-size-1040"></a><a name="index-size-of-an-expression-1041"></a>
+     <dl>
+<dt><em>Description</em>:<dd><code>SIZEOF(X)</code> calculates the number of bytes of storage the
+expression <code>X</code> occupies.
+
+     <br><dt><em>Standard</em>:<dd>GNU extension
+
+     <br><dt><em>Class</em>:<dd>Intrinsic function
+
+     <br><dt><em>Syntax</em>:<dd><code>N = SIZEOF(X)</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>X</var> </td><td valign="top" width="70%">The argument shall be of any type, rank or shape.
+     <br></td></tr></table>
+
+     <br><dt><em>Return value</em>:<dd>The return value is of type integer and of the system-dependent kind
+<var>C_SIZE_T</var> (from the <var>ISO_C_BINDING</var> module). Its value is the
+number of bytes occupied by the argument.  If the argument has the
+<code>POINTER</code> attribute, the number of bytes of the storage area pointed
+to is returned.  If the argument is of a derived type with <code>POINTER</code>
+or <code>ALLOCATABLE</code> components, the return value does not account for
+the sizes of the data pointed to by these components. If the argument is
+polymorphic, the size according to the declared type is returned. The argument
+may not be a procedure or procedure pointer.
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">             integer :: i
+             real :: r, s(5)
+             print *, (sizeof(s)/sizeof(r) == 5)
+             end
+</pre>
+     <p>The example will print <code>.TRUE.</code> unless you are using a platform
+where default <code>REAL</code> variables are unusually padded.
+
+     <br><dt><em>See also</em>:<dd><a href="C_005fSIZEOF.html#C_005fSIZEOF">C_SIZEOF</a>, <a href="STORAGE_005fSIZE.html#STORAGE_005fSIZE">STORAGE_SIZE</a>
+</dl>
+
+   </body></html>
+
