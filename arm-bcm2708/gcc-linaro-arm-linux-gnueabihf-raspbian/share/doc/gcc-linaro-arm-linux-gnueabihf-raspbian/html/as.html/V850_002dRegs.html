@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,17 +44,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="V850-Syntax.html#V850-Syntax">V850 Synt
 <hr>
 </div>
 
-<h5 class="subsubsection">9.44.2.2 Register Names</h5>
+<h5 class="subsubsection">9.49.2.2 Register Names</h5>
 
-<p><a name="index-V850-register-names-2111"></a><a name="index-register-names_002c-V850-2112"></a><code>as</code> supports the following names for registers:
+<p><a name="index-V850-register-names-2280"></a><a name="index-register-names_002c-V850-2281"></a><code>as</code> supports the following names for registers:
      
-<a name="index-g_t_0040code_007bzero_007d-register_002c-V850-2113"></a>
+<a name="index-g_t_0040code_007bzero_007d-register_002c-V850-2282"></a>
 <dl><dt><code>general register 0</code><dd>r0, zero
 <br><dt><code>general register 1</code><dd>r1
 <br><dt><code>general register 2</code><dd>r2, hp
-<a name="index-g_t_0040code_007bsp_007d-register_002c-V850-2114"></a><br><dt><code>general register 3</code><dd>r3, sp
-<a name="index-g_t_0040code_007bgp_007d-register_002c-V850-2115"></a><br><dt><code>general register 4</code><dd>r4, gp
-<a name="index-g_t_0040code_007btp_007d-register_002c-V850-2116"></a><br><dt><code>general register 5</code><dd>r5, tp
+<a name="index-g_t_0040code_007bsp_007d-register_002c-V850-2283"></a><br><dt><code>general register 3</code><dd>r3, sp
+<a name="index-g_t_0040code_007bgp_007d-register_002c-V850-2284"></a><br><dt><code>general register 4</code><dd>r4, gp
+<a name="index-g_t_0040code_007btp_007d-register_002c-V850-2285"></a><br><dt><code>general register 5</code><dd>r5, tp
 <br><dt><code>general register 6</code><dd>r6
 <br><dt><code>general register 7</code><dd>r7
 <br><dt><code>general register 8</code><dd>r8
@@ -81,19 +79,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="V850-Syntax.html#V850-Syntax">V850 Synt
 <br><dt><code>general register 27</code><dd>r27
 <br><dt><code>general register 28</code><dd>r28
 <br><dt><code>general register 29</code><dd>r29
-<a name="index-g_t_0040code_007bep_007d-register_002c-V850-2117"></a><br><dt><code>general register 30</code><dd>r30, ep
-<a name="index-g_t_0040code_007blp_007d-register_002c-V850-2118"></a><br><dt><code>general register 31</code><dd>r31, lp
-<a name="index-g_t_0040code_007beipc_007d-register_002c-V850-2119"></a><br><dt><code>system register 0</code><dd>eipc
-<a name="index-g_t_0040code_007beipsw_007d-register_002c-V850-2120"></a><br><dt><code>system register 1</code><dd>eipsw
-<a name="index-g_t_0040code_007bfepc_007d-register_002c-V850-2121"></a><br><dt><code>system register 2</code><dd>fepc
-<a name="index-g_t_0040code_007bfepsw_007d-register_002c-V850-2122"></a><br><dt><code>system register 3</code><dd>fepsw
-<a name="index-g_t_0040code_007becr_007d-register_002c-V850-2123"></a><br><dt><code>system register 4</code><dd>ecr
-<a name="index-g_t_0040code_007bpsw_007d-register_002c-V850-2124"></a><br><dt><code>system register 5</code><dd>psw
-<a name="index-g_t_0040code_007bctpc_007d-register_002c-V850-2125"></a><br><dt><code>system register 16</code><dd>ctpc
-<a name="index-g_t_0040code_007bctpsw_007d-register_002c-V850-2126"></a><br><dt><code>system register 17</code><dd>ctpsw
-<a name="index-g_t_0040code_007bdbpc_007d-register_002c-V850-2127"></a><br><dt><code>system register 18</code><dd>dbpc
-<a name="index-g_t_0040code_007bdbpsw_007d-register_002c-V850-2128"></a><br><dt><code>system register 19</code><dd>dbpsw
-<a name="index-g_t_0040code_007bctbp_007d-register_002c-V850-2129"></a><br><dt><code>system register 20</code><dd>ctbp
+<a name="index-g_t_0040code_007bep_007d-register_002c-V850-2286"></a><br><dt><code>general register 30</code><dd>r30, ep
+<a name="index-g_t_0040code_007blp_007d-register_002c-V850-2287"></a><br><dt><code>general register 31</code><dd>r31, lp
+<a name="index-g_t_0040code_007beipc_007d-register_002c-V850-2288"></a><br><dt><code>system register 0</code><dd>eipc
+<a name="index-g_t_0040code_007beipsw_007d-register_002c-V850-2289"></a><br><dt><code>system register 1</code><dd>eipsw
+<a name="index-g_t_0040code_007bfepc_007d-register_002c-V850-2290"></a><br><dt><code>system register 2</code><dd>fepc
+<a name="index-g_t_0040code_007bfepsw_007d-register_002c-V850-2291"></a><br><dt><code>system register 3</code><dd>fepsw
+<a name="index-g_t_0040code_007becr_007d-register_002c-V850-2292"></a><br><dt><code>system register 4</code><dd>ecr
+<a name="index-g_t_0040code_007bpsw_007d-register_002c-V850-2293"></a><br><dt><code>system register 5</code><dd>psw
+<a name="index-g_t_0040code_007bctpc_007d-register_002c-V850-2294"></a><br><dt><code>system register 16</code><dd>ctpc
+<a name="index-g_t_0040code_007bctpsw_007d-register_002c-V850-2295"></a><br><dt><code>system register 17</code><dd>ctpsw
+<a name="index-g_t_0040code_007bdbpc_007d-register_002c-V850-2296"></a><br><dt><code>system register 18</code><dd>dbpc
+<a name="index-g_t_0040code_007bdbpsw_007d-register_002c-V850-2297"></a><br><dt><code>system register 19</code><dd>dbpsw
+<a name="index-g_t_0040code_007bctbp_007d-register_002c-V850-2298"></a><br><dt><code>system register 20</code><dd>ctbp
 </dl>
 
    </body></html>

@@ -10,9 +10,7 @@
 <link rel="next" href="Inline.html#Inline" title="Inline">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.38 Inquiring on Alignment of Types or Variables</h3>
 
-<p><a name="index-alignment-2691"></a><a name="index-type-alignment-2692"></a><a name="index-variable-alignment-2693"></a>
+<p><a name="index-alignment-2790"></a><a name="index-type-alignment-2791"></a><a name="index-variable-alignment-2792"></a>
 The keyword <code>__alignof__</code> allows you to inquire about how an object
 is aligned, or the minimum alignment usually required by a type.  Its
 syntax is just like <code>sizeof</code>.
@@ -68,7 +66,7 @@ designs, <code>__alignof__ (double)</code> is 4 or even 2.
 
  <p>Some machines never actually require alignment; they allow reference to any
 data type even at an odd address.  For these machines, <code>__alignof__</code>
-reports the smallest alignment that GCC will give the data type, usually as
+reports the smallest alignment that GCC gives the data type, usually as
 mandated by the target ABI.
 
  <p>If the operand of <code>__alignof__</code> is an lvalue rather than a type,

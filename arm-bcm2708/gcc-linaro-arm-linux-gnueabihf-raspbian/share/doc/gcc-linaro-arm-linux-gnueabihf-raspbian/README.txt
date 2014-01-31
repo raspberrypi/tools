@@ -1,4 +1,4 @@
-Linaro Toolchain 2012.08
+Linaro Toolchain 2014.01
 ========================
 
 This package contains pre-built versions of Linaro GCC and Linaro GDB
@@ -19,9 +19,8 @@ easier.
 
 What's included
 ---------------
- * Linaro GCC 4.7 2012.08
- * Linaro GDB 7.4 2012.06
- * A statically linked gdbserver in arm-linux-gnueabihf/debug-root
+ * Linaro GCC 4.8 2014.01
+ * Linaro GDB 7.6.1 2013.10
  * A system root
  * Manuals under share/doc/
 
@@ -42,53 +41,40 @@ https://wiki.linaro.org/GettingInvolved.
 Target compatibility
 --------------------
 The arm-linux-gnueabihf version targets the Linaro Evaluation Build
-12.05 flavour of Ubuntu 12.04 "Precise Pangolin".  The default
-configuration is:
+12.05 flavour of Ubuntu 12.04 "Precise Pangolin".
 
- * Runs on all Cortex-A profile devices
- * Tuned for the Cortex-A9
- * Thumb-2
+The default configuration is:
+ * Runs on all ARMv6 profile devices
+ * Tuned for the ARM1176jz-s
+ * ARM
  * 'hard float' calling convention
- * Uses the VFPv3-D16 FPU
- * Multiarch and multilib enabled
- * EGLIBC 2.15
- * A GCC 4.7 series libgcc and libstdc++
+ * Uses the VFP
+ *
+ * A GCC 4.8 series libgcc and libstdc++
 
 For more information on the LEB, see the Linaro Wiki at
 https://wiki.linaro.org/
 
 Precise comes with a 4.6 based runtime.  To use all of the features of
-Linaro GCC 4.7, and especially if you get runtime errors about a
-missing 'GCC_4.7.0 version', please download the runtime package from:
+Linaro GCC 4.8, and especially if you get runtime errors about a
+missing 'GCC_4.8.X version', please download the runtime package from:
 
  https://launchpad.net/linaro-toolchain-binaries/+download
 
-and extract on the target.  Future LEB images will include the 4.7
+and extract on the target.  Future LEB images will include the 4.8
 runtime by default.
 
-In addition to the default configuration, a basic ARMv4T runtime is
-included for use when building baremetal projects such as Linux and
-u-boot for earlier architectures.  To use it, pass the following flags
-to GCC:
+To use all of the features of Linaro eglibc, and especially if you get runtime
+errots about libc version, please get the sysroot from the release tarball.
 
- -marm -march=armv4t -mfloat-abi=soft
+unzip a release tarball.
+The sysroot is gcc-linaro-../arm-linux-gnueabihf/libc
 
-The arm-none-eabi version targets a baremetal system.  The default
-configuration is:
-
- * Runs on all Cortex-M profile devices
- * Tuned for the Cortex-M3
- * Thumb-2
- * Software floating point only
- * Newlib 1.19.0
- * A GCC 4.7 series libgcc and libstdc++
-
-The baremetal version is unsupported.
 
 Host compatibility
 ------------------
 The Linux version is supported on:
- * Ubuntu 10.04.3 and 11.10
+ * Ubuntu 10.04.3 and later
  * Debian 6.0.2
  * Fedora 16
  * openSUSE 12.1
@@ -134,7 +120,7 @@ To reproduce this build:
  * Download and extract the crosstool-NG tarball
  * Change to the crosstool-NG directory
  * Extract the `src` archive giving `tarballs/binutils-*` and similar
- * Run `make -f contrib/linaro/build.mk`
+ * Run `make -f contrib/linaro/build.mk TARGETS=arm-linux-gnueabihf-raspbian`
 
 The builds will end up in `builds/$target-$host`.  See
 `contrib/linaro/build.mk` for more.
@@ -156,3 +142,4 @@ Unsupported builds:
 
 The Linaro version of crosstool-NG:
  https://code.launchpad.net/~linaro-toolchain-dev/crosstool-ng/linaro
+

@@ -10,9 +10,7 @@
 <link rel="next" href="Constraints.html#Constraints" title="Constraints">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,10 +54,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.41 Assembler Instructions with C Expression Operands</h3>
 
-<p><a name="index-extended-_0040code_007basm_007d-2711"></a><a name="index-g_t_0040code_007basm_007d-expressions-2712"></a><a name="index-assembler-instructions-2713"></a><a name="index-registers-2714"></a>
+<p><a name="index-extended-_0040code_007basm_007d-2810"></a><a name="index-g_t_0040code_007basm_007d-expressions-2811"></a><a name="index-assembler-instructions-2812"></a><a name="index-registers-2813"></a>
 In an assembler instruction using <code>asm</code>, you can specify the
 operands of the instruction using C expressions.  This means you need not
-guess which registers or memory locations will contain the data you want
+guess which registers or memory locations contain the data you want
 to use.
 
  <p>You must specify an assembler instruction template much like what
@@ -72,7 +70,7 @@ each operand.
 </pre>
  <p class="noindent">Here <code>angle</code> is the C expression for the input operand while
 <code>result</code> is that of the output operand.  Each has &lsquo;<samp><span class="samp">"f"</span></samp>&rsquo; as its
-operand constraint, saying that a floating point register is required. 
+operand constraint, saying that a floating-point register is required. 
 The &lsquo;<samp><span class="samp">=</span></samp>&rsquo; in &lsquo;<samp><span class="samp">=f</span></samp>&rsquo; indicates that the operand is an output; all
 output operands' constraints must use &lsquo;<samp><span class="samp">=</span></samp>&rsquo;.  The constraints use the
 same language used in the machine description (see <a href="Constraints.html#Constraints">Constraints</a>).
@@ -115,22 +113,19 @@ assembler input.  The extended <code>asm</code> feature is most often used for
 machine instructions the compiler itself does not know exist.  If
 the output expression cannot be directly addressed (for example, it is a
 bit-field), your constraint must allow a register.  In that case, GCC
-will use the register as the output of the <code>asm</code>, and then store
+uses the register as the output of the <code>asm</code>, and then stores
 that register into the output.
 
- <p>The ordinary output operands must be write-only; GCC will assume that
+ <p>The ordinary output operands must be write-only; GCC assumes that
 the values in these operands before the instruction are dead and need
 not be generated.  Extended asm supports input-output or read-write
 operands.  Use the constraint character &lsquo;<samp><span class="samp">+</span></samp>&rsquo; to indicate such an
-operand and list it with the output operands.  You should only use
-read-write operands when the constraints for the operand (or the
-operand in which only some of the bits are to be changed) allow a
-register.
+operand and list it with the output operands.
 
  <p>You may, as an alternative, logically split its function into two
 separate operands, one input operand and one write-only output
 operand.  The connection between them is expressed by constraints
-which say they need to be in the same location when the instruction
+that say they need to be in the same location when the instruction
 executes.  You can use the same C expression for both operands, or
 different expressions.  For example, here we write the (fictitious)
 &lsquo;<samp><span class="samp">combine</span></samp>&rsquo; instruction with <code>bar</code> as its read-only source
@@ -142,10 +137,10 @@ operand and <code>foo</code> as its read-write destination:
 same location as operand 0.  A number in constraint is allowed only in
 an input operand and it must refer to an output operand.
 
- <p>Only a number in the constraint can guarantee that one operand will be in
+ <p>Only a number in the constraint can guarantee that one operand is in
 the same place as another.  The mere fact that <code>foo</code> is the value
-of both operands is not enough to guarantee that they will be in the
-same place in the generated assembler code.  The following would not
+of both operands is not enough to guarantee that they are in the
+same place in the generated assembler code.  The following does not
 work reliably:
 
 <pre class="smallexample">     asm ("combine %2,%0" : "=r" (foo) : "r" (foo), "g" (bar));
@@ -212,12 +207,12 @@ have no part mentioned in the clobber description.
 There is no way for you to specify that an input
 operand is modified without also specifying it as an output
 operand.  Note that if all the output operands you specify are for this
-purpose (and hence unused), you will then also need to specify
+purpose (and hence unused), you then also need to specify
 <code>volatile</code> for the <code>asm</code> construct, as described below, to
 prevent GCC from deleting the <code>asm</code> statement as unused.
 
  <p>If you refer to a particular hardware register from the assembler code,
-you will probably have to list the register after the third colon to
+you probably have to list the register after the third colon to
 tell the compiler the register's value is modified.  In some assemblers,
 the register names begin with &lsquo;<samp><span class="samp">%</span></samp>&rsquo;; to produce one &lsquo;<samp><span class="samp">%</span></samp>&rsquo; in the
 assembler code, you must write &lsquo;<samp><span class="samp">%%</span></samp>&rsquo; in the input.
@@ -231,9 +226,9 @@ effect.  But it is valid no matter what the machine.
 
  <p>If your assembler instructions access memory in an unpredictable
 fashion, add &lsquo;<samp><span class="samp">memory</span></samp>&rsquo; to the list of clobbered registers.  This
-will cause GCC to not keep memory values cached in registers across the
+causes GCC to not keep memory values cached in registers across the
 assembler instruction and not optimize stores or loads to that memory. 
-You will also want to add the <code>volatile</code> keyword if the memory
+You also should add the <code>volatile</code> keyword if the memory
 affected is not listed in the inputs or outputs of the <code>asm</code>, as
 the &lsquo;<samp><span class="samp">memory</span></samp>&rsquo; clobber does not count as a side-effect of the
 <code>asm</code>.  If you know how large the accessed memory is, you can add
@@ -251,7 +246,7 @@ otherwise GCC might optimize the store to <code>x</code> away:
        int *y = &amp;x;
        int result;
        asm ("magic stuff accessing an 'int' pointed to by '%1'"
-             "=&amp;d" (r) : "a" (y), "m" (*y));
+            : "=&amp;d" (r) : "a" (y), "m" (*y));
        return result;
      }
 </pre>
@@ -263,7 +258,7 @@ to break the line, plus a tab character to move to the instruction field
 assembler allows semicolons as a line-breaking character.  Note that some
 assembler dialects use semicolons to start a comment. 
 The input operands are guaranteed not to use any of the clobbered
-registers, and neither will the output operands' addresses, so you can
+registers, and neither do the output operands' addresses, so you can
 read and write the clobbered registers as many times as you like.  Here
 is an example of multiple instructions in a template; it assumes the
 subroutine <code>_foo</code> accepts arguments in registers 9 and 10:
@@ -296,7 +291,7 @@ supported.  The compiler's optimizers do not know about these jumps, and
 therefore they cannot take account of them when deciding how to
 optimize.  See <a href="Extended-asm-with-goto.html#Extended-asm-with-goto">Extended asm with goto</a>.
 
- <p><a name="index-macros-containing-_0040code_007basm_007d-2715"></a>Usually the most convenient way to use these <code>asm</code> instructions is to
+ <p><a name="index-macros-containing-_0040code_007basm_007d-2814"></a>Usually the most convenient way to use these <code>asm</code> instructions is to
 encapsulate them in macros that look like functions.  For example,
 
 <pre class="smallexample">     #define sin(x)       \
@@ -306,14 +301,14 @@ encapsulate them in macros that look like functions.  For example,
 </pre>
  <p class="noindent">Here the variable <code>__arg</code> is used to make sure that the instruction
 operates on a proper <code>double</code> value, and to accept only those
-arguments <code>x</code> which can convert automatically to a <code>double</code>.
+arguments <code>x</code> that can convert automatically to a <code>double</code>.
 
  <p>Another way to make sure the instruction operates on the correct data
 type is to use a cast in the <code>asm</code>.  This is different from using a
 variable <code>__arg</code> in that it converts more different types.  For
-example, if the desired type were <code>int</code>, casting the argument to
-<code>int</code> would accept a pointer with no complaint, while assigning the
-argument to an <code>int</code> variable named <code>__arg</code> would warn about
+example, if the desired type is <code>int</code>, casting the argument to
+<code>int</code> accepts a pointer with no complaint, while assigning the
+argument to an <code>int</code> variable named <code>__arg</code> warns about
 using a pointer unless the caller explicitly casts it.
 
  <p>If an <code>asm</code> has output operands, GCC assumes for optimization
@@ -337,20 +332,20 @@ the <code>asm</code>.  For example:
         __old; })
 </pre>
  <p class="noindent">The <code>volatile</code> keyword indicates that the instruction has
-important side-effects.  GCC will not delete a volatile <code>asm</code> if
+important side-effects.  GCC does not delete a volatile <code>asm</code> if
 it is reachable.  (The instruction can still be deleted if GCC can
-prove that control-flow will never reach the location of the
+prove that control flow never reaches the location of the
 instruction.)  Note that even a volatile <code>asm</code> instruction
 can be moved relative to other code, including across jump
 instructions.  For example, on many targets there is a system
-register which can be set to control the rounding mode of
-floating point operations.  You might try
+register that can be set to control the rounding mode of
+floating-point operations.  You might try
 setting it with a volatile <code>asm</code>, like this PowerPC example:
 
 <pre class="smallexample">            asm volatile("mtfsf 255,%0" : : "f" (fpenv));
             sum = x + y;
 </pre>
- <p class="noindent">This will not work reliably, as the compiler may move the addition back
+ <p class="noindent">This does not work reliably, as the compiler may move the addition back
 before the volatile <code>asm</code>.  To make it work you need to add an
 artificial dependency to the <code>asm</code> referencing a variable in the code
 you don't want moved, for example:
@@ -361,19 +356,19 @@ you don't want moved, for example:
  <p>Similarly, you can't expect a
 sequence of volatile <code>asm</code> instructions to remain perfectly
 consecutive.  If you want consecutive output, use a single <code>asm</code>. 
-Also, GCC will perform some optimizations across a volatile <code>asm</code>
+Also, GCC performs some optimizations across a volatile <code>asm</code>
 instruction; GCC does not &ldquo;forget everything&rdquo; when it encounters
 a volatile <code>asm</code> instruction the way some other compilers do.
 
- <p>An <code>asm</code> instruction without any output operands will be treated
+ <p>An <code>asm</code> instruction without any output operands is treated
 identically to a volatile <code>asm</code> instruction.
 
  <p>It is a natural idea to look for a way to give access to the condition
 code left by the assembler instruction.  However, when we attempted to
 implement this, we found no way to make it work reliably.  The problem
-is that output operands might need reloading, which would result in
+is that output operands might need reloading, which result in
 additional following &ldquo;store&rdquo; instructions.  On most machines, these
-instructions would alter the condition code before there was time to
+instructions alter the condition code before there is time to
 test it.  This problem doesn't arise for ordinary &ldquo;test&rdquo; and
 &ldquo;compare&rdquo; instructions because they don't have any output operands.
 
@@ -390,7 +385,7 @@ to fall through to the next statement.
  <p>This form of <code>asm</code> is restricted to not have outputs.  This is due
 to a internal restriction in the compiler that control transfer instructions
 cannot have outputs.  This restriction on <code>asm goto</code> may be lifted
-in some future version of the compiler.  In the mean time, <code>asm goto</code>
+in some future version of the compiler.  In the meantime, <code>asm goto</code>
 may include a memory clobber, and so leave outputs in memory.
 
 <pre class="smallexample">     int frob(int x)
@@ -403,7 +398,7 @@ may include a memory clobber, and so leave outputs in memory.
        return -1;
      }
 </pre>
- <p>In this (inefficient) example, the <code>frob</code> instruction sets the
+ <p class="noindent">In this (inefficient) example, the <code>frob</code> instruction sets the
 carry bit to indicate an error.  The <code>jc</code> instruction detects
 this and branches to the <code>error</code> label.  Finally, the output
 of the <code>frob</code> instruction (<code>%r5</code>) is stored into the memory
@@ -431,7 +426,7 @@ for variable <code>y</code>, which is later read by the <code>return</code> stat
        f3(i);
      }
 </pre>
- <p>In this (also inefficient) example, the <code>mfsr</code> instruction reads
+ <p class="noindent">In this (also inefficient) example, the <code>mfsr</code> instruction reads
 an address from some out-of-band machine register, and the following
 <code>jmp</code> instruction branches to that address.  The address read by
 the <code>mfsr</code> instruction is assumed to have been previously set via
@@ -451,15 +446,15 @@ does not in fact fall through.
        } while (0)
      #define TRACE  TRACE1(__COUNTER__)
 </pre>
- <p>In this example (which in fact inspired the <code>asm goto</code> feature)
+ <p class="noindent">In this example (which in fact inspired the <code>asm goto</code> feature)
 we want on rare occasions to call the <code>trace</code> function; on other
 occasions we'd like to keep the overhead to the absolute minimum. 
 The normal code path consists of a single <code>nop</code> instruction. 
 However, we record the address of this <code>nop</code> together with the
 address of a label that calls the <code>trace</code> function.  This allows
-the <code>nop</code> instruction to be patched at runtime to be an
+the <code>nop</code> instruction to be patched at run time to be an
 unconditional branch to the stored label.  It is assumed that an
-optimizing compiler will move the labeled block out of line, to
+optimizing compiler moves the labeled block out of line, to
 optimize the fall through path from the <code>asm</code>.
 
  <p>If you are writing a header file that should be includable in ISO C
@@ -475,96 +470,96 @@ statements in the pattern of the <code>asm</code> and multiplying that by the
 length of the longest instruction on that processor.  Statements in the
 <code>asm</code> are identified by newline characters and whatever statement
 separator characters are supported by the assembler; on most processors
-this is the `<code>;</code>' character.
+this is the &lsquo;<samp><span class="samp">;</span></samp>&rsquo; character.
 
  <p>Normally, GCC's estimate is perfectly adequate to ensure that correct
 code is generated, but it is possible to confuse the compiler if you use
 pseudo instructions or assembler macros that expand into multiple real
 instructions or if you use assembler directives that expand to more
-space in the object file than would be needed for a single instruction. 
-If this happens then the assembler will produce a diagnostic saying that
+space in the object file than is needed for a single instruction. 
+If this happens then the assembler produces a diagnostic saying that
 a label is unreachable.
 
-<h4 class="subsection">6.41.2 i386 floating point asm operands</h4>
+<h4 class="subsection">6.41.2 i386 floating-point asm operands</h4>
 
-<p>There are several rules on the usage of stack-like regs in
-asm_operands insns.  These rules apply only to the operands that are
-stack-like regs:
+<p>On i386 targets, there are several rules on the usage of stack-like registers
+in the operands of an <code>asm</code>.  These rules apply only to the operands
+that are stack-like registers:
 
      <ol type=1 start=1>
-<li>Given a set of input regs that die in an asm_operands, it is
-necessary to know which are implicitly popped by the asm, and
-which must be explicitly popped by gcc.
+<li>Given a set of input registers that die in an <code>asm</code>, it is
+necessary to know which are implicitly popped by the <code>asm</code>, and
+which must be explicitly popped by GCC.
 
-     <p>An input reg that is implicitly popped by the asm must be
+     <p>An input register that is implicitly popped by the <code>asm</code> must be
 explicitly clobbered, unless it is constrained to match an
 output operand.
 
-     <li>For any input reg that is implicitly popped by an asm, it is
+     <li>For any input register that is implicitly popped by an <code>asm</code>, it is
 necessary to know how to adjust the stack to compensate for the pop. 
 If any non-popped input is closer to the top of the reg-stack than
-the implicitly popped reg, it would not be possible to know what the
+the implicitly popped register, it would not be possible to know what the
 stack looked like&mdash;it's not clear how the rest of the stack &ldquo;slides
 up&rdquo;.
 
-     <p>All implicitly popped input regs must be closer to the top of
+     <p>All implicitly popped input registers must be closer to the top of
 the reg-stack than any input that is not implicitly popped.
 
-     <p>It is possible that if an input dies in an insn, reload might
-use the input reg for an output reload.  Consider this example:
+     <p>It is possible that if an input dies in an <code>asm</code>, the compiler might
+use the input register for an output reload.  Consider this example:
 
      <pre class="smallexample">          asm ("foo" : "=t" (a) : "f" (b));
 </pre>
-     <p>This asm says that input B is not popped by the asm, and that
-the asm pushes a result onto the reg-stack, i.e., the stack is one
-deeper after the asm than it was before.  But, it is possible that
-reload will think that it can use the same reg for both the input and
-the output, if input B dies in this insn.
+     <p class="noindent">This code says that input <code>b</code> is not popped by the <code>asm</code>, and that
+the <code>asm</code> pushes a result onto the reg-stack, i.e., the stack is one
+deeper after the <code>asm</code> than it was before.  But, it is possible that
+reload may think that it can use the same register for both the input and
+the output.
 
-     <p>If any input operand uses the <code>f</code> constraint, all output reg
-constraints must use the <code>&amp;</code> earlyclobber.
+     <p>To prevent this from happening,
+if any input operand uses the <code>f</code> constraint, all output register
+constraints must use the <code>&amp;</code> early-clobber modifier.
 
-     <p>The asm above would be written as
+     <p>The example above would be correctly written as:
 
      <pre class="smallexample">          asm ("foo" : "=&amp;t" (a) : "f" (b));
 </pre>
      <li>Some operands need to be in particular places on the stack.  All
-output operands fall in this category&mdash;there is no other way to
-know which regs the outputs appear in unless the user indicates
+output operands fall in this category&mdash;GCC has no other way to
+know which registers the outputs appear in unless you indicate
 this in the constraints.
 
-     <p>Output operands must specifically indicate which reg an output
-appears in after an asm.  <code>=f</code> is not allowed: the operand
-constraints must select a class with a single reg.
+     <p>Output operands must specifically indicate which register an output
+appears in after an <code>asm</code>.  <code>=f</code> is not allowed: the operand
+constraints must select a class with a single register.
 
-     <li>Output operands may not be &ldquo;inserted&rdquo; between existing stack regs. 
+     <li>Output operands may not be &ldquo;inserted&rdquo; between existing stack registers. 
 Since no 387 opcode uses a read/write operand, all output operands
-are dead before the asm_operands, and are pushed by the asm_operands. 
+are dead before the <code>asm</code>, and are pushed by the <code>asm</code>. 
 It makes no sense to push anywhere but the top of the reg-stack.
 
      <p>Output operands must start at the top of the reg-stack: output
-operands may not &ldquo;skip&rdquo; a reg.
+operands may not &ldquo;skip&rdquo; a register.
 
-     <li>Some asm statements may need extra stack space for internal
+     <li>Some <code>asm</code> statements may need extra stack space for internal
 calculations.  This can be guaranteed by clobbering stack registers
 unrelated to the inputs and outputs.
 
       </ol>
 
- <p>Here are a couple of reasonable asms to want to write.  This asm
+ <p>Here are a couple of reasonable <code>asm</code>s to want to write.  This
+<code>asm</code>
 takes one input, which is internally popped, and produces two outputs.
 
 <pre class="smallexample">     asm ("fsincos" : "=t" (cos), "=u" (sin) : "0" (inp));
 </pre>
- <p>This asm takes two inputs, which are popped by the <code>fyl2xp1</code> opcode,
-and replaces them with one output.  The user must code the <code>st(1)</code>
-clobber for reg-stack.c to know that <code>fyl2xp1</code> pops both inputs.
+ <p class="noindent">This <code>asm</code> takes two inputs, which are popped by the <code>fyl2xp1</code> opcode,
+and replaces them with one output.  The <code>st(1)</code> clobber is necessary
+for the compiler to know that <code>fyl2xp1</code> pops both inputs.
 
 <pre class="smallexample">     asm ("fyl2xp1" : "=t" (result) : "0" (x), "u" (y) : "st(1)");
 </pre>
- <!-- Copyright (C) 1988, 1989, 1992, 1993, 1994, 1996, 1998, 1999, 2000, 2001, -->
-<!-- 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011 -->
-<!-- Free Software Foundation, Inc. -->
+ <!-- Copyright (C) 1988-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!-- Most of this node appears by itself (in a different place) even -->

@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,7 +44,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="ARM-Syntax.html#ARM-Syntax">ARM Syntax<
 <hr>
 </div>
 
-<h5 class="subsubsection">9.3.2.1 Instruction Set Syntax</h5>
+<h5 class="subsubsection">9.4.2.1 Instruction Set Syntax</h5>
 
 <p>Two slightly different syntaxes are support for ARM and THUMB
 instructions.  The default, <code>divided</code>, uses the old style where
@@ -54,26 +52,26 @@ ARM and THUMB instructions had their own, separate syntaxes.  The new,
 <code>unified</code> syntax, which can be selected via the <code>.syntax</code>
 directive, and has the following main features:
 
-     <dl>
-<dt>&bull;<dd>Immediate operands do not require a <code>#</code> prefix.
+     <ul>
+<li>Immediate operands do not require a <code>#</code> prefix.
 
-     <br><dt>&bull;<dd>The <code>IT</code> instruction may appear, and if it does it is validated
+     <li>The <code>IT</code> instruction may appear, and if it does it is validated
 against subsequent conditional affixes.  In ARM mode it does not
 generate machine code, in THUMB mode it does.
 
-     <br><dt>&bull;<dd>For ARM instructions the conditional affixes always appear at the end
+     <li>For ARM instructions the conditional affixes always appear at the end
 of the instruction.  For THUMB instructions conditional affixes can be
 used, but only inside the scope of an <code>IT</code> instruction.
 
-     <br><dt>&bull;<dd>All of the instructions new to the V6T2 architecture (and later) are
+     <li>All of the instructions new to the V6T2 architecture (and later) are
 available.  (Only a few such instructions can be written in the
 <code>divided</code> syntax).
 
-     <br><dt>&bull;<dd>The <code>.N</code> and <code>.W</code> suffixes are recognized and honored.
+     <li>The <code>.N</code> and <code>.W</code> suffixes are recognized and honored.
 
-     <br><dt>&bull;<dd>All instructions set the flags if and only if they have an <code>s</code>
+     <li>All instructions set the flags if and only if they have an <code>s</code>
 affix. 
-</dl>
+</ul>
 
    </body></html>
 

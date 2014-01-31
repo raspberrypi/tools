@@ -10,9 +10,7 @@
 <link rel="next" href="Cross_002dprofiling.html#Cross_002dprofiling" title="Cross-profiling">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -58,20 +56,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Gcov.html#Gcov">Gcov</a>
 
 <p><samp><span class="command">gcov</span></samp> uses two files for profiling.  The names of these files
 are derived from the original <em>object</em> file by substituting the
-file suffix with either <samp><span class="file">.gcno</span></samp>, or <samp><span class="file">.gcda</span></samp>.  All of these files
-are placed in the same directory as the object file, and contain data
-stored in a platform-independent format.
+file suffix with either <samp><span class="file">.gcno</span></samp>, or <samp><span class="file">.gcda</span></samp>.  The files
+contain coverage and profile data stored in a platform-independent format. 
+The <samp><span class="file">.gcno</span></samp> files are placed in the same directory as the object
+file.  By default, the <samp><span class="file">.gcda</span></samp> files are also stored in the same
+directory as the object file, but the GCC <samp><span class="option">-fprofile-dir</span></samp> option
+may be used to store the <samp><span class="file">.gcda</span></samp> files in a separate directory.
 
- <p>The <samp><span class="file">.gcno</span></samp> file is generated when the source file is compiled with
-the GCC <samp><span class="option">-ftest-coverage</span></samp> option.  It contains information to
+ <p>The <samp><span class="file">.gcno</span></samp> notes file is generated when the source file is compiled
+with the GCC <samp><span class="option">-ftest-coverage</span></samp> option.  It contains information to
 reconstruct the basic block graphs and assign source line numbers to
 blocks.
 
- <p>The <samp><span class="file">.gcda</span></samp> file is generated when a program containing object files
-built with the GCC <samp><span class="option">-fprofile-arcs</span></samp> option is executed.  A
-separate <samp><span class="file">.gcda</span></samp> file is created for each object file compiled with
-this option.  It contains arc transition counts, and some summary
-information.
+ <p>The <samp><span class="file">.gcda</span></samp> count data file is generated when a program containing
+object files built with the GCC <samp><span class="option">-fprofile-arcs</span></samp> option is executed. 
+A separate <samp><span class="file">.gcda</span></samp> file is created for each object file compiled with
+this option.  It contains arc transition counts, value profile counts, and
+some summary information.
 
  <p>The full details of the file format is specified in <samp><span class="file">gcov-io.h</span></samp>,
 and functions provided in that header file should be used to access the

@@ -9,9 +9,7 @@
 <link rel="next" href="Ambiguous-Expressions.html#Ambiguous-Expressions" title="Ambiguous Expressions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 
 <h3 class="section">10.1 Expressions</h3>
 
-<p><a name="index-expressions-503"></a><code>print</code> and many other <span class="sc">gdb</span> commands accept an expression and
+<p><a name="index-expressions-533"></a><code>print</code> and many other <span class="sc">gdb</span> commands accept an expression and
 compute its value.  Any kind of constant, variable or operator defined
 by the programming language you are using is valid in an expression in
 <span class="sc">gdb</span>.  This includes conditional expressions, function calls,
@@ -55,7 +53,7 @@ casts, and string constants.  It also includes preprocessor macros, if
 you compiled your program to include this information; see
 <a href="Compilation.html#Compilation">Compilation</a>.
 
-   <p><a name="index-arrays-in-expressions-504"></a><span class="sc">gdb</span> supports array constants in expressions input by
+   <p><a name="index-arrays-in-expressions-534"></a><span class="sc">gdb</span> supports array constants in expressions input by
 the user.  The syntax is {<var>element</var>, <var>element</var><small class="dots">...</small>}.  For example,
 you can use the command <code>print {1, 2, 3}</code> to create an array
 of three integers.  If you pass an array to a function or assign it
@@ -69,7 +67,7 @@ languages.
    <p>In this section, we discuss operators that you can use in <span class="sc">gdb</span>
 expressions regardless of your programming language.
 
-   <p><a name="index-casts_002c-in-expressions-505"></a>Casts are supported in all languages, not just in C, because it is so
+   <p><a name="index-casts_002c-in-expressions-535"></a>Casts are supported in all languages, not just in C, because it is so
 useful to cast a number into a pointer in order to examine a structure
 at that address in memory. 
 <!-- FIXME: casts supported-Mod2 true? -->
@@ -84,7 +82,7 @@ See <a href="Arrays.html#Arrays">Artificial Arrays</a>, for more information.
      <br><dt><code>::</code><dd>&lsquo;<samp><span class="samp">::</span></samp>&rsquo; allows you to specify a variable in terms of the file or
 function where it is defined.  See <a href="Variables.html#Variables">Program Variables</a>.
 
-     <p><a name="index-g_t_0040_007b_0040var_007btype_007d_0040_007d-506"></a><a name="index-type-casting-memory-507"></a><a name="index-memory_002c-viewing-as-typed-object-508"></a><a name="index-casts_002c-to-view-memory-509"></a><br><dt><code>{</code><var>type</var><code>} </code><var>addr</var><dd>Refers to an object of type <var>type</var> stored at address <var>addr</var> in
+     <p><a name="index-g_t_0040_007b_0040var_007btype_007d_0040_007d-536"></a><a name="index-type-casting-memory-537"></a><a name="index-memory_002c-viewing-as-typed-object-538"></a><a name="index-casts_002c-to-view-memory-539"></a><br><dt><code>{</code><var>type</var><code>} </code><var>addr</var><dd>Refers to an object of type <var>type</var> stored at address <var>addr</var> in
 memory.  <var>addr</var> may be any expression whose value is an integer or
 pointer (but parentheses are required around binary operators, just as in
 a cast).  This construct is allowed regardless of what kind of data is

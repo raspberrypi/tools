@@ -9,9 +9,7 @@
 <link rel="next" href="Tracepoints.html#Tracepoints" title="Tracepoints">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -72,16 +70,16 @@ macro invocations present in the expression.  <span class="sc">gdb</span> also p
 the following commands for working with macros explicitly.
 
      
-<a name="index-macro-expand-687"></a>
-<a name="index-macro-expansion_002c-showing-the-results-of-preprocessor-688"></a>
-<a name="index-preprocessor-macro-expansion_002c-showing-the-results-of-689"></a>
-<a name="index-expanding-preprocessor-macros-690"></a>
+<a name="index-macro-expand-726"></a>
+<a name="index-macro-expansion_002c-showing-the-results-of-preprocessor-727"></a>
+<a name="index-preprocessor-macro-expansion_002c-showing-the-results-of-728"></a>
+<a name="index-expanding-preprocessor-macros-729"></a>
 <dl><dt><code>macro expand </code><var>expression</var><dt><code>macro exp </code><var>expression</var><dd>Show the results of expanding all preprocessor macro invocations in
 <var>expression</var>.  Since <span class="sc">gdb</span> simply expands macros, but does
 not parse the result, <var>expression</var> need not be a valid expression;
 it can be any string of tokens.
 
-     <p><a name="index-macro-exp1-691"></a><br><dt><code>macro expand-once </code><var>expression</var><dt><code>macro exp1 </code><var>expression</var><dd><a name="index-expand-macro-once-692"></a><i>(This command is not yet implemented.)</i>  Show the results of
+     <p><a name="index-macro-exp1-730"></a><br><dt><code>macro expand-once </code><var>expression</var><dt><code>macro exp1 </code><var>expression</var><dd><a name="index-expand-macro-once-731"></a><i>(This command is not yet implemented.)</i>  Show the results of
 expanding those preprocessor macro invocations that appear explicitly in
 <var>expression</var>.  Macro invocations appearing in that expansion are
 left unchanged.  This command allows you to see the effect of a
@@ -90,17 +88,17 @@ expansions.  Since <span class="sc">gdb</span> simply expands macros, but does n
 parse the result, <var>expression</var> need not be a valid expression; it
 can be any string of tokens.
 
-     <p><a name="index-info-macro-693"></a><a name="index-macro-definition_002c-showing-694"></a><a name="index-definition-of-a-macro_002c-showing-695"></a><a name="index-macros_002c-from-debug-info-696"></a><br><dt><code>info macro [-a|-all] [--] </code><var>macro</var><dd>Show the current definition or all definitions of the named <var>macro</var>,
+     <p><a name="index-info-macro-732"></a><a name="index-macro-definition_002c-showing-733"></a><a name="index-definition-of-a-macro_002c-showing-734"></a><a name="index-macros_002c-from-debug-info-735"></a><br><dt><code>info macro [-a|-all] [--] </code><var>macro</var><dd>Show the current definition or all definitions of the named <var>macro</var>,
 and describe the source location or compiler command-line where that
 definition was established.  The optional double dash is to signify the end of
 argument processing and the beginning of <var>macro</var> for non C-like macros where
 the macro may begin with a hyphen.
 
-     <p><a name="index-info-macros-697"></a><br><dt><code>info macros </code><var>linespec</var><dd>Show all macro definitions that are in effect at the location specified
+     <p><a name="index-info-macros-736"></a><br><dt><code>info macros </code><var>linespec</var><dd>Show all macro definitions that are in effect at the location specified
 by <var>linespec</var>,  and describe the source location or compiler
 command-line where those definitions were established.
 
-     <p><a name="index-macro-define-698"></a><a name="index-user_002ddefined-macros-699"></a><a name="index-defining-macros-interactively-700"></a><a name="index-macros_002c-user_002ddefined-701"></a><br><dt><code>macro define </code><var>macro</var> <var>replacement-list</var><dt><code>macro define </code><var>macro</var><code>(</code><var>arglist</var><code>) </code><var>replacement-list</var><dd>Introduce a definition for a preprocessor macro named <var>macro</var>,
+     <p><a name="index-macro-define-737"></a><a name="index-user_002ddefined-macros-738"></a><a name="index-defining-macros-interactively-739"></a><a name="index-macros_002c-user_002ddefined-740"></a><br><dt><code>macro define </code><var>macro</var> <var>replacement-list</var><dt><code>macro define </code><var>macro</var><code>(</code><var>arglist</var><code>) </code><var>replacement-list</var><dd>Introduce a definition for a preprocessor macro named <var>macro</var>,
 invocations of which are replaced by the tokens given in
 <var>replacement-list</var>.  The first form of this command defines an
 &ldquo;object-like&rdquo; macro, which takes no arguments; the second form
@@ -113,15 +111,15 @@ expression evaluated in <span class="sc">gdb</span>, until it is removed with th
 all definitions for <var>macro</var> present in the program being debugged,
 as well as any previous user-supplied definition.
 
-     <p><a name="index-macro-undef-702"></a><br><dt><code>macro undef </code><var>macro</var><dd>Remove any user-supplied definition for the macro named <var>macro</var>. 
+     <p><a name="index-macro-undef-741"></a><br><dt><code>macro undef </code><var>macro</var><dd>Remove any user-supplied definition for the macro named <var>macro</var>. 
 This command only affects definitions provided with the <code>macro
 define</code> command, described above; it cannot remove definitions present
 in the program being debugged.
 
-     <p><a name="index-macro-list-703"></a><br><dt><code>macro list</code><dd>List all the macros defined using the <code>macro define</code> command. 
+     <p><a name="index-macro-list-742"></a><br><dt><code>macro list</code><dd>List all the macros defined using the <code>macro define</code> command. 
 </dl>
 
-   <p><a name="index-macros_002c-example-of-debugging-with-704"></a>Here is a transcript showing the above commands in action.  First, we
+   <p><a name="index-macros_002c-example-of-debugging-with-743"></a>Here is a transcript showing the above commands in action.  First, we
 show our source files:
 
 <pre class="smallexample">     $ cat sample.c

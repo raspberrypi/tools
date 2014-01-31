@@ -10,9 +10,7 @@
 <link rel="next" href="Returning.html#Returning" title="Returning">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,9 +47,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Altering.html#Altering">Altering</a>
 
 <h3 class="section">17.3 Giving your Program a Signal</h3>
 
-<p><a name="index-deliver-a-signal-to-a-program-969"></a>
+<p><a name="index-deliver-a-signal-to-a-program-1020"></a>
      
-<a name="index-signal-970"></a>
+<a name="index-signal-1021"></a>
 <dl><dt><code>signal </code><var>signal</var><dd>Resume execution where your program stopped, but immediately give it the
 signal <var>signal</var>.  <var>signal</var> can be the name or the number of a
 signal.  For example, on many systems <code>signal 2</code> and <code>signal
@@ -59,7 +57,7 @@ SIGINT</code> are both ways of sending an interrupt signal.
 
      <p>Alternatively, if <var>signal</var> is zero, continue execution without
 giving a signal.  This is useful when your program stopped on account of
-a signal and would ordinary see the signal when resumed with the
+a signal and would ordinarily see the signal when resumed with the
 <code>continue</code> command; &lsquo;<samp><span class="samp">signal 0</span></samp>&rsquo; causes it to resume without a
 signal.
 

@@ -11,11 +11,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Scripts.html#Scripts">Scripts</a>
 
 <h3 class="section">3.8 PHDRS Command</h3>
 
-<p><a name="index-PHDRS-482"></a><a name="index-program-headers-483"></a><a name="index-ELF-program-headers-484"></a><a name="index-program-segments-485"></a><a name="index-segments_002c-ELF-486"></a>The ELF object file format uses <dfn>program headers</dfn>, also knows as
+<p><a name="index-PHDRS-492"></a><a name="index-program-headers-493"></a><a name="index-ELF-program-headers-494"></a><a name="index-program-segments-495"></a><a name="index-segments_002c-ELF-496"></a>The ELF object file format uses <dfn>program headers</dfn>, also knows as
 <dfn>segments</dfn>.  The program headers describe how the program should be
 loaded into memory.  You can print them out by using the <code>objdump</code>
 program with the &lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option.
@@ -104,7 +103,7 @@ placed in a single segment.  You can use <code>:NONE</code> to override the
 default segment and tell the linker to not put the section in any
 segment at all.
 
-   <p><a name="index-FILEHDR-487"></a><a name="index-PHDRS-488"></a>You may use the <code>FILEHDR</code> and <code>PHDRS</code> keywords after
+   <p><a name="index-FILEHDR-497"></a><a name="index-PHDRS-498"></a>You may use the <code>FILEHDR</code> and <code>PHDRS</code> keywords after
 the program header type to further describe the contents of the segment. 
 The <code>FILEHDR</code> keyword means that the segment should include the ELF
 file header.  The <code>PHDRS</code> keyword means that the segment should

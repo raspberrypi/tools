@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,24 +43,24 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TIC6X_002dDependent.html#TIC6X_002dDepe
 <hr>
 </div>
 
-<h4 class="subsection">9.38.3 TIC6X Directives</h4>
+<h4 class="subsection">9.43.3 TIC6X Directives</h4>
 
-<p><a name="index-machine-directives_002c-TIC6X-1938"></a><a name="index-TIC6X-machine-directives-1939"></a>
+<p><a name="index-machine-directives_002c-TIC6X-2099"></a><a name="index-TIC6X-machine-directives-2100"></a>
 Directives controlling the set of instructions accepted by the
 assembler have effect for instructions between the directive and any
 subsequent directive overriding it.
 
      
-<a name="index-g_t_0040code_007b_002earch_007d-directive_002c-TIC6X-1940"></a>
+<a name="index-g_t_0040code_007b_002earch_007d-directive_002c-TIC6X-2101"></a>
 <dl><dt><code>.arch </code><var>arch</var><dd>This has the same effect as <samp><span class="option">-march=</span><var>arch</var></samp>.
 
-     <p><a name="index-g_t_0040code_007b_002ecantunwind_007d-directive_002c-TIC6X-1941"></a><br><dt><code>.cantunwind</code><dd>Prevents unwinding through the current function.  No personality routine
+     <p><a name="index-g_t_0040code_007b_002ecantunwind_007d-directive_002c-TIC6X-2102"></a><br><dt><code>.cantunwind</code><dd>Prevents unwinding through the current function.  No personality routine
 or exception table data is required or permitted.
 
      <p>If this is not specified then frame unwinding information will be
 constructed from CFI directives. see <a href="CFI-directives.html#CFI-directives">CFI directives</a>.
 
-     <p><a name="index-g_t_0040code_007b_002ec6xabi_005fattribute_007d-directive_002c-TIC6X-1942"></a><br><dt><code>.c6xabi_attribute </code><var>tag</var><code>, </code><var>value</var><dd>Set the C6000 EABI build attribute <var>tag</var> to <var>value</var>.
+     <p><a name="index-g_t_0040code_007b_002ec6xabi_005fattribute_007d-directive_002c-TIC6X-2103"></a><br><dt><code>.c6xabi_attribute </code><var>tag</var><code>, </code><var>value</var><dd>Set the C6000 EABI build attribute <var>tag</var> to <var>value</var>.
 
      <p>The <var>tag</var> is either an attribute number or one of
 <code>Tag_ISA</code>, <code>Tag_ABI_wchar_t</code>,
@@ -75,28 +73,27 @@ constructed from CFI directives. see <a href="CFI-directives.html#CFI-directives
 <var>value</var> is either a <code>number</code>, <code>"string"</code>, or
 <code>number, "string"</code> depending on the tag.
 
-     <p><a name="index-g_t_0040code_007b_002eehtype_007d-directive_002c-TIC6X-1943"></a><br><dt><code>.ehtype </code><var>symbol</var><dd>Output an exception type table reference to <var>symbol</var>.
+     <p><a name="index-g_t_0040code_007b_002eehtype_007d-directive_002c-TIC6X-2104"></a><br><dt><code>.ehtype </code><var>symbol</var><dd>Output an exception type table reference to <var>symbol</var>.
 
-     <p><a name="index-g_t_0040code_007b_002eendp_007d-directive_002c-TIC6X-1944"></a><br><dt><code>.endp</code><dd>Marks the end of and exception table or function.  If preceeded by a
+     <p><a name="index-g_t_0040code_007b_002eendp_007d-directive_002c-TIC6X-2105"></a><br><dt><code>.endp</code><dd>Marks the end of and exception table or function.  If preceeded by a
 <code>.handlerdata</code> directive then this also switched back to the previous
 text section.
 
-     <p><a name="index-g_t_0040code_007b_002ehandlerdata_007d-directive_002c-TIC6X-1945"></a><br><dt><code>.handlerdata</code><dd>Marks the end of the current function, and the start of the exception table
+     <p><a name="index-g_t_0040code_007b_002ehandlerdata_007d-directive_002c-TIC6X-2106"></a><br><dt><code>.handlerdata</code><dd>Marks the end of the current function, and the start of the exception table
 entry for that function.  Anything between this directive and the
 <code>.endp</code> directive will be added to the exception table entry.
 
-     <p>Must be preceded by a CFI block containing a <code>.cfi_lsda</code> directive. 
-directive.
+     <p>Must be preceded by a CFI block containing a <code>.cfi_lsda</code> directive.
 
-     <p><a name="index-g_t_0040code_007b_002enocmp_007d-directive_002c-TIC6X-1946"></a><br><dt><code>.nocmp</code><dd>Disallow use of C64x+ compact instructions in the current text
+     <p><a name="index-g_t_0040code_007b_002enocmp_007d-directive_002c-TIC6X-2107"></a><br><dt><code>.nocmp</code><dd>Disallow use of C64x+ compact instructions in the current text
 section.
 
-     <p><a name="index-g_t_0040code_007b_002epersonalityindex_007d-directive_002c-TIC6X-1947"></a><br><dt><code>.personalityindex </code><var>index</var><dd>Sets the personality routine for the current function to the ABI specified
+     <p><a name="index-g_t_0040code_007b_002epersonalityindex_007d-directive_002c-TIC6X-2108"></a><br><dt><code>.personalityindex </code><var>index</var><dd>Sets the personality routine for the current function to the ABI specified
 compact routine number <var>index</var>
 
-     <p><a name="index-g_t_0040code_007b_002epersonality_007d-directive_002c-TIC6X-1948"></a><br><dt><code>.personality </code><var>name</var><dd>Sets the personality routine for the current function to <var>name</var>.
+     <p><a name="index-g_t_0040code_007b_002epersonality_007d-directive_002c-TIC6X-2109"></a><br><dt><code>.personality </code><var>name</var><dd>Sets the personality routine for the current function to <var>name</var>.
 
-     <p><a name="index-g_t_0040code_007b_002escomm_007d-directive_002c-TIC6X-1949"></a><br><dt><code>.scomm </code><var>symbol</var><code>, </code><var>size</var><code>, </code><var>align</var><dd>Like <code>.comm</code>, creating a common symbol <var>symbol</var> with size <var>size</var>
+     <p><a name="index-g_t_0040code_007b_002escomm_007d-directive_002c-TIC6X-2110"></a><br><dt><code>.scomm </code><var>symbol</var><code>, </code><var>size</var><code>, </code><var>align</var><dd>Like <code>.comm</code>, creating a common symbol <var>symbol</var> with size <var>size</var>
 and alignment <var>align</var>, but unlike when using <code>.comm</code>, this symbol
 will be placed into the small BSS section by the linker.
 

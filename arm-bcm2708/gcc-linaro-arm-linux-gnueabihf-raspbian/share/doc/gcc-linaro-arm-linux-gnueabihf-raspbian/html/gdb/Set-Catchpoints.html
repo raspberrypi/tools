@@ -10,9 +10,7 @@
 <link rel="next" href="Delete-Breaks.html#Delete-Breaks" title="Delete Breaks">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,20 +47,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Breakpoints.html#Breakpoints">Breakpoin
 
 <h4 class="subsection">5.1.3 Setting Catchpoints</h4>
 
-<p><a name="index-catchpoints_002c-setting-253"></a><a name="index-exception-handlers-254"></a><a name="index-event-handling-255"></a>
+<p><a name="index-catchpoints_002c-setting-259"></a><a name="index-exception-handlers-260"></a><a name="index-event-handling-261"></a>
 You can use <dfn>catchpoints</dfn> to cause the debugger to stop for certain
 kinds of program events, such as C<tt>++</tt> exceptions or the loading of a
 shared library.  Use the <code>catch</code> command to set a catchpoint.
 
      
-<a name="index-catch-256"></a>
+<a name="index-catch-262"></a>
 <dl><dt><code>catch </code><var>event</var><dd>Stop when <var>event</var> occurs.  <var>event</var> can be any of the following:
           <dl>
-<dt><code>throw</code><dd><a name="index-stop-on-C_0040t_007b_002b_002b_007d-exceptions-257"></a>The throwing of a C<tt>++</tt> exception.
+<dt><code>throw</code><dd><a name="index-stop-on-C_0040t_007b_002b_002b_007d-exceptions-263"></a>The throwing of a C<tt>++</tt> exception.
 
           <br><dt><code>catch</code><dd>The catching of a C<tt>++</tt> exception.
 
-          <br><dt><code>exception</code><dd><a name="index-Ada-exception-catching-258"></a><a name="index-catch-Ada-exceptions-259"></a>An Ada exception being raised.  If an exception name is specified
+          <br><dt><code>exception</code><dd><a name="index-Ada-exception-catching-264"></a><a name="index-catch-Ada-exceptions-265"></a>An Ada exception being raised.  If an exception name is specified
 at the end of the command (eg <code>catch exception Program_Error</code>),
 the debugger will stop only when this specific exception is raised. 
 Otherwise, the debugger stops execution when any Ada exception is raised.
@@ -80,10 +78,10 @@ Pck.Constraint_Error</kbd>.
 
           <br><dt><code>assert</code><dd>A failed Ada assertion.
 
-          <br><dt><code>exec</code><dd><a name="index-break-on-fork_002fexec-260"></a>A call to <code>exec</code>.  This is currently only available for HP-UX
+          <br><dt><code>exec</code><dd><a name="index-break-on-fork_002fexec-266"></a>A call to <code>exec</code>.  This is currently only available for HP-UX
 and <span class="sc">gnu</span>/Linux.
 
-          <br><dt><code>syscall</code><dt><code>syscall </code><span class="roman">[</span><var>name</var> <span class="roman">|</span> <var>number</var><span class="roman">]</span><code> ...</code><dd><a name="index-break-on-a-system-call_002e-261"></a>A call to or return from a system call, a.k.a. <dfn>syscall</dfn>.  A
+          <br><dt><code>syscall</code><dt><code>syscall </code><span class="roman">[</span><var>name</var> <span class="roman">|</span> <var>number</var><span class="roman">]</span><code> ...</code><dd><a name="index-break-on-a-system-call_002e-267"></a>A call to or return from a system call, a.k.a. <dfn>syscall</dfn>.  A
 syscall is a mechanism for application programs to request a service
 from the operating system (OS) or one of the OS system services. 
 <span class="sc">gdb</span> can catch some or all of the syscalls issued by the
@@ -204,6 +202,34 @@ and <span class="sc">gnu</span>/Linux.
           <br><dt><code>vfork</code><dd>A call to <code>vfork</code>.  This is currently only available for HP-UX
 and <span class="sc">gnu</span>/Linux.
 
+          <br><dt><code>load </code><span class="roman">[</span><code>regexp</code><span class="roman">]</span><dt><code>unload </code><span class="roman">[</span><code>regexp</code><span class="roman">]</span><dd>The loading or unloading of a shared library.  If <var>regexp</var> is
+given, then the catchpoint will stop only if the regular expression
+matches one of the affected libraries.
+
+          <br><dt><code>signal </code><span class="roman">[</span><var>signal</var><code>... </code><span class="roman">|</span><code> &lsquo;</code><samp><span class="samp">all</span></samp><code>&rsquo;</code><span class="roman">]</span><dd>The delivery of a signal.
+
+          <p>With no arguments, this catchpoint will catch any signal that is not
+used internally by <span class="sc">gdb</span>, specifically, all signals except
+&lsquo;<samp><span class="samp">SIGTRAP</span></samp>&rsquo; and &lsquo;<samp><span class="samp">SIGINT</span></samp>&rsquo;.
+
+          <p>With the argument &lsquo;<samp><span class="samp">all</span></samp>&rsquo;, all signals, including those used by
+<span class="sc">gdb</span>, will be caught.  This argument cannot be used with other
+signal names.
+
+          <p>Otherwise, the arguments are a list of signal names as given to
+<code>handle</code> (see <a href="Signals.html#Signals">Signals</a>).  Only signals specified in this list
+will be caught.
+
+          <p>One reason that <code>catch signal</code> can be more useful than
+<code>handle</code> is that you can attach commands and conditions to the
+catchpoint.
+
+          <p>When a signal is caught by a catchpoint, the signal's <code>stop</code> and
+<code>print</code> settings, as specified by <code>handle</code>, are ignored. 
+However, whether the signal is still delivered to the inferior depends
+on the <code>pass</code> setting; this can be changed in the catchpoint's
+commands.
+
      </dl>
 
      <br><dt><code>tcatch </code><var>event</var><dd>Set a catchpoint that is enabled only for one stop.  The catchpoint is
@@ -231,7 +257,7 @@ disabled within interactive calls.
      <li>You cannot install an exception handler interactively. 
 </ul>
 
-   <p><a name="index-raise-exceptions-262"></a>Sometimes <code>catch</code> is not the best way to debug exception handling:
+   <p><a name="index-raise-exceptions-268"></a>Sometimes <code>catch</code> is not the best way to debug exception handling:
 if you need to know exactly where an exception is raised, it is better to
 stop <em>before</em> the exception handler is called, since that way you
 can see the stack before any unwinding takes place.  If you set a

@@ -9,9 +9,7 @@
 <link rel="prev" href="Completion.html#Completion" title="Completion">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,12 +45,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
 
 <h3 class="section">3.3 Getting Help</h3>
 
-<p><a name="index-online-documentation-85"></a><a name="index-help-86"></a>
+<p><a name="index-online-documentation-89"></a><a name="index-help-90"></a>
 You can always ask <span class="sc">gdb</span> itself for information on its commands,
 using the command <code>help</code>.
 
      
-<a name="index-h-_0040r_007b_0028_0040code_007bhelp_007d_0029_007d-87"></a>
+<a name="index-h-_0040r_007b_0028_0040code_007bhelp_007d_0029_007d-91"></a>
 <dl><dt><code>help</code><dt><code>h</code><dd>You can use <code>help</code> (abbreviated <code>h</code>) with no arguments to
 display a short list of named classes of commands:
 
@@ -105,22 +103,23 @@ help display for the class <code>status</code>:
      <br><dt><code>help </code><var>command</var><dd>With a command name as <code>help</code> argument, <span class="sc">gdb</span> displays a
 short paragraph on how to use that command.
 
-     <p><a name="index-apropos-88"></a><br><dt><code>apropos </code><var>args</var><dd>The <code>apropos</code> command searches through all of the <span class="sc">gdb</span>
+     <p><a name="index-apropos-92"></a><br><dt><code>apropos </code><var>args</var><dd>The <code>apropos</code> command searches through all of the <span class="sc">gdb</span>
 commands, and their documentation, for the regular expression specified in
 <var>args</var>.  It prints out all matches found.  For example:
 
-     <pre class="smallexample">          apropos reload
+     <pre class="smallexample">          apropos alias
 </pre>
      <p class="noindent">results in:
 
      <pre class="smallexample">          <!-- @group -->
-          set symbol-reloading -- Set dynamic symbol table reloading
-                                  multiple times in one run
-          show symbol-reloading -- Show dynamic symbol table reloading
-                                  multiple times in one run
+          alias -- Define a new command that is an alias of an existing command
+          aliases -- Aliases of other commands
+          d -- Delete some breakpoints or auto-display expressions
+          del -- Delete some breakpoints or auto-display expressions
+          delete -- Delete some breakpoints or auto-display expressions
           <!-- @end group -->
 </pre>
-     <p><a name="index-complete-89"></a><br><dt><code>complete </code><var>args</var><dd>The <code>complete </code><var>args</var> command lists all the possible completions
+     <p><a name="index-complete-93"></a><br><dt><code>complete </code><var>args</var><dd>The <code>complete </code><var>args</var> command lists all the possible completions
 for the beginning of a command.  Use <var>args</var> to specify the beginning of the
 command you want completed.  For example:
 
@@ -140,13 +139,13 @@ command you want completed.  For example:
 and <code>show</code> to inquire about the state of your program, or the state
 of <span class="sc">gdb</span> itself.  Each command supports many topics of inquiry; this
 manual introduces each of them in the appropriate context.  The listings
-under <code>info</code> and under <code>show</code> in the Index point to
-all the sub-commands.  See <a href="Index.html#Index">Index</a>.
+under <code>info</code> and under <code>show</code> in the Command, Variable, and
+Function Index point to all the sub-commands.  See <a href="Command-and-Variable-Index.html#Command-and-Variable-Index">Command and Variable Index</a>.
 
 <!-- @group -->
      
-<a name="index-info-90"></a>
-<a name="index-i-_0040r_007b_0028_0040code_007binfo_007d_0029_007d-91"></a>
+<a name="index-info-94"></a>
+<a name="index-i-_0040r_007b_0028_0040code_007binfo_007d_0029_007d-95"></a>
 <dl><dt><code>info</code><dd>This command (abbreviated <code>i</code>) is for describing the state of your
 program.  For example, you can show the arguments passed to a function
 with <code>info args</code>, list the registers currently in use with <code>info
@@ -154,18 +153,18 @@ registers</code>, or list the breakpoints you have set with <code>info breakpoin
 You can get a complete list of the <code>info</code> sub-commands with
 <code>help&nbsp;info</code><!-- /@w -->.
 
-     <p><a name="index-set-92"></a><br><dt><code>set</code><dd>You can assign the result of an expression to an environment variable with
+     <p><a name="index-set-96"></a><br><dt><code>set</code><dd>You can assign the result of an expression to an environment variable with
 <code>set</code>.  For example, you can set the <span class="sc">gdb</span> prompt to a $-sign with
 <code>set prompt $</code>.
 
-     <p><a name="index-show-93"></a><br><dt><code>show</code><dd>In contrast to <code>info</code>, <code>show</code> is for describing the state of
+     <p><a name="index-show-97"></a><br><dt><code>show</code><dd>In contrast to <code>info</code>, <code>show</code> is for describing the state of
 <span class="sc">gdb</span> itself. 
 You can change most of the things you can <code>show</code>, by using the
 related command <code>set</code>; for example, you can control what number
 system is used for displays with <code>set radix</code>, or simply inquire
 which is currently in use with <code>show radix</code>.
 
-     <p><a name="index-info-set-94"></a>To display all the settable parameters and their current
+     <p><a name="index-info-set-98"></a>To display all the settable parameters and their current
 values, you can use <code>show</code> with no arguments; you may also use
 <code>info set</code>.  Both commands produce the same display. 
 <!-- FIXME: "info set" violates the rule that "info" is for state of -->
@@ -178,8 +177,8 @@ values, you can use <code>show</code> with no arguments; you may also use
 exceptional in lacking corresponding <code>set</code> commands:
 
      
-<a name="index-show-version-95"></a>
-<a name="index-g_t_0040value_007bGDBN_007d-version-number-96"></a>
+<a name="index-show-version-99"></a>
+<a name="index-g_t_0040value_007bGDBN_007d-version-number-100"></a>
 <dl><dt><code>show version</code><dd>Show what version of <span class="sc">gdb</span> is running.  You should include this
 information in <span class="sc">gdb</span> bug-reports.  If multiple versions of
 <span class="sc">gdb</span> are in use at your site, you may need to determine which
@@ -190,9 +189,9 @@ variant versions of <span class="sc">gdb</span> in <span class="sc">gnu</span>/L
 The version number is the same as the one announced when you start
 <span class="sc">gdb</span>.
 
-     <p><a name="index-show-copying-97"></a><a name="index-info-copying-98"></a><a name="index-display-_0040value_007bGDBN_007d-copyright-99"></a><br><dt><code>show copying</code><dt><code>info copying</code><dd>Display information about permission for copying <span class="sc">gdb</span>.
+     <p><a name="index-show-copying-101"></a><a name="index-info-copying-102"></a><a name="index-display-_0040value_007bGDBN_007d-copyright-103"></a><br><dt><code>show copying</code><dt><code>info copying</code><dd>Display information about permission for copying <span class="sc">gdb</span>.
 
-     <p><a name="index-show-warranty-100"></a><a name="index-info-warranty-101"></a><br><dt><code>show warranty</code><dt><code>info warranty</code><dd>Display the <span class="sc">gnu</span> &ldquo;NO WARRANTY&rdquo; statement, or a warranty,
+     <p><a name="index-show-warranty-104"></a><a name="index-info-warranty-105"></a><br><dt><code>show warranty</code><dt><code>info warranty</code><dd>Display the <span class="sc">gnu</span> &ldquo;NO WARRANTY&rdquo; statement, or a warranty,
 if your version of <span class="sc">gdb</span> comes with one.
 
    </dl>

@@ -10,7 +10,7 @@
 <link rel="next" href="ABS.html#ABS" title="ABS">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright (C) 1999-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,10 +54,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 
 <h3 class="section">8.2 <code>ABORT</code> &mdash; Abort the program</h3>
 
-<p><a name="index-ABORT-361"></a><a name="index-program-termination_002c-with-core-dump-362"></a><a name="index-terminate-program_002c-with-core-dump-363"></a><a name="index-core_002c-dump-364"></a>
+<p><a name="index-ABORT-370"></a><a name="index-program-termination_002c-with-core-dump-371"></a><a name="index-terminate-program_002c-with-core-dump-372"></a><a name="index-core_002c-dump-373"></a>
      <dl>
 <dt><em>Description</em>:<dd><code>ABORT</code> causes immediate termination of the program.  On operating
-systems that support a core dump, <code>ABORT</code> will produce a core dump.
+systems that support a core dump, <code>ABORT</code> will produce a core dump. 
+It will also print a backtrace, unless <code>-fno-backtrace</code> is given.
 
      <br><dt><em>Standard</em>:<dd>GNU extension
 
@@ -73,7 +74,7 @@ systems that support a core dump, <code>ABORT</code> will produce a core dump.
             if (i /= j) call abort
           end program test_abort
 </pre>
-     <br><dt><em>See also</em>:<dd><a href="EXIT.html#EXIT">EXIT</a>, <a href="KILL.html#KILL">KILL</a>
+     <br><dt><em>See also</em>:<dd><a href="EXIT.html#EXIT">EXIT</a>, <a href="KILL.html#KILL">KILL</a>, <a href="BACKTRACE.html#BACKTRACE">BACKTRACE</a>
 
    </dl>
 

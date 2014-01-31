@@ -10,7 +10,7 @@
 <link rel="next" href="_005fgfortran_005fset_005fconvert.html#g_t_005fgfortran_005fset_005fconvert" title="_gfortran_set_convert">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright (C) 1999-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +55,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Non_002dFortran-Main-Program.html#Non_0
 
 <h4 class="subsection">7.3.2 <code>_gfortran_set_options</code> &mdash; Set library option flags</h4>
 
-<p><a name="index-g_t_005fgfortran_005fset_005foptions-350"></a><a name="index-libgfortran-initialization_002c-set_005foptions-351"></a>
+<p><a name="index-g_t_005fgfortran_005fset_005foptions-359"></a><a name="index-libgfortran-initialization_002c-set_005foptions-360"></a>
      <dl>
 <dt><em>Description</em>:<dd><code>_gfortran_set_options</code> sets several flags related to the Fortran
 standard to be used, whether backtracing should be enabled
@@ -97,15 +97,13 @@ Default: enabled.
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[6] </td><td valign="top" width="70%">Enables run-time checking.  Possible values
 are (bitwise or-ed): GFC_RTCHECK_BOUNDS (1), GFC_RTCHECK_ARRAY_TEMPS (2),
 GFC_RTCHECK_RECURSION (4), GFC_RTCHECK_DO (16), GFC_RTCHECK_POINTER (32). 
-Default: disabled. 
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[7] </td><td valign="top" width="70%">If non zero, range checking is enabled. 
-Default: enabled.  See -frange-check (see <a href="Code-Gen-Options.html#Code-Gen-Options">Code Gen Options</a>).
+Default: disabled.
      <br></td></tr></table>
 
      <br><dt><em>Example</em>:<dd>
-     <pre class="smallexample">            /* Use gfortran 4.7 default options.  */
-            static int options[] = {68, 511, 0, 0, 1, 1, 0, 1};
-            _gfortran_set_options (8, &amp;options);
+     <pre class="smallexample">            /* Use gfortran 4.8 default options.  */
+            static int options[] = {68, 511, 0, 0, 1, 1, 0};
+            _gfortran_set_options (7, &amp;options);
 </pre>
      </dl>
 

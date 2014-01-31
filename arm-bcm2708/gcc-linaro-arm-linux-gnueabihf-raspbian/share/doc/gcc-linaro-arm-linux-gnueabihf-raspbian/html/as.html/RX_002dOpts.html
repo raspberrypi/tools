@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,47 +44,71 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RX_002dDependent.html#RX_002dDependent"
 <hr>
 </div>
 
-<h4 class="subsection">9.31.1 RX Options</h4>
+<h4 class="subsection">9.36.1 RX Options</h4>
 
-<p><a name="index-options_002c-RX-1581"></a><a name="index-RX-options-1582"></a>
+<p><a name="index-options_002c-RX-1730"></a><a name="index-RX-options-1731"></a>
 The Renesas RX port of <code>as</code> has a few target specfic
 command line options:
 
      
-<a name="index-g_t_0040samp_007b_002dm32bit_002ddoubles_007d-1583"></a>
+<a name="index-g_t_0040samp_007b_002dm32bit_002ddoubles_007d-1732"></a>
 <dl><dt><code>-m32bit-doubles</code><dd>This option controls the ABI and indicates to use a 32-bit float ABI. 
 It has no effect on the assembled instructions, but it does influence
 the behaviour of the &lsquo;<samp><span class="samp">.double</span></samp>&rsquo; pseudo-op. 
 This is the default.
 
-     <p><a name="index-g_t_0040samp_007b_002dm64bit_002ddoubles_007d-1584"></a><br><dt><code>-m64bit-doubles</code><dd>This option controls the ABI and indicates to use a 64-bit float ABI. 
+     <p><a name="index-g_t_0040samp_007b_002dm64bit_002ddoubles_007d-1733"></a><br><dt><code>-m64bit-doubles</code><dd>This option controls the ABI and indicates to use a 64-bit float ABI. 
 It has no effect on the assembled instructions, but it does influence
 the behaviour of the &lsquo;<samp><span class="samp">.double</span></samp>&rsquo; pseudo-op.
 
-     <p><a name="index-g_t_0040samp_007b_002dmbig_002dendian_007d-1585"></a><br><dt><code>-mbig-endian</code><dd>This option controls the ABI and indicates to use a big-endian data
+     <p><a name="index-g_t_0040samp_007b_002dmbig_002dendian_007d-1734"></a><br><dt><code>-mbig-endian</code><dd>This option controls the ABI and indicates to use a big-endian data
 ABI.  It has no effect on the assembled instructions, but it does
 influence the behaviour of the &lsquo;<samp><span class="samp">.short</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.hword</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.int</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.quad</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.octa</span></samp>&rsquo; pseudo-ops.
 
-     <p><a name="index-g_t_0040samp_007b_002dmlittle_002dendian_007d-1586"></a><br><dt><code>-mlittle-endian</code><dd>This option controls the ABI and indicates to use a little-endian data
+     <p><a name="index-g_t_0040samp_007b_002dmlittle_002dendian_007d-1735"></a><br><dt><code>-mlittle-endian</code><dd>This option controls the ABI and indicates to use a little-endian data
 ABI.  It has no effect on the assembled instructions, but it does
 influence the behaviour of the &lsquo;<samp><span class="samp">.short</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.hword</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.int</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.quad</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.octa</span></samp>&rsquo; pseudo-ops. 
 This is the default.
 
-     <p><a name="index-g_t_0040samp_007b_002dmuse_002dconventional_002dsection_002dnames_007d-1587"></a><br><dt><code>-muse-conventional-section-names</code><dd>This option controls the default names given to the code (.text),
+     <p><a name="index-g_t_0040samp_007b_002dmuse_002dconventional_002dsection_002dnames_007d-1736"></a><br><dt><code>-muse-conventional-section-names</code><dd>This option controls the default names given to the code (.text),
 initialised data (.data) and uninitialised data sections (.bss).
 
-     <p><a name="index-g_t_0040samp_007b_002dmuse_002drenesas_002dsection_002dnames_007d-1588"></a><br><dt><code>-muse-renesas-section-names</code><dd>This option controls the default names given to the code (.P),
+     <p><a name="index-g_t_0040samp_007b_002dmuse_002drenesas_002dsection_002dnames_007d-1737"></a><br><dt><code>-muse-renesas-section-names</code><dd>This option controls the default names given to the code (.P),
 initialised data (.D_1) and uninitialised data sections (.B_1). 
 This is the default.
 
-     <p><a name="index-g_t_0040samp_007b_002dmsmall_002ddata_002dlimit_007d-1589"></a><br><dt><code>-msmall-data-limit</code><dd>This option tells the assembler that the small data limit feature of
+     <p><a name="index-g_t_0040samp_007b_002dmsmall_002ddata_002dlimit_007d-1738"></a><br><dt><code>-msmall-data-limit</code><dd>This option tells the assembler that the small data limit feature of
 the RX port of GCC is being used.  This results in the assembler
-generating an undefined reference to a symbol called __gp for use by
-the relocations that are needed to support the small data limit
+generating an undefined reference to a symbol called <code>__gp</code> for
+use by the relocations that are needed to support the small data limit
 feature.   This option is not enabled by default as it would otherwise
 pollute the symbol table.
+
+     <p><a name="index-g_t_0040samp_007b_002dmpid_007d-1739"></a><br><dt><code>-mpid</code><dd>This option tells the assembler that the position independent data of the
+RX port of GCC is being used.  This results in the assembler
+generating an undefined reference to a symbol called <code>__pid_base</code>,
+and also setting the RX_PID flag bit in the e_flags field of the ELF
+header of the object file.
+
+     <p><a name="index-g_t_0040samp_007b_002dmint_002dregister_007d-1740"></a><br><dt><code>-mint-register=</code><var>num</var><dd>This option tells the assembler how many registers have been reserved
+for use by interrupt handlers.  This is needed in order to compute the
+correct values for the <code>%gpreg</code> and <code>%pidreg</code> meta registers.
+
+     <p><a name="index-g_t_0040samp_007b_002dmgcc_002dabi_007d-1741"></a><br><dt><code>-mgcc-abi</code><dd>This option tells the assembler that the old GCC ABI is being used by
+the assembled code.  With this version of the ABI function arguments
+that are passed on the stack are aligned to a 32-bit boundary.
+
+     <p><a name="index-g_t_0040samp_007b_002dmrx_002dabi_007d-1742"></a><br><dt><code>-mrx-abi</code><dd>This option tells the assembler that the official RX ABI is being used
+by the assembled code.  With this version of the ABI function
+arguments that are passed on the stack are aligned to their natural
+alignments.  This option is the default.
+
+     <p><a name="index-g_t_0040samp_007b_002dmcpu_003d_007d-1743"></a><br><dt><code>-mcpu=</code><var>name</var><dd>This option tells the assembler the target CPU type.  Currently the
+<code>rx200</code>, <code>rx600</code> and <code>rx610</code> are recognised as valid
+cpu names.  Attempting to assemble an instruction not supported by the
+indicated cpu type will result in an error message being generated.
 
    </dl>
 

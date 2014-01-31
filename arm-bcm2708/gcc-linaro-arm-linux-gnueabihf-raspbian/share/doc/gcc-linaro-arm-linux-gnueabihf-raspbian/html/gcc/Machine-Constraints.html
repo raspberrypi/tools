@@ -9,9 +9,7 @@
 <link rel="prev" href="Modifiers.html#Modifiers" title="Modifiers">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Constraints.html#Constraints">Constrain
 
 <h4 class="subsection">6.42.4 Constraints for Particular Machines</h4>
 
-<p><a name="index-machine-specific-constraints-2766"></a><a name="index-constraints_002c-machine-specific-2767"></a>
+<p><a name="index-machine-specific-constraints-2865"></a><a name="index-constraints_002c-machine-specific-2866"></a>
 Whenever possible, you should use the general-purpose constraint letters
 in <code>asm</code> arguments, since they will convey meaning more readily to
 people reading your code.  Failing that, use the constraint letters
@@ -75,17 +73,50 @@ table heading for each architecture is the definitive reference for
 the meanings of that architecture's constraints.
 
      <dl>
-<dt><em>ARM family&mdash;</em><samp><span class="file">config/arm/arm.h</span></samp><dd>
+<dt><em>AArch64 family&mdash;</em><samp><span class="file">config/aarch64/constraints.md</span></samp><dd>
           <dl>
-<dt><code>f</code><dd>Floating-point register
+<dt><code>k</code><dd>The stack pointer register (<code>SP</code>)
 
-          <br><dt><code>w</code><dd>VFP floating-point register
+          <br><dt><code>w</code><dd>Floating point or SIMD vector register
 
-          <br><dt><code>F</code><dd>One of the floating-point constants 0.0, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0
-or 10.0
+          <br><dt><code>I</code><dd>Integer constant that is valid as an immediate operand in an <code>ADD</code>
+instruction
 
-          <br><dt><code>G</code><dd>Floating-point constant that would satisfy the constraint &lsquo;<samp><span class="samp">F</span></samp>&rsquo; if it
-were negated
+          <br><dt><code>J</code><dd>Integer constant that is valid as an immediate operand in a <code>SUB</code>
+instruction (once negated)
+
+          <br><dt><code>K</code><dd>Integer constant that can be used with a 32-bit logical instruction
+
+          <br><dt><code>L</code><dd>Integer constant that can be used with a 64-bit logical instruction
+
+          <br><dt><code>M</code><dd>Integer constant that is valid as an immediate operand in a 32-bit <code>MOV</code>
+pseudo instruction. The <code>MOV</code> may be assembled to one of several different
+machine instructions depending on the value
+
+          <br><dt><code>N</code><dd>Integer constant that is valid as an immediate operand in a 64-bit <code>MOV</code>
+pseudo instruction
+
+          <br><dt><code>S</code><dd>An absolute symbolic address or a label reference
+
+          <br><dt><code>Y</code><dd>Floating point constant zero
+
+          <br><dt><code>Z</code><dd>Integer constant zero
+
+          <br><dt><code>Ush</code><dd>The high part (bits 12 and upwards) of the pc-relative address of a symbol
+within 4GB of the instruction
+
+          <br><dt><code>Q</code><dd>A memory address which uses a single base register with no offset
+
+          <br><dt><code>Ump</code><dd>A memory address suitable for a load/store pair instruction in SI, DI, SF and
+DF modes
+
+     </dl>
+
+     <br><dt><em>ARM family&mdash;</em><samp><span class="file">config/arm/constraints.md</span></samp><dd>
+          <dl>
+<dt><code>w</code><dd>VFP floating-point register
+
+          <br><dt><code>G</code><dd>The floating-point constant 0.0
 
           <br><dt><code>I</code><dd>Integer that is valid as an immediate operand in a data processing
 instruction.  That is, an integer in the range 0 to 255 rotated by a
@@ -1093,6 +1124,10 @@ when the Visual Instruction Set is available.
 
           <br><dt><code>h</code><dd>64-bit global or out register for the SPARC-V8+ architecture.
 
+          <br><dt><code>C</code><dd>The constant all-ones, for floating-point.
+
+          <br><dt><code>A</code><dd>Signed 5-bit constant
+
           <br><dt><code>D</code><dd>A vector constant
 
           <br><dt><code>I</code><dd>Signed 13-bit constant
@@ -1102,9 +1137,11 @@ when the Visual Instruction Set is available.
           <br><dt><code>K</code><dd>32-bit constant with the low 12 bits clear (a constant that can be
 loaded with the <code>sethi</code> instruction)
 
-          <br><dt><code>L</code><dd>A constant in the range supported by <code>movcc</code> instructions
+          <br><dt><code>L</code><dd>A constant in the range supported by <code>movcc</code> instructions (11-bit
+signed immediate)
 
-          <br><dt><code>M</code><dd>A constant in the range supported by <code>movrcc</code> instructions
+          <br><dt><code>M</code><dd>A constant in the range supported by <code>movrcc</code> instructions (10-bit
+signed immediate)
 
           <br><dt><code>N</code><dd>Same as &lsquo;<samp><span class="samp">K</span></samp>&rsquo;, except that it verifies that bits that are not in the
 lower 32-bit range are all zero.  Must be used instead of &lsquo;<samp><span class="samp">K</span></samp>&rsquo; for
@@ -1115,6 +1152,8 @@ modes wider than <code>SImode</code>
           <br><dt><code>G</code><dd>Floating-point zero
 
           <br><dt><code>H</code><dd>Signed 13-bit constant, sign-extended to 32 or 64 bits
+
+          <br><dt><code>P</code><dd>The constant -1
 
           <br><dt><code>Q</code><dd>Floating-point constant whose integral representation can
 be moved into an integer register using a single sethi
@@ -1133,6 +1172,8 @@ instruction sequence
           <br><dt><code>U</code><dd>Even register
 
           <br><dt><code>W</code><dd>Memory address for &lsquo;<samp><span class="samp">e</span></samp>&rsquo; constraint registers
+
+          <br><dt><code>w</code><dd>Memory address with only a base register
 
           <br><dt><code>Y</code><dd>Vector zero
 
@@ -1379,7 +1420,7 @@ plus A0 if not C64X or higher).
 
      <br><dt><em>TILE-Gx&mdash;</em><samp><span class="file">config/tilegx/constraints.md</span></samp><dd>
           <dl>
-<dt><code>R00</code><dt><code>R01</code><dt><code>R02</code><dt><code>R03</code><dt><code>R04</code><dt><code>R05</code><dt><code>R06</code><dt><code>R07</code><dt><code>R08</code><dt><code>R09</code><dt><code>R010</code><dd>Each of these represents a register constraint for an individual
+<dt><code>R00</code><dt><code>R01</code><dt><code>R02</code><dt><code>R03</code><dt><code>R04</code><dt><code>R05</code><dt><code>R06</code><dt><code>R07</code><dt><code>R08</code><dt><code>R09</code><dt><code>R10</code><dd>Each of these represents a register constraint for an individual
 register, from r0 to r10.
 
           <br><dt><code>I</code><dd>Signed 8-bit integer constant.
@@ -1427,7 +1468,7 @@ and &lsquo;<samp><span class="samp">%in</span></samp>&rsquo; on TILE-Gx.  For ex
 
      <br><dt><em>TILEPro&mdash;</em><samp><span class="file">config/tilepro/constraints.md</span></samp><dd>
           <dl>
-<dt><code>R00</code><dt><code>R01</code><dt><code>R02</code><dt><code>R03</code><dt><code>R04</code><dt><code>R05</code><dt><code>R06</code><dt><code>R07</code><dt><code>R08</code><dt><code>R09</code><dt><code>R010</code><dd>Each of these represents a register constraint for an individual
+<dt><code>R00</code><dt><code>R01</code><dt><code>R02</code><dt><code>R03</code><dt><code>R04</code><dt><code>R05</code><dt><code>R06</code><dt><code>R07</code><dt><code>R08</code><dt><code>R09</code><dt><code>R10</code><dd>Each of these represents a register constraint for an individual
 register, from r0 to r10.
 
           <br><dt><code>I</code><dd>Signed 8-bit integer constant.

@@ -7,9 +7,7 @@
 <link title="Top" rel="start" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -39,12 +37,10 @@ This file documents the <span class="sc">gnu</span> debugger <span class="sc">gd
 
    <p>This is the Tenth Edition, of <cite>Debugging with
 </cite><span class="sc">gdb</span><cite>: the </cite><span class="sc">gnu</span><cite> Source-Level Debugger</cite> for <span class="sc">gdb</span>
-(crosstool-NG linaro-1.13.1+bzr2458 - Linaro GCC 2012.08)
-Version 7.4-2012.06.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+Version 7.6.1-2013.10.
 
-   <p>Copyright &copy; 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+   <p>Copyright &copy; 1988-2013 Free Software Foundation, Inc.
 
    <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -71,10 +67,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
 <p>This file describes <span class="sc">gdb</span>, the <span class="sc">gnu</span> symbolic debugger.
 
    <p>This is the Tenth Edition, for <span class="sc">gdb</span>
-(crosstool-NG linaro-1.13.1+bzr2458 - Linaro GCC 2012.08)
-Version 7.4-2012.06.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+Version 7.6.1-2013.10.
 
-   <p>Copyright (C) 1988-2010 Free Software Foundation, Inc.
+   <p>Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
    <p>This edition of the GDB manual is dedicated to the memory of Fred
 Fish.  Fred was a long-standing contributor to GDB and to Free
@@ -113,7 +109,8 @@ software in general.  We will miss him.
 <li><a href="Emacs.html#Emacs">Emacs</a>:                        Using <span class="sc">gdb</span> under <span class="sc">gnu</span> Emacs
 <li><a href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>:                       <span class="sc">gdb</span>'s Machine Interface. 
 <li><a href="Annotations.html#Annotations">Annotations</a>:                  <span class="sc">gdb</span>'s annotation interface. 
-<li><a href="JIT-Interface.html#JIT-Interface">JIT Interface</a>:                Using the JIT debugging interface.
+<li><a href="JIT-Interface.html#JIT-Interface">JIT Interface</a>:                Using the JIT debugging interface. 
+<li><a href="In_002dProcess-Agent.html#In_002dProcess-Agent">In-Process Agent</a>:             In-Process Agent
 
 <li><a href="GDB-Bugs.html#GDB-Bugs">GDB Bugs</a>:                     Reporting bugs in <span class="sc">gdb</span>
 
@@ -134,7 +131,9 @@ software in general.  We will miss him.
 <li><a href="Copying.html#Copying">Copying</a>: 			GNU General Public License says
                                 how you can copy and share GDB
 <li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this documentation
-<li><a href="Index.html#Index">Index</a>:                        Index
+<li><a href="Concept-Index.html#Concept-Index">Concept Index</a>:                Index of <span class="sc">gdb</span> concepts
+<li><a href="Command-and-Variable-Index.html#Command-and-Variable-Index">Command and Variable Index</a>:   Index of <span class="sc">gdb</span> commands, variables,
+                                  functions, and Python data types
 </ul>
 
 <div class="contents">
@@ -144,7 +143,7 @@ software in general.  We will miss him.
 <li><a name="toc_Summary" href="Summary.html#Summary">Summary of <span class="sc">gdb</span></a>
 <ul>
 <li><a href="Free-Software.html#Free-Software">Free Software</a>
-<li><a href="Free-Software.html#Free-Software">Free Software Needs Free Documentation</a>
+<li><a href="Free-Documentation.html#Free-Documentation">Free Software Needs Free Documentation</a>
 <li><a href="Contributors.html#Contributors">Contributors to <span class="sc">gdb</span></a>
 </li></ul>
 <li><a name="toc_Sample-Session" href="Sample-Session.html#Sample-Session">1 A Sample <span class="sc">gdb</span> Session</a>
@@ -195,9 +194,11 @@ software in general.  We will miss him.
 <li><a href="Disabling.html#Disabling">5.1.5 Disabling Breakpoints</a>
 <li><a href="Conditions.html#Conditions">5.1.6 Break Conditions</a>
 <li><a href="Break-Commands.html#Break-Commands">5.1.7 Breakpoint Command Lists</a>
-<li><a href="Save-Breakpoints.html#Save-Breakpoints">5.1.8 How to save breakpoints to a file</a>
-<li><a href="Error-in-Breakpoints.html#Error-in-Breakpoints">5.1.9 &ldquo;Cannot insert breakpoints&rdquo;</a>
-<li><a href="Breakpoint_002drelated-Warnings.html#Breakpoint_002drelated-Warnings">5.1.10 &ldquo;Breakpoint address adjusted...&rdquo;</a>
+<li><a href="Dynamic-Printf.html#Dynamic-Printf">5.1.8 Dynamic Printf</a>
+<li><a href="Save-Breakpoints.html#Save-Breakpoints">5.1.9 How to save breakpoints to a file</a>
+<li><a href="Static-Probe-Points.html#Static-Probe-Points">5.1.10 Static Probe Points</a>
+<li><a href="Error-in-Breakpoints.html#Error-in-Breakpoints">5.1.11 &ldquo;Cannot insert breakpoints&rdquo;</a>
+<li><a href="Breakpoint_002drelated-Warnings.html#Breakpoint_002drelated-Warnings">5.1.12 &ldquo;Breakpoint address adjusted...&rdquo;</a>
 </li></ul>
 <li><a href="Continuing-and-Stepping.html#Continuing-and-Stepping">5.2 Continuing and Stepping</a>
 <li><a href="Skipping-Over-Functions-and-Files.html#Skipping-Over-Functions-and-Files">5.3 Skipping Over Functions and Files</a>
@@ -251,25 +252,26 @@ software in general.  We will miss him.
 </li></ul>
 <li><a href="Value-History.html#Value-History">10.10 Value History</a>
 <li><a href="Convenience-Vars.html#Convenience-Vars">10.11 Convenience Variables</a>
-<li><a href="Registers.html#Registers">10.12 Registers</a>
-<li><a href="Floating-Point-Hardware.html#Floating-Point-Hardware">10.13 Floating Point Hardware</a>
-<li><a href="Vector-Unit.html#Vector-Unit">10.14 Vector Unit</a>
-<li><a href="OS-Information.html#OS-Information">10.15 Operating System Auxiliary Information</a>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16 Memory Region Attributes</a>
+<li><a href="Convenience-Funs.html#Convenience-Funs">10.12 Convenience Functions</a>
+<li><a href="Registers.html#Registers">10.13 Registers</a>
+<li><a href="Floating-Point-Hardware.html#Floating-Point-Hardware">10.14 Floating Point Hardware</a>
+<li><a href="Vector-Unit.html#Vector-Unit">10.15 Vector Unit</a>
+<li><a href="OS-Information.html#OS-Information">10.16 Operating System Auxiliary Information</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17 Memory Region Attributes</a>
 <ul>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16.1 Attributes</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17.1 Attributes</a>
 <ul>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16.1.1 Memory Access Mode</a>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16.1.2 Memory Access Size</a>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16.1.3 Data Cache</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17.1.1 Memory Access Mode</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17.1.2 Memory Access Size</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17.1.3 Data Cache</a>
 </li></ul>
-<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.16.2 Memory Access Checking</a>
+<li><a href="Memory-Region-Attributes.html#Memory-Region-Attributes">10.17.2 Memory Access Checking</a>
 </li></ul>
-<li><a href="Dump_002fRestore-Files.html#Dump_002fRestore-Files">10.17 Copy Between Memory and a File</a>
-<li><a href="Core-File-Generation.html#Core-File-Generation">10.18 How to Produce a Core File from Your Program</a>
-<li><a href="Character-Sets.html#Character-Sets">10.19 Character Sets</a>
-<li><a href="Caching-Remote-Data.html#Caching-Remote-Data">10.20 Caching Data of Remote Targets</a>
-<li><a href="Searching-Memory.html#Searching-Memory">10.21 Search Memory</a>
+<li><a href="Dump_002fRestore-Files.html#Dump_002fRestore-Files">10.18 Copy Between Memory and a File</a>
+<li><a href="Core-File-Generation.html#Core-File-Generation">10.19 How to Produce a Core File from Your Program</a>
+<li><a href="Character-Sets.html#Character-Sets">10.20 Character Sets</a>
+<li><a href="Caching-Remote-Data.html#Caching-Remote-Data">10.21 Caching Data of Remote Targets</a>
+<li><a href="Searching-Memory.html#Searching-Memory">10.22 Search Memory</a>
 </li></ul>
 <li><a name="toc_Optimized-Code" href="Optimized-Code.html#Optimized-Code">11 Debugging Optimized Code</a>
 <ul>
@@ -336,46 +338,47 @@ software in general.  We will miss him.
 <li><a href="Decimal-Floating-Point.html#Decimal-Floating-Point">15.4.1.8 Decimal Floating Point format</a>
 </li></ul>
 <li><a href="D.html#D">15.4.2 D</a>
-<li><a href="Objective_002dC.html#Objective_002dC">15.4.3 Objective-C</a>
+<li><a href="Go.html#Go">15.4.3 Go</a>
+<li><a href="Objective_002dC.html#Objective_002dC">15.4.4 Objective-C</a>
 <ul>
-<li><a href="Method-Names-in-Commands.html#Method-Names-in-Commands">15.4.3.1 Method Names in Commands</a>
-<li><a href="The-Print-Command-with-Objective_002dC.html#The-Print-Command-with-Objective_002dC">15.4.3.2 The Print Command With Objective-C</a>
+<li><a href="Method-Names-in-Commands.html#Method-Names-in-Commands">15.4.4.1 Method Names in Commands</a>
+<li><a href="The-Print-Command-with-Objective_002dC.html#The-Print-Command-with-Objective_002dC">15.4.4.2 The Print Command With Objective-C</a>
 </li></ul>
-<li><a href="OpenCL-C.html#OpenCL-C">15.4.4 OpenCL C</a>
+<li><a href="OpenCL-C.html#OpenCL-C">15.4.5 OpenCL C</a>
 <ul>
-<li><a href="OpenCL-C-Datatypes.html#OpenCL-C-Datatypes">15.4.4.1 OpenCL C Datatypes</a>
-<li><a href="OpenCL-C-Expressions.html#OpenCL-C-Expressions">15.4.4.2 OpenCL C Expressions</a>
-<li><a href="OpenCL-C-Operators.html#OpenCL-C-Operators">15.4.4.3 OpenCL C Operators</a>
+<li><a href="OpenCL-C-Datatypes.html#OpenCL-C-Datatypes">15.4.5.1 OpenCL C Datatypes</a>
+<li><a href="OpenCL-C-Expressions.html#OpenCL-C-Expressions">15.4.5.2 OpenCL C Expressions</a>
+<li><a href="OpenCL-C-Operators.html#OpenCL-C-Operators">15.4.5.3 OpenCL C Operators</a>
 </li></ul>
-<li><a href="Fortran.html#Fortran">15.4.5 Fortran</a>
+<li><a href="Fortran.html#Fortran">15.4.6 Fortran</a>
 <ul>
-<li><a href="Fortran-Operators.html#Fortran-Operators">15.4.5.1 Fortran Operators and Expressions</a>
-<li><a href="Fortran-Defaults.html#Fortran-Defaults">15.4.5.2 Fortran Defaults</a>
-<li><a href="Special-Fortran-Commands.html#Special-Fortran-Commands">15.4.5.3 Special Fortran Commands</a>
+<li><a href="Fortran-Operators.html#Fortran-Operators">15.4.6.1 Fortran Operators and Expressions</a>
+<li><a href="Fortran-Defaults.html#Fortran-Defaults">15.4.6.2 Fortran Defaults</a>
+<li><a href="Special-Fortran-Commands.html#Special-Fortran-Commands">15.4.6.3 Special Fortran Commands</a>
 </li></ul>
-<li><a href="Pascal.html#Pascal">15.4.6 Pascal</a>
-<li><a href="Modula_002d2.html#Modula_002d2">15.4.7 Modula-2</a>
+<li><a href="Pascal.html#Pascal">15.4.7 Pascal</a>
+<li><a href="Modula_002d2.html#Modula_002d2">15.4.8 Modula-2</a>
 <ul>
-<li><a href="M2-Operators.html#M2-Operators">15.4.7.1 Operators</a>
-<li><a href="Built_002dIn-Func_002fProc.html#Built_002dIn-Func_002fProc">15.4.7.2 Built-in Functions and Procedures</a>
-<li><a href="M2-Constants.html#M2-Constants">15.4.7.3 Constants</a>
-<li><a href="M2-Types.html#M2-Types">15.4.7.4 Modula-2 Types</a>
-<li><a href="M2-Defaults.html#M2-Defaults">15.4.7.5 Modula-2 Defaults</a>
-<li><a href="Deviations.html#Deviations">15.4.7.6 Deviations from Standard Modula-2</a>
-<li><a href="M2-Checks.html#M2-Checks">15.4.7.7 Modula-2 Type and Range Checks</a>
-<li><a href="M2-Scope.html#M2-Scope">15.4.7.8 The Scope Operators <code>::</code> and <code>.</code></a>
-<li><a href="GDB_002fM2.html#GDB_002fM2">15.4.7.9 <span class="sc">gdb</span> and Modula-2</a>
+<li><a href="M2-Operators.html#M2-Operators">15.4.8.1 Operators</a>
+<li><a href="Built_002dIn-Func_002fProc.html#Built_002dIn-Func_002fProc">15.4.8.2 Built-in Functions and Procedures</a>
+<li><a href="M2-Constants.html#M2-Constants">15.4.8.3 Constants</a>
+<li><a href="M2-Types.html#M2-Types">15.4.8.4 Modula-2 Types</a>
+<li><a href="M2-Defaults.html#M2-Defaults">15.4.8.5 Modula-2 Defaults</a>
+<li><a href="Deviations.html#Deviations">15.4.8.6 Deviations from Standard Modula-2</a>
+<li><a href="M2-Checks.html#M2-Checks">15.4.8.7 Modula-2 Type and Range Checks</a>
+<li><a href="M2-Scope.html#M2-Scope">15.4.8.8 The Scope Operators <code>::</code> and <code>.</code></a>
+<li><a href="GDB_002fM2.html#GDB_002fM2">15.4.8.9 <span class="sc">gdb</span> and Modula-2</a>
 </li></ul>
-<li><a href="Ada.html#Ada">15.4.8 Ada</a>
+<li><a href="Ada.html#Ada">15.4.9 Ada</a>
 <ul>
-<li><a href="Ada-Mode-Intro.html#Ada-Mode-Intro">15.4.8.1 Introduction</a>
-<li><a href="Omissions-from-Ada.html#Omissions-from-Ada">15.4.8.2 Omissions from Ada</a>
-<li><a href="Additions-to-Ada.html#Additions-to-Ada">15.4.8.3 Additions to Ada</a>
-<li><a href="Stopping-Before-Main-Program.html#Stopping-Before-Main-Program">15.4.8.4 Stopping at the Very Beginning</a>
-<li><a href="Ada-Tasks.html#Ada-Tasks">15.4.8.5 Extensions for Ada Tasks</a>
-<li><a href="Ada-Tasks-and-Core-Files.html#Ada-Tasks-and-Core-Files">15.4.8.6 Tasking Support when Debugging Core Files</a>
-<li><a href="Ravenscar-Profile.html#Ravenscar-Profile">15.4.8.7 Tasking Support when using the Ravenscar Profile</a>
-<li><a href="Ada-Glitches.html#Ada-Glitches">15.4.8.8 Known Peculiarities of Ada Mode</a>
+<li><a href="Ada-Mode-Intro.html#Ada-Mode-Intro">15.4.9.1 Introduction</a>
+<li><a href="Omissions-from-Ada.html#Omissions-from-Ada">15.4.9.2 Omissions from Ada</a>
+<li><a href="Additions-to-Ada.html#Additions-to-Ada">15.4.9.3 Additions to Ada</a>
+<li><a href="Stopping-Before-Main-Program.html#Stopping-Before-Main-Program">15.4.9.4 Stopping at the Very Beginning</a>
+<li><a href="Ada-Tasks.html#Ada-Tasks">15.4.9.5 Extensions for Ada Tasks</a>
+<li><a href="Ada-Tasks-and-Core-Files.html#Ada-Tasks-and-Core-Files">15.4.9.6 Tasking Support when Debugging Core Files</a>
+<li><a href="Ravenscar-Profile.html#Ravenscar-Profile">15.4.9.7 Tasking Support when using the Ravenscar Profile</a>
+<li><a href="Ada-Glitches.html#Ada-Glitches">15.4.9.8 Known Peculiarities of Ada Mode</a>
 </li></ul>
 </li></ul>
 <li><a href="Unsupported-Languages.html#Unsupported-Languages">15.5 Unsupported Languages</a>
@@ -394,9 +397,10 @@ software in general.  We will miss him.
 <ul>
 <li><a href="Files.html#Files">18.1 Commands to Specify Files</a>
 <li><a href="Separate-Debug-Files.html#Separate-Debug-Files">18.2 Debugging Information in Separate Files</a>
-<li><a href="Index-Files.html#Index-Files">18.3 Index Files Speed Up <span class="sc">gdb</span></a>
-<li><a href="Symbol-Errors.html#Symbol-Errors">18.4 Errors Reading Symbol Files</a>
-<li><a href="Data-Files.html#Data-Files">18.5 GDB Data Files</a>
+<li><a href="MiniDebugInfo.html#MiniDebugInfo">18.3 Debugging information in a special section</a>
+<li><a href="Index-Files.html#Index-Files">18.4 Index Files Speed Up <span class="sc">gdb</span></a>
+<li><a href="Symbol-Errors.html#Symbol-Errors">18.5 Errors Reading Symbol Files</a>
+<li><a href="Data-Files.html#Data-Files">18.6 GDB Data Files</a>
 </li></ul>
 <li><a name="toc_Targets" href="Targets.html#Targets">19 Specifying a Debugging Target</a>
 <ul>
@@ -444,8 +448,7 @@ software in general.  We will miss him.
 <li><a href="Non_002ddebug-DLL-Symbols.html#Non_002ddebug-DLL-Symbols">21.1.5.3 Working with Minimal Symbols</a>
 </li></ul>
 <li><a href="Hurd-Native.html#Hurd-Native">21.1.6 Commands Specific to <span class="sc">gnu</span> Hurd Systems</a>
-<li><a href="Neutrino.html#Neutrino">21.1.7 QNX Neutrino</a>
-<li><a href="Darwin.html#Darwin">21.1.8 Darwin</a>
+<li><a href="Darwin.html#Darwin">21.1.7 Darwin</a>
 </li></ul>
 <li><a href="Embedded-OS.html#Embedded-OS">21.2 Embedded Operating Systems</a>
 <ul>
@@ -462,7 +465,7 @@ software in general.  We will miss him.
 <li><a href="M32R_002fD.html#M32R_002fD">21.3.2 Renesas M32R/D and M32R/SDI</a>
 <li><a href="M68K.html#M68K">21.3.3 M68k</a>
 <li><a href="MicroBlaze.html#MicroBlaze">21.3.4 MicroBlaze</a>
-<li><a href="MIPS-Embedded.html#MIPS-Embedded">21.3.5 MIPS Embedded</a>
+<li><a href="MIPS-Embedded.html#MIPS-Embedded">21.3.5 <acronym>MIPS</acronym> Embedded</a>
 <li><a href="OpenRISC-1000.html#OpenRISC-1000">21.3.6 OpenRISC 1000</a>
 <li><a href="PowerPC-Embedded.html#PowerPC-Embedded">21.3.7 PowerPC Embedded</a>
 <li><a href="PA.html#PA">21.3.8 HP PA Embedded</a>
@@ -481,10 +484,10 @@ software in general.  We will miss him.
 </li></ul>
 <li><a href="Architectures.html#Architectures">21.4 Architectures</a>
 <ul>
-<li><a href="i386.html#i386">21.4.1 x86 Architecture-specific Issues</a>
-<li><a href="A29K.html#A29K">21.4.2 A29K</a>
+<li><a href="AArch64.html#AArch64">21.4.1 AArch64</a>
+<li><a href="i386.html#i386">21.4.2 x86 Architecture-specific Issues</a>
 <li><a href="Alpha.html#Alpha">21.4.3 Alpha</a>
-<li><a href="MIPS.html#MIPS">21.4.4 MIPS</a>
+<li><a href="MIPS.html#MIPS">21.4.4 <acronym>MIPS</acronym></a>
 <li><a href="HPPA.html#HPPA">21.4.5 HPPA</a>
 <li><a href="SPU.html#SPU">21.4.6 Cell Broadband Engine SPU architecture</a>
 <li><a href="PowerPC.html#PowerPC">21.4.7 PowerPC</a>
@@ -498,9 +501,17 @@ software in general.  We will miss him.
 <li><a href="Screen-Size.html#Screen-Size">22.4 Screen Size</a>
 <li><a href="Numbers.html#Numbers">22.5 Numbers</a>
 <li><a href="ABI.html#ABI">22.6 Configuring the Current ABI</a>
-<li><a href="Messages_002fWarnings.html#Messages_002fWarnings">22.7 Optional Warnings and Messages</a>
-<li><a href="Debugging-Output.html#Debugging-Output">22.8 Optional Messages about Internal Happenings</a>
-<li><a href="Other-Misc-Settings.html#Other-Misc-Settings">22.9 Other Miscellaneous Settings</a>
+<li><a href="Auto_002dloading.html#Auto_002dloading">22.7 Automatically loading associated files</a>
+<ul>
+<li><a href="Init-File-in-the-Current-Directory.html#Init-File-in-the-Current-Directory">22.7.1 Automatically loading init file in the current directory</a>
+<li><a href="libthread_005fdb_002eso_002e1-file.html#libthread_005fdb_002eso_002e1-file">22.7.2 Automatically loading thread debugging library</a>
+<li><a href="objfile_002dgdb_002egdb-file.html#objfile_002dgdb_002egdb-file">22.7.3 The <samp><var>objfile</var><span class="file">-gdb.gdb</span></samp> file</a>
+<li><a href="Auto_002dloading-safe-path.html#Auto_002dloading-safe-path">22.7.4 Security restriction for auto-loading</a>
+<li><a href="Auto_002dloading-verbose-mode.html#Auto_002dloading-verbose-mode">22.7.5 Displaying files tried for auto-load</a>
+</li></ul>
+<li><a href="Messages_002fWarnings.html#Messages_002fWarnings">22.8 Optional Warnings and Messages</a>
+<li><a href="Debugging-Output.html#Debugging-Output">22.9 Optional Messages about Internal Happenings</a>
+<li><a href="Other-Misc-Settings.html#Other-Misc-Settings">22.10 Other Miscellaneous Settings</a>
 </li></ul>
 <li><a name="toc_Extending-GDB" href="Extending-GDB.html#Extending-GDB">23 Extending <span class="sc">gdb</span></a>
 <ul>
@@ -523,26 +534,28 @@ software in general.  We will miss him.
 <li><a href="Pretty-Printing-API.html#Pretty-Printing-API">23.2.2.5 Pretty Printing API</a>
 <li><a href="Selecting-Pretty_002dPrinters.html#Selecting-Pretty_002dPrinters">23.2.2.6 Selecting Pretty-Printers</a>
 <li><a href="Writing-a-Pretty_002dPrinter.html#Writing-a-Pretty_002dPrinter">23.2.2.7 Writing a Pretty-Printer</a>
-<li><a href="Inferiors-In-Python.html#Inferiors-In-Python">23.2.2.8 Inferiors In Python</a>
-<li><a href="Events-In-Python.html#Events-In-Python">23.2.2.9 Events In Python</a>
-<li><a href="Threads-In-Python.html#Threads-In-Python">23.2.2.10 Threads In Python</a>
-<li><a href="Commands-In-Python.html#Commands-In-Python">23.2.2.11 Commands In Python</a>
-<li><a href="Parameters-In-Python.html#Parameters-In-Python">23.2.2.12 Parameters In Python</a>
-<li><a href="Functions-In-Python.html#Functions-In-Python">23.2.2.13 Writing new convenience functions</a>
-<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">23.2.2.14 Program Spaces In Python</a>
-<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">23.2.2.15 Objfiles In Python</a>
-<li><a href="Frames-In-Python.html#Frames-In-Python">23.2.2.16 Accessing inferior stack frames from Python.</a>
-<li><a href="Blocks-In-Python.html#Blocks-In-Python">23.2.2.17 Accessing frame blocks from Python.</a>
-<li><a href="Symbols-In-Python.html#Symbols-In-Python">23.2.2.18 Python representation of Symbols.</a>
-<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">23.2.2.19 Symbol table representation in Python.</a>
-<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">23.2.2.20 Manipulating breakpoints using Python</a>
-<li><a href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">23.2.2.21 Finish Breakpoints</a>
-<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">23.2.2.22 Python representation of lazy strings.</a>
+<li><a href="Type-Printing-API.html#Type-Printing-API">23.2.2.8 Type Printing API</a>
+<li><a href="Inferiors-In-Python.html#Inferiors-In-Python">23.2.2.9 Inferiors In Python</a>
+<li><a href="Events-In-Python.html#Events-In-Python">23.2.2.10 Events In Python</a>
+<li><a href="Threads-In-Python.html#Threads-In-Python">23.2.2.11 Threads In Python</a>
+<li><a href="Commands-In-Python.html#Commands-In-Python">23.2.2.12 Commands In Python</a>
+<li><a href="Parameters-In-Python.html#Parameters-In-Python">23.2.2.13 Parameters In Python</a>
+<li><a href="Functions-In-Python.html#Functions-In-Python">23.2.2.14 Writing new convenience functions</a>
+<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">23.2.2.15 Program Spaces In Python</a>
+<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">23.2.2.16 Objfiles In Python</a>
+<li><a href="Frames-In-Python.html#Frames-In-Python">23.2.2.17 Accessing inferior stack frames from Python.</a>
+<li><a href="Blocks-In-Python.html#Blocks-In-Python">23.2.2.18 Accessing frame blocks from Python.</a>
+<li><a href="Symbols-In-Python.html#Symbols-In-Python">23.2.2.19 Python representation of Symbols.</a>
+<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">23.2.2.20 Symbol table representation in Python.</a>
+<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">23.2.2.21 Manipulating breakpoints using Python</a>
+<li><a href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">23.2.2.22 Finish Breakpoints</a>
+<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">23.2.2.23 Python representation of lazy strings.</a>
+<li><a href="Architectures-In-Python.html#Architectures-In-Python">23.2.2.24 Python representation of architectures</a>
 </li></ul>
-<li><a href="Auto_002dloading.html#Auto_002dloading">23.2.3 Auto-loading</a>
+<li><a href="Python-Auto_002dloading.html#Python-Auto_002dloading">23.2.3 Python Auto-loading</a>
 <ul>
 <li><a href="objfile_002dgdb_002epy-file.html#objfile_002dgdb_002epy-file">23.2.3.1 The <samp><var>objfile</var><span class="file">-gdb.py</span></samp> file</a>
-<li><a href="_002edebug_005fgdb_005fscripts-section.html#_002edebug_005fgdb_005fscripts-section">23.2.3.2 The <code>.debug_gdb_scripts</code> section</a>
+<li><a href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section">23.2.3.2 The <code>.debug_gdb_scripts</code> section</a>
 <li><a href="Which-flavor-to-choose_003f.html#Which-flavor-to-choose_003f">23.2.3.3 Which flavor to choose?</a>
 </li></ul>
 <li><a href="Python-modules.html#Python-modules">23.2.4 Python modules</a>
@@ -586,26 +599,28 @@ software in general.  We will miss him.
 <li><a href="GDB_002fMI-Result-Records.html#GDB_002fMI-Result-Records">27.5.1 <span class="sc">gdb/mi</span> Result Records</a>
 <li><a href="GDB_002fMI-Stream-Records.html#GDB_002fMI-Stream-Records">27.5.2 <span class="sc">gdb/mi</span> Stream Records</a>
 <li><a href="GDB_002fMI-Async-Records.html#GDB_002fMI-Async-Records">27.5.3 <span class="sc">gdb/mi</span> Async Records</a>
-<li><a href="GDB_002fMI-Frame-Information.html#GDB_002fMI-Frame-Information">27.5.4 <span class="sc">gdb/mi</span> Frame Information</a>
-<li><a href="GDB_002fMI-Thread-Information.html#GDB_002fMI-Thread-Information">27.5.5 <span class="sc">gdb/mi</span> Thread Information</a>
-<li><a href="GDB_002fMI-Ada-Exception-Information.html#GDB_002fMI-Ada-Exception-Information">27.5.6 <span class="sc">gdb/mi</span> Ada Exception Information</a>
+<li><a href="GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information">27.5.4 <span class="sc">gdb/mi</span> Breakpoint Information</a>
+<li><a href="GDB_002fMI-Frame-Information.html#GDB_002fMI-Frame-Information">27.5.5 <span class="sc">gdb/mi</span> Frame Information</a>
+<li><a href="GDB_002fMI-Thread-Information.html#GDB_002fMI-Thread-Information">27.5.6 <span class="sc">gdb/mi</span> Thread Information</a>
+<li><a href="GDB_002fMI-Ada-Exception-Information.html#GDB_002fMI-Ada-Exception-Information">27.5.7 <span class="sc">gdb/mi</span> Ada Exception Information</a>
 </li></ul>
 <li><a href="GDB_002fMI-Simple-Examples.html#GDB_002fMI-Simple-Examples">27.6 Simple Examples of <span class="sc">gdb/mi</span> Interaction</a>
 <li><a href="GDB_002fMI-Command-Description-Format.html#GDB_002fMI-Command-Description-Format">27.7 <span class="sc">gdb/mi</span> Command Description Format</a>
 <li><a href="GDB_002fMI-Breakpoint-Commands.html#GDB_002fMI-Breakpoint-Commands">27.8 <span class="sc">gdb/mi</span> Breakpoint Commands</a>
-<li><a href="GDB_002fMI-Program-Context.html#GDB_002fMI-Program-Context">27.9 <span class="sc">gdb/mi</span>  Program Context</a>
-<li><a href="GDB_002fMI-Thread-Commands.html#GDB_002fMI-Thread-Commands">27.10 <span class="sc">gdb/mi</span> Thread Commands</a>
-<li><a href="GDB_002fMI-Ada-Tasking-Commands.html#GDB_002fMI-Ada-Tasking-Commands">27.11 <span class="sc">gdb/mi</span> Ada Tasking Commands</a>
-<li><a href="GDB_002fMI-Program-Execution.html#GDB_002fMI-Program-Execution">27.12 <span class="sc">gdb/mi</span> Program Execution</a>
-<li><a href="GDB_002fMI-Stack-Manipulation.html#GDB_002fMI-Stack-Manipulation">27.13 <span class="sc">gdb/mi</span> Stack Manipulation Commands</a>
-<li><a href="GDB_002fMI-Variable-Objects.html#GDB_002fMI-Variable-Objects">27.14 <span class="sc">gdb/mi</span> Variable Objects</a>
-<li><a href="GDB_002fMI-Data-Manipulation.html#GDB_002fMI-Data-Manipulation">27.15 <span class="sc">gdb/mi</span> Data Manipulation</a>
-<li><a href="GDB_002fMI-Tracepoint-Commands.html#GDB_002fMI-Tracepoint-Commands">27.16 <span class="sc">gdb/mi</span> Tracepoint Commands</a>
-<li><a href="GDB_002fMI-Symbol-Query.html#GDB_002fMI-Symbol-Query">27.17 <span class="sc">gdb/mi</span> Symbol Query Commands</a>
-<li><a href="GDB_002fMI-File-Commands.html#GDB_002fMI-File-Commands">27.18 <span class="sc">gdb/mi</span> File Commands</a>
-<li><a href="GDB_002fMI-Target-Manipulation.html#GDB_002fMI-Target-Manipulation">27.19 <span class="sc">gdb/mi</span> Target Manipulation Commands</a>
-<li><a href="GDB_002fMI-File-Transfer-Commands.html#GDB_002fMI-File-Transfer-Commands">27.20 <span class="sc">gdb/mi</span> File Transfer Commands</a>
-<li><a href="GDB_002fMI-Miscellaneous-Commands.html#GDB_002fMI-Miscellaneous-Commands">27.21 Miscellaneous <span class="sc">gdb/mi</span> Commands</a>
+<li><a href="GDB_002fMI-Catchpoint-Commands.html#GDB_002fMI-Catchpoint-Commands">27.9 <span class="sc">gdb/mi</span> Catchpoint Commands</a>
+<li><a href="GDB_002fMI-Program-Context.html#GDB_002fMI-Program-Context">27.10 <span class="sc">gdb/mi</span>  Program Context</a>
+<li><a href="GDB_002fMI-Thread-Commands.html#GDB_002fMI-Thread-Commands">27.11 <span class="sc">gdb/mi</span> Thread Commands</a>
+<li><a href="GDB_002fMI-Ada-Tasking-Commands.html#GDB_002fMI-Ada-Tasking-Commands">27.12 <span class="sc">gdb/mi</span> Ada Tasking Commands</a>
+<li><a href="GDB_002fMI-Program-Execution.html#GDB_002fMI-Program-Execution">27.13 <span class="sc">gdb/mi</span> Program Execution</a>
+<li><a href="GDB_002fMI-Stack-Manipulation.html#GDB_002fMI-Stack-Manipulation">27.14 <span class="sc">gdb/mi</span> Stack Manipulation Commands</a>
+<li><a href="GDB_002fMI-Variable-Objects.html#GDB_002fMI-Variable-Objects">27.15 <span class="sc">gdb/mi</span> Variable Objects</a>
+<li><a href="GDB_002fMI-Data-Manipulation.html#GDB_002fMI-Data-Manipulation">27.16 <span class="sc">gdb/mi</span> Data Manipulation</a>
+<li><a href="GDB_002fMI-Tracepoint-Commands.html#GDB_002fMI-Tracepoint-Commands">27.17 <span class="sc">gdb/mi</span> Tracepoint Commands</a>
+<li><a href="GDB_002fMI-Symbol-Query.html#GDB_002fMI-Symbol-Query">27.18 <span class="sc">gdb/mi</span> Symbol Query Commands</a>
+<li><a href="GDB_002fMI-File-Commands.html#GDB_002fMI-File-Commands">27.19 <span class="sc">gdb/mi</span> File Commands</a>
+<li><a href="GDB_002fMI-Target-Manipulation.html#GDB_002fMI-Target-Manipulation">27.20 <span class="sc">gdb/mi</span> Target Manipulation Commands</a>
+<li><a href="GDB_002fMI-File-Transfer-Commands.html#GDB_002fMI-File-Transfer-Commands">27.21 <span class="sc">gdb/mi</span> File Transfer Commands</a>
+<li><a href="GDB_002fMI-Miscellaneous-Commands.html#GDB_002fMI-Miscellaneous-Commands">27.22 Miscellaneous <span class="sc">gdb/mi</span> Commands</a>
 </li></ul>
 <li><a name="toc_Annotations" href="Annotations.html#Annotations">28 <span class="sc">gdb</span> Annotations</a>
 <ul>
@@ -628,48 +643,56 @@ software in general.  We will miss him.
 <li><a href="Writing-JIT-Debug-Info-Readers.html#Writing-JIT-Debug-Info-Readers">29.4.2 Writing JIT Debug Info Readers</a>
 </li></ul>
 </li></ul>
-<li><a name="toc_GDB-Bugs" href="GDB-Bugs.html#GDB-Bugs">30 Reporting Bugs in <span class="sc">gdb</span></a>
+<li><a name="toc_In_002dProcess-Agent" href="In_002dProcess-Agent.html#In_002dProcess-Agent">30 In-Process Agent</a>
 <ul>
-<li><a href="Bug-Criteria.html#Bug-Criteria">30.1 Have You Found a Bug?</a>
-<li><a href="Bug-Reporting.html#Bug-Reporting">30.2 How to Report Bugs</a>
+<li><a href="In_002dProcess-Agent-Protocol.html#In_002dProcess-Agent-Protocol">30.1 In-Process Agent Protocol</a>
+<ul>
+<li><a href="IPA-Protocol-Objects.html#IPA-Protocol-Objects">30.1.1 IPA Protocol Objects</a>
+<li><a href="IPA-Protocol-Commands.html#IPA-Protocol-Commands">30.1.2 IPA Protocol Commands</a>
 </li></ul>
-<li><a name="toc_Command-Line-Editing" href="Command-Line-Editing.html#Command-Line-Editing">31 Command Line Editing</a>
-<ul>
-<li><a href="Introduction-and-Notation.html#Introduction-and-Notation">31.1 Introduction to Line Editing</a>
-<li><a href="Readline-Interaction.html#Readline-Interaction">31.2 Readline Interaction</a>
-<ul>
-<li><a href="Readline-Bare-Essentials.html#Readline-Bare-Essentials">31.2.1 Readline Bare Essentials</a>
-<li><a href="Readline-Movement-Commands.html#Readline-Movement-Commands">31.2.2 Readline Movement Commands</a>
-<li><a href="Readline-Killing-Commands.html#Readline-Killing-Commands">31.2.3 Readline Killing Commands</a>
-<li><a href="Readline-Arguments.html#Readline-Arguments">31.2.4 Readline Arguments</a>
-<li><a href="Searching.html#Searching">31.2.5 Searching for Commands in the History</a>
 </li></ul>
-<li><a href="Readline-Init-File.html#Readline-Init-File">31.3 Readline Init File</a>
+<li><a name="toc_GDB-Bugs" href="GDB-Bugs.html#GDB-Bugs">31 Reporting Bugs in <span class="sc">gdb</span></a>
 <ul>
-<li><a href="Readline-Init-File-Syntax.html#Readline-Init-File-Syntax">31.3.1 Readline Init File Syntax</a>
-<li><a href="Conditional-Init-Constructs.html#Conditional-Init-Constructs">31.3.2 Conditional Init Constructs</a>
-<li><a href="Sample-Init-File.html#Sample-Init-File">31.3.3 Sample Init File</a>
+<li><a href="Bug-Criteria.html#Bug-Criteria">31.1 Have You Found a Bug?</a>
+<li><a href="Bug-Reporting.html#Bug-Reporting">31.2 How to Report Bugs</a>
 </li></ul>
-<li><a href="Bindable-Readline-Commands.html#Bindable-Readline-Commands">31.4 Bindable Readline Commands</a>
+<li><a name="toc_Command-Line-Editing" href="Command-Line-Editing.html#Command-Line-Editing">32 Command Line Editing</a>
 <ul>
-<li><a href="Commands-For-Moving.html#Commands-For-Moving">31.4.1 Commands For Moving</a>
-<li><a href="Commands-For-History.html#Commands-For-History">31.4.2 Commands For Manipulating The History</a>
-<li><a href="Commands-For-Text.html#Commands-For-Text">31.4.3 Commands For Changing Text</a>
-<li><a href="Commands-For-Killing.html#Commands-For-Killing">31.4.4 Killing And Yanking</a>
-<li><a href="Numeric-Arguments.html#Numeric-Arguments">31.4.5 Specifying Numeric Arguments</a>
-<li><a href="Commands-For-Completion.html#Commands-For-Completion">31.4.6 Letting Readline Type For You</a>
-<li><a href="Keyboard-Macros.html#Keyboard-Macros">31.4.7 Keyboard Macros</a>
-<li><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">31.4.8 Some Miscellaneous Commands</a>
+<li><a href="Introduction-and-Notation.html#Introduction-and-Notation">32.1 Introduction to Line Editing</a>
+<li><a href="Readline-Interaction.html#Readline-Interaction">32.2 Readline Interaction</a>
+<ul>
+<li><a href="Readline-Bare-Essentials.html#Readline-Bare-Essentials">32.2.1 Readline Bare Essentials</a>
+<li><a href="Readline-Movement-Commands.html#Readline-Movement-Commands">32.2.2 Readline Movement Commands</a>
+<li><a href="Readline-Killing-Commands.html#Readline-Killing-Commands">32.2.3 Readline Killing Commands</a>
+<li><a href="Readline-Arguments.html#Readline-Arguments">32.2.4 Readline Arguments</a>
+<li><a href="Searching.html#Searching">32.2.5 Searching for Commands in the History</a>
 </li></ul>
-<li><a href="Readline-vi-Mode.html#Readline-vi-Mode">31.5 Readline vi Mode</a>
+<li><a href="Readline-Init-File.html#Readline-Init-File">32.3 Readline Init File</a>
+<ul>
+<li><a href="Readline-Init-File-Syntax.html#Readline-Init-File-Syntax">32.3.1 Readline Init File Syntax</a>
+<li><a href="Conditional-Init-Constructs.html#Conditional-Init-Constructs">32.3.2 Conditional Init Constructs</a>
+<li><a href="Sample-Init-File.html#Sample-Init-File">32.3.3 Sample Init File</a>
 </li></ul>
-<li><a name="toc_Using-History-Interactively" href="Using-History-Interactively.html#Using-History-Interactively">32 Using History Interactively</a>
+<li><a href="Bindable-Readline-Commands.html#Bindable-Readline-Commands">32.4 Bindable Readline Commands</a>
 <ul>
-<li><a href="History-Interaction.html#History-Interaction">32.1 History Expansion</a>
+<li><a href="Commands-For-Moving.html#Commands-For-Moving">32.4.1 Commands For Moving</a>
+<li><a href="Commands-For-History.html#Commands-For-History">32.4.2 Commands For Manipulating The History</a>
+<li><a href="Commands-For-Text.html#Commands-For-Text">32.4.3 Commands For Changing Text</a>
+<li><a href="Commands-For-Killing.html#Commands-For-Killing">32.4.4 Killing And Yanking</a>
+<li><a href="Numeric-Arguments.html#Numeric-Arguments">32.4.5 Specifying Numeric Arguments</a>
+<li><a href="Commands-For-Completion.html#Commands-For-Completion">32.4.6 Letting Readline Type For You</a>
+<li><a href="Keyboard-Macros.html#Keyboard-Macros">32.4.7 Keyboard Macros</a>
+<li><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">32.4.8 Some Miscellaneous Commands</a>
+</li></ul>
+<li><a href="Readline-vi-Mode.html#Readline-vi-Mode">32.5 Readline vi Mode</a>
+</li></ul>
+<li><a name="toc_Using-History-Interactively" href="Using-History-Interactively.html#Using-History-Interactively">33 Using History Interactively</a>
 <ul>
-<li><a href="Event-Designators.html#Event-Designators">32.1.1 Event Designators</a>
-<li><a href="Word-Designators.html#Word-Designators">32.1.2 Word Designators</a>
-<li><a href="Modifiers.html#Modifiers">32.1.3 Modifiers</a>
+<li><a href="History-Interaction.html#History-Interaction">33.1 History Expansion</a>
+<ul>
+<li><a href="Event-Designators.html#Event-Designators">33.1.1 Event Designators</a>
+<li><a href="Word-Designators.html#Word-Designators">33.1.2 Word Designators</a>
+<li><a href="Modifiers.html#Modifiers">33.1.3 Modifiers</a>
 </li></ul>
 </li></ul>
 <li><a name="toc_In-Memoriam" href="In-Memoriam.html#In-Memoriam">Appendix A In Memoriam</a>
@@ -692,13 +715,14 @@ software in general.  We will miss him.
 <li><a href="General-Query-Packets.html#General-Query-Packets">E.4 General Query Packets</a>
 <li><a href="Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details">E.5 Architecture-Specific Protocol Details</a>
 <ul>
-<li><a href="Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details">E.5.1 ARM</a>
+<li><a href="ARM_002dSpecific-Protocol-Details.html#ARM_002dSpecific-Protocol-Details">E.5.1 <acronym>ARM</acronym>-specific Protocol Details</a>
 <ul>
-<li><a href="Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details">E.5.1.1 Breakpoint Kinds</a>
+<li><a href="ARM-Breakpoint-Kinds.html#ARM-Breakpoint-Kinds">E.5.1.1 <acronym>ARM</acronym> Breakpoint Kinds</a>
 </li></ul>
-<li><a href="Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details">E.5.2 MIPS</a>
+<li><a href="MIPS_002dSpecific-Protocol-Details.html#MIPS_002dSpecific-Protocol-Details">E.5.2 <acronym>MIPS</acronym>-specific Protocol Details</a>
 <ul>
-<li><a href="Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details">E.5.2.1 Register Packet Format</a>
+<li><a href="MIPS-Register-packet-Format.html#MIPS-Register-packet-Format">E.5.2.1 <acronym>MIPS</acronym> Register Packet Format</a>
+<li><a href="MIPS-Breakpoint-Kinds.html#MIPS-Breakpoint-Kinds">E.5.2.2 <acronym>MIPS</acronym> Breakpoint Kinds</a>
 </li></ul>
 </li></ul>
 <li><a href="Tracepoint-Packets.html#Tracepoint-Packets">E.6 Tracepoint Packets</a>
@@ -756,6 +780,7 @@ software in general.  We will miss him.
 <li><a href="Memory-Map-Format.html#Memory-Map-Format">E.16 Memory Map Format</a>
 <li><a href="Thread-List-Format.html#Thread-List-Format">E.17 Thread List Format</a>
 <li><a href="Traceframe-Info-Format.html#Traceframe-Info-Format">E.18 Traceframe Info Format</a>
+<li><a href="Branch-Trace-Format.html#Branch-Trace-Format">E.19 Branch Trace Format</a>
 </li></ul>
 <li><a name="toc_Agent-Expressions" href="Agent-Expressions.html#Agent-Expressions">Appendix F The GDB Agent Expression Mechanism</a>
 <ul>
@@ -781,12 +806,13 @@ software in general.  We will miss him.
 <li><a href="Predefined-Target-Types.html#Predefined-Target-Types">G.3 Predefined Target Types</a>
 <li><a href="Standard-Target-Features.html#Standard-Target-Features">G.4 Standard Target Features</a>
 <ul>
-<li><a href="ARM-Features.html#ARM-Features">G.4.1 ARM Features</a>
-<li><a href="i386-Features.html#i386-Features">G.4.2 i386 Features</a>
-<li><a href="MIPS-Features.html#MIPS-Features">G.4.3 MIPS Features</a>
-<li><a href="M68K-Features.html#M68K-Features">G.4.4 M68K Features</a>
-<li><a href="PowerPC-Features.html#PowerPC-Features">G.4.5 PowerPC Features</a>
-<li><a href="TIC6x-Features.html#TIC6x-Features">G.4.6 TMS320C6x Features</a>
+<li><a href="AArch64-Features.html#AArch64-Features">G.4.1 AArch64 Features</a>
+<li><a href="ARM-Features.html#ARM-Features">G.4.2 ARM Features</a>
+<li><a href="i386-Features.html#i386-Features">G.4.3 i386 Features</a>
+<li><a href="MIPS-Features.html#MIPS-Features">G.4.4 <acronym>MIPS</acronym> Features</a>
+<li><a href="M68K-Features.html#M68K-Features">G.4.5 M68K Features</a>
+<li><a href="PowerPC-Features.html#PowerPC-Features">G.4.6 PowerPC Features</a>
+<li><a href="TIC6x-Features.html#TIC6x-Features">G.4.7 TMS320C6x Features</a>
 </li></ul>
 </li></ul>
 <li><a name="toc_Operating-System-Information" href="Operating-System-Information.html#Operating-System-Information">Appendix H Operating System Information</a>
@@ -797,7 +823,8 @@ software in general.  We will miss him.
 <li><a name="toc_Index-Section-Format" href="Index-Section-Format.html#Index-Section-Format">Appendix J <code>.gdb_index</code> section format</a>
 <li><a name="toc_Copying" href="Copying.html#Copying">Appendix K GNU GENERAL PUBLIC LICENSE</a>
 <li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Appendix L GNU Free Documentation License</a>
-<li><a name="toc_Index" href="Index.html#Index">Index</a>
+<li><a name="toc_Concept-Index" href="Concept-Index.html#Concept-Index">Concept Index</a>
+<li><a name="toc_Command-and-Variable-Index" href="Command-and-Variable-Index.html#Command-and-Variable-Index">Command, Variable, and Function Index</a>
 </li></ul>
 </div>
 

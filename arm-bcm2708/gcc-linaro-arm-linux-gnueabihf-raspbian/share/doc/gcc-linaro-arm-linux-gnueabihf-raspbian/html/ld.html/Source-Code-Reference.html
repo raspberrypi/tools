@@ -10,11 +10,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -44,7 +43,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Assignments.html#Assignments">Assignmen
 <hr>
 </div>
 
-<h4 class="subsection">3.5.4 Source Code Reference</h4>
+<h4 class="subsection">3.5.5 Source Code Reference</h4>
 
 <p>Accessing a linker script defined variable from source code is not
 intuitive.  In particular a linker script symbol is not equivalent to
@@ -79,7 +78,7 @@ value.  So for example the following C declaration, at file scope:
 
 <pre class="smallexample">       int foo = 1000;
 </pre>
-   <p>creates a entry called &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; in the symbol table.  This entry
+   <p>creates an entry called &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; in the symbol table.  This entry
 holds the address of an &lsquo;<samp><span class="samp">int</span></samp>&rsquo; sized block of memory where the
 number 1000 is initially stored.
 
@@ -96,7 +95,7 @@ address.  Whereas:
 
 <pre class="smallexample">       int * a = &amp; foo;
 </pre>
-   <p>looks up the symbol &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; in the symbol table, gets it address
+   <p>looks up the symbol &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; in the symbol table, gets its address
 and then copies this address into the block of memory associated with
 the variable &lsquo;<samp><span class="samp">a</span></samp>&rsquo;.
 

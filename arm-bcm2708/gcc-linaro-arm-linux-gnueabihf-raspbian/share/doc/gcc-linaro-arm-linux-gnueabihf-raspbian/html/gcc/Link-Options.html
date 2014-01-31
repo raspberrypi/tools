@@ -10,9 +10,7 @@
 <link rel="next" href="Directory-Options.html#Directory-Options" title="Directory Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,23 +54,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 
 <h3 class="section">3.13 Options for Linking</h3>
 
-<p><a name="index-link-options-991"></a><a name="index-options_002c-linking-992"></a>
+<p><a name="index-link-options-1026"></a><a name="index-options_002c-linking-1027"></a>
 These options come into play when the compiler links object files into
 an executable output file.  They are meaningless if the compiler is
 not doing a link step.
 
      
-<a name="index-file-names-993"></a>
+<a name="index-file-names-1028"></a>
 <dl><dt><var>object-file-name</var><dd>A file name that does not end in a special recognized suffix is
 considered to name an object file or library.  (Object files are
 distinguished from libraries by the linker according to the file
 contents.)  If linking is done, these object files are used as input
 to the linker.
 
-     <br><dt><code>-c</code><dt><code>-S</code><dt><code>-E</code><dd><a name="index-c-994"></a><a name="index-S-995"></a><a name="index-E-996"></a>If any of these options is used, then the linker is not run, and
+     <br><dt><code>-c</code><dt><code>-S</code><dt><code>-E</code><dd><a name="index-c-1029"></a><a name="index-S-1030"></a><a name="index-E-1031"></a>If any of these options is used, then the linker is not run, and
 object file names should not be used as arguments.  See <a href="Overall-Options.html#Overall-Options">Overall Options</a>.
 
-     <p><a name="index-Libraries-997"></a><br><dt><code>-l</code><var>library</var><dt><code>-l </code><var>library</var><dd><a name="index-l-998"></a>Search the library named <var>library</var> when linking.  (The second
+     <p><a name="index-Libraries-1032"></a><br><dt><code>-l</code><var>library</var><dt><code>-l </code><var>library</var><dd><a name="index-l-1033"></a>Search the library named <var>library</var> when linking.  (The second
 alternative with the library as a separate argument is only for
 POSIX compliance and is not recommended.)
 
@@ -98,35 +96,38 @@ difference between using an <samp><span class="option">-l</span></samp> option a
 is that <samp><span class="option">-l</span></samp> surrounds <var>library</var> with &lsquo;<samp><span class="samp">lib</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.a</span></samp>&rsquo;
 and searches several directories.
 
-     <br><dt><code>-lobjc</code><dd><a name="index-lobjc-999"></a>You need this special case of the <samp><span class="option">-l</span></samp> option in order to
+     <br><dt><code>-lobjc</code><dd><a name="index-lobjc-1034"></a>You need this special case of the <samp><span class="option">-l</span></samp> option in order to
 link an Objective-C or Objective-C++ program.
 
-     <br><dt><code>-nostartfiles</code><dd><a name="index-nostartfiles-1000"></a>Do not use the standard system startup files when linking. 
+     <br><dt><code>-nostartfiles</code><dd><a name="index-nostartfiles-1035"></a>Do not use the standard system startup files when linking. 
 The standard system libraries are used normally, unless <samp><span class="option">-nostdlib</span></samp>
 or <samp><span class="option">-nodefaultlibs</span></samp> is used.
 
-     <br><dt><code>-nodefaultlibs</code><dd><a name="index-nodefaultlibs-1001"></a>Do not use the standard system libraries when linking. 
-Only the libraries you specify will be passed to the linker, options
+     <br><dt><code>-nodefaultlibs</code><dd><a name="index-nodefaultlibs-1036"></a>Do not use the standard system libraries when linking. 
+Only the libraries you specify are passed to the linker, and options
 specifying linkage of the system libraries, such as <code>-static-libgcc</code>
-or <code>-shared-libgcc</code>, will be ignored. 
+or <code>-shared-libgcc</code>, are ignored. 
 The standard startup files are used normally, unless <samp><span class="option">-nostartfiles</span></samp>
-is used.  The compiler may generate calls to <code>memcmp</code>,
+is used.
+
+     <p>The compiler may generate calls to <code>memcmp</code>,
 <code>memset</code>, <code>memcpy</code> and <code>memmove</code>. 
 These entries are usually resolved by entries in
 libc.  These entry points should be supplied through some other
 mechanism when this option is specified.
 
-     <br><dt><code>-nostdlib</code><dd><a name="index-nostdlib-1002"></a>Do not use the standard system startup files or libraries when linking. 
-No startup files and only the libraries you specify will be passed to
-the linker, options specifying linkage of the system libraries, such as
-<code>-static-libgcc</code> or <code>-shared-libgcc</code>, will be ignored. 
-The compiler may generate calls to <code>memcmp</code>, <code>memset</code>,
+     <br><dt><code>-nostdlib</code><dd><a name="index-nostdlib-1037"></a>Do not use the standard system startup files or libraries when linking. 
+No startup files and only the libraries you specify are passed to
+the linker, and options specifying linkage of the system libraries, such as
+<code>-static-libgcc</code> or <code>-shared-libgcc</code>, are ignored.
+
+     <p>The compiler may generate calls to <code>memcmp</code>, <code>memset</code>,
 <code>memcpy</code> and <code>memmove</code>. 
 These entries are usually resolved by entries in
 libc.  These entry points should be supplied through some other
 mechanism when this option is specified.
 
-     <p><a name="index-g_t_0040option_007b_002dlgcc_007d_002c-use-with-_0040option_007b_002dnostdlib_007d-1003"></a><a name="index-g_t_0040option_007b_002dnostdlib_007d-and-unresolved-references-1004"></a><a name="index-unresolved-references-and-_0040option_007b_002dnostdlib_007d-1005"></a><a name="index-g_t_0040option_007b_002dlgcc_007d_002c-use-with-_0040option_007b_002dnodefaultlibs_007d-1006"></a><a name="index-g_t_0040option_007b_002dnodefaultlibs_007d-and-unresolved-references-1007"></a><a name="index-unresolved-references-and-_0040option_007b_002dnodefaultlibs_007d-1008"></a>One of the standard libraries bypassed by <samp><span class="option">-nostdlib</span></samp> and
+     <p><a name="index-g_t_0040option_007b_002dlgcc_007d_002c-use-with-_0040option_007b_002dnostdlib_007d-1038"></a><a name="index-g_t_0040option_007b_002dnostdlib_007d-and-unresolved-references-1039"></a><a name="index-unresolved-references-and-_0040option_007b_002dnostdlib_007d-1040"></a><a name="index-g_t_0040option_007b_002dlgcc_007d_002c-use-with-_0040option_007b_002dnodefaultlibs_007d-1041"></a><a name="index-g_t_0040option_007b_002dnodefaultlibs_007d-and-unresolved-references-1042"></a><a name="index-unresolved-references-and-_0040option_007b_002dnodefaultlibs_007d-1043"></a>One of the standard libraries bypassed by <samp><span class="option">-nostdlib</span></samp> and
 <samp><span class="option">-nodefaultlibs</span></samp> is <samp><span class="file">libgcc.a</span></samp>, a library of internal subroutines
 which GCC uses to overcome shortcomings of particular machines, or special
 needs for some languages. 
@@ -136,33 +137,34 @@ In most cases, you need <samp><span class="file">libgcc.a</span></samp> even whe
 other standard libraries.  In other words, when you specify <samp><span class="option">-nostdlib</span></samp>
 or <samp><span class="option">-nodefaultlibs</span></samp> you should usually specify <samp><span class="option">-lgcc</span></samp> as well. 
 This ensures that you have no unresolved references to internal GCC
-library subroutines.  (For example, &lsquo;<samp><span class="samp">__main</span></samp>&rsquo;, used to ensure C++
-constructors will be called; see <a href="../gccint/Collect2.html#Collect2"><code>collect2</code></a>.)
+library subroutines. 
+(An example of such an internal subroutine is &lsquo;<samp><span class="samp">__main</span></samp>&rsquo;, used to ensure C++
+constructors are called; see <a href="../gccint/Collect2.html#Collect2"><code>collect2</code></a>.)
 
-     <br><dt><code>-pie</code><dd><a name="index-pie-1009"></a>Produce a position independent executable on targets that support it. 
+     <br><dt><code>-pie</code><dd><a name="index-pie-1044"></a>Produce a position independent executable on targets that support it. 
 For predictable results, you must also specify the same set of options
-that were used to generate code (<samp><span class="option">-fpie</span></samp>, <samp><span class="option">-fPIE</span></samp>,
-or model suboptions) when you specify this option.
+used for compilation (<samp><span class="option">-fpie</span></samp>, <samp><span class="option">-fPIE</span></samp>,
+or model suboptions) when you specify this linker option.
 
-     <br><dt><code>-rdynamic</code><dd><a name="index-rdynamic-1010"></a>Pass the flag <samp><span class="option">-export-dynamic</span></samp> to the ELF linker, on targets
+     <br><dt><code>-rdynamic</code><dd><a name="index-rdynamic-1045"></a>Pass the flag <samp><span class="option">-export-dynamic</span></samp> to the ELF linker, on targets
 that support it. This instructs the linker to add all symbols, not
 only used ones, to the dynamic symbol table. This option is needed
 for some uses of <code>dlopen</code> or to allow obtaining backtraces
 from within a program.
 
-     <br><dt><code>-s</code><dd><a name="index-s-1011"></a>Remove all symbol table and relocation information from the executable.
+     <br><dt><code>-s</code><dd><a name="index-s-1046"></a>Remove all symbol table and relocation information from the executable.
 
-     <br><dt><code>-static</code><dd><a name="index-static-1012"></a>On systems that support dynamic linking, this prevents linking with the shared
+     <br><dt><code>-static</code><dd><a name="index-static-1047"></a>On systems that support dynamic linking, this prevents linking with the shared
 libraries.  On other systems, this option has no effect.
 
-     <br><dt><code>-shared</code><dd><a name="index-shared-1013"></a>Produce a shared object which can then be linked with other objects to
+     <br><dt><code>-shared</code><dd><a name="index-shared-1048"></a>Produce a shared object which can then be linked with other objects to
 form an executable.  Not all systems support this option.  For predictable
-results, you must also specify the same set of options that were used to
-generate code (<samp><span class="option">-fpic</span></samp>, <samp><span class="option">-fPIC</span></samp>, or model suboptions)
-when you specify this option.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+results, you must also specify the same set of options used for compilation
+(<samp><span class="option">-fpic</span></samp>, <samp><span class="option">-fPIC</span></samp>, or model suboptions) when
+you specify this linker option.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
 
-     <br><dt><code>-shared-libgcc</code><dt><code>-static-libgcc</code><dd><a name="index-shared_002dlibgcc-1014"></a><a name="index-static_002dlibgcc-1015"></a>On systems that provide <samp><span class="file">libgcc</span></samp> as a shared library, these options
-force the use of either the shared or static version respectively. 
+     <br><dt><code>-shared-libgcc</code><dt><code>-static-libgcc</code><dd><a name="index-shared_002dlibgcc-1049"></a><a name="index-static_002dlibgcc-1050"></a>On systems that provide <samp><span class="file">libgcc</span></samp> as a shared library, these options
+force the use of either the shared or static version, respectively. 
 If no shared version of <samp><span class="file">libgcc</span></samp> was built when the compiler was
 configured, these options have no effect.
 
@@ -178,11 +180,11 @@ executable, because C++ and Java programs typically use exceptions, so
 this is the right thing to do.
 
      <p>If, instead, you use the GCC driver to create shared libraries, you may
-find that they will not always be linked with the shared <samp><span class="file">libgcc</span></samp>. 
+find that they are not always linked with the shared <samp><span class="file">libgcc</span></samp>. 
 If GCC finds, at its configuration time, that you have a non-GNU linker
 or a GNU linker that does not support option <samp><span class="option">--eh-frame-hdr</span></samp>,
-it will link the shared version of <samp><span class="file">libgcc</span></samp> into shared libraries
-by default.  Otherwise, it will take advantage of the linker and optimize
+it links the shared version of <samp><span class="file">libgcc</span></samp> into shared libraries
+by default.  Otherwise, it takes advantage of the linker and optimizes
 away the linking with the shared version of <samp><span class="file">libgcc</span></samp>, linking with
 the static version of libgcc by default.  This allows exceptions to
 propagate through such shared libraries, without incurring relocation
@@ -194,10 +196,26 @@ for the languages used in the program, or using the option
 <samp><span class="option">-shared-libgcc</span></samp>, such that it is linked with the shared
 <samp><span class="file">libgcc</span></samp>.
 
-     <br><dt><code>-static-libstdc++</code><dd>When the <samp><span class="command">g++</span></samp> program is used to link a C++ program, it will
-normally automatically link against <samp><span class="option">libstdc++</span></samp>.  If
+     <br><dt><code>-static-libasan</code><dd>When the <samp><span class="option">-fsanitize=address</span></samp> option is used to link a program,
+the GCC driver automatically links against <samp><span class="option">libasan</span></samp>.  If
+<samp><span class="file">libasan</span></samp> is available as a shared library, and the <samp><span class="option">-static</span></samp>
+option is not used, then this links against the shared version of
+<samp><span class="file">libasan</span></samp>.  The <samp><span class="option">-static-libasan</span></samp> option directs the GCC
+driver to link <samp><span class="file">libasan</span></samp> statically, without necessarily linking
+other libraries statically.
+
+     <br><dt><code>-static-libtsan</code><dd>When the <samp><span class="option">-fsanitize=thread</span></samp> option is used to link a program,
+the GCC driver automatically links against <samp><span class="option">libtsan</span></samp>.  If
+<samp><span class="file">libtsan</span></samp> is available as a shared library, and the <samp><span class="option">-static</span></samp>
+option is not used, then this links against the shared version of
+<samp><span class="file">libtsan</span></samp>.  The <samp><span class="option">-static-libtsan</span></samp> option directs the GCC
+driver to link <samp><span class="file">libtsan</span></samp> statically, without necessarily linking
+other libraries statically.
+
+     <br><dt><code>-static-libstdc++</code><dd>When the <samp><span class="command">g++</span></samp> program is used to link a C++ program, it
+normally automatically links against <samp><span class="option">libstdc++</span></samp>.  If
 <samp><span class="file">libstdc++</span></samp> is available as a shared library, and the
-<samp><span class="option">-static</span></samp> option is not used, then this will link against the
+<samp><span class="option">-static</span></samp> option is not used, then this links against the
 shared version of <samp><span class="file">libstdc++</span></samp>.  That is normally fine.  However, it
 is sometimes useful to freeze the version of <samp><span class="file">libstdc++</span></samp> used by
 the program without going all the way to a fully static link.  The
@@ -205,41 +223,41 @@ the program without going all the way to a fully static link.  The
 link <samp><span class="file">libstdc++</span></samp> statically, without necessarily linking other
 libraries statically.
 
-     <br><dt><code>-symbolic</code><dd><a name="index-symbolic-1016"></a>Bind references to global symbols when building a shared object.  Warn
+     <br><dt><code>-symbolic</code><dd><a name="index-symbolic-1051"></a>Bind references to global symbols when building a shared object.  Warn
 about any unresolved references (unless overridden by the link editor
-option &lsquo;<samp><span class="samp">-Xlinker -z -Xlinker defs</span></samp>&rsquo;).  Only a few systems support
+option <samp><span class="option">-Xlinker -z -Xlinker defs</span></samp>).  Only a few systems support
 this option.
 
-     <br><dt><code>-T </code><var>script</var><dd><a name="index-T-1017"></a><a name="index-linker-script-1018"></a>Use <var>script</var> as the linker script.  This option is supported by most
+     <br><dt><code>-T </code><var>script</var><dd><a name="index-T-1052"></a><a name="index-linker-script-1053"></a>Use <var>script</var> as the linker script.  This option is supported by most
 systems using the GNU linker.  On some targets, such as bare-board
 targets without an operating system, the <samp><span class="option">-T</span></samp> option may be required
 when linking to avoid references to undefined symbols.
 
-     <br><dt><code>-Xlinker </code><var>option</var><dd><a name="index-Xlinker-1019"></a>Pass <var>option</var> as an option to the linker.  You can use this to
+     <br><dt><code>-Xlinker </code><var>option</var><dd><a name="index-Xlinker-1054"></a>Pass <var>option</var> as an option to the linker.  You can use this to
 supply system-specific linker options that GCC does not recognize.
 
      <p>If you want to pass an option that takes a separate argument, you must use
 <samp><span class="option">-Xlinker</span></samp> twice, once for the option and once for the argument. 
 For example, to pass <samp><span class="option">-assert definitions</span></samp>, you must write
-&lsquo;<samp><span class="samp">-Xlinker -assert -Xlinker definitions</span></samp>&rsquo;.  It does not work to write
+<samp><span class="option">-Xlinker -assert -Xlinker definitions</span></samp>.  It does not work to write
 <samp><span class="option">-Xlinker "-assert definitions"</span></samp>, because this passes the entire
 string as a single argument, which is not what the linker expects.
 
      <p>When using the GNU linker, it is usually more convenient to pass
 arguments to linker options using the <samp><var>option</var><span class="option">=</span><var>value</var></samp>
 syntax than as separate arguments.  For example, you can specify
-&lsquo;<samp><span class="samp">-Xlinker -Map=output.map</span></samp>&rsquo; rather than
-&lsquo;<samp><span class="samp">-Xlinker -Map -Xlinker output.map</span></samp>&rsquo;.  Other linkers may not support
+<samp><span class="option">-Xlinker -Map=output.map</span></samp> rather than
+<samp><span class="option">-Xlinker -Map -Xlinker output.map</span></samp>.  Other linkers may not support
 this syntax for command-line options.
 
-     <br><dt><code>-Wl,</code><var>option</var><dd><a name="index-Wl-1020"></a>Pass <var>option</var> as an option to the linker.  If <var>option</var> contains
+     <br><dt><code>-Wl,</code><var>option</var><dd><a name="index-Wl-1055"></a>Pass <var>option</var> as an option to the linker.  If <var>option</var> contains
 commas, it is split into multiple options at the commas.  You can use this
 syntax to pass an argument to the option. 
-For example, &lsquo;<samp><span class="samp">-Wl,-Map,output.map</span></samp>&rsquo; passes &lsquo;<samp><span class="samp">-Map output.map</span></samp>&rsquo; to the
+For example, <samp><span class="option">-Wl,-Map,output.map</span></samp> passes <samp><span class="option">-Map output.map</span></samp> to the
 linker.  When using the GNU linker, you can also get the same effect with
-&lsquo;<samp><span class="samp">-Wl,-Map=output.map</span></samp>&rsquo;.
+<samp><span class="option">-Wl,-Map=output.map</span></samp>.
 
-     <br><dt><code>-u </code><var>symbol</var><dd><a name="index-u-1021"></a>Pretend the symbol <var>symbol</var> is undefined, to force linking of
+     <br><dt><code>-u </code><var>symbol</var><dd><a name="index-u-1056"></a>Pretend the symbol <var>symbol</var> is undefined, to force linking of
 library modules to define it.  You can use <samp><span class="option">-u</span></samp> multiple times with
 different symbols to force loading of additional library modules. 
 </dl>

@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i386_002dDependent.html#i386_002dDepend
 <hr>
 </div>
 
-<h4 class="subsection">9.13.4 Instruction Naming</h4>
+<h4 class="subsection">9.15.4 Instruction Naming</h4>
 
-<p><a name="index-i386-instruction-naming-932"></a><a name="index-instruction-naming_002c-i386-933"></a><a name="index-x86_002d64-instruction-naming-934"></a><a name="index-instruction-naming_002c-x86_002d64-935"></a>
+<p><a name="index-i386-instruction-naming-989"></a><a name="index-instruction-naming_002c-i386-990"></a><a name="index-x86_002d64-instruction-naming-991"></a><a name="index-instruction-naming_002c-x86_002d64-992"></a>
 Instruction mnemonics are suffixed with one character modifiers which
 specify the size of operands.  The letters &lsquo;<samp><span class="samp">b</span></samp>&rsquo;, &lsquo;<samp><span class="samp">w</span></samp>&rsquo;, &lsquo;<samp><span class="samp">l</span></samp>&rsquo;
 and &lsquo;<samp><span class="samp">q</span></samp>&rsquo; specify byte, word, long and quadruple word operands.  If
@@ -79,13 +77,13 @@ thus, are &lsquo;<samp><span class="samp">bl</span></samp>&rsquo; (from byte to 
 &lsquo;<samp><span class="samp">wq</span></samp>&rsquo; (from word to quadruple word), and &lsquo;<samp><span class="samp">lq</span></samp>&rsquo; (from long to
 quadruple word).
 
-   <p><a name="index-encoding-options_002c-i386-936"></a><a name="index-encoding-options_002c-x86_002d64-937"></a>
+   <p><a name="index-encoding-options_002c-i386-993"></a><a name="index-encoding-options_002c-x86_002d64-994"></a>
 Different encoding options can be specified via optional mnemonic
 suffix.  &lsquo;<samp><span class="samp">.s</span></samp>&rsquo; suffix swaps 2 register operands in encoding when
-moving from one register to another.  &lsquo;<samp><span class="samp">.d32</span></samp>&rsquo; suffix forces 32bit
-displacement in encoding.
+moving from one register to another.  &lsquo;<samp><span class="samp">.d8</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.d32</span></samp>&rsquo; suffix
+prefers 8bit or 32bit displacement in encoding.
 
-   <p><a name="index-conversion-instructions_002c-i386-938"></a><a name="index-i386-conversion-instructions-939"></a><a name="index-conversion-instructions_002c-x86_002d64-940"></a><a name="index-x86_002d64-conversion-instructions-941"></a>The Intel-syntax conversion instructions
+   <p><a name="index-conversion-instructions_002c-i386-995"></a><a name="index-i386-conversion-instructions-996"></a><a name="index-conversion-instructions_002c-x86_002d64-997"></a><a name="index-x86_002d64-conversion-instructions-998"></a>The Intel-syntax conversion instructions
 
      <ul>
 <li>&lsquo;<samp><span class="samp">cbw</span></samp>&rsquo; &mdash; sign-extend byte in &lsquo;<samp><span class="samp">%al</span></samp>&rsquo; to word in &lsquo;<samp><span class="samp">%ax</span></samp>&rsquo;,
@@ -107,13 +105,13 @@ displacement in encoding.
 &lsquo;<samp><span class="samp">cqto</span></samp>&rsquo; in AT&amp;T naming.  <code>as</code> accepts either naming for these
 instructions.
 
-   <p><a name="index-jump-instructions_002c-i386-942"></a><a name="index-call-instructions_002c-i386-943"></a><a name="index-jump-instructions_002c-x86_002d64-944"></a><a name="index-call-instructions_002c-x86_002d64-945"></a>Far call/jump instructions are &lsquo;<samp><span class="samp">lcall</span></samp>&rsquo; and &lsquo;<samp><span class="samp">ljmp</span></samp>&rsquo; in
+   <p><a name="index-jump-instructions_002c-i386-999"></a><a name="index-call-instructions_002c-i386-1000"></a><a name="index-jump-instructions_002c-x86_002d64-1001"></a><a name="index-call-instructions_002c-x86_002d64-1002"></a>Far call/jump instructions are &lsquo;<samp><span class="samp">lcall</span></samp>&rsquo; and &lsquo;<samp><span class="samp">ljmp</span></samp>&rsquo; in
 AT&amp;T syntax, but are &lsquo;<samp><span class="samp">call far</span></samp>&rsquo; and &lsquo;<samp><span class="samp">jump far</span></samp>&rsquo; in Intel
 convention.
 
-<h4 class="subsection">9.13.5 AT&amp;T Mnemonic versus Intel Mnemonic</h4>
+<h4 class="subsection">9.15.5 AT&amp;T Mnemonic versus Intel Mnemonic</h4>
 
-<p><a name="index-i386-mnemonic-compatibility-946"></a><a name="index-mnemonic-compatibility_002c-i386-947"></a>
+<p><a name="index-i386-mnemonic-compatibility-1003"></a><a name="index-mnemonic-compatibility_002c-i386-1004"></a>
 <code>as</code> supports assembly using Intel mnemonic. 
 <code>.intel_mnemonic</code> selects Intel mnemonic with Intel syntax, and
 <code>.att_mnemonic</code> switches back to the usual AT&amp;T mnemonic with AT&amp;T

@@ -9,9 +9,7 @@
 <link rel="next" href="Overall-Options.html#Overall-Options" title="Overall Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -63,21 +61,21 @@ in the following sections.
           -pipe  -pass-exit-codes  
           -x <var>language</var>  -v  -###  --help<span class="roman">[</span>=<var>class</var><span class="roman">[</span>,...<span class="roman">]]</span>  --target-help  
           --version -wrapper @<var>file</var> -fplugin=<var>file</var> -fplugin-arg-<var>name</var>=<var>arg</var>  
-          -fdump-ada-spec<span class="roman">[</span>-slim<span class="roman">]</span> -fdump-go-spec=<var>file</var>
+          -fdump-ada-spec<span class="roman">[</span>-slim<span class="roman">]</span> -fada-spec-parent=<var>unit</var> -fdump-go-spec=<var>file</var>
 </pre>
      <br><dt><em>C Language Options</em><dd>See <a href="C-Dialect-Options.html#C-Dialect-Options">Options Controlling C Dialect</a>.
      <pre class="smallexample">          -ansi  -std=<var>standard</var>  -fgnu89-inline 
           -aux-info <var>filename</var> -fallow-parameterless-variadic-functions 
           -fno-asm  -fno-builtin  -fno-builtin-<var>function</var> 
           -fhosted  -ffreestanding -fopenmp -fms-extensions -fplan9-extensions 
-          -trigraphs  -no-integrated-cpp  -traditional  -traditional-cpp 
+          -trigraphs  -traditional  -traditional-cpp 
           -fallow-single-precision  -fcond-mismatch -flax-vector-conversions 
           -fsigned-bitfields  -fsigned-char 
           -funsigned-bitfields  -funsigned-char
 </pre>
      <br><dt><em>C++ Language Options</em><dd>See <a href="C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options">Options Controlling C++ Dialect</a>.
      <pre class="smallexample">          -fabi-version=<var>n</var>  -fno-access-control  -fcheck-new 
-          -fconserve-space  -fconstexpr-depth=<var>n</var>  -ffriend-injection 
+          -fconstexpr-depth=<var>n</var>  -ffriend-injection 
           -fno-elide-constructors 
           -fno-enforce-eh-specs 
           -ffor-scope  -fno-for-scope  -fno-gnu-keywords 
@@ -87,13 +85,15 @@ in the following sections.
           -fno-nonansi-builtins  -fnothrow-opt  -fno-operator-names 
           -fno-optional-diags  -fpermissive 
           -fno-pretty-templates 
-          -frepo  -fno-rtti  -fstats  -ftemplate-depth=<var>n</var> 
+          -frepo  -fno-rtti  -fstats  -ftemplate-backtrace-limit=<var>n</var> 
+          -ftemplate-depth=<var>n</var> 
           -fno-threadsafe-statics -fuse-cxa-atexit  -fno-weak  -nostdinc++ 
           -fno-default-inline  -fvisibility-inlines-hidden 
           -fvisibility-ms-compat 
+          -fext-numeric-literals 
           -Wabi  -Wconversion-null  -Wctor-dtor-privacy 
-          -Wdelete-non-virtual-dtor -Wnarrowing -Wnoexcept 
-          -Wnon-virtual-dtor  -Wreorder 
+          -Wdelete-non-virtual-dtor -Wliteral-suffix -Wnarrowing 
+          -Wnoexcept -Wnon-virtual-dtor  -Wreorder 
           -Weffc++  -Wstrict-null-sentinel 
           -Wno-non-template-friend  -Wold-style-cast 
           -Woverloaded-virtual  -Wno-pmf-conversions 
@@ -121,12 +121,13 @@ in the following sections.
      <br><dt><em>Language Independent Options</em><dd>See <a href="Language-Independent-Options.html#Language-Independent-Options">Options to Control Diagnostic Messages Formatting</a>.
      <pre class="smallexample">          -fmessage-length=<var>n</var>  
           -fdiagnostics-show-location=<span class="roman">[</span>once<span class="roman">|</span>every-line<span class="roman">]</span>  
-          -fno-diagnostics-show-option
+          -fno-diagnostics-show-option -fno-diagnostics-show-caret
 </pre>
      <br><dt><em>Warning Options</em><dd>See <a href="Warning-Options.html#Warning-Options">Options to Request or Suppress Warnings</a>.
-     <pre class="smallexample">          -fsyntax-only  -fmax-errors=<var>n</var>  -pedantic 
+     <pre class="smallexample">          -fsyntax-only  -fmax-errors=<var>n</var>  -Wpedantic 
           -pedantic-errors 
-          -w  -Wextra  -Wall  -Waddress  -Waggregate-return  -Warray-bounds 
+          -w  -Wextra  -Wall  -Waddress  -Waggregate-return  
+          -Waggressive-loop-optimizations -Warray-bounds 
           -Wno-attributes -Wno-builtin-macro-redefined 
           -Wc++-compat -Wc++11-compat -Wcast-align  -Wcast-qual  
           -Wchar-subscripts -Wclobbered  -Wcomment 
@@ -145,18 +146,19 @@ in the following sections.
           -Winvalid-pch -Wlarger-than=<var>len</var>  -Wunsafe-loop-optimizations 
           -Wlogical-op -Wlong-long 
           -Wmain -Wmaybe-uninitialized -Wmissing-braces  -Wmissing-field-initializers 
-          -Wmissing-format-attribute  -Wmissing-include-dirs 
+          -Wmissing-include-dirs 
           -Wno-mudflap 
           -Wno-multichar  -Wnonnull  -Wno-overflow 
           -Woverlength-strings  -Wpacked  -Wpacked-bitfield-compat  -Wpadded 
           -Wparentheses  -Wpedantic-ms-format -Wno-pedantic-ms-format 
           -Wpointer-arith  -Wno-pointer-to-int-cast 
-          -Wredundant-decls 
+          -Wredundant-decls  -Wno-return-local-addr 
           -Wreturn-type  -Wsequence-point  -Wshadow 
-          -Wsign-compare  -Wsign-conversion  -Wstack-protector 
-          -Wstack-usage=<var>len</var> -Wstrict-aliasing -Wstrict-aliasing=n 
-          -Wstrict-overflow -Wstrict-overflow=<var>n</var> 
-          -Wsuggest-attribute=<span class="roman">[</span>pure<span class="roman">|</span>const<span class="roman">|</span>noreturn<span class="roman">]</span> 
+          -Wsign-compare  -Wsign-conversion  -Wsizeof-pointer-memaccess 
+          -Wstack-protector -Wstack-usage=<var>len</var> -Wstrict-aliasing 
+          -Wstrict-aliasing=n  -Wstrict-overflow -Wstrict-overflow=<var>n</var> 
+          -Wsuggest-attribute=<span class="roman">[</span>pure<span class="roman">|</span>const<span class="roman">|</span>noreturn<span class="roman">|</span>format<span class="roman">]</span> 
+          -Wmissing-format-attribute 
           -Wswitch  -Wswitch-default  -Wswitch-enum -Wsync-nand 
           -Wsystem-headers  -Wtrampolines  -Wtrigraphs  -Wtype-limits  -Wundef 
           -Wuninitialized  -Wunknown-pragmas  -Wno-pragmas 
@@ -164,8 +166,8 @@ in the following sections.
           -Wunused-label  -Wunused-local-typedefs -Wunused-parameter 
           -Wno-unused-result -Wunused-value  -Wunused-variable 
           -Wunused-but-set-parameter -Wunused-but-set-variable 
-          -Wvariadic-macros -Wvector-operation-performance -Wvla
-          -Wvolatile-register-var  -Wwrite-strings -Wzero-as-null-pointer-constant
+          -Wuseless-cast -Wvariadic-macros -Wvector-operation-performance 
+          -Wvla -Wvolatile-register-var  -Wwrite-strings -Wzero-as-null-pointer-constant
 </pre>
      <br><dt><em>C and Objective-C-only Warning Options</em><dd>
      <pre class="smallexample">          -Wbad-function-cast  -Wmissing-declarations 
@@ -176,6 +178,7 @@ in the following sections.
 </pre>
      <br><dt><em>Debugging Options</em><dd>See <a href="Debugging-Options.html#Debugging-Options">Options for Debugging Your Program or GCC</a>.
      <pre class="smallexample">          -d<var>letters</var>  -dumpspecs  -dumpmachine  -dumpversion 
+          -fsanitize=<var>style</var> 
           -fdbg-cnt-list -fdbg-cnt=<var>counter-value-list</var> 
           -fdisable-ipa-<var>pass_name</var> 
           -fdisable-rtl-<var>pass_name</var> 
@@ -191,7 +194,7 @@ in the following sections.
           -fdump-tree-all 
           -fdump-tree-original<span class="roman">[</span>-<var>n</var><span class="roman">]</span>  
           -fdump-tree-optimized<span class="roman">[</span>-<var>n</var><span class="roman">]</span> 
-          -fdump-tree-cfg -fdump-tree-vcg -fdump-tree-alias 
+          -fdump-tree-cfg -fdump-tree-alias 
           -fdump-tree-ch 
           -fdump-tree-ssa<span class="roman">[</span>-<var>n</var><span class="roman">]</span> -fdump-tree-pre<span class="roman">[</span>-<var>n</var><span class="roman">]</span> 
           -fdump-tree-ccp<span class="roman">[</span>-<var>n</var><span class="roman">]</span> -fdump-tree-dce<span class="roman">[</span>-<var>n</var><span class="roman">]</span> 
@@ -212,12 +215,14 @@ in the following sections.
           -fdump-tree-storeccp<span class="roman">[</span>-<var>n</var><span class="roman">]</span> 
           -fdump-final-insns=<var>file</var> 
           -fcompare-debug<span class="roman">[</span>=<var>opts</var><span class="roman">]</span>  -fcompare-debug-second 
-          -feliminate-dwarf2-dups -feliminate-unused-debug-types 
+          -feliminate-dwarf2-dups -fno-eliminate-unused-debug-types 
           -feliminate-unused-debug-symbols -femit-class-debug-always 
           -fenable-<var>kind</var>-<var>pass</var> 
           -fenable-<var>kind</var>-<var>pass</var>=<var>range-list</var> 
-          -fdebug-types-section 
+          -fdebug-types-section -fmem-report-wpa 
           -fmem-report -fpre-ipa-mem-report -fpost-ipa-mem-report -fprofile-arcs 
+          -fopt-info 
+          -fopt-info-<var>options</var><span class="roman">[</span>=<var>file</var><span class="roman">]</span> 
           -frandom-seed=<var>string</var> -fsched-verbose=<var>n</var> 
           -fsel-sched-verbose -fsel-sched-dump-cfg -fsel-sched-pipelining-verbose 
           -fstack-usage  -ftest-coverage  -ftime-report -fvar-tracking 
@@ -237,10 +242,12 @@ in the following sections.
           -save-temps -save-temps=cwd -save-temps=obj -time<span class="roman">[</span>=<var>file</var><span class="roman">]</span>
 </pre>
      <br><dt><em>Optimization Options</em><dd>See <a href="Optimize-Options.html#Optimize-Options">Options that Control Optimization</a>.
-     <pre class="smallexample">          -falign-functions[=<var>n</var>] -falign-jumps[=<var>n</var>] 
-          -falign-labels[=<var>n</var>] -falign-loops[=<var>n</var>] -fassociative-math 
-          -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize 
-          -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves 
+     <pre class="smallexample">          -faggressive-loop-optimizations -falign-functions[=<var>n</var>] 
+          -falign-jumps[=<var>n</var>] 
+          -falign-labels[=<var>n</var>] -falign-loops[=<var>n</var>] 
+          -fassociative-math -fauto-inc-dec -fbranch-probabilities 
+          -fbranch-target-load-optimize -fbranch-target-load-optimize2 
+          -fbtr-bb-exclusive -fcaller-saves 
           -fcheck-data-deps -fcombine-stack-adjustments -fconserve-stack 
           -fcompare-elim -fcprop-registers -fcrossjumping 
           -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules 
@@ -251,16 +258,17 @@ in the following sections.
           -ffast-math -ffinite-math-only -ffloat-store -fexcess-precision=<var>style</var> 
           -fforward-propagate -ffp-contract=<var>style</var> -ffunction-sections 
           -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fgraphite-identity 
-          -fgcse-sm -fif-conversion -fif-conversion2 -findirect-inlining 
+          -fgcse-sm -fhoist-adjacent-loads -fif-conversion 
+          -fif-conversion2 -findirect-inlining 
           -finline-functions -finline-functions-called-once -finline-limit=<var>n</var> 
-          -finline-small-functions -fipa-cp -fipa-cp-clone -fipa-matrix-reorg 
+          -finline-small-functions -fipa-cp -fipa-cp-clone 
           -fipa-pta -fipa-profile -fipa-pure-const -fipa-reference 
           -fira-algorithm=<var>algorithm</var> 
-          -fira-region=<var>region</var> 
+          -fira-region=<var>region</var> -fira-hoist-pressure 
           -fira-loop-pressure -fno-ira-share-save-slots 
           -fno-ira-share-spill-slots -fira-verbose=<var>n</var> 
           -fivopts -fkeep-inline-functions -fkeep-static-consts 
-          -floop-block -floop-flatten -floop-interchange -floop-strip-mine 
+          -floop-block -floop-interchange -floop-strip-mine -floop-nest-optimize 
           -floop-parallelize-all -flto -flto-compression-level 
           -flto-partition=<var>alg</var> -flto-report -fmerge-all-constants 
           -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves 
@@ -272,7 +280,7 @@ in the following sections.
           -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss 
           -fomit-frame-pointer -foptimize-register-move -foptimize-sibling-calls 
           -fpartial-inlining -fpeel-loops -fpredictive-commoning 
-          -fprefetch-loop-arrays 
+          -fprefetch-loop-arrays -fprofile-report 
           -fprofile-correction -fprofile-dir=<var>path</var> -fprofile-generate 
           -fprofile-generate=<var>path</var> 
           -fprofile-use -fprofile-use=<var>path</var> -fprofile-values 
@@ -292,22 +300,23 @@ in the following sections.
           -fsplit-ivs-in-unroller -fsplit-wide-types -fstack-protector 
           -fstack-protector-all -fstrict-aliasing -fstrict-overflow 
           -fthread-jumps -ftracer -ftree-bit-ccp 
-          -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop 
+          -ftree-builtin-call-dce -ftree-ccp -ftree-ch 
+          -ftree-coalesce-inline-vars -ftree-coalesce-vars -ftree-copy-prop 
           -ftree-copyrename -ftree-dce -ftree-dominator-opts -ftree-dse 
           -ftree-forwprop -ftree-fre -ftree-loop-if-convert 
           -ftree-loop-if-convert-stores -ftree-loop-im 
           -ftree-phiprop -ftree-loop-distribution -ftree-loop-distribute-patterns 
           -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize 
           -ftree-parallelize-loops=<var>n</var> -ftree-pre -ftree-partial-pre -ftree-pta 
-          -ftree-reassoc 
-          -ftree-sink -ftree-sra -ftree-switch-conversion -ftree-tail-merge 
+          -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra 
+          -ftree-switch-conversion -ftree-tail-merge 
           -ftree-ter -ftree-vect-loop-version -ftree-vectorize -ftree-vrp 
           -funit-at-a-time -funroll-all-loops -funroll-loops 
           -funsafe-loop-optimizations -funsafe-math-optimizations -funswitch-loops 
           -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb 
-          -fwhole-program -fwpa -fuse-linker-plugin 
+          -fwhole-program -fwpa -fuse-ld=<var>linker</var> -fuse-linker-plugin 
           --param <var>name</var>=<var>value</var>
-          -O  -O0  -O1  -O2  -O3  -Os -Ofast
+          -O  -O0  -O1  -O2  -O3  -Os -Ofast -Og
 </pre>
      <br><dt><em>Preprocessor Options</em><dd>See <a href="Preprocessor-Options.html#Preprocessor-Options">Options Controlling the Preprocessor</a>.
      <pre class="smallexample">          -A<var>question</var>=<var>answer</var> 
@@ -322,7 +331,7 @@ in the following sections.
           -M  -MM  -MF  -MG  -MP  -MQ  -MT  -nostdinc  
           -P  -fdebug-cpp -ftrack-macro-expansion -fworking-directory 
           -remap -trigraphs  -undef  -U<var>macro</var>  
-          -Wp,<var>option</var> -Xpreprocessor <var>option</var>
+          -Wp,<var>option</var> -Xpreprocessor <var>option</var> -no-integrated-cpp
 </pre>
      <br><dt><em>Assembler Option</em><dd>See <a href="Assembler-Options.html#Assembler-Options">Passing Options to the Assembler</a>.
      <pre class="smallexample">          -Wa,<var>option</var>  -Xassembler <var>option</var>
@@ -330,21 +339,31 @@ in the following sections.
      <br><dt><em>Linker Options</em><dd>See <a href="Link-Options.html#Link-Options">Options for Linking</a>.
      <pre class="smallexample">          <var>object-file-name</var>  -l<var>library</var> 
           -nostartfiles  -nodefaultlibs  -nostdlib -pie -rdynamic 
-          -s  -static  -static-libgcc  -static-libstdc++ -shared  
-          -shared-libgcc  -symbolic 
+          -s  -static -static-libgcc -static-libstdc++ 
+          -static-libasan -static-libtsan 
+          -shared -shared-libgcc  -symbolic 
           -T <var>script</var>  -Wl,<var>option</var>  -Xlinker <var>option</var> 
           -u <var>symbol</var>
 </pre>
      <br><dt><em>Directory Options</em><dd>See <a href="Directory-Options.html#Directory-Options">Options for Directory Search</a>.
      <pre class="smallexample">          -B<var>prefix</var> -I<var>dir</var> -iplugindir=<var>dir</var> 
           -iquote<var>dir</var> -L<var>dir</var> -specs=<var>file</var> -I- 
-          --sysroot=<var>dir</var>
+          --sysroot=<var>dir</var> --no-sysroot-suffix
 </pre>
      <br><dt><em>Machine Dependent Options</em><dd>See <a href="Submodel-Options.html#Submodel-Options">Hardware Models and Configurations</a>. 
 <!-- This list is ordered alphanumerically by subsection name. -->
 <!-- Try and put the significant identifier (CPU or system) first, -->
 <!-- so users have a clue at guessing where the ones they want will be. -->
 
+     <p><em>AArch64 Options</em>
+     <pre class="smallexample">          -mbig-endian  -mlittle-endian 
+          -mgeneral-regs-only 
+          -mcmodel=tiny  -mcmodel=small  -mcmodel=large 
+          -mstrict-align 
+          -momit-leaf-frame-pointer  -mno-omit-leaf-frame-pointer 
+          -mtls-dialect=desc  -mtls-dialect=traditional 
+          -march=<var>name</var>  -mcpu=<var>name</var>  -mtune=<var>name</var>
+</pre>
      <p><em>Adapteva Epiphany Options</em>
      <pre class="smallexample">          -mhalf-reg-file -mprefer-short-insn-regs 
           -mbranch-cost=<var>num</var> -mcmove -mnops=<var>num</var> -msoft-cmpsf 
@@ -361,7 +380,7 @@ in the following sections.
           -mapcs-reentrant  -mno-apcs-reentrant 
           -msched-prolog  -mno-sched-prolog 
           -mlittle-endian  -mbig-endian  -mwords-little-endian 
-          -mfloat-abi=<var>name</var>  -mfpe 
+          -mfloat-abi=<var>name</var> 
           -mfp16-format=<var>name</var>
           -mthumb-interwork  -mno-thumb-interwork 
           -mcpu=<var>name</var>  -march=<var>name</var>  -mfpu=<var>name</var>  
@@ -371,7 +390,6 @@ in the following sections.
           -msingle-pic-base  -mno-single-pic-base 
           -mpic-register=<var>reg</var> 
           -mnop-fun-dllimport 
-          -mcirrus-fix-invalid-insns -mno-cirrus-fix-invalid-insns 
           -mpoke-function-name 
           -mthumb  -marm 
           -mtpcs-frame  -mtpcs-leaf-frame 
@@ -379,12 +397,14 @@ in the following sections.
           -mtp=<var>name</var> -mtls-dialect=<var>dialect</var> 
           -mword-relocations 
           -mfix-cortex-m3-ldrd 
-          -munaligned-access
+          -munaligned-access 
+          -mneon-for-64bits 
+          -mrestrict-it
 </pre>
      <p><em>AVR Options</em>
      <pre class="smallexample">          -mmcu=<var>mcu</var> -maccumulate-args -mbranch-cost=<var>cost</var> 
-          -mcall-prologues -mint8 -mno-interrupts -mrelax -mshort-calls 
-          -mstrict-X -mtiny-stack
+          -mcall-prologues -mint8 -mno-interrupts -mrelax 
+          -mstrict-X -mtiny-stack -Waddr-space-convert
 </pre>
      <p><em>Blackfin Options</em>
      <pre class="smallexample">          -mcpu=<var>cpu</var><span class="roman">[</span>-<var>sirevision</var><span class="roman">]</span> 
@@ -444,7 +464,7 @@ in the following sections.
           -mkernel -mone-byte-bool
 </pre>
      <p><em>DEC Alpha Options</em>
-     <pre class="smallexample">          -mno-fp-regs  -msoft-float  -malpha-as  -mgas 
+     <pre class="smallexample">          -mno-fp-regs  -msoft-float 
           -mieee  -mieee-with-inexact  -mieee-conformant 
           -mfp-trap-mode=<var>mode</var>  -mfp-rounding-mode=<var>mode</var> 
           -mtrap-precision=<var>mode</var>  -mbuild-constants 
@@ -454,9 +474,6 @@ in the following sections.
           -mexplicit-relocs  -msmall-data  -mlarge-data 
           -msmall-text  -mlarge-text 
           -mmemory-latency=<var>time</var>
-</pre>
-     <p><em>DEC Alpha/VMS Options</em>
-     <pre class="smallexample">          -mvms-return-codes -mdebug-main=<var>prefix</var> -mmalloc64
 </pre>
      <p><em>FR30 Options</em>
      <pre class="smallexample">          -msmall-model -mno-lsim
@@ -484,7 +501,7 @@ in the following sections.
           -tno-android-cc -tno-android-ld
 </pre>
      <p><em>H8/300 Options</em>
-     <pre class="smallexample">          -mrelax  -mh  -ms  -mn  -mint32  -malign-300
+     <pre class="smallexample">          -mrelax  -mh  -ms  -mn  -mexr -mno-exr  -mint32  -malign-300
 </pre>
      <p><em>HPPA Options</em>
      <pre class="smallexample">          -march=<var>architecture-type</var> 
@@ -511,18 +528,20 @@ in the following sections.
           -mincoming-stack-boundary=<var>num</var> 
           -mcld -mcx16 -msahf -mmovbe -mcrc32 
           -mrecip -mrecip=<var>opt</var> 
-          -mvzeroupper 
+          -mvzeroupper -mprefer-avx128 
           -mmmx  -msse  -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -msse4 -mavx 
           -mavx2 -maes -mpclmul -mfsgsbase -mrdrnd -mf16c -mfma 
           -msse4a -m3dnow -mpopcnt -mabm -mbmi -mtbm -mfma4 -mxop -mlzcnt 
-          -mbmi2 -mlwp -mthreads  -mno-align-stringops  -minline-all-stringops 
+          -mbmi2 -mrtm -mlwp -mthreads 
+          -mno-align-stringops  -minline-all-stringops 
           -minline-stringops-dynamically -mstringop-strategy=<var>alg</var> 
           -mpush-args  -maccumulate-outgoing-args  -m128bit-long-double 
-          -m96bit-long-double  -mregparm=<var>num</var>  -msseregparm 
+          -m96bit-long-double -mlong-double-64 -mlong-double-80 
+          -mregparm=<var>num</var>  -msseregparm 
           -mveclibabi=<var>type</var> -mvect8-ret-in-mem 
           -mpc32 -mpc64 -mpc80 -mstackrealign 
           -momit-leaf-frame-pointer  -mno-red-zone -mno-tls-direct-seg-refs 
-          -mcmodel=<var>code-model</var> -mabi=<var>name</var> 
+          -mcmodel=<var>code-model</var> -mabi=<var>name</var> -maddress-mode=<var>mode</var> 
           -m32 -m64 -mx32 -mlarge-data-threshold=<var>num</var> 
           -msse2avx -mfentry -m8bit-idiv 
           -mavx256-split-unaligned-load -mavx256-split-unaligned-store
@@ -554,9 +573,6 @@ in the following sections.
           -msched-stop-bits-after-every-cycle -msched-count-spec-in-critical-path 
           -msel-sched-dont-check-control-spec -msched-fp-mem-deps-zero-cost 
           -msched-max-memory-insns-hard-limit -msched-max-memory-insns=<var>max-insns</var>
-</pre>
-     <p><em>IA-64/VMS Options</em>
-     <pre class="smallexample">          -mvms-return-codes -mdebug-main=<var>prefix</var> -mmalloc64
 </pre>
      <p><em>LM32 Options</em>
      <pre class="smallexample">          -mbarrel-shift-enabled -mdivide-enabled -mmultiply-enabled 
@@ -607,7 +623,7 @@ in the following sections.
           -mmemcpy -mxl-soft-mul -mxl-soft-div -mxl-barrel-shift 
           -mxl-pattern-compare -mxl-stack-check -mxl-gp-opt -mno-clearbss 
           -mxl-multiply-high -mxl-float-convert -mxl-float-sqrt 
-          -mxl-mode-<var>app-model</var>
+          -mbig-endian -mlittle-endian -mxl-reorder -mxl-mode-<var>app-model</var>
 </pre>
      <p><em>MIPS Options</em>
      <pre class="smallexample">          -EL  -EB  -march=<var>arch</var>  -mtune=<var>arch</var> 
@@ -618,7 +634,9 @@ in the following sections.
           -mabi=<var>abi</var>  -mabicalls  -mno-abicalls 
           -mshared  -mno-shared  -mplt  -mno-plt  -mxgot  -mno-xgot 
           -mgp32  -mgp64  -mfp32  -mfp64  -mhard-float  -msoft-float 
-          -msingle-float  -mdouble-float  -mdsp  -mno-dsp  -mdspr2  -mno-dspr2 
+          -mno-float -msingle-float  -mdouble-float  
+          -mdsp  -mno-dsp  -mdspr2  -mno-dspr2 
+          -mmcu -mmno-mcu 
           -mfpu=<var>fpu-type</var> 
           -msmartmips  -mno-smartmips 
           -mpaired-single  -mno-paired-single  -mdmx  -mno-mdmx 
@@ -658,6 +676,9 @@ in the following sections.
           -mreturn-pointer-on-d0 
           -mno-crt0  -mrelax -mliw -msetlb
 </pre>
+     <p><em>Moxie Options</em>
+     <pre class="smallexample">          -meb -mel -mno-crt0
+</pre>
      <p><em>PDP-11 Options</em>
      <pre class="smallexample">          -mfpu  -msoft-float  -mac0  -mno-ac0  -m40  -m45  -m10 
           -mbcopy  -mbcopy-builtin  -mint32  -mno-int16 
@@ -680,15 +701,13 @@ See RS/6000 and PowerPC Options.
      <pre class="smallexample">          -mcpu=<var>cpu-type</var> 
           -mtune=<var>cpu-type</var> 
           -mcmodel=<var>code-model</var> 
-          -mpower  -mno-power  -mpower2  -mno-power2 
-          -mpowerpc  -mpowerpc64  -mno-powerpc 
+          -mpowerpc64 
           -maltivec  -mno-altivec 
           -mpowerpc-gpopt  -mno-powerpc-gpopt 
           -mpowerpc-gfxopt  -mno-powerpc-gfxopt 
           -mmfcrf  -mno-mfcrf  -mpopcntb  -mno-popcntb -mpopcntd -mno-popcntd 
           -mfprnd  -mno-fprnd 
           -mcmpb -mno-cmpb -mmfpgpr -mno-mfpgpr -mhard-dfp -mno-hard-dfp 
-          -mnew-mnemonics  -mold-mnemonics 
           -mfull-toc   -mminimal-toc  -mno-fp-in-toc  -mno-sum-in-toc 
           -m64  -m32  -mxl-compat  -mno-xl-compat  -mpe 
           -malign-power  -malign-natural 
@@ -738,6 +757,7 @@ See RS/6000 and PowerPC Options.
           -mmax-constant-size=
           -mint-register=
           -mpid
+          -mno-warn-multiple-fast-interrupts
           -msave-acc-in-interrupts
 </pre>
      <p><em>S/390 and zSeries Options</em>
@@ -748,7 +768,8 @@ See RS/6000 and PowerPC Options.
           -msmall-exec  -mno-small-exec  -mmvcle -mno-mvcle 
           -m64  -m31  -mdebug  -mno-debug  -mesa  -mzarch 
           -mtpf-trace -mno-tpf-trace  -mfused-madd  -mno-fused-madd 
-          -mwarn-framesize  -mwarn-dynamicstack  -mstack-size -mstack-guard
+          -mwarn-framesize  -mwarn-dynamicstack  -mstack-size -mstack-guard 
+          -mhotpatch[=<var>halfwords</var>] -mno-hotpatch
 </pre>
      <p><em>Score Options</em>
      <pre class="smallexample">          -meb -mel 
@@ -771,9 +792,12 @@ See RS/6000 and PowerPC Options.
           -mieee -mno-ieee -mbitops  -misize  -minline-ic_invalidate -mpadstruct 
           -mspace -mprefergot  -musermode -multcost=<var>number</var> -mdiv=<var>strategy</var> 
           -mdivsi3_libfunc=<var>name</var> -mfixed-range=<var>register-range</var> 
-          -madjust-unroll -mindexed-addressing -mgettrcost=<var>number</var> -mpt-fixed 
-          -maccumulate-outgoing-args -minvalid-symbols -msoft-atomic 
-          -mbranch-cost=<var>num</var> -mcbranchdi -mcmpeqdi -mfused-madd -mpretend-cmove
+          -mindexed-addressing -mgettrcost=<var>number</var> -mpt-fixed 
+          -maccumulate-outgoing-args -minvalid-symbols 
+          -matomic-model=<var>atomic-model</var> 
+          -mbranch-cost=<var>num</var> -mzdcbranch -mno-zdcbranch -mcbranchdi -mcmpeqdi 
+          -mfused-madd -mno-fused-madd -mfsca -mno-fsca -mfsrra -mno-fsrra 
+          -mpretend-cmove -mtas
 </pre>
      <p><em>Solaris 2 Options</em>
      <pre class="smallexample">          -mimpure-text  -mno-impure-text 
@@ -788,13 +812,13 @@ See RS/6000 and PowerPC Options.
           -mfaster-structs  -mno-faster-structs  -mflat  -mno-flat 
           -mfpu  -mno-fpu  -mhard-float  -msoft-float 
           -mhard-quad-float  -msoft-quad-float 
-          -mlittle-endian 
           -mstack-bias  -mno-stack-bias 
           -munaligned-doubles  -mno-unaligned-doubles 
           -mv8plus  -mno-v8plus  -mvis  -mno-vis 
           -mvis2  -mno-vis2  -mvis3  -mno-vis3 
+          -mcbcond -mno-cbcond 
           -mfmaf  -mno-fmaf  -mpopc  -mno-popc 
-          -mfix-at697f
+          -mfix-at697f -mfix-ut699
 </pre>
      <p><em>SPU Options</em>
      <pre class="smallexample">          -mwarn-reloc -merror-reloc 
@@ -811,10 +835,10 @@ See RS/6000 and PowerPC Options.
      <pre class="smallexample">          -Qy  -Qn  -YP,<var>paths</var>  -Ym,<var>dir</var>
 </pre>
      <p><em>TILE-Gx Options</em>
-     <pre class="smallexample">          -mcpu=CPU -m32 -m64
+     <pre class="smallexample">          -mcpu=<var>cpu</var> -m32 -m64 -mcmodel=<var>code-model</var>
 </pre>
      <p><em>TILEPro Options</em>
-     <pre class="smallexample">          -mcpu=CPU -m32
+     <pre class="smallexample">          -mcpu=<var>cpu</var> -m32
 </pre>
      <p><em>V850 Options</em>
      <pre class="smallexample">          -mlong-calls  -mno-long-calls  -mep  -mno-ep 
@@ -822,14 +846,23 @@ See RS/6000 and PowerPC Options.
           -mtda=<var>n</var>  -msda=<var>n</var>  -mzda=<var>n</var> 
           -mapp-regs  -mno-app-regs 
           -mdisable-callt  -mno-disable-callt 
-          -mv850e2v3 
-          -mv850e2 
-          -mv850e1 -mv850es 
-          -mv850e 
-          -mv850  -mbig-switch
+          -mv850e2v3 -mv850e2 -mv850e1 -mv850es 
+          -mv850e -mv850 -mv850e3v5 
+          -mloop 
+          -mrelax 
+          -mlong-jumps 
+          -msoft-float 
+          -mhard-float 
+          -mgcc-abi 
+          -mrh850-abi 
+          -mbig-switch
 </pre>
      <p><em>VAX Options</em>
      <pre class="smallexample">          -mg  -mgnu  -munix
+</pre>
+     <p><em>VMS Options</em>
+     <pre class="smallexample">          -mvms-return-codes -mdebug-main=<var>prefix</var> -mmalloc64 
+          -mpointer-size=<var>size</var>
 </pre>
      <p><em>VxWorks Options</em>
      <pre class="smallexample">          -mrtp  -non-static  -Bstatic  -Bdynamic 
@@ -856,7 +889,7 @@ See S/390 and zSeries Options.
      <br><dt><em>Code Generation Options</em><dd>See <a href="Code-Gen-Options.html#Code-Gen-Options">Options for Code Generation Conventions</a>.
      <pre class="smallexample">          -fcall-saved-<var>reg</var>  -fcall-used-<var>reg</var> 
           -ffixed-<var>reg</var>  -fexceptions 
-          -fnon-call-exceptions  -funwind-tables 
+          -fnon-call-exceptions  -fdelete-dead-exceptions  -funwind-tables 
           -fasynchronous-unwind-tables 
           -finhibit-size-directive  -finstrument-functions 
           -finstrument-functions-exclude-function-list=<var>sym</var>,<var>sym</var>,... 
@@ -871,8 +904,9 @@ See S/390 and zSeries Options.
           -fstack-limit-register=<var>reg</var>  -fstack-limit-symbol=<var>sym</var> 
           -fno-stack-limit -fsplit-stack 
           -fleading-underscore  -ftls-model=<var>model</var> 
+          -fstack-reuse=<var>reuse_level</var> 
           -ftrapv  -fwrapv  -fbounds-check 
-          -fvisibility -fstrict-volatile-bitfields
+          -fvisibility -fstrict-volatile-bitfields -fsync-libcalls
 </pre>
      </dl>
 

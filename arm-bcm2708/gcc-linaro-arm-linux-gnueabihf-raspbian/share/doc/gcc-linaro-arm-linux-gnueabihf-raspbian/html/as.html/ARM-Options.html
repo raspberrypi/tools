@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,11 +43,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="ARM_002dDependent.html#ARM_002dDependen
 <hr>
 </div>
 
-<h4 class="subsection">9.3.1 Options</h4>
+<h4 class="subsection">9.4.1 Options</h4>
 
-<p><a name="index-ARM-options-_0028none_0029-573"></a><a name="index-options-for-ARM-_0028none_0029-574"></a>
+<p><a name="index-ARM-options-_0028none_0029-614"></a><a name="index-options-for-ARM-_0028none_0029-615"></a>
      
-<a name="index-g_t_0040code_007b_002dmcpu_003d_007d-command-line-option_002c-ARM-575"></a>
+<a name="index-g_t_0040code_007b_002dmcpu_003d_007d-command-line-option_002c-ARM-616"></a>
 <dl><dt><code>-mcpu=</code><var>processor</var><code>[+</code><var>extension</var><code>...]</code><dd>This option specifies the target processor.  The assembler will issue an
 error message if an attempt is made to assemble an instruction which
 will not execute on the target processor.  The following processor names are
@@ -137,10 +135,13 @@ recognized:
 <code>cortex-a15</code>,
 <code>cortex-r4</code>,
 <code>cortex-r4f</code>,
+<code>cortex-r5</code>,
+<code>cortex-r7</code>,
 <code>cortex-m4</code>,
 <code>cortex-m3</code>,
 <code>cortex-m1</code>,
 <code>cortex-m0</code>,
+<code>cortex-m0plus</code>,
 <code>ep9312</code> (ARM920 with Cirrus Maverick coprocessor),
 <code>i80200</code> (Intel XScale processor)
 <code>iwmmxt</code> (Intel(r) XScale processor with Wireless MMX(tm) technology coprocessor)
@@ -167,19 +168,22 @@ been added, again in ascending alphabetical order.  For example,
 <code>-mcpu=ep9312+nomaverick</code> is equivalent to specifying <code>-mcpu=arm920</code>.
 
      <p>The following extensions are currently supported:
-<code>idiv</code>, (Integer Divide Extensions for v7-A and v7-R architectures),
+<code>crypto</code> (Cryptography Extensions for v8-A architecture, implies <code>fp+simd</code>),
+<code>fp</code> (Floating Point Extensions for v8-A architecture),
+<code>idiv</code> (Integer Divide Extensions for v7-A and v7-R architectures),
 <code>iwmmxt</code>,
 <code>iwmmxt2</code>,
 <code>maverick</code>,
 <code>mp</code> (Multiprocessing Extensions for v7-A and v7-R architectures),
 <code>os</code> (Operating System for v6M architecture),
 <code>sec</code> (Security Extensions for v6K and v7-A architectures),
+<code>simd</code> (Advanced SIMD Extensions for v8-A architecture, implies <code>fp</code>),
 <code>virt</code> (Virtualization Extensions for v7-A architecture, implies
 <code>idiv</code>),
 and
 <code>xscale</code>.
 
-     <p><a name="index-g_t_0040code_007b_002dmarch_003d_007d-command-line-option_002c-ARM-576"></a><br><dt><code>-march=</code><var>architecture</var><code>[+</code><var>extension</var><code>...]</code><dd>This option specifies the target architecture.  The assembler will issue
+     <p><a name="index-g_t_0040code_007b_002dmarch_003d_007d-command-line-option_002c-ARM-617"></a><br><dt><code>-march=</code><var>architecture</var><code>[+</code><var>extension</var><code>...]</code><dd>This option specifies the target architecture.  The assembler will issue
 an error message if an attempt is made to assemble an instruction which
 will not execute on the target architecture.  The following architecture
 names are recognized:
@@ -207,9 +211,11 @@ names are recognized:
 <code>armv6s-m</code>,
 <code>armv7</code>,
 <code>armv7-a</code>,
+<code>armv7ve</code>,
 <code>armv7-r</code>,
 <code>armv7-m</code>,
 <code>armv7e-m</code>,
+<code>armv8-a</code>,
 <code>iwmmxt</code>
 and
 <code>xscale</code>. 
@@ -220,7 +226,7 @@ the setting for <code>-mcpu</code>.
      <p>The architecture option can be extended with the same instruction set
 extension options as the <code>-mcpu</code> option.
 
-     <p><a name="index-g_t_0040code_007b_002dmfpu_003d_007d-command-line-option_002c-ARM-577"></a><br><dt><code>-mfpu=</code><var>floating-point-format</var><dd>
+     <p><a name="index-g_t_0040code_007b_002dmfpu_003d_007d-command-line-option_002c-ARM-618"></a><br><dt><code>-mfpu=</code><var>floating-point-format</var><dd>
 This option specifies the floating point format to assemble for.  The
 assembler will issue an error message if an attempt is made to assemble
 an instruction which will not execute on the target floating point unit. 
@@ -250,13 +256,16 @@ The following format options are recognized:
 <code>vfpv4</code>,
 <code>vfpv4-d16</code>,
 <code>fpv4-sp-d16</code>,
+<code>fp-armv8</code>,
 <code>arm1020t</code>,
 <code>arm1020e</code>,
 <code>arm1136jf-s</code>,
 <code>maverick</code>,
 <code>neon</code>,
+<code>neon-vfpv4</code>,
+<code>neon-fp-armv8</code>,
 and
-<code>neon-vfpv4</code>.
+<code>crypto-neon-fp-armv8</code>.
 
      <p>In addition to determining which instructions are assembled, this option
 also affects the way in which the <code>.double</code> assembler directive behaves
@@ -266,14 +275,14 @@ when assembling little-endian code.
 later, the default is to assembler for VFP instructions; for earlier
 architectures the default is to assemble for FPA instructions.
 
-     <p><a name="index-g_t_0040code_007b_002dmthumb_007d-command-line-option_002c-ARM-578"></a><br><dt><code>-mthumb</code><dd>This option specifies that the assembler should start assembling Thumb
+     <p><a name="index-g_t_0040code_007b_002dmthumb_007d-command-line-option_002c-ARM-619"></a><br><dt><code>-mthumb</code><dd>This option specifies that the assembler should start assembling Thumb
 instructions; that is, it should behave as though the file starts with a
 <code>.code 16</code> directive.
 
-     <p><a name="index-g_t_0040code_007b_002dmthumb_002dinterwork_007d-command-line-option_002c-ARM-579"></a><br><dt><code>-mthumb-interwork</code><dd>This option specifies that the output generated by the assembler should
+     <p><a name="index-g_t_0040code_007b_002dmthumb_002dinterwork_007d-command-line-option_002c-ARM-620"></a><br><dt><code>-mthumb-interwork</code><dd>This option specifies that the output generated by the assembler should
 be marked as supporting interworking.
 
-     <p><a name="index-g_t_0040code_007b_002dmimplicit_002dit_007d-command-line-option_002c-ARM-580"></a><br><dt><code>-mimplicit-it=never</code><dt><code>-mimplicit-it=always</code><dt><code>-mimplicit-it=arm</code><dt><code>-mimplicit-it=thumb</code><dd>The <code>-mimplicit-it</code> option controls the behavior of the assembler when
+     <p><a name="index-g_t_0040code_007b_002dmimplicit_002dit_007d-command-line-option_002c-ARM-621"></a><br><dt><code>-mimplicit-it=never</code><dt><code>-mimplicit-it=always</code><dt><code>-mimplicit-it=arm</code><dt><code>-mimplicit-it=thumb</code><dd>The <code>-mimplicit-it</code> option controls the behavior of the assembler when
 conditional instructions are not enclosed in IT blocks. 
 There are four possible behaviors. 
 If <code>never</code> is specified, such constructs cause a warning in ARM
@@ -286,24 +295,24 @@ If <code>thumb</code> is specified, such constructs cause a warning in ARM
 code and are accepted in Thumb-2 code.  If you omit this option, the
 behavior is equivalent to <code>-mimplicit-it=arm</code>.
 
-     <p><a name="index-g_t_0040code_007b_002dmapcs_002d26_007d-command-line-option_002c-ARM-581"></a><a name="index-g_t_0040code_007b_002dmapcs_002d32_007d-command-line-option_002c-ARM-582"></a><br><dt><code>-mapcs-26</code><dt><code>-mapcs-32</code><dd>These options specify that the output generated by the assembler should
+     <p><a name="index-g_t_0040code_007b_002dmapcs_002d26_007d-command-line-option_002c-ARM-622"></a><a name="index-g_t_0040code_007b_002dmapcs_002d32_007d-command-line-option_002c-ARM-623"></a><br><dt><code>-mapcs-26</code><dt><code>-mapcs-32</code><dd>These options specify that the output generated by the assembler should
 be marked as supporting the indicated version of the Arm Procedure. 
 Calling Standard.
 
-     <p><a name="index-g_t_0040code_007b_002dmatpcs_007d-command-line-option_002c-ARM-583"></a><br><dt><code>-matpcs</code><dd>This option specifies that the output generated by the assembler should
+     <p><a name="index-g_t_0040code_007b_002dmatpcs_007d-command-line-option_002c-ARM-624"></a><br><dt><code>-matpcs</code><dd>This option specifies that the output generated by the assembler should
 be marked as supporting the Arm/Thumb Procedure Calling Standard.  If
 enabled this option will cause the assembler to create an empty
 debugging section in the object file called .arm.atpcs.  Debuggers can
 use this to determine the ABI being used by.
 
-     <p><a name="index-g_t_0040code_007b_002dmapcs_002dfloat_007d-command-line-option_002c-ARM-584"></a><br><dt><code>-mapcs-float</code><dd>This indicates the floating point variant of the APCS should be
+     <p><a name="index-g_t_0040code_007b_002dmapcs_002dfloat_007d-command-line-option_002c-ARM-625"></a><br><dt><code>-mapcs-float</code><dd>This indicates the floating point variant of the APCS should be
 used.  In this variant floating point arguments are passed in FP
 registers rather than integer registers.
 
-     <p><a name="index-g_t_0040code_007b_002dmapcs_002dreentrant_007d-command-line-option_002c-ARM-585"></a><br><dt><code>-mapcs-reentrant</code><dd>This indicates that the reentrant variant of the APCS should be used. 
+     <p><a name="index-g_t_0040code_007b_002dmapcs_002dreentrant_007d-command-line-option_002c-ARM-626"></a><br><dt><code>-mapcs-reentrant</code><dd>This indicates that the reentrant variant of the APCS should be used. 
 This variant supports position independent code.
 
-     <p><a name="index-g_t_0040code_007b_002dmfloat_002dabi_003d_007d-command-line-option_002c-ARM-586"></a><br><dt><code>-mfloat-abi=</code><var>abi</var><dd>This option specifies that the output generated by the assembler should be
+     <p><a name="index-g_t_0040code_007b_002dmfloat_002dabi_003d_007d-command-line-option_002c-ARM-627"></a><br><dt><code>-mfloat-abi=</code><var>abi</var><dd>This option specifies that the output generated by the assembler should be
 marked as using specified floating point ABI. 
 The following values are recognized:
 <code>soft</code>,
@@ -311,7 +320,7 @@ The following values are recognized:
 and
 <code>hard</code>.
 
-     <p><a name="index-g_t_0040code_007b_002deabi_003d_007d-command-line-option_002c-ARM-587"></a><br><dt><code>-meabi=</code><var>ver</var><dd>This option specifies which EABI version the produced object files should
+     <p><a name="index-g_t_0040code_007b_002deabi_003d_007d-command-line-option_002c-ARM-628"></a><br><dt><code>-meabi=</code><var>ver</var><dd>This option specifies which EABI version the produced object files should
 conform to. 
 The following values are recognized:
 <code>gnu</code>,
@@ -319,19 +328,19 @@ The following values are recognized:
 and
 <code>5</code>.
 
-     <p><a name="index-g_t_0040code_007b_002dEB_007d-command-line-option_002c-ARM-588"></a><br><dt><code>-EB</code><dd>This option specifies that the output generated by the assembler should
+     <p><a name="index-g_t_0040code_007b_002dEB_007d-command-line-option_002c-ARM-629"></a><br><dt><code>-EB</code><dd>This option specifies that the output generated by the assembler should
 be marked as being encoded for a big-endian processor.
 
-     <p><a name="index-g_t_0040code_007b_002dEL_007d-command-line-option_002c-ARM-589"></a><br><dt><code>-EL</code><dd>This option specifies that the output generated by the assembler should
+     <p><a name="index-g_t_0040code_007b_002dEL_007d-command-line-option_002c-ARM-630"></a><br><dt><code>-EL</code><dd>This option specifies that the output generated by the assembler should
 be marked as being encoded for a little-endian processor.
 
-     <p><a name="index-g_t_0040code_007b_002dk_007d-command-line-option_002c-ARM-590"></a><a name="index-PIC-code-generation-for-ARM-591"></a><br><dt><code>-k</code><dd>This option specifies that the output of the assembler should be marked
+     <p><a name="index-g_t_0040code_007b_002dk_007d-command-line-option_002c-ARM-631"></a><a name="index-PIC-code-generation-for-ARM-632"></a><br><dt><code>-k</code><dd>This option specifies that the output of the assembler should be marked
 as position-independent code (PIC).
 
-     <p><a name="index-g_t_0040code_007b_002d_002dfix_002dv4bx_007d-command-line-option_002c-ARM-592"></a><br><dt><code>--fix-v4bx</code><dd>Allow <code>BX</code> instructions in ARMv4 code.  This is intended for use with
+     <p><a name="index-g_t_0040code_007b_002d_002dfix_002dv4bx_007d-command-line-option_002c-ARM-633"></a><br><dt><code>--fix-v4bx</code><dd>Allow <code>BX</code> instructions in ARMv4 code.  This is intended for use with
 the linker option of the same name.
 
-     <p><a name="index-g_t_0040code_007b_002dmwarn_002ddeprecated_007d-command-line-option_002c-ARM-593"></a><br><dt><code>-mwarn-deprecated</code><dt><code>-mno-warn-deprecated</code><dd>Enable or disable warnings about using deprecated options or
+     <p><a name="index-g_t_0040code_007b_002dmwarn_002ddeprecated_007d-command-line-option_002c-ARM-634"></a><br><dt><code>-mwarn-deprecated</code><dt><code>-mno-warn-deprecated</code><dd>Enable or disable warnings about using deprecated options or
 features.  The default is to warn.
 
    </dl>

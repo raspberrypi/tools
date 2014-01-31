@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i386_002dDependent.html#i386_002dDepend
 <hr>
 </div>
 
-<h4 class="subsection">9.13.10 Floating Point</h4>
+<h4 class="subsection">9.15.10 Floating Point</h4>
 
-<p><a name="index-i386-floating-point-970"></a><a name="index-floating-point_002c-i386-971"></a><a name="index-x86_002d64-floating-point-972"></a><a name="index-floating-point_002c-x86_002d64-973"></a>All 80387 floating point types except packed BCD are supported. 
+<p><a name="index-i386-floating-point-1027"></a><a name="index-floating-point_002c-i386-1028"></a><a name="index-x86_002d64-floating-point-1029"></a><a name="index-floating-point_002c-x86_002d64-1030"></a>All 80387 floating point types except packed BCD are supported. 
 (BCD support may be added without much difficulty).  These data
 types are 16-, 32-, and 64- bit integers, and single (32-bit),
 double (64-bit), and extended (80-bit) precision floating point. 
@@ -58,7 +56,7 @@ Each supported type has an instruction mnemonic suffix and a constructor
 associated with it.  Instruction mnemonic suffixes specify the operand's
 data type.  Constructors build these data types into memory.
 
-   <p><a name="index-g_t_0040code_007bfloat_007d-directive_002c-i386-974"></a><a name="index-g_t_0040code_007bsingle_007d-directive_002c-i386-975"></a><a name="index-g_t_0040code_007bdouble_007d-directive_002c-i386-976"></a><a name="index-g_t_0040code_007btfloat_007d-directive_002c-i386-977"></a><a name="index-g_t_0040code_007bfloat_007d-directive_002c-x86_002d64-978"></a><a name="index-g_t_0040code_007bsingle_007d-directive_002c-x86_002d64-979"></a><a name="index-g_t_0040code_007bdouble_007d-directive_002c-x86_002d64-980"></a><a name="index-g_t_0040code_007btfloat_007d-directive_002c-x86_002d64-981"></a>
+   <p><a name="index-g_t_0040code_007bfloat_007d-directive_002c-i386-1031"></a><a name="index-g_t_0040code_007bsingle_007d-directive_002c-i386-1032"></a><a name="index-g_t_0040code_007bdouble_007d-directive_002c-i386-1033"></a><a name="index-g_t_0040code_007btfloat_007d-directive_002c-i386-1034"></a><a name="index-g_t_0040code_007bfloat_007d-directive_002c-x86_002d64-1035"></a><a name="index-g_t_0040code_007bsingle_007d-directive_002c-x86_002d64-1036"></a><a name="index-g_t_0040code_007bdouble_007d-directive_002c-x86_002d64-1037"></a><a name="index-g_t_0040code_007btfloat_007d-directive_002c-x86_002d64-1038"></a>
      <ul>
 <li>Floating point constructors are &lsquo;<samp><span class="samp">.float</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.single</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">.double</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">.tfloat</span></samp>&rsquo; for 32-, 64-, and 80-bit formats. 
@@ -67,7 +65,7 @@ and &lsquo;<samp><span class="samp">t</span></samp>&rsquo;. &lsquo;<samp><span c
 only supports this format via the &lsquo;<samp><span class="samp">fldt</span></samp>&rsquo; (load 80-bit real to stack
 top) and &lsquo;<samp><span class="samp">fstpt</span></samp>&rsquo; (store 80-bit real and pop stack) instructions.
 
-     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-i386-982"></a><a name="index-g_t_0040code_007blong_007d-directive_002c-i386-983"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-i386-984"></a><a name="index-g_t_0040code_007bquad_007d-directive_002c-i386-985"></a><a name="index-g_t_0040code_007bword_007d-directive_002c-x86_002d64-986"></a><a name="index-g_t_0040code_007blong_007d-directive_002c-x86_002d64-987"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-x86_002d64-988"></a><a name="index-g_t_0040code_007bquad_007d-directive_002c-x86_002d64-989"></a><li>Integer constructors are &lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.int</span></samp>&rsquo;, and
+     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-i386-1039"></a><a name="index-g_t_0040code_007blong_007d-directive_002c-i386-1040"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-i386-1041"></a><a name="index-g_t_0040code_007bquad_007d-directive_002c-i386-1042"></a><a name="index-g_t_0040code_007bword_007d-directive_002c-x86_002d64-1043"></a><a name="index-g_t_0040code_007blong_007d-directive_002c-x86_002d64-1044"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-x86_002d64-1045"></a><a name="index-g_t_0040code_007bquad_007d-directive_002c-x86_002d64-1046"></a><li>Integer constructors are &lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.int</span></samp>&rsquo;, and
 &lsquo;<samp><span class="samp">.quad</span></samp>&rsquo; for the 16-, 32-, and 64-bit integer formats.  The
 corresponding instruction mnemonic suffixes are &lsquo;<samp><span class="samp">s</span></samp>&rsquo; (single),
 &lsquo;<samp><span class="samp">l</span></samp>&rsquo; (long), and &lsquo;<samp><span class="samp">q</span></samp>&rsquo; (quad).  As with the 80-bit real format,

@@ -9,9 +9,7 @@
 <link rel="next" href="objdump.html#objdump" title="objdump">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
-Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -68,20 +66,22 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
              [<samp><span class="option">-b</span></samp> <var>byte</var>|<samp><span class="option">--byte=</span></samp><var>byte</var>]
              [<samp><span class="option">-i</span></samp> [<var>breadth</var>]|<samp><span class="option">--interleave</span></samp>[=<var>breadth</var>]]
              [<samp><span class="option">--interleave-width=</span></samp><var>width</var>]
-             [<samp><span class="option">-j</span></samp> <var>sectionname</var>|<samp><span class="option">--only-section=</span></samp><var>sectionname</var>]
-             [<samp><span class="option">-R</span></samp> <var>sectionname</var>|<samp><span class="option">--remove-section=</span></samp><var>sectionname</var>]
+             [<samp><span class="option">-j</span></samp> <var>sectionpattern</var>|<samp><span class="option">--only-section=</span></samp><var>sectionpattern</var>]
+             [<samp><span class="option">-R</span></samp> <var>sectionpattern</var>|<samp><span class="option">--remove-section=</span></samp><var>sectionpattern</var>]
              [<samp><span class="option">-p</span></samp>|<samp><span class="option">--preserve-dates</span></samp>]
+             [<samp><span class="option">-D</span></samp>|<samp><span class="option">--enable-deterministic-archives</span></samp>]
+             [<samp><span class="option">-U</span></samp>|<samp><span class="option">--disable-deterministic-archives</span></samp>]
              [<samp><span class="option">--debugging</span></samp>]
              [<samp><span class="option">--gap-fill=</span></samp><var>val</var>]
              [<samp><span class="option">--pad-to=</span></samp><var>address</var>]
              [<samp><span class="option">--set-start=</span></samp><var>val</var>]
              [<samp><span class="option">--adjust-start=</span></samp><var>incr</var>]
              [<samp><span class="option">--change-addresses=</span></samp><var>incr</var>]
-             [<samp><span class="option">--change-section-address</span></samp> <var>section</var>{=,+,-}<var>val</var>]
-             [<samp><span class="option">--change-section-lma</span></samp> <var>section</var>{=,+,-}<var>val</var>]
-             [<samp><span class="option">--change-section-vma</span></samp> <var>section</var>{=,+,-}<var>val</var>]
+             [<samp><span class="option">--change-section-address</span></samp> <var>sectionpattern</var>{=,+,-}<var>val</var>]
+             [<samp><span class="option">--change-section-lma</span></samp> <var>sectionpattern</var>{=,+,-}<var>val</var>]
+             [<samp><span class="option">--change-section-vma</span></samp> <var>sectionpattern</var>{=,+,-}<var>val</var>]
              [<samp><span class="option">--change-warnings</span></samp>] [<samp><span class="option">--no-change-warnings</span></samp>]
-             [<samp><span class="option">--set-section-flags</span></samp> <var>section</var>=<var>flags</var>]
+             [<samp><span class="option">--set-section-flags</span></samp> <var>sectionpattern</var>=<var>flags</var>]
              [<samp><span class="option">--add-section</span></samp> <var>sectionname</var>=<var>filename</var>]
              [<samp><span class="option">--rename-section</span></samp> <var>oldname</var>=<var>newname</var>[,<var>flags</var>]]
              [<samp><span class="option">--long-section-names</span></samp> {enable,disable,keep}]
@@ -105,6 +105,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
              [<samp><span class="option">--add-gnu-debuglink=</span></samp><var>path-to-file</var>]
              [<samp><span class="option">--keep-file-symbols</span></samp>]
              [<samp><span class="option">--only-keep-debug</span></samp>]
+             [<samp><span class="option">--strip-dwo</span></samp>]
+             [<samp><span class="option">--extract-dwo</span></samp>]
              [<samp><span class="option">--extract-symbol</span></samp>]
              [<samp><span class="option">--writable-text</span></samp>]
              [<samp><span class="option">--readonly-text</span></samp>]
@@ -190,13 +192,17 @@ called _binary_<var>objfile</var>_start, _binary_<var>objfile</var>_end and
 _binary_<var>objfile</var>_size.  e.g. you can transform a picture file into
 an object file and then access it in your code using these symbols.
 
-     <br><dt><samp><span class="env">-j </span><var>sectionname</var></samp><dt><samp><span class="env">--only-section=</span><var>sectionname</var></samp><dd>Copy only the named section from the input file to the output file. 
+     <br><dt><samp><span class="env">-j </span><var>sectionpattern</var></samp><dt><samp><span class="env">--only-section=</span><var>sectionpattern</var></samp><dd>Copy only the indicated sections from the input file to the output file. 
 This option may be given more than once.  Note that using this option
-inappropriately may make the output file unusable.
+inappropriately may make the output file unusable.  Wildcard
+characters are accepted in <var>sectionpattern</var>.
 
-     <br><dt><samp><span class="env">-R </span><var>sectionname</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionname</var></samp><dd>Remove any section named <var>sectionname</var> from the output file.  This
-option may be given more than once.  Note that using this option
-inappropriately may make the output file unusable.
+     <br><dt><samp><span class="env">-R </span><var>sectionpattern</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionpattern</var></samp><dd>Remove any section matching <var>sectionpattern</var> from the output file. 
+This option may be given more than once.  Note that using this option
+inappropriately may make the output file unusable.  Wildcard
+characters are accepted in <var>sectionpattern</var>.  Using both the
+<samp><span class="option">-j</span></samp> and <samp><span class="option">-R</span></samp> options together results in undefined
+behaviour.
 
      <br><dt><samp><span class="env">-S</span></samp><dt><samp><span class="env">--strip-all</span></samp><dd>Do not copy relocation and symbol information from the source file.
 
@@ -285,6 +291,22 @@ commands.  If the input was '12345678' then the outputs would be
      <br><dt><samp><span class="env">-p</span></samp><dt><samp><span class="env">--preserve-dates</span></samp><dd>Set the access and modification dates of the output file to be the same
 as those of the input file.
 
+     <br><dt><samp><span class="env">-D</span></samp><dt><samp><span class="env">--enable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-58"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-59"></a>Operate in <em>deterministic</em> mode.  When copying archive members
+and writing the archive index, use zero for UIDs, GIDs, timestamps,
+and use consistent file modes for all files.
+
+     <p>If <samp><span class="file">binutils</span></samp> was configured with
+<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default. 
+It can be disabled with the &lsquo;<samp><span class="samp">-U</span></samp>&rsquo; option, below.
+
+     <br><dt><samp><span class="env">-U</span></samp><dt><samp><span class="env">--disable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-60"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-61"></a>Do <em>not</em> operate in <em>deterministic</em> mode.  This is the
+inverse of the <samp><span class="option">-D</span></samp> option, above: when copying archive members
+and writing the archive index, use their actual UID, GID, timestamp,
+and file mode values.
+
+     <p>This is the default unless <samp><span class="file">binutils</span></samp> was configured with
+<samp><span class="option">--enable-deterministic-archives</span></samp>.
+
      <br><dt><samp><span class="env">--debugging</span></samp><dd>Convert debugging information, if possible.  This is not the default
 because only certain debugging formats are supported, and the
 conversion process can be time consuming.
@@ -301,63 +323,66 @@ filled in with the value specified by <samp><span class="option">--gap-fill</spa
      <br><dt><samp><span class="env">--set-start </span><var>val</var></samp><dd>Set the start address of the new file to <var>val</var>.  Not all object file
 formats support setting the start address.
 
-     <br><dt><samp><span class="env">--change-start </span><var>incr</var></samp><dt><samp><span class="env">--adjust-start </span><var>incr</var></samp><dd><a name="index-changing-start-address-55"></a>Change the start address by adding <var>incr</var>.  Not all object file
+     <br><dt><samp><span class="env">--change-start </span><var>incr</var></samp><dt><samp><span class="env">--adjust-start </span><var>incr</var></samp><dd><a name="index-changing-start-address-62"></a>Change the start address by adding <var>incr</var>.  Not all object file
 formats support setting the start address.
 
-     <br><dt><samp><span class="env">--change-addresses </span><var>incr</var></samp><dt><samp><span class="env">--adjust-vma </span><var>incr</var></samp><dd><a name="index-changing-object-addresses-56"></a>Change the VMA and LMA addresses of all sections, as well as the start
+     <br><dt><samp><span class="env">--change-addresses </span><var>incr</var></samp><dt><samp><span class="env">--adjust-vma </span><var>incr</var></samp><dd><a name="index-changing-object-addresses-63"></a>Change the VMA and LMA addresses of all sections, as well as the start
 address, by adding <var>incr</var>.  Some object file formats do not permit
 section addresses to be changed arbitrarily.  Note that this does not
 relocate the sections; if the program expects sections to be loaded at a
 certain address, and this option is used to change the sections such
 that they are loaded at a different address, the program may fail.
 
-     <br><dt><samp><span class="env">--change-section-address </span><var>section</var><span class="env">{=,+,-}</span><var>val</var></samp><dt><samp><span class="env">--adjust-section-vma </span><var>section</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-address-57"></a>Set or change both the VMA address and the LMA address of the named
-<var>section</var>.  If &lsquo;<samp><span class="samp">=</span></samp>&rsquo; is used, the section address is set to
-<var>val</var>.  Otherwise, <var>val</var> is added to or subtracted from the
-section address.  See the comments under <samp><span class="option">--change-addresses</span></samp>,
-above. If <var>section</var> does not exist in the input file, a warning will
-be issued, unless <samp><span class="option">--no-change-warnings</span></samp> is used.
+     <br><dt><samp><span class="env">--change-section-address </span><var>sectionpattern</var><span class="env">{=,+,-}</span><var>val</var></samp><dt><samp><span class="env">--adjust-section-vma </span><var>sectionpattern</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-address-64"></a>Set or change both the VMA address and the LMA address of any section
+matching <var>sectionpattern</var>.  If &lsquo;<samp><span class="samp">=</span></samp>&rsquo; is used, the section
+address is set to <var>val</var>.  Otherwise, <var>val</var> is added to or
+subtracted from the section address.  See the comments under
+<samp><span class="option">--change-addresses</span></samp>, above. If <var>sectionpattern</var> does not
+match any sections in the input file, a warning will be issued, unless
+<samp><span class="option">--no-change-warnings</span></samp> is used.
 
-     <br><dt><samp><span class="env">--change-section-lma </span><var>section</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-LMA-58"></a>Set or change the LMA address of the named <var>section</var>.  The LMA
-address is the address where the section will be loaded into memory at
-program load time.  Normally this is the same as the VMA address, which
-is the address of the section at program run time, but on some systems,
+     <br><dt><samp><span class="env">--change-section-lma </span><var>sectionpattern</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-LMA-65"></a>Set or change the LMA address of any sections matching
+<var>sectionpattern</var>.  The LMA address is the address where the
+section will be loaded into memory at program load time.  Normally
+this is the same as the VMA address, which is the address of the
+section at program run time, but on some systems, especially those
+where a program is held in ROM, the two can be different.  If &lsquo;<samp><span class="samp">=</span></samp>&rsquo;
+is used, the section address is set to <var>val</var>.  Otherwise,
+<var>val</var> is added to or subtracted from the section address.  See the
+comments under <samp><span class="option">--change-addresses</span></samp>, above.  If
+<var>sectionpattern</var> does not match any sections in the input file, a
+warning will be issued, unless <samp><span class="option">--no-change-warnings</span></samp> is used.
+
+     <br><dt><samp><span class="env">--change-section-vma </span><var>sectionpattern</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-VMA-66"></a>Set or change the VMA address of any section matching
+<var>sectionpattern</var>.  The VMA address is the address where the
+section will be located once the program has started executing. 
+Normally this is the same as the LMA address, which is the address
+where the section will be loaded into memory, but on some systems,
 especially those where a program is held in ROM, the two can be
 different.  If &lsquo;<samp><span class="samp">=</span></samp>&rsquo; is used, the section address is set to
 <var>val</var>.  Otherwise, <var>val</var> is added to or subtracted from the
 section address.  See the comments under <samp><span class="option">--change-addresses</span></samp>,
-above.  If <var>section</var> does not exist in the input file, a warning
-will be issued, unless <samp><span class="option">--no-change-warnings</span></samp> is used.
-
-     <br><dt><samp><span class="env">--change-section-vma </span><var>section</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-VMA-59"></a>Set or change the VMA address of the named <var>section</var>.  The VMA
-address is the address where the section will be located once the
-program has started executing.  Normally this is the same as the LMA
-address, which is the address where the section will be loaded into
-memory, but on some systems, especially those where a program is held in
-ROM, the two can be different.  If &lsquo;<samp><span class="samp">=</span></samp>&rsquo; is used, the section address
-is set to <var>val</var>.  Otherwise, <var>val</var> is added to or subtracted
-from the section address.  See the comments under
-<samp><span class="option">--change-addresses</span></samp>, above.  If <var>section</var> does not exist in
-the input file, a warning will be issued, unless
+above.  If <var>sectionpattern</var> does not match any sections in the
+input file, a warning will be issued, unless
 <samp><span class="option">--no-change-warnings</span></samp> is used.
 
      <br><dt><samp><span class="env">--change-warnings</span></samp><dt><samp><span class="env">--adjust-warnings</span></samp><dd>If <samp><span class="option">--change-section-address</span></samp> or <samp><span class="option">--change-section-lma</span></samp> or
-<samp><span class="option">--change-section-vma</span></samp> is used, and the named section does not
-exist, issue a warning.  This is the default.
+<samp><span class="option">--change-section-vma</span></samp> is used, and the section pattern does not
+match any sections, issue a warning.  This is the default.
 
      <br><dt><samp><span class="env">--no-change-warnings</span></samp><dt><samp><span class="env">--no-adjust-warnings</span></samp><dd>Do not issue a warning if <samp><span class="option">--change-section-address</span></samp> or
 <samp><span class="option">--adjust-section-lma</span></samp> or <samp><span class="option">--adjust-section-vma</span></samp> is used, even
-if the named section does not exist.
+if the section pattern does not match any sections.
 
-     <br><dt><samp><span class="env">--set-section-flags </span><var>section</var><span class="env">=</span><var>flags</var></samp><dd>Set the flags for the named section.  The <var>flags</var> argument is a
-comma separated string of flag names.  The recognized names are
-&lsquo;<samp><span class="samp">alloc</span></samp>&rsquo;, &lsquo;<samp><span class="samp">contents</span></samp>&rsquo;, &lsquo;<samp><span class="samp">load</span></samp>&rsquo;, &lsquo;<samp><span class="samp">noload</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">readonly</span></samp>&rsquo;, &lsquo;<samp><span class="samp">code</span></samp>&rsquo;, &lsquo;<samp><span class="samp">data</span></samp>&rsquo;, &lsquo;<samp><span class="samp">rom</span></samp>&rsquo;, &lsquo;<samp><span class="samp">share</span></samp>&rsquo;, and
-&lsquo;<samp><span class="samp">debug</span></samp>&rsquo;.  You can set the &lsquo;<samp><span class="samp">contents</span></samp>&rsquo; flag for a section which
-does not have contents, but it is not meaningful to clear the
-&lsquo;<samp><span class="samp">contents</span></samp>&rsquo; flag of a section which does have contents&ndash;just remove
-the section instead.  Not all flags are meaningful for all object file
-formats.
+     <br><dt><samp><span class="env">--set-section-flags </span><var>sectionpattern</var><span class="env">=</span><var>flags</var></samp><dd>Set the flags for any sections matching <var>sectionpattern</var>.  The
+<var>flags</var> argument is a comma separated string of flag names.  The
+recognized names are &lsquo;<samp><span class="samp">alloc</span></samp>&rsquo;, &lsquo;<samp><span class="samp">contents</span></samp>&rsquo;, &lsquo;<samp><span class="samp">load</span></samp>&rsquo;,
+&lsquo;<samp><span class="samp">noload</span></samp>&rsquo;, &lsquo;<samp><span class="samp">readonly</span></samp>&rsquo;, &lsquo;<samp><span class="samp">code</span></samp>&rsquo;, &lsquo;<samp><span class="samp">data</span></samp>&rsquo;, &lsquo;<samp><span class="samp">rom</span></samp>&rsquo;,
+&lsquo;<samp><span class="samp">share</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">debug</span></samp>&rsquo;.  You can set the &lsquo;<samp><span class="samp">contents</span></samp>&rsquo; flag
+for a section which does not have contents, but it is not meaningful
+to clear the &lsquo;<samp><span class="samp">contents</span></samp>&rsquo; flag of a section which does have
+contents&ndash;just remove the section instead.  Not all flags are
+meaningful for all object file formats.
 
      <br><dt><samp><span class="env">--add-section </span><var>sectionname</var><span class="env">=</span><var>filename</var></samp><dd>Add a new section named <var>sectionname</var> while copying the file.  The
 contents of the new section are taken from the file <var>filename</var>.  The
@@ -565,6 +590,19 @@ information may be incomplete.  Besides the gnu_debuglink feature
 currently only supports the presence of one filename containing
 debugging information, not multiple filenames on a one-per-object-file
 basis.
+
+     <br><dt><samp><span class="env">--strip-dwo</span></samp><dd>Remove the contents of all DWARF .dwo sections, leaving the
+remaining debugging sections and all symbols intact. 
+This option is intended for use by the compiler as part of
+the <samp><span class="option">-gsplit-dwarf</span></samp> option, which splits debug information
+between the .o file and a separate .dwo file.  The compiler
+generates all debug information in the same file, then uses
+the <samp><span class="option">--extract-dwo</span></samp> option to copy the .dwo sections to
+the .dwo file, then the <samp><span class="option">--strip-dwo</span></samp> option to remove
+those sections from the original .o file.
+
+     <br><dt><samp><span class="env">--extract-dwo</span></samp><dd>Extract the contents of all DWARF .dwo sections.  See the
+<samp><span class="option">--strip-dwo</span></samp> option for more information.
 
      <br><dt><samp><span class="env">--file-alignment </span><var>num</var></samp><dd>Specify the file alignment.  Sections in the file will always begin at
 file offsets which are multiples of this number.  This defaults to

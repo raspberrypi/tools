@@ -10,9 +10,7 @@
 <link rel="next" href="Caching-Remote-Data.html#Caching-Remote-Data" title="Caching Remote Data">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,9 +45,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 <hr>
 </div>
 
-<h3 class="section">10.19 Character Sets</h3>
+<h3 class="section">10.20 Character Sets</h3>
 
-<p><a name="index-character-sets-654"></a><a name="index-charset-655"></a><a name="index-translating-between-character-sets-656"></a><a name="index-host-character-set-657"></a><a name="index-target-character-set-658"></a>
+<p><a name="index-character-sets-693"></a><a name="index-charset-694"></a><a name="index-translating-between-character-sets-695"></a><a name="index-host-character-set-696"></a><a name="index-target-character-set-697"></a>
 If the program you are debugging uses a different character set to
 represent characters and strings than the one <span class="sc">gdb</span> uses itself,
 <span class="sc">gdb</span> can automatically translate between the character sets for
@@ -75,11 +73,11 @@ target-charset</code> command, described below.
 support:
 
      <dl>
-<dt><code>set target-charset </code><var>charset</var><dd><a name="index-set-target_002dcharset-659"></a>Set the current target character set to <var>charset</var>.  To display the
+<dt><code>set target-charset </code><var>charset</var><dd><a name="index-set-target_002dcharset-698"></a>Set the current target character set to <var>charset</var>.  To display the
 list of supported target character sets, type
 <kbd>set&nbsp;target-charset&nbsp;&lt;TAB&gt;&lt;TAB&gt;<!-- /@w --></kbd>.
 
-     <br><dt><code>set host-charset </code><var>charset</var><dd><a name="index-set-host_002dcharset-660"></a>Set the current host character set to <var>charset</var>.
+     <br><dt><code>set host-charset </code><var>charset</var><dd><a name="index-set-host_002dcharset-699"></a>Set the current host character set to <var>charset</var>.
 
      <p>By default, <span class="sc">gdb</span> uses a host character set appropriate to the
 system it is running on; you can override that default using the
@@ -91,23 +89,23 @@ case, <span class="sc">gdb</span> uses &lsquo;<samp><span class="samp">UTF-8</sp
 set.  If you type <kbd>set&nbsp;host-charset&nbsp;&lt;TAB&gt;&lt;TAB&gt;<!-- /@w --></kbd>,
 <span class="sc">gdb</span> will list the host character sets it supports.
 
-     <br><dt><code>set charset </code><var>charset</var><dd><a name="index-set-charset-661"></a>Set the current host and target character sets to <var>charset</var>.  As
+     <br><dt><code>set charset </code><var>charset</var><dd><a name="index-set-charset-700"></a>Set the current host and target character sets to <var>charset</var>.  As
 above, if you type <kbd>set&nbsp;charset&nbsp;&lt;TAB&gt;&lt;TAB&gt;<!-- /@w --></kbd>,
 <span class="sc">gdb</span> will list the names of the character sets that can be used
 for both host and target.
 
-     <br><dt><code>show charset</code><dd><a name="index-show-charset-662"></a>Show the names of the current host and target character sets.
+     <br><dt><code>show charset</code><dd><a name="index-show-charset-701"></a>Show the names of the current host and target character sets.
 
-     <br><dt><code>show host-charset</code><dd><a name="index-show-host_002dcharset-663"></a>Show the name of the current host character set.
+     <br><dt><code>show host-charset</code><dd><a name="index-show-host_002dcharset-702"></a>Show the name of the current host character set.
 
-     <br><dt><code>show target-charset</code><dd><a name="index-show-target_002dcharset-664"></a>Show the name of the current target character set.
+     <br><dt><code>show target-charset</code><dd><a name="index-show-target_002dcharset-703"></a>Show the name of the current target character set.
 
-     <br><dt><code>set target-wide-charset </code><var>charset</var><dd><a name="index-set-target_002dwide_002dcharset-665"></a>Set the current target's wide character set to <var>charset</var>.  This is
+     <br><dt><code>set target-wide-charset </code><var>charset</var><dd><a name="index-set-target_002dwide_002dcharset-704"></a>Set the current target's wide character set to <var>charset</var>.  This is
 the character set used by the target's <code>wchar_t</code> type.  To
 display the list of supported wide character sets, type
 <kbd>set&nbsp;target-wide-charset&nbsp;&lt;TAB&gt;&lt;TAB&gt;<!-- /@w --></kbd>.
 
-     <br><dt><code>show target-wide-charset</code><dd><a name="index-show-target_002dwide_002dcharset-666"></a>Show the name of the current target's wide character set. 
+     <br><dt><code>show target-wide-charset</code><dd><a name="index-show-target_002dwide_002dcharset-705"></a>Show the name of the current target's wide character set. 
 </dl>
 
    <p>Here is an example of <span class="sc">gdb</span>'s character set support in action. 

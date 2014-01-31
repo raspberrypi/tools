@@ -10,9 +10,7 @@
 <link rel="next" href="GDB_002fMI-Data-Manipulation.html#GDB_002fMI-Data-Manipulation" title="GDB/MI Data Manipulation">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,11 +46,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <hr>
 </div>
 
-<h3 class="section">27.14 <span class="sc">gdb/mi</span> Variable Objects</h3>
+<h3 class="section">27.15 <span class="sc">gdb/mi</span> Variable Objects</h3>
 
 <h4 class="subheading">Introduction to Variable Objects</h4>
 
-<p><a name="index-variable-objects-in-_0040sc_007bgdb_002fmi_007d-2189"></a>
+<p><a name="index-variable-objects-in-_0040sc_007bgdb_002fmi_007d-2304"></a>
 Variable objects are "object-oriented" MI interface for examining and
 changing values of expressions.  Unlike some other MI interfaces that
 work with expressions, variable objects are specifically designed for
@@ -175,7 +173,7 @@ how it can be used.
 
 <h4 class="subheading">The <code>-enable-pretty-printing</code> Command</h4>
 
-<p><a name="index-g_t_002denable_002dpretty_002dprinting-2190"></a>
+<p><a name="index-g_t_002denable_002dpretty_002dprinting-2305"></a>
 <pre class="smallexample">     -enable-pretty-printing
 </pre>
    <p><span class="sc">gdb</span> allows Python-based visualizers to affect the output of the
@@ -193,7 +191,7 @@ may work differently in future versions of <span class="sc">gdb</span>.
 
 <h4 class="subheading">The <code>-var-create</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dcreate-2191"></a>
+<p><a name="index-g_t_002dvar_002dcreate-2306"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -226,7 +224,7 @@ begin with a &lsquo;<samp><span class="samp">*</span></samp>&rsquo;), or one of 
      <li>&lsquo;<samp><span class="samp">$</span><var>regname</var></samp>&rsquo; &mdash; a CPU register name
 </ul>
 
-   <p><a name="index-dynamic-varobj-2192"></a>A varobj's contents may be provided by a Python-based pretty-printer.  In this
+   <p><a name="index-dynamic-varobj-2307"></a>A varobj's contents may be provided by a Python-based pretty-printer.  In this
 case the varobj is known as a <dfn>dynamic varobj</dfn>.  Dynamic varobjs
 have slightly different semantics in some cases.  If the
 <code>-enable-pretty-printing</code> command is not sent, then <span class="sc">gdb</span>
@@ -250,7 +248,10 @@ aggregate (e.g., a <code>struct</code>), or for a dynamic varobj, this value
 will not be interesting.
 
      <br><dt>&lsquo;<samp><span class="samp">type</span></samp>&rsquo;<dd>The varobj's type.  This is a string representation of the type, as
-would be printed by the <span class="sc">gdb</span> CLI.
+would be printed by the <span class="sc">gdb</span> CLI.  If &lsquo;<samp><span class="samp">print object</span></samp>&rsquo;
+(see <a href="Print-Settings.html#Print-Settings">set print object</a>) is set to <code>on</code>, the
+<em>actual</em> (derived) type of the object is shown rather than the
+<em>declared</em> one.
 
      <br><dt>&lsquo;<samp><span class="samp">thread-id</span></samp>&rsquo;<dd>If a variable object is bound to a specific thread, then this is the
 thread's identifier.
@@ -274,7 +275,7 @@ value comes directly from the Python pretty-printer object's
 </pre>
    <h4 class="subheading">The <code>-var-delete</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002ddelete-2193"></a>
+<p><a name="index-g_t_002dvar_002ddelete-2308"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -287,7 +288,7 @@ With the &lsquo;<samp><span class="samp">-c</span></samp>&rsquo; option, just de
 
 <h4 class="subheading">The <code>-var-set-format</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dset_002dformat-2194"></a>
+<p><a name="index-g_t_002dvar_002dset_002dformat-2309"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -310,7 +311,7 @@ variable itself, and the children are not affected.
 
 <h4 class="subheading">The <code>-var-show-format</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dshow_002dformat-2195"></a>
+<p><a name="index-g_t_002dvar_002dshow_002dformat-2310"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -323,7 +324,7 @@ variable itself, and the children are not affected.
 </pre>
    <h4 class="subheading">The <code>-var-info-num-children</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dinfo_002dnum_002dchildren-2196"></a>
+<p><a name="index-g_t_002dvar_002dinfo_002dnum_002dchildren-2311"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -339,7 +340,7 @@ be available.
 
 <h4 class="subheading">The <code>-var-list-children</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dlist_002dchildren-2197"></a>
+<p><a name="index-g_t_002dvar_002dlist_002dchildren-2312"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -393,7 +394,10 @@ available at all with a dynamic varobj.
      <br><dt><var>numchild</var><dd>Number of children this child has.  For a dynamic varobj, this will be
 0.
 
-     <br><dt><var>type</var><dd>The type of the child.
+     <br><dt><var>type</var><dd>The type of the child.  If &lsquo;<samp><span class="samp">print object</span></samp>&rsquo;
+(see <a href="Print-Settings.html#Print-Settings">set print object</a>) is set to <code>on</code>, the
+<em>actual</em> (derived) type of the object is shown rather than the
+<em>declared</em> one.
 
      <br><dt><var>value</var><dd>If values were requested, this is the value.
 
@@ -427,7 +431,7 @@ remaining after the end of the selected range.
 </pre>
 <h4 class="subheading">The <code>-var-info-type</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dinfo_002dtype-2198"></a>
+<p><a name="index-g_t_002dvar_002dinfo_002dtype-2313"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -441,7 +445,7 @@ returned as a string in the same format as it is output by the
 </pre>
    <h4 class="subheading">The <code>-var-info-expression</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dinfo_002dexpression-2199"></a>
+<p><a name="index-g_t_002dvar_002dinfo_002dexpression-2314"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -465,7 +469,7 @@ is of limited use.
 
 <h4 class="subheading">The <code>-var-info-path-expression</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dinfo_002dpath_002dexpression-2200"></a>
+<p><a name="index-g_t_002dvar_002dinfo_002dpath_002dexpression-2315"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -491,7 +495,7 @@ and will give an error when invoked on one.
 </pre>
    <h4 class="subheading">The <code>-var-show-attributes</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dshow_002dattributes-2201"></a>
+<p><a name="index-g_t_002dvar_002dshow_002dattributes-2316"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -505,7 +509,7 @@ and will give an error when invoked on one.
 
 <h4 class="subheading">The <code>-var-evaluate-expression</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002devaluate_002dexpression-2202"></a>
+<p><a name="index-g_t_002dvar_002devaluate_002dexpression-2317"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -526,7 +530,7 @@ before the value of a child variable can be evaluated.
 
 <h4 class="subheading">The <code>-var-assign</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dassign-2203"></a>
+<p><a name="index-g_t_002dvar_002dassign-2318"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -549,7 +553,7 @@ subsequent <code>-var-update</code> list.
 </pre>
 <h4 class="subheading">The <code>-var-update</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dupdate-2204"></a>
+<p><a name="index-g_t_002dvar_002dupdate-2319"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -610,6 +614,12 @@ be prepared for this possibility.  See <a href="GDB_002fMI-Development-and-Front
 changed, then this will be the string &lsquo;<samp><span class="samp">true</span></samp>&rsquo;; otherwise it will
 be &lsquo;<samp><span class="samp">false</span></samp>&rsquo;.
 
+     <p>When a varobj's type changes, its children are also likely to have
+become incorrect.  Therefore, the varobj's children are automatically
+deleted when this attribute is &lsquo;<samp><span class="samp">true</span></samp>&rsquo;.  Also, the varobj's update
+range, when set using the <code>-var-set-update-range</code> command, is
+unset.
+
      <br><dt>&lsquo;<samp><span class="samp">new_type</span></samp>&rsquo;<dd>If the varobj's type changed, then this field will be present and will
 hold the new type.
 
@@ -654,7 +664,7 @@ be listed in this attribute.
 </pre>
 <h4 class="subheading">The <code>-var-set-frozen</code> Command</h4>
 
-<p><a name="index-g_t_002dvar_002dset_002dfrozen-2205"></a><a name="g_t_002dvar_002dset_002dfrozen"></a>
+<p><a name="index-g_t_002dvar_002dset_002dfrozen-2320"></a><a name="g_t_002dvar_002dset_002dfrozen"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -681,7 +691,7 @@ Unfreezing a variable does not update it, only subsequent
 </pre>
 <h4 class="subheading">The <code>-var-set-update-range</code> command</h4>
 
-<p><a name="index-g_t_002dvar_002dset_002dupdate_002drange-2206"></a><a name="g_t_002dvar_002dset_002dupdate_002drange"></a>
+<p><a name="index-g_t_002dvar_002dset_002dupdate_002drange-2321"></a><a name="g_t_002dvar_002dset_002dupdate_002drange"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -703,7 +713,7 @@ children will be reported.  Otherwise, children starting at <var>from</var>
 </pre>
 <h4 class="subheading">The <code>-var-set-visualizer</code> command</h4>
 
-<p><a name="index-g_t_002dvar_002dset_002dvisualizer-2207"></a><a name="g_t_002dvar_002dset_002dvisualizer"></a>
+<p><a name="index-g_t_002dvar_002dset_002dvisualizer-2322"></a><a name="g_t_002dvar_002dset_002dvisualizer"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 

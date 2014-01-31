@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCOV 1"
-.TH GCOV 1 "2012-07-31" "gcc-4.7.2" "GNU"
+.TH GCOV 1 "2014-01-06" "gcc-4.8.3" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -636,13 +636,18 @@ each location might not be the same.  For instance, a condition might
 now be calculable at compile time in some instances.  Because the
 coverage of all the uses of the inline function will be shown for the
 same source lines, the line counts themselves might seem inconsistent.
+.PP
+Long-running applications can use the \f(CW\*(C`_gcov_reset\*(C'\fR and \f(CW\*(C`_gcov_dump\*(C'\fR
+facilities to restrict profile collection to the program region of
+interest. Calling \f(CW\*(C`_gcov_reset(void)\*(C'\fR will clear all profile counters
+to zero, and calling \f(CW\*(C`_gcov_dump(void)\*(C'\fR will cause the profile information
+collected at that point to be dumped to \fI.gcda\fR output files.
 .SH "SEE ALSO"
 .IX Header "SEE ALSO"
 \&\fIgpl\fR\|(7), \fIgfdl\fR\|(7), \fIfsf\-funding\fR\|(7), \fIgcc\fR\|(1) and the Info entry for \fIgcc\fR.
 .SH "COPYRIGHT"
 .IX Header "COPYRIGHT"
-Copyright (c) 1996, 1997, 1999, 2000, 2001, 2002, 2003, 2004,
-2005, 2008, 2010  Free Software Foundation, Inc.
+Copyright (c) 1996\-2013 Free Software Foundation, Inc.
 .PP
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the \s-1GNU\s0 Free Documentation License, Version 1.3 or

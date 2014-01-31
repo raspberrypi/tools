@@ -9,9 +9,7 @@
 <link rel="next" href="Continuing-and-Stepping.html#Continuing-and-Stepping" title="Continuing and Stepping">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stopping.html#Stopping">Stopping</a>
 
 <h3 class="section">5.1 Breakpoints, Watchpoints, and Catchpoints</h3>
 
-<p><a name="index-breakpoints-200"></a>A <dfn>breakpoint</dfn> makes your program stop whenever a certain point in
+<p><a name="index-breakpoints-204"></a>A <dfn>breakpoint</dfn> makes your program stop whenever a certain point in
 the program is reached.  For each breakpoint, you can add conditions to
 control in finer detail whether your program stops.  You can set
 breakpoints with the <code>break</code> command and its variants (see <a href="Set-Breaks.html#Set-Breaks">Setting Breakpoints</a>), to specify the place where your program
@@ -61,7 +59,7 @@ in shared library routines that are not called directly by the program
 (for example, routines that are arguments in a <code>pthread_create</code>
 call).
 
-   <p><a name="index-watchpoints-201"></a><a name="index-data-breakpoints-202"></a><a name="index-memory-tracing-203"></a><a name="index-breakpoint-on-memory-address-204"></a><a name="index-breakpoint-on-variable-modification-205"></a>A <dfn>watchpoint</dfn> is a special breakpoint that stops your program
+   <p><a name="index-watchpoints-205"></a><a name="index-data-breakpoints-206"></a><a name="index-memory-tracing-207"></a><a name="index-breakpoint-on-memory-address-208"></a><a name="index-breakpoint-on-variable-modification-209"></a>A <dfn>watchpoint</dfn> is a special breakpoint that stops your program
 when the value of an expression changes.  The expression may be a value
 of a variable, or it could involve values of one or more variables
 combined by operators, such as &lsquo;<samp><span class="samp">a + b</span></samp>&rsquo;.  This is sometimes called
@@ -74,14 +72,14 @@ same commands.
    <p>You can arrange to have values from your program displayed automatically
 whenever <span class="sc">gdb</span> stops at a breakpoint.  See <a href="Auto-Display.html#Auto-Display">Automatic Display</a>.
 
-   <p><a name="index-catchpoints-206"></a><a name="index-breakpoint-on-events-207"></a>A <dfn>catchpoint</dfn> is another special breakpoint that stops your program
+   <p><a name="index-catchpoints-210"></a><a name="index-breakpoint-on-events-211"></a>A <dfn>catchpoint</dfn> is another special breakpoint that stops your program
 when a certain kind of event occurs, such as the throwing of a C<tt>++</tt>
 exception or the loading of a library.  As with watchpoints, you use a
 different command to set a catchpoint (see <a href="Set-Catchpoints.html#Set-Catchpoints">Setting Catchpoints</a>), but aside from that, you can manage a catchpoint like any
 other breakpoint.  (To stop when your program receives a signal, use the
 <code>handle</code> command; see <a href="Signals.html#Signals">Signals</a>.)
 
-   <p><a name="index-breakpoint-numbers-208"></a><a name="index-numbers-for-breakpoints-209"></a><span class="sc">gdb</span> assigns a number to each breakpoint, watchpoint, or
+   <p><a name="index-breakpoint-numbers-212"></a><a name="index-numbers-for-breakpoints-213"></a><span class="sc">gdb</span> assigns a number to each breakpoint, watchpoint, or
 catchpoint when you create it; these numbers are successive integers
 starting with one.  In many of the commands for controlling various
 features of breakpoints you use the breakpoint number to say which
@@ -89,7 +87,7 @@ breakpoint you want to change.  Each breakpoint may be <dfn>enabled</dfn> or
 <dfn>disabled</dfn>; if disabled, it has no effect on your program until you
 enable it again.
 
-   <p><a name="index-breakpoint-ranges-210"></a><a name="index-ranges-of-breakpoints-211"></a>Some <span class="sc">gdb</span> commands accept a range of breakpoints on which to
+   <p><a name="index-breakpoint-ranges-214"></a><a name="index-ranges-of-breakpoints-215"></a>Some <span class="sc">gdb</span> commands accept a range of breakpoints on which to
 operate.  A breakpoint range is either a single breakpoint number, like
 &lsquo;<samp><span class="samp">5</span></samp>&rsquo;, or two such numbers, in increasing order, separated by a
 hyphen, like &lsquo;<samp><span class="samp">5-7</span></samp>&rsquo;.  When a breakpoint range is given to a command,
@@ -103,8 +101,10 @@ all breakpoints in that range are operated on.
 <li><a accesskey="5" href="Disabling.html#Disabling">Disabling</a>:                    Disabling breakpoints
 <li><a accesskey="6" href="Conditions.html#Conditions">Conditions</a>:                   Break conditions
 <li><a accesskey="7" href="Break-Commands.html#Break-Commands">Break Commands</a>:               Breakpoint command lists
-<li><a accesskey="8" href="Save-Breakpoints.html#Save-Breakpoints">Save Breakpoints</a>:             How to save breakpoints in a file
-<li><a accesskey="9" href="Error-in-Breakpoints.html#Error-in-Breakpoints">Error in Breakpoints</a>:         ``Cannot insert breakpoints''
+<li><a accesskey="8" href="Dynamic-Printf.html#Dynamic-Printf">Dynamic Printf</a>:               Dynamic printf
+<li><a accesskey="9" href="Save-Breakpoints.html#Save-Breakpoints">Save Breakpoints</a>:             How to save breakpoints in a file
+<li><a href="Static-Probe-Points.html#Static-Probe-Points">Static Probe Points</a>:          Listing static probe points
+<li><a href="Error-in-Breakpoints.html#Error-in-Breakpoints">Error in Breakpoints</a>:         ``Cannot insert breakpoints''
 <li><a href="Breakpoint_002drelated-Warnings.html#Breakpoint_002drelated-Warnings">Breakpoint-related Warnings</a>:  ``Breakpoint address adjusted...'' 
 </ul>
 

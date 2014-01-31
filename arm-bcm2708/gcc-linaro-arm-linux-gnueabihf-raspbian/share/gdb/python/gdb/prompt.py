@@ -1,5 +1,5 @@
 # Extended prompt utilities.
-# Copyright (C) 2011-2012 Free Software Foundation, Inc.
+# Copyright (C) 2011-2013 Free Software Foundation, Inc.
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -98,8 +98,7 @@ def prompt_help():
     functions."""
 
     result = ''
-    keys = prompt_substitutions.keys()
-    keys.sort()
+    keys = sorted (prompt_substitutions.keys())
     for key in keys:
         result += '  \\%s\t%s\n' % (key, prompt_substitutions[key].__doc__)
     result += """

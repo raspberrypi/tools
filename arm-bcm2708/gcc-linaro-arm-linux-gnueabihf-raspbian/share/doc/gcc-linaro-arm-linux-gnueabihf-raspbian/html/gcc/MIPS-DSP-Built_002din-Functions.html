@@ -6,13 +6,11 @@
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Target-Builtins.html#Target-Builtins" title="Target Builtins">
-<link rel="prev" href="X86-Built_002din-Functions.html#X86-Built_002din-Functions" title="X86 Built-in Functions">
+<link rel="prev" href="X86-transactional-memory-intrinsics.html#X86-transactional-memory-intrinsics" title="X86 transactional memory intrinsics">
 <link rel="next" href="MIPS-Paired_002dSingle-Support.html#MIPS-Paired_002dSingle-Support" title="MIPS Paired-Single Support">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,12 +48,12 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <a name="MIPS-DSP-Built_002din-Functions"></a>
 <p>
 Next:&nbsp;<a rel="next" accesskey="n" href="MIPS-Paired_002dSingle-Support.html#MIPS-Paired_002dSingle-Support">MIPS Paired-Single Support</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="X86-Built_002din-Functions.html#X86-Built_002din-Functions">X86 Built-in Functions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="X86-transactional-memory-intrinsics.html#X86-transactional-memory-intrinsics">X86 transactional memory intrinsics</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">Target Builtins</a>
 <hr>
 </div>
 
-<h4 class="subsection">6.55.8 MIPS DSP Built-in Functions</h4>
+<h4 class="subsection">6.56.9 MIPS DSP Built-in Functions</h4>
 
 <p>The MIPS DSP Application-Specific Extension (ASE) includes new
 instructions that are designed to improve the performance of DSP and
@@ -75,8 +73,8 @@ using the command-line option <samp><span class="option">-mdspr2</span></samp>; 
 
  <p>The SCOUNT and POS bits of the DSP control register are global.  The
 WRDSP, EXTPDP, EXTPDPV and MTHLIP instructions modify the SCOUNT and
-POS bits.  During optimization, the compiler will not delete these
-instructions and it will not delete calls to functions containing
+POS bits.  During optimization, the compiler does not delete these
+instructions and it does not delete calls to functions containing
 these instructions.
 
  <p>At present, GCC only provides support for operations on 32-bit
@@ -106,8 +104,8 @@ initialized in the same way as aggregates.  For example:
  <p><em>Note:</em> The CPU's endianness determines the order in which values
 are packed.  On little-endian targets, the first value is the least
 significant and the last value is the most significant.  The opposite
-order applies to big-endian targets.  For example, the code above will
-set the lowest byte of <code>a</code> to <code>1</code> on little-endian targets
+order applies to big-endian targets.  For example, the code above
+sets the lowest byte of <code>a</code> to <code>1</code> on little-endian targets
 and <code>4</code> on big-endian targets.
 
  <p><em>Note:</em> Q7, Q15 and Q31 values must be initialized with their integer
@@ -147,8 +145,8 @@ the following types:
  <p><code>q31</code> and <code>i32</code> are actually the same as <code>int</code>, but we
 use <code>q31</code> to indicate a Q31 fractional value and <code>i32</code> to
 indicate a 32-bit integer value.  Similarly, <code>a64</code> is the same as
-<code>long long</code>, but we use <code>a64</code> to indicate values that will
-be placed in one of the four DSP accumulators (<code>$ac0</code>,
+<code>long long</code>, but we use <code>a64</code> to indicate values that are
+placed in one of the four DSP accumulators (<code>$ac0</code>,
 <code>$ac1</code>, <code>$ac2</code> or <code>$ac3</code>).
 
  <p>Also, some built-in functions prefer or require immediate numbers as

@@ -8,11 +8,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -47,6 +46,7 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Options.html#Options">2.1.2 Options specific to C6X uClinux targets</a>
 <li><a href="Options.html#Options">2.1.3 Options specific to Motorola 68HC11 and 68HC12 targets</a>
 <li><a href="Options.html#Options">2.1.4 Options specific to Motorola 68K target</a>
+<li><a href="Options.html#Options">2.1.5 Options specific to MIPS targets</a>
 </li></ul>
 <li><a href="Environment.html#Environment">2.2 Environment Variables</a>
 </li></ul>
@@ -66,9 +66,10 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Assignments.html#Assignments">3.5 Assigning Values to Symbols</a>
 <ul>
 <li><a href="Simple-Assignments.html#Simple-Assignments">3.5.1 Simple Assignments</a>
-<li><a href="PROVIDE.html#PROVIDE">3.5.2 PROVIDE</a>
-<li><a href="PROVIDE_005fHIDDEN.html#PROVIDE_005fHIDDEN">3.5.3 PROVIDE_HIDDEN</a>
-<li><a href="Source-Code-Reference.html#Source-Code-Reference">3.5.4 Source Code Reference</a>
+<li><a href="HIDDEN.html#HIDDEN">3.5.2 HIDDEN</a>
+<li><a href="PROVIDE.html#PROVIDE">3.5.3 PROVIDE</a>
+<li><a href="PROVIDE_005fHIDDEN.html#PROVIDE_005fHIDDEN">3.5.4 PROVIDE_HIDDEN</a>
+<li><a href="Source-Code-Reference.html#Source-Code-Reference">3.5.5 Source Code Reference</a>
 </li></ul>
 <li><a href="SECTIONS.html#SECTIONS">3.6 SECTIONS Command</a>
 <ul>
@@ -128,14 +129,15 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="ARM.html#ARM">4.4 <samp><span class="command">ld</span></samp> and the ARM family</a>
 <li><a href="HPPA-ELF32.html#HPPA-ELF32">4.5 <samp><span class="command">ld</span></samp> and HPPA 32-bit ELF Support</a>
 <li><a href="M68K.html#M68K">4.6 <samp><span class="command">ld</span></samp> and the Motorola 68K family</a>
-<li><a href="MMIX.html#MMIX">4.7 <code>ld</code> and MMIX</a>
-<li><a href="MSP430.html#MSP430">4.8 <code>ld</code> and MSP430</a>
-<li><a href="PowerPC-ELF32.html#PowerPC-ELF32">4.9 <samp><span class="command">ld</span></samp> and PowerPC 32-bit ELF Support</a>
-<li><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">4.10 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</a>
-<li><a href="SPU-ELF.html#SPU-ELF">4.11 <samp><span class="command">ld</span></samp> and SPU ELF Support</a>
-<li><a href="TI-COFF.html#TI-COFF">4.12 <samp><span class="command">ld</span></samp>'s Support for Various TI COFF Versions</a>
-<li><a href="WIN32.html#WIN32">4.13 <samp><span class="command">ld</span></samp> and WIN32 (cygwin/mingw)</a>
-<li><a href="Xtensa.html#Xtensa">4.14 <code>ld</code> and Xtensa Processors</a>
+<li><a href="MIPS.html#MIPS">4.7 <samp><span class="command">ld</span></samp> and the MIPS family</a>
+<li><a href="MMIX.html#MMIX">4.8 <code>ld</code> and MMIX</a>
+<li><a href="MSP430.html#MSP430">4.9 <code>ld</code> and MSP430</a>
+<li><a href="PowerPC-ELF32.html#PowerPC-ELF32">4.10 <samp><span class="command">ld</span></samp> and PowerPC 32-bit ELF Support</a>
+<li><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">4.11 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</a>
+<li><a href="SPU-ELF.html#SPU-ELF">4.12 <samp><span class="command">ld</span></samp> and SPU ELF Support</a>
+<li><a href="TI-COFF.html#TI-COFF">4.13 <samp><span class="command">ld</span></samp>'s Support for Various TI COFF Versions</a>
+<li><a href="WIN32.html#WIN32">4.14 <samp><span class="command">ld</span></samp> and WIN32 (cygwin/mingw)</a>
+<li><a href="Xtensa.html#Xtensa">4.15 <code>ld</code> and Xtensa Processors</a>
 </li></ul>
 <li><a name="toc_BFD" href="BFD.html#BFD">5 BFD</a>
 <ul>
@@ -170,8 +172,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
 <h2 class="unnumbered">LD</h2>
 
 <p>This file documents the <span class="sc">gnu</span> linker ld
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
    <p>This document is distributed under the terms of the GNU Free
 Documentation License version 1.3.  A copy of the license is included

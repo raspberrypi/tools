@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,21 +44,21 @@ Up:&nbsp;<a rel="up" accesskey="u" href="CRIS_002dSyntax.html#CRIS_002dSyntax">C
 <hr>
 </div>
 
-<h5 class="subsubsection">9.7.4.4 Assembler Directives</h5>
+<h5 class="subsubsection">9.8.4.4 Assembler Directives</h5>
 
-<p><a name="index-assembler-directives_002c-CRIS-742"></a><a name="index-pseudo_002dops_002c-CRIS-743"></a><a name="index-CRIS-assembler-directives-744"></a><a name="index-CRIS-pseudo_002dops-745"></a>
+<p><a name="index-assembler-directives_002c-CRIS-783"></a><a name="index-pseudo_002dops_002c-CRIS-784"></a><a name="index-CRIS-assembler-directives-785"></a><a name="index-CRIS-pseudo_002dops-786"></a>
 There are a few CRIS-specific pseudo-directives in addition to
 the generic ones.  See <a href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops</a>.  Constants emitted by
 pseudo-directives are in little-endian order for CRIS.  There is
 no support for floating-point-specific directives for CRIS.
 
      <dl>
-<dt><code>.dword EXPRESSIONS</code><dd><a name="index-assembler-directive-_002edword_002c-CRIS-746"></a><a name="index-pseudo_002dop-_002edword_002c-CRIS-747"></a><a name="index-CRIS-assembler-directive-_002edword-748"></a><a name="index-CRIS-pseudo_002dop-_002edword-749"></a>
+<dt><code>.dword EXPRESSIONS</code><dd><a name="index-assembler-directive-_002edword_002c-CRIS-787"></a><a name="index-pseudo_002dop-_002edword_002c-CRIS-788"></a><a name="index-CRIS-assembler-directive-_002edword-789"></a><a name="index-CRIS-pseudo_002dop-_002edword-790"></a>
 The <code>.dword</code> directive is a synonym for <code>.int</code>,
 expecting zero or more EXPRESSIONS, separated by commas.  For
 each expression, a 32-bit little-endian constant is emitted.
 
-     <br><dt><code>.syntax ARGUMENT</code><dd><a name="index-assembler-directive-_002esyntax_002c-CRIS-750"></a><a name="index-pseudo_002dop-_002esyntax_002c-CRIS-751"></a><a name="index-CRIS-assembler-directive-_002esyntax-752"></a><a name="index-CRIS-pseudo_002dop-_002esyntax-753"></a>The <code>.syntax</code> directive takes as <var>ARGUMENT</var> one of the
+     <br><dt><code>.syntax ARGUMENT</code><dd><a name="index-assembler-directive-_002esyntax_002c-CRIS-791"></a><a name="index-pseudo_002dop-_002esyntax_002c-CRIS-792"></a><a name="index-CRIS-assembler-directive-_002esyntax-793"></a><a name="index-CRIS-pseudo_002dop-_002esyntax-794"></a>The <code>.syntax</code> directive takes as <var>ARGUMENT</var> one of the
 following case-sensitive choices.
 
           <dl>
@@ -90,7 +88,7 @@ directive and emits an error if the option <samp><span class="option">--undersco
 is in effect. 
 </dl>
 
-     <br><dt><code>.arch ARGUMENT</code><dd><a name="index-assembler-directive-_002earch_002c-CRIS-754"></a><a name="index-pseudo_002dop-_002earch_002c-CRIS-755"></a><a name="index-CRIS-assembler-directive-_002earch-756"></a><a name="index-CRIS-pseudo_002dop-_002earch-757"></a>This is an assertion directive, giving an error if the specified
+     <br><dt><code>.arch ARGUMENT</code><dd><a name="index-assembler-directive-_002earch_002c-CRIS-795"></a><a name="index-pseudo_002dop-_002earch_002c-CRIS-796"></a><a name="index-CRIS-assembler-directive-_002earch-797"></a><a name="index-CRIS-pseudo_002dop-_002earch-798"></a>This is an assertion directive, giving an error if the specified
 <var>ARGUMENT</var> is not the same as the specified or default value
 for the <samp><span class="option">--march=</span><var>architecture</var></samp> option
 (see <a href="march_002doption.html#march_002doption">march-option</a>).

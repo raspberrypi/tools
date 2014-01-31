@@ -10,9 +10,7 @@
 <link rel="next" href="Selection.html#Selection" title="Selection">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,14 +47,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stack.html#Stack">Stack</a>
 
 <h3 class="section">8.2 Backtraces</h3>
 
-<p><a name="index-traceback-418"></a><a name="index-call-stack-traces-419"></a>A backtrace is a summary of how your program got where it is.  It shows one
+<p><a name="index-traceback-444"></a><a name="index-call-stack-traces-445"></a>A backtrace is a summary of how your program got where it is.  It shows one
 line per frame, for many frames, starting with the currently executing
 frame (frame zero), followed by its caller (frame one), and on up the
 stack.
 
      
-<a name="index-backtrace-420"></a>
-<a name="index-bt-_0040r_007b_0028_0040code_007bbacktrace_007d_0029_007d-421"></a>
+<a name="index-backtrace-446"></a>
+<a name="index-bt-_0040r_007b_0028_0040code_007bbacktrace_007d_0029_007d-447"></a>
 <dl><dt><code>backtrace</code><dt><code>bt</code><dd>Print a backtrace of the entire stack: one line per frame for all
 frames in the stack.
 
@@ -71,10 +69,10 @@ character, normally <kbd>Ctrl-c</kbd>.
 number of frames to print, as described above. 
 </dl>
 
-   <p><a name="index-where-422"></a><a name="index-info-stack-423"></a>The names <code>where</code> and <code>info stack</code> (abbreviated <code>info s</code>)
+   <p><a name="index-where-448"></a><a name="index-info-stack-449"></a>The names <code>where</code> and <code>info stack</code> (abbreviated <code>info s</code>)
 are additional aliases for <code>backtrace</code>.
 
-   <p><a name="index-multiple-threads_002c-backtrace-424"></a>In a multi-threaded program, <span class="sc">gdb</span> by default shows the
+   <p><a name="index-multiple-threads_002c-backtrace-450"></a>In a multi-threaded program, <span class="sc">gdb</span> by default shows the
 backtrace only for the current thread.  To display the backtrace for
 several or all of the threads, use the command <code>thread apply</code>
 (see <a href="Threads.html#Threads">thread apply</a>).  For example, if you type <kbd>thread
@@ -109,7 +107,7 @@ only if it is a scalar (integer, pointer, enumeration, etc).  See command
 <kbd>set print frame-arguments</kbd> in <a href="Print-Settings.html#Print-Settings">Print Settings</a> for more details
 on how to configure the way function parameter values are printed.
 
-   <p><a name="index-optimized-out_002c-in-backtrace-425"></a><a name="index-function-call-arguments_002c-optimized-out-426"></a>If your program was compiled with optimizations, some compilers will
+   <p><a name="index-optimized-out_002c-in-backtrace-451"></a><a name="index-function-call-arguments_002c-optimized-out-452"></a>If your program was compiled with optimizations, some compilers will
 optimize away arguments passed to functions if those arguments are
 never used after the call.  Such optimizations generate code that
 passes arguments through registers, but doesn't store those arguments
@@ -131,7 +129,7 @@ shown as &lsquo;<samp><span class="samp">&lt;optimized out&gt;</span></samp>&rsq
 either deduce that from other variables whose values depend on the one
 you are interested in, or recompile without optimizations.
 
-   <p><a name="index-backtrace-beyond-_0040code_007bmain_007d-function-427"></a><a name="index-program-entry-point-428"></a><a name="index-startup-code_002c-and-backtrace-429"></a>Most programs have a standard user entry point&mdash;a place where system
+   <p><a name="index-backtrace-beyond-_0040code_007bmain_007d-function-453"></a><a name="index-program-entry-point-454"></a><a name="index-startup-code_002c-and-backtrace-455"></a>Most programs have a standard user entry point&mdash;a place where system
 libraries and startup code transition into user code.  For C this is
 <code>main</code><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>. 
 When <span class="sc">gdb</span> finds the entry function in a backtrace
@@ -142,12 +140,12 @@ system-specific (and generally uninteresting) code.
 in a backtrace, you can change this behavior:
 
      <dl>
-<dt><code>set backtrace past-main</code><dt><code>set backtrace past-main on</code><dd><a name="index-set-backtrace-430"></a>Backtraces will continue past the user entry point.
+<dt><code>set backtrace past-main</code><dt><code>set backtrace past-main on</code><dd><a name="index-set-backtrace-456"></a>Backtraces will continue past the user entry point.
 
      <br><dt><code>set backtrace past-main off</code><dd>Backtraces will stop when they encounter the user entry point.  This is the
 default.
 
-     <br><dt><code>show backtrace past-main</code><dd><a name="index-show-backtrace-431"></a>Display the current user entry point backtrace policy.
+     <br><dt><code>show backtrace past-main</code><dd><a name="index-show-backtrace-457"></a>Display the current user entry point backtrace policy.
 
      <br><dt><code>set backtrace past-entry</code><dt><code>set backtrace past-entry on</code><dd>Backtraces will continue past the internal entry point of an application. 
 This entry point is encoded by the linker when the application is built,
@@ -158,10 +156,22 @@ application.  This is the default.
 
      <br><dt><code>show backtrace past-entry</code><dd>Display the current internal entry point backtrace policy.
 
-     <br><dt><code>set backtrace limit </code><var>n</var><dt><code>set backtrace limit 0</code><dd><a name="index-backtrace-limit-432"></a>Limit the backtrace to <var>n</var> levels.  A value of zero means
+     <br><dt><code>set backtrace limit </code><var>n</var><dt><code>set backtrace limit 0</code><dd><a name="index-backtrace-limit-458"></a>Limit the backtrace to <var>n</var> levels.  A value of zero means
 unlimited.
 
      <br><dt><code>show backtrace limit</code><dd>Display the current limit on backtrace levels. 
+</dl>
+
+   <p>You can control how file names are displayed.
+
+     <dl>
+<dt><code>set filename-display</code><dt><code>set filename-display relative</code><dd><a name="index-filename_002ddisplay-459"></a>Display file names relative to the compilation directory.  This is the default.
+
+     <br><dt><code>set filename-display basename</code><dd>Display only basename of a filename.
+
+     <br><dt><code>set filename-display absolute</code><dd>Display an absolute filename.
+
+     <br><dt><code>show filename-display</code><dd>Show the current way to display filenames. 
 </dl>
 
    <div class="footnote">

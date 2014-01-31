@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<title>PowerPC Built-in Functions - Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Target-Builtins.html#Target-Builtins" title="Target Builtins">
+<link rel="prev" href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions" title="picoChip Built-in Functions">
+<link rel="next" href="PowerPC-AltiVec_002fVSX-Built_002din-Functions.html#PowerPC-AltiVec_002fVSX-Built_002din-Functions" title="PowerPC AltiVec/VSX Built-in Functions">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="PowerPC-Built-in-Functions"></a>
+<a name="PowerPC-Built_002din-Functions"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="PowerPC-AltiVec_002fVSX-Built_002din-Functions.html#PowerPC-AltiVec_002fVSX-Built_002din-Functions">PowerPC AltiVec/VSX Built-in Functions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions">picoChip Built-in Functions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">Target Builtins</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.56.14 PowerPC Built-in Functions</h4>
+
+<p>These built-in functions are available for the PowerPC family of
+processors:
+<pre class="smallexample">     float __builtin_recipdivf (float, float);
+     float __builtin_rsqrtf (float);
+     double __builtin_recipdiv (double, double);
+     double __builtin_rsqrt (double);
+     long __builtin_bpermd (long, long);
+     uint64_t __builtin_ppc_get_timebase ();
+     unsigned long __builtin_ppc_mftb ();
+</pre>
+ <p>The <code>vec_rsqrt</code>, <code>__builtin_rsqrt</code>, and
+<code>__builtin_rsqrtf</code> functions generate multiple instructions to
+implement the reciprocal sqrt functionality using reciprocal sqrt
+estimate instructions.
+
+ <p>The <code>__builtin_recipdiv</code>, and <code>__builtin_recipdivf</code>
+functions generate multiple instructions to implement division using
+the reciprocal estimate instructions.
+
+ <p>The <code>__builtin_ppc_get_timebase</code> and <code>__builtin_ppc_mftb</code>
+functions generate instructions to read the Time Base Register.  The
+<code>__builtin_ppc_get_timebase</code> function may generate multiple
+instructions and always returns the 64 bits of the Time Base Register. 
+The <code>__builtin_ppc_mftb</code> function always generates one instruction and
+returns the Time Base Register value as an unsigned long, throwing away
+the most significant word on 32-bit environments.
+
+ </body></html>
+

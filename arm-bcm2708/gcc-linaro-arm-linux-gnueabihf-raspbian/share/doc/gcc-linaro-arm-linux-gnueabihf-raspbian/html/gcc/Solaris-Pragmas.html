@@ -10,9 +10,7 @@
 <link rel="next" href="Symbol_002dRenaming-Pragmas.html#Symbol_002dRenaming-Pragmas" title="Symbol-Renaming Pragmas">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,26 +52,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pragmas.html#Pragmas">Pragmas</a>
 <hr>
 </div>
 
-<h4 class="subsection">6.57.6 Solaris Pragmas</h4>
+<h4 class="subsection">6.58.6 Solaris Pragmas</h4>
 
 <p>The Solaris target supports <code>#pragma redefine_extname</code>
 (see <a href="Symbol_002dRenaming-Pragmas.html#Symbol_002dRenaming-Pragmas">Symbol-Renaming Pragmas</a>).  It also supports additional
 <code>#pragma</code> directives for compatibility with the system compiler.
 
      <dl>
-<dt><code>align </code><var>alignment</var><code> (</code><var>variable</var><code> [, </code><var>variable</var><code>]...)</code><dd><a name="index-pragma_002c-align-3351"></a>
+<dt><code>align </code><var>alignment</var><code> (</code><var>variable</var><code> [, </code><var>variable</var><code>]...)</code><dd><a name="index-pragma_002c-align-3475"></a>
 Increase the minimum alignment of each <var>variable</var> to <var>alignment</var>. 
 This is the same as GCC's <code>aligned</code> attribute see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).  Macro expansion occurs on the arguments to this pragma
 when compiling C and Objective-C.  It does not currently occur when
 compiling C++, but this is a bug which may be fixed in a future
 release.
 
-     <br><dt><code>fini (</code><var>function</var><code> [, </code><var>function</var><code>]...)</code><dd><a name="index-pragma_002c-fini-3352"></a>
+     <br><dt><code>fini (</code><var>function</var><code> [, </code><var>function</var><code>]...)</code><dd><a name="index-pragma_002c-fini-3476"></a>
 This pragma causes each listed <var>function</var> to be called after
 main, or during shared module unloading, by adding a call to the
 <code>.fini</code> section.
 
-     <br><dt><code>init (</code><var>function</var><code> [, </code><var>function</var><code>]...)</code><dd><a name="index-pragma_002c-init-3353"></a>
+     <br><dt><code>init (</code><var>function</var><code> [, </code><var>function</var><code>]...)</code><dd><a name="index-pragma_002c-init-3477"></a>
 This pragma causes each listed <var>function</var> to be called during
 initialization (before <code>main</code>) or during shared module loading, by
 adding a call to the <code>.init</code> section.

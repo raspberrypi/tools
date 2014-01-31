@@ -10,9 +10,7 @@
 <link rel="next" href="Decimal-Floating-Point.html#Decimal-Floating-Point" title="Decimal Floating Point">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,29 +47,34 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C.html#C">C</a>
 
 <h5 class="subsubsection">15.4.1.7 <span class="sc">gdb</span> Features for C<tt>++</tt></h5>
 
-<p><a name="index-commands-for-C_0040t_007b_002b_002b_007d-845"></a>
+<p><a name="index-commands-for-C_0040t_007b_002b_002b_007d-886"></a>
 Some <span class="sc">gdb</span> commands are particularly useful with C<tt>++</tt>, and some are
 designed specifically for use with C<tt>++</tt>.  Here is a summary:
 
      
-<a name="index-break-in-overloaded-functions-846"></a>
+<a name="index-break-in-overloaded-functions-887"></a>
 <dl><dt><span class="roman">breakpoint menus</span><dd>When you want a breakpoint in a function whose name is overloaded,
 <span class="sc">gdb</span> has the capability to display a menu of possible breakpoint
 locations to help you specify which function definition you want. 
 See <a href="Ambiguous-Expressions.html#Ambiguous-Expressions">Ambiguous Expressions</a>.
 
-     <p><a name="index-overloading-in-C_0040t_007b_002b_002b_007d-847"></a><br><dt><code>rbreak </code><var>regex</var><dd>Setting breakpoints using regular expressions is helpful for setting
+     <p><a name="index-overloading-in-C_0040t_007b_002b_002b_007d-888"></a><br><dt><code>rbreak </code><var>regex</var><dd>Setting breakpoints using regular expressions is helpful for setting
 breakpoints on overloaded functions that are not members of any special
 classes. 
 See <a href="Set-Breaks.html#Set-Breaks">Setting Breakpoints</a>.
 
-     <p><a name="index-C_0040t_007b_002b_002b_007d-exception-handling-848"></a><br><dt><code>catch throw</code><dt><code>catch catch</code><dd>Debug C<tt>++</tt> exception handling using these commands.  See <a href="Set-Catchpoints.html#Set-Catchpoints">Setting Catchpoints</a>.
+     <p><a name="index-C_0040t_007b_002b_002b_007d-exception-handling-889"></a><br><dt><code>catch throw</code><dt><code>catch catch</code><dd>Debug C<tt>++</tt> exception handling using these commands.  See <a href="Set-Catchpoints.html#Set-Catchpoints">Setting Catchpoints</a>.
 
-     <p><a name="index-inheritance-849"></a><br><dt><code>ptype </code><var>typename</var><dd>Print inheritance relationships as well as other information for type
+     <p><a name="index-inheritance-890"></a><br><dt><code>ptype </code><var>typename</var><dd>Print inheritance relationships as well as other information for type
 <var>typename</var>. 
 See <a href="Symbols.html#Symbols">Examining the Symbol Table</a>.
 
-     <p><a name="index-C_0040t_007b_002b_002b_007d-symbol-display-850"></a><br><dt><code>set print demangle</code><dt><code>show print demangle</code><dt><code>set print asm-demangle</code><dt><code>show print asm-demangle</code><dd>Control whether C<tt>++</tt> symbols display in their source form, both when
+     <br><dt><code>info vtbl </code><var>expression</var><code>.</code><dd>The <code>info vtbl</code> command can be used to display the virtual
+method tables of the object computed by <var>expression</var>.  This shows
+one entry per virtual table; there may be multiple virtual tables when
+multiple inheritance is in use.
+
+     <p><a name="index-C_0040t_007b_002b_002b_007d-symbol-display-891"></a><br><dt><code>set print demangle</code><dt><code>show print demangle</code><dt><code>set print asm-demangle</code><dt><code>show print asm-demangle</code><dd>Control whether C<tt>++</tt> symbols display in their source form, both when
 displaying code as C<tt>++</tt> source and when displaying disassemblies. 
 See <a href="Print-Settings.html#Print-Settings">Print Settings</a>.
 
@@ -83,7 +86,7 @@ See <a href="Print-Settings.html#Print-Settings">Print Settings</a>.
 (The <code>vtbl</code> commands do not work on programs compiled with the HP
 ANSI C<tt>++</tt> compiler (<code>aCC</code>).)
 
-     <p><a name="index-set-overload_002dresolution-851"></a><a name="index-overloaded-functions_002c-overload-resolution-852"></a><br><dt><code>set overload-resolution on</code><dd>Enable overload resolution for C<tt>++</tt> expression evaluation.  The default
+     <p><a name="index-set-overload_002dresolution-892"></a><a name="index-overloaded-functions_002c-overload-resolution-893"></a><br><dt><code>set overload-resolution on</code><dd>Enable overload resolution for C<tt>++</tt> expression evaluation.  The default
 is on.  For overloaded functions, <span class="sc">gdb</span> evaluates the arguments
 and searches for a function whose signature matches the argument types,
 using the standard C<tt>++</tt> conversion rules (see <a href="C-Plus-Plus-Expressions.html#C-Plus-Plus-Expressions">C<tt>++</tt> Expressions</a>, for details). 
@@ -97,7 +100,7 @@ overloaded functions that are class member functions, <span class="sc">gdb</span
 searches for a function whose signature <em>exactly</em> matches the
 argument types.
 
-     <p><a name="index-show-overload_002dresolution-853"></a><br><dt><code>show overload-resolution</code><dd>Show the current setting of overload resolution.
+     <p><a name="index-show-overload_002dresolution-894"></a><br><dt><code>show overload-resolution</code><dd>Show the current setting of overload resolution.
 
      <br><dt><span class="roman">Overloaded symbol names</span><dd>You can specify a particular definition of an overloaded symbol, using
 the same notation that is used to declare such symbols in C<tt>++</tt>: type

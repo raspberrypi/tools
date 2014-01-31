@@ -6,12 +6,10 @@
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="prev" href="strings.html#strings" title="strings">
-<link rel="next" href="elfedit.html#elfedit" title="elfedit">
+<link rel="next" href="c_002b_002bfilt.html#c_002b_002bfilt" title="c++filt">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
-Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -38,7 +36,7 @@ section entitled ``GNU Free Documentation License''.
 <div class="node">
 <a name="strip"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="elfedit.html#elfedit">elfedit</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="c_002b_002bfilt.html#c_002b_002bfilt">c++filt</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="strings.html#strings">strings</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 <hr>
@@ -46,7 +44,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="chapter">8 strip</h2>
 
-<p><a name="index-strip-117"></a><a name="index-removing-symbols-118"></a><a name="index-discarding-symbols-119"></a><a name="index-symbols_002c-discarding-120"></a>
+<p><a name="index-strip-128"></a><a name="index-removing-symbols-129"></a><a name="index-discarding-symbols-130"></a><a name="index-symbols_002c-discarding-131"></a>
 <!-- man title strip Discard symbols from object files. -->
 
 <pre class="smallexample">     <!-- man begin SYNOPSIS strip -->
@@ -55,12 +53,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
            [<samp><span class="option">-O</span></samp> <var>bfdname</var> |<samp><span class="option">--output-target=</span></samp><var>bfdname</var>]
            [<samp><span class="option">-s</span></samp>|<samp><span class="option">--strip-all</span></samp>]
            [<samp><span class="option">-S</span></samp>|<samp><span class="option">-g</span></samp>|<samp><span class="option">-d</span></samp>|<samp><span class="option">--strip-debug</span></samp>]
+           [<samp><span class="option">--strip-dwo</span></samp>]
            [<samp><span class="option">-K</span></samp> <var>symbolname</var> |<samp><span class="option">--keep-symbol=</span></samp><var>symbolname</var>]
            [<samp><span class="option">-N</span></samp> <var>symbolname</var> |<samp><span class="option">--strip-symbol=</span></samp><var>symbolname</var>]
            [<samp><span class="option">-w</span></samp>|<samp><span class="option">--wildcard</span></samp>]
            [<samp><span class="option">-x</span></samp>|<samp><span class="option">--discard-all</span></samp>] [<samp><span class="option">-X</span></samp> |<samp><span class="option">--discard-locals</span></samp>]
            [<samp><span class="option">-R</span></samp> <var>sectionname</var> |<samp><span class="option">--remove-section=</span></samp><var>sectionname</var>]
            [<samp><span class="option">-o</span></samp> <var>file</var>] [<samp><span class="option">-p</span></samp>|<samp><span class="option">--preserve-dates</span></samp>]
+           [<samp><span class="option">-D</span></samp>|<samp><span class="option">--enable-deterministic-archives</span></samp>]
+           [<samp><span class="option">-U</span></samp>|<samp><span class="option">--disable-deterministic-archives</span></samp>]
            [<samp><span class="option">--keep-file-symbols</span></samp>]
            [<samp><span class="option">--only-keep-debug</span></samp>]
            [<samp><span class="option">-v</span></samp> |<samp><span class="option">--verbose</span></samp>] [<samp><span class="option">-V</span></samp>|<samp><span class="option">--version</span></samp>]
@@ -96,11 +97,18 @@ See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for m
 
      <br><dt><samp><span class="env">-R </span><var>sectionname</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionname</var></samp><dd>Remove any section named <var>sectionname</var> from the output file.  This
 option may be given more than once.  Note that using this option
-inappropriately may make the output file unusable.
+inappropriately may make the output file unusable.  The wildcard
+character &lsquo;<samp><span class="samp">*</span></samp>&rsquo; may be given at the end of <var>sectionname</var>.  If
+so, then any section starting with <var>sectionname</var> will be removed.
 
      <br><dt><samp><span class="env">-s</span></samp><dt><samp><span class="env">--strip-all</span></samp><dd>Remove all symbols.
 
      <br><dt><samp><span class="env">-g</span></samp><dt><samp><span class="env">-S</span></samp><dt><samp><span class="env">-d</span></samp><dt><samp><span class="env">--strip-debug</span></samp><dd>Remove debugging symbols only.
+
+     <br><dt><samp><span class="env">--strip-dwo</span></samp><dd>Remove the contents of all DWARF .dwo sections, leaving the
+remaining debugging sections and all symbols intact. 
+See the description of this option in the <samp><span class="command">objcopy</span></samp> section
+for more information.
 
      <br><dt><samp><span class="env">--strip-unneeded</span></samp><dd>Remove all symbols that are not needed for relocation processing.
 
@@ -116,6 +124,22 @@ existing file.  When this argument is used, only one <var>objfile</var>
 argument may be specified.
 
      <br><dt><samp><span class="env">-p</span></samp><dt><samp><span class="env">--preserve-dates</span></samp><dd>Preserve the access and modification dates of the file.
+
+     <br><dt><samp><span class="env">-D</span></samp><dt><samp><span class="env">--enable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-132"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-133"></a>Operate in <em>deterministic</em> mode.  When copying archive members
+and writing the archive index, use zero for UIDs, GIDs, timestamps,
+and use consistent file modes for all files.
+
+     <p>If <samp><span class="file">binutils</span></samp> was configured with
+<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default. 
+It can be disabled with the &lsquo;<samp><span class="samp">-U</span></samp>&rsquo; option, below.
+
+     <br><dt><samp><span class="env">-U</span></samp><dt><samp><span class="env">--disable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-134"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-135"></a>Do <em>not</em> operate in <em>deterministic</em> mode.  This is the
+inverse of the <samp><span class="option">-D</span></samp> option, above: when copying archive members
+and writing the archive index, use their actual UID, GID, timestamp,
+and file mode values.
+
+     <p>This is the default unless <samp><span class="file">binutils</span></samp> was configured with
+<samp><span class="option">--enable-deterministic-archives</span></samp>.
 
      <br><dt><samp><span class="env">-w</span></samp><dt><samp><span class="env">--wildcard</span></samp><dd>Permit regular expressions in <var>symbolname</var>s used in other command
 line options.  The question mark (?), asterisk (*), backslash (\) and

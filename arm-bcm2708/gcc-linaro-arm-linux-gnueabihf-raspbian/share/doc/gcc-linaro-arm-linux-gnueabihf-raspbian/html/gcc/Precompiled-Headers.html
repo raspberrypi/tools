@@ -9,9 +9,7 @@
 <link rel="prev" href="Environment-Variables.html#Environment-Variables" title="Environment Variables">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,21 +52,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 
 <h3 class="section">3.20 Using Precompiled Headers</h3>
 
-<p><a name="index-precompiled-headers-2306"></a><a name="index-speed-of-compilation-2307"></a>
+<p><a name="index-precompiled-headers-2395"></a><a name="index-speed-of-compilation-2396"></a>
 Often large projects have many header files that are included in every
 source file.  The time the compiler takes to process these header files
 over and over again can account for nearly all of the time required to
-build the project.  To make builds faster, GCC allows users to
-`precompile' a header file; then, if builds can use the precompiled
-header file they will be much faster.
+build the project.  To make builds faster, GCC allows you to
+<dfn>precompile</dfn> a header file.
 
  <p>To create a precompiled header file, simply compile it as you would any
 other file, if necessary using the <samp><span class="option">-x</span></samp> option to make the driver
-treat it as a C or C++ header file.  You will probably want to use a
+treat it as a C or C++ header file.  You may want to use a
 tool like <samp><span class="command">make</span></samp> to keep the precompiled header up-to-date when
 the headers it contains change.
 
- <p>A precompiled header file will be searched for when <code>#include</code> is
+ <p>A precompiled header file is searched for when <code>#include</code> is
 seen in the compilation.  As it searches for the included file
 (see <a href="../cpp/Search-Path.html#Search-Path">Search Path</a>) the
 compiler looks for a precompiled header in each directory just before it
@@ -78,8 +75,8 @@ the precompiled header file can't be used, it is ignored.
 
  <p>For instance, if you have <code>#include "all.h"</code>, and you have
 <samp><span class="file">all.h.gch</span></samp> in the same directory as <samp><span class="file">all.h</span></samp>, then the
-precompiled header file will be used if possible, and the original
-header will be used otherwise.
+precompiled header file is used if possible, and the original
+header is used otherwise.
 
  <p>Alternatively, you might decide to put the precompiled header file in a
 directory and use <samp><span class="option">-I</span></samp> to ensure that directory is searched
@@ -93,17 +90,17 @@ precompiled headers, good for projects not designed with precompiled
 header files in mind, is to simply take most of the header files used by
 a project, include them from another header file, precompile that header
 file, and <samp><span class="option">-include</span></samp> the precompiled header.  If the header files
-have guards against multiple inclusion, they will be skipped because
+have guards against multiple inclusion, they are skipped because
 they've already been included (in the precompiled header).
 
  <p>If you need to precompile the same header file for different
 languages, targets, or compiler options, you can instead make a
 <em>directory</em> named like <samp><span class="file">all.h.gch</span></samp>, and put each precompiled
 header in the directory, perhaps using <samp><span class="option">-o</span></samp>.  It doesn't matter
-what you call the files in the directory, every precompiled header in
-the directory will be considered.  The first precompiled header
-encountered in the directory that is valid for this compilation will
-be used; they're searched in no particular order.
+what you call the files in the directory; every precompiled header in
+the directory is considered.  The first precompiled header
+encountered in the directory that is valid for this compilation is
+used; they're searched in no particular order.
 
  <p>There are many other possibilities, limited only by your imagination,
 good sense, and the constraints of your build system.
@@ -114,9 +111,8 @@ good sense, and the constraints of your build system.
 <li>Only one precompiled header can be used in a particular compilation.
 
      <li>A precompiled header can't be used once the first C token is seen.  You
-can have preprocessor directives before a precompiled header; you can
-even include a precompiled header from inside another header, so long as
-there are no C tokens before the <code>#include</code>.
+can have preprocessor directives before a precompiled header; you cannot
+include a precompiled header from inside another header.
 
      <li>The precompiled header file must be produced for the same language as
 the current compilation.  You can't use a C precompiled header for a C++
@@ -165,20 +161,19 @@ precompiled header.  The following are known to be safe:
 </pre>
      </ul>
 
- <p>For all of these except the last, the compiler will automatically
-ignore the precompiled header if the conditions aren't met.  If you
+ <p>For all of these except the last, the compiler automatically
+ignores the precompiled header if the conditions aren't met.  If you
 find an option combination that doesn't work and doesn't cause the
 precompiled header to be ignored, please consider filing a bug report,
 see <a href="Bugs.html#Bugs">Bugs</a>.
 
  <p>If you do use differing options when generating and using the
-precompiled header, the actual behavior will be a mixture of the
+precompiled header, the actual behavior is a mixture of the
 behavior for the options.  For instance, if you use <samp><span class="option">-g</span></samp> to
 generate the precompiled header but not when using it, you may or may
 not get debugging information for routines in the precompiled header.
 
-<!-- Copyright (C) 2001, 2002, 2003, 2004, 2006, 2008 -->
-<!-- Free Software Foundation, Inc. -->
+<!-- Copyright (C) 2001-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
  </body></html>

@@ -6,13 +6,11 @@
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Target-Builtins.html#Target-Builtins" title="Target Builtins">
-<link rel="prev" href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions" title="picoChip Built-in Functions">
+<link rel="prev" href="PowerPC-Built_002din-Functions.html#PowerPC-Built_002din-Functions" title="PowerPC Built-in Functions">
 <link rel="next" href="RX-Built_002din-Functions.html#RX-Built_002din-Functions" title="RX Built-in Functions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,12 +48,12 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <a name="PowerPC-AltiVec_002fVSX-Built_002din-Functions"></a>
 <p>
 Next:&nbsp;<a rel="next" accesskey="n" href="RX-Built_002din-Functions.html#RX-Built_002din-Functions">RX Built-in Functions</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions">picoChip Built-in Functions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="PowerPC-Built_002din-Functions.html#PowerPC-Built_002din-Functions">PowerPC Built-in Functions</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">Target Builtins</a>
 <hr>
 </div>
 
-<h4 class="subsection">6.55.13 PowerPC AltiVec Built-in Functions</h4>
+<h4 class="subsection">6.56.15 PowerPC AltiVec Built-in Functions</h4>
 
 <p>GCC provides an interface for the PowerPC family of processors to access
 the AltiVec operations described in Motorola's AltiVec Programming
@@ -117,7 +115,7 @@ does not work:
 
      <pre class="smallexample">            vec_add ((vector signed int){1, 2, 3, 4}, foo);
 </pre>
-     <p>Since <code>vec_add</code> is a macro, the vector constant in the example
+     <p class="noindent">Since <code>vec_add</code> is a macro, the vector constant in the example
 is treated as four separate arguments.  Wrap the entire argument in
 parentheses for this to work. 
 </ul>
@@ -2088,28 +2086,11 @@ additional functions are available:
      void vec_vsx_st (vector bool char, int, unsigned char *);
      void vec_vsx_st (vector bool char, int, signed char *);
 </pre>
- <p>Note that the &lsquo;<samp><span class="samp">vec_ld</span></samp>&rsquo; and &lsquo;<samp><span class="samp">vec_st</span></samp>&rsquo; builtins will always
-generate the Altivec &lsquo;<samp><span class="samp">LVX</span></samp>&rsquo; and &lsquo;<samp><span class="samp">STVX</span></samp>&rsquo; instructions even
+ <p>Note that the &lsquo;<samp><span class="samp">vec_ld</span></samp>&rsquo; and &lsquo;<samp><span class="samp">vec_st</span></samp>&rsquo; built-in functions always
+generate the AltiVec &lsquo;<samp><span class="samp">LVX</span></samp>&rsquo; and &lsquo;<samp><span class="samp">STVX</span></samp>&rsquo; instructions even
 if the VSX instruction set is available.  The &lsquo;<samp><span class="samp">vec_vsx_ld</span></samp>&rsquo; and
-&lsquo;<samp><span class="samp">vec_vsx_st</span></samp>&rsquo; builtins will always generate the VSX &lsquo;<samp><span class="samp">LXVD2X</span></samp>&rsquo;,
+&lsquo;<samp><span class="samp">vec_vsx_st</span></samp>&rsquo; built-in functions always generate the VSX &lsquo;<samp><span class="samp">LXVD2X</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">LXVW4X</span></samp>&rsquo;, &lsquo;<samp><span class="samp">STXVD2X</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">STXVW4X</span></samp>&rsquo; instructions.
-
- <p>GCC provides a few other builtins on Powerpc to access certain instructions:
-<pre class="smallexample">     float __builtin_recipdivf (float, float);
-     float __builtin_rsqrtf (float);
-     double __builtin_recipdiv (double, double);
-     double __builtin_rsqrt (double);
-     long __builtin_bpermd (long, long);
-     int __builtin_bswap16 (int);
-</pre>
- <p>The <code>vec_rsqrt</code>, <code>__builtin_rsqrt</code>, and
-<code>__builtin_rsqrtf</code> functions generate multiple instructions to
-implement the reciprocal sqrt functionality using reciprocal sqrt
-estimate instructions.
-
- <p>The <code>__builtin_recipdiv</code>, and <code>__builtin_recipdivf</code>
-functions generate multiple instructions to implement division using
-the reciprocal estimate instructions.
 
  </body></html>
 

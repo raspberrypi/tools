@@ -10,9 +10,7 @@
 <link rel="next" href="Commands-For-Text.html#Commands-For-Text" title="Commands For Text">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,49 +45,49 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Bindable-Readline-Commands.html#Bindabl
 <hr>
 </div>
 
-<h4 class="subsection">31.4.2 Commands For Manipulating The History</h4>
+<h4 class="subsection">32.4.2 Commands For Manipulating The History</h4>
 
      <dl>
-<dt><code>accept-line (Newline or Return)</code><a name="index-accept_002dline-_0028Newline-or-Return_0029-2363"></a><dd>Accept the line regardless of where the cursor is. 
+<dt><code>accept-line (Newline or Return)</code><a name="index-accept_002dline-_0028Newline-or-Return_0029-2486"></a><dd>Accept the line regardless of where the cursor is. 
 If this line is
 non-empty, it may be added to the history list for future recall with
 <code>add_history()</code>. 
 If this line is a modified history line, the history line is restored
 to its original state.
 
-     <br><dt><code>previous-history (C-p)</code><a name="index-previous_002dhistory-_0028C_002dp_0029-2364"></a><dd>Move `back' through the history list, fetching the previous command.
+     <br><dt><code>previous-history (C-p)</code><a name="index-previous_002dhistory-_0028C_002dp_0029-2487"></a><dd>Move `back' through the history list, fetching the previous command.
 
-     <br><dt><code>next-history (C-n)</code><a name="index-next_002dhistory-_0028C_002dn_0029-2365"></a><dd>Move `forward' through the history list, fetching the next command.
+     <br><dt><code>next-history (C-n)</code><a name="index-next_002dhistory-_0028C_002dn_0029-2488"></a><dd>Move `forward' through the history list, fetching the next command.
 
-     <br><dt><code>beginning-of-history (M-&lt;)</code><a name="index-beginning_002dof_002dhistory-_0028M_002d_003c_0029-2366"></a><dd>Move to the first line in the history.
+     <br><dt><code>beginning-of-history (M-&lt;)</code><a name="index-beginning_002dof_002dhistory-_0028M_002d_003c_0029-2489"></a><dd>Move to the first line in the history.
 
-     <br><dt><code>end-of-history (M-&gt;)</code><a name="index-end_002dof_002dhistory-_0028M_002d_003e_0029-2367"></a><dd>Move to the end of the input history, i.e., the line currently
+     <br><dt><code>end-of-history (M-&gt;)</code><a name="index-end_002dof_002dhistory-_0028M_002d_003e_0029-2490"></a><dd>Move to the end of the input history, i.e., the line currently
 being entered.
 
-     <br><dt><code>reverse-search-history (C-r)</code><a name="index-reverse_002dsearch_002dhistory-_0028C_002dr_0029-2368"></a><dd>Search backward starting at the current line and moving `up' through
+     <br><dt><code>reverse-search-history (C-r)</code><a name="index-reverse_002dsearch_002dhistory-_0028C_002dr_0029-2491"></a><dd>Search backward starting at the current line and moving `up' through
 the history as necessary.  This is an incremental search.
 
-     <br><dt><code>forward-search-history (C-s)</code><a name="index-forward_002dsearch_002dhistory-_0028C_002ds_0029-2369"></a><dd>Search forward starting at the current line and moving `down' through
+     <br><dt><code>forward-search-history (C-s)</code><a name="index-forward_002dsearch_002dhistory-_0028C_002ds_0029-2492"></a><dd>Search forward starting at the current line and moving `down' through
 the the history as necessary.  This is an incremental search.
 
-     <br><dt><code>non-incremental-reverse-search-history (M-p)</code><a name="index-non_002dincremental_002dreverse_002dsearch_002dhistory-_0028M_002dp_0029-2370"></a><dd>Search backward starting at the current line and moving `up'
+     <br><dt><code>non-incremental-reverse-search-history (M-p)</code><a name="index-non_002dincremental_002dreverse_002dsearch_002dhistory-_0028M_002dp_0029-2493"></a><dd>Search backward starting at the current line and moving `up'
 through the history as necessary using a non-incremental search
 for a string supplied by the user.
 
-     <br><dt><code>non-incremental-forward-search-history (M-n)</code><a name="index-non_002dincremental_002dforward_002dsearch_002dhistory-_0028M_002dn_0029-2371"></a><dd>Search forward starting at the current line and moving `down'
+     <br><dt><code>non-incremental-forward-search-history (M-n)</code><a name="index-non_002dincremental_002dforward_002dsearch_002dhistory-_0028M_002dn_0029-2494"></a><dd>Search forward starting at the current line and moving `down'
 through the the history as necessary using a non-incremental search
 for a string supplied by the user.
 
-     <br><dt><code>history-search-forward ()</code><a name="index-history_002dsearch_002dforward-_0028_0029-2372"></a><dd>Search forward through the history for the string of characters
+     <br><dt><code>history-search-forward ()</code><a name="index-history_002dsearch_002dforward-_0028_0029-2495"></a><dd>Search forward through the history for the string of characters
 between the start of the current line and the point. 
 This is a non-incremental search. 
 By default, this command is unbound.
 
-     <br><dt><code>history-search-backward ()</code><a name="index-history_002dsearch_002dbackward-_0028_0029-2373"></a><dd>Search backward through the history for the string of characters
+     <br><dt><code>history-search-backward ()</code><a name="index-history_002dsearch_002dbackward-_0028_0029-2496"></a><dd>Search backward through the history for the string of characters
 between the start of the current line and the point.  This
 is a non-incremental search.  By default, this command is unbound.
 
-     <br><dt><code>yank-nth-arg (M-C-y)</code><a name="index-yank_002dnth_002darg-_0028M_002dC_002dy_0029-2374"></a><dd>Insert the first argument to the previous command (usually
+     <br><dt><code>yank-nth-arg (M-C-y)</code><a name="index-yank_002dnth_002darg-_0028M_002dC_002dy_0029-2497"></a><dd>Insert the first argument to the previous command (usually
 the second word on the previous line) at point. 
 With an argument <var>n</var>,
 insert the <var>n</var>th word from the previous command (the words
@@ -98,7 +96,7 @@ inserts the <var>n</var>th word from the end of the previous command.
 Once the argument <var>n</var> is computed, the argument is extracted
 as if the &lsquo;<samp><span class="samp">!</span><var>n</var></samp>&rsquo; history expansion had been specified.
 
-     <br><dt><code>yank-last-arg (M-. or M-_)</code><a name="index-yank_002dlast_002darg-_0028M_002d_002e-or-M_002d_005f_0029-2375"></a><dd>Insert last argument to the previous command (the last word of the
+     <br><dt><code>yank-last-arg (M-. or M-_)</code><a name="index-yank_002dlast_002darg-_0028M_002d_002e-or-M_002d_005f_0029-2498"></a><dd>Insert last argument to the previous command (the last word of the
 previous history entry). 
 With a numeric argument, behave exactly like <code>yank-nth-arg</code>. 
 Successive calls to <code>yank-last-arg</code> move back through the history

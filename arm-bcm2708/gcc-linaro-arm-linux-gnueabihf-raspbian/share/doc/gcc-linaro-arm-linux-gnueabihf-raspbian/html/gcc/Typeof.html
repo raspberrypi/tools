@@ -10,9 +10,7 @@
 <link rel="next" href="Conditionals.html#Conditionals" title="Conditionals">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.6 Referring to a Type with <code>typeof</code></h3>
 
-<p><a name="index-typeof-2338"></a><a name="index-sizeof-2339"></a><a name="index-macros_002c-types-of-arguments-2340"></a>
+<p><a name="index-typeof-2427"></a><a name="index-sizeof-2428"></a><a name="index-macros_002c-types-of-arguments-2429"></a>
 Another way to refer to the type of an expression is with <code>typeof</code>. 
 The syntax of using of this keyword looks like <code>sizeof</code>, but the
 construct acts semantically like a type name defined with <code>typedef</code>.
@@ -79,7 +77,7 @@ the type described is that of the values of the functions.
 programs, write <code>__typeof__</code> instead of <code>typeof</code>. 
 See <a href="Alternate-Keywords.html#Alternate-Keywords">Alternate Keywords</a>.
 
- <p>A <code>typeof</code>-construct can be used anywhere a typedef name could be
+ <p>A <code>typeof</code> construct can be used anywhere a typedef name can be
 used.  For example, you can use it in a declaration, in a cast, or inside
 of <code>sizeof</code> or <code>typeof</code>.
 
@@ -87,9 +85,10 @@ of <code>sizeof</code> or <code>typeof</code>.
 only if it is an expression of variably modified type or the name of
 such a type.
 
- <p><code>typeof</code> is often useful in conjunction with the
-statements-within-expressions feature.  Here is how the two together can
-be used to define a safe &ldquo;maximum&rdquo; macro that operates on any
+ <p><code>typeof</code> is often useful in conjunction with
+statement expressions (see <a href="Statement-Exprs.html#Statement-Exprs">Statement Exprs</a>). 
+Here is how the two together can
+be used to define a safe &ldquo;maximum&rdquo; macro which operates on any
 arithmetic type and evaluates each of its arguments exactly once:
 
 <pre class="smallexample">     #define max(a,b) \
@@ -97,7 +96,7 @@ arithmetic type and evaluates each of its arguments exactly once:
            typeof (b) _b = (b); \
          _a &gt; _b ? _a : _b; })
 </pre>
- <p><a name="index-underscores-in-variables-in-macros-2341"></a><a name="index-g_t_0040samp_007b_005f_007d-in-variables-in-macros-2342"></a><a name="index-local-variables-in-macros-2343"></a><a name="index-variables_002c-local_002c-in-macros-2344"></a><a name="index-macros_002c-local-variables-in-2345"></a>
+ <p><a name="index-underscores-in-variables-in-macros-2430"></a><a name="index-g_t_0040samp_007b_005f_007d-in-variables-in-macros-2431"></a><a name="index-local-variables-in-macros-2432"></a><a name="index-variables_002c-local_002c-in-macros-2433"></a><a name="index-macros_002c-local-variables-in-2434"></a>
 The reason for using names that start with underscores for the local
 variables is to avoid conflicts with variable names that occur within the
 expressions that are substituted for <code>a</code> and <code>b</code>.  Eventually we
@@ -139,18 +138,18 @@ pointers to <code>char</code>.
 </ul>
 
  <p><em>Compatibility Note:</em> In addition to <code>typeof</code>, GCC 2 supported
-a more limited extension which permitted one to write
+a more limited extension that permitted one to write
 
 <pre class="smallexample">     typedef <var>T</var> = <var>expr</var>;
 </pre>
  <p class="noindent">with the effect of declaring <var>T</var> to have the type of the expression
 <var>expr</var>.  This extension does not work with GCC 3 (versions between
-3.0 and 3.2 will crash; 3.2.1 and later give an error).  Code which
+3.0 and 3.2 crash; 3.2.1 and later give an error).  Code that
 relies on it should be rewritten to use <code>typeof</code>:
 
 <pre class="smallexample">     typedef typeof(<var>expr</var>) <var>T</var>;
 </pre>
- <p class="noindent">This will work with all versions of GCC.
+ <p class="noindent">This works with all versions of GCC.
 
  </body></html>
 

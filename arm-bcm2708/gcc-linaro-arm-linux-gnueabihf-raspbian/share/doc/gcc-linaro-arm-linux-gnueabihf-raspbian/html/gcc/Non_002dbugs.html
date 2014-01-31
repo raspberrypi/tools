@@ -10,9 +10,7 @@
 <link rel="next" href="Warnings-and-Errors.html#Warnings-and-Errors" title="Warnings and Errors">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +53,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Trouble.html#Trouble">Trouble</a>
 <hr>
 </div>
 
-<h3 class="section">11.9 Certain Changes We Don't Want to Make</h3>
+<h3 class="section">11.8 Certain Changes We Don't Want to Make</h3>
 
 <p>This section lists changes that people frequently request, but which
 we do not make because we think GCC is better without them.
@@ -92,7 +90,7 @@ information about the intentions of the programmer.  For functions
 where the return value should never be ignored, use the
 <code>warn_unused_result</code> function attribute (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>).
 
-     <li><a name="index-fshort_002denums-3460"></a>Making <samp><span class="option">-fshort-enums</span></samp> the default.
+     <li><a name="index-fshort_002denums-3585"></a>Making <samp><span class="option">-fshort-enums</span></samp> the default.
 
      <p>This would cause storage layout to be incompatible with most other C
 compilers.  And it doesn't seem very important, given that you can get
@@ -107,7 +105,7 @@ ABI standard&rdquo; says to do so.
 declared plain <code>int</code> is signed or not.  This in effect creates two
 alternative dialects of C.
 
-     <p><a name="index-fsigned_002dbitfields-3461"></a><a name="index-funsigned_002dbitfields-3462"></a>The GNU C compiler supports both dialects; you can specify the signed
+     <p><a name="index-fsigned_002dbitfields-3586"></a><a name="index-funsigned_002dbitfields-3587"></a>The GNU C compiler supports both dialects; you can specify the signed
 dialect with <samp><span class="option">-fsigned-bitfields</span></samp> and the unsigned dialect with
 <samp><span class="option">-funsigned-bitfields</span></samp>.  However, this leaves open the question of
 which dialect to use by default.
@@ -155,7 +153,7 @@ to be considered in the future.
 explicitly in each bit-field whether it is signed or not.  In this way,
 they write programs which have the same meaning in both C dialects.)
 
-     <li><a name="index-ansi-3463"></a><a name="index-std-3464"></a>Undefining <code>__STDC__</code> when <samp><span class="option">-ansi</span></samp> is not used.
+     <li><a name="index-ansi-3588"></a><a name="index-std-3589"></a>Undefining <code>__STDC__</code> when <samp><span class="option">-ansi</span></samp> is not used.
 
      <p>Currently, GCC defines <code>__STDC__</code> unconditionally.  This provides
 good results in practice.
@@ -243,7 +241,7 @@ that summation, so the accumulation can be removed.
 
      <li>Making side effects happen in the same order as in some other compiler.
 
-     <p><a name="index-side-effects_002c-order-of-evaluation-3465"></a><a name="index-order-of-evaluation_002c-side-effects-3466"></a>It is never safe to depend on the order of evaluation of side effects. 
+     <p><a name="index-side-effects_002c-order-of-evaluation-3590"></a><a name="index-order-of-evaluation_002c-side-effects-3591"></a>It is never safe to depend on the order of evaluation of side effects. 
 For example, a function call like this may very well behave differently
 from one compiler to another:
 
@@ -262,7 +260,7 @@ arguments &lsquo;<samp><span class="samp">2, 3</span></samp>&rsquo;, or it might
      <p>Some ISO C testsuites report failure when the compiler does not produce
 an error message for a certain program.
 
-     <p><a name="index-pedantic_002derrors-3467"></a>ISO C requires a &ldquo;diagnostic&rdquo; message for certain kinds of invalid
+     <p><a name="index-pedantic_002derrors-3592"></a>ISO C requires a &ldquo;diagnostic&rdquo; message for certain kinds of invalid
 programs, but a warning is defined by GCC to count as a diagnostic.  If
 GCC produces a warning but not an error, that is correct ISO C support. 
 If testsuites call this &ldquo;failure&rdquo;, they should be run with the GCC

@@ -9,9 +9,7 @@
 <link rel="next" href="Python-API.html#Python-API" title="Python API">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,13 +45,25 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python.html#Python">Python</a>
 
 <h4 class="subsection">23.2.1 Python Commands</h4>
 
-<p><a name="index-python-commands-1623"></a><a name="index-commands-to-access-python-1624"></a>
-<span class="sc">gdb</span> provides one command for accessing the Python interpreter,
+<p><a name="index-python-commands-1707"></a><a name="index-commands-to-access-python-1708"></a>
+<span class="sc">gdb</span> provides two commands for accessing the Python interpreter,
 and one related setting:
 
      
-<a name="index-python-1625"></a>
-<dl><dt><code>python </code><span class="roman">[</span><var>code</var><span class="roman">]</span><dd>The <code>python</code> command can be used to evaluate Python code.
+<a name="index-python_002dinteractive-1709"></a>
+<a name="index-pi-1710"></a>
+<dl><dt><code>python-interactive </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dt><code>pi </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dd>Without an argument, the <code>python-interactive</code> command can be used
+to start an interactive Python prompt.  To return to <span class="sc">gdb</span>,
+type the <code>EOF</code> character (e.g., <kbd>Ctrl-D</kbd> on an empty prompt).
+
+     <p>Alternatively, a single-line Python command can be given as an
+argument and evaluated.  If the command is an expression, the result
+will be printed; otherwise, nothing will be printed.  For example:
+
+     <pre class="smallexample">          (gdb) python-interactive 2 + 3
+          5
+</pre>
+     <p><a name="index-python-1711"></a><a name="index-py-1712"></a><br><dt><code>python </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dt><code>py </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dd>The <code>python</code> command can be used to evaluate Python code.
 
      <p>If given an argument, the <code>python</code> command will evaluate the
 argument as a Python command.  For example:
@@ -74,7 +84,7 @@ containing <code>end</code>.  For example:
           &gt;end
           23
 </pre>
-     <p><a name="index-set-python-print_002dstack-1626"></a><br><dt><code>set python print-stack</code><dd>By default, <span class="sc">gdb</span> will print only the message component of a
+     <p><a name="index-set-python-print_002dstack-1713"></a><br><dt><code>set python print-stack</code><dd>By default, <span class="sc">gdb</span> will print only the message component of a
 Python exception when an error occurs in a Python script.  This can be
 controlled using <code>set python print-stack</code>: if <code>full</code>, then
 full Python stack printing is enabled; if <code>none</code>, then Python stack

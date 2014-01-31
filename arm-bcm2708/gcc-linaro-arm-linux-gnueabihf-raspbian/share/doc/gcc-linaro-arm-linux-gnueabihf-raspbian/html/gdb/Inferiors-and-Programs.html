@@ -10,9 +10,7 @@
 <link rel="next" href="Threads.html#Threads" title="Threads">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ before starting another).  In the most general case, you can have
 multiple threads of execution in each of multiple processes, launched
 from multiple executables.
 
-   <p><a name="index-inferior-139"></a><span class="sc">gdb</span> represents the state of each program execution with an
+   <p><a name="index-inferior-143"></a><span class="sc">gdb</span> represents the state of each program execution with an
 object called an <dfn>inferior</dfn>.  An inferior typically corresponds to
 a process, but is more general and applies also to targets that do not
 have processes.  Inferiors may be created before a process runs, and
@@ -70,7 +68,7 @@ threads running in it.
    <p>To find out what inferiors exist at any moment, use <code>info&nbsp;inferiors</code><!-- /@w -->:
 
      
-<a name="index-info-inferiors-140"></a>
+<a name="index-info-inferiors-144"></a>
 <dl><dt><code>info inferiors</code><dd>Print a list of all inferiors currently being managed by <span class="sc">gdb</span>.
 
      <p><span class="sc">gdb</span> displays for each inferior (in this order):
@@ -99,7 +97,7 @@ indicates the current inferior.
    <p>To switch focus between inferiors, use the <code>inferior</code> command:
 
      
-<a name="index-inferior-_0040var_007binfno_007d-141"></a>
+<a name="index-inferior-_0040var_007binfno_007d-145"></a>
 <dl><dt><code>inferior </code><var>infno</var><dd>Make inferior number <var>infno</var> the current inferior.  The argument
 <var>infno</var> is the inferior number assigned by <span class="sc">gdb</span>, as shown
 in the first field of the &lsquo;<samp><span class="samp">info inferiors</span></samp>&rsquo; display. 
@@ -113,14 +111,14 @@ remove inferiors from the debugging session use the
 <code>remove-inferiors</code><!-- /@w --> command.
 
      
-<a name="index-add_002dinferior-142"></a>
+<a name="index-add_002dinferior-146"></a>
 <dl><dt><code>add-inferior [ -copies </code><var>n</var><code> ] [ -exec </code><var>executable</var><code> ]</code><dd>Adds <var>n</var> inferiors to be run using <var>executable</var> as the
 executable.  <var>n</var> defaults to 1.  If no executable is specified,
 the inferiors begins empty, with no program.  You can still assign or
 change the program assigned to the inferior at any time by using the
 <code>file</code> command with the executable name as its argument.
 
-     <p><a name="index-clone_002dinferior-143"></a><br><dt><code>clone-inferior [ -copies </code><var>n</var><code> ] [ </code><var>infno</var><code> ]</code><dd>Adds <var>n</var> inferiors ready to execute the same program as inferior
+     <p><a name="index-clone_002dinferior-147"></a><br><dt><code>clone-inferior [ -copies </code><var>n</var><code> ] [ </code><var>infno</var><code> ]</code><dd>Adds <var>n</var> inferiors ready to execute the same program as inferior
 <var>infno</var>.  <var>n</var> defaults to 1.  <var>infno</var> defaults to the
 number of the current inferior.  This is a convenient command when you
 want to run another instance of the inferior you are debugging.
@@ -138,7 +136,7 @@ want to run another instance of the inferior you are debugging.
 </pre>
      <p>You can now simply switch focus to inferior 2 and run it.
 
-     <p><a name="index-remove_002dinferiors-144"></a><br><dt><code>remove-inferiors </code><var>infno</var><code>...</code><dd>Removes the inferior or inferiors <var>infno</var><small class="dots">...</small>.  It is not
+     <p><a name="index-remove_002dinferiors-148"></a><br><dt><code>remove-inferiors </code><var>infno</var><code>...</code><dd>Removes the inferior or inferiors <var>infno</var><small class="dots">...</small>.  It is not
 possible to remove an inferior that is running with this command.  For
 those, use the <code>kill</code> or <code>detach</code> command first.
 
@@ -149,13 +147,13 @@ inferior, you can either detach from it by using the <code>detach&nbsp;inferior<
 using the <code>kill&nbsp;inferiors</code><!-- /@w --> command:
 
      
-<a name="index-detach-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-145"></a>
+<a name="index-detach-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-149"></a>
 <dl><dt><code>detach inferior </code><var>infno</var><code>...</code><dd>Detach from the inferior or inferiors identified by <span class="sc">gdb</span>
 inferior number(s) <var>infno</var><small class="dots">...</small>.  Note that the inferior's entry
 still stays on the list of inferiors shown by <code>info inferiors</code>,
 but its Description will show &lsquo;<samp><span class="samp">&lt;null&gt;</span></samp>&rsquo;.
 
-     <p><a name="index-kill-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-146"></a><br><dt><code>kill inferiors </code><var>infno</var><code>...</code><dd>Kill the inferior or inferiors identified by <span class="sc">gdb</span> inferior
+     <p><a name="index-kill-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-150"></a><br><dt><code>kill inferiors </code><var>infno</var><code>...</code><dd>Kill the inferior or inferiors identified by <span class="sc">gdb</span> inferior
 number(s) <var>infno</var><small class="dots">...</small>.  Note that the inferior's entry still
 stays on the list of inferiors shown by <code>info inferiors</code>, but its
 Description will show &lsquo;<samp><span class="samp">&lt;null&gt;</span></samp>&rsquo;. 
@@ -170,14 +168,14 @@ a normal process exit, the inferior is still valid and listed with
 control use <code>set&nbsp;print&nbsp;inferior-events</code><!-- /@w -->:
 
      
-<a name="index-set-print-inferior_002devents-147"></a>
-<a name="index-print-messages-on-inferior-start-and-exit-148"></a>
+<a name="index-set-print-inferior_002devents-151"></a>
+<a name="index-print-messages-on-inferior-start-and-exit-152"></a>
 <dl><dt><code>set print inferior-events</code><dt><code>set print inferior-events on</code><dt><code>set print inferior-events off</code><dd>The <code>set print inferior-events</code> command allows you to enable or
 disable printing of messages when <span class="sc">gdb</span> notices that new
 inferiors have started or that inferiors have exited or have been
 detached.  By default, these messages will not be printed.
 
-     <p><a name="index-show-print-inferior_002devents-149"></a><br><dt><code>show print inferior-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that
+     <p><a name="index-show-print-inferior_002devents-153"></a><br><dt><code>show print inferior-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that
 inferiors have started, exited or have been detached. 
 </dl>
 
@@ -190,7 +188,7 @@ get more info about the relationship of inferiors, programs, address
 spaces in a debug session.  You can do that with the <code>maint&nbsp;info&nbsp;program-spaces</code><!-- /@w --> command.
 
      
-<a name="index-maint-info-program_002dspaces-150"></a>
+<a name="index-maint-info-program_002dspaces-154"></a>
 <dl><dt><code>maint info program-spaces</code><dd>Print a list of all program spaces currently being managed by
 <span class="sc">gdb</span>.
 

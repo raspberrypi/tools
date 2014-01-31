@@ -10,11 +10,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -328,7 +327,7 @@ the function to call.
 
      <p><a name="index-g_t_002dG-_0040var_007bvalue_007d-47"></a><a name="index-g_t_002d_002dgpsize_003d_0040var_007bvalue_007d-48"></a><a name="index-object-size-49"></a><br><dt><code>-G </code><var>value</var><dt><code>--gpsize=</code><var>value</var><dd>Set the maximum size of objects to be optimized using the GP register to
 <var>size</var>.  This is only meaningful for object file formats such as
-MIPS ECOFF which supports putting large and small objects into different
+MIPS ELF that support putting large and small objects into different
 sections.  This is ignored for other object file formats.
 
      <p><a name="index-runtime-library-name-50"></a><a name="index-g_t_002dh-_0040var_007bname_007d-51"></a><a name="index-g_t_002dsoname_003d_0040var_007bname_007d-52"></a><br><dt><code>-h </code><var>name</var><dt><code>-soname=</code><var>name</var><dd>When creating an ELF shared object, set the internal DT_SONAME field to
@@ -580,6 +579,10 @@ shared libraries are still allowed.
 
           <br><dt>&lsquo;<samp><span class="samp">execstack</span></samp>&rsquo;<dd>Marks the object as requiring executable stack.
 
+          <br><dt>&lsquo;<samp><span class="samp">global</span></samp>&rsquo;<dd>This option is only meaningful when building a shared object.  It makes
+the symbols defined by this shared object available for symbol resolution
+of subsequently loaded libraries.
+
           <br><dt>&lsquo;<samp><span class="samp">initfirst</span></samp>&rsquo;<dd>This option is only meaningful when building a shared object. 
 It marks the object so that its runtime initialization will occur
 before the runtime initialization of any other objects brought into
@@ -631,6 +634,10 @@ first called.
 
           <br><dt>&lsquo;<samp><span class="samp">common-page-size=</span><var>value</var></samp>&rsquo;<dd>Set the emulation common page size to <var>value</var>.
 
+          <br><dt>&lsquo;<samp><span class="samp">stack-size=</span><var>value</var></samp>&rsquo;<dd>Specify a stack size for in an ELF <code>PT_GNU_STACK</code> segment. 
+Specifying zero will override any default non-zero sized
+<code>PT_GNU_STACK</code> segment creation.
+
      </dl>
 
      <p>Other keywords are ignored for Solaris compatibility.
@@ -664,11 +671,14 @@ on the command line after the <samp><span class="option">--as-needed</span></sam
 the linker will add a DT_NEEDED tag for each dynamic library mentioned
 on the command line, regardless of whether the library is actually
 needed or not.  <samp><span class="option">--as-needed</span></samp> causes a DT_NEEDED tag to only be
-emitted for a library that satisfies an undefined symbol reference
-from a regular object file or, if the library is not found in the
-DT_NEEDED lists of other libraries linked up to that point, an
-undefined symbol reference from another dynamic library. 
-<samp><span class="option">--no-as-needed</span></samp> restores the default behaviour.
+emitted for a library that <em>at that point in the link</em> satisfies a
+non-weak undefined symbol reference from a regular object file or, if
+the library is not found in the DT_NEEDED lists of other libraries, a
+non-weak undefined symbol reference from another dynamic library. 
+Object files or libraries appearing on the command line <em>after</em>
+the library in question do not affect whether the library is seen as
+needed.  This is similar to the rules for extraction of object files
+from archives.  <samp><span class="option">--no-as-needed</span></samp> restores the default behaviour.
 
      <p><a name="index-g_t_002d_002dadd_002dneeded-137"></a><a name="index-g_t_002d_002dno_002dadd_002dneeded-138"></a><br><dt><code>--add-needed</code><dt><code>--no-add-needed</code><dd>These two options have been deprecated because of the similarity of
 their names to the <samp><span class="option">--as-needed</span></samp> and <samp><span class="option">--no-as-needed</span></samp>
@@ -766,7 +776,9 @@ Otherwise, it is printed on the standard output.
 easily processed by a script if necessary.  The symbols are printed out,
 sorted by name.  For each symbol, a list of file names is given.  If the
 symbol is defined, the first file listed is the location of the
-definition.  The remaining files contain references to the symbol.
+definition.  If the symbol is defined as a common value then any files
+where this happens appear next.  Finally any files that reference the
+symbol are listed.
 
      <p><a name="index-common-allocation-160"></a><a name="index-g_t_002d_002dno_002ddefine_002dcommon-161"></a><br><dt><code>--no-define-common</code><dd>This option inhibits the assignment of addresses to common symbols. 
 The script command <code>INHIBIT_COMMON_ALLOCATION</code> has the same effect. 
@@ -970,7 +982,7 @@ See <a href="PowerPC-ELF32.html#PowerPC-ELF32"><samp><span class="command">ld</s
 global optimizations that become possible when the linker resolves
 addressing in the program, such as relaxing address modes,
 synthesizing new instructions, selecting shorter version of current
-instructions, and combinig constant values.
+instructions, and combining constant values.
 
      <p>On some platforms these link time global optimizations may make symbolic
 debugging of the resulting executable impossible. 
@@ -1052,7 +1064,7 @@ the <samp><span class="option">--with-sysroot</span></samp> option.
 environment variable <code>LD_RUN_PATH</code>. 
 <li>On SunOS, if the <samp><span class="option">-rpath</span></samp> option was not used, search any
 directories specified using <samp><span class="option">-L</span></samp> options. 
-<li>For a native linker, the search the contents of the environment
+<li>For a native linker, search the contents of the environment
 variable <code>LD_LIBRARY_PATH</code>. 
 <li>For a native ELF linker, the directories in <code>DT_RUNPATH</code> or
 <code>DT_RPATH</code> of a shared library are searched for shared
@@ -1133,7 +1145,14 @@ sign (&ldquo;&lt;=&gt;&rdquo;), and <var>org</var>.
      <p><a name="index-g_t_002dTtext_002dsegment_003d_0040var_007borg_007d-239"></a><br><dt><code>-Ttext-segment=</code><var>org</var><dd><a name="index-text-segment-origin_002c-cmd-line-240"></a>When creating an ELF executable or shared object, it will set the address
 of the first byte of the text segment.
 
-     <p><a name="index-g_t_002d_002dunresolved_002dsymbols-241"></a><br><dt><code>--unresolved-symbols=</code><var>method</var><dd>Determine how to handle unresolved symbols.  There are four possible
+     <p><a name="index-g_t_002dTrodata_002dsegment_003d_0040var_007borg_007d-241"></a><br><dt><code>-Trodata-segment=</code><var>org</var><dd><a name="index-rodata-segment-origin_002c-cmd-line-242"></a>When creating an ELF executable or shared object for a target where
+the read-only data is in its own segment separate from the executable
+text, it will set the address of the first byte of the read-only data segment.
+
+     <p><a name="index-g_t_002dTldata_002dsegment_003d_0040var_007borg_007d-243"></a><br><dt><code>-Tldata-segment=</code><var>org</var><dd><a name="index-ldata-segment-origin_002c-cmd-line-244"></a>When creating an ELF executable or shared object for x86-64 medium memory
+model, it will set the address of the first byte of the ldata segment.
+
+     <p><a name="index-g_t_002d_002dunresolved_002dsymbols-245"></a><br><dt><code>--unresolved-symbols=</code><var>method</var><dd>Determine how to handle unresolved symbols.  There are four possible
 values for &lsquo;<samp><span class="samp">method</span></samp>&rsquo;:
 
           <dl>
@@ -1158,12 +1177,12 @@ by the <samp><span class="option">--[no-]allow-shlib-undefined</span></samp> opt
 unresolved symbol but the option <samp><span class="option">--warn-unresolved-symbols</span></samp>
 can change this to a warning.
 
-     <p><a name="index-g_t_002d_002dverbose_005b_003d_0040var_007bNUMBER_007d_005d-242"></a><a name="index-verbose_005b_003d_0040var_007bNUMBER_007d_005d-243"></a><br><dt><code>--dll-verbose</code><dt><code>--verbose[=</code><var>NUMBER</var><code>]</code><dd>Display the version number for <samp><span class="command">ld</span></samp> and list the linker emulations
+     <p><a name="index-g_t_002d_002dverbose_005b_003d_0040var_007bNUMBER_007d_005d-246"></a><a name="index-verbose_005b_003d_0040var_007bNUMBER_007d_005d-247"></a><br><dt><code>--dll-verbose</code><dt><code>--verbose[=</code><var>NUMBER</var><code>]</code><dd>Display the version number for <samp><span class="command">ld</span></samp> and list the linker emulations
 supported.  Display which input files can and cannot be opened.  Display
 the linker script being used by the linker. If the optional <var>NUMBER</var>
 argument &gt; 1, plugin symbol status will also be displayed.
 
-     <p><a name="index-g_t_002d_002dversion_002dscript_003d_0040var_007bversion_002dscriptfile_007d-244"></a><a name="index-version-script_002c-symbol-versions-245"></a><br><dt><code>--version-script=</code><var>version-scriptfile</var><dd>Specify the name of a version script to the linker.  This is typically
+     <p><a name="index-g_t_002d_002dversion_002dscript_003d_0040var_007bversion_002dscriptfile_007d-248"></a><a name="index-version-script_002c-symbol-versions-249"></a><br><dt><code>--version-script=</code><var>version-scriptfile</var><dd>Specify the name of a version script to the linker.  This is typically
 used when creating shared libraries to specify additional information
 about the version hierarchy for the library being created.  This option
 is only fully supported on ELF platforms which support shared libraries;
@@ -1172,11 +1191,11 @@ use version scripts to filter symbol visibility in auto-export mode: any
 symbols marked &lsquo;<samp><span class="samp">local</span></samp>&rsquo; in the version script will not be exported. 
 See <a href="WIN32.html#WIN32">WIN32</a>.
 
-     <p><a name="index-g_t_002d_002dwarn_002dcommon-246"></a><a name="index-warnings_002c-on-combining-symbols-247"></a><a name="index-combining-symbols_002c-warnings-on-248"></a><br><dt><code>--warn-common</code><dd>Warn when a common symbol is combined with another common symbol or with
-a symbol definition.  Unix linkers allow this somewhat sloppy practise,
+     <p><a name="index-g_t_002d_002dwarn_002dcommon-250"></a><a name="index-warnings_002c-on-combining-symbols-251"></a><a name="index-combining-symbols_002c-warnings-on-252"></a><br><dt><code>--warn-common</code><dd>Warn when a common symbol is combined with another common symbol or with
+a symbol definition.  Unix linkers allow this somewhat sloppy practice,
 but linkers on some other operating systems do not.  This option allows
 you to find potential problems from combining global symbols. 
-Unfortunately, some C libraries use this practise, so you may get some
+Unfortunately, some C libraries use this practice, so you may get some
 warnings about symbols in the libraries as well as in your programs.
 
      <p>There are three kinds of global symbols, illustrated here by C examples:
@@ -1236,11 +1255,11 @@ encountered in a different order.
 </pre>
           </ol>
 
-     <p><a name="index-g_t_002d_002dwarn_002dconstructors-249"></a><br><dt><code>--warn-constructors</code><dd>Warn if any global constructors are used.  This is only useful for a few
+     <p><a name="index-g_t_002d_002dwarn_002dconstructors-253"></a><br><dt><code>--warn-constructors</code><dd>Warn if any global constructors are used.  This is only useful for a few
 object file formats.  For formats like COFF or ELF, the linker can not
 detect the use of global constructors.
 
-     <p><a name="index-g_t_002d_002dwarn_002dmultiple_002dgp-250"></a><br><dt><code>--warn-multiple-gp</code><dd>Warn if multiple global pointer values are required in the output file. 
+     <p><a name="index-g_t_002d_002dwarn_002dmultiple_002dgp-254"></a><br><dt><code>--warn-multiple-gp</code><dd>Warn if multiple global pointer values are required in the output file. 
 This is only meaningful for certain processors, such as the Alpha. 
 Specifically, some processors put large-valued constants in a special
 section.  A special register (the global pointer) points into the middle
@@ -1252,27 +1271,27 @@ large programs, it is often necessary to use multiple global pointer
 values in order to be able to address all possible constants.  This
 option causes a warning to be issued whenever this case occurs.
 
-     <p><a name="index-g_t_002d_002dwarn_002donce-251"></a><a name="index-warnings_002c-on-undefined-symbols-252"></a><a name="index-undefined-symbols_002c-warnings-on-253"></a><br><dt><code>--warn-once</code><dd>Only warn once for each undefined symbol, rather than once per module
+     <p><a name="index-g_t_002d_002dwarn_002donce-255"></a><a name="index-warnings_002c-on-undefined-symbols-256"></a><a name="index-undefined-symbols_002c-warnings-on-257"></a><br><dt><code>--warn-once</code><dd>Only warn once for each undefined symbol, rather than once per module
 which refers to it.
 
-     <p><a name="index-g_t_002d_002dwarn_002dsection_002dalign-254"></a><a name="index-warnings_002c-on-section-alignment-255"></a><a name="index-section-alignment_002c-warnings-on-256"></a><br><dt><code>--warn-section-align</code><dd>Warn if the address of an output section is changed because of
+     <p><a name="index-g_t_002d_002dwarn_002dsection_002dalign-258"></a><a name="index-warnings_002c-on-section-alignment-259"></a><a name="index-section-alignment_002c-warnings-on-260"></a><br><dt><code>--warn-section-align</code><dd>Warn if the address of an output section is changed because of
 alignment.  Typically, the alignment will be set by an input section. 
 The address will only be changed if it not explicitly specified; that
 is, if the <code>SECTIONS</code> command does not specify a start address for
 the section (see <a href="SECTIONS.html#SECTIONS">SECTIONS</a>).
 
-     <p><a name="index-g_t_002d_002dwarn_002dshared_002dtextrel-257"></a><br><dt><code>--warn-shared-textrel</code><dd>Warn if the linker adds a DT_TEXTREL to a shared object.
+     <p><a name="index-g_t_002d_002dwarn_002dshared_002dtextrel-261"></a><br><dt><code>--warn-shared-textrel</code><dd>Warn if the linker adds a DT_TEXTREL to a shared object.
 
-     <p><a name="index-g_t_002d_002dwarn_002dalternate_002dem-258"></a><br><dt><code>--warn-alternate-em</code><dd>Warn if an object has alternate ELF machine code.
+     <p><a name="index-g_t_002d_002dwarn_002dalternate_002dem-262"></a><br><dt><code>--warn-alternate-em</code><dd>Warn if an object has alternate ELF machine code.
 
-     <p><a name="index-g_t_002d_002dwarn_002dunresolved_002dsymbols-259"></a><br><dt><code>--warn-unresolved-symbols</code><dd>If the linker is going to report an unresolved symbol (see the option
+     <p><a name="index-g_t_002d_002dwarn_002dunresolved_002dsymbols-263"></a><br><dt><code>--warn-unresolved-symbols</code><dd>If the linker is going to report an unresolved symbol (see the option
 <samp><span class="option">--unresolved-symbols</span></samp>) it will normally generate an error. 
 This option makes it generate a warning instead.
 
-     <p><a name="index-g_t_002d_002derror_002dunresolved_002dsymbols-260"></a><br><dt><code>--error-unresolved-symbols</code><dd>This restores the linker's default behaviour of generating errors when
+     <p><a name="index-g_t_002d_002derror_002dunresolved_002dsymbols-264"></a><br><dt><code>--error-unresolved-symbols</code><dd>This restores the linker's default behaviour of generating errors when
 it is reporting unresolved symbols.
 
-     <p><a name="index-g_t_002d_002dwhole_002darchive-261"></a><a name="index-including-an-entire-archive-262"></a><br><dt><code>--whole-archive</code><dd>For each archive mentioned on the command line after the
+     <p><a name="index-g_t_002d_002dwhole_002darchive-265"></a><a name="index-including-an-entire-archive-266"></a><br><dt><code>--whole-archive</code><dd>For each archive mentioned on the command line after the
 <samp><span class="option">--whole-archive</span></samp> option, include every object file in the archive
 in the link, rather than searching the archive for the required object
 files.  This is normally used to turn an archive file into a shared
@@ -1285,7 +1304,7 @@ Second, don't forget to use <samp><span class="option">-Wl,-no-whole-archive</sp
 list of archives, because gcc will add its own list of archives to
 your link and you may not want this flag to affect those as well.
 
-     <p><a name="index-g_t_002d_002dwrap_003d_0040var_007bsymbol_007d-263"></a><br><dt><code>--wrap=</code><var>symbol</var><dd>Use a wrapper function for <var>symbol</var>.  Any undefined reference to
+     <p><a name="index-g_t_002d_002dwrap_003d_0040var_007bsymbol_007d-267"></a><br><dt><code>--wrap=</code><var>symbol</var><dd>Use a wrapper function for <var>symbol</var>.  Any undefined reference to
 <var>symbol</var> will be resolved to <code>__wrap_</code><var>symbol</var>.  Any
 undefined reference to <code>__real_</code><var>symbol</var> will be resolved to
 <var>symbol</var>.
@@ -1315,33 +1334,34 @@ you should not put the definition of <code>__real_malloc</code> in the same
 file as <code>__wrap_malloc</code>; if you do, the assembler may resolve the
 call before the linker has a chance to wrap it to <code>malloc</code>.
 
-     <p><a name="index-g_t_002d_002deh_002dframe_002dhdr-264"></a><br><dt><code>--eh-frame-hdr</code><dd>Request creation of <code>.eh_frame_hdr</code> section and ELF
+     <p><a name="index-g_t_002d_002deh_002dframe_002dhdr-268"></a><br><dt><code>--eh-frame-hdr</code><dd>Request creation of <code>.eh_frame_hdr</code> section and ELF
 <code>PT_GNU_EH_FRAME</code> segment header.
 
-     <p><a name="index-g_t_002d_002dld_002dgenerated_002dunwind_002dinfo-265"></a><br><dt><code>--no-ld-generated-unwind-info</code><dd>Request creation of <code>.eh_frame</code> unwind info for linker
+     <p><a name="index-g_t_002d_002dld_002dgenerated_002dunwind_002dinfo-269"></a><br><dt><code>--no-ld-generated-unwind-info</code><dd>Request creation of <code>.eh_frame</code> unwind info for linker
 generated code sections like PLT.  This option is on by default
 if linker generated unwind info is supported.
 
-     <p><a name="index-g_t_002d_002denable_002dnew_002ddtags-266"></a><a name="index-g_t_002d_002ddisable_002dnew_002ddtags-267"></a><br><dt><code>--enable-new-dtags</code><dt><code>--disable-new-dtags</code><dd>This linker can create the new dynamic tags in ELF. But the older ELF
+     <p><a name="index-g_t_002d_002denable_002dnew_002ddtags-270"></a><a name="index-g_t_002d_002ddisable_002dnew_002ddtags-271"></a><br><dt><code>--enable-new-dtags</code><dt><code>--disable-new-dtags</code><dd>This linker can create the new dynamic tags in ELF. But the older ELF
 systems may not understand them. If you specify
-<samp><span class="option">--enable-new-dtags</span></samp>, the dynamic tags will be created as needed. 
+<samp><span class="option">--enable-new-dtags</span></samp>, the new dynamic tags will be created as needed
+and older dynamic tags will be omitted. 
 If you specify <samp><span class="option">--disable-new-dtags</span></samp>, no new dynamic tags will be
 created. By default, the new dynamic tags are not created. Note that
 those options are only available for ELF systems.
 
-     <p><a name="index-g_t_002d_002dhash_002dsize_003d_0040var_007bnumber_007d-268"></a><br><dt><code>--hash-size=</code><var>number</var><dd>Set the default size of the linker's hash tables to a prime number
+     <p><a name="index-g_t_002d_002dhash_002dsize_003d_0040var_007bnumber_007d-272"></a><br><dt><code>--hash-size=</code><var>number</var><dd>Set the default size of the linker's hash tables to a prime number
 close to <var>number</var>.  Increasing this value can reduce the length of
 time it takes the linker to perform its tasks, at the expense of
 increasing the linker's memory requirements.  Similarly reducing this
 value can reduce the memory requirements at the expense of speed.
 
-     <p><a name="index-g_t_002d_002dhash_002dstyle_003d_0040var_007bstyle_007d-269"></a><br><dt><code>--hash-style=</code><var>style</var><dd>Set the type of linker's hash table(s).  <var>style</var> can be either
+     <p><a name="index-g_t_002d_002dhash_002dstyle_003d_0040var_007bstyle_007d-273"></a><br><dt><code>--hash-style=</code><var>style</var><dd>Set the type of linker's hash table(s).  <var>style</var> can be either
 <code>sysv</code> for classic ELF <code>.hash</code> section, <code>gnu</code> for
 new style GNU <code>.gnu.hash</code> section or <code>both</code> for both
 the classic ELF <code>.hash</code> and new style GNU <code>.gnu.hash</code>
 hash tables.  The default is <code>sysv</code>.
 
-     <p><a name="index-g_t_002d_002dreduce_002dmemory_002doverheads-270"></a><br><dt><code>--reduce-memory-overheads</code><dd>This option reduces memory requirements at ld runtime, at the expense of
+     <p><a name="index-g_t_002d_002dreduce_002dmemory_002doverheads-274"></a><br><dt><code>--reduce-memory-overheads</code><dd>This option reduces memory requirements at ld runtime, at the expense of
 linking speed.  This was introduced to select the old O(n^2) algorithm
 for link map file generation, rather than the new O(n) algorithm which uses
 about 40% more memory for symbol storage.
@@ -1354,7 +1374,7 @@ has been used.
      <p>The <samp><span class="option">--reduce-memory-overheads</span></samp> switch may be also be used to
 enable other tradeoffs in future versions of the linker.
 
-     <p><a name="index-g_t_002d_002dbuild_002did-271"></a><a name="index-g_t_002d_002dbuild_002did_003d_0040var_007bstyle_007d-272"></a><br><dt><code>--build-id</code><dt><code>--build-id=</code><var>style</var><dd>Request creation of <code>.note.gnu.build-id</code> ELF note section. 
+     <p><a name="index-g_t_002d_002dbuild_002did-275"></a><a name="index-g_t_002d_002dbuild_002did_003d_0040var_007bstyle_007d-276"></a><br><dt><code>--build-id</code><dt><code>--build-id=</code><var>style</var><dd>Request creation of <code>.note.gnu.build-id</code> ELF note section. 
 The contents of the note are unique bits identifying this linked
 file.  <var>style</var> can be <code>uuid</code> to use 128 random bits,
 <code>sha1</code> to use a 160-bit <span class="sc">SHA1</span> hash on the normative
@@ -1395,22 +1415,22 @@ PE target.  Options that take values may be separated from their
 values by either a space or an equals sign.
 
      
-<a name="index-g_t_002d_002dadd_002dstdcall_002dalias-273"></a>
+<a name="index-g_t_002d_002dadd_002dstdcall_002dalias-277"></a>
 <dl><dt><code>--add-stdcall-alias</code><dd>If given, symbols with a stdcall suffix (@<var>nn</var>) will be exported
 as-is and also with the suffix stripped. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dbase_002dfile-274"></a><br><dt><code>--base-file </code><var>file</var><dd>Use <var>file</var> as the name of a file in which to save the base
+     <p><a name="index-g_t_002d_002dbase_002dfile-278"></a><br><dt><code>--base-file </code><var>file</var><dd>Use <var>file</var> as the name of a file in which to save the base
 addresses of all the relocations needed for generating DLLs with
 <samp><span class="file">dlltool</span></samp>. 
 [This is an i386 PE specific option]
 
-     <p><a name="index-g_t_002d_002ddll-275"></a><br><dt><code>--dll</code><dd>Create a DLL instead of a regular executable.  You may also use
+     <p><a name="index-g_t_002d_002ddll-279"></a><br><dt><code>--dll</code><dd>Create a DLL instead of a regular executable.  You may also use
 <samp><span class="option">-shared</span></samp> or specify a <code>LIBRARY</code> in a given <code>.def</code>
 file. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002dlong_002dsection_002dnames-276"></a><a name="index-g_t_002d_002ddisable_002dlong_002dsection_002dnames-277"></a><br><dt><code>--enable-long-section-names</code><dt><code>--disable-long-section-names</code><dd>The PE variants of the Coff object format add an extension that permits
+     <p><a name="index-g_t_002d_002denable_002dlong_002dsection_002dnames-280"></a><a name="index-g_t_002d_002ddisable_002dlong_002dsection_002dnames-281"></a><br><dt><code>--enable-long-section-names</code><dt><code>--disable-long-section-names</code><dd>The PE variants of the Coff object format add an extension that permits
 the use of section names longer than eight characters, the normal limit
 for Coff.  By default, these names are only allowed in object files, as
 fully-linked executable images do not carry the Coff string table required
@@ -1428,7 +1448,7 @@ when it finds the presence of debug information while linking an executable
 image and not stripping symbols. 
 [This option is valid for all PE targeted ports of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002dstdcall_002dfixup-278"></a><a name="index-g_t_002d_002ddisable_002dstdcall_002dfixup-279"></a><br><dt><code>--enable-stdcall-fixup</code><dt><code>--disable-stdcall-fixup</code><dd>If the link finds a symbol that it cannot resolve, it will attempt to
+     <p><a name="index-g_t_002d_002denable_002dstdcall_002dfixup-282"></a><a name="index-g_t_002d_002ddisable_002dstdcall_002dfixup-283"></a><br><dt><code>--enable-stdcall-fixup</code><dt><code>--disable-stdcall-fixup</code><dd>If the link finds a symbol that it cannot resolve, it will attempt to
 do &ldquo;fuzzy linking&rdquo; by looking for another defined symbol that differs
 only in the format of the symbol name (cdecl vs stdcall) and will
 resolve that symbol by linking to the match.  For example, the
@@ -1443,11 +1463,11 @@ feature is fully enabled and warnings are not printed.  If you specify
 mismatches are considered to be errors. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dleading_002dunderscore-280"></a><a name="index-g_t_002d_002dno_002dleading_002dunderscore-281"></a><br><dt><code>--leading-underscore</code><dt><code>--no-leading-underscore</code><dd>For most targets default symbol-prefix is an underscore and is defined
+     <p><a name="index-g_t_002d_002dleading_002dunderscore-284"></a><a name="index-g_t_002d_002dno_002dleading_002dunderscore-285"></a><br><dt><code>--leading-underscore</code><dt><code>--no-leading-underscore</code><dd>For most targets default symbol-prefix is an underscore and is defined
 in target's description. By this option it is possible to
 disable/enable the default underscore symbol-prefix.
 
-     <p><a name="index-DLLs_002c-creating-282"></a><a name="index-g_t_002d_002dexport_002dall_002dsymbols-283"></a><br><dt><code>--export-all-symbols</code><dd>If given, all global symbols in the objects used to build a DLL will
+     <p><a name="index-DLLs_002c-creating-286"></a><a name="index-g_t_002d_002dexport_002dall_002dsymbols-287"></a><br><dt><code>--export-all-symbols</code><dd>If given, all global symbols in the objects used to build a DLL will
 be exported by the DLL.  Note that this is the default if there
 otherwise wouldn't be any exported symbols.  When symbols are
 explicitly exported via DEF files or implicitly exported via function
@@ -1471,24 +1491,24 @@ These cygwin-excludes are: <code>_cygwin_dll_entry@12</code>,
 <code>cygwin_premain3</code>, and <code>environ</code>. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dexclude_002dsymbols-284"></a><br><dt><code>--exclude-symbols </code><var>symbol</var><code>,</code><var>symbol</var><code>,...</code><dd>Specifies a list of symbols which should not be automatically
+     <p><a name="index-g_t_002d_002dexclude_002dsymbols-288"></a><br><dt><code>--exclude-symbols </code><var>symbol</var><code>,</code><var>symbol</var><code>,...</code><dd>Specifies a list of symbols which should not be automatically
 exported.  The symbol names may be delimited by commas or colons. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dexclude_002dall_002dsymbols-285"></a><br><dt><code>--exclude-all-symbols</code><dd>Specifies no symbols should be automatically exported. 
+     <p><a name="index-g_t_002d_002dexclude_002dall_002dsymbols-289"></a><br><dt><code>--exclude-all-symbols</code><dd>Specifies no symbols should be automatically exported. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dfile_002dalignment-286"></a><br><dt><code>--file-alignment</code><dd>Specify the file alignment.  Sections in the file will always begin at
+     <p><a name="index-g_t_002d_002dfile_002dalignment-290"></a><br><dt><code>--file-alignment</code><dd>Specify the file alignment.  Sections in the file will always begin at
 file offsets which are multiples of this number.  This defaults to
 512. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-heap-size-287"></a><a name="index-g_t_002d_002dheap-288"></a><br><dt><code>--heap </code><var>reserve</var><dt><code>--heap </code><var>reserve</var><code>,</code><var>commit</var><dd>Specify the number of bytes of memory to reserve (and optionally commit)
-to be used as heap for this program.  The default is 1Mb reserved, 4K
+     <p><a name="index-heap-size-291"></a><a name="index-g_t_002d_002dheap-292"></a><br><dt><code>--heap </code><var>reserve</var><dt><code>--heap </code><var>reserve</var><code>,</code><var>commit</var><dd>Specify the number of bytes of memory to reserve (and optionally commit)
+to be used as heap for this program.  The default is 1MB reserved, 4K
 committed. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-image-base-289"></a><a name="index-g_t_002d_002dimage_002dbase-290"></a><br><dt><code>--image-base </code><var>value</var><dd>Use <var>value</var> as the base address of your program or dll.  This is
+     <p><a name="index-image-base-293"></a><a name="index-g_t_002d_002dimage_002dbase-294"></a><br><dt><code>--image-base </code><var>value</var><dd>Use <var>value</var> as the base address of your program or dll.  This is
 the lowest memory location that will be used when your program or dll
 is loaded.  To reduce the need to relocate and improve performance of
 your dlls, each should have a unique base address and not overlap any
@@ -1496,43 +1516,49 @@ other dlls.  The default is 0x400000 for executables, and 0x10000000
 for dlls. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dkill_002dat-291"></a><br><dt><code>--kill-at</code><dd>If given, the stdcall suffixes (@<var>nn</var>) will be stripped from
+     <p><a name="index-g_t_002d_002dkill_002dat-295"></a><br><dt><code>--kill-at</code><dd>If given, the stdcall suffixes (@<var>nn</var>) will be stripped from
 symbols before they are exported. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dlarge_002daddress_002daware-292"></a><br><dt><code>--large-address-aware</code><dd>If given, the appropriate bit in the &ldquo;Characteristics&rdquo; field of the COFF
+     <p><a name="index-g_t_002d_002dlarge_002daddress_002daware-296"></a><br><dt><code>--large-address-aware</code><dd>If given, the appropriate bit in the &ldquo;Characteristics&rdquo; field of the COFF
 header is set to indicate that this executable supports virtual addresses
 greater than 2 gigabytes.  This should be used in conjunction with the /3GB
 or /USERVA=<var>value</var> megabytes switch in the &ldquo;[operating systems]&rdquo;
 section of the BOOT.INI.  Otherwise, this bit has no effect. 
 [This option is specific to PE targeted ports of the linker]
 
-     <p><a name="index-g_t_002d_002dmajor_002dimage_002dversion-293"></a><br><dt><code>--major-image-version </code><var>value</var><dd>Sets the major number of the &ldquo;image version&rdquo;.  Defaults to 1. 
+     <p><a name="index-g_t_002d_002ddisable_002dlarge_002daddress_002daware-297"></a><br><dt><code>--disable-large-address-aware</code><dd>Reverts the effect of a previous &lsquo;<samp><span class="samp">--large-address-aware</span></samp>&rsquo; option. 
+This is useful if &lsquo;<samp><span class="samp">--large-address-aware</span></samp>&rsquo; is always set by the compiler
+driver (e.g. Cygwin gcc) and the executable does not support virtual
+addresses greater than 2 gigabytes. 
+[This option is specific to PE targeted ports of the linker]
+
+     <p><a name="index-g_t_002d_002dmajor_002dimage_002dversion-298"></a><br><dt><code>--major-image-version </code><var>value</var><dd>Sets the major number of the &ldquo;image version&rdquo;.  Defaults to 1. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dmajor_002dos_002dversion-294"></a><br><dt><code>--major-os-version </code><var>value</var><dd>Sets the major number of the &ldquo;os version&rdquo;.  Defaults to 4. 
+     <p><a name="index-g_t_002d_002dmajor_002dos_002dversion-299"></a><br><dt><code>--major-os-version </code><var>value</var><dd>Sets the major number of the &ldquo;os version&rdquo;.  Defaults to 4. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dmajor_002dsubsystem_002dversion-295"></a><br><dt><code>--major-subsystem-version </code><var>value</var><dd>Sets the major number of the &ldquo;subsystem version&rdquo;.  Defaults to 4. 
+     <p><a name="index-g_t_002d_002dmajor_002dsubsystem_002dversion-300"></a><br><dt><code>--major-subsystem-version </code><var>value</var><dd>Sets the major number of the &ldquo;subsystem version&rdquo;.  Defaults to 4. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dminor_002dimage_002dversion-296"></a><br><dt><code>--minor-image-version </code><var>value</var><dd>Sets the minor number of the &ldquo;image version&rdquo;.  Defaults to 0. 
+     <p><a name="index-g_t_002d_002dminor_002dimage_002dversion-301"></a><br><dt><code>--minor-image-version </code><var>value</var><dd>Sets the minor number of the &ldquo;image version&rdquo;.  Defaults to 0. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dminor_002dos_002dversion-297"></a><br><dt><code>--minor-os-version </code><var>value</var><dd>Sets the minor number of the &ldquo;os version&rdquo;.  Defaults to 0. 
+     <p><a name="index-g_t_002d_002dminor_002dos_002dversion-302"></a><br><dt><code>--minor-os-version </code><var>value</var><dd>Sets the minor number of the &ldquo;os version&rdquo;.  Defaults to 0. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dminor_002dsubsystem_002dversion-298"></a><br><dt><code>--minor-subsystem-version </code><var>value</var><dd>Sets the minor number of the &ldquo;subsystem version&rdquo;.  Defaults to 0. 
+     <p><a name="index-g_t_002d_002dminor_002dsubsystem_002dversion-303"></a><br><dt><code>--minor-subsystem-version </code><var>value</var><dd>Sets the minor number of the &ldquo;subsystem version&rdquo;.  Defaults to 0. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-DEF-files_002c-creating-299"></a><a name="index-DLLs_002c-creating-300"></a><a name="index-g_t_002d_002doutput_002ddef-301"></a><br><dt><code>--output-def </code><var>file</var><dd>The linker will create the file <var>file</var> which will contain a DEF
+     <p><a name="index-DEF-files_002c-creating-304"></a><a name="index-DLLs_002c-creating-305"></a><a name="index-g_t_002d_002doutput_002ddef-306"></a><br><dt><code>--output-def </code><var>file</var><dd>The linker will create the file <var>file</var> which will contain a DEF
 file corresponding to the DLL the linker is generating.  This DEF file
 (which should be called <code>*.def</code>) may be used to create an import
 library with <code>dlltool</code> or may be used as a reference to
 automatically or implicitly exported symbols. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-DLLs_002c-creating-302"></a><a name="index-g_t_002d_002dout_002dimplib-303"></a><br><dt><code>--out-implib </code><var>file</var><dd>The linker will create the file <var>file</var> which will contain an
+     <p><a name="index-DLLs_002c-creating-307"></a><a name="index-g_t_002d_002dout_002dimplib-308"></a><br><dt><code>--out-implib </code><var>file</var><dd>The linker will create the file <var>file</var> which will contain an
 import lib corresponding to the DLL the linker is generating. This
 import lib (which should be called <code>*.dll.a</code> or <code>*.a</code>
 may be used to link clients against the generated DLL; this behaviour
@@ -1540,19 +1566,19 @@ makes it possible to skip a separate <code>dlltool</code> import library
 creation step. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002dauto_002dimage_002dbase-304"></a><br><dt><code>--enable-auto-image-base</code><dd>Automatically choose the image base for DLLs, unless one is specified
+     <p><a name="index-g_t_002d_002denable_002dauto_002dimage_002dbase-309"></a><br><dt><code>--enable-auto-image-base</code><dd>Automatically choose the image base for DLLs, unless one is specified
 using the <code>--image-base</code> argument.  By using a hash generated
 from the dllname to create unique image bases for each DLL, in-memory
 collisions and relocations which can delay program execution are
 avoided. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002ddisable_002dauto_002dimage_002dbase-305"></a><br><dt><code>--disable-auto-image-base</code><dd>Do not automatically generate a unique image base.  If there is no
+     <p><a name="index-g_t_002d_002ddisable_002dauto_002dimage_002dbase-310"></a><br><dt><code>--disable-auto-image-base</code><dd>Do not automatically generate a unique image base.  If there is no
 user-specified image base (<code>--image-base</code>) then use the platform
 default. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-DLLs_002c-linking-to-306"></a><a name="index-g_t_002d_002ddll_002dsearch_002dprefix-307"></a><br><dt><code>--dll-search-prefix </code><var>string</var><dd>When linking dynamically to a dll without an import library,
+     <p><a name="index-DLLs_002c-linking-to-311"></a><a name="index-g_t_002d_002ddll_002dsearch_002dprefix-312"></a><br><dt><code>--dll-search-prefix </code><var>string</var><dd>When linking dynamically to a dll without an import library,
 search for <code>&lt;string&gt;&lt;basename&gt;.dll</code> in preference to
 <code>lib&lt;basename&gt;.dll</code>. This behaviour allows easy distinction
 between DLLs built for the various "subplatforms": native, cygwin,
@@ -1560,7 +1586,7 @@ uwin, pw, etc.  For instance, cygwin DLLs typically use
 <code>--dll-search-prefix=cyg</code>. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002dauto_002dimport-308"></a><br><dt><code>--enable-auto-import</code><dd>Do sophisticated linking of <code>_symbol</code> to <code>__imp__symbol</code> for
+     <p><a name="index-g_t_002d_002denable_002dauto_002dimport-313"></a><br><dt><code>--enable-auto-import</code><dd>Do sophisticated linking of <code>_symbol</code> to <code>__imp__symbol</code> for
 DATA imports from DLLs, and create the necessary thunking symbols when
 building the import libraries with those DATA exports. Note: Use of the
 'auto-import' extension will cause the text section of the image file
@@ -1626,7 +1652,7 @@ is to make the struct itself (or the long long, or the ...) variable:
 </pre>
      <p>A third method of dealing with this difficulty is to abandon
 'auto-import' for the offending symbol and mark it with
-<code>__declspec(dllimport)</code>.  However, in practise that
+<code>__declspec(dllimport)</code>.  However, in practice that
 requires using compile-time #defines to indicate whether you are
 building a DLL, building client code that will link to the DLL, or
 merely building/linking to a static library.   In making the choice
@@ -1675,33 +1701,33 @@ for the offending variables (e.g. set_foo() and get_foo() accessor
 functions). 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002ddisable_002dauto_002dimport-309"></a><br><dt><code>--disable-auto-import</code><dd>Do not attempt to do sophisticated linking of <code>_symbol</code> to
+     <p><a name="index-g_t_002d_002ddisable_002dauto_002dimport-314"></a><br><dt><code>--disable-auto-import</code><dd>Do not attempt to do sophisticated linking of <code>_symbol</code> to
 <code>__imp__symbol</code> for DATA imports from DLLs. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002druntime_002dpseudo_002dreloc-310"></a><br><dt><code>--enable-runtime-pseudo-reloc</code><dd>If your code contains expressions described in &ndash;enable-auto-import section,
+     <p><a name="index-g_t_002d_002denable_002druntime_002dpseudo_002dreloc-315"></a><br><dt><code>--enable-runtime-pseudo-reloc</code><dd>If your code contains expressions described in &ndash;enable-auto-import section,
 that is, DATA imports from DLL with non-zero offset, this switch will create
 a vector of 'runtime pseudo relocations' which can be used by runtime
 environment to adjust references to such data in your client code. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002ddisable_002druntime_002dpseudo_002dreloc-311"></a><br><dt><code>--disable-runtime-pseudo-reloc</code><dd>Do not create pseudo relocations for non-zero offset DATA imports from
-DLLs.  This is the default. 
+     <p><a name="index-g_t_002d_002ddisable_002druntime_002dpseudo_002dreloc-316"></a><br><dt><code>--disable-runtime-pseudo-reloc</code><dd>Do not create pseudo relocations for non-zero offset DATA imports from
+DLLs. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002denable_002dextra_002dpe_002ddebug-312"></a><br><dt><code>--enable-extra-pe-debug</code><dd>Show additional debug info related to auto-import symbol thunking. 
+     <p><a name="index-g_t_002d_002denable_002dextra_002dpe_002ddebug-317"></a><br><dt><code>--enable-extra-pe-debug</code><dd>Show additional debug info related to auto-import symbol thunking. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dsection_002dalignment-313"></a><br><dt><code>--section-alignment</code><dd>Sets the section alignment.  Sections in memory will always begin at
+     <p><a name="index-g_t_002d_002dsection_002dalignment-318"></a><br><dt><code>--section-alignment</code><dd>Sets the section alignment.  Sections in memory will always begin at
 addresses which are a multiple of this number.  Defaults to 0x1000. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-stack-size-314"></a><a name="index-g_t_002d_002dstack-315"></a><br><dt><code>--stack </code><var>reserve</var><dt><code>--stack </code><var>reserve</var><code>,</code><var>commit</var><dd>Specify the number of bytes of memory to reserve (and optionally commit)
-to be used as stack for this program.  The default is 2Mb reserved, 4K
+     <p><a name="index-stack-size-319"></a><a name="index-g_t_002d_002dstack-320"></a><br><dt><code>--stack </code><var>reserve</var><dt><code>--stack </code><var>reserve</var><code>,</code><var>commit</var><dd>Specify the number of bytes of memory to reserve (and optionally commit)
+to be used as stack for this program.  The default is 2MB reserved, 4K
 committed. 
 [This option is specific to the i386 PE targeted port of the linker]
 
-     <p><a name="index-g_t_002d_002dsubsystem-316"></a><br><dt><code>--subsystem </code><var>which</var><dt><code>--subsystem </code><var>which</var><code>:</code><var>major</var><dt><code>--subsystem </code><var>which</var><code>:</code><var>major</var><code>.</code><var>minor</var><dd>Specifies the subsystem under which your program will execute.  The
+     <p><a name="index-g_t_002d_002dsubsystem-321"></a><br><dt><code>--subsystem </code><var>which</var><dt><code>--subsystem </code><var>which</var><code>:</code><var>major</var><dt><code>--subsystem </code><var>which</var><code>:</code><var>major</var><code>.</code><var>minor</var><dd>Specifies the subsystem under which your program will execute.  The
 legal values for <var>which</var> are <code>native</code>, <code>windows</code>,
 <code>console</code>, <code>posix</code>, and <code>xbox</code>.  You may optionally set
 the subsystem version also.  Numeric values are also accepted for
@@ -1712,27 +1738,30 @@ the subsystem version also.  Numeric values are also accepted for
 of the PE file header:
 [These options are specific to PE targeted ports of the linker]
 
-     <p><a name="index-g_t_002d_002ddynamicbase-317"></a><br><dt><code>--dynamicbase</code><dd>The image base address may be relocated using address space layout
+     <p><a name="index-g_t_002d_002ddynamicbase-322"></a><br><dt><code>--dynamicbase</code><dd>The image base address may be relocated using address space layout
 randomization (ASLR).  This feature was introduced with MS Windows
 Vista for i386 PE targets.
 
-     <p><a name="index-g_t_002d_002dforceinteg-318"></a><br><dt><code>--forceinteg</code><dd>Code integrity checks are enforced.
+     <p><a name="index-g_t_002d_002dforceinteg-323"></a><br><dt><code>--forceinteg</code><dd>Code integrity checks are enforced.
 
-     <p><a name="index-g_t_002d_002dnxcompat-319"></a><br><dt><code>--nxcompat</code><dd>The image is compatible with the Data Execution Prevention. 
+     <p><a name="index-g_t_002d_002dnxcompat-324"></a><br><dt><code>--nxcompat</code><dd>The image is compatible with the Data Execution Prevention. 
 This feature was introduced with MS Windows XP SP2 for i386 PE targets.
 
-     <p><a name="index-g_t_002d_002dno_002disolation-320"></a><br><dt><code>--no-isolation</code><dd>Although the image understands isolation, do not isolate the image.
+     <p><a name="index-g_t_002d_002dno_002disolation-325"></a><br><dt><code>--no-isolation</code><dd>Although the image understands isolation, do not isolate the image.
 
-     <p><a name="index-g_t_002d_002dno_002dseh-321"></a><br><dt><code>--no-seh</code><dd>The image does not use SEH. No SE handler may be called from
+     <p><a name="index-g_t_002d_002dno_002dseh-326"></a><br><dt><code>--no-seh</code><dd>The image does not use SEH. No SE handler may be called from
 this image.
 
-     <p><a name="index-g_t_002d_002dno_002dbind-322"></a><br><dt><code>--no-bind</code><dd>Do not bind this image.
+     <p><a name="index-g_t_002d_002dno_002dbind-327"></a><br><dt><code>--no-bind</code><dd>Do not bind this image.
 
-     <p><a name="index-g_t_002d_002dwdmdriver-323"></a><br><dt><code>--wdmdriver</code><dd>The driver uses the MS Windows Driver Model.
+     <p><a name="index-g_t_002d_002dwdmdriver-328"></a><br><dt><code>--wdmdriver</code><dd>The driver uses the MS Windows Driver Model.
 
-     <p><a name="index-g_t_002d_002dtsaware-324"></a><br><dt><code>--tsaware</code><dd>The image is Terminal Server aware.
+     <p><a name="index-g_t_002d_002dtsaware-329"></a><br><dt><code>--tsaware</code><dd>The image is Terminal Server aware.
 
-   </dl>
+     <p><a name="index-g_t_002d_002dinsert_002dtimestamp-330"></a><br><dt><code>--insert-timestamp</code><dd>Insert a real timestamp into the image, rather than the default value
+of zero.  This will result in a slightly different results with each
+invocation, which could be helpful for distributing unique images. 
+</dl>
 
 <!-- man end -->
 <h4 class="subsection">2.1.2 Options specific to C6X uClinux targets</h4>
@@ -1743,17 +1772,17 @@ libraries.  Each shared library in the system needs to have a unique index;
 all executables use an index of 0.
 
      
-<a name="index-g_t_002d_002ddsbt_002dsize-325"></a>
+<a name="index-g_t_002d_002ddsbt_002dsize-331"></a>
 <dl><dt><code>--dsbt-size </code><var>size</var><dd>This option sets the number of entires in the DSBT of the current executable
 or shared library to <var>size</var>.  The default is to create a table with 64
 entries.
 
-     <p><a name="index-g_t_002d_002ddsbt_002dindex-326"></a><br><dt><code>--dsbt-index </code><var>index</var><dd>This option sets the DSBT index of the current executable or shared library
+     <p><a name="index-g_t_002d_002ddsbt_002dindex-332"></a><br><dt><code>--dsbt-index </code><var>index</var><dd>This option sets the DSBT index of the current executable or shared library
 to <var>index</var>.  The default is 0, which is appropriate for generating
 executables.  If a shared library is generated with a DSBT index of 0, the
 <code>R_C6000_DSBT_INDEX</code> relocs are copied into the output file.
 
-     <p><a name="index-g_t_002d_002dno_002dmerge_002dexidx_002dentries-327"></a>The &lsquo;<samp><span class="samp">--no-merge-exidx-entries</span></samp>&rsquo; switch disables the merging of adjacent
+     <p><a name="index-g_t_002d_002dno_002dmerge_002dexidx_002dentries-333"></a>The &lsquo;<samp><span class="samp">--no-merge-exidx-entries</span></samp>&rsquo; switch disables the merging of adjacent
 exidx entries in frame unwind info.
 
    </dl>
@@ -1766,12 +1795,12 @@ exidx entries in frame unwind info.
 memory bank switching mapping and trampoline code generation.
 
      
-<a name="index-g_t_002d_002dno_002dtrampoline-328"></a>
+<a name="index-g_t_002d_002dno_002dtrampoline-334"></a>
 <dl><dt><code>--no-trampoline</code><dd>This option disables the generation of trampoline. By default a trampoline
 is generated for each far function which is called using a <code>jsr</code>
 instruction (this happens when a pointer to a far function is taken).
 
-     <p><a name="index-g_t_002d_002dbank_002dwindow-329"></a><br><dt><code>--bank-window </code><var>name</var><dd>This option indicates to the linker the name of the memory region in
+     <p><a name="index-g_t_002d_002dbank_002dwindow-335"></a><br><dt><code>--bank-window </code><var>name</var><dd>This option indicates to the linker the name of the memory region in
 the &lsquo;<samp><span class="samp">MEMORY</span></samp>&rsquo; specification that describes the memory bank window. 
 The definition of such region is then used by the linker to compute
 paging and addresses within the memory window.
@@ -1786,11 +1815,29 @@ paging and addresses within the memory window.
 when linking for 68K targets.
 
      
-<a name="index-g_t_002d_002dgot-330"></a>
+<a name="index-g_t_002d_002dgot-336"></a>
 <dl><dt><code>--got=</code><var>type</var><dd>This option tells the linker which GOT generation scheme to use. 
 <var>type</var> should be one of &lsquo;<samp><span class="samp">single</span></samp>&rsquo;, &lsquo;<samp><span class="samp">negative</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">multigot</span></samp>&rsquo; or &lsquo;<samp><span class="samp">target</span></samp>&rsquo;.  For more information refer to the
 Info entry for <samp><span class="file">ld</span></samp>.
+
+   </dl>
+
+<!-- man end -->
+<h4 class="subsection">2.1.5 Options specific to MIPS targets</h4>
+
+<!-- man begin OPTIONS -->
+<p>The following options are supported to control microMIPS instruction
+generation when linking for MIPS targets.
+
+     
+<a name="index-g_t_002d_002dinsn32-337"></a>
+<dl><dt><code>--insn32</code><dd><a name="index-g_t_002d_002dno_002dinsn32-338"></a><dt><code>--no-insn32</code><dd>These options control the choice of microMIPS instructions used in code
+generated by the linker, such as that in the PLT or lazy binding stubs,
+or in relaxation.  If &lsquo;<samp><span class="samp">--insn32</span></samp>&rsquo; is used, then the linker only uses
+32-bit instruction encodings.  By default or if &lsquo;<samp><span class="samp">--no-insn32</span></samp>&rsquo; is
+used, all instruction encodings are used, including 16-bit ones where
+possible.
 
    </dl>
 

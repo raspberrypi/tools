@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,9 +44,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="PPC_002dDependent.html#PPC_002dDependen
 <hr>
 </div>
 
-<h4 class="subsection">9.30.1 Options</h4>
+<h4 class="subsection">9.34.1 Options</h4>
 
-<p><a name="index-options-for-PowerPC-1569"></a><a name="index-PowerPC-options-1570"></a><a name="index-architectures_002c-PowerPC-1571"></a><a name="index-PowerPC-architectures-1572"></a>The PowerPC chip family includes several successive levels, using the same
+<p><a name="index-options-for-PowerPC-1706"></a><a name="index-PowerPC-options-1707"></a><a name="index-architectures_002c-PowerPC-1708"></a><a name="index-PowerPC-architectures-1709"></a>The PowerPC chip family includes several successive levels, using the same
 core instruction set, but including a few additional instructions at
 each level.  There are exceptions to this however.  For details on what
 instructions each variant supports, please see the chip's architecture
@@ -92,6 +90,10 @@ reference manual.
 
      <br><dt><code>-me500mc64</code><dd>Generate code for Freescale e500mc64 core complex.
 
+     <br><dt><code>-me5500</code><dd>Generate code for Freescale e5500 core complex.
+
+     <br><dt><code>-me6500</code><dd>Generate code for Freescale e6500 core complex.
+
      <br><dt><code>-mspe</code><dd>Generate code for Motorola SPE instructions.
 
      <br><dt><code>-mtitan</code><dd>Generate code for AppliedMicro Titan core complex.
@@ -106,7 +108,11 @@ reference manual.
 
      <br><dt><code>-maltivec</code><dd>Generate code for processors with AltiVec instructions.
 
+     <br><dt><code>-mvle</code><dd>Generate code for Freescale PowerPC VLE instructions.
+
      <br><dt><code>-mvsx</code><dd>Generate code for processors with Vector-Scalar (VSX) instructions.
+
+     <br><dt><code>-mhtm</code><dd>Generate code for processors with Hardware Transactional Memory instructions.
 
      <br><dt><code>-mpower4, -mpwr4</code><dd>Generate code for Power4 architecture.
 
@@ -116,7 +122,9 @@ reference manual.
 
      <br><dt><code>-mpower7, -mpwr7</code><dd>Generate code for Power7 architecture.
 
-     <br><dt><code>-mcell</code><dd>Generate code for Cell Broadband Engine architecture.
+     <br><dt><code>-mpower8, -mpwr8</code><dd>Generate code for Power8 architecture.
+
+     <br><dt><code>-mcell</code><br><dt><code>-mcell</code><dd>Generate code for Cell Broadband Engine architecture.
 
      <br><dt><code>-mcom</code><dd>Generate code Power/PowerPC common instructions.
 

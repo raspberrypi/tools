@@ -10,9 +10,7 @@
 <link rel="next" href="Using-Agent-Expressions.html#Using-Agent-Expressions" title="Using Agent Expressions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -283,6 +281,22 @@ buffer.  The handling of <var>n</var> is as described for <code>getv</code>.
      <br><dt><code>tracenz</code> (0x2f)  <var>addr</var> <var>size</var> &rArr;<dd>Record the bytes at <var>addr</var> in a trace buffer, for later retrieval
 by GDB.  Stop at either the first zero byte, or when <var>size</var> bytes
 have been recorded, whichever occurs first.
+
+     <br><dt><code>printf</code> (0x34)  <var>numargs</var> <var>string</var> &rArr;<dd>Do a formatted print, in the style of the C function <code>printf</code>). 
+The value of <var>numargs</var> is the number of arguments to expect on the
+stack, while <var>string</var> is the format string, prefixed with a
+two-byte length.  The last byte of the string must be zero, and is
+included in the length.  The format string includes escaped sequences
+just as it appears in C source, so for instance the format string
+<code>"\t%d\n"</code> is six characters long, and the output will consist of
+a tab character, a decimal number, and a newline.  At the top of the
+stack, above the values to be printed, this bytecode will pop a
+&ldquo;function&rdquo; and &ldquo;channel&rdquo;.  If the function is nonzero, then the
+target may treat it as a function and call it, passing the channel as
+a first argument, as with the C function <code>fprintf</code>.  If the
+function is zero, then the target may simply call a standard formatted
+print function of its choice.  In all, this bytecode pops 2 +
+<var>numargs</var> stack elements, and pushes nothing.
 
      <br><dt><code>end</code> (0x27): &rArr;<dd>Stop executing bytecode; the result should be the top element of the
 stack.  If the purpose of the expression was to compute an lvalue or a

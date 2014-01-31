@@ -6,12 +6,11 @@
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Architectures.html#Architectures" title="Architectures">
-<link rel="next" href="A29K.html#A29K" title="A29K">
+<link rel="prev" href="AArch64.html#AArch64" title="AArch64">
+<link rel="next" href="Alpha.html#Alpha" title="Alpha">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -40,15 +39,16 @@ developing GNU and promoting software freedom.''-->
 <div class="node">
 <a name="i386"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="A29K.html#A29K">A29K</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Alpha.html#Alpha">Alpha</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="AArch64.html#AArch64">AArch64</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Architectures.html#Architectures">Architectures</a>
 <hr>
 </div>
 
-<h4 class="subsection">21.4.1 x86 Architecture-specific Issues</h4>
+<h4 class="subsection">21.4.2 x86 Architecture-specific Issues</h4>
 
      <dl>
-<dt><code>set struct-convention </code><var>mode</var><dd><a name="index-set-struct_002dconvention-1448"></a><a name="index-struct-return-convention-1449"></a><a name="index-struct_002funion-returned-in-registers-1450"></a>Set the convention used by the inferior to return <code>struct</code>s and
+<dt><code>set struct-convention </code><var>mode</var><dd><a name="index-set-struct_002dconvention-1502"></a><a name="index-struct-return-convention-1503"></a><a name="index-struct_002funion-returned-in-registers-1504"></a>Set the convention used by the inferior to return <code>struct</code>s and
 <code>union</code>s from functions to <var>mode</var>.  Possible values of
 <var>mode</var> are <code>"pcc"</code>, <code>"reg"</code>, and <code>"default"</code> (the
 default).  <code>"default"</code> or <code>"pcc"</code> means that <code>struct</code>s
@@ -56,7 +56,7 @@ are returned on the stack, while <code>"reg"</code> means that a
 <code>struct</code> or a <code>union</code> whose size is 1, 2, 4, or 8 bytes will
 be returned in a register.
 
-     <br><dt><code>show struct-convention</code><dd><a name="index-show-struct_002dconvention-1451"></a>Show the current setting of the convention to return <code>struct</code>s
+     <br><dt><code>show struct-convention</code><dd><a name="index-show-struct_002dconvention-1505"></a>Show the current setting of the convention to return <code>struct</code>s
 from functions. 
 </dl>
 

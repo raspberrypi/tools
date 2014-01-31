@@ -10,9 +10,7 @@
 <link rel="next" href="TUI-Configuration.html#TUI-Configuration" title="TUI Configuration">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TUI.html#TUI">TUI</a>
 
 <h3 class="section">25.4 TUI-specific Commands</h3>
 
-<p><a name="index-TUI-commands-2104"></a>
+<p><a name="index-TUI-commands-2217"></a>
 The TUI has specific commands to control the text windows. 
 These commands are always available, even when <span class="sc">gdb</span> is not in
 the TUI mode.  When <span class="sc">gdb</span> is in the standard mode, most
@@ -62,9 +60,9 @@ these commands will fail with an error, because it would not be
 possible or desirable to enable curses window management.
 
      <dl>
-<dt><code>info win</code><dd><a name="index-info-win-2105"></a>List and give the size of all displayed windows.
+<dt><code>info win</code><dd><a name="index-info-win-2218"></a>List and give the size of all displayed windows.
 
-     <br><dt><code>layout next</code><dd><a name="index-layout-2106"></a>Display the next layout.
+     <br><dt><code>layout next</code><dd><a name="index-layout-2219"></a>Display the next layout.
 
      <br><dt><code>layout prev</code><dd>Display the previous layout.
 
@@ -76,7 +74,7 @@ possible or desirable to enable curses window management.
 
      <br><dt><code>layout regs</code><dd>Display the register window together with the source or assembly window.
 
-     <br><dt><code>focus next</code><dd><a name="index-focus-2107"></a>Make the next window active for scrolling.
+     <br><dt><code>focus next</code><dd><a name="index-focus-2220"></a>Make the next window active for scrolling.
 
      <br><dt><code>focus prev</code><dd>Make the previous window active for scrolling.
 
@@ -88,9 +86,9 @@ possible or desirable to enable curses window management.
 
      <br><dt><code>focus cmd</code><dd>Make the command window active for scrolling.
 
-     <br><dt><code>refresh</code><dd><a name="index-refresh-2108"></a>Refresh the screen.  This is similar to typing <kbd>C-L</kbd>.
+     <br><dt><code>refresh</code><dd><a name="index-refresh-2221"></a>Refresh the screen.  This is similar to typing <kbd>C-L</kbd>.
 
-     <br><dt><code>tui reg float</code><dd><a name="index-tui-reg-2109"></a>Show the floating point registers in the register window.
+     <br><dt><code>tui reg float</code><dd><a name="index-tui-reg-2222"></a>Show the floating point registers in the register window.
 
      <br><dt><code>tui reg general</code><dd>Show the general registers in the register window.
 
@@ -101,13 +99,13 @@ following: <code>general</code>, <code>float</code>, <code>system</code>, <code>
 
      <br><dt><code>tui reg system</code><dd>Show the system registers in the register window.
 
-     <br><dt><code>update</code><dd><a name="index-update-2110"></a>Update the source window and the current execution point.
+     <br><dt><code>update</code><dd><a name="index-update-2223"></a>Update the source window and the current execution point.
 
-     <br><dt><code>winheight </code><var>name</var><code> +</code><var>count</var><dt><code>winheight </code><var>name</var><code> -</code><var>count</var><dd><a name="index-winheight-2111"></a>Change the height of the window <var>name</var> by <var>count</var>
+     <br><dt><code>winheight </code><var>name</var><code> +</code><var>count</var><dt><code>winheight </code><var>name</var><code> -</code><var>count</var><dd><a name="index-winheight-2224"></a>Change the height of the window <var>name</var> by <var>count</var>
 lines.  Positive counts increase the height, while negative counts
 decrease it.
 
-     <br><dt><code>tabset </code><var>nchars</var><dd><a name="index-tabset-2112"></a>Set the width of tab stops to be <var>nchars</var> characters. 
+     <br><dt><code>tabset </code><var>nchars</var><dd><a name="index-tabset-2225"></a>Set the width of tab stops to be <var>nchars</var> characters. 
 </dl>
 
    </body></html>

@@ -10,9 +10,7 @@
 <link rel="next" href="MeP-Options.html#MeP-Options" title="MeP Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,36 +52,36 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 <hr>
 </div>
 
-<h4 class="subsection">3.17.24 MCore Options</h4>
+<h4 class="subsection">3.17.23 MCore Options</h4>
 
-<p><a name="index-MCore-options-1607"></a>
+<p><a name="index-MCore-options-1658"></a>
 These are the &lsquo;<samp><span class="samp">-m</span></samp>&rsquo; options defined for the Motorola M*Core
 processors.
 
      <dl>
-<dt><code>-mhardlit</code><dt><code>-mno-hardlit</code><dd><a name="index-mhardlit-1608"></a><a name="index-mno_002dhardlit-1609"></a>Inline constants into the code stream if it can be done in two
+<dt><code>-mhardlit</code><dt><code>-mno-hardlit</code><dd><a name="index-mhardlit-1659"></a><a name="index-mno_002dhardlit-1660"></a>Inline constants into the code stream if it can be done in two
 instructions or less.
 
-     <br><dt><code>-mdiv</code><dt><code>-mno-div</code><dd><a name="index-mdiv-1610"></a><a name="index-mno_002ddiv-1611"></a>Use the divide instruction.  (Enabled by default).
+     <br><dt><code>-mdiv</code><dt><code>-mno-div</code><dd><a name="index-mdiv-1661"></a><a name="index-mno_002ddiv-1662"></a>Use the divide instruction.  (Enabled by default).
 
-     <br><dt><code>-mrelax-immediate</code><dt><code>-mno-relax-immediate</code><dd><a name="index-mrelax_002dimmediate-1612"></a><a name="index-mno_002drelax_002dimmediate-1613"></a>Allow arbitrary sized immediates in bit operations.
+     <br><dt><code>-mrelax-immediate</code><dt><code>-mno-relax-immediate</code><dd><a name="index-mrelax_002dimmediate-1663"></a><a name="index-mno_002drelax_002dimmediate-1664"></a>Allow arbitrary-sized immediates in bit operations.
 
-     <br><dt><code>-mwide-bitfields</code><dt><code>-mno-wide-bitfields</code><dd><a name="index-mwide_002dbitfields-1614"></a><a name="index-mno_002dwide_002dbitfields-1615"></a>Always treat bit-fields as int-sized.
+     <br><dt><code>-mwide-bitfields</code><dt><code>-mno-wide-bitfields</code><dd><a name="index-mwide_002dbitfields-1665"></a><a name="index-mno_002dwide_002dbitfields-1666"></a>Always treat bit-fields as <code>int</code>-sized.
 
-     <br><dt><code>-m4byte-functions</code><dt><code>-mno-4byte-functions</code><dd><a name="index-m4byte_002dfunctions-1616"></a><a name="index-mno_002d4byte_002dfunctions-1617"></a>Force all functions to be aligned to a 4-byte boundary.
+     <br><dt><code>-m4byte-functions</code><dt><code>-mno-4byte-functions</code><dd><a name="index-m4byte_002dfunctions-1667"></a><a name="index-mno_002d4byte_002dfunctions-1668"></a>Force all functions to be aligned to a 4-byte boundary.
 
-     <br><dt><code>-mcallgraph-data</code><dt><code>-mno-callgraph-data</code><dd><a name="index-mcallgraph_002ddata-1618"></a><a name="index-mno_002dcallgraph_002ddata-1619"></a>Emit callgraph information.
+     <br><dt><code>-mcallgraph-data</code><dt><code>-mno-callgraph-data</code><dd><a name="index-mcallgraph_002ddata-1669"></a><a name="index-mno_002dcallgraph_002ddata-1670"></a>Emit callgraph information.
 
-     <br><dt><code>-mslow-bytes</code><dt><code>-mno-slow-bytes</code><dd><a name="index-mslow_002dbytes-1620"></a><a name="index-mno_002dslow_002dbytes-1621"></a>Prefer word access when reading byte quantities.
+     <br><dt><code>-mslow-bytes</code><dt><code>-mno-slow-bytes</code><dd><a name="index-mslow_002dbytes-1671"></a><a name="index-mno_002dslow_002dbytes-1672"></a>Prefer word access when reading byte quantities.
 
-     <br><dt><code>-mlittle-endian</code><dt><code>-mbig-endian</code><dd><a name="index-mlittle_002dendian-1622"></a><a name="index-mbig_002dendian-1623"></a>Generate code for a little-endian target.
+     <br><dt><code>-mlittle-endian</code><dt><code>-mbig-endian</code><dd><a name="index-mlittle_002dendian-1673"></a><a name="index-mbig_002dendian-1674"></a>Generate code for a little-endian target.
 
-     <br><dt><code>-m210</code><dt><code>-m340</code><dd><a name="index-m210-1624"></a><a name="index-m340-1625"></a>Generate code for the 210 processor.
+     <br><dt><code>-m210</code><dt><code>-m340</code><dd><a name="index-m210-1675"></a><a name="index-m340-1676"></a>Generate code for the 210 processor.
 
-     <br><dt><code>-mno-lsim</code><dd><a name="index-mno_002dlsim-1626"></a>Assume that runtime support has been provided and so omit the
+     <br><dt><code>-mno-lsim</code><dd><a name="index-mno_002dlsim-1677"></a>Assume that runtime support has been provided and so omit the
 simulator library (<samp><span class="file">libsim.a)</span></samp> from the linker command line.
 
-     <br><dt><code>-mstack-increment=</code><var>size</var><dd><a name="index-mstack_002dincrement-1627"></a>Set the maximum amount for a single stack increment operation.  Large
+     <br><dt><code>-mstack-increment=</code><var>size</var><dd><a name="index-mstack_002dincrement-1678"></a>Set the maximum amount for a single stack increment operation.  Large
 values can increase the speed of programs that contain functions
 that need a large amount of stack space, but they can also trigger a
 segmentation fault if the stack is extended too much.  The default

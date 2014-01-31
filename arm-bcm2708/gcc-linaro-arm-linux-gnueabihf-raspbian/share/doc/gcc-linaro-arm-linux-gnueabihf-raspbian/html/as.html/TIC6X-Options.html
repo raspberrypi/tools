@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,26 +43,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TIC6X_002dDependent.html#TIC6X_002dDepe
 <hr>
 </div>
 
-<h4 class="subsection">9.38.1 TIC6X Options</h4>
+<h4 class="subsection">9.43.1 TIC6X Options</h4>
 
-<p><a name="index-TIC6X-options-1921"></a><a name="index-options-for-TIC6X-1922"></a>
+<p><a name="index-TIC6X-options-2082"></a><a name="index-options-for-TIC6X-2083"></a>
 <!-- man begin OPTIONS -->
      
-<a name="index-g_t_0040code_007b_002dmarch_003d_007d-command-line-option_002c-TIC6X-1923"></a>
+<a name="index-g_t_0040code_007b_002dmarch_003d_007d-command-line-option_002c-TIC6X-2084"></a>
 <dl><dt><code>-march=</code><var>arch</var><dd>Enable (only) instructions from architecture <var>arch</var>.  By default,
 all instructions are permitted.
 
      <p>The following values of <var>arch</var> are accepted: <code>c62x</code>,
 <code>c64x</code>, <code>c64x+</code>, <code>c67x</code>, <code>c67x+</code>, <code>c674x</code>.
 
-     <p><a name="index-g_t_0040code_007b_002dmdsbt_007d-command-line-option_002c-TIC6X-1924"></a><a name="index-g_t_0040code_007b_002dmno_002ddsbt_007d-command-line-option_002c-TIC6X-1925"></a><br><dt><code>-mdsbt</code><dt><code>-mno-dsbt</code><dd>The <samp><span class="option">-mdsbt</span></samp> option causes the assembler to generate the
+     <p><a name="index-g_t_0040code_007b_002dmdsbt_007d-command-line-option_002c-TIC6X-2085"></a><a name="index-g_t_0040code_007b_002dmno_002ddsbt_007d-command-line-option_002c-TIC6X-2086"></a><br><dt><code>-mdsbt</code><dt><code>-mno-dsbt</code><dd>The <samp><span class="option">-mdsbt</span></samp> option causes the assembler to generate the
 <code>Tag_ABI_DSBT</code> attribute with a value of 1, indicating that the
 code is using DSBT addressing.  The <samp><span class="option">-mno-dsbt</span></samp> option, the
 default, causes the tag to have a value of 0, indicating that the code
 does not use DSBT addressing.  The linker will emit a warning if
 objects of different type (DSBT and non-DSBT) are linked together.
 
-     <p><a name="index-g_t_0040code_007b_002dmpid_003d_007d-command-line-option_002c-TIC6X-1926"></a><br><dt><code>-mpid=no</code><dt><code>-mpid=near</code><dt><code>-mpid=far</code><dd>The <samp><span class="option">-mpid=</span></samp> option causes the assembler to generate the
+     <p><a name="index-g_t_0040code_007b_002dmpid_003d_007d-command-line-option_002c-TIC6X-2087"></a><br><dt><code>-mpid=no</code><dt><code>-mpid=near</code><dt><code>-mpid=far</code><dd>The <samp><span class="option">-mpid=</span></samp> option causes the assembler to generate the
 <code>Tag_ABI_PID</code> attribute with a value indicating the form of data
 addressing used by the code.  <samp><span class="option">-mpid=no</span></samp>, the default,
 indicates position-dependent data addressing, <samp><span class="option">-mpid=near</span></samp>
@@ -74,7 +72,7 @@ addressing with GOT accesses using far DP addressing.  The linker will
 emit a warning if objects built with different settings of this option
 are linked together.
 
-     <p><a name="index-g_t_0040code_007b_002dmpic_007d-command-line-option_002c-TIC6X-1927"></a><a name="index-g_t_0040code_007b_002dmno_002dpic_007d-command-line-option_002c-TIC6X-1928"></a><br><dt><code>-mpic</code><dt><code>-mno-pic</code><dd>The <samp><span class="option">-mpic</span></samp> option causes the assembler to generate the
+     <p><a name="index-g_t_0040code_007b_002dmpic_007d-command-line-option_002c-TIC6X-2088"></a><a name="index-g_t_0040code_007b_002dmno_002dpic_007d-command-line-option_002c-TIC6X-2089"></a><br><dt><code>-mpic</code><dt><code>-mno-pic</code><dd>The <samp><span class="option">-mpic</span></samp> option causes the assembler to generate the
 <code>Tag_ABI_PIC</code> attribute with a value of 1, indicating that the
 code is using position-independent code addressing,  The
 <code>-mno-pic</code> option, the default, causes the tag to have a value of
@@ -82,7 +80,7 @@ code is using position-independent code addressing,  The
 emit a warning if objects of different type (position-dependent and
 position-independent) are linked together.
 
-     <p><a name="index-TIC6X-big_002dendian-output-1929"></a><a name="index-TIC6X-little_002dendian-output-1930"></a><a name="index-big_002dendian-output_002c-TIC6X-1931"></a><a name="index-little_002dendian-output_002c-TIC6X-1932"></a><br><dt><code>-mbig-endian</code><dt><code>-mlittle-endian</code><dd>Generate code for the specified endianness.  The default is
+     <p><a name="index-TIC6X-big_002dendian-output-2090"></a><a name="index-TIC6X-little_002dendian-output-2091"></a><a name="index-big_002dendian-output_002c-TIC6X-2092"></a><a name="index-little_002dendian-output_002c-TIC6X-2093"></a><br><dt><code>-mbig-endian</code><dt><code>-mlittle-endian</code><dd>Generate code for the specified endianness.  The default is
 little-endian.
 
    </dl>

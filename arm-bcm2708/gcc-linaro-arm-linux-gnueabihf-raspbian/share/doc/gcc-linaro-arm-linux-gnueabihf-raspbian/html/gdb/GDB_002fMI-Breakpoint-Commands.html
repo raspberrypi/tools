@@ -7,12 +7,10 @@
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="GDB_002fMI.html#GDB_002fMI" title="GDB/MI">
 <link rel="prev" href="GDB_002fMI-Command-Description-Format.html#GDB_002fMI-Command-Description-Format" title="GDB/MI Command Description Format">
-<link rel="next" href="GDB_002fMI-Program-Context.html#GDB_002fMI-Program-Context" title="GDB/MI Program Context">
+<link rel="next" href="GDB_002fMI-Catchpoint-Commands.html#GDB_002fMI-Catchpoint-Commands" title="GDB/MI Catchpoint Commands">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -42,7 +40,7 @@ developing GNU and promoting software freedom.''-->
 <a name="GDB%2fMI-Breakpoint-Commands"></a>
 <a name="GDB_002fMI-Breakpoint-Commands"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="GDB_002fMI-Program-Context.html#GDB_002fMI-Program-Context">GDB/MI Program Context</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="GDB_002fMI-Catchpoint-Commands.html#GDB_002fMI-Catchpoint-Commands">GDB/MI Catchpoint Commands</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="GDB_002fMI-Command-Description-Format.html#GDB_002fMI-Command-Description-Format">GDB/MI Command Description Format</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <hr>
@@ -50,12 +48,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 
 <h3 class="section">27.8 <span class="sc">gdb/mi</span> Breakpoint Commands</h3>
 
-<p><a name="index-breakpoint-commands-for-_0040sc_007bgdb_002fmi_007d-2149"></a><a name="index-g_t_0040sc_007bgdb_002fmi_007d_002c-breakpoint-commands-2150"></a>This section documents <span class="sc">gdb/mi</span> commands for manipulating
+<p><a name="index-breakpoint-commands-for-_0040sc_007bgdb_002fmi_007d-2262"></a><a name="index-g_t_0040sc_007bgdb_002fmi_007d_002c-breakpoint-commands-2263"></a>This section documents <span class="sc">gdb/mi</span> commands for manipulating
 breakpoints.
 
 <h4 class="subheading">The <code>-break-after</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dafter-2151"></a>
+<p><a name="index-g_t_002dbreak_002dafter-2264"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -76,7 +74,8 @@ the &lsquo;<samp><span class="samp">-break-list</span></samp>&rsquo; command, se
      -break-insert main
      ^done,bkpt={number="1",type="breakpoint",disp="keep",
      enabled="y",addr="0x000100d0",func="main",file="hello.c",
-     fullname="/home/foo/hello.c",line="5",times="0"}
+     fullname="/home/foo/hello.c",line="5",thread-groups=["i1"],
+     times="0"}
      (gdb)
      -break-after 1 3
      ~
@@ -92,12 +91,12 @@ the &lsquo;<samp><span class="samp">-break-list</span></samp>&rsquo; command, se
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
      addr="0x000100d0",func="main",file="hello.c",fullname="/home/foo/hello.c",
-     line="5",times="0",ignore="3"}]}
+     line="5",thread-groups=["i1"],times="0",ignore="3"}]}
      (gdb)
 </pre>
 <h4 class="subheading">The <code>-break-commands</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dcommands-2152"></a>
+<p><a name="index-g_t_002dbreak_002dcommands-2265"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -120,7 +119,8 @@ some variables whenever breakpoint is hit and then continuing.
      -break-insert main
      ^done,bkpt={number="1",type="breakpoint",disp="keep",
      enabled="y",addr="0x000100d0",func="main",file="hello.c",
-     fullname="/home/foo/hello.c",line="5",times="0"}
+     fullname="/home/foo/hello.c",line="5",thread-groups=["i1"],
+     times="0"}
      (gdb)
      -break-commands 1 "print v" "continue"
      ^done
@@ -128,7 +128,7 @@ some variables whenever breakpoint is hit and then continuing.
 </pre>
 <h4 class="subheading">The <code>-break-condition</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dcondition-2153"></a>
+<p><a name="index-g_t_002dbreak_002dcondition-2266"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -159,12 +159,12 @@ command below).
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
      addr="0x000100d0",func="main",file="hello.c",fullname="/home/foo/hello.c",
-     line="5",cond="1",times="0",ignore="3"}]}
+     line="5",cond="1",thread-groups=["i1"],times="0",ignore="3"}]}
      (gdb)
 </pre>
 <h4 class="subheading">The <code>-break-delete</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002ddelete-2154"></a>
+<p><a name="index-g_t_002dbreak_002ddelete-2267"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -196,7 +196,7 @@ list.  This is obviously reflected in the breakpoint list.
 </pre>
 <h4 class="subheading">The <code>-break-disable</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002ddisable-2155"></a>
+<p><a name="index-g_t_002dbreak_002ddisable-2268"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -225,12 +225,12 @@ break list is now set to &lsquo;<samp><span class="samp">n</span></samp>&rsquo; 
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="2",type="breakpoint",disp="keep",enabled="n",
      addr="0x000100d0",func="main",file="hello.c",fullname="/home/foo/hello.c",
-     line="5",times="0"}]}
+     line="5",thread-groups=["i1"],times="0"}]}
      (gdb)
 </pre>
 <h4 class="subheading">The <code>-break-enable</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002denable-2156"></a>
+<p><a name="index-g_t_002dbreak_002denable-2269"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -258,12 +258,12 @@ break list is now set to &lsquo;<samp><span class="samp">n</span></samp>&rsquo; 
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="2",type="breakpoint",disp="keep",enabled="y",
      addr="0x000100d0",func="main",file="hello.c",fullname="/home/foo/hello.c",
-     line="5",times="0"}]}
+     line="5",thread-groups=["i1"],times="0"}]}
      (gdb)
 </pre>
 <h4 class="subheading">The <code>-break-info</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dinfo-2157"></a>
+<p><a name="index-g_t_002dbreak_002dinfo-2270"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -271,6 +271,9 @@ break list is now set to &lsquo;<samp><span class="samp">n</span></samp>&rsquo; 
 </pre>
 <!-- REDUNDANT??? -->
    <p>Get information about a single breakpoint.
+
+   <p>The result is a table of breakpoints.  See <a href="GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information">GDB/MI Breakpoint Information</a>, for details on the format of each breakpoint in the
+table.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
 
@@ -282,13 +285,13 @@ break list is now set to &lsquo;<samp><span class="samp">n</span></samp>&rsquo; 
 
 <h4 class="subheading">The <code>-break-insert</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dinsert-2158"></a>
+<p><a name="index-g_t_002dbreak_002dinsert-2271"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
 <pre class="smallexample">      -break-insert [ -t ] [ -h ] [ -f ] [ -d ] [ -a ]
          [ -c <var>condition</var> ] [ -i <var>ignore-count</var> ]
-         [ -p <var>thread</var> ] [ <var>location</var> ]
+         [ -p <var>thread-id</var> ] [ <var>location</var> ]
 </pre>
 <p class="noindent">If specified, <var>location</var>, can be one of:
 
@@ -307,8 +310,6 @@ break list is now set to &lsquo;<samp><span class="samp">n</span></samp>&rsquo; 
      <dl>
 <dt>&lsquo;<samp><span class="samp">-t</span></samp>&rsquo;<dd>Insert a temporary breakpoint. 
 <br><dt>&lsquo;<samp><span class="samp">-h</span></samp>&rsquo;<dd>Insert a hardware breakpoint. 
-<br><dt>&lsquo;<samp><span class="samp">-c </span><var>condition</var></samp>&rsquo;<dd>Make the breakpoint conditional on <var>condition</var>. 
-<br><dt>&lsquo;<samp><span class="samp">-i </span><var>ignore-count</var></samp>&rsquo;<dd>Initialize the <var>ignore-count</var>. 
 <br><dt>&lsquo;<samp><span class="samp">-f</span></samp>&rsquo;<dd>If <var>location</var> cannot be parsed (for example if it
 refers to unknown files or functions), create a pending
 breakpoint. Without this flag, <span class="sc">gdb</span> will report
@@ -317,24 +318,15 @@ cannot be parsed.
 <br><dt>&lsquo;<samp><span class="samp">-d</span></samp>&rsquo;<dd>Create a disabled breakpoint. 
 <br><dt>&lsquo;<samp><span class="samp">-a</span></samp>&rsquo;<dd>Create a tracepoint.  See <a href="Tracepoints.html#Tracepoints">Tracepoints</a>.  When this parameter
 is used together with &lsquo;<samp><span class="samp">-h</span></samp>&rsquo;, a fast tracepoint is created. 
+<br><dt>&lsquo;<samp><span class="samp">-c </span><var>condition</var></samp>&rsquo;<dd>Make the breakpoint conditional on <var>condition</var>. 
+<br><dt>&lsquo;<samp><span class="samp">-i </span><var>ignore-count</var></samp>&rsquo;<dd>Initialize the <var>ignore-count</var>. 
+<br><dt>&lsquo;<samp><span class="samp">-p </span><var>thread-id</var></samp>&rsquo;<dd>Restrict the breakpoint to the specified <var>thread-id</var>. 
 </dl>
 
 <h5 class="subsubheading">Result</h5>
 
-<p>The result is in the form:
-
-<pre class="smallexample">     ^done,bkpt={number="<var>number</var>",type="<var>type</var>",disp="del"|"keep",
-     enabled="y"|"n",addr="<var>hex</var>",func="<var>funcname</var>",file="<var>filename</var>",
-     fullname="<var>full_filename</var>",line="<var>lineno</var>",[thread="<var>threadno</var>,]
-     times="<var>times</var>"}
-</pre>
-   <p class="noindent">where <var>number</var> is the <span class="sc">gdb</span> number for this breakpoint,
-<var>funcname</var> is the name of the function where the breakpoint was
-inserted, <var>filename</var> is the name of the source file which contains
-this function, <var>lineno</var> is the source line number within that file
-and <var>times</var> the number of times that the breakpoint has been hit
-(always 0 for -break-insert but may be greater for -break-info or -break-list
-which use the same output).
+<p>See <a href="GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information">GDB/MI Breakpoint Information</a>, for details on the format of the
+resulting breakpoint.
 
    <p>Note: this format is open to change. 
 <!-- An out-of-band breakpoint instead of part of the result? -->
@@ -342,18 +334,20 @@ which use the same output).
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
 
 <p>The corresponding <span class="sc">gdb</span> commands are &lsquo;<samp><span class="samp">break</span></samp>&rsquo;, &lsquo;<samp><span class="samp">tbreak</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">hbreak</span></samp>&rsquo;, &lsquo;<samp><span class="samp">thbreak</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">rbreak</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">hbreak</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">thbreak</span></samp>&rsquo;. <!-- and @samp{rbreak}. -->
 
 <h5 class="subsubheading">Example</h5>
 
 <pre class="smallexample">     (gdb)
      -break-insert main
      ^done,bkpt={number="1",addr="0x0001072c",file="recursive2.c",
-     fullname="/home/foo/recursive2.c,line="4",times="0"}
+     fullname="/home/foo/recursive2.c,line="4",thread-groups=["i1"],
+     times="0"}
      (gdb)
      -break-insert -t foo
      ^done,bkpt={number="2",addr="0x00010774",file="recursive2.c",
-     fullname="/home/foo/recursive2.c,line="11",times="0"}
+     fullname="/home/foo/recursive2.c,line="11",thread-groups=["i1"],
+     times="0"}
      (gdb)
      -break-list
      ^done,BreakpointTable={nr_rows="2",nr_cols="6",
@@ -365,20 +359,23 @@ which use the same output).
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
      addr="0x0001072c", func="main",file="recursive2.c",
-     fullname="/home/foo/recursive2.c,"line="4",times="0"},
+     fullname="/home/foo/recursive2.c,"line="4",thread-groups=["i1"],
+     times="0"},
      bkpt={number="2",type="breakpoint",disp="del",enabled="y",
      addr="0x00010774",func="foo",file="recursive2.c",
-     fullname="/home/foo/recursive2.c",line="11",times="0"}]}
+     fullname="/home/foo/recursive2.c",line="11",thread-groups=["i1"],
+     times="0"}]}
      (gdb)
-     -break-insert -r foo.*
-     ~int foo(int, int);
-     ^done,bkpt={number="3",addr="0x00010774",file="recursive2.c,
-     "fullname="/home/foo/recursive2.c",line="11",times="0"}
-     (gdb)
+     <!-- break-insert -r foo.* -->
+     <!-- ~int foo(int, int); -->
+     <!-- ^done,bkpt=@{number="3",addr="0x00010774",file="recursive2.c, -->
+     <!-- "fullname="/home/foo/recursive2.c",line="11",thread-groups=["i1"], -->
+     <!-- times="0"@} -->
+     <!-- (gdb) -->
 </pre>
 <h4 class="subheading">The <code>-break-list</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dlist-2159"></a>
+<p><a name="index-g_t_002dbreak_002dlist-2272"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -395,6 +392,7 @@ or &lsquo;<samp><span class="samp">nokeep</span></samp>&rsquo;
 <br><dt>&lsquo;<samp><span class="samp">Address</span></samp>&rsquo;<dd>memory location at which the breakpoint is set
 <br><dt>&lsquo;<samp><span class="samp">What</span></samp>&rsquo;<dd>logical location of the breakpoint, expressed by function name, file
 name, line number
+<br><dt>&lsquo;<samp><span class="samp">Thread-groups</span></samp>&rsquo;<dd>list of thread groups to which this breakpoint applies
 <br><dt>&lsquo;<samp><span class="samp">Times</span></samp>&rsquo;<dd>number of times the breakpoint has been hit
 </dl>
 
@@ -417,10 +415,11 @@ name, line number
      {width="10",alignment="-1",col_name="addr",colhdr="Address"},
      {width="40",alignment="2",col_name="what",colhdr="What"}],
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
-     addr="0x000100d0",func="main",file="hello.c",line="5",times="0"},
+     addr="0x000100d0",func="main",file="hello.c",line="5",thread-groups=["i1"],
+     times="0"},
      bkpt={number="2",type="breakpoint",disp="keep",enabled="y",
      addr="0x00010114",func="foo",file="hello.c",fullname="/home/foo/hello.c",
-     line="13",times="0"}]}
+     line="13",thread-groups=["i1"],times="0"}]}
      (gdb)
 </pre>
    <p>Here's an example of the result when there are no breakpoints:
@@ -439,7 +438,7 @@ name, line number
 </pre>
    <h4 class="subheading">The <code>-break-passcount</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dpasscount-2160"></a>
+<p><a name="index-g_t_002dbreak_002dpasscount-2273"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -452,7 +451,7 @@ command &lsquo;<samp><span class="samp">passcount</span></samp>&rsquo;.
 
 <h4 class="subheading">The <code>-break-watch</code> Command</h4>
 
-<p><a name="index-g_t_002dbreak_002dwatch-2161"></a>
+<p><a name="index-g_t_002dbreak_002dwatch-2274"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -538,9 +537,10 @@ deleted.
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
      addr="0x00010734",func="callee4",
      file="../../../devo/gdb/testsuite/gdb.mi/basics.c",
-     fullname="/home/foo/devo/gdb/testsuite/gdb.mi/basics.c"line="8",times="1"},
+     fullname="/home/foo/devo/gdb/testsuite/gdb.mi/basics.c"line="8",thread-groups=["i1"],
+     times="1"},
      bkpt={number="2",type="watchpoint",disp="keep",
-     enabled="y",addr="",what="C",times="0"}]}
+     enabled="y",addr="",what="C",thread-groups=["i1"],times="0"}]}
      (gdb)
      -exec-continue
      ^running
@@ -562,9 +562,10 @@ deleted.
      body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",
      addr="0x00010734",func="callee4",
      file="../../../devo/gdb/testsuite/gdb.mi/basics.c",
-     fullname="/home/foo/devo/gdb/testsuite/gdb.mi/basics.c",line="8",times="1"},
+     fullname="/home/foo/devo/gdb/testsuite/gdb.mi/basics.c",line="8",thread-groups=["i1"],
+     times="1"},
      bkpt={number="2",type="watchpoint",disp="keep",
-     enabled="y",addr="",what="C",times="-5"}]}
+     enabled="y",addr="",what="C",thread-groups=["i1"],times="-5"}]}
      (gdb)
      -exec-continue
      ^running
@@ -586,7 +587,7 @@ deleted.
      addr="0x00010734",func="callee4",
      file="../../../devo/gdb/testsuite/gdb.mi/basics.c",
      fullname="/home/foo/devo/gdb/testsuite/gdb.mi/basics.c",line="8",
-     times="1"}]}
+     thread-groups=["i1"],times="1"}]}
      (gdb)
 </pre>
    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->

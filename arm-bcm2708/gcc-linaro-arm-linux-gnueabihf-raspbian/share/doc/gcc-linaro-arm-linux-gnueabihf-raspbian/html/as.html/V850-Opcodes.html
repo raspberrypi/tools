@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,14 +43,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="V850_002dDependent.html#V850_002dDepend
 <hr>
 </div>
 
-<h4 class="subsection">9.44.5 Opcodes</h4>
+<h4 class="subsection">9.49.5 Opcodes</h4>
 
-<p><a name="index-V850-opcodes-2141"></a><a name="index-opcodes-for-V850-2142"></a><code>as</code> implements all the standard V850 opcodes.
+<p><a name="index-V850-opcodes-2312"></a><a name="index-opcodes-for-V850-2313"></a><code>as</code> implements all the standard V850 opcodes.
 
    <p><code>as</code> also implements the following pseudo ops:
 
      
-<a name="index-g_t_0040code_007bhi0_007d-pseudo_002dop_002c-V850-2143"></a>
+<a name="index-g_t_0040code_007bhi0_007d-pseudo_002dop_002c-V850-2314"></a>
 <dl><dt><code>hi0()</code><dd>Computes the higher 16 bits of the given expression and stores it into
 the immediate operand field of the given instruction.  For example:
 
@@ -63,7 +61,7 @@ the immediate operand field of the given instruction.  For example:
 bits and then multiplies it by the lower 16 bits in register 5, putting
 the result into register 6.
 
-     <p><a name="index-g_t_0040code_007blo_007d-pseudo_002dop_002c-V850-2144"></a><br><dt><code>lo()</code><dd>Computes the lower 16 bits of the given expression and stores it into
+     <p><a name="index-g_t_0040code_007blo_007d-pseudo_002dop_002c-V850-2315"></a><br><dt><code>lo()</code><dd>Computes the lower 16 bits of the given expression and stores it into
 the immediate operand field of the given instruction.  For example:
 
      <p>&lsquo;<samp><span class="samp">addi lo(here - there), r5, r6</span></samp>&rsquo;
@@ -72,7 +70,7 @@ the immediate operand field of the given instruction.  For example:
 'there', takes the lower 16 bits of this difference and adds it to
 register 5, putting the result into register 6.
 
-     <p><a name="index-g_t_0040code_007bhi_007d-pseudo_002dop_002c-V850-2145"></a><br><dt><code>hi()</code><dd>Computes the higher 16 bits of the given expression and then adds the
+     <p><a name="index-g_t_0040code_007bhi_007d-pseudo_002dop_002c-V850-2316"></a><br><dt><code>hi()</code><dd>Computes the higher 16 bits of the given expression and then adds the
 value of the most significant bit of the lower 16 bits of the expression
 and stores the result into the immediate operand field of the given
 instruction.  For example the following code can be used to compute the
@@ -92,7 +90,7 @@ in the top bit of the lo() pseudo op, the movhi instruction actually
 stores 0 into r6 (0xFFFF + 1 = 0x0000), so that the movea instruction
 stores 0xFFFFFFFF into r6 - the right value.
 
-     <p><a name="index-g_t_0040code_007bhilo_007d-pseudo_002dop_002c-V850-2146"></a><br><dt><code>hilo()</code><dd>Computes the 32 bit value of the given expression and stores it into
+     <p><a name="index-g_t_0040code_007bhilo_007d-pseudo_002dop_002c-V850-2317"></a><br><dt><code>hilo()</code><dd>Computes the 32 bit value of the given expression and stores it into
 the immediate operand field of the given instruction (which must be a
 mov instruction).  For example:
 
@@ -101,7 +99,7 @@ mov instruction).  For example:
      <p>computes the absolute address of label 'here' and puts the result into
 register 6.
 
-     <p><a name="index-g_t_0040code_007bsdaoff_007d-pseudo_002dop_002c-V850-2147"></a><br><dt><code>sdaoff()</code><dd>Computes the offset of the named variable from the start of the Small
+     <p><a name="index-g_t_0040code_007bsdaoff_007d-pseudo_002dop_002c-V850-2318"></a><br><dt><code>sdaoff()</code><dd>Computes the offset of the named variable from the start of the Small
 Data Area (whoes address is held in register 4, the GP register) and
 stores the result as a 16 bit signed value in the immediate operand
 field of the given instruction.  For example:
@@ -116,7 +114,7 @@ label called '__gp'.  This can either be set up automatically by the
 linker, or specifically set by using the &lsquo;<samp><span class="samp">--defsym __gp=&lt;value&gt;</span></samp>&rsquo;
 command line option].
 
-     <p><a name="index-g_t_0040code_007btdaoff_007d-pseudo_002dop_002c-V850-2148"></a><br><dt><code>tdaoff()</code><dd>Computes the offset of the named variable from the start of the Tiny
+     <p><a name="index-g_t_0040code_007btdaoff_007d-pseudo_002dop_002c-V850-2319"></a><br><dt><code>tdaoff()</code><dd>Computes the offset of the named variable from the start of the Tiny
 Data Area (whoes address is held in register 30, the EP register) and
 stores the result as a 4,5, 7 or 8 bit unsigned value in the immediate
 operand field of the given instruction.  For example:
@@ -131,7 +129,7 @@ label called '__ep'.  This can either be set up automatically by the
 linker, or specifically set by using the &lsquo;<samp><span class="samp">--defsym __ep=&lt;value&gt;</span></samp>&rsquo;
 command line option].
 
-     <p><a name="index-g_t_0040code_007bzdaoff_007d-pseudo_002dop_002c-V850-2149"></a><br><dt><code>zdaoff()</code><dd>Computes the offset of the named variable from address 0 and stores the
+     <p><a name="index-g_t_0040code_007bzdaoff_007d-pseudo_002dop_002c-V850-2320"></a><br><dt><code>zdaoff()</code><dd>Computes the offset of the named variable from address 0 and stores the
 result as a 16 bit signed value in the immediate operand field of the
 given instruction.  For example:
 
@@ -142,7 +140,7 @@ that the label is somewhere within the first 32K of memory.  (Strictly
 speaking it also possible to access the last 32K of memory as well, as
 the offsets are signed).
 
-     <p><a name="index-g_t_0040code_007bctoff_007d-pseudo_002dop_002c-V850-2150"></a><br><dt><code>ctoff()</code><dd>Computes the offset of the named variable from the start of the Call
+     <p><a name="index-g_t_0040code_007bctoff_007d-pseudo_002dop_002c-V850-2321"></a><br><dt><code>ctoff()</code><dd>Computes the offset of the named variable from the start of the Call
 Table Area (whoes address is helg in system register 20, the CTBP
 register) and stores the result a 6 or 16 bit unsigned value in the
 immediate field of then given instruction or piece of data.  For
@@ -153,12 +151,12 @@ example:
      <p>will put the call the function whoes address is held in the call table
 at the location labeled 'table_func1'.
 
-     <p><a name="index-g_t_0040code_007blongcall_007d-pseudo_002dop_002c-V850-2151"></a><br><dt><code>.longcall name</code><dd>Indicates that the following sequence of instructions is a long call
+     <p><a name="index-g_t_0040code_007blongcall_007d-pseudo_002dop_002c-V850-2322"></a><br><dt><code>.longcall name</code><dd>Indicates that the following sequence of instructions is a long call
 to function <code>name</code>.  The linker will attempt to shorten this call
 sequence if <code>name</code> is within a 22bit offset of the call.  Only
 valid if the <code>-mrelax</code> command line switch has been enabled.
 
-     <p><a name="index-g_t_0040code_007blongjump_007d-pseudo_002dop_002c-V850-2152"></a><br><dt><code>.longjump name</code><dd>Indicates that the following sequence of instructions is a long jump
+     <p><a name="index-g_t_0040code_007blongjump_007d-pseudo_002dop_002c-V850-2323"></a><br><dt><code>.longjump name</code><dd>Indicates that the following sequence of instructions is a long jump
 to label <code>name</code>.  The linker will attempt to shorten this code
 sequence if <code>name</code> is within a 22bit offset of the jump.  Only
 valid if the <code>-mrelax</code> command line switch has been enabled.
@@ -169,7 +167,8 @@ valid if the <code>-mrelax</code> command line switch has been enabled.
 Family 32-/16-Bit single-Chip Microcontroller Architecture Manual</cite> from NEC. 
 Ltd.
 
-<!-- Copyright 2010, 2011 Free Software Foundation, Inc. -->
+<!-- Copyright 2012 -->
+<!-- Free Software Foundation, Inc. -->
 <!-- This is part of the GAS manual. -->
 <!-- For copying conditions, see the file as.texinfo. -->
    </body></html>

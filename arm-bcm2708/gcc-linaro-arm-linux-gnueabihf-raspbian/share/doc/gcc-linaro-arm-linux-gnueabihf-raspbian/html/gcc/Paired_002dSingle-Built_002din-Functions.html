@@ -10,9 +10,7 @@
 <link rel="next" href="MIPS_002d3D-Built_002din-Functions.html#MIPS_002d3D-Built_002din-Functions" title="MIPS-3D Built-in Functions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +53,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MIPS-Loongson-Built_002din-Functions.ht
 <hr>
 </div>
 
-<h5 class="subsubsection">6.55.10.2 Paired-Single Built-in Functions</h5>
+<h5 class="subsubsection">6.56.11.2 Paired-Single Built-in Functions</h5>
 
 <p>The following paired-single functions map directly to a particular
 MIPS instruction.  Please refer to the architecture specification
@@ -81,7 +79,7 @@ for details on what each instruction does.
      <br><dt><code>v2sf __builtin_mips_alnv_ps (v2sf, v2sf, int)</code><dd>Align variable (<code>alnv.ps</code>).
 
      <p><em>Note:</em> The value of the third parameter must be 0 or 4
-modulo 8, otherwise the result will be unpredictable.  Please read the
+modulo 8, otherwise the result is unpredictable.  Please read the
 instruction description for details. 
 </dl>
 
@@ -92,7 +90,7 @@ In each case, <var>cond</var> can be any of the 16 floating-point conditions:
 <code>lt</code>, <code>nge</code>, <code>le</code> or <code>ngt</code>.
 
      <dl>
-<dt><code>v2sf __builtin_mips_movt_c_</code><var>cond</var><code>_ps (v2sf </code><var>a</var><code>, v2sf </code><var>b</var><code>, v2sf </code><var>c</var><code>, v2sf </code><var>d</var><code>)</code><dt><code>v2sf __builtin_mips_movf_c_</code><var>cond</var><code>_ps (v2sf </code><var>a</var><code>, v2sf </code><var>b</var><code>, v2sf </code><var>c</var><code>, v2sf </code><var>d</var><code>)</code><dd>Conditional move based on floating point comparison (<code>c.</code><var>cond</var><code>.ps</code>,
+<dt><code>v2sf __builtin_mips_movt_c_</code><var>cond</var><code>_ps (v2sf </code><var>a</var><code>, v2sf </code><var>b</var><code>, v2sf </code><var>c</var><code>, v2sf </code><var>d</var><code>)</code><dt><code>v2sf __builtin_mips_movf_c_</code><var>cond</var><code>_ps (v2sf </code><var>a</var><code>, v2sf </code><var>b</var><code>, v2sf </code><var>c</var><code>, v2sf </code><var>d</var><code>)</code><dd>Conditional move based on floating-point comparison (<code>c.</code><var>cond</var><code>.ps</code>,
 <code>movt.ps</code>/<code>movf.ps</code>).
 
      <p>The <code>movt</code> functions return the value <var>x</var> computed by:

@@ -1,4 +1,5 @@
-This is gprof.info, produced by makeinfo version 4.8 from gprof.texi.
+This is gprof.info, produced by makeinfo version 4.13 from
+/cbuild/slaves/oorts/crosstool-ng/builds/arm-linux-gnueabihf-raspbian-linux/.build/src/binutils-linaro-2.24-2013.12/gprof/gprof.texi.
 
 INFO-DIR-SECTION Software development
 START-INFO-DIR-ENTRY
@@ -28,7 +29,8 @@ to determine which parts of a program are taking most of the execution
 time.  We assume that you know how to write, compile, and execute
 programs.  GNU `gprof' was written by Jay Fenlason.
 
-   This manual is for `gprof' (GNU Binutils) version 2.21.90.
+   This manual is for `gprof' (crosstool-NG linaro-1.13.1-4.8-2014.01 -
+Linaro GCC 2013.11) version 2.24.0.
 
    This document is distributed under the terms of the GNU Free
 Documentation License version 1.3.  A copy of the license is included
@@ -2440,35 +2442,35 @@ permit their use in free software.
 
 
 Tag Table:
-Node: Top777
-Node: Introduction2103
-Node: Compiling4595
-Node: Executing8651
-Node: Invoking11439
-Node: Output Options12854
-Node: Analysis Options19943
-Node: Miscellaneous Options23641
-Node: Deprecated Options24896
-Node: Symspecs26965
-Node: Output28791
-Node: Flat Profile29831
-Node: Call Graph34784
-Node: Primary38016
-Node: Callers40604
-Node: Subroutines42721
-Node: Cycles44562
-Node: Line-by-line51339
-Node: Annotated Source55412
-Node: Inaccuracy58411
-Node: Sampling Error58669
-Node: Assumptions61573
-Node: How do I?63043
-Node: Incompatibilities64597
-Node: Details66091
-Node: Implementation66484
-Node: File Format72381
-Node: Internals76671
-Node: Debugging85166
-Node: GNU Free Documentation License86767
+Node: Top900
+Node: Introduction2272
+Node: Compiling4764
+Node: Executing8820
+Node: Invoking11608
+Node: Output Options13023
+Node: Analysis Options20112
+Node: Miscellaneous Options23810
+Node: Deprecated Options25065
+Node: Symspecs27134
+Node: Output28960
+Node: Flat Profile30000
+Node: Call Graph34953
+Node: Primary38185
+Node: Callers40773
+Node: Subroutines42890
+Node: Cycles44731
+Node: Line-by-line51508
+Node: Annotated Source55581
+Node: Inaccuracy58580
+Node: Sampling Error58838
+Node: Assumptions61742
+Node: How do I?63212
+Node: Incompatibilities64766
+Node: Details66260
+Node: Implementation66653
+Node: File Format72550
+Node: Internals76840
+Node: Debugging85335
+Node: GNU Free Documentation License86936
 
 End Tag Table

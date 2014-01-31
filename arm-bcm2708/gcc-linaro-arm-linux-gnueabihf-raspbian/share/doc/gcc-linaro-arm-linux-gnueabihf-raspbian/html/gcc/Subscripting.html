@@ -10,9 +10,7 @@
 <link rel="next" href="Pointer-Arith.html#Pointer-Arith" title="Pointer Arith">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,11 +54,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.22 Non-Lvalue Arrays May Have Subscripts</h3>
 
-<p><a name="index-subscripting-2452"></a><a name="index-arrays_002c-non_002dlvalue-2453"></a>
-<a name="index-subscripting-and-function-values-2454"></a>In ISO C99, arrays that are not lvalues still decay to pointers, and
+<p><a name="index-subscripting-2541"></a><a name="index-arrays_002c-non_002dlvalue-2542"></a>
+<a name="index-subscripting-and-function-values-2543"></a>In ISO C99, arrays that are not lvalues still decay to pointers, and
 may be subscripted, although they may not be modified or used after
 the next sequence point and the unary &lsquo;<samp><span class="samp">&amp;</span></samp>&rsquo; operator may not be
-applied to them.  As an extension, GCC allows such arrays to be
+applied to them.  As an extension, GNU C allows such arrays to be
 subscripted in C90 mode, though otherwise they do not decay to
 pointers outside C99 mode.  For example,
 this is valid in GNU C though not valid in C90:

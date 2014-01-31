@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i386_002dDependent.html#i386_002dDepend
 <hr>
 </div>
 
-<h4 class="subsection">9.13.17 Specifying CPU Architecture</h4>
+<h4 class="subsection">9.15.17 Specifying CPU Architecture</h4>
 
-<p><a name="index-arch-directive_002c-i386-1010"></a><a name="index-i386-arch-directive-1011"></a><a name="index-arch-directive_002c-x86_002d64-1012"></a><a name="index-x86_002d64-arch-directive-1013"></a>
+<p><a name="index-arch-directive_002c-i386-1067"></a><a name="index-i386-arch-directive-1068"></a><a name="index-arch-directive_002c-x86_002d64-1069"></a><a name="index-x86_002d64-arch-directive-1070"></a>
 <code>as</code> may be told to assemble for a particular CPU
 (sub-)architecture with the <code>.arch </code><var>cpu_type</var> directive.  This
 directive enables a warning when gas detects an instruction that is not
@@ -62,7 +60,8 @@ supported on the CPU specified.  The choices for <var>cpu_type</var> are:
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">prescott</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">nocona</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">core</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">core2</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">corei7</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">l1om</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">k1om</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">k6</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">k6_2</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">athlon</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">k8</span></samp>&rsquo;
-<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">amdfam10</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">bdver1</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">bdver2</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">amdfam10</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">bdver1</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">bdver2</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">bdver3</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">btver1</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">btver2</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">generic32</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">generic64</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.mmx</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse2</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse3</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.ssse3</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse4.1</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse4.2</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse4</span></samp>&rsquo;
@@ -70,11 +69,19 @@ supported on the CPU specified.  The choices for <var>cpu_type</var> are:
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.clflush</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.movbe</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.xsave</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.xsaveopt</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.aes</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.pclmul</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.fma</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.fsgsbase</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.rdrnd</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.f16c</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.avx2</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.bmi2</span></samp>&rsquo;
-<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.lzcnt</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.invpcid</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.lzcnt</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.invpcid</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.vmfunc</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.hle</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.rtm</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.adx</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.rdseed</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.prfchw</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.smap</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.mpx</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.smap</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sha</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.3dnow</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.3dnowa</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse4a</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse5</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.syscall</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.rdtscp</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.svme</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.abm</span></samp>&rsquo;
-<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.lwp</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.fma4</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.xop</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.lwp</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.fma4</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.xop</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.cx16</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.padlock</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.smap</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.avx512f</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.avx512cd</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.avx512er</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.avx512pf</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.3dnow</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.3dnowa</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse4a</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.sse5</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.syscall</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.rdtscp</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.svme</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.abm</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.lwp</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.fma4</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.xop</span></samp>&rsquo;
+<br></td></tr><tr align="left"><td valign="top" width="20%">&lsquo;<samp><span class="samp">.cx16</span></samp>&rsquo; </td><td valign="top" width="20%">&lsquo;<samp><span class="samp">.padlock</span></samp>&rsquo;
    <br></td></tr></table>
 
    <p>Apart from the warning, there are only two other effects on

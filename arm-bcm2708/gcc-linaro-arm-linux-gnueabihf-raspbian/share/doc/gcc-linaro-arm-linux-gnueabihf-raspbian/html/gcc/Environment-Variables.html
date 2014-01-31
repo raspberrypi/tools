@@ -10,9 +10,7 @@
 <link rel="next" href="Precompiled-Headers.html#Precompiled-Headers" title="Precompiled Headers">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 
 <h3 class="section">3.19 Environment Variables Affecting GCC</h3>
 
-<p><a name="index-environment-variables-2285"></a>
+<p><a name="index-environment-variables-2374"></a>
 <!-- man begin ENVIRONMENT -->
 This section describes several environment variables that affect how GCC
 operates.  Some of them work by specifying directories or prefixes to use
@@ -74,11 +72,11 @@ See <a href="../gccint/Driver.html#Driver">Controlling the Compilation Driver <s
 <dt><samp><span class="env">LC_MESSAGES</span></samp><dd><!-- @itemx LC_MONETARY -->
 <!-- @itemx LC_NUMERIC -->
 <!-- @itemx LC_TIME -->
-<dt><samp><span class="env">LC_ALL</span></samp><dd><a name="index-LANG-2286"></a><a name="index-LC_005fCTYPE-2287"></a><!-- @findex LC_COLLATE -->
-<a name="index-LC_005fMESSAGES-2288"></a><!-- @findex LC_MONETARY -->
+<dt><samp><span class="env">LC_ALL</span></samp><dd><a name="index-LANG-2375"></a><a name="index-LC_005fCTYPE-2376"></a><!-- @findex LC_COLLATE -->
+<a name="index-LC_005fMESSAGES-2377"></a><!-- @findex LC_MONETARY -->
 <!-- @findex LC_NUMERIC -->
 <!-- @findex LC_TIME -->
-<a name="index-LC_005fALL-2289"></a><a name="index-locale-2290"></a>These environment variables control the way that GCC uses
+<a name="index-LC_005fALL-2378"></a><a name="index-locale-2379"></a>These environment variables control the way that GCC uses
 localization information which allows GCC to work with different
 national conventions.  GCC inspects the locale categories
 <samp><span class="env">LC_CTYPE</span></samp> and <samp><span class="env">LC_MESSAGES</span></samp> if it has been configured to do
@@ -89,7 +87,7 @@ Kingdom encoded in UTF-8.
      <p>The <samp><span class="env">LC_CTYPE</span></samp> environment variable specifies character
 classification.  GCC uses it to determine the character boundaries in
 a string; this is needed for some multibyte encodings that contain quote
-and escape characters that would otherwise be interpreted as a string
+and escape characters that are otherwise interpreted as a string
 end or escape.
 
      <p>The <samp><span class="env">LC_MESSAGES</span></samp> environment variable specifies the language to
@@ -101,23 +99,23 @@ and <samp><span class="env">LC_MESSAGES</span></samp> default to the value of th
 environment variable.  If none of these variables are set, GCC
 defaults to traditional C English behavior.
 
-     <br><dt><samp><span class="env">TMPDIR</span></samp><dd><a name="index-TMPDIR-2291"></a>If <samp><span class="env">TMPDIR</span></samp> is set, it specifies the directory to use for temporary
+     <br><dt><samp><span class="env">TMPDIR</span></samp><dd><a name="index-TMPDIR-2380"></a>If <samp><span class="env">TMPDIR</span></samp> is set, it specifies the directory to use for temporary
 files.  GCC uses temporary files to hold the output of one stage of
 compilation which is to be used as input to the next stage: for example,
 the output of the preprocessor, which is the input to the compiler
 proper.
 
-     <br><dt><samp><span class="env">GCC_COMPARE_DEBUG</span></samp><dd><a name="index-GCC_005fCOMPARE_005fDEBUG-2292"></a>Setting <samp><span class="env">GCC_COMPARE_DEBUG</span></samp> is nearly equivalent to passing
+     <br><dt><samp><span class="env">GCC_COMPARE_DEBUG</span></samp><dd><a name="index-GCC_005fCOMPARE_005fDEBUG-2381"></a>Setting <samp><span class="env">GCC_COMPARE_DEBUG</span></samp> is nearly equivalent to passing
 <samp><span class="option">-fcompare-debug</span></samp> to the compiler driver.  See the documentation
 of this option for more details.
 
-     <br><dt><samp><span class="env">GCC_EXEC_PREFIX</span></samp><dd><a name="index-GCC_005fEXEC_005fPREFIX-2293"></a>If <samp><span class="env">GCC_EXEC_PREFIX</span></samp> is set, it specifies a prefix to use in the
+     <br><dt><samp><span class="env">GCC_EXEC_PREFIX</span></samp><dd><a name="index-GCC_005fEXEC_005fPREFIX-2382"></a>If <samp><span class="env">GCC_EXEC_PREFIX</span></samp> is set, it specifies a prefix to use in the
 names of the subprograms executed by the compiler.  No slash is added
 when this prefix is combined with the name of a subprogram, but you can
 specify a prefix that ends with a slash if you wish.
 
-     <p>If <samp><span class="env">GCC_EXEC_PREFIX</span></samp> is not set, GCC will attempt to figure out
-an appropriate prefix to use based on the pathname it was invoked with.
+     <p>If <samp><span class="env">GCC_EXEC_PREFIX</span></samp> is not set, GCC attempts to figure out
+an appropriate prefix to use based on the pathname it is invoked with.
 
      <p>If GCC cannot find the subprogram using the specified prefix, it
 tries looking in the usual places for the subprogram.
@@ -137,19 +135,19 @@ directories to search for header files.  For each of the standard
 directories whose name normally begins with &lsquo;<samp><span class="samp">/usr/local/lib/gcc</span></samp>&rsquo;
 (more precisely, with the value of <samp><span class="env">GCC_INCLUDE_DIR</span></samp>), GCC tries
 replacing that beginning with the specified prefix to produce an
-alternate directory name.  Thus, with <samp><span class="option">-Bfoo/</span></samp>, GCC will search
-<samp><span class="file">foo/bar</span></samp> where it would normally search <samp><span class="file">/usr/local/lib/bar</span></samp>. 
-These alternate directories are searched first; the standard directories
-come next. If a standard directory begins with the configured
+alternate directory name.  Thus, with <samp><span class="option">-Bfoo/</span></samp>, GCC searches
+<samp><span class="file">foo/bar</span></samp> just before it searches the standard directory
+<samp><span class="file">/usr/local/lib/bar</span></samp>. 
+If a standard directory begins with the configured
 <var>prefix</var> then the value of <var>prefix</var> is replaced by
 <samp><span class="env">GCC_EXEC_PREFIX</span></samp> when looking for header files.
 
-     <br><dt><samp><span class="env">COMPILER_PATH</span></samp><dd><a name="index-COMPILER_005fPATH-2294"></a>The value of <samp><span class="env">COMPILER_PATH</span></samp> is a colon-separated list of
+     <br><dt><samp><span class="env">COMPILER_PATH</span></samp><dd><a name="index-COMPILER_005fPATH-2383"></a>The value of <samp><span class="env">COMPILER_PATH</span></samp> is a colon-separated list of
 directories, much like <samp><span class="env">PATH</span></samp>.  GCC tries the directories thus
 specified when searching for subprograms, if it can't find the
 subprograms using <samp><span class="env">GCC_EXEC_PREFIX</span></samp>.
 
-     <br><dt><samp><span class="env">LIBRARY_PATH</span></samp><dd><a name="index-LIBRARY_005fPATH-2295"></a>The value of <samp><span class="env">LIBRARY_PATH</span></samp> is a colon-separated list of
+     <br><dt><samp><span class="env">LIBRARY_PATH</span></samp><dd><a name="index-LIBRARY_005fPATH-2384"></a>The value of <samp><span class="env">LIBRARY_PATH</span></samp> is a colon-separated list of
 directories, much like <samp><span class="env">PATH</span></samp>.  When configured as a native compiler,
 GCC tries the directories thus specified when searching for special
 linker files, if it can't find them using <samp><span class="env">GCC_EXEC_PREFIX</span></samp>.  Linking
@@ -157,7 +155,7 @@ using GCC also uses these directories when searching for ordinary
 libraries for the <samp><span class="option">-l</span></samp> option (but directories specified with
 <samp><span class="option">-L</span></samp> come first).
 
-     <br><dt><samp><span class="env">LANG</span></samp><dd><a name="index-LANG-2296"></a><a name="index-locale-definition-2297"></a>This variable is used to pass locale information to the compiler.  One way in
+     <br><dt><samp><span class="env">LANG</span></samp><dd><a name="index-LANG-2385"></a><a name="index-locale-definition-2386"></a>This variable is used to pass locale information to the compiler.  One way in
 which this information is used is to determine the character set to be used
 when character literals, string literals and comments are parsed in C and C++. 
 When the compiler is configured to allow multibyte characters,
@@ -170,15 +168,14 @@ the following values for <samp><span class="env">LANG</span></samp> are recogniz
 </dl>
 
      <p>If <samp><span class="env">LANG</span></samp> is not defined, or if it has some other value, then the
-compiler will use mblen and mbtowc as defined by the default locale to
+compiler uses <code>mblen</code> and <code>mbtowc</code> as defined by the default locale to
 recognize and translate multibyte characters. 
 </dl>
 
-<p class="noindent">Some additional environments variables affect the behavior of the
+<p class="noindent">Some additional environment variables affect the behavior of the
 preprocessor.
 
-<!-- Copyright (c) 1999, 2000, 2001, 2002, 2004 -->
-<!-- Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1999-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the CPP and GCC manuals. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!--  -->
@@ -187,7 +184,7 @@ preprocessor.
 <!-- If this file is included with the flag ``cppmanual'' set, it is -->
 <!-- formatted for inclusion in the CPP manual; otherwise the main GCC manual. -->
      <dl>
-<dt><samp><span class="env">CPATH</span></samp><a name="index-CPATH-2298"></a><dt><samp><span class="env">C_INCLUDE_PATH</span></samp><a name="index-C_005fINCLUDE_005fPATH-2299"></a><dt><samp><span class="env">CPLUS_INCLUDE_PATH</span></samp><a name="index-CPLUS_005fINCLUDE_005fPATH-2300"></a><dt><samp><span class="env">OBJC_INCLUDE_PATH</span></samp><a name="index-OBJC_005fINCLUDE_005fPATH-2301"></a><dd><!-- Commented out until ObjC++ is part of GCC: -->
+<dt><samp><span class="env">CPATH</span></samp><a name="index-CPATH-2387"></a><dt><samp><span class="env">C_INCLUDE_PATH</span></samp><a name="index-C_005fINCLUDE_005fPATH-2388"></a><dt><samp><span class="env">CPLUS_INCLUDE_PATH</span></samp><a name="index-CPLUS_005fINCLUDE_005fPATH-2389"></a><dt><samp><span class="env">OBJC_INCLUDE_PATH</span></samp><a name="index-OBJC_005fINCLUDE_005fPATH-2390"></a><dd><!-- Commented out until ObjC++ is part of GCC: -->
 <!-- @itemx OBJCPLUS_INCLUDE_PATH -->
 Each variable's value is a list of directories separated by a special
 character, much like <samp><span class="env">PATH</span></samp>, in which to look for header files. 
@@ -213,7 +210,7 @@ effect as &lsquo;<samp><span class="samp">-I.&nbsp;-I/special/include<!-- /@w --
 
      <!-- man end -->
      <!-- man begin ENVIRONMENT -->
-     <br><dt><samp><span class="env">DEPENDENCIES_OUTPUT</span></samp><a name="index-DEPENDENCIES_005fOUTPUT-2302"></a><dd><a name="index-dependencies-for-make-as-output-2303"></a>If this variable is set, its value specifies how to output
+     <br><dt><samp><span class="env">DEPENDENCIES_OUTPUT</span></samp><a name="index-DEPENDENCIES_005fOUTPUT-2391"></a><dd><a name="index-dependencies-for-make-as-output-2392"></a>If this variable is set, its value specifies how to output
 dependencies for Make based on the non-system header files processed
 by the compiler.  System header files are ignored in the dependency
 output.
@@ -229,7 +226,7 @@ the options <samp><span class="option">-MM</span></samp> and <samp><span class="
 (see <a href="Preprocessor-Options.html#Preprocessor-Options">Preprocessor Options</a>),
 with an optional <samp><span class="option">-MT</span></samp> switch too.
 
-     <br><dt><samp><span class="env">SUNPRO_DEPENDENCIES</span></samp><a name="index-SUNPRO_005fDEPENDENCIES-2304"></a><dd><a name="index-dependencies-for-make-as-output-2305"></a>This variable is the same as <samp><span class="env">DEPENDENCIES_OUTPUT</span></samp> (see above),
+     <br><dt><samp><span class="env">SUNPRO_DEPENDENCIES</span></samp><a name="index-SUNPRO_005fDEPENDENCIES-2393"></a><dd><a name="index-dependencies-for-make-as-output-2394"></a>This variable is the same as <samp><span class="env">DEPENDENCIES_OUTPUT</span></samp> (see above),
 except that system header files are not ignored, so it implies
 <samp><span class="option">-M</span></samp> rather than <samp><span class="option">-MM</span></samp>.  However, the dependence on the
 main input file is omitted. 

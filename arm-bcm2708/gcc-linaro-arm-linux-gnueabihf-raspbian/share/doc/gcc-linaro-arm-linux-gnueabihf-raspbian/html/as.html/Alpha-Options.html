@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -47,12 +45,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Alpha_002dDependent.html#Alpha_002dDepe
 <hr>
 </div>
 
-<h4 class="subsection">9.1.2 Options</h4>
+<h4 class="subsection">9.2.2 Options</h4>
 
-<p><a name="index-Alpha-options-511"></a><a name="index-options-for-Alpha-512"></a>
+<p><a name="index-Alpha-options-552"></a><a name="index-options-for-Alpha-553"></a>
 <!-- man begin OPTIONS -->
      
-<a name="index-g_t_0040code_007b_002dm_0040var_007bcpu_007d_007d-command-line-option_002c-Alpha-513"></a>
+<a name="index-g_t_0040code_007b_002dm_0040var_007bcpu_007d_007d-command-line-option_002c-Alpha-554"></a>
 <dl><dt><code>-m</code><var>cpu</var><dd>This option specifies the target processor.  If an attempt is made to
 assemble an instruction which will not execute on the target processor,
 the assembler may either expand the instruction as a macro or issue an
@@ -86,34 +84,34 @@ and existing practice within <samp><span class="command">MILO</span></samp> (the
 numbered processor names (e.g. 21064) enable the processor-specific PALcode
 instructions, while the &ldquo;electro-vlasic&rdquo; names (e.g. <code>ev4</code>) do not.
 
-     <p><a name="index-g_t_0040code_007b_002dmdebug_007d-command-line-option_002c-Alpha-514"></a><a name="index-g_t_0040code_007b_002dno_002dmdebug_007d-command-line-option_002c-Alpha-515"></a><br><dt><code>-mdebug</code><dt><code>-no-mdebug</code><dd>Enables or disables the generation of <code>.mdebug</code> encapsulation for
+     <p><a name="index-g_t_0040code_007b_002dmdebug_007d-command-line-option_002c-Alpha-555"></a><a name="index-g_t_0040code_007b_002dno_002dmdebug_007d-command-line-option_002c-Alpha-556"></a><br><dt><code>-mdebug</code><dt><code>-no-mdebug</code><dd>Enables or disables the generation of <code>.mdebug</code> encapsulation for
 stabs directives and procedure descriptors.  The default is to automatically
 enable <code>.mdebug</code> when the first stabs directive is seen.
 
-     <p><a name="index-g_t_0040code_007b_002drelax_007d-command-line-option_002c-Alpha-516"></a><br><dt><code>-relax</code><dd>This option forces all relocations to be put into the object file, instead
+     <p><a name="index-g_t_0040code_007b_002drelax_007d-command-line-option_002c-Alpha-557"></a><br><dt><code>-relax</code><dd>This option forces all relocations to be put into the object file, instead
 of saving space and resolving some relocations at assembly time.  Note that
 this option does not propagate all symbol arithmetic into the object file,
 because not all symbol arithmetic can be represented.  However, the option
 can still be useful in specific applications.
 
-     <p><a name="index-g_t_0040code_007b_002dreplace_007d-command-line-option_002c-Alpha-517"></a><a name="index-g_t_0040code_007b_002dnoreplace_007d-command-line-option_002c-Alpha-518"></a><br><dt><code>-replace</code><dt><code>-noreplace</code><dd>Enables or disables the optimization of procedure calls, both at assemblage
+     <p><a name="index-g_t_0040code_007b_002dreplace_007d-command-line-option_002c-Alpha-558"></a><a name="index-g_t_0040code_007b_002dnoreplace_007d-command-line-option_002c-Alpha-559"></a><br><dt><code>-replace</code><dt><code>-noreplace</code><dd>Enables or disables the optimization of procedure calls, both at assemblage
 and at link time.  These options are only available for VMS targets and
 <code>-replace</code> is the default.  See section 1.4.1 of the OpenVMS Linker
 Utility Manual.
 
-     <p><a name="index-g_t_0040code_007b_002dg_007d-command-line-option_002c-Alpha-519"></a><br><dt><code>-g</code><dd>This option is used when the compiler generates debug information.  When
+     <p><a name="index-g_t_0040code_007b_002dg_007d-command-line-option_002c-Alpha-560"></a><br><dt><code>-g</code><dd>This option is used when the compiler generates debug information.  When
 <samp><span class="command">gcc</span></samp> is using <samp><span class="command">mips-tfile</span></samp> to generate debug
 information for ECOFF, local labels must be passed through to the object
 file.  Otherwise this option has no effect.
 
-     <p><a name="index-g_t_0040code_007b_002dG_007d-command-line-option_002c-Alpha-520"></a><br><dt><code>-G</code><var>size</var><dd>A local common symbol larger than <var>size</var> is placed in <code>.bss</code>,
+     <p><a name="index-g_t_0040code_007b_002dG_007d-command-line-option_002c-Alpha-561"></a><br><dt><code>-G</code><var>size</var><dd>A local common symbol larger than <var>size</var> is placed in <code>.bss</code>,
 while smaller symbols are placed in <code>.sbss</code>.
 
-     <p><a name="index-g_t_0040code_007b_002dF_007d-command-line-option_002c-Alpha-521"></a><a name="index-g_t_0040code_007b_002d32addr_007d-command-line-option_002c-Alpha-522"></a><br><dt><code>-F</code><dt><code>-32addr</code><dd>These options are ignored for backward compatibility. 
+     <p><a name="index-g_t_0040code_007b_002dF_007d-command-line-option_002c-Alpha-562"></a><a name="index-g_t_0040code_007b_002d32addr_007d-command-line-option_002c-Alpha-563"></a><br><dt><code>-F</code><dt><code>-32addr</code><dd>These options are ignored for backward compatibility. 
 </dl>
    <!-- man end -->
 
-   <p><a name="index-Alpha-Syntax-523"></a>
+   <p><a name="index-Alpha-Syntax-564"></a>
 
    </body></html>
 

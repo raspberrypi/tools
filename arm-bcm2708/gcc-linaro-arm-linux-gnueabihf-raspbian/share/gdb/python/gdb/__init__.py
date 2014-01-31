@@ -1,4 +1,4 @@
-# Copyright (C) 2010-2012 Free Software Foundation, Inc.
+# Copyright (C) 2010-2013 Free Software Foundation, Inc.
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,28 +14,111 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import traceback
+import os
+import sys
+import _gdb
+
+if sys.version_info[0] > 2:
+    # Python 3 moved "reload"
+    from imp import reload
+
+from _gdb import *
+
+class _GdbFile (object):
+    # These two are needed in Python 3
+    encoding = "UTF-8"
+    errors = "strict"
+    
+    def close(self):
+        # Do nothing.
+        return None
+
+    def isatty(self):
+        return False
+
+    def writelines(self, iterable):
+        for line in iterable:
+            self.write(line)
+
+    def flush(self):
+        flush()
+
+class GdbOutputFile (_GdbFile):
+    def write(self, s):
+        write(s, stream=STDOUT)
+
+sys.stdout = GdbOutputFile()
+
+class GdbOutputErrorFile (_GdbFile):
+    def write(self, s):
+        write(s, stream=STDERR)
+
+sys.stderr = GdbOutputErrorFile()
+
+# Default prompt hook does nothing.
+prompt_hook = None
+
+# Ensure that sys.argv is set to something.
+# We do not use PySys_SetArgvEx because it did not appear until 2.6.6.
+sys.argv = ['']
+
+# Initial pretty printers.
+pretty_printers = []
+
+# Initial type printers.
+type_printers = []
+
+# Convenience variable to GDB's python directory
+PYTHONDIR = os.path.dirname(os.path.dirname(__file__))
 
 # Auto-load all functions/commands.
 
-# Modules to auto-load, and the paths where those modules exist.
+# Packages to auto-load.
 
-module_dict = {
-  'gdb.function': os.path.join(gdb.PYTHONDIR, 'gdb', 'function'),
-  'gdb.command': os.path.join(gdb.PYTHONDIR, 'gdb', 'command')
-}
+packages = [
+    'function',
+    'command'
+]
 
-# Iterate the dictionary, collating the Python files in each module
+# pkgutil.iter_modules is not available prior to Python 2.6.  Instead,
+# manually iterate the list, collating the Python files in each module
 # path.  Construct the module name, and import.
 
-for module, location in module_dict.iteritems():
-  if os.path.exists(location):
-     py_files = filter(lambda x: x.endswith('.py') and x != '__init__.py',
-                       os.listdir(location))
+def auto_load_packages():
+    for package in packages:
+        location = os.path.join(os.path.dirname(__file__), package)
+        if os.path.exists(location):
+            py_files = filter(lambda x: x.endswith('.py')
+                                        and x != '__init__.py',
+                              os.listdir(location))
 
-     for py_file in py_files:
-       # Construct from foo.py, gdb.module.foo
-       py_file = module + '.' + py_file[:-3]
-       try:
-         exec('import ' + py_file)
-       except:
-         print >> sys.stderr, traceback.format_exc()
+            for py_file in py_files:
+                # Construct from foo.py, gdb.module.foo
+                modname = "%s.%s.%s" % ( __name__, package, py_file[:-3] )
+                try:
+                    if modname in sys.modules:
+                        # reload modules with duplicate names
+                        reload(__import__(modname))
+                    else:
+                        __import__(modname)
+                except:
+                    sys.stderr.write (traceback.format_exc() + "\n")
+
+auto_load_packages()
+
+def GdbSetPythonDirectory(dir):
+    """Update sys.path, reload gdb and auto-load packages."""
+    global PYTHONDIR
+
+    try:
+        sys.path.remove(PYTHONDIR)
+    except ValueError:
+        pass
+    sys.path.insert(0, dir)
+
+    PYTHONDIR = dir
+
+    # note that reload overwrites the gdb module without deleting existing
+    # attributes
+    reload(__import__(__name__))
+    auto_load_packages()

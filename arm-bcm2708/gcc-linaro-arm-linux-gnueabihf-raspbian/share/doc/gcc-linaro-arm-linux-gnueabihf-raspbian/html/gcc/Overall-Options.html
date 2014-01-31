@@ -10,9 +10,7 @@
 <link rel="next" href="Invoking-G_002b_002b.html#Invoking-G_002b_002b" title="Invoking G++">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -160,11 +158,11 @@ the next <samp><span class="option">-x</span></samp> option.  Possible values fo
 handled according to their file name suffixes (as they are if <samp><span class="option">-x</span></samp>
 has not been used at all).
 
-     <br><dt><code>-pass-exit-codes</code><dd><a name="index-pass_002dexit_002dcodes-78"></a>Normally the <samp><span class="command">gcc</span></samp> program will exit with the code of 1 if any
+     <br><dt><code>-pass-exit-codes</code><dd><a name="index-pass_002dexit_002dcodes-78"></a>Normally the <samp><span class="command">gcc</span></samp> program exits with the code of 1 if any
 phase of the compiler returns a non-success return code.  If you specify
-<samp><span class="option">-pass-exit-codes</span></samp>, the <samp><span class="command">gcc</span></samp> program will instead return with
-numerically highest error produced by any phase that returned an error
-indication.  The C, C++, and Fortran frontends return 4, if an internal
+<samp><span class="option">-pass-exit-codes</span></samp>, the <samp><span class="command">gcc</span></samp> program instead returns with
+the numerically highest error produced by any phase returning an error
+indication.  The C, C++, and Fortran front ends return 4 if an internal
 compiler error is encountered. 
 </dl>
 
@@ -200,7 +198,7 @@ standard output.
 
      <p>Input files that don't require preprocessing are ignored.
 
-     <p><a name="index-output-file-option-82"></a><br><dt><code>-o </code><var>file</var><dd><a name="index-o-83"></a>Place output in file <var>file</var>.  This applies regardless to whatever
+     <p><a name="index-output-file-option-82"></a><br><dt><code>-o </code><var>file</var><dd><a name="index-o-83"></a>Place output in file <var>file</var>.  This applies to whatever
 sort of output is being produced, whether it be an executable file,
 an object file, an assembler file or preprocessed C code.
 
@@ -226,11 +224,11 @@ no trouble.
 
      <br><dt><code>--help</code><dd><a name="index-help-87"></a>Print (on the standard output) a description of the command-line options
 understood by <samp><span class="command">gcc</span></samp>.  If the <samp><span class="option">-v</span></samp> option is also specified
-then <samp><span class="option">--help</span></samp> will also be passed on to the various processes
+then <samp><span class="option">--help</span></samp> is also passed on to the various processes
 invoked by <samp><span class="command">gcc</span></samp>, so that they can display the command-line options
 they accept.  If the <samp><span class="option">-Wextra</span></samp> option has also been specified
 (prior to the <samp><span class="option">--help</span></samp> option), then command-line options that
-have no documentation associated with them will also be displayed.
+have no documentation associated with them are also displayed.
 
      <br><dt><code>--target-help</code><dd><a name="index-target_002dhelp-88"></a>Print (on the standard output) a description of target-specific command-line
 options for each tool.  For some targets extra target-specific
@@ -241,25 +239,25 @@ options understood by the compiler that fit into all specified classes
 and qualifiers.  These are the supported classes:
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">optimizers</span></samp>&rsquo;<dd>This will display all of the optimization options supported by the
+<dt>&lsquo;<samp><span class="samp">optimizers</span></samp>&rsquo;<dd>Display all of the optimization options supported by the
 compiler.
 
-          <br><dt>&lsquo;<samp><span class="samp">warnings</span></samp>&rsquo;<dd>This will display all of the options controlling warning messages
+          <br><dt>&lsquo;<samp><span class="samp">warnings</span></samp>&rsquo;<dd>Display all of the options controlling warning messages
 produced by the compiler.
 
-          <br><dt>&lsquo;<samp><span class="samp">target</span></samp>&rsquo;<dd>This will display target-specific options.  Unlike the
+          <br><dt>&lsquo;<samp><span class="samp">target</span></samp>&rsquo;<dd>Display target-specific options.  Unlike the
 <samp><span class="option">--target-help</span></samp> option however, target-specific options of the
-linker and assembler will not be displayed.  This is because those
+linker and assembler are not displayed.  This is because those
 tools do not currently support the extended <samp><span class="option">--help=</span></samp> syntax.
 
-          <br><dt>&lsquo;<samp><span class="samp">params</span></samp>&rsquo;<dd>This will display the values recognized by the <samp><span class="option">--param</span></samp>
+          <br><dt>&lsquo;<samp><span class="samp">params</span></samp>&rsquo;<dd>Display the values recognized by the <samp><span class="option">--param</span></samp>
 option.
 
-          <br><dt><var>language</var><dd>This will display the options supported for <var>language</var>, where
+          <br><dt><var>language</var><dd>Display the options supported for <var>language</var>, where
 <var>language</var> is the name of one of the languages supported in this
 version of GCC.
 
-          <br><dt>&lsquo;<samp><span class="samp">common</span></samp>&rsquo;<dd>This will display the options that are common to all languages. 
+          <br><dt>&lsquo;<samp><span class="samp">common</span></samp>&rsquo;<dd>Display the options that are common to all languages. 
 </dl>
 
      <p>These are the supported qualifiers:
@@ -276,7 +274,7 @@ following the original option, such as: &lsquo;<samp><span class="samp">-o outpu
 </dl>
 
      <p>Thus for example to display all the undocumented target-specific
-switches supported by the compiler the following can be used:
+switches supported by the compiler, use:
 
      <pre class="smallexample">          --help=target,undocumented
 </pre>
@@ -291,15 +289,15 @@ argument) that have a description, use:
 qualifiers.
 
      <p>Combining several classes is possible, although this usually
-restricts the output by so much that there is nothing to display.  One
-case where it does work however is when one of the classes is
-<var>target</var>.  So for example to display all the target-specific
-optimization options the following can be used:
+restricts the output so much that there is nothing to display.  One
+case where it does work, however, is when one of the classes is
+<var>target</var>.  For example, to display all the target-specific
+optimization options, use:
 
      <pre class="smallexample">          --help=target,optimizers
 </pre>
      <p>The <samp><span class="option">--help=</span></samp> option can be repeated on the command line.  Each
-successive use will display its requested class of options, skipping
+successive use displays its requested class of options, skipping
 those that have already been displayed.
 
      <p>If the <samp><span class="option">-Q</span></samp> option appears on the command line before the
@@ -342,8 +340,8 @@ list.
 
      <pre class="smallexample">          gcc -c t.c -wrapper gdb,--args
 </pre>
-     <p>This will invoke all subprograms of <samp><span class="command">gcc</span></samp> under
-&lsquo;<samp><span class="samp">gdb --args</span></samp>&rsquo;, thus the invocation of <samp><span class="command">cc1</span></samp> will be
+     <p class="noindent">This invokes all subprograms of <samp><span class="command">gcc</span></samp> under
+&lsquo;<samp><span class="samp">gdb --args</span></samp>&rsquo;, thus the invocation of <samp><span class="command">cc1</span></samp> is
 &lsquo;<samp><span class="samp">gdb --args cc1 ...</span></samp>&rsquo;.
 
      <br><dt><code>-fplugin=</code><var>name</var><code>.so</code><dd>Load the plugin code in file <var>name</var>.so, assumed to be a
@@ -357,10 +355,13 @@ Plugins API.
      <br><dt><code>-fplugin-arg-</code><var>name</var><code>-</code><var>key</var><code>=</code><var>value</var><dd>Define an argument called <var>key</var> with a value of <var>value</var>
 for the plugin called <var>name</var>.
 
-     <br><dt><code>-fdump-ada-spec</code><span class="roman">[</span><code>-slim</code><span class="roman">]</span><dd>For C and C++ source and include files, generate corresponding Ada
-specs. See <a href="../gnat_ugn/Generating-Ada-Bindings-for-C-and-C_002b_002b-headers.html#Generating-Ada-Bindings-for-C-and-C_002b_002b-headers">Generating Ada Bindings for C and C++ headers</a>, which provides detailed documentation on this feature.
+     <br><dt><code>-fdump-ada-spec</code><span class="roman">[</span><code>-slim</code><span class="roman">]</span><dd><a name="index-fdump_002dada_002dspec-92"></a>For C and C++ source and include files, generate corresponding Ada specs. 
+See <a href="../gnat_ugn/Generating-Ada-Bindings-for-C-and-C_002b_002b-headers.html#Generating-Ada-Bindings-for-C-and-C_002b_002b-headers">Generating Ada Bindings for C and C++ headers</a>, which provides detailed documentation on this feature.
 
-     <br><dt><code>-fdump-go-spec=</code><var>file</var><dd>For input files in any language, generate corresponding Go
+     <br><dt><code>-fada-spec-parent=</code><var>unit</var><dd><a name="index-fada_002dspec_002dparent-93"></a>In conjunction with <samp><span class="option">-fdump-ada-spec[-slim]</span></samp> above, generate
+Ada specs as child units of parent <var>unit</var>.
+
+     <br><dt><code>-fdump-go-spec=</code><var>file</var><dd><a name="index-fdump_002dgo_002dspec-94"></a>For input files in any language, generate corresponding Go
 declarations in <var>file</var>.  This generates Go <code>const</code>,
 <code>type</code>, <code>var</code>, and <code>func</code> declarations which may be a
 useful way to start writing a Go interface to code written in some

@@ -10,9 +10,7 @@
 <link rel="next" href="C_002b_002b-Attributes.html#C_002b_002b-Attributes" title="C++ Attributes">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C_002b_002b-Extensions.html#C_002b_002b
 
 <h3 class="section">7.6 Extracting the function pointer from a bound pointer to member function</h3>
 
-<p><a name="index-pmf-3403"></a><a name="index-pointer-to-member-function-3404"></a><a name="index-bound-pointer-to-member-function-3405"></a>
+<p><a name="index-pmf-3526"></a><a name="index-pointer-to-member-function-3527"></a><a name="index-bound-pointer-to-member-function-3528"></a>
 In C++, pointer to member functions (PMFs) are implemented using a wide
 pointer of sorts to handle all the possible call mechanisms; the PMF
 needs to store information about how to adjust the &lsquo;<samp><span class="samp">this</span></samp>&rsquo; pointer,
@@ -67,7 +65,7 @@ that is not an option, you can extract the pointer to the function that
 would be called for a given object/PMF pair and call it directly inside
 the inner loop, to save a bit of time.
 
- <p>Note that you will still be paying the penalty for the call through a
+ <p>Note that you still pay the penalty for the call through a
 function pointer; on most modern architectures, such a call defeats the
 branch prediction features of the CPU.  This is also true of normal
 virtual function calls.
@@ -86,7 +84,7 @@ converted to function pointers directly:
 
 <pre class="smallexample">     fptr p1 = (fptr)(&amp;A::foo);
 </pre>
- <p><a name="index-Wno_002dpmf_002dconversions-3406"></a>You must specify <samp><span class="option">-Wno-pmf-conversions</span></samp> to use this extension.
+ <p><a name="index-Wno_002dpmf_002dconversions-3529"></a>You must specify <samp><span class="option">-Wno-pmf-conversions</span></samp> to use this extension.
 
  </body></html>
 

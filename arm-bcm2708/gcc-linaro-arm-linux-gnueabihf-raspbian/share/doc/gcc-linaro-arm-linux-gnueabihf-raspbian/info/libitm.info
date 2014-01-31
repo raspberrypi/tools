@@ -1,7 +1,7 @@
 This is libitm.info, produced by makeinfo version 4.13 from
-/cbuild/slaves/oort61/crosstool-ng/builds/arm-linux-gnueabihf-raspbian-linux/.build/src/gcc-linaro-4.7-2012.08/libitm/libitm.texi.
+/cbuild/slaves/oorts/crosstool-ng/builds/arm-linux-gnueabihf-raspbian-linux/.build/src/gcc-linaro-4.8-2014.01/libitm/libitm.texi.
 
-Copyright (C) 2011 Free Software Foundation, Inc.
+Copyright (C) 2011-2013 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2 or
@@ -17,7 +17,7 @@ END-INFO-DIR-ENTRY
 
    This manual documents the GNU Transactional Memory Library.
 
-   Copyright (C) 2011 Free Software Foundation, Inc.
+   Copyright (C) 2011-2013 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2 or
@@ -142,6 +142,13 @@ transaction) about which memory locations are shared and which are not
 shared with other threads (i.e., data must be accessed either
 transactionally or nontransactionally). Otherwise, non-write-through TM
 algorithms would not work.
+
+   For memory locations on the stack, this requirement extends to only
+the lifetime of the stack frame that the memory location belongs to (or
+the lifetime of the transaction, whichever is shorter).  Thus, memory
+that is reused for several stack frames could be target of both data
+logging and transactional accesses; however, this is harmless because
+these stack frames' lifetimes will end before the transaction finishes.
 
 3.3.6 [No changes] Scatter/gather calls
 ---------------------------------------
@@ -1286,15 +1293,15 @@ Index
 
 
 Tag Table:
-Node: Top1251
-Node: Enabling libitm2154
-Node: C/C++ Language Constructs for TM2548
-Node: The libitm ABI4028
-Ref: txn-code-properties7396
-Node: Internals17671
-Ref: serial-lock-impl27696
-Ref: progress-guarantees32446
-Node: GNU Free Documentation License34720
-Node: Index59861
+Node: Top1260
+Node: Enabling libitm2163
+Node: C/C++ Language Constructs for TM2557
+Node: The libitm ABI4037
+Ref: txn-code-properties7830
+Node: Internals18105
+Ref: serial-lock-impl28130
+Ref: progress-guarantees32880
+Node: GNU Free Documentation License35154
+Node: Index60295
 
 End Tag Table

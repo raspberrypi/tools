@@ -10,9 +10,7 @@
 <link rel="next" href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions" title="AVR Built-in Functions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,17 +52,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">T
 <hr>
 </div>
 
-<h4 class="subsection">6.55.3 ARM NEON Intrinsics</h4>
+<h4 class="subsection">6.56.3 ARM NEON Intrinsics</h4>
 
 <p>These built-in intrinsics for the ARM Advanced SIMD extension are available
 when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 
-<!-- Copyright (C) 2006 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 2006-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!-- This file is generated automatically using gcc/config/arm/neon-docgen.ml -->
 <!-- Please do not edit manually. -->
-<h5 class="subsubsection">6.55.3.1 Addition</h5>
+<h5 class="subsubsection">6.56.3.1 Addition</h5>
 
      <ul>
 <li>uint32x2_t vadd_u32 (uint32x2_t, uint32x2_t)
@@ -474,7 +472,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vraddhn.i16 </code><var>d0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.2 Multiplication</h5>
+<h5 class="subsubsection">6.56.3.2 Multiplication</h5>
 
      <ul>
 <li>uint32x2_t vmul_u32 (uint32x2_t, uint32x2_t)
@@ -641,7 +639,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmull.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.3 Multiply-accumulate</h5>
+<h5 class="subsubsection">6.56.3.3 Multiply-accumulate</h5>
 
      <ul>
 <li>uint32x2_t vmla_u32 (uint32x2_t, uint32x2_t, uint32x2_t)
@@ -753,7 +751,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlal.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.4 Multiply-subtract</h5>
+<h5 class="subsubsection">6.56.3.4 Multiply-subtract</h5>
 
      <ul>
 <li>uint32x2_t vmls_u32 (uint32x2_t, uint32x2_t, uint32x2_t)
@@ -865,7 +863,91 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlsl.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.5 Subtraction</h5>
+<h5 class="subsubsection">6.56.3.5 Fused-multiply-accumulate</h5>
+
+     <ul>
+<li>float32x2_t vfma_f32 (float32x2_t, float32x2_t, float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vfma.f32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vfmaq_f32 (float32x4_t, float32x4_t, float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vfma.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.6 Fused-multiply-subtract</h5>
+
+     <ul>
+<li>float32x2_t vfms_f32 (float32x2_t, float32x2_t, float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vfms.f32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vfmsq_f32 (float32x4_t, float32x4_t, float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vfms.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.7 Round to integral (to nearest, ties to even)</h5>
+
+     <ul>
+<li>float32x2_t vrndn_f32 (float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintn.f32 </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vrndqn_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintn.f32 </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.8 Round to integral (to nearest, ties away from zero)</h5>
+
+     <ul>
+<li>float32x2_t vrnda_f32 (float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vrinta.f32 </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vrndqa_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vrinta.f32 </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.9 Round to integral (towards +Inf)</h5>
+
+     <ul>
+<li>float32x2_t vrndp_f32 (float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintp.f32 </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vrndqp_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintp.f32 </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.10 Round to integral (towards -Inf)</h5>
+
+     <ul>
+<li>float32x2_t vrndm_f32 (float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintm.f32 </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vrndqm_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintm.f32 </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.11 Round to integral (towards 0)</h5>
+
+     <ul>
+<li>float32x2_t vrnd_f32 (float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintz.f32 </code><var>d0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vrndq_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vrintz.f32 </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.12 Subtraction</h5>
 
      <ul>
 <li>uint32x2_t vsub_u32 (uint32x2_t, uint32x2_t)
@@ -1215,7 +1297,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrsubhn.i16 </code><var>d0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.6 Comparison (equal-to)</h5>
+<h5 class="subsubsection">6.56.3.13 Comparison (equal-to)</h5>
 
      <ul>
 <li>uint32x2_t vceq_u32 (uint32x2_t, uint32x2_t)
@@ -1297,22 +1379,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vceq.i8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.7 Comparison (greater-than-or-equal-to)</h5>
-
-     <ul>
-<li>uint32x2_t vcge_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
-</ul>
-
-     <ul>
-<li>uint16x4_t vcge_u16 (uint16x4_t, uint16x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
-</ul>
-
-     <ul>
-<li>uint8x8_t vcge_u8 (uint8x8_t, uint8x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
-</ul>
+<h5 class="subsubsection">6.56.3.14 Comparison (greater-than-or-equal-to)</h5>
 
      <ul>
 <li>uint32x2_t vcge_s32 (int32x2_t, int32x2_t)
@@ -1335,18 +1402,18 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>uint32x4_t vcgeq_u32 (uint32x4_t, uint32x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint32x2_t vcge_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint16x8_t vcgeq_u16 (uint16x8_t, uint16x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint16x4_t vcge_u16 (uint16x4_t, uint16x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint8x16_t vcgeq_u8 (uint8x16_t, uint8x16_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint8x8_t vcge_u8 (uint8x8_t, uint8x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
@@ -1369,22 +1436,22 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcge.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.8 Comparison (less-than-or-equal-to)</h5>
-
      <ul>
-<li>uint32x2_t vcle_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint32x4_t vcgeq_u32 (uint32x4_t, uint32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint16x4_t vcle_u16 (uint16x4_t, uint16x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint16x8_t vcgeq_u16 (uint16x8_t, uint16x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint8x8_t vcle_u8 (uint8x8_t, uint8x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint8x16_t vcgeq_u8 (uint8x16_t, uint8x16_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
+
+<h5 class="subsubsection">6.56.3.15 Comparison (less-than-or-equal-to)</h5>
 
      <ul>
 <li>uint32x2_t vcle_s32 (int32x2_t, int32x2_t)
@@ -1407,18 +1474,18 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>uint32x4_t vcleq_u32 (uint32x4_t, uint32x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint32x2_t vcle_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint16x8_t vcleq_u16 (uint16x8_t, uint16x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint16x4_t vcle_u16 (uint16x4_t, uint16x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint8x16_t vcleq_u8 (uint8x16_t, uint8x16_t)
-<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint8x8_t vcle_u8 (uint8x8_t, uint8x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
@@ -1441,22 +1508,22 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcge.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.9 Comparison (greater-than)</h5>
-
      <ul>
-<li>uint32x2_t vcgt_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint32x4_t vcleq_u32 (uint32x4_t, uint32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint16x4_t vcgt_u16 (uint16x4_t, uint16x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint16x8_t vcleq_u16 (uint16x8_t, uint16x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint8x8_t vcgt_u8 (uint8x8_t, uint8x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint8x16_t vcleq_u8 (uint8x16_t, uint8x16_t)
+<br><em>Form of expected instruction(s):</em> <code>vcge.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
+
+<h5 class="subsubsection">6.56.3.16 Comparison (greater-than)</h5>
 
      <ul>
 <li>uint32x2_t vcgt_s32 (int32x2_t, int32x2_t)
@@ -1479,18 +1546,18 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>uint32x4_t vcgtq_u32 (uint32x4_t, uint32x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint32x2_t vcgt_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint16x8_t vcgtq_u16 (uint16x8_t, uint16x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint16x4_t vcgt_u16 (uint16x4_t, uint16x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint8x16_t vcgtq_u8 (uint8x16_t, uint8x16_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint8x8_t vcgt_u8 (uint8x8_t, uint8x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
@@ -1513,22 +1580,22 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcgt.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.10 Comparison (less-than)</h5>
-
      <ul>
-<li>uint32x2_t vclt_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint32x4_t vcgtq_u32 (uint32x4_t, uint32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint16x4_t vclt_u16 (uint16x4_t, uint16x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint16x8_t vcgtq_u16 (uint16x8_t, uint16x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
      <ul>
-<li>uint8x8_t vclt_u8 (uint8x8_t, uint8x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
+<li>uint8x16_t vcgtq_u8 (uint8x16_t, uint8x16_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
+
+<h5 class="subsubsection">6.56.3.17 Comparison (less-than)</h5>
 
      <ul>
 <li>uint32x2_t vclt_s32 (int32x2_t, int32x2_t)
@@ -1551,18 +1618,18 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>uint32x4_t vcltq_u32 (uint32x4_t, uint32x4_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint32x2_t vclt_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint16x8_t vcltq_u16 (uint16x8_t, uint16x8_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint16x4_t vclt_u16 (uint16x4_t, uint16x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
-<li>uint8x16_t vcltq_u8 (uint8x16_t, uint8x16_t)
-<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+<li>uint8x8_t vclt_u8 (uint8x8_t, uint8x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
@@ -1585,7 +1652,22 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcgt.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.11 Comparison (absolute greater-than-or-equal-to)</h5>
+     <ul>
+<li>uint32x4_t vcltq_u32 (uint32x4_t, uint32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+     <ul>
+<li>uint16x8_t vcltq_u16 (uint16x8_t, uint16x8_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+     <ul>
+<li>uint8x16_t vcltq_u8 (uint8x16_t, uint8x16_t)
+<br><em>Form of expected instruction(s):</em> <code>vcgt.u8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
+</ul>
+
+<h5 class="subsubsection">6.56.3.18 Comparison (absolute greater-than-or-equal-to)</h5>
 
      <ul>
 <li>uint32x2_t vcage_f32 (float32x2_t, float32x2_t)
@@ -1597,7 +1679,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vacge.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.12 Comparison (absolute less-than-or-equal-to)</h5>
+<h5 class="subsubsection">6.56.3.19 Comparison (absolute less-than-or-equal-to)</h5>
 
      <ul>
 <li>uint32x2_t vcale_f32 (float32x2_t, float32x2_t)
@@ -1609,7 +1691,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vacge.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.13 Comparison (absolute greater-than)</h5>
+<h5 class="subsubsection">6.56.3.20 Comparison (absolute greater-than)</h5>
 
      <ul>
 <li>uint32x2_t vcagt_f32 (float32x2_t, float32x2_t)
@@ -1621,7 +1703,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vacgt.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.14 Comparison (absolute less-than)</h5>
+<h5 class="subsubsection">6.56.3.21 Comparison (absolute less-than)</h5>
 
      <ul>
 <li>uint32x2_t vcalt_f32 (float32x2_t, float32x2_t)
@@ -1633,7 +1715,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vacgt.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.15 Test bits</h5>
+<h5 class="subsubsection">6.56.3.22 Test bits</h5>
 
      <ul>
 <li>uint32x2_t vtst_u32 (uint32x2_t, uint32x2_t)
@@ -1705,7 +1787,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vtst.8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.16 Absolute difference</h5>
+<h5 class="subsubsection">6.56.3.23 Absolute difference</h5>
 
      <ul>
 <li>uint32x2_t vabd_u32 (uint32x2_t, uint32x2_t)
@@ -1807,7 +1889,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vabdl.s8 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.17 Absolute difference and accumulate</h5>
+<h5 class="subsubsection">6.56.3.24 Absolute difference and accumulate</h5>
 
      <ul>
 <li>uint32x2_t vaba_u32 (uint32x2_t, uint32x2_t, uint32x2_t)
@@ -1899,7 +1981,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vabal.s8 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.18 Maximum</h5>
+<h5 class="subsubsection">6.56.3.25 Maximum</h5>
 
      <ul>
 <li>uint32x2_t vmax_u32 (uint32x2_t, uint32x2_t)
@@ -1971,7 +2053,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmax.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.19 Minimum</h5>
+<h5 class="subsubsection">6.56.3.26 Minimum</h5>
 
      <ul>
 <li>uint32x2_t vmin_u32 (uint32x2_t, uint32x2_t)
@@ -2043,7 +2125,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmin.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.20 Pairwise add</h5>
+<h5 class="subsubsection">6.56.3.27 Pairwise add</h5>
 
      <ul>
 <li>uint32x2_t vpadd_u32 (uint32x2_t, uint32x2_t)
@@ -2140,7 +2222,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vpaddl.s8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.21 Pairwise add, single_opcode widen and accumulate</h5>
+<h5 class="subsubsection">6.56.3.28 Pairwise add, single_opcode widen and accumulate</h5>
 
      <ul>
 <li>uint64x1_t vpadal_u32 (uint64x1_t, uint32x2_t)
@@ -2202,7 +2284,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vpadal.s8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.22 Folding maximum</h5>
+<h5 class="subsubsection">6.56.3.29 Folding maximum</h5>
 
      <ul>
 <li>uint32x2_t vpmax_u32 (uint32x2_t, uint32x2_t)
@@ -2239,7 +2321,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vpmax.f32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.23 Folding minimum</h5>
+<h5 class="subsubsection">6.56.3.30 Folding minimum</h5>
 
      <ul>
 <li>uint32x2_t vpmin_u32 (uint32x2_t, uint32x2_t)
@@ -2276,7 +2358,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vpmin.f32 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.24 Reciprocal step</h5>
+<h5 class="subsubsection">6.56.3.31 Reciprocal step</h5>
 
      <ul>
 <li>float32x2_t vrecps_f32 (float32x2_t, float32x2_t)
@@ -2298,7 +2380,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrsqrts.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.25 Vector shift left</h5>
+<h5 class="subsubsection">6.56.3.32 Vector shift left</h5>
 
      <ul>
 <li>uint32x2_t vshl_u32 (uint32x2_t, int32x2_t)
@@ -2620,7 +2702,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqrshl.s64 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.26 Vector shift left by constant</h5>
+<h5 class="subsubsection">6.56.3.33 Vector shift left by constant</h5>
 
      <ul>
 <li>uint32x2_t vshl_n_u32 (uint32x2_t, const int)
@@ -2852,7 +2934,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vshll.s8 </code><var>q0</var><code>, </code><var>d0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.27 Vector shift right by constant</h5>
+<h5 class="subsubsection">6.56.3.34 Vector shift right by constant</h5>
 
      <ul>
 <li>uint32x2_t vshr_n_u32 (uint32x2_t, const int)
@@ -3164,7 +3246,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqrshrun.s16 </code><var>d0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.28 Vector shift right by constant and accumulate</h5>
+<h5 class="subsubsection">6.56.3.35 Vector shift right by constant and accumulate</h5>
 
      <ul>
 <li>uint32x2_t vsra_n_u32 (uint32x2_t, uint32x2_t, const int)
@@ -3326,7 +3408,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrsra.s64 </code><var>q0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.29 Vector shift right and insert</h5>
+<h5 class="subsubsection">6.56.3.36 Vector shift right and insert</h5>
 
      <ul>
 <li>uint32x2_t vsri_n_u32 (uint32x2_t, uint32x2_t, const int)
@@ -3428,7 +3510,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vsri.8 </code><var>q0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.30 Vector shift left and insert</h5>
+<h5 class="subsubsection">6.56.3.37 Vector shift left and insert</h5>
 
      <ul>
 <li>uint32x2_t vsli_n_u32 (uint32x2_t, uint32x2_t, const int)
@@ -3530,7 +3612,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vsli.8 </code><var>q0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.31 Absolute value</h5>
+<h5 class="subsubsection">6.56.3.38 Absolute value</h5>
 
      <ul>
 <li>float32x2_t vabs_f32 (float32x2_t)
@@ -3602,7 +3684,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqabs.s8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.32 Negation</h5>
+<h5 class="subsubsection">6.56.3.39 Negation</h5>
 
      <ul>
 <li>float32x2_t vneg_f32 (float32x2_t)
@@ -3674,7 +3756,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqneg.s8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.33 Bitwise not</h5>
+<h5 class="subsubsection">6.56.3.40 Bitwise not</h5>
 
      <ul>
 <li>uint32x2_t vmvn_u32 (uint32x2_t)
@@ -3746,7 +3828,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmvn </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.34 Count leading sign bits</h5>
+<h5 class="subsubsection">6.56.3.41 Count leading sign bits</h5>
 
      <ul>
 <li>int32x2_t vcls_s32 (int32x2_t)
@@ -3778,7 +3860,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcls.s8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.35 Count leading zeros</h5>
+<h5 class="subsubsection">6.56.3.42 Count leading zeros</h5>
 
      <ul>
 <li>uint32x2_t vclz_u32 (uint32x2_t)
@@ -3840,7 +3922,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vclz.i8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.36 Count number of set bits</h5>
+<h5 class="subsubsection">6.56.3.43 Count number of set bits</h5>
 
      <ul>
 <li>uint8x8_t vcnt_u8 (uint8x8_t)
@@ -3872,7 +3954,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcnt.8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.37 Reciprocal estimate</h5>
+<h5 class="subsubsection">6.56.3.44 Reciprocal estimate</h5>
 
      <ul>
 <li>float32x2_t vrecpe_f32 (float32x2_t)
@@ -3894,7 +3976,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrecpe.u32 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.38 Reciprocal square-root estimate</h5>
+<h5 class="subsubsection">6.56.3.45 Reciprocal square-root estimate</h5>
 
      <ul>
 <li>float32x2_t vrsqrte_f32 (float32x2_t)
@@ -3916,7 +3998,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrsqrte.u32 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.39 Get lanes from a vector</h5>
+<h5 class="subsubsection">6.56.3.46 Get lanes from a vector</h5>
 
      <ul>
 <li>uint32_t vget_lane_u32 (uint32x2_t, const int)
@@ -4018,15 +4100,15 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 
      <ul>
 <li>uint64_t vgetq_lane_u64 (uint64x2_t, const int)
-<br><em>Form of expected instruction(s):</em> <code>vmov </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var>
+<br><em>Form of expected instruction(s):</em> <code>vmov </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var> <em>or</em> <code>fmrrd </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var>
 </ul>
 
      <ul>
 <li>int64_t vgetq_lane_s64 (int64x2_t, const int)
-<br><em>Form of expected instruction(s):</em> <code>vmov </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var>
+<br><em>Form of expected instruction(s):</em> <code>vmov </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var> <em>or</em> <code>fmrrd </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.40 Set lanes in a vector</h5>
+<h5 class="subsubsection">6.56.3.47 Set lanes in a vector</h5>
 
      <ul>
 <li>uint32x2_t vset_lane_u32 (uint32_t, uint32x2_t, const int)
@@ -4136,7 +4218,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmov </code><var>d0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.41 Create vector from literal bit pattern</h5>
+<h5 class="subsubsection">6.56.3.48 Create vector from literal bit pattern</h5>
 
      <ul>
 <li>uint32x2_t vcreate_u32 (uint64_t)
@@ -4182,7 +4264,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <li>poly8x8_t vcreate_p8 (uint64_t)
 </ul>
 
-<h5 class="subsubsection">6.55.3.42 Set all lanes to the same value</h5>
+<h5 class="subsubsection">6.56.3.49 Set all lanes to the same value</h5>
 
      <ul>
 <li>uint32x2_t vdup_n_u32 (uint32_t)
@@ -4502,7 +4584,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <li>int64x2_t vdupq_lane_s64 (int64x1_t, const int)
 </ul>
 
-<h5 class="subsubsection">6.55.3.43 Combining vectors</h5>
+<h5 class="subsubsection">6.56.3.50 Combining vectors</h5>
 
      <ul>
 <li>uint32x4_t vcombine_u32 (uint32x2_t, uint32x2_t)
@@ -4548,7 +4630,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <li>poly8x16_t vcombine_p8 (poly8x8_t, poly8x8_t)
 </ul>
 
-<h5 class="subsubsection">6.55.3.44 Splitting vectors</h5>
+<h5 class="subsubsection">6.56.3.51 Splitting vectors</h5>
 
      <ul>
 <li>uint32x2_t vget_high_u32 (uint32x4_t)
@@ -4647,7 +4729,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <li>int64x1_t vget_low_s64 (int64x2_t)
 </ul>
 
-<h5 class="subsubsection">6.55.3.45 Conversions</h5>
+<h5 class="subsubsection">6.56.3.52 Conversions</h5>
 
      <ul>
 <li>float32x2_t vcvt_f32_u32 (uint32x2_t)
@@ -4690,6 +4772,16 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
+<li>float16x4_t vcvt_f16_f32 (float32x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcvt.f16.f32 </code><var>d0</var><code>, </code><var>q0</var>
+</ul>
+
+     <ul>
+<li>float32x4_t vcvt_f32_f16 (float16x4_t)
+<br><em>Form of expected instruction(s):</em> <code>vcvt.f32.f16 </code><var>q0</var><code>, </code><var>d0</var>
+</ul>
+
+     <ul>
 <li>float32x2_t vcvt_n_f32_u32 (uint32x2_t, const int)
 <br><em>Form of expected instruction(s):</em> <code>vcvt.f32.u32 </code><var>d0</var><code>, </code><var>d0</var><code>, #</code><var>0</var>
 </ul>
@@ -4729,7 +4821,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vcvt.s32.f32 </code><var>q0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.46 Move, single_opcode narrowing</h5>
+<h5 class="subsubsection">6.56.3.53 Move, single_opcode narrowing</h5>
 
      <ul>
 <li>uint32x2_t vmovn_u64 (uint64x2_t)
@@ -4806,7 +4898,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqmovun.s16 </code><var>d0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.47 Move, single_opcode long</h5>
+<h5 class="subsubsection">6.56.3.54 Move, single_opcode long</h5>
 
      <ul>
 <li>uint64x2_t vmovl_u32 (uint32x2_t)
@@ -4838,7 +4930,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmovl.s8 </code><var>q0</var><code>, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.48 Table lookup</h5>
+<h5 class="subsubsection">6.56.3.55 Table lookup</h5>
 
      <ul>
 <li>poly8x8_t vtbl1_p8 (poly8x8_t, uint8x8_t)
@@ -4900,7 +4992,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vtbl.8 </code><var>d0</var><code>, {</code><var>d0</var><code>, </code><var>d1</var><code>, </code><var>d2</var><code>, </code><var>d3</var><code>}, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.49 Extended table lookup</h5>
+<h5 class="subsubsection">6.56.3.56 Extended table lookup</h5>
 
      <ul>
 <li>poly8x8_t vtbx1_p8 (poly8x8_t, poly8x8_t, uint8x8_t)
@@ -4962,7 +5054,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vtbx.8 </code><var>d0</var><code>, {</code><var>d0</var><code>, </code><var>d1</var><code>, </code><var>d2</var><code>, </code><var>d3</var><code>}, </code><var>d0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.50 Multiply, lane</h5>
+<h5 class="subsubsection">6.56.3.57 Multiply, lane</h5>
 
      <ul>
 <li>float32x2_t vmul_lane_f32 (float32x2_t, float32x2_t, const int)
@@ -5014,7 +5106,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmul.i16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.51 Long multiply, lane</h5>
+<h5 class="subsubsection">6.56.3.58 Long multiply, lane</h5>
 
      <ul>
 <li>uint64x2_t vmull_lane_u32 (uint32x2_t, uint32x2_t, const int)
@@ -5036,7 +5128,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmull.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.52 Saturating doubling long multiply, lane</h5>
+<h5 class="subsubsection">6.56.3.59 Saturating doubling long multiply, lane</h5>
 
      <ul>
 <li>int64x2_t vqdmull_lane_s32 (int32x2_t, int32x2_t, const int)
@@ -5048,7 +5140,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmull.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.53 Saturating doubling multiply high, lane</h5>
+<h5 class="subsubsection">6.56.3.60 Saturating doubling multiply high, lane</h5>
 
      <ul>
 <li>int32x4_t vqdmulhq_lane_s32 (int32x4_t, int32x2_t, const int)
@@ -5090,7 +5182,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqrdmulh.s16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.54 Multiply-accumulate, lane</h5>
+<h5 class="subsubsection">6.56.3.61 Multiply-accumulate, lane</h5>
 
      <ul>
 <li>float32x2_t vmla_lane_f32 (float32x2_t, float32x2_t, float32x2_t, const int)
@@ -5172,7 +5264,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlal.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.55 Multiply-subtract, lane</h5>
+<h5 class="subsubsection">6.56.3.62 Multiply-subtract, lane</h5>
 
      <ul>
 <li>float32x2_t vmls_lane_f32 (float32x2_t, float32x2_t, float32x2_t, const int)
@@ -5254,7 +5346,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlsl.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.56 Vector multiply by scalar</h5>
+<h5 class="subsubsection">6.56.3.63 Vector multiply by scalar</h5>
 
      <ul>
 <li>float32x2_t vmul_n_f32 (float32x2_t, float32_t)
@@ -5306,7 +5398,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmul.i16 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.57 Vector long multiply by scalar</h5>
+<h5 class="subsubsection">6.56.3.64 Vector long multiply by scalar</h5>
 
      <ul>
 <li>uint64x2_t vmull_n_u32 (uint32x2_t, uint32_t)
@@ -5328,7 +5420,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vmull.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.58 Vector saturating doubling long multiply by scalar</h5>
+<h5 class="subsubsection">6.56.3.65 Vector saturating doubling long multiply by scalar</h5>
 
      <ul>
 <li>int64x2_t vqdmull_n_s32 (int32x2_t, int32_t)
@@ -5340,7 +5432,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmull.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.59 Vector saturating doubling multiply high by scalar</h5>
+<h5 class="subsubsection">6.56.3.66 Vector saturating doubling multiply high by scalar</h5>
 
      <ul>
 <li>int32x4_t vqdmulhq_n_s32 (int32x4_t, int32_t)
@@ -5382,7 +5474,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqrdmulh.s16 </code><var>d0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.60 Vector multiply-accumulate by scalar</h5>
+<h5 class="subsubsection">6.56.3.67 Vector multiply-accumulate by scalar</h5>
 
      <ul>
 <li>float32x2_t vmla_n_f32 (float32x2_t, float32x2_t, float32_t)
@@ -5464,7 +5556,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlal.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.61 Vector multiply-subtract by scalar</h5>
+<h5 class="subsubsection">6.56.3.68 Vector multiply-subtract by scalar</h5>
 
      <ul>
 <li>float32x2_t vmls_n_f32 (float32x2_t, float32x2_t, float32_t)
@@ -5546,7 +5638,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vqdmlsl.s16 </code><var>q0</var><code>, </code><var>d0</var><code>, </code><var>d0</var><code>[</code><var>0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.62 Vector extract</h5>
+<h5 class="subsubsection">6.56.3.69 Vector extract</h5>
 
      <ul>
 <li>uint32x2_t vext_u32 (uint32x2_t, uint32x2_t, const int)
@@ -5658,7 +5750,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vext.8 </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var><code>, #</code><var>0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.63 Reverse elements</h5>
+<h5 class="subsubsection">6.56.3.70 Reverse elements</h5>
 
      <ul>
 <li>uint32x2_t vrev64_u32 (uint32x2_t)
@@ -5840,7 +5932,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vrev16.8 </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.64 Bit selection</h5>
+<h5 class="subsubsection">6.56.3.71 Bit selection</h5>
 
      <ul>
 <li>uint32x2_t vbsl_u32 (uint32x2_t, uint32x2_t, uint32x2_t)
@@ -5952,12 +6044,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vbsl </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var> <em>or</em> <code>vbit </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var> <em>or</em> <code>vbif </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.65 Transpose elements</h5>
-
-     <ul>
-<li>uint32x2x2_t vtrn_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vtrn.32 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
+<h5 class="subsubsection">6.56.3.72 Transpose elements</h5>
 
      <ul>
 <li>uint16x4x2_t vtrn_u16 (uint16x4_t, uint16x4_t)
@@ -5967,11 +6054,6 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
      <ul>
 <li>uint8x8x2_t vtrn_u8 (uint8x8_t, uint8x8_t)
 <br><em>Form of expected instruction(s):</em> <code>vtrn.8 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
-
-     <ul>
-<li>int32x2x2_t vtrn_s32 (int32x2_t, int32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vtrn.32 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
 
      <ul>
@@ -5985,11 +6067,6 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>float32x2x2_t vtrn_f32 (float32x2_t, float32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vtrn.32 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
-
-     <ul>
 <li>poly16x4x2_t vtrn_p16 (poly16x4_t, poly16x4_t)
 <br><em>Form of expected instruction(s):</em> <code>vtrn.16 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
@@ -5997,6 +6074,21 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
      <ul>
 <li>poly8x8x2_t vtrn_p8 (poly8x8_t, poly8x8_t)
 <br><em>Form of expected instruction(s):</em> <code>vtrn.8 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>float32x2x2_t vtrn_f32 (float32x2_t, float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>uint32x2x2_t vtrn_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>int32x2x2_t vtrn_s32 (int32x2_t, int32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
 
      <ul>
@@ -6044,12 +6136,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vtrn.8 </code><var>q0</var><code>, </code><var>q1</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.66 Zip elements</h5>
-
-     <ul>
-<li>uint32x2x2_t vzip_u32 (uint32x2_t, uint32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vzip.32 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
+<h5 class="subsubsection">6.56.3.73 Zip elements</h5>
 
      <ul>
 <li>uint16x4x2_t vzip_u16 (uint16x4_t, uint16x4_t)
@@ -6059,11 +6146,6 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
      <ul>
 <li>uint8x8x2_t vzip_u8 (uint8x8_t, uint8x8_t)
 <br><em>Form of expected instruction(s):</em> <code>vzip.8 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
-
-     <ul>
-<li>int32x2x2_t vzip_s32 (int32x2_t, int32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vzip.32 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
 
      <ul>
@@ -6077,11 +6159,6 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 </ul>
 
      <ul>
-<li>float32x2x2_t vzip_f32 (float32x2_t, float32x2_t)
-<br><em>Form of expected instruction(s):</em> <code>vzip.32 </code><var>d0</var><code>, </code><var>d1</var>
-</ul>
-
-     <ul>
 <li>poly16x4x2_t vzip_p16 (poly16x4_t, poly16x4_t)
 <br><em>Form of expected instruction(s):</em> <code>vzip.16 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
@@ -6089,6 +6166,21 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
      <ul>
 <li>poly8x8x2_t vzip_p8 (poly8x8_t, poly8x8_t)
 <br><em>Form of expected instruction(s):</em> <code>vzip.8 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>float32x2x2_t vzip_f32 (float32x2_t, float32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>uint32x2x2_t vzip_u32 (uint32x2_t, uint32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
+</ul>
+
+     <ul>
+<li>int32x2x2_t vzip_s32 (int32x2_t, int32x2_t)
+<br><em>Form of expected instruction(s):</em> <code>vuzp.32 </code><var>d0</var><code>, </code><var>d1</var>
 </ul>
 
      <ul>
@@ -6136,7 +6228,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vzip.8 </code><var>q0</var><code>, </code><var>q1</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.67 Unzip elements</h5>
+<h5 class="subsubsection">6.56.3.74 Unzip elements</h5>
 
      <ul>
 <li>uint32x2x2_t vuzp_u32 (uint32x2_t, uint32x2_t)
@@ -6228,7 +6320,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vuzp.8 </code><var>q0</var><code>, </code><var>q1</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.68 Element/structure loads, VLD1 variants</h5>
+<h5 class="subsubsection">6.56.3.75 Element/structure loads, VLD1 variants</h5>
 
      <ul>
 <li>uint32x2_t vld1_u32 (const uint32_t *)
@@ -6552,15 +6644,15 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 
      <ul>
 <li>uint64x2_t vld1q_dup_u64 (const uint64_t *)
-<br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>, </code><var>d1</var><code>}, [</code><var>r0</var><code>]</code>
+<br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
      <ul>
 <li>int64x2_t vld1q_dup_s64 (const int64_t *)
-<br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>, </code><var>d1</var><code>}, [</code><var>r0</var><code>]</code>
+<br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.69 Element/structure stores, VST1 variants</h5>
+<h5 class="subsubsection">6.56.3.76 Element/structure stores, VST1 variants</h5>
 
      <ul>
 <li>void vst1_u32 (uint32_t *, uint32x2_t)
@@ -6782,7 +6874,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vst1.64 {</code><var>d0</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.70 Element/structure loads, VLD2 variants</h5>
+<h5 class="subsubsection">6.56.3.77 Element/structure loads, VLD2 variants</h5>
 
      <ul>
 <li>uint32x2x2_t vld2_u32 (const uint32_t *)
@@ -7014,7 +7106,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>, </code><var>d1</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.71 Element/structure stores, VST2 variants</h5>
+<h5 class="subsubsection">6.56.3.78 Element/structure stores, VST2 variants</h5>
 
      <ul>
 <li>void vst2_u32 (uint32_t *, uint32x2x2_t)
@@ -7191,7 +7283,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vst2.16 {</code><var>d0</var><code>[</code><var>0</var><code>], </code><var>d1</var><code>[</code><var>0</var><code>]}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.72 Element/structure loads, VLD3 variants</h5>
+<h5 class="subsubsection">6.56.3.79 Element/structure loads, VLD3 variants</h5>
 
      <ul>
 <li>uint32x2x3_t vld3_u32 (const uint32_t *)
@@ -7423,7 +7515,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>, </code><var>d1</var><code>, </code><var>d2</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.73 Element/structure stores, VST3 variants</h5>
+<h5 class="subsubsection">6.56.3.80 Element/structure stores, VST3 variants</h5>
 
      <ul>
 <li>void vst3_u32 (uint32_t *, uint32x2x3_t)
@@ -7600,7 +7692,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vst3.16 {</code><var>d0</var><code>[</code><var>0</var><code>], </code><var>d1</var><code>[</code><var>0</var><code>], </code><var>d2</var><code>[</code><var>0</var><code>]}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.74 Element/structure loads, VLD4 variants</h5>
+<h5 class="subsubsection">6.56.3.81 Element/structure loads, VLD4 variants</h5>
 
      <ul>
 <li>uint32x2x4_t vld4_u32 (const uint32_t *)
@@ -7832,7 +7924,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vld1.64 {</code><var>d0</var><code>, </code><var>d1</var><code>, </code><var>d2</var><code>, </code><var>d3</var><code>}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.75 Element/structure stores, VST4 variants</h5>
+<h5 class="subsubsection">6.56.3.82 Element/structure stores, VST4 variants</h5>
 
      <ul>
 <li>void vst4_u32 (uint32_t *, uint32x2x4_t)
@@ -8009,7 +8101,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vst4.16 {</code><var>d0</var><code>[</code><var>0</var><code>], </code><var>d1</var><code>[</code><var>0</var><code>], </code><var>d2</var><code>[</code><var>0</var><code>], </code><var>d3</var><code>[</code><var>0</var><code>]}, [</code><var>r0</var><code>]</code>
 </ul>
 
-<h5 class="subsubsection">6.55.3.76 Logical operations (AND)</h5>
+<h5 class="subsubsection">6.56.3.83 Logical operations (AND)</h5>
 
      <ul>
 <li>uint32x2_t vand_u32 (uint32x2_t, uint32x2_t)
@@ -8089,7 +8181,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vand </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.77 Logical operations (OR)</h5>
+<h5 class="subsubsection">6.56.3.84 Logical operations (OR)</h5>
 
      <ul>
 <li>uint32x2_t vorr_u32 (uint32x2_t, uint32x2_t)
@@ -8169,7 +8261,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vorr </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.78 Logical operations (exclusive OR)</h5>
+<h5 class="subsubsection">6.56.3.85 Logical operations (exclusive OR)</h5>
 
      <ul>
 <li>uint32x2_t veor_u32 (uint32x2_t, uint32x2_t)
@@ -8249,7 +8341,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>veor </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.79 Logical operations (AND-NOT)</h5>
+<h5 class="subsubsection">6.56.3.86 Logical operations (AND-NOT)</h5>
 
      <ul>
 <li>uint32x2_t vbic_u32 (uint32x2_t, uint32x2_t)
@@ -8329,7 +8421,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vbic </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.80 Logical operations (OR-NOT)</h5>
+<h5 class="subsubsection">6.56.3.87 Logical operations (OR-NOT)</h5>
 
      <ul>
 <li>uint32x2_t vorn_u32 (uint32x2_t, uint32x2_t)
@@ -8409,7 +8501,7 @@ when the <samp><span class="option">-mfpu=neon</span></samp> switch is used:
 <br><em>Form of expected instruction(s):</em> <code>vorn </code><var>q0</var><code>, </code><var>q0</var><code>, </code><var>q0</var>
 </ul>
 
-<h5 class="subsubsection">6.55.3.81 Reinterpret casts</h5>
+<h5 class="subsubsection">6.56.3.88 Reinterpret casts</h5>
 
      <ul>
 <li>poly8x8_t vreinterpret_p8_u32 (uint32x2_t)

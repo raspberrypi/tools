@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -47,9 +45,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 <hr>
 </div>
 
-<h3 class="section">7.60 <code>.if </code><var>absolute expression</var></h3>
+<h3 class="section">7.62 <code>.if </code><var>absolute expression</var></h3>
 
-<p><a name="index-conditional-assembly-346"></a><a name="index-g_t_0040code_007bif_007d-directive-347"></a><code>.if</code> marks the beginning of a section of code which is only
+<p><a name="index-conditional-assembly-353"></a><a name="index-g_t_0040code_007bif_007d-directive-354"></a><code>.if</code> marks the beginning of a section of code which is only
 considered part of the source program being assembled if the argument
 (which must be an <var>absolute expression</var>) is non-zero.  The end of
 the conditional section of code must be marked by <code>.endif</code>
@@ -60,47 +58,47 @@ nesting blocks if/else within each subsequent <code>.else</code> block.
 
    <p>The following variants of <code>.if</code> are also supported:
      
-<a name="index-g_t_0040code_007bifdef_007d-directive-348"></a>
+<a name="index-g_t_0040code_007bifdef_007d-directive-355"></a>
 <dl><dt><code>.ifdef </code><var>symbol</var><dd>Assembles the following section of code if the specified <var>symbol</var>
 has been defined.  Note a symbol which has been referenced but not yet defined
 is considered to be undefined.
 
-     <p><a name="index-g_t_0040code_007bifb_007d-directive-349"></a><br><dt><code>.ifb </code><var>text</var><dd>Assembles the following section of code if the operand is blank (empty).
+     <p><a name="index-g_t_0040code_007bifb_007d-directive-356"></a><br><dt><code>.ifb </code><var>text</var><dd>Assembles the following section of code if the operand is blank (empty).
 
-     <p><a name="index-g_t_0040code_007bifc_007d-directive-350"></a><br><dt><code>.ifc </code><var>string1</var><code>,</code><var>string2</var><dd>Assembles the following section of code if the two strings are the same.  The
+     <p><a name="index-g_t_0040code_007bifc_007d-directive-357"></a><br><dt><code>.ifc </code><var>string1</var><code>,</code><var>string2</var><dd>Assembles the following section of code if the two strings are the same.  The
 strings may be optionally quoted with single quotes.  If they are not quoted,
 the first string stops at the first comma, and the second string stops at the
 end of the line.  Strings which contain whitespace should be quoted.  The
 string comparison is case sensitive.
 
-     <p><a name="index-g_t_0040code_007bifeq_007d-directive-351"></a><br><dt><code>.ifeq </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is zero.
+     <p><a name="index-g_t_0040code_007bifeq_007d-directive-358"></a><br><dt><code>.ifeq </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is zero.
 
-     <p><a name="index-g_t_0040code_007bifeqs_007d-directive-352"></a><br><dt><code>.ifeqs </code><var>string1</var><code>,</code><var>string2</var><dd>Another form of <code>.ifc</code>.  The strings must be quoted using double quotes.
+     <p><a name="index-g_t_0040code_007bifeqs_007d-directive-359"></a><br><dt><code>.ifeqs </code><var>string1</var><code>,</code><var>string2</var><dd>Another form of <code>.ifc</code>.  The strings must be quoted using double quotes.
 
-     <p><a name="index-g_t_0040code_007bifge_007d-directive-353"></a><br><dt><code>.ifge </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is greater than or
+     <p><a name="index-g_t_0040code_007bifge_007d-directive-360"></a><br><dt><code>.ifge </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is greater than or
 equal to zero.
 
-     <p><a name="index-g_t_0040code_007bifgt_007d-directive-354"></a><br><dt><code>.ifgt </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is greater than zero.
+     <p><a name="index-g_t_0040code_007bifgt_007d-directive-361"></a><br><dt><code>.ifgt </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is greater than zero.
 
-     <p><a name="index-g_t_0040code_007bifle_007d-directive-355"></a><br><dt><code>.ifle </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is less than or equal
+     <p><a name="index-g_t_0040code_007bifle_007d-directive-362"></a><br><dt><code>.ifle </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is less than or equal
 to zero.
 
-     <p><a name="index-g_t_0040code_007biflt_007d-directive-356"></a><br><dt><code>.iflt </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is less than zero.
+     <p><a name="index-g_t_0040code_007biflt_007d-directive-363"></a><br><dt><code>.iflt </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is less than zero.
 
-     <p><a name="index-g_t_0040code_007bifnb_007d-directive-357"></a><br><dt><code>.ifnb </code><var>text</var><dd>Like <code>.ifb</code>, but the sense of the test is reversed: this assembles the
+     <p><a name="index-g_t_0040code_007bifnb_007d-directive-364"></a><br><dt><code>.ifnb </code><var>text</var><dd>Like <code>.ifb</code>, but the sense of the test is reversed: this assembles the
 following section of code if the operand is non-blank (non-empty).
 
-     <p><a name="index-g_t_0040code_007bifnc_007d-directive-358"></a><br><dt><code>.ifnc </code><var>string1</var><code>,</code><var>string2</var><code>.</code><dd>Like <code>.ifc</code>, but the sense of the test is reversed: this assembles the
+     <p><a name="index-g_t_0040code_007bifnc_007d-directive-365"></a><br><dt><code>.ifnc </code><var>string1</var><code>,</code><var>string2</var><code>.</code><dd>Like <code>.ifc</code>, but the sense of the test is reversed: this assembles the
 following section of code if the two strings are not the same.
 
-     <p><a name="index-g_t_0040code_007bifndef_007d-directive-359"></a><a name="index-g_t_0040code_007bifnotdef_007d-directive-360"></a><br><dt><code>.ifndef </code><var>symbol</var><dt><code>.ifnotdef </code><var>symbol</var><dd>Assembles the following section of code if the specified <var>symbol</var>
+     <p><a name="index-g_t_0040code_007bifndef_007d-directive-366"></a><a name="index-g_t_0040code_007bifnotdef_007d-directive-367"></a><br><dt><code>.ifndef </code><var>symbol</var><dt><code>.ifnotdef </code><var>symbol</var><dd>Assembles the following section of code if the specified <var>symbol</var>
 has not been defined.  Both spelling variants are equivalent.  Note a symbol
 which has been referenced but not yet defined is considered to be undefined.
 
-     <p><a name="index-g_t_0040code_007bifne_007d-directive-361"></a><br><dt><code>.ifne </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is not equal to zero
+     <p><a name="index-g_t_0040code_007bifne_007d-directive-368"></a><br><dt><code>.ifne </code><var>absolute expression</var><dd>Assembles the following section of code if the argument is not equal to zero
 (in other words, this is equivalent to <code>.if</code>).
 
-     <p><a name="index-g_t_0040code_007bifnes_007d-directive-362"></a><br><dt><code>.ifnes </code><var>string1</var><code>,</code><var>string2</var><dd>Like <code>.ifeqs</code>, but the sense of the test is reversed: this assembles the
+     <p><a name="index-g_t_0040code_007bifnes_007d-directive-369"></a><br><dt><code>.ifnes </code><var>string1</var><code>,</code><var>string2</var><dd>Like <code>.ifeqs</code>, but the sense of the test is reversed: this assembles the
 following section of code if the two strings are not the same. 
 </dl>
 

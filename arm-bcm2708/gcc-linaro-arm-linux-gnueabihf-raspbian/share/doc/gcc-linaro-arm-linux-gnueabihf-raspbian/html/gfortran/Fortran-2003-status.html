@@ -9,7 +9,7 @@
 <link rel="next" href="Fortran-2008-status.html#Fortran-2008-status" title="Fortran 2008 status">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright (C) 1999-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -68,8 +68,8 @@ operators bound to a type.
 override type-bound procedures or to have deferred binding.
 
      <li>Polymorphic entities (&ldquo;<code>CLASS</code>&rdquo;) for derived types &ndash; including
-<code>SAME_TYPE_AS</code>, <code>EXTENDS_TYPE_OF</code> and <code>SELECT TYPE</code>. 
-Note that unlimited polymorphism is currently not supported.
+<code>SAME_TYPE_AS</code>, <code>EXTENDS_TYPE_OF</code> and <code>SELECT TYPE</code> for
+scalars and arrays, including unlimited polymorphism.
 
      <li>Generic interface names, which have the same name as derived types,
 are now supported. This allows one to write constructor functions.  Note
@@ -118,7 +118,7 @@ intrinsic functions <code>INT</code>, <code>REAL</code>, <code>CMPLX</code> and 
      <li>Support for namelist variables with allocatable and pointer
 attribute and nonconstant length type parameter.
 
-     <li><a name="index-array_002c-constructors-288"></a><a name="index-g_t_0040code_007b_005b_002e_002e_002e_005d_007d-289"></a>Array constructors using square brackets.  That is, <code>[...]</code> rather
+     <li><a name="index-array_002c-constructors-297"></a><a name="index-g_t_0040code_007b_005b_002e_002e_002e_005d_007d-298"></a>Array constructors using square brackets.  That is, <code>[...]</code> rather
 than <code>(/.../)</code>.  Type-specification for array constructors like
 <code>(/ some-type :: ... /)</code>.
 
@@ -128,23 +128,23 @@ including the support for intrinsics with real and complex arguments.
      <li>Support for the asynchronous input/output syntax; however, the
 data transfer is currently always synchronously performed.
 
-     <li><a name="index-g_t_0040code_007bFLUSH_007d-statement-290"></a><a name="index-statement_002c-_0040code_007bFLUSH_007d-291"></a><code>FLUSH</code> statement.
+     <li><a name="index-g_t_0040code_007bFLUSH_007d-statement-299"></a><a name="index-statement_002c-_0040code_007bFLUSH_007d-300"></a><code>FLUSH</code> statement.
 
-     <li><a name="index-g_t_0040code_007bIOMSG_003d_007d-specifier-292"></a><code>IOMSG=</code> specifier for I/O statements.
+     <li><a name="index-g_t_0040code_007bIOMSG_003d_007d-specifier-301"></a><code>IOMSG=</code> specifier for I/O statements.
 
-     <li><a name="index-g_t_0040code_007bENUM_007d-statement-293"></a><a name="index-g_t_0040code_007bENUMERATOR_007d-statement-294"></a><a name="index-statement_002c-_0040code_007bENUM_007d-295"></a><a name="index-statement_002c-_0040code_007bENUMERATOR_007d-296"></a><a name="index-g_t_0040code_007bfshort_002denums_007d-297"></a>Support for the declaration of enumeration constants via the
+     <li><a name="index-g_t_0040code_007bENUM_007d-statement-302"></a><a name="index-g_t_0040code_007bENUMERATOR_007d-statement-303"></a><a name="index-statement_002c-_0040code_007bENUM_007d-304"></a><a name="index-statement_002c-_0040code_007bENUMERATOR_007d-305"></a><a name="index-g_t_0040code_007bfshort_002denums_007d-306"></a>Support for the declaration of enumeration constants via the
 <code>ENUM</code> and <code>ENUMERATOR</code> statements.  Interoperability with
 <samp><span class="command">gcc</span></samp> is guaranteed also for the case where the
 <samp><span class="command">-fshort-enums</span></samp> command line option is given.
 
-     <li><a name="index-TR-15581-298"></a>TR 15581:
+     <li><a name="index-TR-15581-307"></a>TR 15581:
           <ul>
-<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-dummy-arguments-299"></a><code>ALLOCATABLE</code> dummy arguments. 
-<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-function-results-300"></a><code>ALLOCATABLE</code> function results
-<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-components-of-derived-types-301"></a><code>ALLOCATABLE</code> components of derived types
+<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-dummy-arguments-308"></a><code>ALLOCATABLE</code> dummy arguments. 
+<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-function-results-309"></a><code>ALLOCATABLE</code> function results
+<li><a name="index-g_t_0040code_007bALLOCATABLE_007d-components-of-derived-types-310"></a><code>ALLOCATABLE</code> components of derived types
 </ul>
 
-     <li><a name="index-g_t_0040code_007bSTREAM_007d-I_002fO-302"></a><a name="index-g_t_0040code_007bACCESS_003d_0027STREAM_0027_007d-I_002fO-303"></a>The <code>OPEN</code> statement supports the <code>ACCESS='STREAM'</code> specifier,
+     <li><a name="index-g_t_0040code_007bSTREAM_007d-I_002fO-311"></a><a name="index-g_t_0040code_007bACCESS_003d_0027STREAM_0027_007d-I_002fO-312"></a>The <code>OPEN</code> statement supports the <code>ACCESS='STREAM'</code> specifier,
 allowing I/O without any record structure.
 
      <li>Namelist input/output for internal files.
@@ -153,13 +153,13 @@ allowing I/O without any record structure.
 a decimal comma instead of a decimal point, setting whether a plus sign
 should appear for positive numbers.
 
-     <li><a name="index-g_t_0040code_007bPROTECTED_007d-statement-304"></a><a name="index-statement_002c-_0040code_007bPROTECTED_007d-305"></a>The <code>PROTECTED</code> statement and attribute.
+     <li><a name="index-g_t_0040code_007bPROTECTED_007d-statement-313"></a><a name="index-statement_002c-_0040code_007bPROTECTED_007d-314"></a>The <code>PROTECTED</code> statement and attribute.
 
-     <li><a name="index-g_t_0040code_007bVALUE_007d-statement-306"></a><a name="index-statement_002c-_0040code_007bVALUE_007d-307"></a>The <code>VALUE</code> statement and attribute.
+     <li><a name="index-g_t_0040code_007bVALUE_007d-statement-315"></a><a name="index-statement_002c-_0040code_007bVALUE_007d-316"></a>The <code>VALUE</code> statement and attribute.
 
-     <li><a name="index-g_t_0040code_007bVOLATILE_007d-statement-308"></a><a name="index-statement_002c-_0040code_007bVOLATILE_007d-309"></a>The <code>VOLATILE</code> statement and attribute.
+     <li><a name="index-g_t_0040code_007bVOLATILE_007d-statement-317"></a><a name="index-statement_002c-_0040code_007bVOLATILE_007d-318"></a>The <code>VOLATILE</code> statement and attribute.
 
-     <li><a name="index-g_t_0040code_007bIMPORT_007d-statement-310"></a><a name="index-statement_002c-_0040code_007bIMPORT_007d-311"></a>The <code>IMPORT</code> statement, allowing to import
+     <li><a name="index-g_t_0040code_007bIMPORT_007d-statement-319"></a><a name="index-statement_002c-_0040code_007bIMPORT_007d-320"></a>The <code>IMPORT</code> statement, allowing to import
 host-associated derived types.
 
      <li>The intrinsic modules <code>ISO_FORTRAN_ENVIRONMENT</code> is supported,
@@ -167,7 +167,7 @@ which contains parameters of the I/O units, storage sizes. Additionally,
 procedures for C interoperability are available in the <code>ISO_C_BINDING</code>
 module.
 
-     <li><a name="index-g_t_0040code_007bUSE_002c-INTRINSIC_007d-statement-312"></a><a name="index-statement_002c-_0040code_007bUSE_002c-INTRINSIC_007d-313"></a><a name="index-g_t_0040code_007bISO_005fFORTRAN_005fENV_007d-statement-314"></a><a name="index-statement_002c-_0040code_007bISO_005fFORTRAN_005fENV_007d-315"></a><code>USE</code> statement with <code>INTRINSIC</code> and <code>NON_INTRINSIC</code>
+     <li><a name="index-g_t_0040code_007bUSE_002c-INTRINSIC_007d-statement-321"></a><a name="index-statement_002c-_0040code_007bUSE_002c-INTRINSIC_007d-322"></a><a name="index-g_t_0040code_007bISO_005fFORTRAN_005fENV_007d-statement-323"></a><a name="index-statement_002c-_0040code_007bISO_005fFORTRAN_005fENV_007d-324"></a><code>USE</code> statement with <code>INTRINSIC</code> and <code>NON_INTRINSIC</code>
 attribute; supported intrinsic modules: <code>ISO_FORTRAN_ENV</code>,
 <code>ISO_C_BINDING</code>, <code>OMP_LIB</code> and <code>OMP_LIB_KINDS</code>.
 

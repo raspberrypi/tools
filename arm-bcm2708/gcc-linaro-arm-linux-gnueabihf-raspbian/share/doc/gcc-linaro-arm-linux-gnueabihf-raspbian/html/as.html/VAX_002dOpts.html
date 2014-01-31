@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,30 +44,30 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Vax_002dDependent.html#Vax_002dDependen
 <hr>
 </div>
 
-<h4 class="subsection">9.43.1 VAX Command-Line Options</h4>
+<h4 class="subsection">9.48.1 VAX Command-Line Options</h4>
 
-<p><a name="index-command_002dline-options-ignored_002c-VAX-2040"></a><a name="index-VAX-command_002dline-options-ignored-2041"></a>The Vax version of <code>as</code> accepts any of the following options,
+<p><a name="index-command_002dline-options-ignored_002c-VAX-2203"></a><a name="index-VAX-command_002dline-options-ignored-2204"></a>The Vax version of <code>as</code> accepts any of the following options,
 gives a warning message that the option was ignored and proceeds. 
 These options are for compatibility with scripts designed for other
 people's assemblers.
 
      
-<a name="index-g_t_0040code_007b_002dD_007d_002c-ignored-on-VAX-2042"></a>
-<a name="index-g_t_0040code_007b_002dS_007d_002c-ignored-on-VAX-2043"></a>
-<a name="index-g_t_0040code_007b_002dT_007d_002c-ignored-on-VAX-2044"></a>
+<a name="index-g_t_0040code_007b_002dD_007d_002c-ignored-on-VAX-2205"></a>
+<a name="index-g_t_0040code_007b_002dS_007d_002c-ignored-on-VAX-2206"></a>
+<a name="index-g_t_0040code_007b_002dT_007d_002c-ignored-on-VAX-2207"></a>
 <dl><dt><code>-D (Debug)</code><dt><code>-S (Symbol Table)</code><dt><code>-T (Token Trace)</code><dd>These are obsolete options used to debug old assemblers.
 
-     <p><a name="index-g_t_0040code_007b_002dd_007d_002c-VAX-option-2045"></a><br><dt><code>-d (Displacement size for JUMPs)</code><dd>This option expects a number following the &lsquo;<samp><span class="samp">-d</span></samp>&rsquo;.  Like options
+     <p><a name="index-g_t_0040code_007b_002dd_007d_002c-VAX-option-2208"></a><br><dt><code>-d (Displacement size for JUMPs)</code><dd>This option expects a number following the &lsquo;<samp><span class="samp">-d</span></samp>&rsquo;.  Like options
 that expect filenames, the number may immediately follow the
 &lsquo;<samp><span class="samp">-d</span></samp>&rsquo; (old standard) or constitute the whole of the command line
 argument that follows &lsquo;<samp><span class="samp">-d</span></samp>&rsquo; (<span class="sc">gnu</span> standard).
 
-     <p><a name="index-g_t_0040code_007b_002dV_007d_002c-redundant-on-VAX-2046"></a><br><dt><code>-V (Virtualize Interpass Temporary File)</code><dd>Some other assemblers use a temporary file.  This option
+     <p><a name="index-g_t_0040code_007b_002dV_007d_002c-redundant-on-VAX-2209"></a><br><dt><code>-V (Virtualize Interpass Temporary File)</code><dd>Some other assemblers use a temporary file.  This option
 commanded them to keep the information in active memory rather
 than in a disk file.  <code>as</code> always does this, so this
 option is redundant.
 
-     <p><a name="index-g_t_0040code_007b_002dJ_007d_002c-ignored-on-VAX-2047"></a><br><dt><code>-J (JUMPify Longer Branches)</code><dd>Many 32-bit computers permit a variety of branch instructions
+     <p><a name="index-g_t_0040code_007b_002dJ_007d_002c-ignored-on-VAX-2210"></a><br><dt><code>-J (JUMPify Longer Branches)</code><dd>Many 32-bit computers permit a variety of branch instructions
 to do the same job.  Some of these instructions are short (and
 fast) but have a limited range; others are long (and slow) but
 can branch anywhere in virtual memory.  Often there are 3
@@ -77,18 +75,18 @@ flavors of branch: short, medium and long.  Some other
 assemblers would emit short and medium branches, unless told by
 this option to emit short and long branches.
 
-     <p><a name="index-g_t_0040code_007b_002dt_007d_002c-ignored-on-VAX-2048"></a><br><dt><code>-t (Temporary File Directory)</code><dd>Some other assemblers may use a temporary file, and this option
+     <p><a name="index-g_t_0040code_007b_002dt_007d_002c-ignored-on-VAX-2211"></a><br><dt><code>-t (Temporary File Directory)</code><dd>Some other assemblers may use a temporary file, and this option
 takes a filename being the directory to site the temporary
 file.  Since <code>as</code> does not use a temporary disk file, this
 option makes no difference.  &lsquo;<samp><span class="samp">-t</span></samp>&rsquo; needs exactly one
 filename. 
 </dl>
 
-   <p><a name="index-VMS-_0028VAX_0029-options-2049"></a><a name="index-options-for-VAX_002fVMS-2050"></a><a name="index-VAX_002fVMS-options-2051"></a><a name="index-Vax_002d11-C-compatibility-2052"></a><a name="index-symbols-with-uppercase_002c-VAX_002fVMS-2053"></a>The Vax version of the assembler accepts additional options when
+   <p><a name="index-VMS-_0028VAX_0029-options-2212"></a><a name="index-options-for-VAX_002fVMS-2213"></a><a name="index-VAX_002fVMS-options-2214"></a><a name="index-Vax_002d11-C-compatibility-2215"></a><a name="index-symbols-with-uppercase_002c-VAX_002fVMS-2216"></a>The Vax version of the assembler accepts additional options when
 compiled for VMS:
 
      
-<a name="index-g_t_0040samp_007b_002dh_007d-option_002c-VAX_002fVMS-2054"></a>
+<a name="index-g_t_0040samp_007b_002dh_007d-option_002c-VAX_002fVMS-2217"></a>
 <dl><dt>&lsquo;<samp><span class="samp">-h </span><var>n</var></samp>&rsquo;<dd>External symbol or section (used for global variables) names are not
 case sensitive on VAX/VMS and always mapped to upper case.  This is
 contrary to the C language definition which explicitly distinguishes
@@ -112,15 +110,15 @@ every mapped symbol during assembly.
 general name mapping.  These symbols are normally only used to reference
 VMS library names.  Such symbols are always mapped to upper case.
 
-     <p><a name="index-g_t_0040samp_007b_002d_002b_007d-option_002c-VAX_002fVMS-2055"></a><br><dt>&lsquo;<samp><span class="samp">-+</span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">-+</span></samp>&rsquo; option causes <code>as</code> to truncate any symbol
+     <p><a name="index-g_t_0040samp_007b_002d_002b_007d-option_002c-VAX_002fVMS-2218"></a><br><dt>&lsquo;<samp><span class="samp">-+</span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">-+</span></samp>&rsquo; option causes <code>as</code> to truncate any symbol
 name larger than 31 characters.  The &lsquo;<samp><span class="samp">-+</span></samp>&rsquo; option also prevents some
 code following the &lsquo;<samp><span class="samp">_main</span></samp>&rsquo; symbol normally added to make the object
 file compatible with Vax-11 "C".
 
-     <p><a name="index-g_t_0040samp_007b_002d1_007d-option_002c-VAX_002fVMS-2056"></a><br><dt>&lsquo;<samp><span class="samp">-1</span></samp>&rsquo;<dd>This option is ignored for backward compatibility with <code>as</code>
+     <p><a name="index-g_t_0040samp_007b_002d1_007d-option_002c-VAX_002fVMS-2219"></a><br><dt>&lsquo;<samp><span class="samp">-1</span></samp>&rsquo;<dd>This option is ignored for backward compatibility with <code>as</code>
 version 1.x.
 
-     <p><a name="index-g_t_0040samp_007b_002dH_007d-option_002c-VAX_002fVMS-2057"></a><br><dt>&lsquo;<samp><span class="samp">-H</span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">-H</span></samp>&rsquo; option causes <code>as</code> to print every symbol
+     <p><a name="index-g_t_0040samp_007b_002dH_007d-option_002c-VAX_002fVMS-2220"></a><br><dt>&lsquo;<samp><span class="samp">-H</span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">-H</span></samp>&rsquo; option causes <code>as</code> to print every symbol
 which was changed by case mapping. 
 </dl>
 

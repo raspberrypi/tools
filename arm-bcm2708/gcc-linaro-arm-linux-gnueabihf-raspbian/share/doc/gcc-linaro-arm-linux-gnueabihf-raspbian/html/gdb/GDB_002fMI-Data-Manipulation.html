@@ -10,9 +10,7 @@
 <link rel="next" href="GDB_002fMI-Tracepoint-Commands.html#GDB_002fMI-Tracepoint-Commands" title="GDB/MI Tracepoint Commands">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <hr>
 </div>
 
-<h3 class="section">27.15 <span class="sc">gdb/mi</span> Data Manipulation</h3>
+<h3 class="section">27.16 <span class="sc">gdb/mi</span> Data Manipulation</h3>
 
-<p><a name="index-data-manipulation_002c-in-_0040sc_007bgdb_002fmi_007d-2208"></a><a name="index-g_t_0040sc_007bgdb_002fmi_007d_002c-data-manipulation-2209"></a>This section describes the <span class="sc">gdb/mi</span> commands that manipulate data:
+<p><a name="index-data-manipulation_002c-in-_0040sc_007bgdb_002fmi_007d-2323"></a><a name="index-g_t_0040sc_007bgdb_002fmi_007d_002c-data-manipulation-2324"></a>This section describes the <span class="sc">gdb/mi</span> commands that manipulate data:
 examine memory and registers, evaluate expressions, etc.
 
 <!-- REMOVED FROM THE INTERFACE. -->
@@ -62,7 +60,7 @@ examine memory and registers, evaluate expressions, etc.
 <!-- N.A. -->
 <h4 class="subheading">The <code>-data-disassemble</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002ddisassemble-2210"></a>
+<p><a name="index-g_t_002ddata_002ddisassemble-2325"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -93,21 +91,60 @@ mixed source and disassembly with raw opcodes).
 
 <h5 class="subsubheading">Result</h5>
 
-<p>The output for each instruction is composed of four fields:
+<p>The result of the <code>-data-disassemble</code> command will be a list named
+&lsquo;<samp><span class="samp">asm_insns</span></samp>&rsquo;, the contents of this list depend on the <var>mode</var>
+used with the <code>-data-disassemble</code> command.
 
-     <ul>
-<li>Address
-<li>Func-name
-<li>Offset
-<li>Instruction
-</ul>
+   <p>For modes 0 and 2 the &lsquo;<samp><span class="samp">asm_insns</span></samp>&rsquo; list contains tuples with the
+following fields:
 
-   <p>Note that whatever included in the instruction field, is not manipulated
-directly by <span class="sc">gdb/mi</span>, i.e., it is not possible to adjust its format.
+     <dl>
+<dt><code>address</code><dd>The address at which this instruction was disassembled.
+
+     <br><dt><code>func-name</code><dd>The name of the function this instruction is within.
+
+     <br><dt><code>offset</code><dd>The decimal offset in bytes from the start of &lsquo;<samp><span class="samp">func-name</span></samp>&rsquo;.
+
+     <br><dt><code>inst</code><dd>The text disassembly for this &lsquo;<samp><span class="samp">address</span></samp>&rsquo;.
+
+     <br><dt><code>opcodes</code><dd>This field is only present for mode 2.  This contains the raw opcode
+bytes for the &lsquo;<samp><span class="samp">inst</span></samp>&rsquo; field.
+
+   </dl>
+
+   <p>For modes 1 and 3 the &lsquo;<samp><span class="samp">asm_insns</span></samp>&rsquo; list contains tuples named
+&lsquo;<samp><span class="samp">src_and_asm_line</span></samp>&rsquo;, each of which has the following fields:
+
+     <dl>
+<dt><code>line</code><dd>The line number within &lsquo;<samp><span class="samp">file</span></samp>&rsquo;.
+
+     <br><dt><code>file</code><dd>The file name from the compilation unit.  This might be an absolute
+file name or a relative file name depending on the compile command
+used.
+
+     <br><dt><code>fullname</code><dd>Absolute file name of &lsquo;<samp><span class="samp">file</span></samp>&rsquo;.  It is converted to a canonical form
+using the source file search path
+(see <a href="Source-Path.html#Source-Path">Specifying Source Directories</a>)
+and after resolving all the symbolic links.
+
+     <p>If the source file is not found this field will contain the path as
+present in the debug information.
+
+     <br><dt><code>line_asm_insn</code><dd>This is a list of tuples containing the disassembly for &lsquo;<samp><span class="samp">line</span></samp>&rsquo; in
+&lsquo;<samp><span class="samp">file</span></samp>&rsquo;.  The fields of each tuple are the same as for
+<code>-data-disassemble</code> in <var>mode</var> 0 and 2, so &lsquo;<samp><span class="samp">address</span></samp>&rsquo;,
+&lsquo;<samp><span class="samp">func-name</span></samp>&rsquo;, &lsquo;<samp><span class="samp">offset</span></samp>&rsquo;, &lsquo;<samp><span class="samp">inst</span></samp>&rsquo;, and optionally
+&lsquo;<samp><span class="samp">opcodes</span></samp>&rsquo;.
+
+   </dl>
+
+   <p>Note that whatever included in the &lsquo;<samp><span class="samp">inst</span></samp>&rsquo; field, is not
+manipulated directly by <span class="sc">gdb/mi</span>, i.e., it is not possible to
+adjust its format.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
 
-<p>There's no direct mapping from this command to the CLI.
+<p>The corresponding <span class="sc">gdb</span> command is &lsquo;<samp><span class="samp">disassemble</span></samp>&rsquo;.
 
 <h5 class="subsubheading">Example</h5>
 
@@ -164,22 +201,22 @@ directly by <span class="sc">gdb/mi</span>, i.e., it is not possible to adjust i
      -data-disassemble -f basics.c -l 32 -n 3 -- 1
      ^done,asm_insns=[
      src_and_asm_line={line="31",
-     file="/kwikemart/marge/ezannoni/flathead-dev/devo/gdb/ \
-       testsuite/gdb.mi/basics.c",line_asm_insn=[
-     {address="0x000107bc",func-name="main",offset="0",
-     inst="save  %sp, -112, %sp"}]},
+     file="../../../src/gdb/testsuite/gdb.mi/basics.c",
+     fullname="/absolute/path/to/src/gdb/testsuite/gdb.mi/basics.c",
+     line_asm_insn=[{address="0x000107bc",
+     func-name="main",offset="0",inst="save  %sp, -112, %sp"}]},
      src_and_asm_line={line="32",
-     file="/kwikemart/marge/ezannoni/flathead-dev/devo/gdb/ \
-       testsuite/gdb.mi/basics.c",line_asm_insn=[
-     {address="0x000107c0",func-name="main",offset="4",
-     inst="mov  2, %o0"},
+     file="../../../src/gdb/testsuite/gdb.mi/basics.c",
+     fullname="/absolute/path/to/src/gdb/testsuite/gdb.mi/basics.c",
+     line_asm_insn=[{address="0x000107c0",
+     func-name="main",offset="4",inst="mov  2, %o0"},
      {address="0x000107c4",func-name="main",offset="8",
      inst="sethi  %hi(0x11800), %o2"}]}]
      (gdb)
 </pre>
    <h4 class="subheading">The <code>-data-evaluate-expression</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002devaluate_002dexpression-2211"></a>
+<p><a name="index-g_t_002ddata_002devaluate_002dexpression-2326"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -216,7 +253,7 @@ output.
 </pre>
    <h4 class="subheading">The <code>-data-list-changed-registers</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dlist_002dchanged_002dregisters-2212"></a>
+<p><a name="index-g_t_002ddata_002dlist_002dchanged_002dregisters-2327"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -250,7 +287,7 @@ has the corresponding command &lsquo;<samp><span class="samp">gdb_changed_regist
 </pre>
    <h4 class="subheading">The <code>-data-list-register-names</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dlist_002dregister_002dnames-2213"></a>
+<p><a name="index-g_t_002ddata_002dlist_002dregister_002dnames-2328"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -288,7 +325,7 @@ corresponding command &lsquo;<samp><span class="samp">gdb_regnames</span></samp>
 </pre>
    <h4 class="subheading">The <code>-data-list-register-values</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dlist_002dregister_002dvalues-2214"></a>
+<p><a name="index-g_t_002ddata_002dlist_002dregister_002dvalues-2329"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -366,7 +403,7 @@ don't appear in the actual output):
 </pre>
    <h4 class="subheading">The <code>-data-read-memory</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dread_002dmemory-2215"></a>
+<p><a name="index-g_t_002ddata_002dread_002dmemory-2330"></a>
 This command is deprecated, use <code>-data-read-memory-bytes</code> instead.
 
 <h5 class="subsubheading">Synopsis</h5>
@@ -465,7 +502,7 @@ used as the non-printable character.
 </pre>
    <h4 class="subheading">The <code>-data-read-memory-bytes</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dread_002dmemory_002dbytes-2216"></a>
+<p><a name="index-g_t_002ddata_002dread_002dmemory_002dbytes-2331"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -535,11 +572,12 @@ the start address passed to <code>-data-read-memory-bytes</code>.
 </pre>
 <h4 class="subheading">The <code>-data-write-memory-bytes</code> Command</h4>
 
-<p><a name="index-g_t_002ddata_002dwrite_002dmemory_002dbytes-2217"></a>
+<p><a name="index-g_t_002ddata_002dwrite_002dmemory_002dbytes-2332"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
 <pre class="smallexample">      -data-write-memory-bytes <var>address</var> <var>contents</var>
+      -data-write-memory-bytes <var>address</var> <var>contents</var> <span class="roman">[</span><var>count</var><span class="roman">]</span>
 </pre>
 <p class="noindent">where:
 
@@ -549,6 +587,10 @@ read.  Complex expressions containing embedded white space should be
 quoted using the C convention.
 
      <br><dt>&lsquo;<samp><var>contents</var></samp>&rsquo;<dd>The hex-encoded bytes to write.
+
+     <br><dt>&lsquo;<samp><var>count</var></samp>&rsquo;<dd>Optional argument indicating the number of bytes to be written.  If <var>count</var>
+is greater than <var>contents</var>' length, <span class="sc">gdb</span> will repeatedly
+write <var>contents</var> until it fills <var>count</var> bytes.
 
    </dl>
 
@@ -563,6 +605,11 @@ quoted using the C convention.
      ^done
      (gdb)
 </pre>
-<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<pre class="smallexample">     (gdb)
+     -data-write-memory-bytes &amp;a "aabbccdd" 16e
+     ^done
+     (gdb)
+</pre>
+   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
 

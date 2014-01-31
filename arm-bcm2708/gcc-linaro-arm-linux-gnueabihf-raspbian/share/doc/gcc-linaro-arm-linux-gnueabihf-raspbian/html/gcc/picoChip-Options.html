@@ -10,9 +10,7 @@
 <link rel="next" href="PowerPC-Options.html#PowerPC-Options" title="PowerPC Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,18 +54,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 
 <h4 class="subsection">3.17.31 picoChip Options</h4>
 
-<p><a name="index-picoChip-options-1844"></a>
+<p><a name="index-picoChip-options-1905"></a>
 These &lsquo;<samp><span class="samp">-m</span></samp>&rsquo; options are defined for picoChip implementations:
 
      <dl>
-<dt><code>-mae=</code><var>ae_type</var><dd><a name="index-mcpu-1845"></a>Set the instruction set, register set, and instruction scheduling
+<dt><code>-mae=</code><var>ae_type</var><dd><a name="index-mcpu-1906"></a>Set the instruction set, register set, and instruction scheduling
 parameters for array element type <var>ae_type</var>.  Supported values
 for <var>ae_type</var> are &lsquo;<samp><span class="samp">ANY</span></samp>&rsquo;, &lsquo;<samp><span class="samp">MUL</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">MAC</span></samp>&rsquo;.
 
      <p><samp><span class="option">-mae=ANY</span></samp> selects a completely generic AE type.  Code
-generated with this option will run on any of the other AE types.  The
-code will not be as efficient as it would be if compiled for a specific
-AE type, and some types of operation (e.g., multiplication) will not
+generated with this option runs on any of the other AE types.  The
+code is not as efficient as it would be if compiled for a specific
+AE type, and some types of operation (e.g., multiplication) do not
 work properly on all types of AE.
 
      <p><samp><span class="option">-mae=MUL</span></samp> selects a MUL AE type.  This is the most useful AE type
@@ -79,7 +77,7 @@ since the DSP AE does not provide hardware support for byte load/stores.
 
      <br><dt><code>-msymbol-as-address</code><dd>Enable the compiler to directly use a symbol name as an address in a
 load/store instruction, without first loading it into a
-register.  Typically, the use of this option will generate larger
+register.  Typically, the use of this option generates larger
 programs, which run faster than when the option isn't used.  However, the
 results vary from program to program, so it is left as a user option,
 rather than being permanently enabled.
@@ -89,10 +87,10 @@ warnings can be generated, for example, when compiling code that
 performs byte-level memory operations on the MAC AE type.  The MAC AE has
 no hardware support for byte-level memory operations, so all byte
 load/stores must be synthesized from word load/store operations.  This is
-inefficient and a warning will be generated indicating to the programmer
-that they should rewrite the code to avoid byte operations, or to target
-an AE type that has the necessary hardware support.  This option enables
-the warning to be turned off.
+inefficient and a warning is generated to indicate
+that you should rewrite the code to avoid byte operations, or to target
+an AE type that has the necessary hardware support.  This option disables
+these warnings.
 
  </dl>
 

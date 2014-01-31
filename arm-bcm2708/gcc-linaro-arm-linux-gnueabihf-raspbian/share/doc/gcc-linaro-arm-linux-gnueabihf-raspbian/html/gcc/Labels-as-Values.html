@@ -10,9 +10,7 @@
 <link rel="next" href="Nested-Functions.html#Nested-Functions" title="Nested Functions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.3 Labels as Values</h3>
 
-<p><a name="index-labels-as-values-2324"></a><a name="index-computed-gotos-2325"></a><a name="index-goto-with-computed-label-2326"></a><a name="index-address-of-a-label-2327"></a>
+<p><a name="index-labels-as-values-2413"></a><a name="index-computed-gotos-2414"></a><a name="index-goto-with-computed-label-2415"></a><a name="index-address-of-a-label-2416"></a>
 You can get the address of a label defined in the current function
 (or a containing function) with the unary operator &lsquo;<samp><span class="samp">&amp;&amp;</span></samp>&rsquo;.  The
 value has type <code>void *</code>.  This value is a constant and can be used
@@ -74,11 +72,11 @@ with the computed goto statement<a rel="footnote" href="#fn-1" name="fnd-1"><sup
  <p class="noindent">Any expression of type <code>void *</code> is allowed.
 
  <p>One way of using these constants is in initializing a static array that
-will serve as a jump table:
+serves as a jump table:
 
 <pre class="smallexample">     static void *array[] = { &amp;&amp;foo, &amp;&amp;bar, &amp;&amp;hack };
 </pre>
- <p>Then you can select a label with indexing, like this:
+ <p class="noindent">Then you can select a label with indexing, like this:
 
 <pre class="smallexample">     goto *array[i];
 </pre>
@@ -95,7 +93,7 @@ The labels within the interpreter function can be stored in the
 threaded code for super-fast dispatching.
 
  <p>You may not use this mechanism to jump to code in a different function. 
-If you do that, totally unpredictable things will happen.  The best way to
+If you do that, totally unpredictable things happen.  The best way to
 avoid this is to store the label address only in automatic variables and
 never pass it as an argument.
 

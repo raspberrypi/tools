@@ -10,9 +10,7 @@
 <link rel="next" href="Command-Files.html#Command-Files" title="Command Files">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,13 +47,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sequences.html#Sequences">Sequences</a>
 
 <h4 class="subsection">23.1.2 User-defined Command Hooks</h4>
 
-<p><a name="index-command-hooks-1599"></a><a name="index-hooks_002c-for-commands-1600"></a><a name="index-hooks_002c-pre_002dcommand-1601"></a>
-<a name="index-hook-1602"></a>You may define <dfn>hooks</dfn>, which are a special kind of user-defined
+<p><a name="index-command-hooks-1683"></a><a name="index-hooks_002c-for-commands-1684"></a><a name="index-hooks_002c-pre_002dcommand-1685"></a>
+<a name="index-hook-1686"></a>You may define <dfn>hooks</dfn>, which are a special kind of user-defined
 command.  Whenever you run the command &lsquo;<samp><span class="samp">foo</span></samp>&rsquo;, if the user-defined
 command &lsquo;<samp><span class="samp">hook-foo</span></samp>&rsquo; exists, it is executed (with no arguments)
 before that command.
 
-   <p><a name="index-hooks_002c-post_002dcommand-1603"></a><a name="index-hookpost-1604"></a>A hook may also be defined which is run after the command you executed. 
+   <p><a name="index-hooks_002c-post_002dcommand-1687"></a><a name="index-hookpost-1688"></a>A hook may also be defined which is run after the command you executed. 
 Whenever you run the command &lsquo;<samp><span class="samp">foo</span></samp>&rsquo;, if the user-defined command
 &lsquo;<samp><span class="samp">hookpost-foo</span></samp>&rsquo; exists, it is executed (with no arguments) after
 that command.  Post-execution hooks may exist simultaneously with
@@ -66,7 +64,7 @@ occurs, the hook is not re-executed, thereby avoiding infinite recursion.
 
 <!-- It would be nice if hookpost could be passed a parameter indicating -->
 <!-- if the command it hooks executed properly or not.  FIXME! -->
-   <p><a name="index-stop_0040r_007b_002c-a-pseudo_002dcommand_007d-1605"></a>In addition, a pseudo-command, &lsquo;<samp><span class="samp">stop</span></samp>&rsquo; exists.  Defining
+   <p><a name="index-stop_0040r_007b_002c-a-pseudo_002dcommand_007d-1689"></a>In addition, a pseudo-command, &lsquo;<samp><span class="samp">stop</span></samp>&rsquo; exists.  Defining
 (&lsquo;<samp><span class="samp">hook-stop</span></samp>&rsquo;) makes the associated commands execute every time
 execution stops in your program: before breakpoint commands are run,
 displays are printed, or the stack frame is printed.

@@ -11,11 +11,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,10 +47,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Simple-Commands.html#Simple-Commands">S
 
 <h4 class="subsection">3.4.2 Commands Dealing with Files</h4>
 
-<p><a name="index-linker-script-file-commands-350"></a>Several linker script commands deal with files.
+<p><a name="index-linker-script-file-commands-358"></a>Several linker script commands deal with files.
 
      <dl>
-<dt><code>INCLUDE </code><var>filename</var><dd><a name="index-INCLUDE-_0040var_007bfilename_007d-351"></a><a name="index-including-a-linker-script-352"></a>Include the linker script <var>filename</var> at this point.  The file will
+<dt><code>INCLUDE </code><var>filename</var><dd><a name="index-INCLUDE-_0040var_007bfilename_007d-359"></a><a name="index-including-a-linker-script-360"></a>Include the linker script <var>filename</var> at this point.  The file will
 be searched for in the current directory, and in any directory specified
 with the <samp><span class="option">-L</span></samp> option.  You can nest calls to <code>INCLUDE</code> up to
 10 levels deep.
@@ -59,7 +58,7 @@ with the <samp><span class="option">-L</span></samp> option.  You can nest calls
      <p>You can place <code>INCLUDE</code> directives at the top level, in <code>MEMORY</code> or
 <code>SECTIONS</code> commands, or in output section descriptions.
 
-     <br><dt><code>INPUT(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>INPUT(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-INPUT_0028_0040var_007bfiles_007d_0029-353"></a><a name="index-input-files-in-linker-scripts-354"></a><a name="index-input-object-files-in-linker-scripts-355"></a><a name="index-linker-script-input-object-files-356"></a>The <code>INPUT</code> command directs the linker to include the named files
+     <br><dt><code>INPUT(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>INPUT(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-INPUT_0028_0040var_007bfiles_007d_0029-361"></a><a name="index-input-files-in-linker-scripts-362"></a><a name="index-input-object-files-in-linker-scripts-363"></a><a name="index-linker-script-input-object-files-364"></a>The <code>INPUT</code> command directs the linker to include the named files
 in the link, as though they were named on the command line.
 
      <p>For example, if you always want to include <samp><span class="file">subr.o</span></samp> any time you do
@@ -85,12 +84,12 @@ name to <code>lib</code><var>file</var><code>.a</code>, as with the command line
 files will be included in the link at the point at which the linker
 script file is included.  This can affect archive searching.
 
-     <br><dt><code>GROUP(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>GROUP(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-GROUP_0028_0040var_007bfiles_007d_0029-357"></a><a name="index-grouping-input-files-358"></a>The <code>GROUP</code> command is like <code>INPUT</code>, except that the named
+     <br><dt><code>GROUP(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>GROUP(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-GROUP_0028_0040var_007bfiles_007d_0029-365"></a><a name="index-grouping-input-files-366"></a>The <code>GROUP</code> command is like <code>INPUT</code>, except that the named
 files should all be archives, and they are searched repeatedly until no
 new undefined references are created.  See the description of &lsquo;<samp><span class="samp">-(</span></samp>&rsquo;
 in <a href="Options.html#Options">Command Line Options</a>.
 
-     <br><dt><code>AS_NEEDED(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>AS_NEEDED(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-AS_005fNEEDED_0028_0040var_007bfiles_007d_0029-359"></a>This construct can appear only inside of the <code>INPUT</code> or <code>GROUP</code>
+     <br><dt><code>AS_NEEDED(</code><var>file</var><code>, </code><var>file</var><code>, ...)</code><dt><code>AS_NEEDED(</code><var>file</var> <var>file</var><code> ...)</code><dd><a name="index-AS_005fNEEDED_0028_0040var_007bfiles_007d_0029-367"></a>This construct can appear only inside of the <code>INPUT</code> or <code>GROUP</code>
 commands, among other filenames.  The files listed will be handled
 as if they appear directly in the <code>INPUT</code> or <code>GROUP</code> commands,
 with the exception of ELF shared libraries, that will be added only
@@ -99,7 +98,7 @@ when they are actually needed.  This construct essentially enables
 and restores previous <samp><span class="option">--as-needed</span></samp> resp. <samp><span class="option">--no-as-needed</span></samp>
 setting afterwards.
 
-     <br><dt><code>OUTPUT(</code><var>filename</var><code>)</code><dd><a name="index-OUTPUT_0028_0040var_007bfilename_007d_0029-360"></a><a name="index-output-file-name-in-linker-script-361"></a>The <code>OUTPUT</code> command names the output file.  Using
+     <br><dt><code>OUTPUT(</code><var>filename</var><code>)</code><dd><a name="index-OUTPUT_0028_0040var_007bfilename_007d_0029-368"></a><a name="index-output-file-name-in-linker-script-369"></a>The <code>OUTPUT</code> command names the output file.  Using
 <code>OUTPUT(</code><var>filename</var><code>)</code> in the linker script is exactly like using
 &lsquo;<samp><span class="samp">-o </span><var>filename</var></samp>&rsquo; on the command line (see <a href="Options.html#Options">Command Line Options</a>).  If both are used, the command line option takes
 precedence.
@@ -107,14 +106,14 @@ precedence.
      <p>You can use the <code>OUTPUT</code> command to define a default name for the
 output file other than the usual default of <samp><span class="file">a.out</span></samp>.
 
-     <br><dt><code>SEARCH_DIR(</code><var>path</var><code>)</code><dd><a name="index-SEARCH_005fDIR_0028_0040var_007bpath_007d_0029-362"></a><a name="index-library-search-path-in-linker-script-363"></a><a name="index-archive-search-path-in-linker-script-364"></a><a name="index-search-path-in-linker-script-365"></a>The <code>SEARCH_DIR</code> command adds <var>path</var> to the list of paths where
+     <br><dt><code>SEARCH_DIR(</code><var>path</var><code>)</code><dd><a name="index-SEARCH_005fDIR_0028_0040var_007bpath_007d_0029-370"></a><a name="index-library-search-path-in-linker-script-371"></a><a name="index-archive-search-path-in-linker-script-372"></a><a name="index-search-path-in-linker-script-373"></a>The <code>SEARCH_DIR</code> command adds <var>path</var> to the list of paths where
 <samp><span class="command">ld</span></samp> looks for archive libraries.  Using
 <code>SEARCH_DIR(</code><var>path</var><code>)</code> is exactly like using &lsquo;<samp><span class="samp">-L </span><var>path</var></samp>&rsquo;
 on the command line (see <a href="Options.html#Options">Command Line Options</a>).  If both
 are used, then the linker will search both paths.  Paths specified using
 the command line option are searched first.
 
-     <br><dt><code>STARTUP(</code><var>filename</var><code>)</code><dd><a name="index-STARTUP_0028_0040var_007bfilename_007d_0029-366"></a><a name="index-first-input-file-367"></a>The <code>STARTUP</code> command is just like the <code>INPUT</code> command, except
+     <br><dt><code>STARTUP(</code><var>filename</var><code>)</code><dd><a name="index-STARTUP_0028_0040var_007bfilename_007d_0029-374"></a><a name="index-first-input-file-375"></a>The <code>STARTUP</code> command is just like the <code>INPUT</code> command, except
 that <var>filename</var> will become the first input file to be linked, as
 though it were specified first on the command line.  This may be useful
 when using a system in which the entry point is always the start of the

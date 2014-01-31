@@ -11,11 +11,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,14 +45,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <hr>
 </div>
 
-<h3 class="section">4.13 <samp><span class="command">ld</span></samp> and WIN32 (cygwin/mingw)</h3>
+<h3 class="section">4.14 <samp><span class="command">ld</span></samp> and WIN32 (cygwin/mingw)</h3>
 
 <p>This section describes some of the win32 specific <samp><span class="command">ld</span></samp> issues. 
 See <a href="Options.html#Options">Command Line Options</a> for detailed description of the
 command line options mentioned here.
 
      
-<a name="index-import-libraries-667"></a>
+<a name="index-import-libraries-692"></a>
 <dl><dt><em>import libraries</em><dd>The standard Windows linker creates and uses so-called import
 libraries, which contains information for linking to dll's.  They are
 regular static archives and are handled as any other static
@@ -61,10 +60,10 @@ archive.  The cygwin and mingw ports of <samp><span class="command">ld</span></s
 support for creating such libraries provided with the
 &lsquo;<samp><span class="samp">--out-implib</span></samp>&rsquo; command line option.
 
-     <br><dt><em>exporting DLL symbols</em><dd><a name="index-exporting-DLL-symbols-668"></a>The cygwin/mingw <samp><span class="command">ld</span></samp> has several ways to export symbols for dll's.
+     <br><dt><em>exporting DLL symbols</em><dd><a name="index-exporting-DLL-symbols-693"></a>The cygwin/mingw <samp><span class="command">ld</span></samp> has several ways to export symbols for dll's.
 
           <dl>
-<dt><em>using auto-export functionality</em><dd><a name="index-using-auto_002dexport-functionality-669"></a>By default <samp><span class="command">ld</span></samp> exports symbols with the auto-export functionality,
+<dt><em>using auto-export functionality</em><dd><a name="index-using-auto_002dexport-functionality-694"></a>By default <samp><span class="command">ld</span></samp> exports symbols with the auto-export functionality,
 which is controlled by the following command line options:
 
                <ul>
@@ -93,7 +92,7 @@ if either of the following are true:
 <li>Any symbol in any object file was marked with the __declspec(dllexport) attribute. 
 </ul>
 
-          <br><dt><em>using a DEF file</em><dd><a name="index-using-a-DEF-file-670"></a>Another way of exporting symbols is using a DEF file.  A DEF file is
+          <br><dt><em>using a DEF file</em><dd><a name="index-using-a-DEF-file-695"></a>Another way of exporting symbols is using a DEF file.  A DEF file is
 an ASCII file containing definitions of symbols which should be
 exported when a dll is created.  Usually it is named &lsquo;<samp><span class="samp">&lt;dll
 name&gt;.def</span></samp>&rsquo; and is added as any other object file to the linker's
@@ -189,10 +188,10 @@ the DLL without an import library.
           <p>See ld/deffilep.y in the binutils sources for the full specification of
 other DEF file statements
 
-          <p><a name="index-creating-a-DEF-file-671"></a>While linking a shared dll, <samp><span class="command">ld</span></samp> is able to create a DEF file
+          <p><a name="index-creating-a-DEF-file-696"></a>While linking a shared dll, <samp><span class="command">ld</span></samp> is able to create a DEF file
 with the &lsquo;<samp><span class="samp">--output-def &lt;file&gt;</span></samp>&rsquo; command line option.
 
-          <br><dt><em>Using decorations</em><dd><a name="index-Using-decorations-672"></a>Another way of marking symbols for export is to modify the source code
+          <br><dt><em>Using decorations</em><dd><a name="index-Using-decorations-697"></a>Another way of marking symbols for export is to modify the source code
 itself, so that when building the DLL each symbol to be exported is
 declared as:
 
@@ -221,7 +220,7 @@ omit the __declspec() declaration completely.  See
 information. 
 </dl>
 
-     <p><a name="index-automatic-data-imports-673"></a><br><dt><em>automatic data imports</em><dd>The standard Windows dll format supports data imports from dlls only
+     <p><a name="index-automatic-data-imports-698"></a><br><dt><em>automatic data imports</em><dd>The standard Windows dll format supports data imports from dlls only
 by adding special decorations (dllimport/dllexport), which let the
 compiler produce specific assembler instructions to deal with this
 issue.  This increases the effort necessary to port existing Un*x
@@ -246,7 +245,7 @@ occurs, and several methods that can be used to overcome this difficulty.
 One of these methods is the <em>runtime pseudo-relocs</em> feature, described
 below.
 
-     <p><a name="index-runtime-pseudo_002drelocation-674"></a>For complex variables imported from DLLs (such as structs or classes),
+     <p><a name="index-runtime-pseudo_002drelocation-699"></a>For complex variables imported from DLLs (such as structs or classes),
 object files typically contain a base address for the variable and an
 offset (<em>addend</em>) within the variable&ndash;to specify a particular
 field or public member, for instance.  Unfortunately, the runtime loader used
@@ -266,7 +265,7 @@ run without error on an older system.
      <p>&lsquo;<samp><span class="samp">--enable-runtime-pseudo-relocs</span></samp>&rsquo; is not the default; it must be explicitly
 enabled as needed.
 
-     <p><a name="index-direct-linking-to-a-dll-675"></a><br><dt><em>direct linking to a dll</em><dd>The cygwin/mingw ports of <samp><span class="command">ld</span></samp> support the direct linking,
+     <p><a name="index-direct-linking-to-a-dll-700"></a><br><dt><em>direct linking to a dll</em><dd>The cygwin/mingw ports of <samp><span class="command">ld</span></samp> support the direct linking,
 including data symbols, to a dll without the usage of any import
 libraries.  This is much faster and uses much less memory than does the
 traditional import library method, especially when linking large
@@ -429,7 +428,7 @@ the original names for the renamed symbols will be exported.
 In effect, you'd be aliasing those symbols, not renaming them,
 which is probably not what you wanted.
 
-     <p><a name="index-weak-externals-676"></a><br><dt><em>weak externals</em><dd>The Windows object format, PE, specifies a form of weak symbols called
+     <p><a name="index-weak-externals-701"></a><br><dt><em>weak externals</em><dd>The Windows object format, PE, specifies a form of weak symbols called
 weak externals.  When a weak symbol is linked and the symbol is not
 defined, the weak symbol becomes an alias for some other symbol.  There
 are three variants of weak externals:
@@ -445,7 +444,7 @@ implemented.
 are supported.  If the symbol is undefined when linking, the symbol
 uses a default value.
 
-     <p><a name="index-aligned-common-symbols-677"></a><br><dt><em>aligned common symbols</em><dd>As a GNU extension to the PE file format, it is possible to specify the
+     <p><a name="index-aligned-common-symbols-702"></a><br><dt><em>aligned common symbols</em><dd>As a GNU extension to the PE file format, it is possible to specify the
 desired alignment for a common symbol.  This information is conveyed from
 the assembler or compiler to the linker by means of GNU-specific commands
 carried in the object file's &lsquo;<samp><span class="samp">.drectve</span></samp>&rsquo; section, which are recognized

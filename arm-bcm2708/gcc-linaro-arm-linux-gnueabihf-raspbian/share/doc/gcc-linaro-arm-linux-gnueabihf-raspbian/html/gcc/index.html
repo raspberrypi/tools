@@ -7,9 +7,7 @@
 <link title="Top" rel="start" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,9 +44,7 @@ This file documents the use of the GNU compilers.
  <pre class="sp">
 
 </pre>
-Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright &copy; 1988-2013 Free Software Foundation, Inc.
 
  <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -134,21 +130,24 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="Target-Options.html#Target-Options">3.16 Specifying Target Machine and Compiler Version</a>
 <li><a href="Submodel-Options.html#Submodel-Options">3.17 Hardware Models and Configurations</a>
 <ul>
-<li><a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options">3.17.1 Adapteva Epiphany Options</a>
-<li><a href="ARM-Options.html#ARM-Options">3.17.2 ARM Options</a>
-<li><a href="AVR-Options.html#AVR-Options">3.17.3 AVR Options</a>
+<li><a href="AArch64-Options.html#AArch64-Options">3.17.1 AArch64 Options</a>
 <ul>
-<li><a href="AVR-Options.html#AVR-Options">3.17.3.1 <code>EIND</code> and Devices with more than 128 Ki Bytes of Flash</a>
-<li><a href="AVR-Options.html#AVR-Options">3.17.3.2 Handling of the <code>RAMPD</code>, <code>RAMPX</code>, <code>RAMPY</code> and <code>RAMPZ</code> Special Function Registers</a>
-<li><a href="AVR-Options.html#AVR-Options">3.17.3.3 AVR Built-in Macros</a>
+<li><a href="AArch64-Options.html#AArch64-Options">3.17.1.1 <samp><span class="option">-march</span></samp> and <samp><span class="option">-mcpu</span></samp> feature modifiers</a>
 </li></ul>
-<li><a href="Blackfin-Options.html#Blackfin-Options">3.17.4 Blackfin Options</a>
-<li><a href="C6X-Options.html#C6X-Options">3.17.5 C6X Options</a>
-<li><a href="CRIS-Options.html#CRIS-Options">3.17.6 CRIS Options</a>
-<li><a href="CR16-Options.html#CR16-Options">3.17.7 CR16 Options</a>
-<li><a href="Darwin-Options.html#Darwin-Options">3.17.8 Darwin Options</a>
-<li><a href="DEC-Alpha-Options.html#DEC-Alpha-Options">3.17.9 DEC Alpha Options</a>
-<li><a href="DEC-Alpha_002fVMS-Options.html#DEC-Alpha_002fVMS-Options">3.17.10 DEC Alpha/VMS Options</a>
+<li><a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options">3.17.2 Adapteva Epiphany Options</a>
+<li><a href="ARM-Options.html#ARM-Options">3.17.3 ARM Options</a>
+<li><a href="AVR-Options.html#AVR-Options">3.17.4 AVR Options</a>
+<ul>
+<li><a href="AVR-Options.html#AVR-Options">3.17.4.1 <code>EIND</code> and Devices with more than 128 Ki Bytes of Flash</a>
+<li><a href="AVR-Options.html#AVR-Options">3.17.4.2 Handling of the <code>RAMPD</code>, <code>RAMPX</code>, <code>RAMPY</code> and <code>RAMPZ</code> Special Function Registers</a>
+<li><a href="AVR-Options.html#AVR-Options">3.17.4.3 AVR Built-in Macros</a>
+</li></ul>
+<li><a href="Blackfin-Options.html#Blackfin-Options">3.17.5 Blackfin Options</a>
+<li><a href="C6X-Options.html#C6X-Options">3.17.6 C6X Options</a>
+<li><a href="CRIS-Options.html#CRIS-Options">3.17.7 CRIS Options</a>
+<li><a href="CR16-Options.html#CR16-Options">3.17.8 CR16 Options</a>
+<li><a href="Darwin-Options.html#Darwin-Options">3.17.9 Darwin Options</a>
+<li><a href="DEC-Alpha-Options.html#DEC-Alpha-Options">3.17.10 DEC Alpha Options</a>
 <li><a href="FR30-Options.html#FR30-Options">3.17.11 FR30 Options</a>
 <li><a href="FRV-Options.html#FRV-Options">3.17.12 FRV Options</a>
 <li><a href="GNU_002fLinux-Options.html#GNU_002fLinux-Options">3.17.13 GNU/Linux Options</a>
@@ -157,17 +156,17 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">3.17.16 Intel 386 and AMD x86-64 Options</a>
 <li><a href="i386-and-x86_002d64-Windows-Options.html#i386-and-x86_002d64-Windows-Options">3.17.17 i386 and x86-64 Windows Options</a>
 <li><a href="IA_002d64-Options.html#IA_002d64-Options">3.17.18 IA-64 Options</a>
-<li><a href="IA_002d64_002fVMS-Options.html#IA_002d64_002fVMS-Options">3.17.19 IA-64/VMS Options</a>
-<li><a href="LM32-Options.html#LM32-Options">3.17.20 LM32 Options</a>
-<li><a href="M32C-Options.html#M32C-Options">3.17.21 M32C Options</a>
-<li><a href="M32R_002fD-Options.html#M32R_002fD-Options">3.17.22 M32R/D Options</a>
-<li><a href="M680x0-Options.html#M680x0-Options">3.17.23 M680x0 Options</a>
-<li><a href="MCore-Options.html#MCore-Options">3.17.24 MCore Options</a>
-<li><a href="MeP-Options.html#MeP-Options">3.17.25 MeP Options</a>
-<li><a href="MicroBlaze-Options.html#MicroBlaze-Options">3.17.26 MicroBlaze Options</a>
-<li><a href="MIPS-Options.html#MIPS-Options">3.17.27 MIPS Options</a>
-<li><a href="MMIX-Options.html#MMIX-Options">3.17.28 MMIX Options</a>
-<li><a href="MN10300-Options.html#MN10300-Options">3.17.29 MN10300 Options</a>
+<li><a href="LM32-Options.html#LM32-Options">3.17.19 LM32 Options</a>
+<li><a href="M32C-Options.html#M32C-Options">3.17.20 M32C Options</a>
+<li><a href="M32R_002fD-Options.html#M32R_002fD-Options">3.17.21 M32R/D Options</a>
+<li><a href="M680x0-Options.html#M680x0-Options">3.17.22 M680x0 Options</a>
+<li><a href="MCore-Options.html#MCore-Options">3.17.23 MCore Options</a>
+<li><a href="MeP-Options.html#MeP-Options">3.17.24 MeP Options</a>
+<li><a href="MicroBlaze-Options.html#MicroBlaze-Options">3.17.25 MicroBlaze Options</a>
+<li><a href="MIPS-Options.html#MIPS-Options">3.17.26 MIPS Options</a>
+<li><a href="MMIX-Options.html#MMIX-Options">3.17.27 MMIX Options</a>
+<li><a href="MN10300-Options.html#MN10300-Options">3.17.28 MN10300 Options</a>
+<li><a href="Moxie-Options.html#Moxie-Options">3.17.29 Moxie Options</a>
 <li><a href="PDP_002d11-Options.html#PDP_002d11-Options">3.17.30 PDP-11 Options</a>
 <li><a href="picoChip-Options.html#picoChip-Options">3.17.31 picoChip Options</a>
 <li><a href="PowerPC-Options.html#PowerPC-Options">3.17.32 PowerPC Options</a>
@@ -185,11 +184,12 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="TILEPro-Options.html#TILEPro-Options">3.17.44 TILEPro Options</a>
 <li><a href="V850-Options.html#V850-Options">3.17.45 V850 Options</a>
 <li><a href="VAX-Options.html#VAX-Options">3.17.46 VAX Options</a>
-<li><a href="VxWorks-Options.html#VxWorks-Options">3.17.47 VxWorks Options</a>
-<li><a href="x86_002d64-Options.html#x86_002d64-Options">3.17.48 x86-64 Options</a>
-<li><a href="Xstormy16-Options.html#Xstormy16-Options">3.17.49 Xstormy16 Options</a>
-<li><a href="Xtensa-Options.html#Xtensa-Options">3.17.50 Xtensa Options</a>
-<li><a href="zSeries-Options.html#zSeries-Options">3.17.51 zSeries Options</a>
+<li><a href="VMS-Options.html#VMS-Options">3.17.47 VMS Options</a>
+<li><a href="VxWorks-Options.html#VxWorks-Options">3.17.48 VxWorks Options</a>
+<li><a href="x86_002d64-Options.html#x86_002d64-Options">3.17.49 x86-64 Options</a>
+<li><a href="Xstormy16-Options.html#Xstormy16-Options">3.17.50 Xstormy16 Options</a>
+<li><a href="Xtensa-Options.html#Xtensa-Options">3.17.51 Xtensa Options</a>
+<li><a href="zSeries-Options.html#zSeries-Options">3.17.52 zSeries Options</a>
 </li></ul>
 <li><a href="Code-Gen-Options.html#Code-Gen-Options">3.18 Options for Code Generation Conventions</a>
 <li><a href="Environment-Variables.html#Environment-Variables">3.19 Environment Variables Affecting GCC</a>
@@ -228,7 +228,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="Constructing-Calls.html#Constructing-Calls">6.5 Constructing Function Calls</a>
 <li><a href="Typeof.html#Typeof">6.6 Referring to a Type with <code>typeof</code></a>
 <li><a href="Conditionals.html#Conditionals">6.7 Conditionals with Omitted Operands</a>
-<li><a href="_005f_005fint128.html#_005f_005fint128">6.8 128-bits integers</a>
+<li><a href="_005f_005fint128.html#_005f_005fint128">6.8 128-bit integers</a>
 <li><a href="Long-Long.html#Long-Long">6.9 Double-Word Integers</a>
 <li><a href="Complex.html#Complex">6.10 Complex Numbers</a>
 <li><a href="Floating-Types.html#Floating-Types">6.11 Additional Floating Types</a>
@@ -287,7 +287,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="Extended-Asm.html#Extended-Asm">6.41 Assembler Instructions with C Expression Operands</a>
 <ul>
 <li><a href="Extended-Asm.html#Extended-Asm">6.41.1 Size of an <code>asm</code></a>
-<li><a href="Extended-Asm.html#Extended-Asm">6.41.2 i386 floating point asm operands</a>
+<li><a href="Extended-Asm.html#Extended-Asm">6.41.2 i386 floating-point asm operands</a>
 </li></ul>
 <li><a href="Constraints.html#Constraints">6.42 Constraints for <code>asm</code> Operands</a>
 <ul>
@@ -306,157 +306,169 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="Incomplete-Enums.html#Incomplete-Enums">6.46 Incomplete <code>enum</code> Types</a>
 <li><a href="Function-Names.html#Function-Names">6.47 Function Names as Strings</a>
 <li><a href="Return-Address.html#Return-Address">6.48 Getting the Return or Frame Address of a Function</a>
-<li><a href="Vector-Extensions.html#Vector-Extensions">6.49 Using vector instructions through built-in functions</a>
+<li><a href="Vector-Extensions.html#Vector-Extensions">6.49 Using Vector Instructions through Built-in Functions</a>
 <li><a href="Offsetof.html#Offsetof">6.50 Offsetof</a>
-<li><a href="_005f_005fsync-Builtins.html#_005f_005fsync-Builtins">6.51 Legacy __sync built-in functions for atomic memory access</a>
+<li><a href="_005f_005fsync-Builtins.html#_005f_005fsync-Builtins">6.51 Legacy __sync Built-in Functions for Atomic Memory Access</a>
 <li><a href="_005f_005fatomic-Builtins.html#_005f_005fatomic-Builtins">6.52 Built-in functions for memory model aware atomic operations</a>
-<li><a href="Object-Size-Checking.html#Object-Size-Checking">6.53 Object Size Checking Builtins</a>
-<li><a href="Other-Builtins.html#Other-Builtins">6.54 Other built-in functions provided by GCC</a>
-<li><a href="Target-Builtins.html#Target-Builtins">6.55 Built-in Functions Specific to Particular Target Machines</a>
+<li><a href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory">6.53 x86 specific memory model extensions for transactional memory</a>
+<li><a href="Object-Size-Checking.html#Object-Size-Checking">6.54 Object Size Checking Built-in Functions</a>
+<li><a href="Other-Builtins.html#Other-Builtins">6.55 Other Built-in Functions Provided by GCC</a>
+<li><a href="Target-Builtins.html#Target-Builtins">6.56 Built-in Functions Specific to Particular Target Machines</a>
 <ul>
-<li><a href="Alpha-Built_002din-Functions.html#Alpha-Built_002din-Functions">6.55.1 Alpha Built-in Functions</a>
-<li><a href="ARM-iWMMXt-Built_002din-Functions.html#ARM-iWMMXt-Built_002din-Functions">6.55.2 ARM iWMMXt Built-in Functions</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3 ARM NEON Intrinsics</a>
+<li><a href="Alpha-Built_002din-Functions.html#Alpha-Built_002din-Functions">6.56.1 Alpha Built-in Functions</a>
+<li><a href="ARM-iWMMXt-Built_002din-Functions.html#ARM-iWMMXt-Built_002din-Functions">6.56.2 ARM iWMMXt Built-in Functions</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3 ARM NEON Intrinsics</a>
 <ul>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.1 Addition</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.2 Multiplication</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.3 Multiply-accumulate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.4 Multiply-subtract</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.5 Subtraction</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.6 Comparison (equal-to)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.7 Comparison (greater-than-or-equal-to)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.8 Comparison (less-than-or-equal-to)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.9 Comparison (greater-than)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.10 Comparison (less-than)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.11 Comparison (absolute greater-than-or-equal-to)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.12 Comparison (absolute less-than-or-equal-to)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.13 Comparison (absolute greater-than)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.14 Comparison (absolute less-than)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.15 Test bits</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.16 Absolute difference</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.17 Absolute difference and accumulate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.18 Maximum</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.19 Minimum</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.20 Pairwise add</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.21 Pairwise add, single_opcode widen and accumulate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.22 Folding maximum</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.23 Folding minimum</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.24 Reciprocal step</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.25 Vector shift left</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.26 Vector shift left by constant</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.27 Vector shift right by constant</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.28 Vector shift right by constant and accumulate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.29 Vector shift right and insert</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.30 Vector shift left and insert</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.31 Absolute value</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.32 Negation</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.33 Bitwise not</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.34 Count leading sign bits</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.35 Count leading zeros</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.36 Count number of set bits</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.37 Reciprocal estimate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.38 Reciprocal square-root estimate</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.39 Get lanes from a vector</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.40 Set lanes in a vector</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.41 Create vector from literal bit pattern</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.42 Set all lanes to the same value</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.43 Combining vectors</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.44 Splitting vectors</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.45 Conversions</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.46 Move, single_opcode narrowing</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.47 Move, single_opcode long</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.48 Table lookup</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.49 Extended table lookup</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.50 Multiply, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.51 Long multiply, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.52 Saturating doubling long multiply, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.53 Saturating doubling multiply high, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.54 Multiply-accumulate, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.55 Multiply-subtract, lane</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.56 Vector multiply by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.57 Vector long multiply by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.58 Vector saturating doubling long multiply by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.59 Vector saturating doubling multiply high by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.60 Vector multiply-accumulate by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.61 Vector multiply-subtract by scalar</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.62 Vector extract</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.63 Reverse elements</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.64 Bit selection</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.65 Transpose elements</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.66 Zip elements</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.67 Unzip elements</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.68 Element/structure loads, VLD1 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.69 Element/structure stores, VST1 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.70 Element/structure loads, VLD2 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.71 Element/structure stores, VST2 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.72 Element/structure loads, VLD3 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.73 Element/structure stores, VST3 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.74 Element/structure loads, VLD4 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.75 Element/structure stores, VST4 variants</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.76 Logical operations (AND)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.77 Logical operations (OR)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.78 Logical operations (exclusive OR)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.79 Logical operations (AND-NOT)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.80 Logical operations (OR-NOT)</a>
-<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.55.3.81 Reinterpret casts</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.1 Addition</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.2 Multiplication</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.3 Multiply-accumulate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.4 Multiply-subtract</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.5 Fused-multiply-accumulate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.6 Fused-multiply-subtract</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.7 Round to integral (to nearest, ties to even)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.8 Round to integral (to nearest, ties away from zero)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.9 Round to integral (towards +Inf)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.10 Round to integral (towards -Inf)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.11 Round to integral (towards 0)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.12 Subtraction</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.13 Comparison (equal-to)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.14 Comparison (greater-than-or-equal-to)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.15 Comparison (less-than-or-equal-to)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.16 Comparison (greater-than)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.17 Comparison (less-than)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.18 Comparison (absolute greater-than-or-equal-to)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.19 Comparison (absolute less-than-or-equal-to)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.20 Comparison (absolute greater-than)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.21 Comparison (absolute less-than)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.22 Test bits</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.23 Absolute difference</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.24 Absolute difference and accumulate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.25 Maximum</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.26 Minimum</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.27 Pairwise add</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.28 Pairwise add, single_opcode widen and accumulate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.29 Folding maximum</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.30 Folding minimum</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.31 Reciprocal step</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.32 Vector shift left</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.33 Vector shift left by constant</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.34 Vector shift right by constant</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.35 Vector shift right by constant and accumulate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.36 Vector shift right and insert</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.37 Vector shift left and insert</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.38 Absolute value</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.39 Negation</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.40 Bitwise not</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.41 Count leading sign bits</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.42 Count leading zeros</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.43 Count number of set bits</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.44 Reciprocal estimate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.45 Reciprocal square-root estimate</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.46 Get lanes from a vector</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.47 Set lanes in a vector</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.48 Create vector from literal bit pattern</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.49 Set all lanes to the same value</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.50 Combining vectors</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.51 Splitting vectors</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.52 Conversions</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.53 Move, single_opcode narrowing</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.54 Move, single_opcode long</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.55 Table lookup</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.56 Extended table lookup</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.57 Multiply, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.58 Long multiply, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.59 Saturating doubling long multiply, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.60 Saturating doubling multiply high, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.61 Multiply-accumulate, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.62 Multiply-subtract, lane</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.63 Vector multiply by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.64 Vector long multiply by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.65 Vector saturating doubling long multiply by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.66 Vector saturating doubling multiply high by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.67 Vector multiply-accumulate by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.68 Vector multiply-subtract by scalar</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.69 Vector extract</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.70 Reverse elements</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.71 Bit selection</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.72 Transpose elements</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.73 Zip elements</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.74 Unzip elements</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.75 Element/structure loads, VLD1 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.76 Element/structure stores, VST1 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.77 Element/structure loads, VLD2 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.78 Element/structure stores, VST2 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.79 Element/structure loads, VLD3 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.80 Element/structure stores, VST3 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.81 Element/structure loads, VLD4 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.82 Element/structure stores, VST4 variants</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.83 Logical operations (AND)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.84 Logical operations (OR)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.85 Logical operations (exclusive OR)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.86 Logical operations (AND-NOT)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.87 Logical operations (OR-NOT)</a>
+<li><a href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">6.56.3.88 Reinterpret casts</a>
 </li></ul>
-<li><a href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions">6.55.4 AVR Built-in Functions</a>
-<li><a href="Blackfin-Built_002din-Functions.html#Blackfin-Built_002din-Functions">6.55.5 Blackfin Built-in Functions</a>
-<li><a href="FR_002dV-Built_002din-Functions.html#FR_002dV-Built_002din-Functions">6.55.6 FR-V Built-in Functions</a>
+<li><a href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions">6.56.4 AVR Built-in Functions</a>
+<li><a href="Blackfin-Built_002din-Functions.html#Blackfin-Built_002din-Functions">6.56.5 Blackfin Built-in Functions</a>
+<li><a href="FR_002dV-Built_002din-Functions.html#FR_002dV-Built_002din-Functions">6.56.6 FR-V Built-in Functions</a>
 <ul>
-<li><a href="Argument-Types.html#Argument-Types">6.55.6.1 Argument Types</a>
-<li><a href="Directly_002dmapped-Integer-Functions.html#Directly_002dmapped-Integer-Functions">6.55.6.2 Directly-mapped Integer Functions</a>
-<li><a href="Directly_002dmapped-Media-Functions.html#Directly_002dmapped-Media-Functions">6.55.6.3 Directly-mapped Media Functions</a>
-<li><a href="Raw-read_002fwrite-Functions.html#Raw-read_002fwrite-Functions">6.55.6.4 Raw read/write Functions</a>
-<li><a href="Other-Built_002din-Functions.html#Other-Built_002din-Functions">6.55.6.5 Other Built-in Functions</a>
+<li><a href="Argument-Types.html#Argument-Types">6.56.6.1 Argument Types</a>
+<li><a href="Directly_002dmapped-Integer-Functions.html#Directly_002dmapped-Integer-Functions">6.56.6.2 Directly-mapped Integer Functions</a>
+<li><a href="Directly_002dmapped-Media-Functions.html#Directly_002dmapped-Media-Functions">6.56.6.3 Directly-mapped Media Functions</a>
+<li><a href="Raw-read_002fwrite-Functions.html#Raw-read_002fwrite-Functions">6.56.6.4 Raw read/write Functions</a>
+<li><a href="Other-Built_002din-Functions.html#Other-Built_002din-Functions">6.56.6.5 Other Built-in Functions</a>
 </li></ul>
-<li><a href="X86-Built_002din-Functions.html#X86-Built_002din-Functions">6.55.7 X86 Built-in Functions</a>
-<li><a href="MIPS-DSP-Built_002din-Functions.html#MIPS-DSP-Built_002din-Functions">6.55.8 MIPS DSP Built-in Functions</a>
-<li><a href="MIPS-Paired_002dSingle-Support.html#MIPS-Paired_002dSingle-Support">6.55.9 MIPS Paired-Single Support</a>
-<li><a href="MIPS-Loongson-Built_002din-Functions.html#MIPS-Loongson-Built_002din-Functions">6.55.10 MIPS Loongson Built-in Functions</a>
+<li><a href="X86-Built_002din-Functions.html#X86-Built_002din-Functions">6.56.7 X86 Built-in Functions</a>
+<li><a href="X86-transactional-memory-intrinsics.html#X86-transactional-memory-intrinsics">6.56.8 X86 transaction memory intrinsics</a>
+<li><a href="MIPS-DSP-Built_002din-Functions.html#MIPS-DSP-Built_002din-Functions">6.56.9 MIPS DSP Built-in Functions</a>
+<li><a href="MIPS-Paired_002dSingle-Support.html#MIPS-Paired_002dSingle-Support">6.56.10 MIPS Paired-Single Support</a>
+<li><a href="MIPS-Loongson-Built_002din-Functions.html#MIPS-Loongson-Built_002din-Functions">6.56.11 MIPS Loongson Built-in Functions</a>
 <ul>
-<li><a href="Paired_002dSingle-Arithmetic.html#Paired_002dSingle-Arithmetic">6.55.10.1 Paired-Single Arithmetic</a>
-<li><a href="Paired_002dSingle-Built_002din-Functions.html#Paired_002dSingle-Built_002din-Functions">6.55.10.2 Paired-Single Built-in Functions</a>
-<li><a href="MIPS_002d3D-Built_002din-Functions.html#MIPS_002d3D-Built_002din-Functions">6.55.10.3 MIPS-3D Built-in Functions</a>
+<li><a href="Paired_002dSingle-Arithmetic.html#Paired_002dSingle-Arithmetic">6.56.11.1 Paired-Single Arithmetic</a>
+<li><a href="Paired_002dSingle-Built_002din-Functions.html#Paired_002dSingle-Built_002din-Functions">6.56.11.2 Paired-Single Built-in Functions</a>
+<li><a href="MIPS_002d3D-Built_002din-Functions.html#MIPS_002d3D-Built_002din-Functions">6.56.11.3 MIPS-3D Built-in Functions</a>
 </li></ul>
-<li><a href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions">6.55.11 picoChip Built-in Functions</a>
-<li><a href="Other-MIPS-Built_002din-Functions.html#Other-MIPS-Built_002din-Functions">6.55.12 Other MIPS Built-in Functions</a>
-<li><a href="PowerPC-AltiVec_002fVSX-Built_002din-Functions.html#PowerPC-AltiVec_002fVSX-Built_002din-Functions">6.55.13 PowerPC AltiVec Built-in Functions</a>
-<li><a href="RX-Built_002din-Functions.html#RX-Built_002din-Functions">6.55.14 RX Built-in Functions</a>
-<li><a href="SPARC-VIS-Built_002din-Functions.html#SPARC-VIS-Built_002din-Functions">6.55.15 SPARC VIS Built-in Functions</a>
-<li><a href="SPU-Built_002din-Functions.html#SPU-Built_002din-Functions">6.55.16 SPU Built-in Functions</a>
-<li><a href="TI-C6X-Built_002din-Functions.html#TI-C6X-Built_002din-Functions">6.55.17 TI C6X Built-in Functions</a>
-<li><a href="TILE_002dGx-Built_002din-Functions.html#TILE_002dGx-Built_002din-Functions">6.55.18 TILE-Gx Built-in Functions</a>
-<li><a href="TILEPro-Built_002din-Functions.html#TILEPro-Built_002din-Functions">6.55.19 TILEPro Built-in Functions</a>
+<li><a href="Other-MIPS-Built_002din-Functions.html#Other-MIPS-Built_002din-Functions">6.56.12 Other MIPS Built-in Functions</a>
+<li><a href="picoChip-Built_002din-Functions.html#picoChip-Built_002din-Functions">6.56.13 picoChip Built-in Functions</a>
+<li><a href="PowerPC-Built_002din-Functions.html#PowerPC-Built_002din-Functions">6.56.14 PowerPC Built-in Functions</a>
+<li><a href="PowerPC-AltiVec_002fVSX-Built_002din-Functions.html#PowerPC-AltiVec_002fVSX-Built_002din-Functions">6.56.15 PowerPC AltiVec Built-in Functions</a>
+<li><a href="RX-Built_002din-Functions.html#RX-Built_002din-Functions">6.56.16 RX Built-in Functions</a>
+<li><a href="S_002f390-System-z-Built_002din-Functions.html#S_002f390-System-z-Built_002din-Functions">6.56.17 S/390 System z Built-in Functions</a>
+<li><a href="SH-Built_002din-Functions.html#SH-Built_002din-Functions">6.56.18 SH Built-in Functions</a>
+<li><a href="SPARC-VIS-Built_002din-Functions.html#SPARC-VIS-Built_002din-Functions">6.56.19 SPARC VIS Built-in Functions</a>
+<li><a href="SPU-Built_002din-Functions.html#SPU-Built_002din-Functions">6.56.20 SPU Built-in Functions</a>
+<li><a href="TI-C6X-Built_002din-Functions.html#TI-C6X-Built_002din-Functions">6.56.21 TI C6X Built-in Functions</a>
+<li><a href="TILE_002dGx-Built_002din-Functions.html#TILE_002dGx-Built_002din-Functions">6.56.22 TILE-Gx Built-in Functions</a>
+<li><a href="TILEPro-Built_002din-Functions.html#TILEPro-Built_002din-Functions">6.56.23 TILEPro Built-in Functions</a>
 </li></ul>
-<li><a href="Target-Format-Checks.html#Target-Format-Checks">6.56 Format Checks Specific to Particular Target Machines</a>
+<li><a href="Target-Format-Checks.html#Target-Format-Checks">6.57 Format Checks Specific to Particular Target Machines</a>
 <ul>
-<li><a href="Solaris-Format-Checks.html#Solaris-Format-Checks">6.56.1 Solaris Format Checks</a>
-<li><a href="Darwin-Format-Checks.html#Darwin-Format-Checks">6.56.2 Darwin Format Checks</a>
+<li><a href="Solaris-Format-Checks.html#Solaris-Format-Checks">6.57.1 Solaris Format Checks</a>
+<li><a href="Darwin-Format-Checks.html#Darwin-Format-Checks">6.57.2 Darwin Format Checks</a>
 </li></ul>
-<li><a href="Pragmas.html#Pragmas">6.57 Pragmas Accepted by GCC</a>
+<li><a href="Pragmas.html#Pragmas">6.58 Pragmas Accepted by GCC</a>
 <ul>
-<li><a href="ARM-Pragmas.html#ARM-Pragmas">6.57.1 ARM Pragmas</a>
-<li><a href="M32C-Pragmas.html#M32C-Pragmas">6.57.2 M32C Pragmas</a>
-<li><a href="MeP-Pragmas.html#MeP-Pragmas">6.57.3 MeP Pragmas</a>
-<li><a href="RS_002f6000-and-PowerPC-Pragmas.html#RS_002f6000-and-PowerPC-Pragmas">6.57.4 RS/6000 and PowerPC Pragmas</a>
-<li><a href="Darwin-Pragmas.html#Darwin-Pragmas">6.57.5 Darwin Pragmas</a>
-<li><a href="Solaris-Pragmas.html#Solaris-Pragmas">6.57.6 Solaris Pragmas</a>
-<li><a href="Symbol_002dRenaming-Pragmas.html#Symbol_002dRenaming-Pragmas">6.57.7 Symbol-Renaming Pragmas</a>
-<li><a href="Structure_002dPacking-Pragmas.html#Structure_002dPacking-Pragmas">6.57.8 Structure-Packing Pragmas</a>
-<li><a href="Weak-Pragmas.html#Weak-Pragmas">6.57.9 Weak Pragmas</a>
-<li><a href="Diagnostic-Pragmas.html#Diagnostic-Pragmas">6.57.10 Diagnostic Pragmas</a>
-<li><a href="Visibility-Pragmas.html#Visibility-Pragmas">6.57.11 Visibility Pragmas</a>
-<li><a href="Push_002fPop-Macro-Pragmas.html#Push_002fPop-Macro-Pragmas">6.57.12 Push/Pop Macro Pragmas</a>
-<li><a href="Function-Specific-Option-Pragmas.html#Function-Specific-Option-Pragmas">6.57.13 Function Specific Option Pragmas</a>
+<li><a href="ARM-Pragmas.html#ARM-Pragmas">6.58.1 ARM Pragmas</a>
+<li><a href="M32C-Pragmas.html#M32C-Pragmas">6.58.2 M32C Pragmas</a>
+<li><a href="MeP-Pragmas.html#MeP-Pragmas">6.58.3 MeP Pragmas</a>
+<li><a href="RS_002f6000-and-PowerPC-Pragmas.html#RS_002f6000-and-PowerPC-Pragmas">6.58.4 RS/6000 and PowerPC Pragmas</a>
+<li><a href="Darwin-Pragmas.html#Darwin-Pragmas">6.58.5 Darwin Pragmas</a>
+<li><a href="Solaris-Pragmas.html#Solaris-Pragmas">6.58.6 Solaris Pragmas</a>
+<li><a href="Symbol_002dRenaming-Pragmas.html#Symbol_002dRenaming-Pragmas">6.58.7 Symbol-Renaming Pragmas</a>
+<li><a href="Structure_002dPacking-Pragmas.html#Structure_002dPacking-Pragmas">6.58.8 Structure-Packing Pragmas</a>
+<li><a href="Weak-Pragmas.html#Weak-Pragmas">6.58.9 Weak Pragmas</a>
+<li><a href="Diagnostic-Pragmas.html#Diagnostic-Pragmas">6.58.10 Diagnostic Pragmas</a>
+<li><a href="Visibility-Pragmas.html#Visibility-Pragmas">6.58.11 Visibility Pragmas</a>
+<li><a href="Push_002fPop-Macro-Pragmas.html#Push_002fPop-Macro-Pragmas">6.58.12 Push/Pop Macro Pragmas</a>
+<li><a href="Function-Specific-Option-Pragmas.html#Function-Specific-Option-Pragmas">6.58.13 Function Specific Option Pragmas</a>
 </li></ul>
-<li><a href="Unnamed-Fields.html#Unnamed-Fields">6.58 Unnamed struct/union fields within structs/unions</a>
-<li><a href="Thread_002dLocal.html#Thread_002dLocal">6.59 Thread-Local Storage</a>
+<li><a href="Unnamed-Fields.html#Unnamed-Fields">6.59 Unnamed struct/union fields within structs/unions</a>
+<li><a href="Thread_002dLocal.html#Thread_002dLocal">6.60 Thread-Local Storage</a>
 <ul>
-<li><a href="C99-Thread_002dLocal-Edits.html#C99-Thread_002dLocal-Edits">6.59.1 ISO/IEC 9899:1999 Edits for Thread-Local Storage</a>
-<li><a href="C_002b_002b98-Thread_002dLocal-Edits.html#C_002b_002b98-Thread_002dLocal-Edits">6.59.2 ISO/IEC 14882:1998 Edits for Thread-Local Storage</a>
+<li><a href="C99-Thread_002dLocal-Edits.html#C99-Thread_002dLocal-Edits">6.60.1 ISO/IEC 9899:1999 Edits for Thread-Local Storage</a>
+<li><a href="C_002b_002b98-Thread_002dLocal-Edits.html#C_002b_002b98-Thread_002dLocal-Edits">6.60.2 ISO/IEC 14882:1998 Edits for Thread-Local Storage</a>
 </li></ul>
-<li><a href="Binary-constants.html#Binary-constants">6.60 Binary constants using the &lsquo;<samp><span class="samp">0b</span></samp>&rsquo; prefix</a>
+<li><a href="Binary-constants.html#Binary-constants">6.61 Binary constants using the &lsquo;<samp><span class="samp">0b</span></samp>&rsquo; prefix</a>
 </li></ul>
 <li><a name="toc_C_002b_002b-Extensions" href="C_002b_002b-Extensions.html#C_002b_002b-Extensions">7 Extensions to the C++ Language</a>
 <ul>
@@ -467,11 +479,12 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a href="Template-Instantiation.html#Template-Instantiation">7.5 Where's the Template?</a>
 <li><a href="Bound-member-functions.html#Bound-member-functions">7.6 Extracting the function pointer from a bound pointer to member function</a>
 <li><a href="C_002b_002b-Attributes.html#C_002b_002b-Attributes">7.7 C++-Specific Variable, Function, and Type Attributes</a>
-<li><a href="Namespace-Association.html#Namespace-Association">7.8 Namespace Association</a>
-<li><a href="Type-Traits.html#Type-Traits">7.9 Type Traits</a>
-<li><a href="Java-Exceptions.html#Java-Exceptions">7.10 Java Exceptions</a>
-<li><a href="Deprecated-Features.html#Deprecated-Features">7.11 Deprecated Features</a>
-<li><a href="Backwards-Compatibility.html#Backwards-Compatibility">7.12 Backwards Compatibility</a>
+<li><a href="Function-Multiversioning.html#Function-Multiversioning">7.8 Function Multiversioning</a>
+<li><a href="Namespace-Association.html#Namespace-Association">7.9 Namespace Association</a>
+<li><a href="Type-Traits.html#Type-Traits">7.10 Type Traits</a>
+<li><a href="Java-Exceptions.html#Java-Exceptions">7.11 Java Exceptions</a>
+<li><a href="Deprecated-Features.html#Deprecated-Features">7.12 Deprecated Features</a>
+<li><a href="Backwards-Compatibility.html#Backwards-Compatibility">7.13 Backwards Compatibility</a>
 </li></ul>
 <li><a name="toc_Objective_002dC" href="Objective_002dC.html#Objective_002dC">8 GNU Objective-C features</a>
 <ul>
@@ -520,21 +533,20 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <li><a name="toc_Trouble" href="Trouble.html#Trouble">11 Known Causes of Trouble with GCC</a>
 <ul>
 <li><a href="Actual-Bugs.html#Actual-Bugs">11.1 Actual Bugs We Haven't Fixed Yet</a>
-<li><a href="Cross_002dCompiler-Problems.html#Cross_002dCompiler-Problems">11.2 Cross-Compiler Problems</a>
-<li><a href="Interoperation.html#Interoperation">11.3 Interoperation</a>
-<li><a href="Incompatibilities.html#Incompatibilities">11.4 Incompatibilities of GCC</a>
-<li><a href="Fixed-Headers.html#Fixed-Headers">11.5 Fixed Header Files</a>
-<li><a href="Standard-Libraries.html#Standard-Libraries">11.6 Standard Libraries</a>
-<li><a href="Disappointments.html#Disappointments">11.7 Disappointments and Misunderstandings</a>
-<li><a href="C_002b_002b-Misunderstandings.html#C_002b_002b-Misunderstandings">11.8 Common Misunderstandings with GNU C++</a>
+<li><a href="Interoperation.html#Interoperation">11.2 Interoperation</a>
+<li><a href="Incompatibilities.html#Incompatibilities">11.3 Incompatibilities of GCC</a>
+<li><a href="Fixed-Headers.html#Fixed-Headers">11.4 Fixed Header Files</a>
+<li><a href="Standard-Libraries.html#Standard-Libraries">11.5 Standard Libraries</a>
+<li><a href="Disappointments.html#Disappointments">11.6 Disappointments and Misunderstandings</a>
+<li><a href="C_002b_002b-Misunderstandings.html#C_002b_002b-Misunderstandings">11.7 Common Misunderstandings with GNU C++</a>
 <ul>
-<li><a href="Static-Definitions.html#Static-Definitions">11.8.1 Declare <em>and</em> Define Static Members</a>
-<li><a href="Name-lookup.html#Name-lookup">11.8.2 Name lookup, templates, and accessing members of base classes</a>
-<li><a href="Temporaries.html#Temporaries">11.8.3 Temporaries May Vanish Before You Expect</a>
-<li><a href="Copy-Assignment.html#Copy-Assignment">11.8.4 Implicit Copy-Assignment for Virtual Bases</a>
+<li><a href="Static-Definitions.html#Static-Definitions">11.7.1 Declare <em>and</em> Define Static Members</a>
+<li><a href="Name-lookup.html#Name-lookup">11.7.2 Name lookup, templates, and accessing members of base classes</a>
+<li><a href="Temporaries.html#Temporaries">11.7.3 Temporaries May Vanish Before You Expect</a>
+<li><a href="Copy-Assignment.html#Copy-Assignment">11.7.4 Implicit Copy-Assignment for Virtual Bases</a>
 </li></ul>
-<li><a href="Non_002dbugs.html#Non_002dbugs">11.9 Certain Changes We Don't Want to Make</a>
-<li><a href="Warnings-and-Errors.html#Warnings-and-Errors">11.10 Warning Messages and Error Messages</a>
+<li><a href="Non_002dbugs.html#Non_002dbugs">11.8 Certain Changes We Don't Want to Make</a>
+<li><a href="Warnings-and-Errors.html#Warnings-and-Errors">11.9 Warning Messages and Error Messages</a>
 </li></ul>
 <li><a name="toc_Bugs" href="Bugs.html#Bugs">12 Reporting Bugs</a>
 <ul>
@@ -570,8 +582,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#DIR">(DIR)</a>
 This manual documents how to use the GNU compilers,
 as well as their features and incompatibilities, and how to report
 bugs.  It corresponds to the compilers
-(crosstool-NG linaro-1.13.1+bzr2458 - Linaro GCC 2012.08)
-version 4.7.2. 
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 4.8.3. 
 The internals of the GNU compilers, including how to port them to new
 targets and some information about how to write front ends for new
 languages, are documented in a separate manual.  See <a href="../gccint/index.html#Top">Introduction</a>.
@@ -581,8 +593,8 @@ languages, are documented in a separate manual.  See <a href="../gccint/index.ht
 <li><a accesskey="2" href="Standards.html#Standards">Standards</a>:        Language standards supported by GCC. 
 <li><a accesskey="3" href="Invoking-GCC.html#Invoking-GCC">Invoking GCC</a>:     Command options supported by &lsquo;<samp><span class="samp">gcc</span></samp>&rsquo;. 
 <li><a accesskey="4" href="C-Implementation.html#C-Implementation">C Implementation</a>:  How GCC implements the ISO C specification. 
-<li><a accesskey="5" href="C-Extensions.html#C-Extensions">C Extensions</a>:     GNU extensions to the C language family. 
-<li><a accesskey="6" href="C_002b_002b-Implementation.html#C_002b_002b-Implementation">C++ Implementation</a>:  How GCC implements the ISO C++ specification. 
+<li><a accesskey="5" href="C_002b_002b-Implementation.html#C_002b_002b-Implementation">C++ Implementation</a>:  How GCC implements the ISO C++ specification. 
+<li><a accesskey="6" href="C-Extensions.html#C-Extensions">C Extensions</a>:     GNU extensions to the C language family. 
 <li><a accesskey="7" href="C_002b_002b-Extensions.html#C_002b_002b-Extensions">C++ Extensions</a>:   GNU extensions to the C++ language. 
 <li><a accesskey="8" href="Objective_002dC.html#Objective_002dC">Objective-C</a>:      GNU Objective-C runtime features. 
 <li><a accesskey="9" href="Compatibility.html#Compatibility">Compatibility</a>:    Binary Compatibility
@@ -604,8 +616,7 @@ languages, are documented in a separate manual.  See <a href="../gccint/index.ht
 <li><a href="Keyword-Index.html#Keyword-Index">Keyword Index</a>:    Index of concepts and symbol names. 
 </ul>
 
-<!-- Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998, -->
-<!-- 1999, 2000, 2001, 2002, 2004, 2008, 2010 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1988-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
  </body></html>

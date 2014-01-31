@@ -10,9 +10,7 @@
 <link rel="next" href="GDB_002fMI-Symbol-Query.html#GDB_002fMI-Symbol-Query" title="GDB/MI Symbol Query">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,14 +46,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <hr>
 </div>
 
-<h3 class="section">27.16 <span class="sc">gdb/mi</span> Tracepoint Commands</h3>
+<h3 class="section">27.17 <span class="sc">gdb/mi</span> Tracepoint Commands</h3>
 
 <p>The commands defined in this section implement MI support for
 tracepoints.  For detailed introduction, see <a href="Tracepoints.html#Tracepoints">Tracepoints</a>.
 
 <h4 class="subheading">The <code>-trace-find</code> Command</h4>
 
-<p><a name="index-g_t_002dtrace_002dfind-2218"></a>
+<p><a name="index-g_t_002dtrace_002dfind-2333"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -117,7 +115,7 @@ See <a href="GDB_002fMI-Frame-Information.html#GDB_002fMI-Frame-Information">GDB
 
 <h4 class="subheading">-trace-define-variable</h4>
 
-<p><a name="index-g_t_002dtrace_002ddefine_002dvariable-2219"></a>
+<p><a name="index-g_t_002dtrace_002ddefine_002dvariable-2334"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -134,7 +132,7 @@ with the &lsquo;<samp><span class="samp">$</span></samp>&rsquo; character.
 
 <h4 class="subheading">-trace-list-variables</h4>
 
-<p><a name="index-g_t_002dtrace_002dlist_002dvariables-2220"></a>
+<p><a name="index-g_t_002dtrace_002dlist_002dvariables-2335"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -174,7 +172,7 @@ presently running.
 </pre>
 <h4 class="subheading">-trace-save</h4>
 
-<p><a name="index-g_t_002dtrace_002dsave-2221"></a>
+<p><a name="index-g_t_002dtrace_002dsave-2336"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -191,7 +189,7 @@ to perform the save.
 
 <h4 class="subheading">-trace-start</h4>
 
-<p><a name="index-g_t_002dtrace_002dstart-2222"></a>
+<p><a name="index-g_t_002dtrace_002dstart-2337"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -206,7 +204,7 @@ have any fields.
 
 <h4 class="subheading">-trace-status</h4>
 
-<p><a name="index-g_t_002dtrace_002dstatus-2223"></a>
+<p><a name="index-g_t_002dtrace_002dstatus-2338"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -257,6 +255,9 @@ and may fill up.
 tracing will continue after <span class="sc">gdb</span> disconnects, <code>0</code> means
 that the trace run will stop.
 
+     <br><dt>&lsquo;<samp><span class="samp">trace-file</span></samp>&rsquo;<dd>The filename of the trace file being examined.  This field is
+optional, and only present when examining a trace file.
+
    </dl>
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -265,7 +266,7 @@ that the trace run will stop.
 
 <h4 class="subheading">-trace-stop</h4>
 
-<p><a name="index-g_t_002dtrace_002dstop-2224"></a>
+<p><a name="index-g_t_002dtrace_002dstop-2339"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 

@@ -9,10 +9,7 @@
 <link rel="next" href="Environment-Variables.html#Environment-Variables" title="Environment Variables">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1987, 1989, 1991, 1992, 1993, 1994, 1995, 1996,
-1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,
-2008, 2009, 2010, 2011
-Free Software Foundation, Inc.
+Copyright (C) 1987-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -58,7 +55,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="chapter">12 Invocation</h2>
 
-<p><a name="index-invocation-118"></a><a name="index-command-line-119"></a>
+<p><a name="index-invocation-120"></a><a name="index-command-line-121"></a>
 Most often when you use the C preprocessor you will not have to invoke it
 explicitly: the C compiler will do so automatically.  However, the
 preprocessor is sometimes useful on its own.  All the options listed
@@ -89,14 +86,13 @@ which take an argument may have that argument appear either immediately
 after the option, or with a space between option and argument:
 <samp><span class="option">-Ifoo</span></samp> and <samp><span class="option">-I foo</span></samp> have the same effect.
 
-   <p><a name="index-grouping-options-120"></a><a name="index-options_002c-grouping-121"></a>Many options have multi-letter names; therefore multiple single-letter
+   <p><a name="index-grouping-options-122"></a><a name="index-options_002c-grouping-123"></a>Many options have multi-letter names; therefore multiple single-letter
 options may <em>not</em> be grouped: <samp><span class="option">-dM</span></samp> is very different from
 &lsquo;<samp><span class="samp">-d&nbsp;-M</span></samp>&rsquo;<!-- /@w -->.
 
-   <p><a name="index-options-122"></a>
+   <p><a name="index-options-124"></a>
 
-<!-- Copyright (c) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, -->
-<!-- 2010, Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1999-2013 Free Software Foundation, Inc. -->
 <!-- This is part of the CPP and GCC manuals. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!--  -->
@@ -105,7 +101,7 @@ options may <em>not</em> be grouped: <samp><span class="option">-dM</span></samp
 <!-- If this file is included with the flag ``cppmanual'' set, it is -->
 <!-- formatted for inclusion in the CPP manual; otherwise the main GCC manual. -->
      <dl>
-<dt><code>-D </code><var>name</var><dd><a name="index-D-123"></a>Predefine <var>name</var> as a macro, with definition <code>1</code>.
+<dt><code>-D </code><var>name</var><dd><a name="index-D-125"></a>Predefine <var>name</var> as a macro, with definition <code>1</code>.
 
      <br><dt><code>-D </code><var>name</var><code>=</code><var>definition</var><dd>The contents of <var>definition</var> are tokenized and processed as if
 they appeared during translation phase three in a &lsquo;<samp><span class="samp">#define</span></samp>&rsquo;
@@ -127,14 +123,14 @@ are given on the command line.  All <samp><span class="option">-imacros </span><
 <samp><span class="option">-include </span><var>file</var></samp> options are processed after all
 <samp><span class="option">-D</span></samp> and <samp><span class="option">-U</span></samp> options.
 
-     <br><dt><code>-U </code><var>name</var><dd><a name="index-U-124"></a>Cancel any previous definition of <var>name</var>, either built in or
+     <br><dt><code>-U </code><var>name</var><dd><a name="index-U-126"></a>Cancel any previous definition of <var>name</var>, either built in or
 provided with a <samp><span class="option">-D</span></samp> option.
 
-     <br><dt><code>-undef</code><dd><a name="index-undef-125"></a>Do not predefine any system-specific or GCC-specific macros.  The
+     <br><dt><code>-undef</code><dd><a name="index-undef-127"></a>Do not predefine any system-specific or GCC-specific macros.  The
 standard predefined macros remain defined. 
 See <a href="Standard-Predefined-Macros.html#Standard-Predefined-Macros">Standard Predefined Macros</a>.
 
-     <br><dt><code>-I </code><var>dir</var><dd><a name="index-I-126"></a>Add the directory <var>dir</var> to the list of directories to be searched
+     <br><dt><code>-I </code><var>dir</var><dd><a name="index-I-128"></a>Add the directory <var>dir</var> to the list of directories to be searched
 for header files. 
 See <a href="Search-Path.html#Search-Path">Search Path</a>. 
 Directories named by <samp><span class="option">-I</span></samp> are searched before the standard
@@ -147,23 +143,23 @@ of system headers are not defeated
 If <var>dir</var> begins with <code>=</code>, then the <code>=</code> will be replaced
 by the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
 
-     <br><dt><code>-o </code><var>file</var><dd><a name="index-o-127"></a>Write output to <var>file</var>.  This is the same as specifying <var>file</var>
+     <br><dt><code>-o </code><var>file</var><dd><a name="index-o-129"></a>Write output to <var>file</var>.  This is the same as specifying <var>file</var>
 as the second non-option argument to <samp><span class="command">cpp</span></samp>.  <samp><span class="command">gcc</span></samp> has a
 different interpretation of a second non-option argument, so you must
 use <samp><span class="option">-o</span></samp> to specify the output file.
 
-     <br><dt><code>-Wall</code><dd><a name="index-Wall-128"></a>Turns on all optional warnings which are desirable for normal code. 
+     <br><dt><code>-Wall</code><dd><a name="index-Wall-130"></a>Turns on all optional warnings which are desirable for normal code. 
 At present this is <samp><span class="option">-Wcomment</span></samp>, <samp><span class="option">-Wtrigraphs</span></samp>,
 <samp><span class="option">-Wmultichar</span></samp> and a warning about integer promotion causing a
 change of sign in <code>#if</code> expressions.  Note that many of the
 preprocessor's warnings are on by default and have no options to
 control them.
 
-     <br><dt><code>-Wcomment</code><dt><code>-Wcomments</code><dd><a name="index-Wcomment-129"></a><a name="index-Wcomments-130"></a>Warn whenever a comment-start sequence &lsquo;<samp><span class="samp">/*</span></samp>&rsquo; appears in a &lsquo;<samp><span class="samp">/*</span></samp>&rsquo;
+     <br><dt><code>-Wcomment</code><dt><code>-Wcomments</code><dd><a name="index-Wcomment-131"></a><a name="index-Wcomments-132"></a>Warn whenever a comment-start sequence &lsquo;<samp><span class="samp">/*</span></samp>&rsquo; appears in a &lsquo;<samp><span class="samp">/*</span></samp>&rsquo;
 comment, or whenever a backslash-newline appears in a &lsquo;<samp><span class="samp">//</span></samp>&rsquo; comment. 
 (Both forms have the same effect.)
 
-     <br><dt><code>-Wtrigraphs</code><dd><a name="index-Wtrigraphs-131"></a><a name="Wtrigraphs"></a>Most trigraphs in comments cannot affect the meaning of the program. 
+     <br><dt><code>-Wtrigraphs</code><dd><a name="index-Wtrigraphs-133"></a><a name="Wtrigraphs"></a>Most trigraphs in comments cannot affect the meaning of the program. 
 However, a trigraph that would form an escaped newline (&lsquo;<samp><span class="samp">??/</span></samp>&rsquo; at
 the end of a line) can, by changing where the comment begins or ends. 
 Therefore, only trigraphs that would form escaped newlines produce
@@ -174,16 +170,16 @@ given, this option is still enabled unless trigraphs are enabled.  To
 get trigraph conversion without warnings, but get the other
 <samp><span class="option">-Wall</span></samp> warnings, use &lsquo;<samp><span class="samp">-trigraphs -Wall -Wno-trigraphs</span></samp>&rsquo;.
 
-     <br><dt><code>-Wtraditional</code><dd><a name="index-Wtraditional-132"></a>Warn about certain constructs that behave differently in traditional and
+     <br><dt><code>-Wtraditional</code><dd><a name="index-Wtraditional-134"></a>Warn about certain constructs that behave differently in traditional and
 ISO C.  Also warn about ISO C constructs that have no traditional C
 equivalent, and problematic constructs which should be avoided. 
 See <a href="Traditional-Mode.html#Traditional-Mode">Traditional Mode</a>.
 
-     <br><dt><code>-Wundef</code><dd><a name="index-Wundef-133"></a>Warn whenever an identifier which is not a macro is encountered in an
+     <br><dt><code>-Wundef</code><dd><a name="index-Wundef-135"></a>Warn whenever an identifier which is not a macro is encountered in an
 &lsquo;<samp><span class="samp">#if</span></samp>&rsquo; directive, outside of &lsquo;<samp><span class="samp">defined</span></samp>&rsquo;.  Such identifiers are
 replaced with zero.
 
-     <br><dt><code>-Wunused-macros</code><dd><a name="index-Wunused_002dmacros-134"></a>Warn about macros defined in the main file that are unused.  A macro
+     <br><dt><code>-Wunused-macros</code><dd><a name="index-Wunused_002dmacros-136"></a>Warn about macros defined in the main file that are unused.  A macro
 is <dfn>used</dfn> if it is expanded or tested for existence at least once. 
 The preprocessor will also warn if the macro has not been used at the
 time it is redefined or undefined.
@@ -200,7 +196,7 @@ Alternatively, you could provide a dummy use with something like:
      <pre class="smallexample">          #if defined the_macro_causing_the_warning
           #endif
 </pre>
-     <br><dt><code>-Wendif-labels</code><dd><a name="index-Wendif_002dlabels-135"></a>Warn whenever an &lsquo;<samp><span class="samp">#else</span></samp>&rsquo; or an &lsquo;<samp><span class="samp">#endif</span></samp>&rsquo; are followed by text. 
+     <br><dt><code>-Wendif-labels</code><dd><a name="index-Wendif_002dlabels-137"></a>Warn whenever an &lsquo;<samp><span class="samp">#else</span></samp>&rsquo; or an &lsquo;<samp><span class="samp">#endif</span></samp>&rsquo; are followed by text. 
 This usually happens in code of the form
 
      <pre class="smallexample">          #if FOO
@@ -212,24 +208,24 @@ This usually happens in code of the form
      <p class="noindent">The second and third <code>FOO</code> should be in comments, but often are not
 in older programs.  This warning is on by default.
 
-     <br><dt><code>-Werror</code><dd><a name="index-Werror-136"></a>Make all warnings into hard errors.  Source code which triggers warnings
+     <br><dt><code>-Werror</code><dd><a name="index-Werror-138"></a>Make all warnings into hard errors.  Source code which triggers warnings
 will be rejected.
 
-     <br><dt><code>-Wsystem-headers</code><dd><a name="index-Wsystem_002dheaders-137"></a>Issue warnings for code in system headers.  These are normally unhelpful
+     <br><dt><code>-Wsystem-headers</code><dd><a name="index-Wsystem_002dheaders-139"></a>Issue warnings for code in system headers.  These are normally unhelpful
 in finding bugs in your own code, therefore suppressed.  If you are
 responsible for the system library, you may want to see them.
 
-     <br><dt><code>-w</code><dd><a name="index-w-138"></a>Suppress all warnings, including those which GNU CPP issues by default.
+     <br><dt><code>-w</code><dd><a name="index-w-140"></a>Suppress all warnings, including those which GNU CPP issues by default.
 
-     <br><dt><code>-pedantic</code><dd><a name="index-pedantic-139"></a>Issue all the mandatory diagnostics listed in the C standard.  Some of
+     <br><dt><code>-pedantic</code><dd><a name="index-pedantic-141"></a>Issue all the mandatory diagnostics listed in the C standard.  Some of
 them are left out by default, since they trigger frequently on harmless
 code.
 
-     <br><dt><code>-pedantic-errors</code><dd><a name="index-pedantic_002derrors-140"></a>Issue all the mandatory diagnostics, and make all mandatory diagnostics
+     <br><dt><code>-pedantic-errors</code><dd><a name="index-pedantic_002derrors-142"></a>Issue all the mandatory diagnostics, and make all mandatory diagnostics
 into errors.  This includes mandatory diagnostics that GCC issues
 without &lsquo;<samp><span class="samp">-pedantic</span></samp>&rsquo; but treats as warnings.
 
-     <br><dt><code>-M</code><dd><a name="index-M-141"></a><a name="index-g_t_0040command_007bmake_007d-142"></a><a name="index-dependencies_002c-_0040command_007bmake_007d-143"></a>Instead of outputting the result of preprocessing, output a rule
+     <br><dt><code>-M</code><dd><a name="index-M-143"></a><a name="index-g_t_0040command_007bmake_007d-144"></a><a name="index-dependencies_002c-_0040command_007bmake_007d-145"></a>Instead of outputting the result of preprocessing, output a rule
 suitable for <samp><span class="command">make</span></samp> describing the dependencies of the main
 source file.  The preprocessor outputs one <samp><span class="command">make</span></samp> rule containing
 the object file name for that source file, a colon, and the names of all
@@ -253,7 +249,7 @@ will still be sent to the regular output stream as normal.
      <p>Passing <samp><span class="option">-M</span></samp> to the driver implies <samp><span class="option">-E</span></samp>, and suppresses
 warnings with an implicit <samp><span class="option">-w</span></samp>.
 
-     <br><dt><code>-MM</code><dd><a name="index-MM-144"></a>Like <samp><span class="option">-M</span></samp> but do not mention header files that are found in
+     <br><dt><code>-MM</code><dd><a name="index-MM-146"></a>Like <samp><span class="option">-M</span></samp> but do not mention header files that are found in
 system header directories, nor header files that are included,
 directly or indirectly, from such a header.
 
@@ -262,7 +258,7 @@ directly or indirectly, from such a header.
 header will appear in <samp><span class="option">-MM</span></samp> dependency output.  This is a
 slight change in semantics from GCC versions 3.0 and earlier.
 
-     <p><a name="dashMF"></a><br><dt><code>-MF </code><var>file</var><dd><a name="index-MF-145"></a>When used with <samp><span class="option">-M</span></samp> or <samp><span class="option">-MM</span></samp>, specifies a
+     <p><a name="dashMF"></a><br><dt><code>-MF </code><var>file</var><dd><a name="index-MF-147"></a>When used with <samp><span class="option">-M</span></samp> or <samp><span class="option">-MM</span></samp>, specifies a
 file to write the dependencies to.  If no <samp><span class="option">-MF</span></samp> switch is given
 the preprocessor sends the rules to the same place it would have sent
 preprocessed output.
@@ -270,7 +266,7 @@ preprocessed output.
      <p>When used with the driver options <samp><span class="option">-MD</span></samp> or <samp><span class="option">-MMD</span></samp>,
 <samp><span class="option">-MF</span></samp> overrides the default dependency output file.
 
-     <br><dt><code>-MG</code><dd><a name="index-MG-146"></a>In conjunction with an option such as <samp><span class="option">-M</span></samp> requesting
+     <br><dt><code>-MG</code><dd><a name="index-MG-148"></a>In conjunction with an option such as <samp><span class="option">-M</span></samp> requesting
 dependency generation, <samp><span class="option">-MG</span></samp> assumes missing header files are
 generated files and adds them to the dependency list without raising
 an error.  The dependency filename is taken directly from the
@@ -280,7 +276,7 @@ this useless.
 
      <p>This feature is used in automatic updating of makefiles.
 
-     <br><dt><code>-MP</code><dd><a name="index-MP-147"></a>This option instructs CPP to add a phony target for each dependency
+     <br><dt><code>-MP</code><dd><a name="index-MP-149"></a>This option instructs CPP to add a phony target for each dependency
 other than the main file, causing each to depend on nothing.  These
 dummy rules work around errors <samp><span class="command">make</span></samp> gives if you remove header
 files without updating the <samp><span class="file">Makefile</span></samp> to match.
@@ -291,7 +287,7 @@ files without updating the <samp><span class="file">Makefile</span></samp> to ma
           
           test.h:
 </pre>
-     <br><dt><code>-MT </code><var>target</var><dd><a name="index-MT-148"></a>
+     <br><dt><code>-MT </code><var>target</var><dd><a name="index-MT-150"></a>
 Change the target of the rule emitted by dependency generation.  By
 default CPP takes the name of the main input file, deletes any
 directory components and any file suffix such as &lsquo;<samp><span class="samp">.c</span></samp>&rsquo;, and
@@ -305,7 +301,7 @@ argument to <samp><span class="option">-MT</span></samp>, or use multiple <samp>
 
      <pre class="smallexample">          $(objpfx)foo.o: foo.c
 </pre>
-     <br><dt><code>-MQ </code><var>target</var><dd><a name="index-MQ-149"></a>
+     <br><dt><code>-MQ </code><var>target</var><dd><a name="index-MQ-151"></a>
 Same as <samp><span class="option">-MT</span></samp>, but it quotes any characters which are special to
 Make.  <samp><span class="option">-MQ&nbsp;'$(objpfx)foo.o'<!-- /@w --></span></samp> gives
 
@@ -314,7 +310,7 @@ Make.  <samp><span class="option">-MQ&nbsp;'$(objpfx)foo.o'<!-- /@w --></span></
      <p>The default target is automatically quoted, as if it were given with
 <samp><span class="option">-MQ</span></samp>.
 
-     <br><dt><code>-MD</code><dd><a name="index-MD-150"></a><samp><span class="option">-MD</span></samp> is equivalent to <samp><span class="option">-M -MF </span><var>file</var></samp>, except that
+     <br><dt><code>-MD</code><dd><a name="index-MD-152"></a><samp><span class="option">-MD</span></samp> is equivalent to <samp><span class="option">-M -MF </span><var>file</var></samp>, except that
 <samp><span class="option">-E</span></samp> is not implied.  The driver determines <var>file</var> based on
 whether an <samp><span class="option">-o</span></samp> option is given.  If it is, the driver uses its
 argument but with a suffix of <samp><span class="file">.d</span></samp>, otherwise it takes the name
@@ -329,10 +325,10 @@ is understood to specify a target object file.
      <p>Since <samp><span class="option">-E</span></samp> is not implied, <samp><span class="option">-MD</span></samp> can be used to generate
 a dependency output file as a side-effect of the compilation process.
 
-     <br><dt><code>-MMD</code><dd><a name="index-MMD-151"></a>Like <samp><span class="option">-MD</span></samp> except mention only user header files, not system
+     <br><dt><code>-MMD</code><dd><a name="index-MMD-153"></a>Like <samp><span class="option">-MD</span></samp> except mention only user header files, not system
 header files.
 
-     <br><dt><code>-x c</code><dt><code>-x c++</code><dt><code>-x objective-c</code><dt><code>-x assembler-with-cpp</code><dd><a name="index-x-152"></a>Specify the source language: C, C++, Objective-C, or assembly.  This has
+     <br><dt><code>-x c</code><dt><code>-x c++</code><dt><code>-x objective-c</code><dt><code>-x assembler-with-cpp</code><dd><a name="index-x-154"></a>Specify the source language: C, C++, Objective-C, or assembly.  This has
 nothing to do with standards conformance or extensions; it merely
 selects which base syntax to expect.  If you give none of these options,
 cpp will deduce the language from the extension of the source file:
@@ -346,7 +342,7 @@ which selected both the language and the standards conformance level.
 This option has been removed, because it conflicts with the <samp><span class="option">-l</span></samp>
 option.
 
-     <br><dt><code>-std=</code><var>standard</var><dt><code>-ansi</code><dd><a name="index-ansi-153"></a><a name="index-std_003d-154"></a>Specify the standard to which the code should conform.  Currently CPP
+     <br><dt><code>-std=</code><var>standard</var><dt><code>-ansi</code><dd><a name="index-ansi-155"></a><a name="index-std_003d-156"></a>Specify the standard to which the code should conform.  Currently CPP
 knows about C and C++ standards; others may be added in the future.
 
      <p><var>standard</var>
@@ -377,7 +373,7 @@ publication, this was known as C1X.
 default for C++ code. 
 </dl>
 
-     <br><dt><code>-I-</code><dd><a name="index-I_002d-155"></a>Split the include path.  Any directories specified with <samp><span class="option">-I</span></samp>
+     <br><dt><code>-I-</code><dd><a name="index-I_002d-157"></a>Split the include path.  Any directories specified with <samp><span class="option">-I</span></samp>
 options before <samp><span class="option">-I-</span></samp> are searched only for headers requested with
 <code>#include&nbsp;"</code><var>file</var><code>"<!-- /@w --></code>; they are not searched for
 <code>#include&nbsp;&lt;</code><var>file</var><code>&gt;<!-- /@w --></code>.  If additional directories are
@@ -389,15 +385,15 @@ file directory as the first search directory for <code>#include&nbsp;"</code><va
 See <a href="Search-Path.html#Search-Path">Search Path</a>. 
 This option has been deprecated.
 
-     <br><dt><code>-nostdinc</code><dd><a name="index-nostdinc-156"></a>Do not search the standard system directories for header files. 
+     <br><dt><code>-nostdinc</code><dd><a name="index-nostdinc-158"></a>Do not search the standard system directories for header files. 
 Only the directories you have specified with <samp><span class="option">-I</span></samp> options
 (and the directory of the current file, if appropriate) are searched.
 
-     <br><dt><code>-nostdinc++</code><dd><a name="index-nostdinc_002b_002b-157"></a>Do not search for header files in the C++-specific standard directories,
+     <br><dt><code>-nostdinc++</code><dd><a name="index-nostdinc_002b_002b-159"></a>Do not search for header files in the C++-specific standard directories,
 but do still search the other standard directories.  (This option is
 used when building the C++ library.)
 
-     <br><dt><code>-include </code><var>file</var><dd><a name="index-include-158"></a>Process <var>file</var> as if <code>#include "file"</code> appeared as the first
+     <br><dt><code>-include </code><var>file</var><dd><a name="index-include-160"></a>Process <var>file</var> as if <code>#include "file"</code> appeared as the first
 line of the primary source file.  However, the first directory searched
 for <var>file</var> is the preprocessor's working directory <em>instead of</em>
 the directory containing the main source file.  If not found there, it
@@ -407,7 +403,7 @@ chain as normal.
      <p>If multiple <samp><span class="option">-include</span></samp> options are given, the files are included
 in the order they appear on the command line.
 
-     <br><dt><code>-imacros </code><var>file</var><dd><a name="index-imacros-159"></a>Exactly like <samp><span class="option">-include</span></samp>, except that any output produced by
+     <br><dt><code>-imacros </code><var>file</var><dd><a name="index-imacros-161"></a>Exactly like <samp><span class="option">-include</span></samp>, except that any output produced by
 scanning <var>file</var> is thrown away.  Macros it defines remain defined. 
 This allows you to acquire all the macros from a header without also
 processing its declarations.
@@ -415,30 +411,30 @@ processing its declarations.
      <p>All files specified by <samp><span class="option">-imacros</span></samp> are processed before all files
 specified by <samp><span class="option">-include</span></samp>.
 
-     <br><dt><code>-idirafter </code><var>dir</var><dd><a name="index-idirafter-160"></a>Search <var>dir</var> for header files, but do it <em>after</em> all
+     <br><dt><code>-idirafter </code><var>dir</var><dd><a name="index-idirafter-162"></a>Search <var>dir</var> for header files, but do it <em>after</em> all
 directories specified with <samp><span class="option">-I</span></samp> and the standard system directories
 have been exhausted.  <var>dir</var> is treated as a system include directory. 
 If <var>dir</var> begins with <code>=</code>, then the <code>=</code> will be replaced
 by the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
 
-     <br><dt><code>-iprefix </code><var>prefix</var><dd><a name="index-iprefix-161"></a>Specify <var>prefix</var> as the prefix for subsequent <samp><span class="option">-iwithprefix</span></samp>
+     <br><dt><code>-iprefix </code><var>prefix</var><dd><a name="index-iprefix-163"></a>Specify <var>prefix</var> as the prefix for subsequent <samp><span class="option">-iwithprefix</span></samp>
 options.  If the prefix represents a directory, you should include the
 final &lsquo;<samp><span class="samp">/</span></samp>&rsquo;.
 
-     <br><dt><code>-iwithprefix </code><var>dir</var><dt><code>-iwithprefixbefore </code><var>dir</var><dd><a name="index-iwithprefix-162"></a><a name="index-iwithprefixbefore-163"></a>Append <var>dir</var> to the prefix specified previously with
+     <br><dt><code>-iwithprefix </code><var>dir</var><dt><code>-iwithprefixbefore </code><var>dir</var><dd><a name="index-iwithprefix-164"></a><a name="index-iwithprefixbefore-165"></a>Append <var>dir</var> to the prefix specified previously with
 <samp><span class="option">-iprefix</span></samp>, and add the resulting directory to the include search
 path.  <samp><span class="option">-iwithprefixbefore</span></samp> puts it in the same place <samp><span class="option">-I</span></samp>
 would; <samp><span class="option">-iwithprefix</span></samp> puts it where <samp><span class="option">-idirafter</span></samp> would.
 
-     <br><dt><code>-isysroot </code><var>dir</var><dd><a name="index-isysroot-164"></a>This option is like the <samp><span class="option">--sysroot</span></samp> option, but applies only to
+     <br><dt><code>-isysroot </code><var>dir</var><dd><a name="index-isysroot-166"></a>This option is like the <samp><span class="option">--sysroot</span></samp> option, but applies only to
 header files (except for Darwin targets, where it applies to both header
 files and libraries).  See the <samp><span class="option">--sysroot</span></samp> option for more
 information.
 
-     <br><dt><code>-imultilib </code><var>dir</var><dd><a name="index-imultilib-165"></a>Use <var>dir</var> as a subdirectory of the directory containing
+     <br><dt><code>-imultilib </code><var>dir</var><dd><a name="index-imultilib-167"></a>Use <var>dir</var> as a subdirectory of the directory containing
 target-specific C++ headers.
 
-     <br><dt><code>-isystem </code><var>dir</var><dd><a name="index-isystem-166"></a>Search <var>dir</var> for header files, after all directories specified by
+     <br><dt><code>-isystem </code><var>dir</var><dd><a name="index-isystem-168"></a>Search <var>dir</var> for header files, after all directories specified by
 <samp><span class="option">-I</span></samp> but before the standard system directories.  Mark it
 as a system directory, so that it gets the same special treatment as
 is applied to the standard system directories. 
@@ -446,7 +442,7 @@ See <a href="System-Headers.html#System-Headers">System Headers</a>.
 If <var>dir</var> begins with <code>=</code>, then the <code>=</code> will be replaced
 by the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
 
-     <br><dt><code>-iquote </code><var>dir</var><dd><a name="index-iquote-167"></a>Search <var>dir</var> only for header files requested with
+     <br><dt><code>-iquote </code><var>dir</var><dd><a name="index-iquote-169"></a>Search <var>dir</var> only for header files requested with
 <code>#include&nbsp;"</code><var>file</var><code>"<!-- /@w --></code>; they are not searched for
 <code>#include&nbsp;&lt;</code><var>file</var><code>&gt;<!-- /@w --></code>, before all directories specified by
 <samp><span class="option">-I</span></samp> and before the standard system directories. 
@@ -454,7 +450,7 @@ See <a href="Search-Path.html#Search-Path">Search Path</a>.
 If <var>dir</var> begins with <code>=</code>, then the <code>=</code> will be replaced
 by the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
 
-     <br><dt><code>-fdirectives-only</code><dd><a name="index-fdirectives_002donly-168"></a>When preprocessing, handle directives, but do not expand macros.
+     <br><dt><code>-fdirectives-only</code><dd><a name="index-fdirectives_002donly-170"></a>When preprocessing, handle directives, but do not expand macros.
 
      <p>The option's behavior depends on the <samp><span class="option">-E</span></samp> and <samp><span class="option">-fpreprocessed</span></samp>
 options.
@@ -474,14 +470,16 @@ files previously preprocessed with <code>-E -fdirectives-only</code>.
 <samp><span class="option">-fpreprocessed</span></samp> take precedence.  This enables full preprocessing of
 files previously preprocessed with <code>-E -fdirectives-only</code>.
 
-     <br><dt><code>-fdollars-in-identifiers</code><dd><a name="index-fdollars_002din_002didentifiers-169"></a><a name="fdollars_002din_002didentifiers"></a>Accept &lsquo;<samp><span class="samp">$</span></samp>&rsquo; in identifiers. 
+     <br><dt><code>-fdollars-in-identifiers</code><dd><a name="index-fdollars_002din_002didentifiers-171"></a><a name="fdollars_002din_002didentifiers"></a>Accept &lsquo;<samp><span class="samp">$</span></samp>&rsquo; in identifiers. 
 See <a href="Identifier-characters.html#Identifier-characters">Identifier characters</a>.
 
-     <br><dt><code>-fextended-identifiers</code><dd><a name="index-fextended_002didentifiers-170"></a>Accept universal character names in identifiers.  This option is
+     <br><dt><code>-fextended-identifiers</code><dd><a name="index-fextended_002didentifiers-172"></a>Accept universal character names in identifiers.  This option is
 experimental; in a future version of GCC, it will be enabled by
 default for C99 and C++.
 
-     <br><dt><code>-fpreprocessed</code><dd><a name="index-fpreprocessed-171"></a>Indicate to the preprocessor that the input file has already been
+     <br><dt><code>-fno-canonical-system-headers</code><dd><a name="index-fno_002dcanonical_002dsystem_002dheaders-173"></a>When preprocessing, do not shorten system header paths with canonicalization.
+
+     <br><dt><code>-fpreprocessed</code><dd><a name="index-fpreprocessed-174"></a>Indicate to the preprocessor that the input file has already been
 preprocessed.  This suppresses things like macro expansion, trigraph
 conversion, escaped newline splicing, and processing of most directives. 
 The preprocessor still recognizes and removes comments, so that you can
@@ -494,12 +492,12 @@ extensions &lsquo;<samp><span class="samp">.i</span></samp>&rsquo;, &lsquo;<samp
 extensions that GCC uses for preprocessed files created by
 <samp><span class="option">-save-temps</span></samp>.
 
-     <br><dt><code>-ftabstop=</code><var>width</var><dd><a name="index-ftabstop-172"></a>Set the distance between tab stops.  This helps the preprocessor report
+     <br><dt><code>-ftabstop=</code><var>width</var><dd><a name="index-ftabstop-175"></a>Set the distance between tab stops.  This helps the preprocessor report
 correct column numbers in warnings or errors, even if tabs appear on the
 line.  If the value is less than 1 or greater than 100, the option is
 ignored.  The default is 8.
 
-     <br><dt><code>-fdebug-cpp</code><dd><a name="index-fdebug_002dcpp-173"></a>This option is only useful for debugging GCC.  When used with
+     <br><dt><code>-fdebug-cpp</code><dd><a name="index-fdebug_002dcpp-176"></a>This option is only useful for debugging GCC.  When used with
 <samp><span class="option">-E</span></samp>, dumps debugging information about location maps.  Every
 token in the output is preceded by the dump of the map its location
 belongs to.  The dump of the map holding the location of a token would
@@ -508,7 +506,7 @@ be:
 </pre>
      <p>When used without <samp><span class="option">-E</span></samp>, this option has no effect.
 
-     <br><dt><code>-ftrack-macro-expansion</code><span class="roman">[</span><code>=</code><var>level</var><span class="roman">]</span><dd><a name="index-ftrack_002dmacro_002dexpansion-174"></a>Track locations of tokens across macro expansions. This allows the
+     <br><dt><code>-ftrack-macro-expansion</code><span class="roman">[</span><code>=</code><var>level</var><span class="roman">]</span><dd><a name="index-ftrack_002dmacro_002dexpansion-177"></a>Track locations of tokens across macro expansions. This allows the
 compiler to emit diagnostic about the current macro expansion stack
 when a compilation error occurs in a macro expansion. Using this
 option makes the preprocessor and the compiler consume more
@@ -524,18 +522,20 @@ tokens locations completely. This value is the most memory hungry.
 When this option is given no argument, the default parameter value is
 &lsquo;<samp><span class="samp">2</span></samp>&rsquo;.
 
-     <br><dt><code>-fexec-charset=</code><var>charset</var><dd><a name="index-fexec_002dcharset-175"></a><a name="index-character-set_002c-execution-176"></a>Set the execution character set, used for string and character
+     <p>Note that -ftrack-macro-expansion=2 is activated by default.
+
+     <br><dt><code>-fexec-charset=</code><var>charset</var><dd><a name="index-fexec_002dcharset-178"></a><a name="index-character-set_002c-execution-179"></a>Set the execution character set, used for string and character
 constants.  The default is UTF-8.  <var>charset</var> can be any encoding
 supported by the system's <code>iconv</code> library routine.
 
-     <br><dt><code>-fwide-exec-charset=</code><var>charset</var><dd><a name="index-fwide_002dexec_002dcharset-177"></a><a name="index-character-set_002c-wide-execution-178"></a>Set the wide execution character set, used for wide string and
+     <br><dt><code>-fwide-exec-charset=</code><var>charset</var><dd><a name="index-fwide_002dexec_002dcharset-180"></a><a name="index-character-set_002c-wide-execution-181"></a>Set the wide execution character set, used for wide string and
 character constants.  The default is UTF-32 or UTF-16, whichever
 corresponds to the width of <code>wchar_t</code>.  As with
 <samp><span class="option">-fexec-charset</span></samp>, <var>charset</var> can be any encoding supported
 by the system's <code>iconv</code> library routine; however, you will have
 problems with encodings that do not fit exactly in <code>wchar_t</code>.
 
-     <br><dt><code>-finput-charset=</code><var>charset</var><dd><a name="index-finput_002dcharset-179"></a><a name="index-character-set_002c-input-180"></a>Set the input character set, used for translation from the character
+     <br><dt><code>-finput-charset=</code><var>charset</var><dd><a name="index-finput_002dcharset-182"></a><a name="index-character-set_002c-input-183"></a>Set the input character set, used for translation from the character
 set of the input file to the source character set used by GCC.  If the
 locale does not specify, or GCC cannot get this information from the
 locale, the default is UTF-8.  This can be overridden by either the locale
@@ -543,7 +543,7 @@ or this command line option.  Currently the command line option takes
 precedence if there's a conflict.  <var>charset</var> can be any encoding
 supported by the system's <code>iconv</code> library routine.
 
-     <br><dt><code>-fworking-directory</code><dd><a name="index-fworking_002ddirectory-181"></a><a name="index-fno_002dworking_002ddirectory-182"></a>Enable generation of linemarkers in the preprocessor output that will
+     <br><dt><code>-fworking-directory</code><dd><a name="index-fworking_002ddirectory-184"></a><a name="index-fno_002dworking_002ddirectory-185"></a>Enable generation of linemarkers in the preprocessor output that will
 let the compiler know the current working directory at the time of
 preprocessing.  When this option is enabled, the preprocessor will
 emit, after the initial linemarker, a second linemarker with the
@@ -556,11 +556,11 @@ form <samp><span class="option">-fno-working-directory</span></samp>.  If the <s
 present in the command line, this option has no effect, since no
 <code>#line</code> directives are emitted whatsoever.
 
-     <br><dt><code>-fno-show-column</code><dd><a name="index-fno_002dshow_002dcolumn-183"></a>Do not print column numbers in diagnostics.  This may be necessary if
+     <br><dt><code>-fno-show-column</code><dd><a name="index-fno_002dshow_002dcolumn-186"></a>Do not print column numbers in diagnostics.  This may be necessary if
 diagnostics are being scanned by a program that does not understand the
 column numbers, such as <samp><span class="command">dejagnu</span></samp>.
 
-     <br><dt><code>-A </code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-A-184"></a>Make an assertion with the predicate <var>predicate</var> and answer
+     <br><dt><code>-A </code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-A-187"></a>Make an assertion with the predicate <var>predicate</var> and answer
 <var>answer</var>.  This form is preferred to the older form <samp><span class="option">-A
 </span><var>predicate</var><span class="option">(</span><var>answer</var><span class="option">)</span></samp>, which is still supported, because
 it does not use shell special characters. 
@@ -576,7 +576,7 @@ are silently ignored.  If you specify characters whose behavior
 conflicts, the result is undefined.
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">M</span></samp>&rsquo;<dd><a name="index-dM-185"></a>Instead of the normal output, generate a list of &lsquo;<samp><span class="samp">#define</span></samp>&rsquo;
+<dt>&lsquo;<samp><span class="samp">M</span></samp>&rsquo;<dd><a name="index-dM-188"></a>Instead of the normal output, generate a list of &lsquo;<samp><span class="samp">#define</span></samp>&rsquo;
 directives for all the macros defined during the execution of the
 preprocessor, including predefined macros.  This gives you a way of
 finding out what is predefined in your version of the preprocessor. 
@@ -590,30 +590,30 @@ Assuming you have no file <samp><span class="file">foo.h</span></samp>, the comm
 interpreted as a synonym for <samp><span class="option">-fdump-rtl-mach</span></samp>. 
 See <a href="../gcc/Debugging-Options.html#Debugging-Options">Debugging Options</a>.
 
-          <br><dt>&lsquo;<samp><span class="samp">D</span></samp>&rsquo;<dd><a name="index-dD-186"></a>Like &lsquo;<samp><span class="samp">M</span></samp>&rsquo; except in two respects: it does <em>not</em> include the
+          <br><dt>&lsquo;<samp><span class="samp">D</span></samp>&rsquo;<dd><a name="index-dD-189"></a>Like &lsquo;<samp><span class="samp">M</span></samp>&rsquo; except in two respects: it does <em>not</em> include the
 predefined macros, and it outputs <em>both</em> the &lsquo;<samp><span class="samp">#define</span></samp>&rsquo;
 directives and the result of preprocessing.  Both kinds of output go to
 the standard output file.
 
-          <br><dt>&lsquo;<samp><span class="samp">N</span></samp>&rsquo;<dd><a name="index-dN-187"></a>Like &lsquo;<samp><span class="samp">D</span></samp>&rsquo;, but emit only the macro names, not their expansions.
+          <br><dt>&lsquo;<samp><span class="samp">N</span></samp>&rsquo;<dd><a name="index-dN-190"></a>Like &lsquo;<samp><span class="samp">D</span></samp>&rsquo;, but emit only the macro names, not their expansions.
 
-          <br><dt>&lsquo;<samp><span class="samp">I</span></samp>&rsquo;<dd><a name="index-dI-188"></a>Output &lsquo;<samp><span class="samp">#include</span></samp>&rsquo; directives in addition to the result of
+          <br><dt>&lsquo;<samp><span class="samp">I</span></samp>&rsquo;<dd><a name="index-dI-191"></a>Output &lsquo;<samp><span class="samp">#include</span></samp>&rsquo; directives in addition to the result of
 preprocessing.
 
-          <br><dt>&lsquo;<samp><span class="samp">U</span></samp>&rsquo;<dd><a name="index-dU-189"></a>Like &lsquo;<samp><span class="samp">D</span></samp>&rsquo; except that only macros that are expanded, or whose
+          <br><dt>&lsquo;<samp><span class="samp">U</span></samp>&rsquo;<dd><a name="index-dU-192"></a>Like &lsquo;<samp><span class="samp">D</span></samp>&rsquo; except that only macros that are expanded, or whose
 definedness is tested in preprocessor directives, are output; the
 output is delayed until the use or test of the macro; and
 &lsquo;<samp><span class="samp">#undef</span></samp>&rsquo; directives are also output for macros tested but
 undefined at the time. 
 </dl>
 
-     <br><dt><code>-P</code><dd><a name="index-P-190"></a>Inhibit generation of linemarkers in the output from the preprocessor. 
+     <br><dt><code>-P</code><dd><a name="index-P-193"></a>Inhibit generation of linemarkers in the output from the preprocessor. 
 This might be useful when running the preprocessor on something that is
 not C code, and will be sent to a program which might be confused by the
 linemarkers. 
 See <a href="Preprocessor-Output.html#Preprocessor-Output">Preprocessor Output</a>.
 
-     <br><dt><code>-C</code><dd><a name="index-C-191"></a>Do not discard comments.  All comments are passed through to the output
+     <br><dt><code>-C</code><dd><a name="index-C-194"></a>Do not discard comments.  All comments are passed through to the output
 file, except for comments in processed directives, which are deleted
 along with the directive.
 
@@ -635,29 +635,29 @@ the source line.
 
      <p>The <samp><span class="option">-CC</span></samp> option is generally used to support lint comments.
 
-     <br><dt><code>-traditional-cpp</code><dd><a name="index-traditional_002dcpp-192"></a>Try to imitate the behavior of old-fashioned C preprocessors, as
+     <br><dt><code>-traditional-cpp</code><dd><a name="index-traditional_002dcpp-195"></a>Try to imitate the behavior of old-fashioned C preprocessors, as
 opposed to ISO C preprocessors. 
 See <a href="Traditional-Mode.html#Traditional-Mode">Traditional Mode</a>.
 
-     <br><dt><code>-trigraphs</code><dd><a name="index-trigraphs-193"></a>Process trigraph sequences. 
+     <br><dt><code>-trigraphs</code><dd><a name="index-trigraphs-196"></a>Process trigraph sequences. 
 See <a href="Initial-processing.html#Initial-processing">Initial processing</a>.
 
-     <br><dt><code>-remap</code><dd><a name="index-remap-194"></a>Enable special code to work around file systems which only permit very
+     <br><dt><code>-remap</code><dd><a name="index-remap-197"></a>Enable special code to work around file systems which only permit very
 short file names, such as MS-DOS.
 
-     <dt><code>--help</code><dt><code>--target-help</code><dd><a name="index-help-195"></a><a name="index-target_002dhelp-196"></a>Print text describing all the command line options instead of
+     <br><dt><code>--help</code><dt><code>--target-help</code><dd><a name="index-help-198"></a><a name="index-target_002dhelp-199"></a>Print text describing all the command line options instead of
 preprocessing anything.
 
-     <br><dt><code>-v</code><dd><a name="index-v-197"></a>Verbose mode.  Print out GNU CPP's version number at the beginning of
+     <br><dt><code>-v</code><dd><a name="index-v-200"></a>Verbose mode.  Print out GNU CPP's version number at the beginning of
 execution, and report the final form of the include path.
 
-     <br><dt><code>-H</code><dd><a name="index-H-198"></a>Print the name of each header file used, in addition to other normal
+     <br><dt><code>-H</code><dd><a name="index-H-201"></a>Print the name of each header file used, in addition to other normal
 activities.  Each name is indented to show how deep in the
 &lsquo;<samp><span class="samp">#include</span></samp>&rsquo; stack it is.  Precompiled header files are also
 printed, even if they are found to be invalid; an invalid precompiled
 header file is printed with &lsquo;<samp><span class="samp">...x</span></samp>&rsquo; and a valid one with &lsquo;<samp><span class="samp">...!</span></samp>&rsquo; .
 
-     <br><dt><code>-version</code><dt><code>--version</code><dd><a name="index-version-199"></a>Print out GNU CPP's version number.  With one dash, proceed to
+     <br><dt><code>-version</code><dt><code>--version</code><dd><a name="index-version-202"></a>Print out GNU CPP's version number.  With one dash, proceed to
 preprocess as normal.  With two dashes, exit immediately. 
 </dl>
    <!-- man end -->

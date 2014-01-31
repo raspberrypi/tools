@@ -10,9 +10,7 @@
 <link rel="next" href="GDB_002fMI-Target-Manipulation.html#GDB_002fMI-Target-Manipulation" title="GDB/MI Target Manipulation">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,14 +46,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <hr>
 </div>
 
-<h3 class="section">27.18 <span class="sc">gdb/mi</span> File Commands</h3>
+<h3 class="section">27.19 <span class="sc">gdb/mi</span> File Commands</h3>
 
 <p>This section describes the GDB/MI commands to specify executable file names
 and to read in and obtain symbol table information.
 
 <h4 class="subheading">The <code>-file-exec-and-symbols</code> Command</h4>
 
-<p><a name="index-g_t_002dfile_002dexec_002dand_002dsymbols-2226"></a>
+<p><a name="index-g_t_002dfile_002dexec_002dand_002dsymbols-2341"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -81,7 +79,7 @@ notification.
 </pre>
 <h4 class="subheading">The <code>-file-exec-file</code> Command</h4>
 
-<p><a name="index-g_t_002dfile_002dexec_002dfile-2227"></a>
+<p><a name="index-g_t_002dfile_002dexec_002dfile-2342"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -106,7 +104,7 @@ notification.
 </pre>
 <h4 class="subheading">The <code>-file-list-exec-source-file</code> Command</h4>
 
-<p><a name="index-g_t_002dfile_002dlist_002dexec_002dsource_002dfile-2228"></a>
+<p><a name="index-g_t_002dfile_002dlist_002dexec_002dsource_002dfile-2343"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -130,7 +128,7 @@ whether or not the file includes preprocessor macro information.
 </pre>
 <h4 class="subheading">The <code>-file-list-exec-source-files</code> Command</h4>
 
-<p><a name="index-g_t_002dfile_002dlist_002dexec_002dsource_002dfiles-2229"></a>
+<p><a name="index-g_t_002dfile_002dlist_002dexec_002dsource_002dfiles-2344"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -138,8 +136,8 @@ whether or not the file includes preprocessor macro information.
 </pre>
    <p>List the source files for the current executable.
 
-   <p>It will always output the filename, but only when <span class="sc">gdb</span> can find
-the absolute file name of a source file, will it output the fullname.
+   <p>It will always output both the filename and fullname (absolute file
+name) of a source file.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
 
@@ -158,7 +156,7 @@ the absolute file name of a source file, will it output the fullname.
 </pre>
 <h4 class="subheading">The <code>-file-symbol-file</code> Command</h4>
 
-<p><a name="index-g_t_002dfile_002dsymbol_002dfile-2230"></a>
+<p><a name="index-g_t_002dfile_002dsymbol_002dfile-2345"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 

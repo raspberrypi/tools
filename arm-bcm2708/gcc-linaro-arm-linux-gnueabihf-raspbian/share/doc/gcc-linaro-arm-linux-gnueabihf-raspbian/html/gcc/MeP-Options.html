@@ -10,9 +10,7 @@
 <link rel="next" href="MicroBlaze-Options.html#MicroBlaze-Options" title="MicroBlaze Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,36 +52,36 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 <hr>
 </div>
 
-<h4 class="subsection">3.17.25 MeP Options</h4>
+<h4 class="subsection">3.17.24 MeP Options</h4>
 
-<p><a name="index-MeP-options-1628"></a>
+<p><a name="index-MeP-options-1679"></a>
      <dl>
-<dt><code>-mabsdiff</code><dd><a name="index-mabsdiff-1629"></a>Enables the <code>abs</code> instruction, which is the absolute difference
+<dt><code>-mabsdiff</code><dd><a name="index-mabsdiff-1680"></a>Enables the <code>abs</code> instruction, which is the absolute difference
 between two registers.
 
-     <br><dt><code>-mall-opts</code><dd><a name="index-mall_002dopts-1630"></a>Enables all the optional instructions - average, multiply, divide, bit
+     <br><dt><code>-mall-opts</code><dd><a name="index-mall_002dopts-1681"></a>Enables all the optional instructions&mdash;average, multiply, divide, bit
 operations, leading zero, absolute difference, min/max, clip, and
 saturation.
 
-     <br><dt><code>-maverage</code><dd><a name="index-maverage-1631"></a>Enables the <code>ave</code> instruction, which computes the average of two
+     <br><dt><code>-maverage</code><dd><a name="index-maverage-1682"></a>Enables the <code>ave</code> instruction, which computes the average of two
 registers.
 
-     <br><dt><code>-mbased=</code><var>n</var><dd><a name="index-mbased_003d-1632"></a>Variables of size <var>n</var> bytes or smaller will be placed in the
+     <br><dt><code>-mbased=</code><var>n</var><dd><a name="index-mbased_003d-1683"></a>Variables of size <var>n</var> bytes or smaller are placed in the
 <code>.based</code> section by default.  Based variables use the <code>$tp</code>
 register as a base register, and there is a 128-byte limit to the
 <code>.based</code> section.
 
-     <br><dt><code>-mbitops</code><dd><a name="index-mbitops-1633"></a>Enables the bit operation instructions - bit test (<code>btstm</code>), set
+     <br><dt><code>-mbitops</code><dd><a name="index-mbitops-1684"></a>Enables the bit operation instructions&mdash;bit test (<code>btstm</code>), set
 (<code>bsetm</code>), clear (<code>bclrm</code>), invert (<code>bnotm</code>), and
 test-and-set (<code>tas</code>).
 
-     <br><dt><code>-mc=</code><var>name</var><dd><a name="index-mc_003d-1634"></a>Selects which section constant data will be placed in.  <var>name</var> may
+     <br><dt><code>-mc=</code><var>name</var><dd><a name="index-mc_003d-1685"></a>Selects which section constant data is placed in.  <var>name</var> may
 be <code>tiny</code>, <code>near</code>, or <code>far</code>.
 
-     <br><dt><code>-mclip</code><dd><a name="index-mclip-1635"></a>Enables the <code>clip</code> instruction.  Note that <code>-mclip</code> is not
+     <br><dt><code>-mclip</code><dd><a name="index-mclip-1686"></a>Enables the <code>clip</code> instruction.  Note that <code>-mclip</code> is not
 useful unless you also provide <code>-mminmax</code>.
 
-     <br><dt><code>-mconfig=</code><var>name</var><dd><a name="index-mconfig_003d-1636"></a>Selects one of the build-in core configurations.  Each MeP chip has
+     <br><dt><code>-mconfig=</code><var>name</var><dd><a name="index-mconfig_003d-1687"></a>Selects one of the built-in core configurations.  Each MeP chip has
 one or more modules in it; each module has a core CPU and a variety of
 coprocessors, optional instructions, and peripherals.  The
 <code>MeP-Integrator</code> tool, not part of GCC, provides these
@@ -91,61 +89,61 @@ configurations through this option; using this option is the same as
 using all the corresponding command-line options.  The default
 configuration is <code>default</code>.
 
-     <br><dt><code>-mcop</code><dd><a name="index-mcop-1637"></a>Enables the coprocessor instructions.  By default, this is a 32-bit
+     <br><dt><code>-mcop</code><dd><a name="index-mcop-1688"></a>Enables the coprocessor instructions.  By default, this is a 32-bit
 coprocessor.  Note that the coprocessor is normally enabled via the
 <code>-mconfig=</code> option.
 
-     <br><dt><code>-mcop32</code><dd><a name="index-mcop32-1638"></a>Enables the 32-bit coprocessor's instructions.
+     <br><dt><code>-mcop32</code><dd><a name="index-mcop32-1689"></a>Enables the 32-bit coprocessor's instructions.
 
-     <br><dt><code>-mcop64</code><dd><a name="index-mcop64-1639"></a>Enables the 64-bit coprocessor's instructions.
+     <br><dt><code>-mcop64</code><dd><a name="index-mcop64-1690"></a>Enables the 64-bit coprocessor's instructions.
 
-     <br><dt><code>-mivc2</code><dd><a name="index-mivc2-1640"></a>Enables IVC2 scheduling.  IVC2 is a 64-bit VLIW coprocessor.
+     <br><dt><code>-mivc2</code><dd><a name="index-mivc2-1691"></a>Enables IVC2 scheduling.  IVC2 is a 64-bit VLIW coprocessor.
 
-     <br><dt><code>-mdc</code><dd><a name="index-mdc-1641"></a>Causes constant variables to be placed in the <code>.near</code> section.
+     <br><dt><code>-mdc</code><dd><a name="index-mdc-1692"></a>Causes constant variables to be placed in the <code>.near</code> section.
 
-     <br><dt><code>-mdiv</code><dd><a name="index-mdiv-1642"></a>Enables the <code>div</code> and <code>divu</code> instructions.
+     <br><dt><code>-mdiv</code><dd><a name="index-mdiv-1693"></a>Enables the <code>div</code> and <code>divu</code> instructions.
 
-     <br><dt><code>-meb</code><dd><a name="index-meb-1643"></a>Generate big-endian code.
+     <br><dt><code>-meb</code><dd><a name="index-meb-1694"></a>Generate big-endian code.
 
-     <br><dt><code>-mel</code><dd><a name="index-mel-1644"></a>Generate little-endian code.
+     <br><dt><code>-mel</code><dd><a name="index-mel-1695"></a>Generate little-endian code.
 
-     <br><dt><code>-mio-volatile</code><dd><a name="index-mio_002dvolatile-1645"></a>Tells the compiler that any variable marked with the <code>io</code>
+     <br><dt><code>-mio-volatile</code><dd><a name="index-mio_002dvolatile-1696"></a>Tells the compiler that any variable marked with the <code>io</code>
 attribute is to be considered volatile.
 
-     <br><dt><code>-ml</code><dd><a name="index-ml-1646"></a>Causes variables to be assigned to the <code>.far</code> section by default.
+     <br><dt><code>-ml</code><dd><a name="index-ml-1697"></a>Causes variables to be assigned to the <code>.far</code> section by default.
 
-     <br><dt><code>-mleadz</code><dd><a name="index-mleadz-1647"></a>Enables the <code>leadz</code> (leading zero) instruction.
+     <br><dt><code>-mleadz</code><dd><a name="index-mleadz-1698"></a>Enables the <code>leadz</code> (leading zero) instruction.
 
-     <br><dt><code>-mm</code><dd><a name="index-mm-1648"></a>Causes variables to be assigned to the <code>.near</code> section by default.
+     <br><dt><code>-mm</code><dd><a name="index-mm-1699"></a>Causes variables to be assigned to the <code>.near</code> section by default.
 
-     <br><dt><code>-mminmax</code><dd><a name="index-mminmax-1649"></a>Enables the <code>min</code> and <code>max</code> instructions.
+     <br><dt><code>-mminmax</code><dd><a name="index-mminmax-1700"></a>Enables the <code>min</code> and <code>max</code> instructions.
 
-     <br><dt><code>-mmult</code><dd><a name="index-mmult-1650"></a>Enables the multiplication and multiply-accumulate instructions.
+     <br><dt><code>-mmult</code><dd><a name="index-mmult-1701"></a>Enables the multiplication and multiply-accumulate instructions.
 
-     <br><dt><code>-mno-opts</code><dd><a name="index-mno_002dopts-1651"></a>Disables all the optional instructions enabled by <code>-mall-opts</code>.
+     <br><dt><code>-mno-opts</code><dd><a name="index-mno_002dopts-1702"></a>Disables all the optional instructions enabled by <code>-mall-opts</code>.
 
-     <br><dt><code>-mrepeat</code><dd><a name="index-mrepeat-1652"></a>Enables the <code>repeat</code> and <code>erepeat</code> instructions, used for
+     <br><dt><code>-mrepeat</code><dd><a name="index-mrepeat-1703"></a>Enables the <code>repeat</code> and <code>erepeat</code> instructions, used for
 low-overhead looping.
 
-     <br><dt><code>-ms</code><dd><a name="index-ms-1653"></a>Causes all variables to default to the <code>.tiny</code> section.  Note
+     <br><dt><code>-ms</code><dd><a name="index-ms-1704"></a>Causes all variables to default to the <code>.tiny</code> section.  Note
 that there is a 65536-byte limit to this section.  Accesses to these
 variables use the <code>%gp</code> base register.
 
-     <br><dt><code>-msatur</code><dd><a name="index-msatur-1654"></a>Enables the saturation instructions.  Note that the compiler does not
+     <br><dt><code>-msatur</code><dd><a name="index-msatur-1705"></a>Enables the saturation instructions.  Note that the compiler does not
 currently generate these itself, but this option is included for
 compatibility with other tools, like <code>as</code>.
 
-     <br><dt><code>-msdram</code><dd><a name="index-msdram-1655"></a>Link the SDRAM-based runtime instead of the default ROM-based runtime.
+     <br><dt><code>-msdram</code><dd><a name="index-msdram-1706"></a>Link the SDRAM-based runtime instead of the default ROM-based runtime.
 
-     <br><dt><code>-msim</code><dd><a name="index-msim-1656"></a>Link the simulator runtime libraries.
+     <br><dt><code>-msim</code><dd><a name="index-msim-1707"></a>Link the simulator runtime libraries.
 
-     <br><dt><code>-msimnovec</code><dd><a name="index-msimnovec-1657"></a>Link the simulator runtime libraries, excluding built-in support
+     <br><dt><code>-msimnovec</code><dd><a name="index-msimnovec-1708"></a>Link the simulator runtime libraries, excluding built-in support
 for reset and exception vectors and tables.
 
-     <br><dt><code>-mtf</code><dd><a name="index-mtf-1658"></a>Causes all functions to default to the <code>.far</code> section.  Without
+     <br><dt><code>-mtf</code><dd><a name="index-mtf-1709"></a>Causes all functions to default to the <code>.far</code> section.  Without
 this option, functions default to the <code>.near</code> section.
 
-     <br><dt><code>-mtiny=</code><var>n</var><dd><a name="index-mtiny_003d-1659"></a>Variables that are <var>n</var> bytes or smaller will be allocated to the
+     <br><dt><code>-mtiny=</code><var>n</var><dd><a name="index-mtiny_003d-1710"></a>Variables that are <var>n</var> bytes or smaller are allocated to the
 <code>.tiny</code> section.  These variables use the <code>$gp</code> base
 register.  The default for this option is 4, but note that there's a
 65536-byte limit to the <code>.tiny</code> section.

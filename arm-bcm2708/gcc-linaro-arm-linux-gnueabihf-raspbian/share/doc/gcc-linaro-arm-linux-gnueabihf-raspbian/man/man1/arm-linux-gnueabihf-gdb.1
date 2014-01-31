@@ -1,4 +1,4 @@
-.\" Copyright (C) 1991, 1999, 2010-2012 Free Software Foundation, Inc.
+.\" Copyright (C) 1991-2013 Free Software Foundation, Inc.
 .\" See section COPYING for conditions for redistribution
 .\" $Id$
 .TH gdb 1 "22may2002" "GNU Tools" "GNU Tools"
@@ -9,6 +9,7 @@ gdb \- The GNU Debugger
 .TP
 .B gdb
 .RB "[\|" \-help "\|]"
+.RB "[\|" \-nh "\|]"
 .RB "[\|" \-nx "\|]"
 .RB "[\|" \-q "\|]"
 .RB "[\|" \-batch "\|]"
@@ -33,7 +34,10 @@ gdb \- The GNU Debugger
 .I core\c
 \&\|]
 .RB "[\|" "\-x "\c
-.I cmds\c
+.I file\c
+\&\|]
+.RB "[\|" "\-ex "\c
+.I cmd\c
 \&\|]
 .RB "[\|" "\-d "\c
 .I dir\c
@@ -263,6 +267,13 @@ Execute GDB commands from file \c
 \&.  
 
 .TP
+.BI "\-ex " "command"\c
+\&
+Execute given GDB \c
+.I command\c
+\&.
+
+.TP
 .BI "\-directory=" "directory"\c
 .TP
 .BI "\-d " "directory"\c
@@ -273,14 +284,16 @@ Add \c
 .PP
 
 .TP
+.B \-nh
+Do not execute commands from ~/.gdbinit.
+
+.TP
 .B \-nx
 .TP
 .B \-n
 Do not execute commands from any `\|\c
 .B .gdbinit\c
 \&\|' initialization files.
-Normally, the commands in these files are executed after all the
-command options and arguments have been processed.
 
 
 .TP
@@ -355,10 +368,19 @@ Run using \c
 .PP
 
 .SH "SEE ALSO"
-.RB "`\|" gdb "\|'"
-entry in
-.B info\c
-\&;
+The full documentation for
+.B gdb
+is maintained as a Texinfo manual.  If the
+.B info
+and
+.B gdb
+programs and GDB's Texinfo documentation are properly installed at
+your site, the command
+.IP
+.B info gdb
+.PP
+should give you access to the complete manual.
+
 .I 
 Using GDB: A Guide to the GNU Source-Level Debugger\c
 , Richard M. Stallman and Roland H. Pesch, July 1991.

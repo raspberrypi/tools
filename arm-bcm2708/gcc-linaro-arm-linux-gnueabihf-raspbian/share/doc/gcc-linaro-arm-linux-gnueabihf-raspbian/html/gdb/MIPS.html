@@ -10,9 +10,7 @@
 <link rel="next" href="HPPA.html#HPPA" title="HPPA">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,19 +45,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Architectures.html#Architectures">Archi
 <hr>
 </div>
 
-<h4 class="subsection">21.4.4 MIPS</h4>
+<h4 class="subsection">21.4.4 <acronym>MIPS</acronym></h4>
 
-<p><a name="index-stack-on-Alpha-1456"></a><a name="index-stack-on-MIPS-1457"></a><a name="index-Alpha-stack-1458"></a><a name="index-MIPS-stack-1459"></a>Alpha- and MIPS-based computers use an unusual stack frame, which
+<p><a name="index-stack-on-Alpha-1506"></a><a name="index-stack-on-_0040acronym_007bMIPS_007d-1507"></a><a name="index-Alpha-stack-1508"></a><a name="index-g_t_0040acronym_007bMIPS_007d-stack-1509"></a>Alpha- and <acronym>MIPS</acronym>-based computers use an unusual stack frame, which
 sometimes requires <span class="sc">gdb</span> to search backward in the object code to
 find the beginning of a function.
 
-   <p><a name="index-response-time_002c-MIPS-debugging-1460"></a>To improve response time (especially for embedded applications, where
+   <p><a name="index-response-time_002c-_0040acronym_007bMIPS_007d-debugging-1510"></a>To improve response time (especially for embedded applications, where
 <span class="sc">gdb</span> may be restricted to a slow serial line for this search)
 you may want to limit the size of this search, using one of these
 commands:
 
      
-<a name="index-g_t_0040code_007bheuristic_002dfence_002dpost_007d-_0028Alpha_002c-MIPS_0029-1461"></a>
+<a name="index-g_t_0040code_007bheuristic_002dfence_002dpost_007d-_0028Alpha_002c-_0040acronym_007bMIPS_007d_0029-1511"></a>
 <dl><dt><code>set heuristic-fence-post </code><var>limit</var><dd>Restrict <span class="sc">gdb</span> to examining at most <var>limit</var> bytes in its
 search for the beginning of a function.  A value of <var>0</var> (the
 default) means there is no limit.  However, except for <var>0</var>, the
@@ -71,13 +69,13 @@ this command when debugging a stripped executable.
 </dl>
 
 <p class="noindent">These commands are available <em>only</em> when <span class="sc">gdb</span> is configured
-for debugging programs on Alpha or MIPS processors.
+for debugging programs on Alpha or <acronym>MIPS</acronym> processors.
 
-   <p>Several MIPS-specific commands are available when debugging MIPS
+   <p>Several <acronym>MIPS</acronym>-specific commands are available when debugging <acronym>MIPS</acronym>
 programs:
 
      <dl>
-<dt><code>set mips abi </code><var>arg</var><dd><a name="index-set-mips-abi-1462"></a><a name="index-set-ABI-for-MIPS-1463"></a>Tell <span class="sc">gdb</span> which MIPS ABI is used by the inferior.  Possible
+<dt><code>set mips abi </code><var>arg</var><dd><a name="index-set-mips-abi-1512"></a><a name="index-set-ABI-for-_0040acronym_007bMIPS_007d-1513"></a>Tell <span class="sc">gdb</span> which <acronym>MIPS</acronym> ABI is used by the inferior.  Possible
 values of <var>arg</var> are:
 
           <dl>
@@ -85,29 +83,56 @@ values of <var>arg</var> are:
 default). 
 <br><dt>&lsquo;<samp><span class="samp">o32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">o64</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">n32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">n64</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">eabi32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">eabi64</span></samp>&rsquo;<dd></dl>
 
-     <br><dt><code>show mips abi</code><dd><a name="index-show-mips-abi-1464"></a>Show the MIPS ABI used by <span class="sc">gdb</span> to debug the inferior.
+     <br><dt><code>show mips abi</code><dd><a name="index-show-mips-abi-1514"></a>Show the <acronym>MIPS</acronym> ABI used by <span class="sc">gdb</span> to debug the inferior.
+
+     <br><dt><code>set mips compression </code><var>arg</var><dd><a name="index-set-mips-compression-1515"></a><a name="index-code-compression_002c-_0040acronym_007bMIPS_007d-1516"></a>Tell <span class="sc">gdb</span> which <acronym>MIPS</acronym> compressed
+<acronym title="Instruction Set Architecture">ISA</acronym> (Instruction Set Architecture) encoding is used by the
+inferior.  <span class="sc">gdb</span> uses this for code disassembly and other
+internal interpretation purposes.  This setting is only referred to
+when no executable has been associated with the debugging session or
+the executable does not provide information about the encoding it uses. 
+Otherwise this setting is automatically updated from information
+provided by the executable.
+
+     <p>Possible values of <var>arg</var> are &lsquo;<samp><span class="samp">mips16</span></samp>&rsquo; and &lsquo;<samp><span class="samp">micromips</span></samp>&rsquo;. 
+The default compressed <acronym title="Instruction Set Architecture">ISA</acronym> encoding is &lsquo;<samp><span class="samp">mips16</span></samp>&rsquo;, as
+executables containing <acronym>MIPS16</acronym> code frequently are not
+identified as such.
+
+     <p>This setting is &ldquo;sticky&rdquo;; that is, it retains its value across
+debugging sessions until reset either explicitly with this command or
+implicitly from an executable.
+
+     <p>The compiler and/or assembler typically add symbol table annotations to
+identify functions compiled for the <acronym>MIPS16</acronym> or
+<acronym>microMIPS</acronym> <acronym title="Instruction Set Architecture">ISA</acronym>s.  If these function-scope annotations
+are present, <span class="sc">gdb</span> uses them in preference to the global
+compressed <acronym title="Instruction Set Architecture">ISA</acronym> encoding setting.
+
+     <br><dt><code>show mips compression</code><dd><a name="index-show-mips-compression-1517"></a>Show the <acronym>MIPS</acronym> compressed <acronym title="Instruction Set Architecture">ISA</acronym> encoding used by
+<span class="sc">gdb</span> to debug the inferior.
 
      <br><dt><code>set mipsfpu</code><dt><code>show mipsfpu</code><dd>See <a href="MIPS-Embedded.html#MIPS-Embedded">set mipsfpu</a>.
 
-     <br><dt><code>set mips mask-address </code><var>arg</var><dd><a name="index-set-mips-mask_002daddress-1465"></a><a name="index-MIPS-addresses_002c-masking-1466"></a>This command determines whether the most-significant 32 bits of 64-bit
-MIPS addresses are masked off.  The argument <var>arg</var> can be
+     <br><dt><code>set mips mask-address </code><var>arg</var><dd><a name="index-set-mips-mask_002daddress-1518"></a><a name="index-g_t_0040acronym_007bMIPS_007d-addresses_002c-masking-1519"></a>This command determines whether the most-significant 32 bits of 64-bit
+<acronym>MIPS</acronym> addresses are masked off.  The argument <var>arg</var> can be
 &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, &lsquo;<samp><span class="samp">off</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">auto</span></samp>&rsquo;.  The latter is the default
 setting, which lets <span class="sc">gdb</span> determine the correct value.
 
-     <br><dt><code>show mips mask-address</code><dd><a name="index-show-mips-mask_002daddress-1467"></a>Show whether the upper 32 bits of MIPS addresses are masked off or
+     <br><dt><code>show mips mask-address</code><dd><a name="index-show-mips-mask_002daddress-1520"></a>Show whether the upper 32 bits of <acronym>MIPS</acronym> addresses are masked off or
 not.
 
-     <br><dt><code>set remote-mips64-transfers-32bit-regs</code><dd><a name="index-set-remote_002dmips64_002dtransfers_002d32bit_002dregs-1468"></a>This command controls compatibility with 64-bit MIPS targets that
-transfer data in 32-bit quantities.  If you have an old MIPS 64 target
+     <br><dt><code>set remote-mips64-transfers-32bit-regs</code><dd><a name="index-set-remote_002dmips64_002dtransfers_002d32bit_002dregs-1521"></a>This command controls compatibility with 64-bit <acronym>MIPS</acronym> targets that
+transfer data in 32-bit quantities.  If you have an old <acronym>MIPS</acronym> 64 target
 that transfers 32 bits for some registers, like <span class="sc">sr</span> and <span class="sc">fsr</span>,
 and 64 bits for other registers, set this option to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;.
 
-     <br><dt><code>show remote-mips64-transfers-32bit-regs</code><dd><a name="index-show-remote_002dmips64_002dtransfers_002d32bit_002dregs-1469"></a>Show the current setting of compatibility with older MIPS 64 targets.
+     <br><dt><code>show remote-mips64-transfers-32bit-regs</code><dd><a name="index-show-remote_002dmips64_002dtransfers_002d32bit_002dregs-1522"></a>Show the current setting of compatibility with older <acronym>MIPS</acronym> 64 targets.
 
-     <br><dt><code>set debug mips</code><dd><a name="index-set-debug-mips-1470"></a>This command turns on and off debugging messages for the MIPS-specific
+     <br><dt><code>set debug mips</code><dd><a name="index-set-debug-mips-1523"></a>This command turns on and off debugging messages for the <acronym>MIPS</acronym>-specific
 target code in <span class="sc">gdb</span>.
 
-     <br><dt><code>show debug mips</code><dd><a name="index-show-debug-mips-1471"></a>Show the current setting of MIPS debugging messages. 
+     <br><dt><code>show debug mips</code><dd><a name="index-show-debug-mips-1524"></a>Show the current setting of <acronym>MIPS</acronym> debugging messages. 
 </dl>
 
    </body></html>

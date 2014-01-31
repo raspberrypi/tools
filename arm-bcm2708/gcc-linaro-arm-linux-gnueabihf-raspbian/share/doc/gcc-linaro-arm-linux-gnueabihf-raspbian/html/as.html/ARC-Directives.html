@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -47,20 +45,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="ARC_002dDependent.html#ARC_002dDependen
 <hr>
 </div>
 
-<h4 class="subsection">9.2.4 ARC Machine Directives</h4>
+<h4 class="subsection">9.3.4 ARC Machine Directives</h4>
 
-<p><a name="index-machine-directives_002c-ARC-555"></a><a name="index-ARC-machine-directives-556"></a>The ARC version of <code>as</code> supports the following additional
+<p><a name="index-machine-directives_002c-ARC-596"></a><a name="index-ARC-machine-directives-597"></a>The ARC version of <code>as</code> supports the following additional
 machine directives:
 
      
-<a name="index-g_t_0040code_007b2byte_007d-directive_002c-ARC-557"></a>
+<a name="index-g_t_0040code_007b2byte_007d-directive_002c-ARC-598"></a>
 <dl><dt><code>.2byte </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007b3byte_007d-directive_002c-ARC-558"></a><br><dt><code>.3byte </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007b3byte_007d-directive_002c-ARC-599"></a><br><dt><code>.3byte </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007b4byte_007d-directive_002c-ARC-559"></a><br><dt><code>.4byte </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007b4byte_007d-directive_002c-ARC-600"></a><br><dt><code>.4byte </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007bextAuxRegister_007d-directive_002c-ARC-560"></a><br><dt><code>.extAuxRegister </code><var>name</var><code>,</code><var>address</var><code>,</code><var>mode</var><dd>The ARCtangent A4 has extensible auxiliary register space.  The
+     <p><a name="index-g_t_0040code_007bextAuxRegister_007d-directive_002c-ARC-601"></a><br><dt><code>.extAuxRegister </code><var>name</var><code>,</code><var>address</var><code>,</code><var>mode</var><dd>The ARCtangent A4 has extensible auxiliary register space.  The
 auxiliary registers can be defined in the assembler source code by
 using this directive.  The first parameter is the <var>name</var> of the
 new auxiallry register.  The second parameter is the <var>address</var> of
@@ -79,7 +77,7 @@ register can be operated is and it can be one of:
 which is at address 0x12 in the memory space and which is only
 writable.
 
-     <p><a name="index-g_t_0040code_007bextCondCode_007d-directive_002c-ARC-561"></a><br><dt><code>.extCondCode </code><var>suffix</var><code>,</code><var>value</var><dd>The condition codes on the ARCtangent A4 are extensible and can be
+     <p><a name="index-g_t_0040code_007bextCondCode_007d-directive_002c-ARC-602"></a><br><dt><code>.extCondCode </code><var>suffix</var><code>,</code><var>value</var><dd>The condition codes on the ARCtangent A4 are extensible and can be
 specified by means of this assembler directive.  They are specified
 by the suffix and the value for the condition code.  They can be used to
 specify extra condition codes with any values.  For example:
@@ -89,7 +87,7 @@ specify extra condition codes with any values.  For example:
              add.is_busy  r1,r2,r3
              bis_busy     _main
 </pre>
-     <p><a name="index-g_t_0040code_007bextCoreRegister_007d-directive_002c-ARC-562"></a><br><dt><code>.extCoreRegister </code><var>name</var><code>,</code><var>regnum</var><code>,</code><var>mode</var><code>,</code><var>shortcut</var><dd>Specifies an extension core register <var>name</var> for the application. 
+     <p><a name="index-g_t_0040code_007bextCoreRegister_007d-directive_002c-ARC-603"></a><br><dt><code>.extCoreRegister </code><var>name</var><code>,</code><var>regnum</var><code>,</code><var>mode</var><code>,</code><var>shortcut</var><dd>Specifies an extension core register <var>name</var> for the application. 
 This allows a register <var>name</var> with a valid <var>regnum</var> between 0
 and 60, with the following as valid values for <var>mode</var>
 
@@ -109,28 +107,33 @@ and 60, with the following as valid values for <var>mode</var>
      <p>This defines an extension core register mlo with the value 57 which
 can shortcut the pipeline.
 
-     <p><a name="index-g_t_0040code_007bextInstruction_007d-directive_002c-ARC-563"></a><br><dt><code>.extInstruction </code><var>name</var><code>,</code><var>opcode</var><code>,</code><var>subopcode</var><code>,</code><var>suffixclass</var><code>,</code><var>syntaxclass</var><dd>The ARCtangent A4 allows the user to specify extension instructions. 
+     <p><a name="index-g_t_0040code_007bextInstruction_007d-directive_002c-ARC-604"></a><br><dt><code>.extInstruction </code><var>name</var><code>,</code><var>opcode</var><code>,</code><var>subopcode</var><code>,</code><var>suffixclass</var><code>,</code><var>syntaxclass</var><dd>The ARCtangent A4 allows the user to specify extension instructions. 
 The extension instructions are not macros.  The assembler creates
 encodings for use of these instructions according to the specification
 by the user.  The parameters are:
 
-          <dl>
-<dt>&bull;<var>name</var><dd>Name of the extension instruction
+          <ul>
+<li><var>name</var>
+Name of the extension instruction
 
-          <br><dt>&bull;<var>opcode</var><dd>Opcode to be used. (Bits 27:31 in the encoding).  Valid values
+          <li><var>opcode</var>
+Opcode to be used. (Bits 27:31 in the encoding).  Valid values
 0x10-0x1f or 0x03
 
-          <br><dt>&bull;<var>subopcode</var><dd>Subopcode to be used.  Valid values are from 0x09-0x3f.  However the
+          <li><var>subopcode</var>
+Subopcode to be used.  Valid values are from 0x09-0x3f.  However the
 correct value also depends on <var>syntaxclass</var>
 
-          <br><dt>&bull;<var>suffixclass</var><dd>Determines the kinds of suffixes to be allowed.  Valid values are
+          <li><var>suffixclass</var>
+Determines the kinds of suffixes to be allowed.  Valid values are
 <code>SUFFIX_NONE</code>, <code>SUFFIX_COND</code>,
 <code>SUFFIX_FLAG</code> which indicates the absence or presence of
 conditional suffixes and flag setting by the extension instruction. 
 It is also possible to specify that an instruction sets the flags and
 is conditional by using <code>SUFFIX_CODE</code> | <code>SUFFIX_FLAG</code>.
 
-          <br><dt>&bull;<var>syntaxclass</var><dd>Determines the syntax class for the instruction.  It can have the
+          <li><var>syntaxclass</var>
+Determines the syntax class for the instruction.  It can have the
 following values:
 
                <dl>
@@ -164,7 +167,7 @@ code were: inst 0,r1,r2.  You use OP1_IMM_IMPLIED by bitwise ORing it
 with SYNTAX_20P.
 
           </ul>
-          </dl>
+          </ul>
 
      <p>For example, defining 64-bit multiplier with immediate operands:
 
@@ -181,11 +184,11 @@ of the operation).
      <p>This describes a 2 operand instruction with an implicit first
 immediate operand.  The result of this operation would be discarded.
 
-     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-ARC-564"></a><br><dt><code>.half </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-ARC-605"></a><br><dt><code>.half </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007blong_007d-directive_002c-ARC-565"></a><br><dt><code>.long </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007blong_007d-directive_002c-ARC-606"></a><br><dt><code>.long </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007boption_007d-directive_002c-ARC-566"></a><br><dt><code>.option </code><var>arc|arc5|arc6|arc7|arc8</var><dd>The <code>.option</code> directive must be followed by the desired core
+     <p><a name="index-g_t_0040code_007boption_007d-directive_002c-ARC-607"></a><br><dt><code>.option </code><var>arc|arc5|arc6|arc7|arc8</var><dd>The <code>.option</code> directive must be followed by the desired core
 version. Again <code>arc</code> is an alias for
 <code>arc6</code>.
 
@@ -194,9 +197,9 @@ version. Again <code>arc</code> is an alias for
 between the two - even for the implicit default core version
 (arc6).
 
-     <p><a name="index-g_t_0040code_007bshort_007d-directive_002c-ARC-567"></a><br><dt><code>.short </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007bshort_007d-directive_002c-ARC-608"></a><br><dt><code>.short </code><var>expressions</var><dd>*TODO*
 
-     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-ARC-568"></a><br><dt><code>.word </code><var>expressions</var><dd>*TODO*
+     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-ARC-609"></a><br><dt><code>.word </code><var>expressions</var><dd>*TODO*
 
    </dl>
 

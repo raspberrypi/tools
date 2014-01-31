@@ -10,9 +10,7 @@
 <link rel="next" href="Fixed-Headers.html#Fixed-Headers" title="Fixed Headers">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,25 +52,25 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Trouble.html#Trouble">Trouble</a>
 <hr>
 </div>
 
-<h3 class="section">11.4 Incompatibilities of GCC</h3>
+<h3 class="section">11.3 Incompatibilities of GCC</h3>
 
-<p><a name="index-incompatibilities-of-GCC-3418"></a><a name="index-traditional-3419"></a>
+<p><a name="index-incompatibilities-of-GCC-3543"></a><a name="index-traditional-3544"></a>
 There are several noteworthy incompatibilities between GNU C and K&amp;R
 (non-ISO) versions of C.
 
      
-<a name="index-string-constants-3420"></a>
-<a name="index-read_002donly-strings-3421"></a>
-<a name="index-shared-strings-3422"></a>
+<a name="index-string-constants-3545"></a>
+<a name="index-read_002donly-strings-3546"></a>
+<a name="index-shared-strings-3547"></a>
 <ul><li>GCC normally makes string constants read-only.  If several
 identical-looking string constants are used, GCC stores only one
 copy of the string.
 
-     <p><a name="index-g_t_0040code_007bmktemp_007d_002c-and-constant-strings-3423"></a>One consequence is that you cannot call <code>mktemp</code> with a string
+     <p><a name="index-g_t_0040code_007bmktemp_007d_002c-and-constant-strings-3548"></a>One consequence is that you cannot call <code>mktemp</code> with a string
 constant argument.  The function <code>mktemp</code> always alters the
 string its argument points to.
 
-     <p><a name="index-g_t_0040code_007bsscanf_007d_002c-and-constant-strings-3424"></a><a name="index-g_t_0040code_007bfscanf_007d_002c-and-constant-strings-3425"></a><a name="index-g_t_0040code_007bscanf_007d_002c-and-constant-strings-3426"></a>Another consequence is that <code>sscanf</code> does not work on some very
+     <p><a name="index-g_t_0040code_007bsscanf_007d_002c-and-constant-strings-3549"></a><a name="index-g_t_0040code_007bfscanf_007d_002c-and-constant-strings-3550"></a><a name="index-g_t_0040code_007bscanf_007d_002c-and-constant-strings-3551"></a>Another consequence is that <code>sscanf</code> does not work on some very
 old systems when passed a string constant as its format control string
 or input.  This is because <code>sscanf</code> incorrectly tries to write
 into the string constant.  Likewise <code>fscanf</code> and <code>scanf</code>.
@@ -94,7 +92,7 @@ string constants.  For example, the following macro in GCC
 </pre>
      <p class="noindent">will produce output <code>"a"</code> regardless of what the argument <var>a</var> is.
 
-     <p><a name="index-g_t_0040code_007bsetjmp_007d-incompatibilities-3427"></a><a name="index-g_t_0040code_007blongjmp_007d-incompatibilities-3428"></a><li>When you use <code>setjmp</code> and <code>longjmp</code>, the only automatic
+     <p><a name="index-g_t_0040code_007bsetjmp_007d-incompatibilities-3552"></a><a name="index-g_t_0040code_007blongjmp_007d-incompatibilities-3553"></a><li>When you use <code>setjmp</code> and <code>longjmp</code>, the only automatic
 variables guaranteed to remain valid are those declared
 <code>volatile</code>.  This is a consequence of automatic register
 allocation.  Consider this function:
@@ -119,7 +117,7 @@ allocation.  Consider this function:
 its first value is restored; otherwise, it keeps the last value stored
 in it.
 
-     <p><a name="index-W-3429"></a>If you use the <samp><span class="option">-W</span></samp> option with the <samp><span class="option">-O</span></samp> option, you will
+     <p><a name="index-W-3554"></a>If you use the <samp><span class="option">-W</span></samp> option with the <samp><span class="option">-O</span></samp> option, you will
 get a warning when GCC thinks such a problem might be possible.
 
      <li>Programs that use preprocessing directives in the middle of macro
@@ -135,7 +133,7 @@ will not work:
      <li>K&amp;R compilers allow comments to cross over an inclusion boundary
 (i.e. started in an include file and ended in the including file).
 
-     <p><a name="index-external-declaration-scope-3430"></a><a name="index-scope-of-external-declarations-3431"></a><a name="index-declaration-scope-3432"></a><li>Declarations of external variables and functions within a block apply
+     <p><a name="index-external-declaration-scope-3555"></a><a name="index-scope-of-external-declarations-3556"></a><a name="index-declaration-scope-3557"></a><li>Declarations of external variables and functions within a block apply
 only to the block containing the declaration.  In other words, they
 have the same scope as any other declaration in the same place.
 
@@ -151,7 +149,7 @@ as shown here:
      <p>In ISO C, this is not allowed: <code>long</code> and other type modifiers
 require an explicit <code>int</code>.
 
-     <p><a name="index-typedef-names-as-function-parameters-3433"></a><li>PCC allows typedef names to be used as function parameters.
+     <p><a name="index-typedef-names-as-function-parameters-3558"></a><li>PCC allows typedef names to be used as function parameters.
 
      <li>Traditional C allows the following erroneous pair of declarations to
 appear together in a given scope:
@@ -166,11 +164,11 @@ identifier is a sequence of letters and digits; the first character must
 be a letter.  The underscore _ counts as a letter.&rdquo;, but GCC also
 allows dollar signs in identifiers.
 
-     <p><a name="index-whitespace-3434"></a><li>PCC allows whitespace in the middle of compound assignment operators
+     <p><a name="index-whitespace-3559"></a><li>PCC allows whitespace in the middle of compound assignment operators
 such as &lsquo;<samp><span class="samp">+=</span></samp>&rsquo;.  GCC, following the ISO standard, does not
 allow this.
 
-     <p><a name="index-apostrophes-3435"></a><a name="index-g_t_0040code_007b_0027_007d-3436"></a><li>GCC complains about unterminated character constants inside of
+     <p><a name="index-apostrophes-3560"></a><a name="index-g_t_0040code_007b_0027_007d-3561"></a><li>GCC complains about unterminated character constants inside of
 preprocessing conditionals that fail.  Some programs have English
 comments enclosed in conditionals that are guaranteed to fail; if these
 comments contain apostrophes, GCC will probably report an error.  For
@@ -195,12 +193,12 @@ return <code>time_t</code>, and if that is not the same as <code>long</code>, th
 <code>time</code> if the system header files declare it, or failing that to
 use <code>time_t</code> as the return type of <code>time</code>.
 
-     <p><a name="index-g_t_0040code_007bfloat_007d-as-function-value-type-3437"></a><li>When compiling functions that return <code>float</code>, PCC converts it to
+     <p><a name="index-g_t_0040code_007bfloat_007d-as-function-value-type-3562"></a><li>When compiling functions that return <code>float</code>, PCC converts it to
 a double.  GCC actually returns a <code>float</code>.  If you are concerned
 with PCC compatibility, you should declare your functions to return
 <code>double</code>; you might as well say what you mean.
 
-     <p><a name="index-structures-3438"></a><a name="index-unions-3439"></a><li>When compiling functions that return structures or unions, GCC
+     <p><a name="index-structures-3563"></a><a name="index-unions-3564"></a><li>When compiling functions that return structures or unions, GCC
 output code normally uses a method different from that used on most
 versions of Unix.  As a result, code compiled with GCC cannot call
 a structure-returning function compiled with PCC, and vice versa.
@@ -224,10 +222,10 @@ structure and union returning.  GCC on most of these machines uses a
 compatible convention when returning structures and unions in memory,
 but still returns small structures and unions in registers.
 
-     <p><a name="index-fpcc_002dstruct_002dreturn-3440"></a>You can tell GCC to use a compatible convention for all structure and
+     <p><a name="index-fpcc_002dstruct_002dreturn-3565"></a>You can tell GCC to use a compatible convention for all structure and
 union returning with the option <samp><span class="option">-fpcc-struct-return</span></samp>.
 
-     <p><a name="index-preprocessing-tokens-3441"></a><a name="index-preprocessing-numbers-3442"></a><li>GCC complains about program fragments such as &lsquo;<samp><span class="samp">0x74ae-0x4000</span></samp>&rsquo;
+     <p><a name="index-preprocessing-tokens-3566"></a><a name="index-preprocessing-numbers-3567"></a><li>GCC complains about program fragments such as &lsquo;<samp><span class="samp">0x74ae-0x4000</span></samp>&rsquo;
 which appear to be two hexadecimal constants separated by the minus
 operator.  Actually, this string is a single <dfn>preprocessing token</dfn>. 
 Each such token must correspond to one token in C.  Since this does not,

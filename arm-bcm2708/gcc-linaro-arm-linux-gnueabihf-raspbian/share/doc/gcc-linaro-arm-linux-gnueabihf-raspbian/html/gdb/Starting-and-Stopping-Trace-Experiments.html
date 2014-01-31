@@ -10,9 +10,7 @@
 <link rel="next" href="Tracepoint-Restrictions.html#Tracepoint-Restrictions" title="Tracepoint Restrictions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,9 +48,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 <h4 class="subsection">13.1.9 Starting and Stopping Trace Experiments</h4>
 
      
-<a name="index-tstart-_005b-_0040var_007bnotes_007d-_005d-751"></a>
-<a name="index-start-a-new-trace-experiment-752"></a>
-<a name="index-collected-data-discarded-753"></a>
+<a name="index-tstart-_005b-_0040var_007bnotes_007d-_005d-790"></a>
+<a name="index-start-a-new-trace-experiment-791"></a>
+<a name="index-collected-data-discarded-792"></a>
 <dl><dt><code>tstart</code><dd>This command starts the trace experiment, and begins collecting data. 
 It has the side effect of discarding all the data collected in the
 trace buffer during the previous trace experiment.  If any arguments
@@ -62,7 +60,7 @@ especially useful with disconnected tracing in a multi-user context;
 the notes can explain what the trace is doing, supply user contact
 information, and so forth.
 
-     <p><a name="index-tstop-_005b-_0040var_007bnotes_007d-_005d-754"></a><a name="index-stop-a-running-trace-experiment-755"></a><br><dt><code>tstop</code><dd>This command stops the trace experiment.  If any arguments are
+     <p><a name="index-tstop-_005b-_0040var_007bnotes_007d-_005d-793"></a><a name="index-stop-a-running-trace-experiment-794"></a><br><dt><code>tstop</code><dd>This command stops the trace experiment.  If any arguments are
 supplied, they are recorded with the experiment as a note.  This is
 useful if you are stopping a trace started by someone else, for
 instance if the trace is interfering with the system's behavior and
@@ -72,7 +70,7 @@ needs to be stopped quickly.
 automatically if any tracepoint's passcount is reached
 (see <a href="Tracepoint-Passcounts.html#Tracepoint-Passcounts">Tracepoint Passcounts</a>), or if the trace buffer becomes full.
 
-     <p><a name="index-tstatus-756"></a><a name="index-status-of-trace-data-collection-757"></a><a name="index-trace-experiment_002c-status-of-758"></a><br><dt><code>tstatus</code><dd>This command displays the status of the current trace data
+     <p><a name="index-tstatus-795"></a><a name="index-status-of-trace-data-collection-796"></a><a name="index-trace-experiment_002c-status-of-797"></a><br><dt><code>tstatus</code><dd>This command displays the status of the current trace data
 collection. 
 </dl>
 
@@ -90,7 +88,7 @@ collection.
      	[time passes ...]
      (gdb) <b>tstop</b>
 </pre>
-   <p><a name="disconnected-tracing"></a><a name="index-disconnected-tracing-759"></a>You can choose to continue running the trace experiment even if
+   <p><a name="disconnected-tracing"></a><a name="index-disconnected-tracing-798"></a>You can choose to continue running the trace experiment even if
 <span class="sc">gdb</span> disconnects from the target, voluntarily or
 involuntarily.  For commands such as <code>detach</code>, the debugger will
 ask what you want to do with the trace.  But for unexpected
@@ -100,13 +98,13 @@ unfortunate to lose hard-won trace data, so the variable
 continue running without <span class="sc">gdb</span>.
 
      <dl>
-<dt><code>set disconnected-tracing on</code><dt><code>set disconnected-tracing off</code><dd><a name="index-set-disconnected_002dtracing-760"></a>Choose whether a tracing run should continue to run if <span class="sc">gdb</span>
+<dt><code>set disconnected-tracing on</code><dt><code>set disconnected-tracing off</code><dd><a name="index-set-disconnected_002dtracing-799"></a>Choose whether a tracing run should continue to run if <span class="sc">gdb</span>
 has disconnected from the target.  Note that <code>detach</code> or
 <code>quit</code> will ask you directly what to do about a running trace no
 matter what this variable's setting, so the variable is mainly useful
 for handling unexpected situations, such as loss of the network.
 
-     <br><dt><code>show disconnected-tracing</code><dd><a name="index-show-disconnected_002dtracing-761"></a>Show the current choice for disconnected tracing.
+     <br><dt><code>show disconnected-tracing</code><dd><a name="index-show-disconnected_002dtracing-800"></a>Show the current choice for disconnected tracing.
 
    </dl>
 
@@ -126,7 +124,7 @@ which to specify that tracepoint.  This matching-up process is
 necessarily heuristic, and it may result in useless tracepoints being
 created; you may simply delete them if they are of no use.
 
-   <p><a name="index-circular-trace-buffer-762"></a>If your target agent supports a <dfn>circular trace buffer</dfn>, then you
+   <p><a name="index-circular-trace-buffer-801"></a>If your target agent supports a <dfn>circular trace buffer</dfn>, then you
 can run a trace experiment indefinitely without filling the trace
 buffer; when space runs out, the agent deletes already-collected trace
 frames, oldest first, until there is enough room to continue
@@ -139,12 +137,12 @@ buffer handling on the fly, otherwise it will not take effect until
 the next run.
 
      <dl>
-<dt><code>set circular-trace-buffer on</code><dt><code>set circular-trace-buffer off</code><dd><a name="index-set-circular_002dtrace_002dbuffer-763"></a>Choose whether a tracing run should use a linear or circular buffer
+<dt><code>set circular-trace-buffer on</code><dt><code>set circular-trace-buffer off</code><dd><a name="index-set-circular_002dtrace_002dbuffer-802"></a>Choose whether a tracing run should use a linear or circular buffer
 for trace data.  A linear buffer will not lose any trace data, but may
 fill up prematurely, while a circular buffer will discard old trace
 data, but it will have always room for the latest tracepoint hits.
 
-     <br><dt><code>show circular-trace-buffer</code><dd><a name="index-show-circular_002dtrace_002dbuffer-764"></a>Show the current choice for the trace buffer.  Note that this may not
+     <br><dt><code>show circular-trace-buffer</code><dd><a name="index-show-circular_002dtrace_002dbuffer-803"></a>Show the current choice for the trace buffer.  Note that this may not
 match the agent's current buffer handling, nor is it guaranteed to
 match the setting that might have been in effect during a past run,
 for instance if you are looking at frames from a trace file.
@@ -152,17 +150,32 @@ for instance if you are looking at frames from a trace file.
    </dl>
 
      <dl>
-<dt><code>set trace-user </code><var>text</var><dd><a name="index-set-trace_002duser-765"></a>
-<br><dt><code>show trace-user</code><dd><a name="index-show-trace_002duser-766"></a>
-<br><dt><code>set trace-notes </code><var>text</var><dd><a name="index-set-trace_002dnotes-767"></a>Set the trace run's notes.
+<dt><code>set trace-buffer-size </code><var>n</var><dd><a name="index-set-trace_002dbuffer_002dsize-804"></a>Request that the target use a trace buffer of <var>n</var> bytes.  Not all
+targets will honor the request; they may have a compiled-in size for
+the trace buffer, or some other limitation.  Set to a value of
+<code>-1</code> to let the target use whatever size it likes.  This is also
+the default.
 
-     <br><dt><code>show trace-notes</code><dd><a name="index-show-trace_002dnotes-768"></a>Show the trace run's notes.
+     <br><dt><code>show trace-buffer-size</code><dd><a name="index-show-trace_002dbuffer_002dsize-805"></a>Show the current requested size for the trace buffer.  Note that this
+will only match the actual size if the target supports size-setting,
+and was able to handle the requested size.  For instance, if the
+target can only change buffer size between runs, this variable will
+not reflect the change until the next run starts.  Use <code>tstatus</code>
+to get a report of the actual buffer size. 
+</dl>
 
-     <br><dt><code>set trace-stop-notes </code><var>text</var><dd><a name="index-set-trace_002dstop_002dnotes-769"></a>Set the trace run's stop notes.  The handling of the note is as for
+     <dl>
+<dt><code>set trace-user </code><var>text</var><dd><a name="index-set-trace_002duser-806"></a>
+<br><dt><code>show trace-user</code><dd><a name="index-show-trace_002duser-807"></a>
+<br><dt><code>set trace-notes </code><var>text</var><dd><a name="index-set-trace_002dnotes-808"></a>Set the trace run's notes.
+
+     <br><dt><code>show trace-notes</code><dd><a name="index-show-trace_002dnotes-809"></a>Show the trace run's notes.
+
+     <br><dt><code>set trace-stop-notes </code><var>text</var><dd><a name="index-set-trace_002dstop_002dnotes-810"></a>Set the trace run's stop notes.  The handling of the note is as for
 <code>tstop</code> arguments; the set command is convenient way to fix a
 stop note that is mistaken or incomplete.
 
-     <br><dt><code>show trace-stop-notes</code><dd><a name="index-show-trace_002dstop_002dnotes-770"></a>Show the trace run's stop notes.
+     <br><dt><code>show trace-stop-notes</code><dd><a name="index-show-trace_002dstop_002dnotes-811"></a>Show the trace run's stop notes.
 
    </dl>
 

@@ -9,9 +9,7 @@
 <link rel="prev" href="Remote-Configuration.html#Remote-Configuration" title="Remote Configuration">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Debugging.html#Remote-Debugging"
 
 <h3 class="section">20.5 Implementing a Remote Stub</h3>
 
-<p><a name="index-debugging-stub_002c-example-1166"></a><a name="index-remote-stub_002c-example-1167"></a><a name="index-stub-example_002c-remote-debugging-1168"></a>The stub files provided with <span class="sc">gdb</span> implement the target side of the
+<p><a name="index-debugging-stub_002c-example-1219"></a><a name="index-remote-stub_002c-example-1220"></a><a name="index-stub-example_002c-remote-debugging-1221"></a>The stub files provided with <span class="sc">gdb</span> implement the target side of the
 communication protocol, and the <span class="sc">gdb</span> side is implemented in the
 <span class="sc">gdb</span> source file <samp><span class="file">remote.c</span></samp>.  Normally, you can simply allow
 these subroutines to communicate, and ignore the details.  (If you're
@@ -55,7 +53,7 @@ implementing your own stub file, you can still ignore the details: start
 with one of the existing stub files.  <samp><span class="file">sparc-stub.c</span></samp> is the best
 organized, and therefore the easiest to read.)
 
-   <p><a name="index-remote-serial-debugging_002c-overview-1169"></a>To debug a program running on another machine (the debugging
+   <p><a name="index-remote-serial-debugging_002c-overview-1222"></a>To debug a program running on another machine (the debugging
 <dfn>target</dfn> machine), you must first arrange for all the usual
 prerequisites for the program to run by itself.  For example, for a C
 program, you need:
@@ -96,18 +94,18 @@ See <a href="Server.html#Server">Using the <code>gdbserver</code> Program</a>, f
 machine; for example, use <samp><span class="file">sparc-stub.c</span></samp> to debug programs on
 <span class="sc">sparc</span> boards.
 
-   <p><a name="index-remote-serial-stub-list-1170"></a>These working remote stubs are distributed with <span class="sc">gdb</span>:
+   <p><a name="index-remote-serial-stub-list-1223"></a>These working remote stubs are distributed with <span class="sc">gdb</span>:
 
      <dl>
-<dt><code>i386-stub.c</code><dd><a name="index-g_t_0040file_007bi386_002dstub_002ec_007d-1171"></a><a name="index-Intel-1172"></a><a name="index-i386-1173"></a>For Intel 386 and compatible architectures.
+<dt><code>i386-stub.c</code><dd><a name="index-g_t_0040file_007bi386_002dstub_002ec_007d-1224"></a><a name="index-Intel-1225"></a><a name="index-i386-1226"></a>For Intel 386 and compatible architectures.
 
-     <br><dt><code>m68k-stub.c</code><dd><a name="index-g_t_0040file_007bm68k_002dstub_002ec_007d-1174"></a><a name="index-Motorola-680x0-1175"></a><a name="index-m680x0-1176"></a>For Motorola 680x0 architectures.
+     <br><dt><code>m68k-stub.c</code><dd><a name="index-g_t_0040file_007bm68k_002dstub_002ec_007d-1227"></a><a name="index-Motorola-680x0-1228"></a><a name="index-m680x0-1229"></a>For Motorola 680x0 architectures.
 
-     <br><dt><code>sh-stub.c</code><dd><a name="index-g_t_0040file_007bsh_002dstub_002ec_007d-1177"></a><a name="index-Renesas-1178"></a><a name="index-SH-1179"></a>For Renesas SH architectures.
+     <br><dt><code>sh-stub.c</code><dd><a name="index-g_t_0040file_007bsh_002dstub_002ec_007d-1230"></a><a name="index-Renesas-1231"></a><a name="index-SH-1232"></a>For Renesas SH architectures.
 
-     <br><dt><code>sparc-stub.c</code><dd><a name="index-g_t_0040file_007bsparc_002dstub_002ec_007d-1180"></a><a name="index-Sparc-1181"></a>For <span class="sc">sparc</span> architectures.
+     <br><dt><code>sparc-stub.c</code><dd><a name="index-g_t_0040file_007bsparc_002dstub_002ec_007d-1233"></a><a name="index-Sparc-1234"></a>For <span class="sc">sparc</span> architectures.
 
-     <br><dt><code>sparcl-stub.c</code><dd><a name="index-g_t_0040file_007bsparcl_002dstub_002ec_007d-1182"></a><a name="index-Fujitsu-1183"></a><a name="index-SparcLite-1184"></a>For Fujitsu <span class="sc">sparclite</span> architectures.
+     <br><dt><code>sparcl-stub.c</code><dd><a name="index-g_t_0040file_007bsparcl_002dstub_002ec_007d-1235"></a><a name="index-Fujitsu-1236"></a><a name="index-SparcLite-1237"></a>For Fujitsu <span class="sc">sparclite</span> architectures.
 
    </dl>
 

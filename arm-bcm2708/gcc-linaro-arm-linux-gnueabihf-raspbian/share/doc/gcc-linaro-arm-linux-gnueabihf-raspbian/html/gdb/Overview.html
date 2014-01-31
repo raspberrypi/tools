@@ -9,9 +9,7 @@
 <link rel="next" href="Packets.html#Packets" title="Packets">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +53,7 @@ recognizes a packet meant for <span class="sc">gdb</span>.
    <p>In the examples below, &lsquo;<samp><span class="samp">-&gt;</span></samp>&rsquo; and &lsquo;<samp><span class="samp">&lt;-</span></samp>&rsquo; are used to indicate
 transmitted and received data, respectively.
 
-   <p><a name="index-protocol_002c-_0040value_007bGDBN_007d-remote-serial-2508"></a><a name="index-serial-protocol_002c-_0040value_007bGDBN_007d-remote-2509"></a><a name="index-remote-serial-protocol-2510"></a>All <span class="sc">gdb</span> commands and responses (other than acknowledgments
+   <p><a name="index-protocol_002c-_0040value_007bGDBN_007d-remote-serial-2633"></a><a name="index-serial-protocol_002c-_0040value_007bGDBN_007d-remote-2634"></a><a name="index-remote-serial-protocol-2635"></a>All <span class="sc">gdb</span> commands and responses (other than acknowledgments
 and notifications, see <a href="Notification-Packets.html#Notification-Packets">Notification Packets</a>) are sent as a
 <var>packet</var>.  A <var>packet</var> is introduced with the character
 &lsquo;<samp><span class="samp">$</span></samp>&rsquo;, the actual <var>packet-data</var>, and the terminating character
@@ -63,7 +61,7 @@ and notifications, see <a href="Notification-Packets.html#Notification-Packets">
 
 <pre class="smallexample">     <code>$</code><var>packet-data</var><code>#</code><var>checksum</var>
 </pre>
-   <p class="noindent"><a name="index-checksum_002c-for-_0040value_007bGDBN_007d-remote-2511"></a>The two-digit <var>checksum</var> is computed as the modulo 256 sum of all
+   <p class="noindent"><a name="index-checksum_002c-for-_0040value_007bGDBN_007d-remote-2636"></a>The two-digit <var>checksum</var> is computed as the modulo 256 sum of all
 characters between the leading &lsquo;<samp><span class="samp">$</span></samp>&rsquo; and the trailing &lsquo;<samp><span class="samp">#</span></samp>&rsquo; (an
 eight bit unsigned checksum).
 
@@ -72,7 +70,7 @@ specification also included an optional two-digit <var>sequence-id</var>:
 
 <pre class="smallexample">     <code>$</code><var>sequence-id</var><code>:</code><var>packet-data</var><code>#</code><var>checksum</var>
 </pre>
-   <p><a name="index-sequence_002did_002c-for-_0040value_007bGDBN_007d-remote-2512"></a>That <var>sequence-id</var> was appended to the acknowledgment.  <span class="sc">gdb</span>
+   <p><a name="index-sequence_002did_002c-for-_0040value_007bGDBN_007d-remote-2637"></a>That <var>sequence-id</var> was appended to the acknowledgment.  <span class="sc">gdb</span>
 has never output <var>sequence-id</var>s.  Stubs that handle packets added
 since <span class="sc">gdb</span> 5.0 must not accept <var>sequence-id</var>.
 
@@ -100,7 +98,7 @@ execution mode; see <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remot
 exception of &lsquo;<samp><span class="samp">#</span></samp>&rsquo; and &lsquo;<samp><span class="samp">$</span></samp>&rsquo; (see &lsquo;<samp><span class="samp">X</span></samp>&rsquo; packet for additional
 exceptions).
 
-   <p><a name="index-remote-protocol_002c-field-separator-2513"></a>Fields within the packet should be separated using &lsquo;<samp><span class="samp">,</span></samp>&rsquo; &lsquo;<samp><span class="samp">;</span></samp>&rsquo; or
+   <p><a name="index-remote-protocol_002c-field-separator-2638"></a>Fields within the packet should be separated using &lsquo;<samp><span class="samp">,</span></samp>&rsquo; &lsquo;<samp><span class="samp">;</span></samp>&rsquo; or
 &lsquo;<samp><span class="samp">:</span></samp>&rsquo;.  Except where otherwise noted all numbers are represented in
 <span class="sc">hex</span> with leading zeros suppressed.
 
@@ -108,7 +106,7 @@ exceptions).
 &lsquo;<samp><span class="samp">:</span></samp>&rsquo; could not appear as the third character in a packet (as it
 would potentially conflict with the <var>sequence-id</var>).
 
-   <p><a name="index-remote-protocol_002c-binary-data-2514"></a><a name="Binary-Data"></a>Binary data in most packets is encoded either as two hexadecimal
+   <p><a name="index-remote-protocol_002c-binary-data-2639"></a><a name="Binary-Data"></a>Binary data in most packets is encoded either as two hexadecimal
 digits per byte of binary data.  This allowed the traditional remote
 protocol to work over connections which were only seven-bit clean. 
 Some packets designed more recently assume an eight-bit clean
@@ -147,7 +145,7 @@ five (&lsquo;<samp><span class="samp">"</span></samp>&rsquo;).  For example, &ls
    <p>The error response returned for some packets includes a two character
 error number.  That number is not well defined.
 
-   <p><a name="index-empty-response_002c-for-unsupported-packets-2515"></a>For any <var>command</var> not supported by the stub, an empty response
+   <p><a name="index-empty-response_002c-for-unsupported-packets-2640"></a>For any <var>command</var> not supported by the stub, an empty response
 (&lsquo;<samp><span class="samp">$#00</span></samp>&rsquo;) should be returned.  That way it is possible to extend the
 protocol.  A newer <span class="sc">gdb</span> can tell if a packet is supported based
 on that response.

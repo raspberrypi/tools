@@ -9,9 +9,7 @@
 <link rel="prev" href="Bootstrapping.html#Bootstrapping" title="Bootstrapping">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Stub.html#Remote-Stub">Remote St
 
 <h4 class="subsection">20.5.3 Putting it All Together</h4>
 
-<p><a name="index-remote-serial-debugging-summary-1199"></a>In summary, when your program is ready to debug, you must follow these
+<p><a name="index-remote-serial-debugging-summary-1252"></a>In summary, when your program is ready to debug, you must follow these
 steps.
 
      <ol type=1 start=1>
@@ -56,11 +54,20 @@ steps.
      <pre class="display">          <code>getDebugChar</code>, <code>putDebugChar</code>,
           <code>flush_i_cache</code>, <code>memset</code>, <code>exceptionHandler</code>.
 </pre>
-     <li>Insert these lines near the top of your program:
+     <li>Insert these lines in your program's startup code, before the main
+procedure is called:
 
      <pre class="smallexample">          set_debug_traps();
           breakpoint();
 </pre>
+     <p>On some machines, when a breakpoint trap is raised, the hardware
+automatically makes the PC point to the instruction after the
+breakpoint.  If your machine doesn't do that, you may need to adjust
+<code>handle_exception</code> to arrange for it to return to the instruction
+after the breakpoint on this first invocation, so that your program
+doesn't keep hitting the initial breakpoint instead of making
+progress.
+
      <li>For the 680x0 stub only, you need to provide a variable called
 <code>exceptionHook</code>.  Normally you just use:
 

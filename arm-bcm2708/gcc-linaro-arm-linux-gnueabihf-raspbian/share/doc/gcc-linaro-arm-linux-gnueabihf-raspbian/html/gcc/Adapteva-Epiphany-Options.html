@@ -6,12 +6,11 @@
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Submodel-Options.html#Submodel-Options" title="Submodel Options">
+<link rel="prev" href="AArch64-Options.html#AArch64-Options" title="AArch64 Options">
 <link rel="next" href="ARM-Options.html#ARM-Options" title="ARM Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,66 +47,67 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <a name="Adapteva-Epiphany-Options"></a>
 <p>
 Next:&nbsp;<a rel="next" accesskey="n" href="ARM-Options.html#ARM-Options">ARM Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="AArch64-Options.html#AArch64-Options">AArch64 Options</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options">Submodel Options</a>
 <hr>
 </div>
 
-<h4 class="subsection">3.17.1 Adapteva Epiphany Options</h4>
+<h4 class="subsection">3.17.2 Adapteva Epiphany Options</h4>
 
 <p>These &lsquo;<samp><span class="samp">-m</span></samp>&rsquo; options are defined for Adapteva Epiphany:
 
      <dl>
-<dt><code>-mhalf-reg-file</code><dd><a name="index-mhalf_002dreg_002dfile-1046"></a>Don't allocate any register in the range <code>r32</code><small class="dots">...</small><code>r63</code>. 
+<dt><code>-mhalf-reg-file</code><dd><a name="index-mhalf_002dreg_002dfile-1099"></a>Don't allocate any register in the range <code>r32</code><small class="dots">...</small><code>r63</code>. 
 That allows code to run on hardware variants that lack these registers.
 
-     <br><dt><code>-mprefer-short-insn-regs</code><dd><a name="index-mprefer_002dshort_002dinsn_002dregs-1047"></a>Preferrentially allocate registers that allow short instruction generation. 
-This can result in increasesd instruction count, so if this reduces or
-increases code size might vary from case to case.
+     <br><dt><code>-mprefer-short-insn-regs</code><dd><a name="index-mprefer_002dshort_002dinsn_002dregs-1100"></a>Preferrentially allocate registers that allow short instruction generation. 
+This can result in increased instruction count, so this may either reduce or
+increase overall code size.
 
-     <br><dt><code>-mbranch-cost=</code><var>num</var><dd><a name="index-mbranch_002dcost-1048"></a>Set the cost of branches to roughly <var>num</var> &ldquo;simple&rdquo; instructions. 
+     <br><dt><code>-mbranch-cost=</code><var>num</var><dd><a name="index-mbranch_002dcost-1101"></a>Set the cost of branches to roughly <var>num</var> &ldquo;simple&rdquo; instructions. 
 This cost is only a heuristic and is not guaranteed to produce
 consistent results across releases.
 
-     <br><dt><code>-mcmove</code><dd><a name="index-mcmove-1049"></a>Enable the generation of conditional moves.
+     <br><dt><code>-mcmove</code><dd><a name="index-mcmove-1102"></a>Enable the generation of conditional moves.
 
-     <br><dt><code>-mnops=</code><var>num</var><dd><a name="index-mnops-1050"></a>Emit <var>num</var> nops before every other generated instruction.
+     <br><dt><code>-mnops=</code><var>num</var><dd><a name="index-mnops-1103"></a>Emit <var>num</var> NOPs before every other generated instruction.
 
-     <br><dt><code>-mno-soft-cmpsf</code><dd><a name="index-mno_002dsoft_002dcmpsf-1051"></a>For single-precision floating-point comparisons, emit an fsub instruction
+     <br><dt><code>-mno-soft-cmpsf</code><dd><a name="index-mno_002dsoft_002dcmpsf-1104"></a>For single-precision floating-point comparisons, emit an <code>fsub</code> instruction
 and test the flags.  This is faster than a software comparison, but can
 get incorrect results in the presence of NaNs, or when two different small
 numbers are compared such that their difference is calculated as zero. 
 The default is <samp><span class="option">-msoft-cmpsf</span></samp>, which uses slower, but IEEE-compliant,
 software comparisons.
 
-     <br><dt><code>-mstack-offset=</code><var>num</var><dd><a name="index-mstack_002doffset-1052"></a>Set the offset between the top of the stack and the stack pointer. 
-E.g., a value of 8 means that the eight bytes in the range sp+0<small class="dots">...</small>sp+7
+     <br><dt><code>-mstack-offset=</code><var>num</var><dd><a name="index-mstack_002doffset-1105"></a>Set the offset between the top of the stack and the stack pointer. 
+E.g., a value of 8 means that the eight bytes in the range <code>sp+0...sp+7</code>
 can be used by leaf functions without stack allocation. 
 Values other than &lsquo;<samp><span class="samp">8</span></samp>&rsquo; or &lsquo;<samp><span class="samp">16</span></samp>&rsquo; are untested and unlikely to work. 
-Note also that this option changes the ABI, compiling a program with a
+Note also that this option changes the ABI; compiling a program with a
 different stack offset than the libraries have been compiled with
-will generally not work. 
+generally does not work. 
 This option can be useful if you want to evaluate if a different stack
 offset would give you better code, but to actually use a different stack
 offset to build working programs, it is recommended to configure the
-toolchain with the appropriate &lsquo;<samp><span class="samp">--with-stack-offset=</span><var>num</var></samp>&rsquo; option.
+toolchain with the appropriate <samp><span class="option">--with-stack-offset=</span><var>num</var></samp> option.
 
-     <br><dt><code>-mno-round-nearest</code><dd><a name="index-mno_002dround_002dnearest-1053"></a>Make the scheduler assume that the rounding mode has been set to
+     <br><dt><code>-mno-round-nearest</code><dd><a name="index-mno_002dround_002dnearest-1106"></a>Make the scheduler assume that the rounding mode has been set to
 truncating.  The default is <samp><span class="option">-mround-nearest</span></samp>.
 
-     <br><dt><code>-mlong-calls</code><dd><a name="index-mlong_002dcalls-1054"></a>If not otherwise specified by an attribute, assume all calls might be beyond
-the offset range of the b / bl instructions, and therefore load the
+     <br><dt><code>-mlong-calls</code><dd><a name="index-mlong_002dcalls-1107"></a>If not otherwise specified by an attribute, assume all calls might be beyond
+the offset range of the <code>b</code> / <code>bl</code> instructions, and therefore load the
 function address into a register before performing a (otherwise direct) call. 
 This is the default.
 
-     <br><dt><code>-mshort-calls</code><dd><a name="index-short_002dcalls-1055"></a>If not otherwise specified by an attribute, assume all direct calls are
-in the range of the b / bl instructions, so use these instructions
+     <br><dt><code>-mshort-calls</code><dd><a name="index-short_002dcalls-1108"></a>If not otherwise specified by an attribute, assume all direct calls are
+in the range of the <code>b</code> / <code>bl</code> instructions, so use these instructions
 for direct calls.  The default is <samp><span class="option">-mlong-calls</span></samp>.
 
-     <br><dt><code>-msmall16</code><dd><a name="index-msmall16-1056"></a>Assume addresses can be loaded as 16-bit unsigned values.  This does not
+     <br><dt><code>-msmall16</code><dd><a name="index-msmall16-1109"></a>Assume addresses can be loaded as 16-bit unsigned values.  This does not
 apply to function addresses for which <samp><span class="option">-mlong-calls</span></samp> semantics
 are in effect.
 
-     <br><dt><code>-mfp-mode=</code><var>mode</var><dd><a name="index-mfp_002dmode-1057"></a>Set the prevailing mode of the floating-point unit. 
+     <br><dt><code>-mfp-mode=</code><var>mode</var><dd><a name="index-mfp_002dmode-1110"></a>Set the prevailing mode of the floating-point unit. 
 This determines the floating-point mode that is provided and expected
 at function call and return time.  Making this mode match the mode you
 predominantly need at function start can make your programs smaller and
@@ -138,28 +138,29 @@ integer multiply, or integer multiply-and-accumulate.
 
      <p>The default is <samp><span class="option">-mfp-mode=caller</span></samp>
 
-     <br><dt><code>-mnosplit-lohi</code><dd><a name="index-mnosplit_002dlohi-1058"></a><br><dt><code>-mno-postinc</code><dd><a name="index-mno_002dpostinc-1059"></a><br><dt><code>-mno-postmodify</code><dd><a name="index-mno_002dpostmodify-1060"></a>Code generation tweaks that disable, respectively, splitting of 32-bit
+     <br><dt><code>-mnosplit-lohi</code><dt><code>-mno-postinc</code><dt><code>-mno-postmodify</code><dd><a name="index-mnosplit_002dlohi-1111"></a><a name="index-mno_002dpostinc-1112"></a><a name="index-mno_002dpostmodify-1113"></a>Code generation tweaks that disable, respectively, splitting of 32-bit
 loads, generation of post-increment addresses, and generation of
 post-modify addresses.  The defaults are <samp><span class="option">msplit-lohi</span></samp>,
 <samp><span class="option">-mpost-inc</span></samp>, and <samp><span class="option">-mpost-modify</span></samp>.
 
-     <br><dt><code>-mnovect-double</code><dd><a name="index-mno_002dvect_002ddouble-1061"></a>Change the preferred SIMD mode to SImode.  The default is
+     <br><dt><code>-mnovect-double</code><dd><a name="index-mno_002dvect_002ddouble-1114"></a>Change the preferred SIMD mode to SImode.  The default is
 <samp><span class="option">-mvect-double</span></samp>, which uses DImode as preferred SIMD mode.
 
-     <br><dt><code>-max-vect-align=</code><var>num</var><dd><a name="index-max_002dvect_002dalign-1062"></a>The maximum alignment for SIMD vector mode types. 
+     <br><dt><code>-max-vect-align=</code><var>num</var><dd><a name="index-max_002dvect_002dalign-1115"></a>The maximum alignment for SIMD vector mode types. 
 <var>num</var> may be 4 or 8.  The default is 8. 
 Note that this is an ABI change, even though many library function
-interfaces will be unaffected, if they don't use SIMD vector modes
-in places where they affect size and/or alignment of relevant types.
+interfaces are unaffected if they don't use SIMD vector modes
+in places that affect size and/or alignment of relevant types.
 
-     <br><dt><code>-msplit-vecmove-early</code><dd><a name="index-msplit_002dvecmove_002dearly-1063"></a>Split vector moves into single word moves before reload.  In theory this
-could give better register allocation, but so far the reverse seems to be
+     <br><dt><code>-msplit-vecmove-early</code><dd><a name="index-msplit_002dvecmove_002dearly-1116"></a>Split vector moves into single word moves before reload.  In theory this
+can give better register allocation, but so far the reverse seems to be
 generally the case.
 
-     <br><dt><code>-m1reg-</code><var>reg</var><dd><a name="index-m1reg_002d-1064"></a>Specify a register to hold the constant &minus;1, which makes loading small negative
+     <br><dt><code>-m1reg-</code><var>reg</var><dd><a name="index-m1reg_002d-1117"></a>Specify a register to hold the constant &minus;1, which makes loading small negative
 constants and certain bitmasks faster. 
-Allowable values for reg are r43 and r63, which specify to use that register
-as a fixed register, and none, which means that no register is used for this
+Allowable values for <var>reg</var> are &lsquo;<samp><span class="samp">r43</span></samp>&rsquo; and &lsquo;<samp><span class="samp">r63</span></samp>&rsquo;,
+which specify use of that register as a fixed register,
+and &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, which means that no register is used for this
 purpose.  The default is <samp><span class="option">-m1reg-none</span></samp>.
 
  </dl>

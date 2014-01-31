@@ -9,9 +9,7 @@
 <link rel="next" href="Mode-Options.html#Mode-Options" title="Mode Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -99,9 +97,17 @@ also be interleaved with &lsquo;<samp><span class="samp">-command</span></samp>&
      <pre class="smallexample">          gdb -ex 'target sim' -ex 'load' \
              -x setbreakpoints -ex 'run' a.out
 </pre>
-     <br><dt><code>-directory </code><var>directory</var><dt><code>-d </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002ddirectory_007d-17"></a><a name="index-g_t_0040code_007b_002dd_007d-18"></a>Add <var>directory</var> to the path to search for source and script files.
+     <br><dt><code>-init-command </code><var>file</var><dt><code>-ix </code><var>file</var><dd><a name="index-g_t_0040code_007b_002d_002dinit_002dcommand_007d-17"></a><a name="index-g_t_0040code_007b_002dix_007d-18"></a>Execute commands from file <var>file</var> before loading the inferior (but
+after loading gdbinit files). 
+See <a href="Startup.html#Startup">Startup</a>.
 
-     <br><dt><code>-r</code><dt><code>-readnow</code><dd><a name="index-g_t_0040code_007b_002d_002dreadnow_007d-19"></a><a name="index-g_t_0040code_007b_002dr_007d-20"></a>Read each symbol file's entire symbol table immediately, rather than
+     <br><dt><code>-init-eval-command </code><var>command</var><dt><code>-iex </code><var>command</var><dd><a name="index-g_t_0040code_007b_002d_002dinit_002deval_002dcommand_007d-19"></a><a name="index-g_t_0040code_007b_002diex_007d-20"></a>Execute a single <span class="sc">gdb</span> command before loading the inferior (but
+after loading gdbinit files). 
+See <a href="Startup.html#Startup">Startup</a>.
+
+     <br><dt><code>-directory </code><var>directory</var><dt><code>-d </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002ddirectory_007d-21"></a><a name="index-g_t_0040code_007b_002dd_007d-22"></a>Add <var>directory</var> to the path to search for source and script files.
+
+     <br><dt><code>-r</code><dt><code>-readnow</code><dd><a name="index-g_t_0040code_007b_002d_002dreadnow_007d-23"></a><a name="index-g_t_0040code_007b_002dr_007d-24"></a>Read each symbol file's entire symbol table immediately, rather than
 the default, which is to read it incrementally as it is needed. 
 This makes startup slower, but makes future operations faster.
 

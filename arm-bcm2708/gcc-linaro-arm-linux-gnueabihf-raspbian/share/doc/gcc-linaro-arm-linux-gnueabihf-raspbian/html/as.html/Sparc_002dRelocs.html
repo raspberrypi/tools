@@ -12,9 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -48,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sparc_002dSyntax.html#Sparc_002dSyntax"
 <hr>
 </div>
 
-<h5 class="subsubsection">9.36.3.4 Relocations</h5>
+<h5 class="subsubsection">9.41.3.4 Relocations</h5>
 
-<p><a name="index-Sparc-relocations-1754"></a><a name="index-relocations_002c-Sparc-1755"></a>
+<p><a name="index-Sparc-relocations-1915"></a><a name="index-relocations_002c-Sparc-1916"></a>
 ELF relocations are available as defined in the 32-bit and 64-bit
 Sparc ELF specifications.
 
@@ -79,9 +77,21 @@ also be generated using &lsquo;<samp><span class="samp">%ulo</span></samp>&rsquo
 
      <li><code>R_SPARC_H44</code> is requested using &lsquo;<samp><span class="samp">%h44</span></samp>&rsquo;. 
 <li><code>R_SPARC_M44</code> is requested using &lsquo;<samp><span class="samp">%m44</span></samp>&rsquo;. 
-<li><code>R_SPARC_L44</code> is requested using &lsquo;<samp><span class="samp">%l44</span></samp>&rsquo;. 
+<li><code>R_SPARC_L44</code> is requested using &lsquo;<samp><span class="samp">%l44</span></samp>&rsquo; or &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo;. 
+<li><code>R_SPARC_H34</code> is requested using &lsquo;<samp><span class="samp">%h34</span></samp>&rsquo;. 
 </ul>
 
+   <p>The &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo; generates a <code>R_SPARC_L44</code> relocation because it
+calculates the necessary value, and therefore no explicit
+<code>R_SPARC_L34</code> relocation needed to be created for this purpose.
+
+   <p>The &lsquo;<samp><span class="samp">%h34</span></samp>&rsquo; and &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo; relocations are used for the abs34 code
+model.  Here is an example abs34 address generation sequence:
+
+<pre class="example">     sethi %h34(symbol), %g1
+     sllx  %g1, 2, %g1
+     or    %g1, %l34(symbol), %g1
+</pre>
    <p>The PC relative relocation <code>R_SPARC_PC22</code> can be obtained by
 enclosing an operand inside of &lsquo;<samp><span class="samp">%pc22</span></samp>&rsquo;.  Likewise, the
 <code>R_SPARC_PC10</code> relocation can be obtained using &lsquo;<samp><span class="samp">%pc10</span></samp>&rsquo;. 

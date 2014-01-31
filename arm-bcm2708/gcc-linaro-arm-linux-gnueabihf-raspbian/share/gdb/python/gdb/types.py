@@ -1,5 +1,5 @@
 # Type utilities.
-# Copyright (C) 2010-2012 Free Software Foundation, Inc.
+# Copyright (C) 2010-2013 Free Software Foundation, Inc.
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -86,8 +86,8 @@ def make_enum_dict(enum_type):
         raise TypeError("not an enum type")
     enum_dict = {}
     for field in enum_type.fields():
-        # The enum's value is stored in "bitpos".
-        enum_dict[field.name] = field.bitpos
+        # The enum's value is stored in "enumval".
+        enum_dict[field.name] = field.enumval
     return enum_dict
 
 
@@ -109,3 +109,68 @@ def deep_items (type_):
         else:
             for i in deep_items (v.type):
                 yield i
+
+class TypePrinter(object):
+    """The base class for type printers.
+
+    Instances of this type can be used to substitute type names during
+    'ptype'.
+
+    A type printer must have at least 'name' and 'enabled' attributes,
+    and supply an 'instantiate' method.
+
+    The 'instantiate' method must either return None, or return an
+    object which has a 'recognize' method.  This method must accept a
+    gdb.Type argument and either return None, meaning that the type
+    was not recognized, or a string naming the type.
+    """
+
+    def __init__(self, name):
+        self.name = name
+        self.enabled = True
+
+    def instantiate(self):
+        return None
+
+# Helper function for computing the list of type recognizers.
+def _get_some_type_recognizers(result, plist):
+    for printer in plist:
+        if printer.enabled:
+            inst = printer.instantiate()
+            if inst is not None:
+                result.append(inst)
+    return None
+
+def get_type_recognizers():
+    "Return a list of the enabled type recognizers for the current context."
+    result = []
+
+    # First try the objfiles.
+    for objfile in gdb.objfiles():
+        _get_some_type_recognizers(result, objfile.type_printers)
+    # Now try the program space.
+    _get_some_type_recognizers(result, gdb.current_progspace().type_printers)
+    # Finally, globals.
+    _get_some_type_recognizers(result, gdb.type_printers)
+
+    return result
+
+def apply_type_recognizers(recognizers, type_obj):
+    """Apply the given list of type recognizers to the type TYPE_OBJ.
+    If any recognizer in the list recognizes TYPE_OBJ, returns the name
+    given by the recognizer.  Otherwise, this returns None."""
+    for r in recognizers:
+        result = r.recognize(type_obj)
+        if result is not None:
+            return result
+    return None
+
+def register_type_printer(locus, printer):
+    """Register a type printer.
+    PRINTER is the type printer instance.
+    LOCUS is either an objfile, a program space, or None, indicating
+    global registration."""
+
+    if locus is None:
+        locus = gdb
+    locus.type_printers.insert(0, printer)

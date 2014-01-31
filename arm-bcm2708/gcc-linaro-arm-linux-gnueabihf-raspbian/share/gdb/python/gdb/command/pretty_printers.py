@@ -1,5 +1,5 @@
 # Pretty-printer commands.
-# Copyright (C) 2010-2012 Free Software Foundation, Inc.
+# Copyright (C) 2010-2013 Free Software Foundation, Inc.
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -124,21 +124,17 @@ class InfoPrettyPrinter(gdb.Command):
         """Print a list of pretty-printers."""
         # A potential enhancement is to provide an option to list printers in
         # "lookup order" (i.e. unsorted).
-        sorted_pretty_printers = copy.copy(pretty_printers)
-        sorted_pretty_printers.sort(lambda x, y:
-                                        cmp(self.printer_name(x),
-                                            self.printer_name(y)))
+        sorted_pretty_printers = sorted (copy.copy(pretty_printers),
+                                         key = self.printer_name)
         for printer in sorted_pretty_printers:
             name = self.printer_name(printer)
             enabled = self.enabled_string(printer)
             if name_re.match(name):
-                print "  %s%s" % (name, enabled)
+                print ("  %s%s" % (name, enabled))
                 if (hasattr(printer, "subprinters") and
                     printer.subprinters is not None):
-                    sorted_subprinters = copy.copy(printer.subprinters)
-                    sorted_subprinters.sort(lambda x, y:
-                                                cmp(self.printer_name(x),
-                                                    self.printer_name(y)))
+                    sorted_subprinters = sorted (copy.copy(printer.subprinters),
+                                                 key = self.printer_name)
                     for subprinter in sorted_subprinters:
                         if (not subname_re or
                             subname_re.match(subprinter.name)):
@@ -150,7 +146,7 @@ class InfoPrettyPrinter(gdb.Command):
                 obj_name_to_match, object_re, name_re, subname_re):
         """Subroutine of invoke to simplify it."""
         if printer_list and object_re.match(obj_name_to_match):
-            print title
+            print (title)
             self.list_pretty_printers(printer_list, name_re, subname_re)
 
     def invoke(self, arg, from_tty):
@@ -219,7 +215,7 @@ def show_pretty_printer_enabled_summary():
     We count subprinters individually.
     """
     (enabled_count, total_count) = count_all_enabled_printers()
-    print "%d of %d printers enabled" % (enabled_count, total_count)
+    print ("%d of %d printers enabled" % (enabled_count, total_count))
 
 
 def do_enable_pretty_printer_1 (pretty_printers, name_re, subname_re, flag):
@@ -301,7 +297,7 @@ def do_enable_pretty_printer (arg, flag):
         state = "enabled"
     else:
         state = "disabled"
-    print "%d %s %s" % (total, pluralize("printer", total), state)
+    print ("%d %s %s" % (total, pluralize("printer", total), state))
 
     # Print the total list of printers currently enabled/disabled.
     # This is to further assist the user in determining whether the result

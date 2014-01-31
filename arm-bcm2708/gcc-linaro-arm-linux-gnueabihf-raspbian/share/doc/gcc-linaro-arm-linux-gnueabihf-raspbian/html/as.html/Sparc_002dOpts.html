@@ -11,9 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
-Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,9 +44,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sparc_002dDependent.html#Sparc_002dDepe
 <hr>
 </div>
 
-<h4 class="subsection">9.36.1 Options</h4>
+<h4 class="subsection">9.41.1 Options</h4>
 
-<p><a name="index-options-for-SPARC-1718"></a><a name="index-SPARC-options-1719"></a><a name="index-architectures_002c-SPARC-1720"></a><a name="index-SPARC-architectures-1721"></a>The SPARC chip family includes several successive versions, using the same
+<p><a name="index-options-for-SPARC-1878"></a><a name="index-SPARC-options-1879"></a><a name="index-architectures_002c-SPARC-1880"></a><a name="index-SPARC-architectures-1881"></a>The SPARC chip family includes several successive versions, using the same
 core instruction set, but including a few additional instructions at
 each version.  There are exceptions to this however.  For details on what
 instructions each variant supports, please see the chip's architecture
@@ -69,25 +67,26 @@ is explicitly requested.  SPARC v9 is always incompatible with sparclite.
 <!-- The order here is the same as the order of enum sparc_opcode_arch_val -->
 <!-- to give the user a sense of the order of the "bumping". -->
      
-<a name="index-g_t_002dAv6-1722"></a>
-<a name="index-g_t_002dAv7-1723"></a>
-<a name="index-g_t_002dAv8-1724"></a>
-<a name="index-g_t_002dAsparclet-1725"></a>
-<a name="index-g_t_002dAsparclite-1726"></a>
-<a name="index-g_t_002dAv9-1727"></a>
-<a name="index-g_t_002dAv9a-1728"></a>
-<a name="index-g_t_002dAv9b-1729"></a>
-<a name="index-g_t_002dAv9c-1730"></a>
-<a name="index-g_t_002dAv9d-1731"></a>
-<a name="index-g_t_002dAv9v-1732"></a>
-<a name="index-g_t_002dAsparc-1733"></a>
-<a name="index-g_t_002dAsparcvis-1734"></a>
-<a name="index-g_t_002dAsparcvis2-1735"></a>
-<a name="index-g_t_002dAsparcfmaf-1736"></a>
-<a name="index-g_t_002dAsparcima-1737"></a>
-<a name="index-g_t_002dAsparcvis3-1738"></a>
-<a name="index-g_t_002dAsparcvis3r-1739"></a>
-<dl><dt><code>-Av6 | -Av7 | -Av8 | -Asparclet | -Asparclite</code><dt><code>-Av8plus | -Av8plusa | -Av8plusb | -Av8plusc | -Av8plusd | -Av8plusv</code><dt><code>-Av9 | -Av9a | -Av9b | -Av9c | -Av9d | -Av9v</code><dt><code>-Asparc | -Asparcvis | -Asparcvis2 | -Asparcfmaf | -Asparcima</code><dt><code>-Asparcvis3 | -Asparcvis3r</code><dd>Use one of the &lsquo;<samp><span class="samp">-A</span></samp>&rsquo; options to select one of the SPARC
+<a name="index-g_t_002dAv6-1882"></a>
+<a name="index-g_t_002dAv7-1883"></a>
+<a name="index-g_t_002dAv8-1884"></a>
+<a name="index-g_t_002dAleon-1885"></a>
+<a name="index-g_t_002dAsparclet-1886"></a>
+<a name="index-g_t_002dAsparclite-1887"></a>
+<a name="index-g_t_002dAv9-1888"></a>
+<a name="index-g_t_002dAv9a-1889"></a>
+<a name="index-g_t_002dAv9b-1890"></a>
+<a name="index-g_t_002dAv9c-1891"></a>
+<a name="index-g_t_002dAv9d-1892"></a>
+<a name="index-g_t_002dAv9v-1893"></a>
+<a name="index-g_t_002dAsparc-1894"></a>
+<a name="index-g_t_002dAsparcvis-1895"></a>
+<a name="index-g_t_002dAsparcvis2-1896"></a>
+<a name="index-g_t_002dAsparcfmaf-1897"></a>
+<a name="index-g_t_002dAsparcima-1898"></a>
+<a name="index-g_t_002dAsparcvis3-1899"></a>
+<a name="index-g_t_002dAsparcvis3r-1900"></a>
+<dl><dt><code>-Av6 | -Av7 | -Av8 | -Aleon | -Asparclet | -Asparclite</code><dt><code>-Av8plus | -Av8plusa | -Av8plusb | -Av8plusc | -Av8plusd | -Av8plusv</code><dt><code>-Av9 | -Av9a | -Av9b | -Av9c | -Av9d | -Av9v</code><dt><code>-Asparc | -Asparcvis | -Asparcvis2 | -Asparcfmaf | -Asparcima</code><dt><code>-Asparcvis3 | -Asparcvis3r</code><dd>Use one of the &lsquo;<samp><span class="samp">-A</span></samp>&rsquo; options to select one of the SPARC
 architectures explicitly.  If you select an architecture explicitly,
 <code>as</code> reports a fatal error if it encounters an instruction
 or feature requiring an incompatible or higher level.

@@ -10,11 +10,10 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
-(GNU Binutils)
-version 2.22.
+(crosstool-NG linaro-1.13.1-4.8-2014.01 - Linaro GCC 2013.11)
+version 2.24.0.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -44,9 +43,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <hr>
 </div>
 
-<h3 class="section">4.14 <code>ld</code> and Xtensa Processors</h3>
+<h3 class="section">4.15 <code>ld</code> and Xtensa Processors</h3>
 
-<p><a name="index-Xtensa-processors-678"></a>The default <samp><span class="command">ld</span></samp> behavior for Xtensa processors is to interpret
+<p><a name="index-Xtensa-processors-703"></a>The default <samp><span class="command">ld</span></samp> behavior for Xtensa processors is to interpret
 <code>SECTIONS</code> commands so that lists of explicitly named sections in a
 specification with a wildcard file will be interleaved when necessary to
 keep literal pools within the range of PC-relative load offsets.  For
@@ -67,7 +66,7 @@ group of files followed by the <code>.text</code> sections of that group of
 files.  Then, the <code>.literal</code> sections from the rest of the files
 and the <code>.text</code> sections from the rest of the files would follow.
 
-   <p><a name="index-g_t_0040option_007b_002d_002drelax_007d-on-Xtensa-679"></a><a name="index-relaxing-on-Xtensa-680"></a>Relaxation is enabled by default for the Xtensa version of <samp><span class="command">ld</span></samp> and
+   <p><a name="index-g_t_0040option_007b_002d_002drelax_007d-on-Xtensa-704"></a><a name="index-relaxing-on-Xtensa-705"></a>Relaxation is enabled by default for the Xtensa version of <samp><span class="command">ld</span></samp> and
 provides two important link-time optimizations.  The first optimization
 is to combine identical literal values to reduce code size.  A redundant
 literal will be removed and all the <code>L32R</code> instructions that use it
@@ -96,7 +95,7 @@ a few cases where no-ops are required for correctness.
    <p>The following Xtensa-specific command-line options can be used to
 control the linker:
 
-   <p><a name="index-Xtensa-options-681"></a>
+   <p><a name="index-Xtensa-options-706"></a>
      <dl>
 <dt><samp><span class="option">--size-opt</span></samp><dd>When optimizing indirect calls to direct calls, optimize for code size
 more than performance.  With this option, the linker will not insert

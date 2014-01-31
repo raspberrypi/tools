@@ -10,9 +10,7 @@
 <link rel="next" href="Break-Commands.html#Break-Commands" title="Break Commands">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Breakpoints.html#Breakpoints">Breakpoin
 
 <h4 class="subsection">5.1.6 Break Conditions</h4>
 
-<p><a name="index-conditional-breakpoints-273"></a><a name="index-breakpoint-conditions-274"></a>
+<p><a name="index-conditional-breakpoints-279"></a><a name="index-breakpoint-conditions-280"></a>
 <!-- FIXME what is scope of break condition expr?  Context where wanted? -->
 <!-- in particular for a watchpoint? -->
 The simplest sort of breakpoint breaks every time your program reaches a
@@ -83,6 +81,19 @@ conditions for the
 purpose of performing side effects when a breakpoint is reached
 (see <a href="Break-Commands.html#Break-Commands">Breakpoint Command Lists</a>).
 
+   <p>Breakpoint conditions can also be evaluated on the target's side if
+the target supports it.  Instead of evaluating the conditions locally,
+<span class="sc">gdb</span> encodes the expression into an agent expression
+(see <a href="Agent-Expressions.html#Agent-Expressions">Agent Expressions</a>) suitable for execution on the target,
+independently of <span class="sc">gdb</span>.  Global variables become raw memory
+locations, locals become stack accesses, and so forth.
+
+   <p>In this case, <span class="sc">gdb</span> will only be notified of a breakpoint trigger
+when its condition evaluates to true.  This mechanism may provide faster
+response times depending on the performance characteristics of the target
+since it does not need to keep <span class="sc">gdb</span> informed about
+every breakpoint trigger, even those with false conditions.
+
    <p>Break conditions can be specified when a breakpoint is set, by using
 &lsquo;<samp><span class="samp">if</span></samp>&rsquo; in the arguments to the <code>break</code> command.  See <a href="Set-Breaks.html#Set-Breaks">Setting Breakpoints</a>.  They can also be changed at any time
 with the <code>condition</code> command.
@@ -93,7 +104,7 @@ The <code>catch</code> command does not recognize the <code>if</code> keyword;
 catchpoint.
 
      
-<a name="index-condition-275"></a>
+<a name="index-condition-281"></a>
 <dl><dt><code>condition </code><var>bnum</var> <var>expression</var><dd>Specify <var>expression</var> as the break condition for breakpoint,
 watchpoint, or catchpoint number <var>bnum</var>.  After you set a condition,
 breakpoint <var>bnum</var> stops your program only if the value of
@@ -115,7 +126,7 @@ command (or a command that sets a breakpoint with a condition, like
 an ordinary unconditional breakpoint. 
 </dl>
 
-   <p><a name="index-ignore-count-_0028of-breakpoint_0029-276"></a>A special case of a breakpoint condition is to stop only when the
+   <p><a name="index-ignore-count-_0028of-breakpoint_0029-282"></a>A special case of a breakpoint condition is to stop only when the
 breakpoint has been reached a certain number of times.  This is so
 useful that there is a special way to do it, using the <dfn>ignore
 count</dfn> of the breakpoint.  Every breakpoint has an ignore count, which
@@ -127,7 +138,7 @@ value is <var>n</var>, the breakpoint does not stop the next <var>n</var> times
 your program reaches it.
 
      
-<a name="index-ignore-277"></a>
+<a name="index-ignore-283"></a>
 <dl><dt><code>ignore </code><var>bnum</var> <var>count</var><dd>Set the ignore count of breakpoint number <var>bnum</var> to <var>count</var>. 
 The next <var>count</var> times the breakpoint is reached, your program's
 execution does not stop; other than to decrement the ignore count, <span class="sc">gdb</span>

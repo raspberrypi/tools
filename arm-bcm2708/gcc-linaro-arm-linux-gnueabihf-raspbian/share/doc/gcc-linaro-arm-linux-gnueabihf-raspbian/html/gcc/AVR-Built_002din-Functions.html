@@ -10,9 +10,7 @@
 <link rel="next" href="Blackfin-Built_002din-Functions.html#Blackfin-Built_002din-Functions" title="Blackfin Built-in Functions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +53,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">T
 <hr>
 </div>
 
-<h4 class="subsection">6.55.4 AVR Built-in Functions</h4>
+<h4 class="subsection">6.56.4 AVR Built-in Functions</h4>
 
 <p>For each built-in function for AVR, there is an equally named,
 uppercase built-in macro defined. That way users can easily query if
@@ -84,8 +82,8 @@ implements
 <pre class="smallexample">     void __builtin_avr_delay_cycles (unsigned long ticks)
 </pre>
  <p class="noindent"><code>ticks</code> is the number of ticks to delay execution. Note that this
-built-in does not take into account the effect of interrupts which
-might increase delay time. <code>ticks</code> must be a compile time
+built-in does not take into account the effect of interrupts that
+might increase delay time. <code>ticks</code> must be a compile-time
 integer constant; delays with a variable number of cycles are not supported.
 
 <pre class="smallexample">     char __builtin_avr_flash_segment (const __memx void*)
@@ -124,8 +122,8 @@ output values to non-contiguous port layouts. Some examples:
  <pre class="smallexample">     // same as rotating bits by 4
      __builtin_avr_insert_bits (0x32107654, bits, 0)
 </pre>
- <pre class="smallexample">     // high-nibble of result is the high-nibble of val
-     // low-nibble of result is the low-nibble of bits
+ <pre class="smallexample">     // high nibble of result is the high nibble of val
+     // low nibble of result is the low nibble of bits
      __builtin_avr_insert_bits (0xffff3210, bits, val)
 </pre>
  <pre class="smallexample">     // reverse the bit order of bits
