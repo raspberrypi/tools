@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+<title>ARM ACLE Intrinsics - Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Target-Builtins.html#Target-Builtins" title="Target Builtins">
+<link rel="prev" href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics" title="ARM NEON Intrinsics">
+<link rel="next" href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions" title="AVR Built-in Functions">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; }
+  span.sansserif { font-family:sans-serif; font-weight:normal; }
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="ARM-ACLE-Intrinsics"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions">AVR Built-in Functions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ARM-NEON-Intrinsics.html#ARM-NEON-Intrinsics">ARM NEON Intrinsics</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">Target Builtins</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.56.4 ARM ACLE Intrinsics</h4>
+
+<p>These built-in intrinsics for the ARMv8-A CRC32 extension are available when
+the <samp><span class="option">-march=armv8-a+crc</span></samp> switch is used:
+
+<!-- Copyright (C) 2013-2014 Free Software Foundation, Inc. -->
+<!-- This is part of the GCC manual. -->
+<!-- For copying conditions, see the file gcc.texi. -->
+<h5 class="subsubsection">6.56.4.1 CRC32 intrinsics</h5>
+
+     <ul>
+<li>uint32_t __crc32b (uint32_t, uint8_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32b </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32h (uint32_t, uint16_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32h </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32w (uint32_t, uint32_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32w </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32d (uint32_t, uint64_t)
+<br><em>Form of expected instruction(s):</em> Two <code>crc32w </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+instructions for AArch32. One <code>crc32w </code><var>w0</var><code>, </code><var>w0</var><code>, </code><var>x0</var> instruction for
+AArch64.
+</ul>
+
+     <ul>
+<li>uint32_t __crc32cb (uint32_t, uint8_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32cb </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32ch (uint32_t, uint16_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32ch </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32cw (uint32_t, uint32_t)
+<br><em>Form of expected instruction(s):</em> <code>crc32cw </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+</ul>
+
+     <ul>
+<li>uint32_t __crc32cd (uint32_t, uint64_t)
+<br><em>Form of expected instruction(s):</em> Two <code>crc32cw </code><var>r0</var><code>, </code><var>r0</var><code>, </code><var>r0</var>
+instructions for AArch32. One <code>crc32cw </code><var>w0</var><code>, </code><var>w0</var><code>, </code><var>x0</var> instruction for
+AArch64.
+</ul>
+
+ </body></html>

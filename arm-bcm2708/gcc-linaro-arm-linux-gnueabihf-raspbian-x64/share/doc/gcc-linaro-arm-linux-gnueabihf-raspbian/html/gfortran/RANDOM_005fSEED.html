@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+<title>RANDOM_SEED - The GNU Fortran Compiler</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="The GNU Fortran Compiler">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Intrinsic-Procedures.html#Intrinsic-Procedures" title="Intrinsic Procedures">
+<link rel="prev" href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER" title="RANDOM_NUMBER">
+<link rel="next" href="RANGE.html#RANGE" title="RANGE">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Copyright (C) 1999-2013 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; }
+  span.sansserif { font-family:sans-serif; font-weight:normal; }
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="RANDOM_SEED"></a>
+<a name="RANDOM_005fSEED"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="RANGE.html#RANGE">RANGE</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">RANDOM_NUMBER</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>
+<hr>
+</div>
+
+<h3 class="section">8.201 <code>RANDOM_SEED</code> &mdash; Initialize a pseudo-random number sequence</h3>
+
+<p><a name="index-RANDOM_005fSEED-965"></a><a name="index-random-number-generation_002c-seeding-966"></a><a name="index-seeding-a-random-number-generator-967"></a>
+     <dl>
+<dt><em>Description</em>:<dd>Restarts or queries the state of the pseudorandom number generator used by
+<code>RANDOM_NUMBER</code>.
+
+     <p>If <code>RANDOM_SEED</code> is called without arguments, it is initialized
+to a default state. The example below shows how to initialize the
+random seed with a varying seed in order to ensure a different random
+number sequence for each invocation of the program. Note that setting
+any of the seed values to zero should be avoided as it can result in
+poor quality random numbers being generated.
+
+     <br><dt><em>Standard</em>:<dd>Fortran 95 and later
+
+     <br><dt><em>Class</em>:<dd>Subroutine
+
+     <br><dt><em>Syntax</em>:<dd><code>CALL RANDOM_SEED([SIZE, PUT, GET])</code>
+
+     <br><dt><em>Arguments</em>:<dd>
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>SIZE</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar and of type default
+<code>INTEGER</code>, with <code>INTENT(OUT)</code>. It specifies the minimum size
+of the arrays used with the <var>PUT</var> and <var>GET</var> arguments.
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>PUT</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
+<code>INTEGER</code> and rank one. It is <code>INTENT(IN)</code> and the size of
+the array must be larger than or equal to the number returned by the
+<var>SIZE</var> argument.
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>GET</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
+<code>INTEGER</code> and rank one. It is <code>INTENT(OUT)</code> and the size
+of the array must be larger than or equal to the number returned by
+the <var>SIZE</var> argument.
+     <br></td></tr></table>
+
+     <br><dt><em>Example</em>:<dd>
+     <pre class="smallexample">          subroutine init_random_seed()
+            implicit none
+            integer, allocatable :: seed(:)
+            integer :: i, n, un, istat, dt(8), pid, t(2), s
+            integer(8) :: count, tms
+
+            call random_seed(size = n)
+            allocate(seed(n))
+            ! First try if the OS provides a random number generator
+            open(newunit=un, file="/dev/urandom", access="stream", &amp;
+                 form="unformatted", action="read", status="old", iostat=istat)
+            if (istat == 0) then
+               read(un) seed
+               close(un)
+            else
+               ! Fallback to XOR:ing the current time and pid. The PID is
+               ! useful in case one launches multiple instances of the same
+               ! program in parallel.
+               call system_clock(count)
+               if (count /= 0) then
+                  t = transfer(count, t)
+               else
+                  call date_and_time(values=dt)
+                  tms = (dt(1) - 1970) * 365_8 * 24 * 60 * 60 * 1000 &amp;
+                       + dt(2) * 31_8 * 24 * 60 * 60 * 1000 &amp;
+                       + dt(3) * 24 * 60 * 60 * 60 * 1000 &amp;
+                       + dt(5) * 60 * 60 * 1000 &amp;
+                       + dt(6) * 60 * 1000 + dt(7) * 1000 &amp;
+                       + dt(8)
+                  t = transfer(tms, t)
+               end if
+               s = ieor(t(1), t(2))
+               pid = getpid() + 1099279 ! Add a prime
+               s = ieor(s, pid)
+               if (n &gt;= 3) then
+                  seed(1) = t(1) + 36269
+                  seed(2) = t(2) + 72551
+                  seed(3) = pid
+                  if (n &gt; 3) then
+                     seed(4:) = s + 37 * (/ (i, i = 0, n - 4) /)
+                  end if
+               else
+                  seed = s + 37 * (/ (i, i = 0, n - 1 ) /)
+               end if
+            end if
+            call random_seed(put=seed)
+          end subroutine init_random_seed
+</pre>
+     <br><dt><em>See also</em>:<dd><a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">RANDOM_NUMBER</a>
+</dl>
+
+   </body></html>
