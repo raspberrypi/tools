@@ -164,7 +164,13 @@ int main(int argc, char *argv[])
 			    usb_device);
 
 		if (retcode == 0)
+		{
 			printf("Successfull\n");
+			if(fp==fp2)
+			{
+				printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
+				exit(0);
+			}
 		else
 			printf("Failed : 0x%x", retcode);
 
