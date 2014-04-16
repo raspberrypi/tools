@@ -171,6 +171,7 @@ int main(int argc, char *argv[])
 				printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
 				exit(0);
 			}
+		}
 		else
 			printf("Failed : 0x%x", retcode);
 
