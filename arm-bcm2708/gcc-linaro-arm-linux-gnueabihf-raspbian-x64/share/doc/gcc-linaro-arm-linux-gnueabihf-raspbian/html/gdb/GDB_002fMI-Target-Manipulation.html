@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -82,7 +82,7 @@ group, the id previously returned by
 
 <pre class="smallexample">      -target-detach [ <var>pid</var> | <var>gid</var> ]
 </pre>
-   <p>Detach from the remote target which normally resumes its execution.
+   <p>Detach from the remote target which normally resumes its execution. 
 If either <var>pid</var> or <var>gid</var> is specified, detaches from either
 the specified process, or specified thread group.  There's no output.
 
@@ -127,15 +127,15 @@ generally not resumed.
 
 <pre class="smallexample">      -target-download
 </pre>
-   <p>Loads the executable onto the remote target.
+   <p>Loads the executable onto the remote target. 
 It prints out an update message every half second, which includes the fields:
 
      <dl>
-<dt>&lsquo;<samp><span class="samp">section</span></samp>&rsquo;<dd>The name of the section.
-<br><dt>&lsquo;<samp><span class="samp">section-sent</span></samp>&rsquo;<dd>The size of what has been sent so far for that section.
-<br><dt>&lsquo;<samp><span class="samp">section-size</span></samp>&rsquo;<dd>The size of the section.
-<br><dt>&lsquo;<samp><span class="samp">total-sent</span></samp>&rsquo;<dd>The total size of what was sent so far (the current and the previous sections).
-<br><dt>&lsquo;<samp><span class="samp">total-size</span></samp>&rsquo;<dd>The size of the overall executable to download.
+<dt>&lsquo;<samp><span class="samp">section</span></samp>&rsquo;<dd>The name of the section. 
+<br><dt>&lsquo;<samp><span class="samp">section-sent</span></samp>&rsquo;<dd>The size of what has been sent so far for that section. 
+<br><dt>&lsquo;<samp><span class="samp">section-size</span></samp>&rsquo;<dd>The size of the section. 
+<br><dt>&lsquo;<samp><span class="samp">total-sent</span></samp>&rsquo;<dd>The total size of what was sent so far (the current and the previous sections). 
+<br><dt>&lsquo;<samp><span class="samp">total-size</span></samp>&rsquo;<dd>The size of the overall executable to download. 
 </dl>
 
 <p class="noindent">Each message is sent as status record (see <a href="GDB_002fMI-Output-Syntax.html#GDB_002fMI-Output-Syntax"><span class="sc">gdb/mi</span> Output Syntax</a>).
@@ -144,9 +144,9 @@ It prints out an update message every half second, which includes the fields:
 downloaded.  These messages include the following fields:
 
      <dl>
-<dt>&lsquo;<samp><span class="samp">section</span></samp>&rsquo;<dd>The name of the section.
-<br><dt>&lsquo;<samp><span class="samp">section-size</span></samp>&rsquo;<dd>The size of the section.
-<br><dt>&lsquo;<samp><span class="samp">total-size</span></samp>&rsquo;<dd>The size of the overall executable to download.
+<dt>&lsquo;<samp><span class="samp">section</span></samp>&rsquo;<dd>The name of the section. 
+<br><dt>&lsquo;<samp><span class="samp">section-size</span></samp>&rsquo;<dd>The size of the section. 
+<br><dt>&lsquo;<samp><span class="samp">total-size</span></samp>&rsquo;<dd>The size of the overall executable to download. 
 </dl>
 
 <p class="noindent">At the end, a summary is printed.
@@ -227,8 +227,8 @@ have been broken down so that they can fit onto a page.
    <p>Connect <span class="sc">gdb</span> to the remote target.  This command takes two args:
 
      <dl>
-<dt>&lsquo;<samp><var>type</var></samp>&rsquo;<dd>The type of target, for instance &lsquo;<samp><span class="samp">remote</span></samp>&rsquo;, etc.
-<br><dt>&lsquo;<samp><var>parameters</var></samp>&rsquo;<dd>Device names, host names and the like.  See <a href="Target-Commands.html#Target-Commands">Commands for Managing Targets</a>, for more details.
+<dt>&lsquo;<samp><var>type</var></samp>&rsquo;<dd>The type of target, for instance &lsquo;<samp><span class="samp">remote</span></samp>&rsquo;, etc. 
+<br><dt>&lsquo;<samp><var>parameters</var></samp>&rsquo;<dd>Device names, host names and the like.  See <a href="Target-Commands.html#Target-Commands">Commands for Managing Targets</a>, for more details. 
 </dl>
 
    <p>The output is a connection notification, followed by the address at
@@ -250,3 +250,4 @@ which the target program is, in the following form:
 </pre>
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

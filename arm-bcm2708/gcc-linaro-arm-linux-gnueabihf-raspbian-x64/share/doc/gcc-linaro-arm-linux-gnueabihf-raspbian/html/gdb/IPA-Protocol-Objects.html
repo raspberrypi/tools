@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,12 +51,12 @@ complex data types called <dfn>objects</dfn>.
 
    <p>The in-process agent is running on the same machine with <span class="sc">gdb</span>
 or GDBserver, so it doesn't have to handle as much differences between
-two ends as remote protocol (see <a href="Remote-Protocol.html#Remote-Protocol">Remote Protocol</a>) tries to handle.
+two ends as remote protocol (see <a href="Remote-Protocol.html#Remote-Protocol">Remote Protocol</a>) tries to handle. 
 However, there are still some differences of two ends in two processes:
 
      <ol type=1 start=1>
 <li>word size.  On some 64-bit machines, <span class="sc">gdb</span> or GDBserver can be
-compiled as a 64-bit executable, while in-process agent is a 32-bit one.
+compiled as a 64-bit executable, while in-process agent is a 32-bit one. 
 <li>ABI.  Some machines may have multiple types of ABI, <span class="sc">gdb</span> or
 GDBserver is compiled with one, and in-process agent is compiled with
 the other one.
@@ -66,11 +66,11 @@ the other one.
 
      <ol type=1 start=1>
 <li>agent expression object.  It represents an agent expression
-(see <a href="Agent-Expressions.html#Agent-Expressions">Agent Expressions</a>).
+(see <a href="Agent-Expressions.html#Agent-Expressions">Agent Expressions</a>). 
 <a name="agent-expression-object"></a><li>tracepoint action object.  It represents a tracepoint action
 (see <a href="Tracepoint-Actions.html#Tracepoint-Actions">Tracepoint Action Lists</a>) to collect registers,
-memory, static trace data and to evaluate expression.
-<a name="tracepoint-action-object"></a><li>tracepoint object.  It represents a tracepoint (see <a href="Tracepoints.html#Tracepoints">Tracepoints</a>).
+memory, static trace data and to evaluate expression. 
+<a name="tracepoint-action-object"></a><li>tracepoint object.  It represents a tracepoint (see <a href="Tracepoints.html#Tracepoints">Tracepoints</a>). 
 <a name="tracepoint-object"></a>
         </ol>
 
@@ -85,10 +85,10 @@ object:
 <br></td></tr><tr align="left"><td valign="top" width="30%">'M' </td><td valign="top" width="20%">1 </td><td valign="top" width="50%">type of tracepoint action
 <br></td></tr><tr align="left"><td valign="top" width="30%">addr </td><td valign="top" width="20%">8 </td><td valign="top" width="50%">if <var>basereg</var> is &lsquo;<samp><span class="samp">-1</span></samp>&rsquo;, <var>addr</var> is the
 address of the lowest byte to collect, otherwise <var>addr</var> is the offset
-of <var>basereg</var> for memory collecting.
+of <var>basereg</var> for memory collecting. 
 <br></td></tr><tr align="left"><td valign="top" width="30%">len </td><td valign="top" width="20%">8 </td><td valign="top" width="50%">length of memory for collecting
 <br></td></tr><tr align="left"><td valign="top" width="30%">basereg </td><td valign="top" width="20%">4 </td><td valign="top" width="50%">the register number containing the starting
-memory address for collecting.
+memory address for collecting. 
 <br></td></tr><tr align="left"><td valign="top" width="30%"><em>tracepoint action for collecting registers</em> </td><td valign="top" width="20%"></td><td valign="top" width="50%">
 <br></td></tr><tr align="left"><td valign="top" width="30%">'R' </td><td valign="top" width="20%">1 </td><td valign="top" width="50%">type of tracepoint action
 <br></td></tr><tr align="left"><td valign="top" width="30%"><em>tracepoint action for collecting static trace data</em> </td><td valign="top" width="20%"></td><td valign="top" width="50%">
@@ -117,3 +117,4 @@ memory address for collecting.
    <br></td></tr></table>
 
    </body></html>
+

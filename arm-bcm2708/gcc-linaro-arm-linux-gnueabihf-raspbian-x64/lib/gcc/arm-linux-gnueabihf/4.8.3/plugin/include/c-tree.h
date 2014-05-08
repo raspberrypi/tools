@@ -480,7 +480,7 @@ extern void c_init_decl_processing (void);
 extern void c_print_identifier (FILE *, tree, int);
 extern int quals_from_declspecs (const struct c_declspecs *);
 extern struct c_declarator *build_array_declarator (location_t, tree,
-						    struct c_declspecs *,
+    						    struct c_declspecs *,
 						    bool, bool);
 extern tree build_enumerator (location_t, location_t, struct c_enum_contents *,
 			      tree, tree);
@@ -592,9 +592,9 @@ extern void pop_maybe_used (bool);
 extern struct c_expr c_expr_sizeof_expr (location_t, struct c_expr);
 extern struct c_expr c_expr_sizeof_type (location_t, struct c_type_name *);
 extern struct c_expr parser_build_unary_op (location_t, enum tree_code,
-					    struct c_expr);
+    					    struct c_expr);
 extern struct c_expr parser_build_binary_op (location_t,
-					     enum tree_code, struct c_expr,
+    					     enum tree_code, struct c_expr,
 					     struct c_expr);
 extern tree build_conditional_expr (location_t, tree, bool, tree, tree,
 				    tree, tree);

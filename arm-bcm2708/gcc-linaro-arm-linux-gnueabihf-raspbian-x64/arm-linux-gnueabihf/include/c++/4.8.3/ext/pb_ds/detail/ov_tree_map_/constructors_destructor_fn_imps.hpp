@@ -159,7 +159,7 @@ copy_from_ordered_range(It first_it, It last_it, It other_first_it,
 {
   clear();
   const size_type len = std::distance(first_it, last_it)
-			 + std::distance(other_first_it, other_last_it);
+    			 + std::distance(other_first_it, other_last_it);
 
   value_vector a_values = s_value_alloc.allocate(len);
 

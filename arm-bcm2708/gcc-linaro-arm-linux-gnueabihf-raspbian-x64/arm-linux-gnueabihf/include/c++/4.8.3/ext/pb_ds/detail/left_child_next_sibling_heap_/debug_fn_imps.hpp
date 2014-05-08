@@ -134,4 +134,4 @@ degree(node_const_pointer p_nd)
   return ret;
 }
 
-#endif
+#endif 

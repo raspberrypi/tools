@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ write code.
 
    <p>Since &lsquo;<samp><span class="samp">$</span></samp>&rsquo; has no special meaning, you may use it in symbol names.
 
-   <p>Registers can be given the symbolic names r0..r15, fp0, fp2, fp4, fp6.
+   <p>Registers can be given the symbolic names r0..r15, fp0, fp2, fp4, fp6. 
 By using thesse symbolic names, <code>as</code> can detect simple
 syntax errors. The name rarg or r.arg is a synonym for r11, rtca or r.tca
 for r12, sp, r.sp, dsa r.dsa for r13, lr or r.lr for r14, rbase or r.base
@@ -85,14 +85,14 @@ always imply the use of base+displacement.
    <p>Many of the usual forms of address constants / address literals
 are supported.  Thus,
 <pre class="example">     	.using	*,r3
-	L	r15,=A(some_routine)
-	LM	r6,r7,=V(some_longlong_extern)
-	A	r1,=F'12'
-	AH	r0,=H'42'
-	ME	r6,=E'3.1416'
-	MD	r6,=D'3.14159265358979'
-	O	r6,=XL4'cacad0d0'
-	.ltorg
+     	L	r15,=A(some_routine)
+     	LM	r6,r7,=V(some_longlong_extern)
+     	A	r1,=F'12'
+     	AH	r0,=H'42'
+     	ME	r6,=E'3.1416'
+     	MD	r6,=D'3.14159265358979'
+     	O	r6,=XL4'cacad0d0'
+     	.ltorg
 </pre>
    <p>should all behave as expected: that is, an entry in the literal
 pool will be created (or reused if it already exists), and the
@@ -101,3 +101,4 @@ using the current base register (as last declared with the <code>.using</code>
 directive).
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -108,7 +108,7 @@ frame.  Consider this example:
 <pre class="smallexample">     void do_work(...)
      {
              struct work_state state;
-
+     
              if (...)
                 do_work(...);
      }
@@ -153,7 +153,7 @@ access this functionality:
 <br></td></tr><tr align="left"><td valign="top" width="40%"><code>-var-info-path-expression</code>
 </td><td valign="top" width="60%">print full expression that this variable object represents
 <br></td></tr><tr align="left"><td valign="top" width="40%"><code>-var-show-attributes</code>
-</td><td valign="top" width="60%">is this variable editable? does it exist here?
+</td><td valign="top" width="60%">is this variable editable? does it exist here? 
 <br></td></tr><tr align="left"><td valign="top" width="40%"><code>-var-evaluate-expression</code>
 </td><td valign="top" width="60%">get the value of this variable
 <br></td></tr><tr align="left"><td valign="top" width="40%"><code>-var-assign</code>
@@ -205,7 +205,7 @@ register.
    <p>The <var>name</var> parameter is the string by which the object can be
 referenced.  It must be unique.  If &lsquo;<samp><span class="samp">-</span></samp>&rsquo; is specified, the varobj
 system will generate a string &ldquo;varNNNNNN&rdquo; automatically.  It will be
-unique provided that one does not specify <var>name</var> of that format.
+unique provided that one does not specify <var>name</var> of that format. 
 The command fails if a duplicate name is found.
 
    <p>The frame under which the expression should be evaluated can be
@@ -265,7 +265,7 @@ then this attribute will not be present.
 
      <br><dt>&lsquo;<samp><span class="samp">displayhint</span></samp>&rsquo;<dd>A dynamic varobj can supply a display hint to the front end.  The
 value comes directly from the Python pretty-printer object's
-<code>display_hint</code> method.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>.
+<code>display_hint</code> method.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>. 
 </dl>
 
    <p>Typical output will look like this:
@@ -281,7 +281,7 @@ value comes directly from the Python pretty-printer object's
 
 <pre class="smallexample">      -var-delete [ -c ] <var>name</var>
 </pre>
-   <p>Deletes a previously created variable object and all of its children.
+   <p>Deletes a previously created variable object and all of its children. 
 With the &lsquo;<samp><span class="samp">-c</span></samp>&rsquo; option, just deletes the children.
 
    <p>Returns an error if the object <var>name</var> is not found.
@@ -334,7 +334,7 @@ variable itself, and the children are not affected.
 
 <pre class="smallexample">      numchild=<var>n</var>
 </pre>
-   <p>Note that this number is not completely reliable for a dynamic varobj.
+   <p>Note that this number is not completely reliable for a dynamic varobj. 
 It will return the current number of children, but more children may
 be available.
 
@@ -362,7 +362,7 @@ at <var>from</var> (zero-based) and up to and excluding <var>to</var> will be
 reported.
 
    <p>If a child range is requested, it will only affect the current call to
-<code>-var-list-children</code>, but not future calls to <code>-var-update</code>.
+<code>-var-list-children</code>, but not future calls to <code>-var-update</code>. 
 For this, you must instead use <code>-var-set-update-range</code>.  The
 intent of this approach is to enable a front end to implement any
 update approach it likes; for example, scrolling a view may cause the
@@ -376,7 +376,7 @@ the visible items.
      <dl>
 <dt><var>name</var><dd>Name of the variable object created for this child.
 
-     <br><dt><var>exp</var><dd>The expression to be shown to the user by the front end to designate this child.
+     <br><dt><var>exp</var><dd>The expression to be shown to the user by the front end to designate this child. 
 For example this may be the name of a structure member.
 
      <p>For a dynamic varobj, this value cannot be used to form an
@@ -401,10 +401,10 @@ available at all with a dynamic varobj.
 
      <br><dt><var>value</var><dd>If values were requested, this is the value.
 
-     <br><dt><var>thread-id</var><dd>If this variable object is associated with a thread, this is the thread id.
+     <br><dt><var>thread-id</var><dd>If this variable object is associated with a thread, this is the thread id. 
 Otherwise this result is not present.
 
-     <br><dt><var>frozen</var><dd>If the variable object is frozen, this variable will be present with a value of 1.
+     <br><dt><var>frozen</var><dd>If the variable object is frozen, this variable will be present with a value of 1. 
 </dl>
 
    <p>The result may have its own attributes:
@@ -415,7 +415,7 @@ value comes directly from the Python pretty-printer object's
 <code>display_hint</code> method.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>.
 
      <br><dt>&lsquo;<samp><span class="samp">has_more</span></samp>&rsquo;<dd>This is an integer attribute which is nonzero if there are children
-remaining after the end of the selected range.
+remaining after the end of the selected range. 
 </dl>
 
 <h5 class="subsubheading">Example</h5>
@@ -476,7 +476,7 @@ is of limited use.
 <pre class="smallexample">      -var-info-path-expression <var>name</var>
 </pre>
    <p>Returns an expression that can be evaluated in the current
-context and will yield the same value that a variable object has.
+context and will yield the same value that a variable object has. 
 Compare this with the <code>-var-info-expression</code> command, which
 result can be used only for UI presentation.  Typical use of
 the <code>-var-info-path-expression</code> command is creating a
@@ -600,11 +600,11 @@ present and will hold the value of the varobj.
 hold one in the future if its associated expression comes back into
 scope.
 
-          <br><dt><code>"invalid"</code><dd>The variable object no longer holds a valid value.
+          <br><dt><code>"invalid"</code><dd>The variable object no longer holds a valid value. 
 This can occur when the executable file being debugged has changed,
 either through recompilation or by using the <span class="sc">gdb</span> <code>file</code>
 command.  The front end should normally choose to delete these variable
-objects.
+objects. 
 </dl>
 
      <p>In the future new values may be added to this list so the front should
@@ -648,7 +648,7 @@ then this attribute will not be present.
 
      <br><dt>&lsquo;<samp><span class="samp">new_children</span></samp>&rsquo;<dd>If new children were added to a dynamic varobj within the selected
 update range (as set by <code>-var-set-update-range</code>), then they will
-be listed in this attribute.
+be listed in this attribute. 
 </dl>
 
 <h5 class="subsubheading">Example</h5>
@@ -678,7 +678,7 @@ implicitly updated by <code>-var-update</code> of
 a parent variable or by <code>-var-update *</code>.  Only
 <code>-var-update</code> of the variable itself will update its value and
 values of its children.  After a variable object is unfrozen, it is
-implicitly updated by all subsequent <code>-var-update</code> operations.
+implicitly updated by all subsequent <code>-var-update</code> operations. 
 Unfreezing a variable does not update it, only subsequent
 <code>-var-update</code> does.
 
@@ -724,11 +724,11 @@ children will be reported.  Otherwise, children starting at <var>from</var>
    <p><var>visualizer</var> is the visualizer to use.  The special value
 &lsquo;<samp><span class="samp">None</span></samp>&rsquo; means to disable any visualizer in use.
 
-   <p>If not &lsquo;<samp><span class="samp">None</span></samp>&rsquo;, <var>visualizer</var> must be a Python expression.
+   <p>If not &lsquo;<samp><span class="samp">None</span></samp>&rsquo;, <var>visualizer</var> must be a Python expression. 
 This expression must evaluate to a callable object which accepts a
 single argument.  <span class="sc">gdb</span> will call this object with the value of
 the varobj <var>name</var> as an argument (this is done so that the same
-Python pretty-printing code can be used for both the CLI and MI).
+Python pretty-printing code can be used for both the CLI and MI). 
 When called, this object must return an object which conforms to the
 pretty-printing interface (see <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>).
 
@@ -764,3 +764,4 @@ can be used to instantiate this class for a varobj:
 </pre>
    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ you must typically surround it in single quotes.
 <var>type</var> that appears at address <var>addr</var>.&rdquo;
 
      <li>A name starting with &lsquo;<samp><span class="samp">$</span></samp>&rsquo; is a convenience variable
-(see <a href="Convenience-Vars.html#Convenience-Vars">Convenience Vars</a>) or a machine register (see <a href="Registers.html#Registers">Registers</a>).
+(see <a href="Convenience-Vars.html#Convenience-Vars">Convenience Vars</a>) or a machine register (see <a href="Registers.html#Registers">Registers</a>). 
 </ul>
 
    <p>In addition, <span class="sc">gdb</span> provides a few other shortcuts and outright
@@ -83,7 +83,7 @@ its right-hand operand as its value.  Thus, you may enter
           (gdb) print A(tmp := y + 1)
 </pre>
      <li>The semicolon is allowed as an &ldquo;operator,&rdquo;  returning as its value
-the value of its right-hand operand.
+the value of its right-hand operand. 
 This allows, for example,
 complex conditional breaks:
 
@@ -109,7 +109,7 @@ to write
      <pre class="smallexample">          (gdb) print 'max(x, y)
 </pre>
      <li>When printing arrays, <span class="sc">gdb</span> uses positional notation when the
-array has a lower bound of 1, and uses a modified named notation otherwise.
+array has a lower bound of 1, and uses a modified named notation otherwise. 
 For example, a one-dimensional array of three integers with a lower bound
 of 3 might print as
 
@@ -120,15 +120,15 @@ clause.
 
      <li>You may abbreviate attributes in expressions with any unique,
 multi-character subsequence of
-their names (an exact match gets preference).
+their names (an exact match gets preference). 
 For example, you may use <tt>a'len</tt>, <tt>a'gth</tt>, or <tt>a'lh</tt>
 in place of  <tt>a'length</tt>.
 
      <li><a name="index-quoting-Ada-internal-identifiers-947"></a>Since Ada is case-insensitive, the debugger normally maps identifiers you type
 to lower case.  The GNAT compiler uses upper-case characters for
-some of its internal identifiers, which are normally of no interest to users.
+some of its internal identifiers, which are normally of no interest to users. 
 For the rare occasions when you actually have to look at them,
-enclose them in angle brackets to avoid the lower-case mapping.
+enclose them in angle brackets to avoid the lower-case mapping. 
 For example,
      <pre class="smallexample">          (gdb) print &lt;JMPBUF_SAVE&gt;[0]
 </pre>
@@ -141,3 +141,4 @@ object.
    </ul>
 
    </body></html>
+

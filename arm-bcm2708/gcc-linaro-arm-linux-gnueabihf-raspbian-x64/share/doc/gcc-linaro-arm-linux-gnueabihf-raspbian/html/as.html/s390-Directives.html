@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,56 +48,56 @@ Up:&nbsp;<a rel="up" accesskey="u" href="S_002f390_002dDependent.html#S_002f390_
 <h4 class="subsection">9.37.4 Assembler Directives</h4>
 
 <p><code>as</code> for s390 supports all of the standard ELF
-assembler directives as outlined in the main part of this document.
+assembler directives as outlined in the main part of this document. 
 Some directives have been extended and there are some additional
 directives, which are only available for the s390 <code>as</code>.
 
-
+     
 <a name="index-g_t_0040code_007b_002einsn_007d-directive_002c-s390-1798"></a>
 <dl><dt><code>.insn</code><dd>This directive permits the numeric representation of an instructions
 and makes the assembler insert the operands according to one of the
-instructions formats for &lsquo;<samp><span class="samp">.insn</span></samp>&rsquo; (<a href="s390-Formats.html#s390-Formats">s390 Formats</a>).
+instructions formats for &lsquo;<samp><span class="samp">.insn</span></samp>&rsquo; (<a href="s390-Formats.html#s390-Formats">s390 Formats</a>). 
 For example, the instruction &lsquo;<samp><span class="samp">l %r1,24(%r15)</span></samp>&rsquo; could be written as
-&lsquo;<samp><span class="samp">.insn rx,0x58000000,%r1,24(%r15)</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">.insn rx,0x58000000,%r1,24(%r15)</span></samp>&rsquo;. 
 <a name="index-g_t_0040code_007b_002eshort_007d-directive_002c-s390-1799"></a><a name="index-g_t_0040code_007b_002elong_007d-directive_002c-s390-1800"></a><a name="index-g_t_0040code_007b_002equad_007d-directive_002c-s390-1801"></a><br><dt><code>.short</code><dt><code>.long</code><dt><code>.quad</code><dd>This directive places one or more 16-bit (.short), 32-bit (.long), or
 64-bit (.quad) values into the current section. If an ELF or TLS modifier
 is used only the following expressions are allowed:
 &lsquo;<samp><span class="samp">symbol@modifier + constant</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">symbol@modifier + label + constant</span></samp>&rsquo;, and
-&lsquo;<samp><span class="samp">symbol@modifier - label + constant</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">symbol@modifier - label + constant</span></samp>&rsquo;. 
 The following modifiers are available:
           <dl>
 <dt><code>@got</code><dt><code>@got12</code><dd>The @got modifier can be used for .short, .long and .quad. The @got12
 modifier is synonym to @got. The symbol is added to the GOT. The symbol
 term is replaced with offset from the start of the GOT to the GOT slot for
-the symbol.
+the symbol. 
 <br><dt><code>@gotoff</code><dd>The @gotoff modifier can be used for .short, .long and .quad. The symbol
 term is replaced with the offset from the start of the GOT to the address
-of the symbol.
+of the symbol. 
 <br><dt><code>@gotplt</code><dd>The @gotplt modifier can be used for .long and .quad. A procedure linkage
 table entry is generated for the symbol and a jump slot for the symbol
 is added to the GOT. The symbol term is replaced with the offset from the
-start of the GOT to the jump slot for the symbol.
+start of the GOT to the jump slot for the symbol. 
 <br><dt><code>@plt</code><dd>The @plt modifier can be used for .long and .quad. A procedure linkage
 table entry us generated for the symbol. The symbol term is replaced with
-the address of the PLT entry for the symbol.
+the address of the PLT entry for the symbol. 
 <br><dt><code>@pltoff</code><dd>The @pltoff modifier can be used for .short, .long and .quad. The symbol
 term is replaced with the offset from the start of the PLT to the address
-of the symbol.
+of the symbol. 
 <br><dt><code>@tlsgd</code><dt><code>@tlsldm</code><dd>The @tlsgd and @tlsldm modifier can be used for .long and .quad. A
 tls_index structure for the symbol is added to the GOT. The symbol term is
-replaced with the offset from the start of the GOT to the tls_index structure.
-<br><dt><code>@gotntpoff</code><dt><code>@indntpoff</code><dd>The @gotntpoff and @indntpoff modifier can be used for .long and .quad.
+replaced with the offset from the start of the GOT to the tls_index structure. 
+<br><dt><code>@gotntpoff</code><dt><code>@indntpoff</code><dd>The @gotntpoff and @indntpoff modifier can be used for .long and .quad. 
 The symbol is added to the static TLS block and the negated offset to the
 symbol in the static TLS block is added to the GOT. For @gotntpoff the
 symbol term is replaced with the offset from the start of the GOT to the
 GOT slot, for @indntpoff the symbol term is replaced with the address
-of the GOT slot.
+of the GOT slot. 
 <br><dt><code>@dtpoff</code><dd>The @dtpoff modifier can be used for .long and .quad. The symbol term
 is replaced with the offset of the symbol relative to the start of the
-TLS block it is contained in.
+TLS block it is contained in. 
 <br><dt><code>@ntpoff</code><dd>The @ntpoff modifier can be used for .long and .quad. The symbol term
-is replaced with the offset of the symbol relative to the TCB pointer.
+is replaced with the offset of the symbol relative to the TCB pointer. 
 </dl>
 
      <p>For more information about the thread local storage modifiers see the
@@ -108,7 +108,7 @@ dumped to the current location (<a href="s390-Literal-Pool-Entries.html#s390-Lit
 
      <p><a name="index-g_t_0040code_007b_002emachine_007d-directive_002c-s390-1803"></a><br><dt><code>.machine string</code><dd>This directive allows you to change the machine for which code is
 generated.  <code>string</code> may be any of the <code>-march=</code> selection
-options (without the -march=), <code>push</code>, or <code>pop</code>.
+options (without the -march=), <code>push</code>, or <code>pop</code>. 
 <code>.machine push</code> saves the currently selected cpu, which may be
 restored with <code>.machine pop</code>.  Be aware that the cpu string has
 to be put into double quotes in case it contains characters not
@@ -117,14 +117,15 @@ instead of just <code>z9-109</code>.
 
      <p><a name="index-g_t_0040code_007b_002emachinemode_007d-directive_002c-s390-1804"></a><br><dt><code>.machinemode string</code><dd>This directive allows to change the architecture mode for which code
 is being generated.  <code>string</code> may be <code>esa</code>, <code>zarch</code>,
-<code>zarch_nohighgprs</code>, <code>push</code>, or <code>pop</code>.
+<code>zarch_nohighgprs</code>, <code>push</code>, or <code>pop</code>. 
 <code>.machinemode zarch_nohighgprs</code> can be used to prevent the
 <code>highgprs</code> flag from being set in the ELF header of the output
 file.  This is useful in situations where the code is gated with a
 runtime check which makes sure that the code is only executed on
-kernels providing the <code>highgprs</code> feature.
+kernels providing the <code>highgprs</code> feature. 
 <code>.machinemode push</code> saves the currently selected mode, which may
-be restored with <code>.machinemode pop</code>.
+be restored with <code>.machinemode pop</code>. 
 </dl>
 
    </body></html>
+

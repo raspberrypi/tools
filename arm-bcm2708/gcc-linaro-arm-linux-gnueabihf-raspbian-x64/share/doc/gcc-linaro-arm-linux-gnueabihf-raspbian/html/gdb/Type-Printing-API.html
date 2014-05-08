@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <h5 class="subsubsection">23.2.2.8 Type Printing API</h5>
 
 <p><a name="index-type-printing-API-for-Python-1864"></a>
-<span class="sc">gdb</span> provides a way for Python code to customize type display.
+<span class="sc">gdb</span> provides a way for Python code to customize type display. 
 This is mainly useful for substituting canonical typedef names for
 types.
 
@@ -60,21 +60,21 @@ see <a href="gdb_002etypes.html#gdb_002etypes">gdb.types</a>.  A type printer mu
 &mdash; Instance Variable of type_printer: <b>enabled</b><var><a name="index-enabled-1866"></a></var><br>
 <blockquote><p>A boolean which is True if the printer is enabled, and False
 otherwise.  This is manipulated by the <code>enable type-printer</code>
-and <code>disable type-printer</code> commands.
+and <code>disable type-printer</code> commands. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Instance Variable of type_printer: <b>name</b><var><a name="index-name-1867"></a></var><br>
 <blockquote><p>The name of the type printer.  This must be a string.  This is used by
 the <code>enable type-printer</code> and <code>disable type-printer</code>
-commands.
+commands. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Method on type_printer: <b>instantiate</b> (<var>self</var>)<var><a name="index-instantiate-on-type_005fprinter-1868"></a></var><br>
 <blockquote><p>This is called by <span class="sc">gdb</span> at the start of type-printing.  It is
 only called if the type printer is enabled.  This method must return a
-new object that supplies a <code>recognize</code> method, as described below.
+new object that supplies a <code>recognize</code> method, as described below. 
 </p></blockquote></div>
 
    <p>When displaying a type, say via the <code>ptype</code> command, <span class="sc">gdb</span>
@@ -88,14 +88,14 @@ ignored; otherwise, it is appended to the list of recognizers.
 
    <p>Then, when <span class="sc">gdb</span> is going to display a type name, it iterates
 over the list of recognizers.  For each one, it calls the recognition
-function, stopping if the function returns a non-<code>None</code> value.
+function, stopping if the function returns a non-<code>None</code> value. 
 The recognition function is defined as:
 
 <div class="defun">
 &mdash; Method on type_recognizer: <b>recognize</b> (<var>self, type</var>)<var><a name="index-recognize-on-type_005frecognizer-1869"></a></var><br>
 <blockquote><p>If <var>type</var> is not recognized, return <code>None</code>.  Otherwise,
-return a string which is to be printed as the name of <var>type</var>.
-<var>type</var> will be an instance of <code>gdb.Type</code> (see <a href="Types-In-Python.html#Types-In-Python">Types In Python</a>).
+return a string which is to be printed as the name of <var>type</var>. 
+<var>type</var> will be an instance of <code>gdb.Type</code> (see <a href="Types-In-Python.html#Types-In-Python">Types In Python</a>). 
 </p></blockquote></div>
 
    <p><span class="sc">gdb</span> uses this two-pass approach so that type printers can
@@ -107,3 +107,4 @@ order to avoid holding information that could become stale as the
 inferior changed.
 
    </body></html>
+

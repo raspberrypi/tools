@@ -75,7 +75,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      }
 	    __catch(__cxxabiv1::__forced_unwind&)
 	      {
-		this->_M_setstate(ios_base::badbit);
+		this->_M_setstate(ios_base::badbit);		
 		__throw_exception_again;
 	      }
 	    __catch(...)
@@ -113,7 +113,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else
 	return _M_insert(static_cast<long>(__n));
     }
-
+  
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits>&
     basic_ostream<_CharT, _Traits>::
@@ -130,7 +130,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    }
 	  __catch(__cxxabiv1::__forced_unwind&)
 	    {
-	      this->_M_setstate(ios_base::badbit);
+	      this->_M_setstate(ios_base::badbit);		
 	      __throw_exception_again;
 	    }
 	  __catch(...)
@@ -166,7 +166,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    }
 	  __catch(__cxxabiv1::__forced_unwind&)
 	    {
-	      this->_M_setstate(ios_base::badbit);
+	      this->_M_setstate(ios_base::badbit);		
 	      __throw_exception_again;
 	    }
 	  __catch(...)
@@ -196,7 +196,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    { _M_write(__s, __n); }
 	  __catch(__cxxabiv1::__forced_unwind&)
 	    {
-	      this->_M_setstate(ios_base::badbit);
+	      this->_M_setstate(ios_base::badbit);		
 	      __throw_exception_again;
 	    }
 	  __catch(...)
@@ -221,7 +221,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
       __catch(__cxxabiv1::__forced_unwind&)
 	{
-	  this->_M_setstate(ios_base::badbit);
+	  this->_M_setstate(ios_base::badbit);		
 	  __throw_exception_again;
 	}
       __catch(...)
@@ -244,7 +244,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
       __catch(__cxxabiv1::__forced_unwind&)
 	{
-	  this->_M_setstate(ios_base::badbit);
+	  this->_M_setstate(ios_base::badbit);		
 	  __throw_exception_again;
 	}
       __catch(...)
@@ -274,7 +274,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
       __catch(__cxxabiv1::__forced_unwind&)
 	{
-	  this->_M_setstate(ios_base::badbit);
+	  this->_M_setstate(ios_base::badbit);		
 	  __throw_exception_again;
 	}
       __catch(...)
@@ -306,7 +306,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
       __catch(__cxxabiv1::__forced_unwind&)
 	{
-	  this->_M_setstate(ios_base::badbit);
+	  this->_M_setstate(ios_base::badbit);		
 	  __throw_exception_again;
 	}
       __catch(...)

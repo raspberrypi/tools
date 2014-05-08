@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TIC54X_002dDependent.html#TIC54X_002dDe
 <p>A subset of allowable symbols (which we'll call subsyms) may be assigned
 arbitrary string values.  This is roughly equivalent to C preprocessor
 #define macros.  When <code>as</code> encounters one of these
-symbols, the symbol is replaced in the input stream by its string value.
+symbols, the symbol is replaced in the input stream by its string value. 
 Subsym names <strong>must</strong> begin with a letter.
 
    <p>Subsyms may be defined using the <code>.asg</code> and <code>.eval</code> directives
@@ -91,9 +91,10 @@ code:
 the following syntax:
 
      <dl>
-<dt><code>:</code><var>symbol</var><code>(</code><var>char_index</var><code>):</code><dd>Evaluates to a single-character string, the character at <var>char_index</var>.
+<dt><code>:</code><var>symbol</var><code>(</code><var>char_index</var><code>):</code><dd>Evaluates to a single-character string, the character at <var>char_index</var>. 
 <br><dt><code>:</code><var>symbol</var><code>(</code><var>start</var><code>,</code><var>length</var><code>):</code><dd>Evaluates to a substring of <var>symbol</var> beginning at <var>start</var> with
-length <var>length</var>.
+length <var>length</var>. 
 </dl>
 
    </body></html>
+

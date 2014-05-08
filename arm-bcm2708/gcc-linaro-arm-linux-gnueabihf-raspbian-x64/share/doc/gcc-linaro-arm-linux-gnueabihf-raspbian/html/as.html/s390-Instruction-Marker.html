@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,11 +54,11 @@ perform code optimization.
      <dl>
 <dt><code>:tls_load</code><dd>The :tls_load marker is used to flag the load instruction in the initial
 exec TLS model that retrieves the offset from the thread pointer to a
-thread local storage variable from the GOT.
+thread local storage variable from the GOT. 
 <br><dt><code>:tls_gdcall</code><dd>The :tls_gdcall marker is used to flag the branch-and-save instruction to
-the __tls_get_offset function in the global dynamic TLS model.
+the __tls_get_offset function in the global dynamic TLS model. 
 <br><dt><code>:tls_ldcall</code><dd>The :tls_ldcall marker is used to flag the branch-and-save instruction to
-the __tls_get_offset function in the local dynamic TLS model.
+the __tls_get_offset function in the local dynamic TLS model. 
 </dl>
 
    <p>For more information about the thread local storage instruction marker
@@ -66,3 +66,4 @@ and the linker optimizations see the ELF extension documentation
 &lsquo;<samp><span class="samp">ELF Handling For Thread-Local Storage</span></samp>&rsquo;.
 
    </body></html>
+

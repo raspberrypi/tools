@@ -8,7 +8,7 @@
 <!DOCTYPE feature SYSTEM "gdb-syscalls.dtd">
 
 <!-- This file was generated using the following file:
-
+     
      /usr/src/linux/arch/x86/include/asm/unistd_32.h
 
      The file mentioned above belongs to the Linux Kernel.  -->

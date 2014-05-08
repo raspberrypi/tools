@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,10 +88,10 @@ assume that most older stubs would ignore them, as well.)
      <dl>
 <dt>&lsquo;<samp><var>name</var><span class="samp">:</span><var>event</var></samp>&rsquo;<dd>The notification packet is sent by the side that initiates the
 exchange (currently, only the stub does that), with <var>event</var>
-carrying the specific information about the notification.
-<var>name</var> is the name of the notification.
+carrying the specific information about the notification. 
+<var>name</var> is the name of the notification. 
 <br><dt>&lsquo;<samp><var>ack</var></samp>&rsquo;<dd>The acknowledge sent by the other side, usually <span class="sc">gdb</span>, to
-acknowledge the exchange and request the event.
+acknowledge the exchange and request the event. 
 </dl>
 
    <p>The purpose of an asynchronous notification mechanism is to report to
@@ -111,7 +111,7 @@ the stub is permitted to resend a notification if it believes
    <p>Specifically, notifications may appear when <span class="sc">gdb</span> is not
 otherwise reading input from the stub, or when <span class="sc">gdb</span> is
 expecting to read a normal synchronous response or a
-&lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgment to a packet it has sent.
+&lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgment to a packet it has sent. 
 Notification packets are distinct from any other communication from
 the stub so there is no ambiguity.
 
@@ -129,7 +129,7 @@ other, unrelated packets as well which the stub should process
 normally.
 
    <p>If the stub receives a <var>ack</var> packet and there are no additional
-<var>event</var> to report, the stub shall return an &lsquo;<samp><span class="samp">OK</span></samp>&rsquo; response.
+<var>event</var> to report, the stub shall return an &lsquo;<samp><span class="samp">OK</span></samp>&rsquo; response. 
 At this point, <span class="sc">gdb</span> has finished processing a notification
 and the stub has completed sending any queued events.  <span class="sc">gdb</span>
 won't accept any new notifications until the final &lsquo;<samp><span class="samp">OK</span></samp>&rsquo; is
@@ -160,9 +160,10 @@ following example:
 </td><td valign="top" width="38%"><var>reply</var>.  The <var>reply</var> has the form of a stop reply, as
 described in <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>.  Refer to <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>,
 for information on how these notifications are acknowledged by
-<span class="sc">gdb</span>.
+<span class="sc">gdb</span>. 
 </td><td valign="top" width="38%">Report an asynchronous stop event in non-stop mode.
 
    <br></td></tr></table>
 
    </body></html>
+

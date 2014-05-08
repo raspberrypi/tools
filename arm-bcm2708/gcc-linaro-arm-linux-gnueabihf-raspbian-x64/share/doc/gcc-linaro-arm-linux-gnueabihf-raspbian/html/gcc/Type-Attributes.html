@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -82,7 +82,7 @@ former syntax is preferred.
  <p>See <a href="Attribute-Syntax.html#Attribute-Syntax">Attribute Syntax</a>, for details of the exact syntax for using
 attributes.
 
-
+     
 <a name="index-g_t_0040code_007baligned_007d-attribute-2785"></a>
 <dl><dt><code>aligned (</code><var>alignment</var><code>)</code><dd>This attribute specifies a minimum alignment (in bytes) for variables
 of the specified type.  For example, the declarations:
@@ -178,7 +178,7 @@ be packed too.
               char c;
               int i;
            };
-
+          
           struct __attribute__ ((__packed__)) my_packed_struct
             {
                char c;
@@ -198,7 +198,7 @@ function to be treated in a special way.
 any type in the union; no cast is required.  Also, if the union contains
 a pointer type, the corresponding argument can be a null pointer
 constant or a void pointer expression; and if the union contains a void
-pointer type, the corresponding argument can be any pointer expression.
+pointer type, the corresponding argument can be any pointer expression. 
 If the union member type is a pointer, qualifiers like <code>const</code> on
 the referenced type must be respected, just as with normal pointer
 conversions.
@@ -224,11 +224,11 @@ as follows:
               int *__ip;
               union wait *__up;
             } wait_status_ptr_t;
-
+          
           pid_t wait (wait_status_ptr_t);
 </pre>
      <p class="noindent">This interface allows either <code>int *</code> or <code>union wait *</code>
-arguments to be passed, using the <code>int *</code> calling convention.
+arguments to be passed, using the <code>int *</code> calling convention. 
 The program can call <code>wait</code> with arguments of either type:
 
      <pre class="smallexample">          int w1 () { int w; return wait (&amp;w); }
@@ -251,7 +251,7 @@ nontrivial bookkeeping functions.
 
      <br><dt><code>deprecated</code><dt><code>deprecated (</code><var>msg</var><code>)</code><dd>The <code>deprecated</code> attribute results in a warning if the type
 is used anywhere in the source file.  This is useful when identifying
-types that are expected to be removed in a future version of a program.
+types that are expected to be removed in a future version of a program. 
 If possible, the warning also includes the location of the declaration
 of the deprecated type, to enable users to easily find further
 information about why the type is deprecated, or what they should do
@@ -278,11 +278,11 @@ variables (see <a href="Function-Attributes.html#Function-Attributes">Function A
 
      <br><dt><code>may_alias</code><dd>Accesses through pointers to types with this attribute are not subject
 to type-based alias analysis, but are instead assumed to be able to alias
-any other type of objects.
+any other type of objects. 
 In the context of section 6.5 paragraph 7 of the C99 standard,
 an lvalue expression
-dereferencing such a pointer is treated like having a character type.
-See <samp><span class="option">-fstrict-aliasing</span></samp> for more information on aliasing issues.
+dereferencing such a pointer is treated like having a character type. 
+See <samp><span class="option">-fstrict-aliasing</span></samp> for more information on aliasing issues. 
 This extension exists to support some vector APIs, in which pointers to
 one vector type are permitted to alias pointers to a different vector type.
 
@@ -292,18 +292,18 @@ special semantics.
      <p>Example of use:
 
      <pre class="smallexample">          typedef short __attribute__((__may_alias__)) short_a;
-
+          
           int
           main (void)
           {
             int a = 0x12345678;
             short_a *b = (short_a *) &amp;a;
-
+          
             b[1] = 0;
-
+          
             if (a == 0x12345678)
               abort();
-
+          
             exit(0);
           }
 </pre>
@@ -320,7 +320,7 @@ the name of the type; it cannot appear after the body of the type.
      <p>Note that the type visibility is applied to vague linkage entities
 associated with the class (vtable, typeinfo node, etc.).  In
 particular, if a class is thrown as an exception in one shared object
-and caught in another, the class must have default visibility.
+and caught in another, the class must have default visibility. 
 Otherwise the two shared objects are unable to use the same
 typeinfo node and exception handling will break.
 
@@ -342,7 +342,7 @@ exported from a DLL.  For example:
        __declspec(dllimport) C();
        virtual void f();
      }
-
+     
      __declspec(dllexport)
      C::C() {}
 </pre>
@@ -355,7 +355,7 @@ most Symbian OS code uses <code>__declspec</code>.)
 
 <h4 class="subsection">6.37.2 MeP Type Attributes</h4>
 
-<p>Many of the MeP variable attributes may be applied to types as well.
+<p>Many of the MeP variable attributes may be applied to types as well. 
 Specifically, the <code>based</code>, <code>tiny</code>, <code>near</code>, and
 <code>far</code> attributes may be applied to either.  The <code>io</code> and
 <code>cb</code> attributes may not be applied to types.
@@ -377,7 +377,7 @@ data between functions compiled with GCC and the native Microsoft compiler
 either format.
 
      <p>Currently <samp><span class="option">-m[no-]ms-bitfields</span></samp> is provided for the Microsoft Windows X86
-compilers to match the native Microsoft compiler.
+compilers to match the native Microsoft compiler. 
 </dl>
 
  <p><a name="PowerPC-Type-Attributes"></a>
@@ -413,3 +413,4 @@ Language Extensions Specification.  It is intended to support the
 <code>__vector</code> keyword.
 
  </body></html>
+

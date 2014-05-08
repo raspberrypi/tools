@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,11 +58,11 @@ line and active breakpoints are displayed in this window.
      <br><dt><em>assembly</em><dd>The assembly window shows the disassembly output of the program.
 
      <br><dt><em>register</em><dd>This window shows the processor registers.  Registers are highlighted
-when their values change.
+when their values change. 
 </dl>
 
    <p>The source and assembly windows show the current program position
-by highlighting the current line and marking it with a &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo; marker.
+by highlighting the current line and marking it with a &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo; marker. 
 Breakpoints are indicated with two markers.  The first marker
 indicates the breakpoint type:
 
@@ -73,7 +73,7 @@ indicates the breakpoint type:
 
      <br><dt><code>H</code><dd>Hardware breakpoint which was hit at least once.
 
-     <br><dt><code>h</code><dd>Hardware breakpoint which was never hit.
+     <br><dt><code>h</code><dd>Hardware breakpoint which was never hit. 
 </dl>
 
    <p>The second marker indicates whether the breakpoint is enabled or not:
@@ -81,7 +81,7 @@ indicates the breakpoint type:
      <dl>
 <dt><code>+</code><dd>Breakpoint is enabled.
 
-     <br><dt><code>-</code><dd>Breakpoint is disabled.
+     <br><dt><code>-</code><dd>Breakpoint is disabled. 
 </dl>
 
    <p>The source, assembly and register windows are updated when the current
@@ -101,27 +101,28 @@ layouts:
 
      <li>source and registers, or
 
-     <li>assembly and registers.
+     <li>assembly and registers. 
 </ul>
 
    <p>A status line above the command window shows the following information:
 
      <dl>
-<dt><em>target</em><dd>Indicates the current <span class="sc">gdb</span> target.
+<dt><em>target</em><dd>Indicates the current <span class="sc">gdb</span> target. 
 (see <a href="Targets.html#Targets">Specifying a Debugging Target</a>).
 
-     <br><dt><em>process</em><dd>Gives the current process or thread number.
+     <br><dt><em>process</em><dd>Gives the current process or thread number. 
 When no process is being debugged, this field is set to <code>No process</code>.
 
-     <br><dt><em>function</em><dd>Gives the current function name for the selected frame.
-The name is demangled if demangling is turned on (see <a href="Print-Settings.html#Print-Settings">Print Settings</a>).
+     <br><dt><em>function</em><dd>Gives the current function name for the selected frame. 
+The name is demangled if demangling is turned on (see <a href="Print-Settings.html#Print-Settings">Print Settings</a>). 
 When there is no symbol corresponding to the current program counter,
 the string <code>??</code> is displayed.
 
-     <br><dt><em>line</em><dd>Indicates the current line number for the selected frame.
+     <br><dt><em>line</em><dd>Indicates the current line number for the selected frame. 
 When the current line number is not known, the string <code>??</code> is displayed.
 
-     <br><dt><em>pc</em><dd>Indicates the current program counter address.
+     <br><dt><em>pc</em><dd>Indicates the current program counter address. 
 </dl>
 
    </body></html>
+

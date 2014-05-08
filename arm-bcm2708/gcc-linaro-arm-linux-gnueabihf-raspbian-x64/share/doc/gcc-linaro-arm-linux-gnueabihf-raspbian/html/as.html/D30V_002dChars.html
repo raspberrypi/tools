@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ is treated as a comment, but in this case the line could also be a
 logical line number directive (see <a href="Comments.html#Comments">Comments</a>) or a preprocessor
 control command (see <a href="Preprocessing.html#Preprocessing">Preprocessing</a>).
 
-   <p><a name="index-sub_002dinstruction-ordering_002c-D30V-837"></a><a name="index-D30V-sub_002dinstruction-ordering-838"></a>Sub-instructions may be executed in order, in reverse-order, or in parallel.
+   <p><a name="index-sub_002dinstruction-ordering_002c-D30V-837"></a><a name="index-D30V-sub_002dinstruction-ordering-838"></a>Sub-instructions may be executed in order, in reverse-order, or in parallel. 
 Instructions listed in the standard one-per-line format will be executed
 sequentially unless you use the &lsquo;<samp><span class="samp">-O</span></samp>&rsquo; option.
 
@@ -85,21 +85,22 @@ container, and is executed first.
      <br><dt><code>mulx a0,r8,r9</code><dt><code>stw r2,@(r3,r4)</code><dd>Two-line format. Execute these sequentially unless &lsquo;<samp><span class="samp">-O</span></samp>&rsquo; option is
 used.  If the &lsquo;<samp><span class="samp">-O</span></samp>&rsquo; option is used, the assembler will determine if
 the instructions could be done in parallel (the above two instructions
-can be done in parallel), and if so, emit them as parallel instructions.
+can be done in parallel), and if so, emit them as parallel instructions. 
 The assembler will put them in the proper containers.  In the above
 example, the assembler will put the &lsquo;<samp><span class="samp">stw</span></samp>&rsquo; instruction in left
 container and the &lsquo;<samp><span class="samp">mulx</span></samp>&rsquo; instruction in the right container.
 
      <br><dt><code>stw r2,@(r3,r4) -&gt;</code><dt><code>mulx a0,r8,r9</code><dd>Two-line format.  Execute the &lsquo;<samp><span class="samp">stw</span></samp>&rsquo; instruction followed by the
 &lsquo;<samp><span class="samp">mulx</span></samp>&rsquo; instruction sequentially.  The first instruction goes in the
-left container and the second instruction goes into right container.
+left container and the second instruction goes into right container. 
 The assembler will give an error if the machine ordering constraints are
 violated.
 
      <br><dt><code>stw r2,@(r3,r4) &lt;-</code><dt><code>mulx a0,r8,r9</code><dd>Same as previous example, except that the &lsquo;<samp><span class="samp">mulx</span></samp>&rsquo; instruction is
-executed before the &lsquo;<samp><span class="samp">stw</span></samp>&rsquo; instruction.
+executed before the &lsquo;<samp><span class="samp">stw</span></samp>&rsquo; instruction. 
 </dl>
 
    <p><a name="index-symbol-names_002c-_0040samp_007b_0024_007d-in-839"></a><a name="index-g_t_0040code_007b_0024_007d-in-symbol-names-840"></a>Since &lsquo;<samp><span class="samp">$</span></samp>&rsquo; has no special meaning, you may use it in symbol names.
 
    </body></html>
+

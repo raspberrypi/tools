@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,14 +57,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 <p>These &lsquo;<samp><span class="samp">-m</span></samp>&rsquo; options are defined for Adapteva Epiphany:
 
      <dl>
-<dt><code>-mhalf-reg-file</code><dd><a name="index-mhalf_002dreg_002dfile-1098"></a>Don't allocate any register in the range <code>r32</code><small class="dots">...</small><code>r63</code>.
+<dt><code>-mhalf-reg-file</code><dd><a name="index-mhalf_002dreg_002dfile-1098"></a>Don't allocate any register in the range <code>r32</code><small class="dots">...</small><code>r63</code>. 
 That allows code to run on hardware variants that lack these registers.
 
-     <br><dt><code>-mprefer-short-insn-regs</code><dd><a name="index-mprefer_002dshort_002dinsn_002dregs-1099"></a>Preferrentially allocate registers that allow short instruction generation.
+     <br><dt><code>-mprefer-short-insn-regs</code><dd><a name="index-mprefer_002dshort_002dinsn_002dregs-1099"></a>Preferrentially allocate registers that allow short instruction generation. 
 This can result in increased instruction count, so this may either reduce or
 increase overall code size.
 
-     <br><dt><code>-mbranch-cost=</code><var>num</var><dd><a name="index-mbranch_002dcost-1100"></a>Set the cost of branches to roughly <var>num</var> &ldquo;simple&rdquo; instructions.
+     <br><dt><code>-mbranch-cost=</code><var>num</var><dd><a name="index-mbranch_002dcost-1100"></a>Set the cost of branches to roughly <var>num</var> &ldquo;simple&rdquo; instructions. 
 This cost is only a heuristic and is not guaranteed to produce
 consistent results across releases.
 
@@ -75,17 +75,17 @@ consistent results across releases.
      <br><dt><code>-mno-soft-cmpsf</code><dd><a name="index-mno_002dsoft_002dcmpsf-1103"></a>For single-precision floating-point comparisons, emit an <code>fsub</code> instruction
 and test the flags.  This is faster than a software comparison, but can
 get incorrect results in the presence of NaNs, or when two different small
-numbers are compared such that their difference is calculated as zero.
+numbers are compared such that their difference is calculated as zero. 
 The default is <samp><span class="option">-msoft-cmpsf</span></samp>, which uses slower, but IEEE-compliant,
 software comparisons.
 
-     <br><dt><code>-mstack-offset=</code><var>num</var><dd><a name="index-mstack_002doffset-1104"></a>Set the offset between the top of the stack and the stack pointer.
+     <br><dt><code>-mstack-offset=</code><var>num</var><dd><a name="index-mstack_002doffset-1104"></a>Set the offset between the top of the stack and the stack pointer. 
 E.g., a value of 8 means that the eight bytes in the range <code>sp+0...sp+7</code>
-can be used by leaf functions without stack allocation.
-Values other than &lsquo;<samp><span class="samp">8</span></samp>&rsquo; or &lsquo;<samp><span class="samp">16</span></samp>&rsquo; are untested and unlikely to work.
+can be used by leaf functions without stack allocation. 
+Values other than &lsquo;<samp><span class="samp">8</span></samp>&rsquo; or &lsquo;<samp><span class="samp">16</span></samp>&rsquo; are untested and unlikely to work. 
 Note also that this option changes the ABI; compiling a program with a
 different stack offset than the libraries have been compiled with
-generally does not work.
+generally does not work. 
 This option can be useful if you want to evaluate if a different stack
 offset would give you better code, but to actually use a different stack
 offset to build working programs, it is recommended to configure the
@@ -96,7 +96,7 @@ truncating.  The default is <samp><span class="option">-mround-nearest</span></s
 
      <br><dt><code>-mlong-calls</code><dd><a name="index-mlong_002dcalls-1106"></a>If not otherwise specified by an attribute, assume all calls might be beyond
 the offset range of the <code>b</code> / <code>bl</code> instructions, and therefore load the
-function address into a register before performing a (otherwise direct) call.
+function address into a register before performing a (otherwise direct) call. 
 This is the default.
 
      <br><dt><code>-mshort-calls</code><dd><a name="index-short_002dcalls-1107"></a>If not otherwise specified by an attribute, assume all direct calls are
@@ -107,7 +107,7 @@ for direct calls.  The default is <samp><span class="option">-mlong-calls</span>
 apply to function addresses for which <samp><span class="option">-mlong-calls</span></samp> semantics
 are in effect.
 
-     <br><dt><code>-mfp-mode=</code><var>mode</var><dd><a name="index-mfp_002dmode-1109"></a>Set the prevailing mode of the floating-point unit.
+     <br><dt><code>-mfp-mode=</code><var>mode</var><dd><a name="index-mfp_002dmode-1109"></a>Set the prevailing mode of the floating-point unit. 
 This determines the floating-point mode that is provided and expected
 at function call and return time.  Making this mode match the mode you
 predominantly need at function start can make your programs smaller and
@@ -117,7 +117,7 @@ faster by avoiding unnecessary mode switches.
 
           <dl>
 <dt>&lsquo;<samp><span class="samp">caller</span></samp>&rsquo;<dd>Any mode at function entry is valid, and retained or restored when
-the function returns, and when it calls other functions.
+the function returns, and when it calls other functions. 
 This mode is useful for compiling libraries or other compilation units
 you might want to incorporate into different programs with different
 prevailing FPU modes, and the convenience of being able to use a single
@@ -132,8 +132,8 @@ conversion from floating point to integer.
           <br><dt>&lsquo;<samp><span class="samp">round-nearest</span></samp>&rsquo;<dd>This is the mode used for floating-point calculations with
 round-to-nearest-or-even rounding mode.
 
-          <br><dt>&lsquo;<samp><span class="samp">int</span></samp>&rsquo;<dd>This is the mode used to perform integer calculations in the FPU, e.g.
-integer multiply, or integer multiply-and-accumulate.
+          <br><dt>&lsquo;<samp><span class="samp">int</span></samp>&rsquo;<dd>This is the mode used to perform integer calculations in the FPU, e.g. 
+integer multiply, or integer multiply-and-accumulate. 
 </dl>
 
      <p>The default is <samp><span class="option">-mfp-mode=caller</span></samp>
@@ -146,8 +146,8 @@ post-modify addresses.  The defaults are <samp><span class="option">msplit-lohi<
      <br><dt><code>-mnovect-double</code><dd><a name="index-mno_002dvect_002ddouble-1113"></a>Change the preferred SIMD mode to SImode.  The default is
 <samp><span class="option">-mvect-double</span></samp>, which uses DImode as preferred SIMD mode.
 
-     <br><dt><code>-max-vect-align=</code><var>num</var><dd><a name="index-max_002dvect_002dalign-1114"></a>The maximum alignment for SIMD vector mode types.
-<var>num</var> may be 4 or 8.  The default is 8.
+     <br><dt><code>-max-vect-align=</code><var>num</var><dd><a name="index-max_002dvect_002dalign-1114"></a>The maximum alignment for SIMD vector mode types. 
+<var>num</var> may be 4 or 8.  The default is 8. 
 Note that this is an ABI change, even though many library function
 interfaces are unaffected if they don't use SIMD vector modes
 in places that affect size and/or alignment of relevant types.
@@ -157,7 +157,7 @@ can give better register allocation, but so far the reverse seems to be
 generally the case.
 
      <br><dt><code>-m1reg-</code><var>reg</var><dd><a name="index-m1reg_002d-1116"></a>Specify a register to hold the constant &minus;1, which makes loading small negative
-constants and certain bitmasks faster.
+constants and certain bitmasks faster. 
 Allowable values for <var>reg</var> are &lsquo;<samp><span class="samp">r43</span></samp>&rsquo; and &lsquo;<samp><span class="samp">r63</span></samp>&rsquo;,
 which specify use of that register as a fixed register,
 and &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, which means that no register is used for this
@@ -166,3 +166,4 @@ purpose.  The default is <samp><span class="option">-m1reg-none</span></samp>.
  </dl>
 
  </body></html>
+

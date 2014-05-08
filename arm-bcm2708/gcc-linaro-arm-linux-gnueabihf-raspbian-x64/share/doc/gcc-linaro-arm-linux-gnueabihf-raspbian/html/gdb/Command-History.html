@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ happened.  Use these commands to manage the <span class="sc">gdb</span> command
 history facility.
 
    <p><span class="sc">gdb</span> uses the <span class="sc">gnu</span> History library, a part of the Readline
-package, to provide the history facility.
+package, to provide the history facility. 
 See <a href="Using-History-Interactively.html#Using-History-Interactively">Using History Interactively</a>,
 for the detailed description of the History library.
 
@@ -72,12 +72,12 @@ use the <code>output</code> command instead of the <code>print</code> command.
    <p>Here is the description of <span class="sc">gdb</span> commands related to command
 history.
 
-
+     
 <a name="index-history-substitution-1546"></a>
 <a name="index-history-file-1547"></a>
 <a name="index-set-history-filename-1548"></a>
 <a name="index-g_t_0040env_007bGDBHISTFILE_007d_002c-environment-variable-1549"></a>
-<dl><dt><code>set history filename </code><var>fname</var><dd>Set the name of the <span class="sc">gdb</span> command history file to <var>fname</var>.
+<dl><dt><code>set history filename </code><var>fname</var><dd>Set the name of the <span class="sc">gdb</span> command history file to <var>fname</var>. 
 This is the file where <span class="sc">gdb</span> reads an initial command history
 list, and where it writes the command history from this session when it
 exits.  You can access this list through history expansion or through
@@ -91,12 +91,12 @@ is not set.
 
      <br><dt><code>set history save off</code><dd>Stop recording command history in a file.
 
-     <p><a name="index-history-size-1552"></a><a name="index-set-history-size-1553"></a><a name="index-g_t_0040env_007bHISTSIZE_007d_002c-environment-variable-1554"></a><br><dt><code>set history size </code><var>size</var><dd>Set the number of commands which <span class="sc">gdb</span> keeps in its history list.
+     <p><a name="index-history-size-1552"></a><a name="index-set-history-size-1553"></a><a name="index-g_t_0040env_007bHISTSIZE_007d_002c-environment-variable-1554"></a><br><dt><code>set history size </code><var>size</var><dd>Set the number of commands which <span class="sc">gdb</span> keeps in its history list. 
 This defaults to the value of the environment variable
-<code>HISTSIZE</code>, or to 256 if this variable is not set.
+<code>HISTSIZE</code>, or to 256 if this variable is not set. 
 </dl>
 
-   <p>History expansion assigns special meaning to the character <kbd>!</kbd>.
+   <p>History expansion assigns special meaning to the character <kbd>!</kbd>. 
 See <a href="Event-Designators.html#Event-Designators">Event Designators</a>,
 for more details.
 
@@ -116,12 +116,12 @@ history facilities do not attempt substitution on the strings
      <br><dt><code>set history expansion off</code><dd>Disable history expansion.
 
      <!-- @group -->
-     <p><a name="index-show-history-1557"></a><br><dt><code>show history</code><dt><code>show history filename</code><dt><code>show history save</code><dt><code>show history size</code><dt><code>show history expansion</code><dd>These commands display the state of the <span class="sc">gdb</span> history parameters.
-<code>show history</code> by itself displays all four states.
+     <p><a name="index-show-history-1557"></a><br><dt><code>show history</code><dt><code>show history filename</code><dt><code>show history save</code><dt><code>show history size</code><dt><code>show history expansion</code><dd>These commands display the state of the <span class="sc">gdb</span> history parameters. 
+<code>show history</code> by itself displays all four states. 
 <!-- @end group -->
 </dl>
 
-
+     
 <a name="index-show-commands-1558"></a>
 <a name="index-show-last-commands-1559"></a>
 <a name="index-display-command-history-1560"></a>
@@ -129,7 +129,8 @@ history facilities do not attempt substitution on the strings
 
      <br><dt><code>show commands </code><var>n</var><dd>Print ten commands centered on command number <var>n</var>.
 
-     <br><dt><code>show commands +</code><dd>Print ten commands just after the commands last printed.
+     <br><dt><code>show commands +</code><dd>Print ten commands just after the commands last printed. 
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -53,7 +53,7 @@ command.  Whenever you run the command &lsquo;<samp><span class="samp">foo</span
 command &lsquo;<samp><span class="samp">hook-foo</span></samp>&rsquo; exists, it is executed (with no arguments)
 before that command.
 
-   <p><a name="index-hooks_002c-post_002dcommand-1687"></a><a name="index-hookpost-1688"></a>A hook may also be defined which is run after the command you executed.
+   <p><a name="index-hooks_002c-post_002dcommand-1687"></a><a name="index-hookpost-1688"></a>A hook may also be defined which is run after the command you executed. 
 Whenever you run the command &lsquo;<samp><span class="samp">foo</span></samp>&rsquo;, if the user-defined command
 &lsquo;<samp><span class="samp">hookpost-foo</span></samp>&rsquo; exists, it is executed (with no arguments) after
 that command.  Post-execution hooks may exist simultaneously with
@@ -76,11 +76,11 @@ you could define:
 <pre class="smallexample">     define hook-stop
      handle SIGALRM nopass
      end
-
+     
      define hook-run
      handle SIGALRM pass
      end
-
+     
      define hook-continue
      handle SIGALRM pass
      end
@@ -92,23 +92,23 @@ you could define:
 <pre class="smallexample">     define hook-echo
      echo &lt;&lt;&lt;---
      end
-
+     
      define hookpost-echo
      echo ---&gt;&gt;&gt;\n
      end
-
+     
      (gdb) echo Hello World
      &lt;&lt;&lt;---Hello World---&gt;&gt;&gt;
      (gdb)
-
+     
 </pre>
    <p>You can define a hook for any single-word command in <span class="sc">gdb</span>, but
 not for command aliases; you should define a hook for the basic command
-name, e.g.  <code>backtrace</code> rather than <code>bt</code>.
+name, e.g.  <code>backtrace</code> rather than <code>bt</code>. 
 <!-- FIXME!  So how does Joe User discover whether a command is an alias -->
 <!-- or not? -->
 You can hook a multi-word command by adding <code>hook-</code> or
-<code>hookpost-</code> to the last word of the command, e.g.
+<code>hookpost-</code> to the last word of the command, e.g. 
 &lsquo;<samp><span class="samp">define target hook-remote</span></samp>&rsquo; to add a hook to &lsquo;<samp><span class="samp">target remote</span></samp>&rsquo;.
 
    <p>If an error occurs during the execution of your hook, execution of
@@ -119,3 +119,4 @@ You can hook a multi-word command by adding <code>hook-</code> or
 get a warning from the <code>define</code> command.
 
    </body></html>
+

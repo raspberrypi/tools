@@ -96,7 +96,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       __glibcxx_class_requires(_Key, _SGIAssignableConcept)
       __glibcxx_class_requires4(_Compare, bool, _Key, _Key,
 				_BinaryFunctionConcept)
-      __glibcxx_class_requires2(_Key, _Alloc_value_type, _SameTypeConcept)
+      __glibcxx_class_requires2(_Key, _Alloc_value_type, _SameTypeConcept)	
 
     public:
       // typedefs:
@@ -523,7 +523,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        *  @brief Erases an element from a %multiset.
        *  @param  __position  An iterator pointing to the element to be erased.
        *  @return An iterator pointing to the element immediately following
-       *          @a position prior to the element being erased. If no such
+       *          @a position prior to the element being erased. If no such 
        *          element exists, end() is returned.
        *
        *  This function erases an element, pointed to by the given iterator,

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,7 +77,7 @@ options.
      <br><dt><code>-dM</code><dd><a name="index-g_t_0040code_007bdM_007d-69"></a><a name="index-preprocessor_002c-debugging-70"></a><a name="index-debugging_002c-preprocessor-71"></a>Instead of the normal output, generate a list of <code>'#define'</code>
 directives for all the macros defined during the execution of the
 preprocessor, including predefined macros. This gives you a way
-of finding out what is predefined in your version of the preprocessor.
+of finding out what is predefined in your version of the preprocessor. 
 Assuming you have no file <samp><span class="file">foo.f90</span></samp>, the command
      <pre class="smallexample">            touch foo.f90; gfortran -cpp -E -dM foo.f90
 </pre>
@@ -104,7 +104,7 @@ preprocessing. When this option is enabled, the preprocessor will emit,
 after the initial linemarker, a second linemarker with the current
 working directory followed by two slashes. GCC will use this directory,
 when it is present in the preprocessed input, as the directory emitted
-as the current working directory in some debugging information formats.
+as the current working directory in some debugging information formats. 
 This option is implicitly enabled if debugging information is enabled,
 but this can be inhibited with the negated form
 <samp><span class="option">-fno-working-directory</span></samp>. If the <samp><span class="option">-P</span></samp> flag is present
@@ -113,7 +113,7 @@ directives are emitted whatsoever.
 
      <br><dt><code>-idirafter </code><var>dir</var><dd><a name="index-g_t_0040code_007bidirafter-_0040var_007bdir_007d_007d-86"></a><a name="index-preprocessing_002c-include-path-87"></a>Search <var>dir</var> for include files, but do it after all directories
 specified with <samp><span class="option">-I</span></samp> and the standard system directories have
-been exhausted. <var>dir</var> is treated as a system include directory.
+been exhausted. <var>dir</var> is treated as a system include directory. 
 If dir begins with <code>=</code>, then the <code>=</code> will be replaced by
 the sysroot prefix; see <samp><span class="option">--sysroot</span></samp> and <samp><span class="option">-isysroot</span></samp>.
 
@@ -144,10 +144,10 @@ see <samp><span class="option">--sysroot</span></samp> and <samp><span class="op
 the directories you have specified with <samp><span class="option">-I</span></samp> options (and the
 directory of the current file, if appropriate) are searched.
 
-     <br><dt><code>-undef</code><dd><a name="index-g_t_0040code_007bundef_007d-99"></a>Do not predefine any system-specific or GCC-specific macros.
+     <br><dt><code>-undef</code><dd><a name="index-g_t_0040code_007bundef_007d-99"></a>Do not predefine any system-specific or GCC-specific macros. 
 The standard predefined macros remain defined.
 
-     <br><dt><code>-A</code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-g_t_0040code_007bA_0040var_007bpredicate_007d_003d_0040var_007banswer_007d_007d-100"></a><a name="index-preprocessing_002c-assertion-101"></a>Make an assertion with the predicate <var>predicate</var> and answer <var>answer</var>.
+     <br><dt><code>-A</code><var>predicate</var><code>=</code><var>answer</var><dd><a name="index-g_t_0040code_007bA_0040var_007bpredicate_007d_003d_0040var_007banswer_007d_007d-100"></a><a name="index-preprocessing_002c-assertion-101"></a>Make an assertion with the predicate <var>predicate</var> and answer <var>answer</var>. 
 This form is preferred to the older form -A predicate(answer), which is still
 supported, because it does not use shell special characters.
 
@@ -182,7 +182,7 @@ preprocessor does not yet recognize Fortran-style comments.
      <br><dt><code>-D</code><var>name</var><dd><a name="index-g_t_0040code_007bD_0040var_007bname_007d_007d-108"></a><a name="index-preprocessing_002c-define-macros-109"></a>Predefine name as a macro, with definition <code>1</code>.
 
      <br><dt><code>-D</code><var>name</var><code>=</code><var>definition</var><dd><a name="index-g_t_0040code_007bD_0040var_007bname_007d_003d_0040var_007bdefinition_007d_007d-110"></a><a name="index-preprocessing_002c-define-macros-111"></a>The contents of <var>definition</var> are tokenized and processed as if they
-appeared during translation phase three in a <code>'#define'</code> directive.
+appeared during translation phase three in a <code>'#define'</code> directive. 
 In particular, the definition will be truncated by embedded newline
 characters.
 
@@ -204,13 +204,14 @@ are processed after all -D and -U options.
 activities. Each name is indented to show how deep in the <code>'#include'</code>
 stack it is.
 
-     <br><dt><code>-P</code><dd><a name="index-g_t_0040code_007bP_007d-113"></a><a name="index-preprocessing_002c-no-linemarkers-114"></a>Inhibit generation of linemarkers in the output from the preprocessor.
+     <br><dt><code>-P</code><dd><a name="index-g_t_0040code_007bP_007d-113"></a><a name="index-preprocessing_002c-no-linemarkers-114"></a>Inhibit generation of linemarkers in the output from the preprocessor. 
 This might be useful when running the preprocessor on something that
 is not C code, and will be sent to a program which might be confused
 by the linemarkers.
 
      <br><dt><code>-U</code><var>name</var><dd><a name="index-g_t_0040code_007bU_0040var_007bname_007d_007d-115"></a><a name="index-preprocessing_002c-undefine-macros-116"></a>Cancel any previous definition of <var>name</var>, either built in or provided
-with a <samp><span class="option">-D</span></samp> option.
+with a <samp><span class="option">-D</span></samp> option. 
 </dl>
 
    </body></html>
+

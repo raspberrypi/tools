@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,10 +79,10 @@ more details on what each instruction does.
 (<code>rsqrt1.</code><var>fmt</var>).
 
      <br><dt><code>float __builtin_mips_rsqrt2_s (float, float)</code><dt><code>double __builtin_mips_rsqrt2_d (double, double)</code><dt><code>v2sf __builtin_mips_rsqrt2_ps (v2sf, v2sf)</code><dd>Reduced-precision reciprocal square root (sequence step 2)
-(<code>rsqrt2.</code><var>fmt</var>).
+(<code>rsqrt2.</code><var>fmt</var>). 
 </dl>
 
- <p>The following multi-instruction functions are also available.
+ <p>The following multi-instruction functions are also available. 
 In each case, <var>cond</var> can be any of the 16 floating-point conditions:
 <code>f</code>, <code>un</code>, <code>eq</code>, <code>ueq</code>, <code>olt</code>, <code>ult</code>,
 <code>ole</code>, <code>ule</code>, <code>sf</code>, <code>ngle</code>, <code>seq</code>,
@@ -93,7 +93,7 @@ In each case, <var>cond</var> can be any of the 16 floating-point conditions:
 <code>bc1t</code>/<code>bc1f</code>).
 
      <p>These functions compare <var>a</var> and <var>b</var> using <code>cabs.</code><var>cond</var><code>.s</code>
-or <code>cabs.</code><var>cond</var><code>.d</code> and return the result as a boolean value.
+or <code>cabs.</code><var>cond</var><code>.d</code> and return the result as a boolean value. 
 For example:
 
      <pre class="smallexample">          float a, b;
@@ -113,7 +113,7 @@ and return either the upper or lower half of the result.  For example:
             upper_halves_are_equal ();
           else
             upper_halves_are_unequal ();
-
+          
           if (__builtin_mips_lower_cabs_eq_ps (a, b))
             lower_halves_are_equal ();
           else
@@ -137,7 +137,7 @@ of <code>movt.ps</code>.
 
      <p>These functions compare <var>a</var> and <var>b</var> using <code>c.</code><var>cond</var><code>.ps</code>
 or <code>cabs.</code><var>cond</var><code>.ps</code>.  The <code>any</code> forms return true if either
-result is true and the <code>all</code> forms return true if both results are true.
+result is true and the <code>all</code> forms return true if both results are true. 
 For example:
 
      <pre class="smallexample">          v2sf a, b;
@@ -145,7 +145,7 @@ For example:
             one_is_true ();
           else
             both_are_false ();
-
+          
           if (__builtin_mips_all_c_eq_ps (a, b))
             both_are_true ();
           else
@@ -156,9 +156,9 @@ For example:
 <code>bc1any4t</code>/<code>bc1any4f</code>).
 
      <p>These functions use <code>c.</code><var>cond</var><code>.ps</code> or <code>cabs.</code><var>cond</var><code>.ps</code>
-to compare <var>a</var> with <var>b</var> and to compare <var>c</var> with <var>d</var>.
+to compare <var>a</var> with <var>b</var> and to compare <var>c</var> with <var>d</var>. 
 The <code>any</code> forms return true if any of the four results are true
-and the <code>all</code> forms return true if all four results are true.
+and the <code>all</code> forms return true if all four results are true. 
 For example:
 
      <pre class="smallexample">          v2sf a, b, c, d;
@@ -166,7 +166,7 @@ For example:
             some_are_true ();
           else
             all_are_false ();
-
+          
           if (__builtin_mips_all_c_eq_4s (a, b, c, d))
             all_are_true ();
           else
@@ -175,3 +175,4 @@ For example:
      </dl>
 
  </body></html>
+

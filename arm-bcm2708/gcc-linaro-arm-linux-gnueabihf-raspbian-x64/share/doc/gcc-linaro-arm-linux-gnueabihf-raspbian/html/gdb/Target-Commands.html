@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,7 +75,7 @@ with <code>gnutarget</code> the <code>target</code> refers to a program, not a m
 
      <blockquote>
 <em>Warning:</em> To specify a file format with <code>set gnutarget</code>,
-you must know the actual BFD name.
+you must know the actual BFD name. 
 </blockquote>
 
      <p class="noindent">See <a href="Files.html#Files">Commands to Specify Files</a>.
@@ -83,13 +83,13 @@ you must know the actual BFD name.
      <p><a name="index-show-gnutarget-1138"></a><br><dt><code>show gnutarget</code><dd>Use the <code>show gnutarget</code> command to display what file format
 <code>gnutarget</code> is set to read.  If you have not set <code>gnutarget</code>,
 <span class="sc">gdb</span> will determine the file format for each file automatically,
-and <code>show gnutarget</code> displays &lsquo;<samp><span class="samp">The current BFD target is "auto"</span></samp>&rsquo;.
+and <code>show gnutarget</code> displays &lsquo;<samp><span class="samp">The current BFD target is "auto"</span></samp>&rsquo;. 
 </dl>
 
    <p><a name="index-common-targets-1139"></a>Here are some common targets (available, or not, depending on the GDB
 configuration):
 
-
+     
 <a name="index-target-1140"></a>
 <dl><dt><code>target exec </code><var>program</var><dd><a name="index-executable-file-target-1141"></a>An executable file.  &lsquo;<samp><span class="samp">target exec </span><var>program</var></samp>&rsquo; is the same as
 &lsquo;<samp><span class="samp">exec-file </span><var>program</var></samp>&rsquo;.
@@ -111,7 +111,7 @@ useful if you have some other way of getting the stub to the target
 system, and you can put it somewhere in memory where it won't get
 clobbered by the download.
 
-     <br><dt><code>target sim </code><span class="roman">[</span><var>simargs</var><span class="roman">]</span><code> ...</code><dd><a name="index-built_002din-simulator-target-1144"></a>Builtin CPU simulator.  <span class="sc">gdb</span> includes simulators for most architectures.
+     <br><dt><code>target sim </code><span class="roman">[</span><var>simargs</var><span class="roman">]</span><code> ...</code><dd><a name="index-built_002din-simulator-target-1144"></a>Builtin CPU simulator.  <span class="sc">gdb</span> includes simulators for most architectures. 
 In general,
      <pre class="smallexample">                  target sim
                   load
@@ -150,15 +150,15 @@ monitor.
 <span class="sc">gdb</span> and the remote monitor.
 
      <br><dt><code>show debug monitor</code><dd><a name="index-show-debug-monitor-1151"></a>Show the current status of displaying communications between
-<span class="sc">gdb</span> and the remote monitor.
+<span class="sc">gdb</span> and the remote monitor. 
 </dl>
 
-
+     
 <a name="index-load-_0040var_007bfilename_007d-1152"></a>
 <dl><dt><code>load </code><var>filename</var><dd><a name="load"></a>Depending on what remote debugging facilities are configured into
 <span class="sc">gdb</span>, the <code>load</code> command may be available.  Where it exists, it
 is meant to make <var>filename</var> (an executable) available for debugging
-on the remote system&mdash;by downloading, or dynamic linking, for example.
+on the remote system&mdash;by downloading, or dynamic linking, for example. 
 <code>load</code> also records the <var>filename</var> symbol table in <span class="sc">gdb</span>, like
 the <code>add-symbol-file</code> command.
 
@@ -166,16 +166,17 @@ the <code>add-symbol-file</code> command.
 execute it gets the error message &ldquo;<code>You can't do that when your
 target is ...</code>&rdquo;
 
-     <p>The file is loaded at whatever address is specified in the executable.
+     <p>The file is loaded at whatever address is specified in the executable. 
 For some object file formats, you can specify the load address when you
 link the program; for other formats, like a.out, the object file format
-specifies a fixed address.
+specifies a fixed address. 
 <!-- FIXME! This would be a good place for an xref to the GNU linker doc. -->
 
      <p>Depending on the remote side capabilities, <span class="sc">gdb</span> may be able to
 load programs into flash memory.
 
-     <p><code>load</code> does not repeat if you press &lt;RET&gt; again after using it.
+     <p><code>load</code> does not repeat if you press &lt;RET&gt; again after using it. 
 </dl>
 
    </body></html>
+

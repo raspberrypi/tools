@@ -24,18 +24,18 @@ struct icmp6hdr {
                 struct icmpv6_nd_advt {
 #if defined(__LITTLE_ENDIAN_BITFIELD)
                         __u32		reserved:5,
-					override:1,
-					solicited:1,
-					router:1,
+                        		override:1,
+                        		solicited:1,
+                        		router:1,
 					reserved2:24;
 #elif defined(__BIG_ENDIAN_BITFIELD)
                         __u32		router:1,
 					solicited:1,
-					override:1,
-					reserved:29;
+                        		override:1,
+                        		reserved:29;
 #else
 #error	"Please fix <asm/byteorder.h>"
-#endif
+#endif						
                 } u_nd_advt;
 
                 struct icmpv6_nd_ra {

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Agent-Expressions.html#Agent-Expression
 <p>Some of the design decisions apparent above are arguable.
 
      <dl>
-<dt><b>What about stack overflow/underflow?</b><dd>GDB should be able to query the target to discover its stack size.
+<dt><b>What about stack overflow/underflow?</b><dd>GDB should be able to query the target to discover its stack size. 
 Given that information, GDB can determine at translation time whether a
 given expression will overflow the stack.  But this spec isn't about
 what kinds of error-checking GDB ought to do.
@@ -75,7 +75,7 @@ is not necessary for correctness.
 
      <br><dt><b>Why don't you have </b><code>&gt;</code><b> or </b><code>&lt;=</code><b> operators?</b><dd>I want to keep the interpreter small, and we don't need them.  We can
 combine the <code>less_</code> opcodes with <code>log_not</code>, and swap the order
-of the operands, yielding all four asymmetrical comparison operators.
+of the operands, yielding all four asymmetrical comparison operators. 
 For example, <code>(x &lt;= y)</code> is <code>! (x &gt; y)</code>, which is <code>! (y &lt;
 x)</code>.
 
@@ -102,7 +102,7 @@ need the <code>ext</code> bytecode anyway for accessing bitfields.
 <code>const32 </code><var>address</var><code> ref32</code> is only one byte longer.
 
      <br><dt><b>Why do the </b><code>ref</code><var>n</var><b> operators have to support unaligned fetches?</b><dd>GDB will generate bytecode that fetches multi-byte values at unaligned
-addresses whenever the executable's debugging information tells it to.
+addresses whenever the executable's debugging information tells it to. 
 Furthermore, GDB does not know the value the pointer will have when GDB
 generates the bytecode, so it cannot determine whether a particular
 fetch will be aligned or not.
@@ -136,7 +136,7 @@ size, or do jump relaxation on the code after I generate it, which seems
 like a big waste of time.
 
      <p>I can imagine a reasonable expression being longer than 256 bytes.  I
-can't imagine one being longer than 64k.  Thus, we need 16-bit offsets.
+can't imagine one being longer than 64k.  Thus, we need 16-bit offsets. 
 This kind of reasoning is so bogus, but relaxation is pathetic.
 
      <p>The other approach would be to generate code right-to-left.  Then I'd
@@ -181,3 +181,4 @@ it.
    </dl>
 
    </body></html>
+

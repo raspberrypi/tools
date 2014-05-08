@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/type_traits
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_TYPE_TRAITS
@@ -74,7 +74,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef _Tp                           value_type;
       typedef integral_constant<_Tp, __v>   type;
     };
-
+  
   /// typedef for true_type
   typedef integral_constant<bool, true>     true_type;
 
@@ -249,7 +249,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     : public true_type { };
 
   // composite type traits [4.5.2].
-
+  
   /// is_arithmetic
   template<typename _Tp>
     struct is_arithmetic
@@ -311,7 +311,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     struct is_const<_Tp const>
     : public true_type { };
-
+  
   /// is_volatile
   template<typename>
     struct is_volatile
@@ -349,12 +349,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     struct alignment_of
     : public integral_constant<std::size_t, __alignof__(_Tp)> { };
-
+  
   /// rank
   template<typename>
     struct rank
     : public integral_constant<std::size_t, 0> { };
-
+   
   template<typename _Tp, std::size_t _Size>
     struct rank<_Tp[_Size]>
     : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
@@ -367,7 +367,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename, unsigned _Uint = 0>
     struct extent
     : public integral_constant<std::size_t, 0> { };
-
+  
   template<typename _Tp, unsigned _Uint, std::size_t _Size>
     struct extent<_Tp[_Size], _Uint>
     : public integral_constant<std::size_t,
@@ -403,7 +403,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     struct remove_const<_Tp const>
     { typedef _Tp     type; };
-
+  
   /// remove_volatile
   template<typename _Tp>
     struct remove_volatile
@@ -412,7 +412,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     struct remove_volatile<_Tp volatile>
     { typedef _Tp     type; };
-
+  
   /// remove_cv
   template<typename _Tp>
     struct remove_cv
@@ -420,17 +420,17 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef typename
       remove_const<typename remove_volatile<_Tp>::type>::type     type;
     };
-
+  
   /// add_const
   template<typename _Tp>
     struct add_const
     { typedef _Tp const     type; };
-
+   
   /// add_volatile
   template<typename _Tp>
     struct add_volatile
     { typedef _Tp volatile     type; };
-
+  
   /// add_cv
   template<typename _Tp>
     struct add_cv
@@ -579,7 +579,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 				       && !is_same<_NoCv_Base,
 				                   _NoCv_Derived>::value));
     };
-
+ 
   template<typename _Base, typename _Derived>
     struct is_base_of
     : public integral_constant<bool,
@@ -594,7 +594,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       static __one __test(_To);
       static __two __test(...);
       static _From __makeFrom();
-
+    
     public:
       static const bool __value = sizeof(__test(__makeFrom())) == 1;
     };
@@ -615,7 +615,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _From, typename _To,
 	   bool = (is_void<_From>::value || is_void<_To>::value
 		   || is_function<_To>::value || is_array<_To>::value
-		   // This special case is here only to avoid warnings.
+		   // This special case is here only to avoid warnings.	
 		   || (is_floating_point<typename
 		       remove_reference<_From>::type>::value
 		       && __is_int_or_cref<_To>::__value))>
@@ -665,11 +665,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // other transformations [4.8].
   template<std::size_t _Len, std::size_t _Align>
     struct aligned_storage
-    {
+    { 
       union type
       {
 	unsigned char __data[_Len];
-	struct __attribute__((__aligned__((_Align)))) { } __align;
+	struct __attribute__((__aligned__((_Align)))) { } __align; 
       };
     };
 

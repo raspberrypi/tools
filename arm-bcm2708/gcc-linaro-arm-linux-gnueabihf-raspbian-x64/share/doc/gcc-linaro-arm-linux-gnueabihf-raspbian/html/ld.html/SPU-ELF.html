@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,13 +48,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <h3 class="section">4.12 <samp><span class="command">ld</span></samp> and SPU ELF Support</h3>
 
 <p><a name="index-SPU-ELF-options-675"></a>
-
+     
 <a name="index-SPU-plugins-676"></a>
 <a name="index-g_t_002d_002dplugin-677"></a>
 <dl><dt><samp><span class="option">--plugin</span></samp><dd>This option marks an executable as a PIC plugin module.
 
      <p><a name="index-SPU-overlays-678"></a><a name="index-g_t_002d_002dno_002doverlays-679"></a><br><dt><samp><span class="option">--no-overlays</span></samp><dd>Normally, <samp><span class="command">ld</span></samp> recognizes calls to functions within overlay
-regions, and redirects such calls to an overlay manager via a stub.
+regions, and redirects such calls to an overlay manager via a stub. 
 <samp><span class="command">ld</span></samp> also provides a built-in overlay manager.  This option
 turns off all this special overlay handling.
 
@@ -72,7 +72,7 @@ range.  Disable the check entirely with <samp><span class="option">--local-store
      <p><a name="index-SPU-686"></a><a name="index-g_t_002d_002dstack_002danalysis-687"></a><br><dt><samp><span class="option">--stack-analysis</span></samp><dd>SPU local store space is limited.  Over-allocation of stack space
 unnecessarily limits space available for code and data, while
 under-allocation results in runtime failures.  If given this option,
-<samp><span class="command">ld</span></samp> will provide an estimate of maximum stack usage.
+<samp><span class="command">ld</span></samp> will provide an estimate of maximum stack usage. 
 <samp><span class="command">ld</span></samp> does this by examining symbols in code sections to
 determine the extents of functions, and looking at function prologues
 for stack adjusting instructions.  A call-graph is created by looking
@@ -86,13 +86,14 @@ is requested, detailed information about each function's stack usage
 and calls will be given.
 
      <p><a name="index-SPU-688"></a><a name="index-g_t_002d_002demit_002dstack_002dsyms-689"></a><br><dt><samp><span class="option">--emit-stack-syms</span></samp><dd>This option, if given along with <samp><span class="option">--stack-analysis</span></samp> will result
-in <samp><span class="command">ld</span></samp> emitting stack sizing symbols for each function.
+in <samp><span class="command">ld</span></samp> emitting stack sizing symbols for each function. 
 These take the form <code>__stack_&lt;function_name&gt;</code> for global
 functions, and <code>__stack_&lt;number&gt;_&lt;function_name&gt;</code> for static
 functions.  <code>&lt;number&gt;</code> is the section id in hex.  The value of
-such symbols is the stack requirement for the corresponding function.
+such symbols is the stack requirement for the corresponding function. 
 The symbol size will be zero, type <code>STT_NOTYPE</code>, binding
-<code>STB_LOCAL</code>, and section <code>SHN_ABS</code>.
+<code>STB_LOCAL</code>, and section <code>SHN_ABS</code>. 
 </dl>
 
    </body></html>
+

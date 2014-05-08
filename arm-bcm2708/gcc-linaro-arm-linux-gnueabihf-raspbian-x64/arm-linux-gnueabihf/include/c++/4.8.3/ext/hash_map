@@ -96,19 +96,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef typename _Ht::value_type value_type;
       typedef typename _Ht::hasher hasher;
       typedef typename _Ht::key_equal key_equal;
-
+      
       typedef typename _Ht::size_type size_type;
       typedef typename _Ht::difference_type difference_type;
       typedef typename _Ht::pointer pointer;
       typedef typename _Ht::const_pointer const_pointer;
       typedef typename _Ht::reference reference;
       typedef typename _Ht::const_reference const_reference;
-
+      
       typedef typename _Ht::iterator iterator;
       typedef typename _Ht::const_iterator const_iterator;
-
+      
       typedef typename _Ht::allocator_type allocator_type;
-
+      
       hasher
       hash_funct() const
       { return _M_ht.hash_funct(); }
@@ -123,7 +123,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       hash_map()
       : _M_ht(100, hasher(), key_equal(), allocator_type()) {}
-
+  
       explicit
       hash_map(size_type __n)
       : _M_ht(__n, hasher(), key_equal(), allocator_type()) {}
@@ -161,15 +161,15 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       size_type
       size() const
       { return _M_ht.size(); }
-
+      
       size_type
       max_size() const
       { return _M_ht.max_size(); }
-
+      
       bool
       empty() const
       { return _M_ht.empty(); }
-
+  
       void
       swap(hash_map& __hs)
       { _M_ht.swap(__hs._M_ht); }
@@ -300,7 +300,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       __glibcxx_class_requires(_Tp, _SGIAssignableConcept)
       __glibcxx_class_requires3(_HashFn, size_t, _Key, _UnaryFunctionConcept)
       __glibcxx_class_requires3(_EqualKey, _Key, _Key, _BinaryPredicateConcept)
-
+	
     private:
       typedef hashtable<pair<const _Key, _Tp>, _Key, _HashFn,
 			_Select1st<pair<const _Key, _Tp> >, _EqualKey, _Alloc>
@@ -315,19 +315,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef typename _Ht::value_type value_type;
       typedef typename _Ht::hasher hasher;
       typedef typename _Ht::key_equal key_equal;
-
+      
       typedef typename _Ht::size_type size_type;
       typedef typename _Ht::difference_type difference_type;
       typedef typename _Ht::pointer pointer;
       typedef typename _Ht::const_pointer const_pointer;
       typedef typename _Ht::reference reference;
       typedef typename _Ht::const_reference const_reference;
-
+      
       typedef typename _Ht::iterator iterator;
       typedef typename _Ht::const_iterator const_iterator;
-
+      
       typedef typename _Ht::allocator_type allocator_type;
-
+      
       hasher
       hash_funct() const
       { return _M_ht.hash_funct(); }
@@ -474,7 +474,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       size_type
       max_bucket_count() const
       { return _M_ht.max_bucket_count(); }
-
+      
       size_type
       elems_in_bucket(size_type __n) const
       { return _M_ht.elems_in_bucket(__n); }
@@ -508,7 +508,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Specialization of insert_iterator so that it will work for hash_map
   // and hash_multimap.
   template<class _Key, class _Tp, class _HashFn,  class _EqKey, class _Alloc>
-    class insert_iterator<__gnu_cxx::hash_map<_Key, _Tp, _HashFn,
+    class insert_iterator<__gnu_cxx::hash_map<_Key, _Tp, _HashFn, 
 					      _EqKey, _Alloc> >
     {
     protected:
@@ -523,7 +523,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef void                difference_type;
       typedef void                pointer;
       typedef void                reference;
-
+      
       insert_iterator(_Container& __x)
       : container(&__x) {}
 

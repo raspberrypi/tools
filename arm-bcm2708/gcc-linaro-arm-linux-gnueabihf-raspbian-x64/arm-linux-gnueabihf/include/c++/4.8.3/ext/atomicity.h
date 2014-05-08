@@ -44,7 +44,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // __exchange_and_add_dispatch
   // __atomic_add_dispatch
 #ifdef _GLIBCXX_ATOMIC_BUILTINS
-  static inline _Atomic_word
+  static inline _Atomic_word 
   __exchange_and_add(volatile _Atomic_word* __mem, int __val)
   { return __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
 
@@ -114,4 +114,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 #define _GLIBCXX_WRITE_MEM_BARRIER __asm __volatile ("":::"memory")
 #endif
 
-#endif
+#endif 

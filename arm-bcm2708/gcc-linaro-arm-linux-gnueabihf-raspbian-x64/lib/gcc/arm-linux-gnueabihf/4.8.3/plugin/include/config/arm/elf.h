@@ -3,7 +3,7 @@
    Copyright (C) 1995-2013 Free Software Foundation, Inc.
    Contributed by Philip Blundell <philb@gnu.org> and
    Catherine Moore <clm@cygnus.com>
-
+   
    This file is part of GCC.
 
    GCC is free software; you can redistribute it and/or modify it
@@ -104,7 +104,7 @@
 #ifndef LINK_SPEC
 #define LINK_SPEC "%{mbig-endian:-EB} %{mlittle-endian:-EL} -X"
 #endif
-
+  
 /* Run-time Target Specification.  */
 #ifndef TARGET_DEFAULT
 #define TARGET_DEFAULT (MASK_APCS_FRAME)
@@ -156,3 +156,4 @@
 #undef L_floatundidf
 #undef L_floatundisf
 #endif
+

@@ -81,7 +81,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // time begin(), and to the rightmost node of the tree, to enable
   // linear time performance when used with the generic set algorithms
   // (set_union, etc.)
-  //
+  // 
   // (2) when a node being deleted has two children its successor node
   // is relinked into its place, rather than copied, so that the only
   // iterators invalidated are those referring to the deleted node.
@@ -355,7 +355,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _Node_allocator&
       _M_get_Node_allocator() _GLIBCXX_NOEXCEPT
       { return *static_cast<_Node_allocator*>(&this->_M_impl); }
-
+      
       const _Node_allocator&
       _M_get_Node_allocator() const _GLIBCXX_NOEXCEPT
       { return *static_cast<const _Node_allocator*>(&this->_M_impl); }
@@ -434,7 +434,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
     protected:
-      template<typename _Key_compare,
+      template<typename _Key_compare, 
 	       bool _Is_pod_comparator = __is_pod(_Key_compare)>
         struct _Rb_tree_impl : public _Node_allocator
         {
@@ -467,7 +467,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    this->_M_header._M_parent = 0;
 	    this->_M_header._M_left = &this->_M_header;
 	    this->_M_header._M_right = &this->_M_header;
-	  }
+	  }	    
 	};
 
       _Rb_tree_impl<_Compare> _M_impl;
@@ -680,14 +680,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       iterator
       begin() _GLIBCXX_NOEXCEPT
-      {
+      { 
 	return iterator(static_cast<_Link_type>
 			(this->_M_impl._M_header._M_left));
       }
 
       const_iterator
       begin() const _GLIBCXX_NOEXCEPT
-      {
+      { 
 	return const_iterator(static_cast<_Const_Link_type>
 			      (this->_M_impl._M_header._M_left));
       }
@@ -698,7 +698,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       const_iterator
       end() const _GLIBCXX_NOEXCEPT
-      {
+      { 
 	return const_iterator(static_cast<_Const_Link_type>
 			      (&this->_M_impl._M_header));
       }
@@ -724,7 +724,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { return _M_impl._M_node_count == 0; }
 
       size_type
-      size() const _GLIBCXX_NOEXCEPT
+      size() const _GLIBCXX_NOEXCEPT 
       { return _M_impl._M_node_count; }
 
       size_type
@@ -732,7 +732,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { return _M_get_Node_allocator().max_size(); }
 
       void
-      swap(_Rb_tree& __t);
+      swap(_Rb_tree& __t);      
 
       // Insert/erase.
 #if __cplusplus >= 201103L
@@ -917,7 +917,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     operator<(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
 	      const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __y)
     {
-      return std::lexicographical_compare(__x.begin(), __x.end(),
+      return std::lexicographical_compare(__x.begin(), __x.end(), 
 					  __y.begin(), __y.end());
     }
 
@@ -1269,7 +1269,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      _M_leftmost() = __t._M_leftmost();
 	      _M_rightmost() = __t._M_rightmost();
 	      _M_root()->_M_parent = _M_end();
-
+	      
 	      __t._M_root() = 0;
 	      __t._M_leftmost() = __t._M_end();
 	      __t._M_rightmost() = __t._M_end();
@@ -1281,7 +1281,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  __t._M_leftmost() = _M_leftmost();
 	  __t._M_rightmost() = _M_rightmost();
 	  __t._M_root()->_M_parent = __t._M_end();
-
+	  
 	  _M_root() = 0;
 	  _M_leftmost() = _M_end();
 	  _M_rightmost() = _M_end();
@@ -1291,14 +1291,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  std::swap(_M_root(),__t._M_root());
 	  std::swap(_M_leftmost(),__t._M_leftmost());
 	  std::swap(_M_rightmost(),__t._M_rightmost());
-
+	  
 	  _M_root()->_M_parent = _M_end();
 	  __t._M_root()->_M_parent = __t._M_end();
 	}
       // No need to swap header's color as it does not change.
       std::swap(this->_M_impl._M_node_count, __t._M_impl._M_node_count);
       std::swap(this->_M_impl._M_key_compare, __t._M_impl._M_key_compare);
-
+      
       // _GLIBCXX_RESOLVE_LIB_DEFECTS
       // 431. Swapping containers with unequal allocators.
       std::__alloc_swap<_Node_allocator>::
@@ -1522,7 +1522,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
       else
 	{
-	  // ... then try after.
+	  // ... then try after.  
 	  iterator __after = __pos;
 	  if (__pos._M_node == _M_rightmost())
 	    return _Res(0, _M_rightmost());
@@ -1627,7 +1627,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    auto __res = _M_get_insert_unique_pos(_S_key(__z));
 	    if (__res.second)
 	      return _Res(_M_insert_node(__res.first, __res.second, __z), true);
-
+	
 	    _M_destroy_node(__z);
 	    return _Res(iterator(static_cast<_Link_type>(__res.first)), false);
 	  }
@@ -1804,7 +1804,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       const_iterator __j = _M_lower_bound(_M_begin(), _M_end(), __k);
       return (__j == end()
-	      || _M_impl._M_key_compare(__k,
+	      || _M_impl._M_key_compare(__k, 
 					_S_key(__j._M_node))) ? end() : __j;
     }
 

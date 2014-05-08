@@ -88,3 +88,4 @@ rels_entry(entry_pointer p_e)
   p_e->m_value.~value_type();
   s_entry_allocator.deallocate(p_e, 1);
 }
+

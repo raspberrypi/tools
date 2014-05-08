@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,8 +66,8 @@ laid out such that alignment is always respected.
 unless otherwise noted:
 
           <ol type=1 start=1>
-<li>The version number, currently 8.  Versions 1, 2 and 3 are obsolete.
-Version 4 uses a different hashing function from versions 5 and 6.
+<li>The version number, currently 8.  Versions 1, 2 and 3 are obsolete. 
+Version 4 uses a different hashing function from versions 5 and 6. 
 Version 6 includes symbols for inlined functions, whereas versions 4
 and 5 do not.  Version 7 adds attributes to the CU indices in the
 symbol table.  Version 8 specifies that symbols from DWARF type units
@@ -75,7 +75,7 @@ symbol table.  Version 8 specifies that symbols from DWARF type units
 compilation unit (&lsquo;<samp><span class="samp">DW_TAG_comp_unit</span></samp>&rsquo;) using the type.
 
           <p><span class="sc">gdb</span> will only read version 4, 5, or 6 indices
-by specifying <code>set use-deprecated-index-sections on</code>.
+by specifying <code>set use-deprecated-index-sections on</code>. 
 GDB has a workaround for potentially broken version 7 indices so it is
 currently not flagged as deprecated.
 
@@ -139,7 +139,7 @@ index version:
           <dl>
 <dt>Version 4<dd>The formula is <code>r = r * 67 + c - 113</code>.
 
-          <br><dt>Versions 5 to 7<dd>The formula is <code>r = r * 67 + tolower (c) - 113</code>.
+          <br><dt>Versions 5 to 7<dd>The formula is <code>r = r * 67 + tolower (c) - 113</code>. 
 </dl>
 
      <p>The terminating &lsquo;<samp><span class="samp">\0</span></samp>&rsquo; is not incorporated into the hash.
@@ -160,16 +160,16 @@ so that alignment is correct: CU vectors are stored first, followed by
 strings.
 
      <p>A CU vector in the constant pool is a sequence of <code>offset_type</code>
-values.  The first value is the number of CU indices in the vector.
+values.  The first value is the number of CU indices in the vector. 
 Each subsequent value is the index and symbol attributes of a CU in
 the CU list.  This element in the hash table is used to indicate which
-CUs define the symbol and how the symbol is used.
+CUs define the symbol and how the symbol is used. 
 See below for the format of each CU index+attributes entry.
 
      <p>A string in the constant pool is zero-terminated.
         </ol>
 
-   <p>Attributes were added to CU index values in <code>.gdb_index</code> version 7.
+   <p>Attributes were added to CU index values in <code>.gdb_index</code> version 7. 
 If a symbol has multiple uses within a CU then there is one
 CU index+attributes value for each use.
 
@@ -177,24 +177,24 @@ CU index+attributes value for each use.
 (bit 0 = LSB):
 
      <dl>
-<dt>Bits 0-23<dd>This is the index of the CU in the CU list.
-<br><dt>Bits 24-27<dd>These bits are reserved for future purposes and must be zero.
+<dt>Bits 0-23<dd>This is the index of the CU in the CU list. 
+<br><dt>Bits 24-27<dd>These bits are reserved for future purposes and must be zero. 
 <br><dt>Bits 28-30<dd>The kind of the symbol in the CU.
 
           <dl>
-<dt>0<dd>This value is reserved and should not be used.
+<dt>0<dd>This value is reserved and should not be used. 
 By reserving zero the full <code>offset_type</code> value is backwards compatible
-with previous versions of the index.
-<br><dt>1<dd>The symbol is a type.
-<br><dt>2<dd>The symbol is a variable or an enum value.
-<br><dt>3<dd>The symbol is a function.
-<br><dt>4<dd>Any other kind of symbol.
-<br><dt>5,6,7<dd>These values are reserved.
+with previous versions of the index. 
+<br><dt>1<dd>The symbol is a type. 
+<br><dt>2<dd>The symbol is a variable or an enum value. 
+<br><dt>3<dd>The symbol is a function. 
+<br><dt>4<dd>Any other kind of symbol. 
+<br><dt>5,6,7<dd>These values are reserved. 
 </dl>
 
      <br><dt>Bit 31<dd>This bit is zero if the value is global and one if it is static.
 
-     <p>The determination of whether a symbol is global or static is complicated.
+     <p>The determination of whether a symbol is global or static is complicated. 
 The authorative reference is the file <samp><span class="file">dwarf2read.c</span></samp> in
 <span class="sc">gdb</span> sources.
 
@@ -246,3 +246,4 @@ global/static attributes in the index.
        }
 </pre>
    </body></html>
+

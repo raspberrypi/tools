@@ -677,7 +677,7 @@ ANSI/ISO C prototypes, since we want it to be highly portable.
      all: poke
 
      poke: poke.o
-	$(CC) -o poke $(CFLAGS) $(LDFLAGS) poke.o
+     	$(CC) -o poke $(CFLAGS) $(LDFLAGS) poke.o
 
    So far, so good.
 
@@ -801,16 +801,16 @@ targets.
      all: poke
 
      poke: poke.o
-	$(CC) -o poke $(ALL_CFLAGS) $(LDFLAGS) poke.o
+     	$(CC) -o poke $(ALL_CFLAGS) $(LDFLAGS) poke.o
 
      .c.o:
-	$(CC) -c $(ALL_CFLAGS) poke.c
+     	$(CC) -c $(ALL_CFLAGS) poke.c
 
      install: poke
-	cp poke $(bindir)/poke
+     	cp poke $(bindir)/poke
 
      clean:
-	rm poke poke.o
+     	rm poke poke.o
 
    Some problems with this approach should be clear.
 

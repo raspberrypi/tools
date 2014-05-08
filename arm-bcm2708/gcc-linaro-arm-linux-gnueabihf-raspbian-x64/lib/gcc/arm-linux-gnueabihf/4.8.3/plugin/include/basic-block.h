@@ -105,7 +105,7 @@ typedef struct gcov_working_set_info
    For every field[2], field[0] is the count before the pass runs, and
    field[1] is the post-pass count.  This allows us to monitor the effect
    of each individual pass on the profile consistency.
-
+   
    This structure is not supposed to be used by anything other than passes.c
    and one CFG hook per CFG mode.  */
 struct profile_record
@@ -943,7 +943,7 @@ check_probability (int prob)
   gcc_checking_assert (prob >= 0 && prob <= REG_BR_PROB_BASE);
 }
 
-/* Given PROB1 and PROB2, return PROB1*PROB2/REG_BR_PROB_BASE.
+/* Given PROB1 and PROB2, return PROB1*PROB2/REG_BR_PROB_BASE. 
    Used to combine BB probabilities.  */
 
 static inline int

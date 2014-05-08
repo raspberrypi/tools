@@ -12,7 +12,7 @@
 #ifndef _B1LLI_H_
 #define _B1LLI_H_
 /*
- * struct for loading t4 file
+ * struct for loading t4 file 
  */
 typedef struct avmb1_t4file {
 	int len;
@@ -27,7 +27,7 @@ typedef struct avmb1_loaddef {
 typedef struct avmb1_loadandconfigdef {
 	int contr;
 	avmb1_t4file t4file;
-        avmb1_t4file t4config;
+        avmb1_t4file t4config; 
 } avmb1_loadandconfigdef;
 
 typedef struct avmb1_resetdef {
@@ -41,7 +41,7 @@ typedef struct avmb1_getdef {
 } avmb1_getdef;
 
 /*
- * struct for adding new cards
+ * struct for adding new cards 
  */
 typedef struct avmb1_carddef {
 	int port;

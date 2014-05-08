@@ -765,7 +765,7 @@ extern int get_last_funcdef_no (void);
 
 #ifdef HAVE_simple_return
 extern bool requires_stack_frame_p (rtx, HARD_REG_SET, HARD_REG_SET);
-#endif
+#endif                        
 
 extern rtx get_hard_reg_initial_val (enum machine_mode, unsigned int);
 extern rtx has_hard_reg_initial_val (enum machine_mode, unsigned int);

@@ -244,7 +244,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     constexpr size_t
     mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d,
 			    __s, __b, __t, __c, __l, __f>::tempering_u;
-
+   
   template<typename _UIntType,
 	   size_t __w, size_t __n, size_t __m, size_t __r,
 	   _UIntType __a, size_t __u, _UIntType __d, size_t __s,
@@ -918,7 +918,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      high in [0, urange / (urngrange + 1)]
 
 	      and
-
+	
 	      low in [0, urngrange].
 	    */
 	    __uctype __tmp; // wraparound control
@@ -1293,7 +1293,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       {
 	typedef typename std::gamma_distribution<double>::param_type
 	  param_type;
-
+	
 	const double __y =
 	  _M_gd(__urng, param_type(__p.k(), (1.0 - __p.p()) / __p.p()));
 
@@ -2501,7 +2501,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    do
 	      {
 		__n = _M_nd(__urng);
-		__v = result_type(1.0) + __param._M_a2 * __n;
+		__v = result_type(1.0) + __param._M_a2 * __n; 
 	      }
 	    while (__v <= 0.0);
 
@@ -2519,7 +2519,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    do
 	      __u = __aurng();
 	    while (__u == 0.0);
-
+	    
 	    return (std::pow(__u, result_type(1.0) / __param.alpha())
 		    * __a1 * __v * __param.beta());
 	  }
@@ -3193,7 +3193,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       //  Now normalize the densities...
       __detail::__normalize(_M_den.begin(), _M_den.end(), _M_den.begin(),
 			    __sum);
-      //  ... and partial sums...
+      //  ... and partial sums... 
       __detail::__normalize(_M_cp.begin(), _M_cp.end(), _M_cp.begin(), __sum);
       //  ... and slopes.
       __detail::__normalize(_M_m.begin(), _M_m.end(), _M_m.begin(), __sum);

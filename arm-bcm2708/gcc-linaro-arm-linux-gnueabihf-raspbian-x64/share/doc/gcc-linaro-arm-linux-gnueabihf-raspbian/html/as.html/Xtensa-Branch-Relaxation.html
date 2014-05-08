@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -63,9 +63,9 @@ replace the branch with a branch around a jump.  For example,
 density option is available.  Otherwise, <code>BNEZ</code> would be used.)
 
    <p>This relaxation works well because the unconditional jump instruction
-has a much larger offset range than the various conditional branches.
+has a much larger offset range than the various conditional branches. 
 However, an error will occur if a branch target is beyond the range of a
-jump instruction.  <samp><span class="command">as</span></samp> cannot relax unconditional jumps.
+jump instruction.  <samp><span class="command">as</span></samp> cannot relax unconditional jumps. 
 Similarly, an error will occur if the original input contains an
 unconditional jump to a target that is out of range.
 
@@ -75,3 +75,4 @@ underscore prefixes (see <a href="Xtensa-Opcodes.html#Xtensa-Opcodes">Opcode Nam
 (see <a href="Transform-Directive.html#Transform-Directive">transform</a>).
 
    </body></html>
+

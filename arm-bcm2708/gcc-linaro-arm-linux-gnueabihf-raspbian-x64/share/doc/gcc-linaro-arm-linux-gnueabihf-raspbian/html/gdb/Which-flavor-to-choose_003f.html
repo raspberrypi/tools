@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,11 +57,11 @@ be clear which one to choose.  This section provides some guidance.
      <li>Ease of finding scripts for public libraries.
 
      <p>Scripts specified in the <code>.debug_gdb_scripts</code> section are searched for
-in the source search path.
+in the source search path. 
 For publicly installed libraries, e.g., <samp><span class="file">libstdc++</span></samp>, there typically
 isn't a source directory in which to find the script.
 
-     <li>Doesn't require source code additions.
+     <li>Doesn't require source code additions. 
 </ul>
 
    <p>Benefits of the <code>.debug_gdb_scripts</code> way:
@@ -86,7 +86,8 @@ libraries, and the build infrastructure necessary to install the
 <samp><span class="file">-gdb.py</span></samp> scripts in a place where <span class="sc">gdb</span> can find them is
 cumbersome.  It may be easier to specify the scripts in the
 <code>.debug_gdb_scripts</code> section as relative paths, and add a path to the
-top of the source tree to the source search path.
+top of the source tree to the source search path. 
 </ul>
 
    </body></html>
+

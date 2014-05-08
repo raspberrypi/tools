@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TIC54X_002dDependent.html#TIC54X_002dDe
 <h4 class="subsection">9.42.9 Directives</h4>
 
 <p><a name="index-machine-directives_002c-TIC54X-1978"></a><a name="index-TIC54X-machine-directives-1979"></a>
-
+     
 <a name="index-g_t_0040code_007balign_007d-directive_002c-TIC54X-1980"></a>
 <a name="index-g_t_0040code_007beven_007d-directive_002c-TIC54X-1981"></a>
 <dl><dt><code>.align [</code><var>size</var><code>]</code><dt><code>.even</code><dd>Align the section program counter on the next boundary, based on
@@ -74,7 +74,7 @@ should be aligned on a page boundary if it would otherwise cross a page
 boundary.  If present, <var>alignment_flag</var> causes the assembler to
 allocate <var>size</var> on a long word boundary.
 
-     <p><a name="index-g_t_0040code_007bbyte_007d-directive_002c-TIC54X-1985"></a><a name="index-g_t_0040code_007bubyte_007d-directive_002c-TIC54X-1986"></a><a name="index-g_t_0040code_007bchar_007d-directive_002c-TIC54X-1987"></a><a name="index-g_t_0040code_007buchar_007d-directive_002c-TIC54X-1988"></a><br><dt><code>.byte </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.ubyte </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.char </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uchar </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dd>Place one or more bytes into consecutive words of the current section.
+     <p><a name="index-g_t_0040code_007bbyte_007d-directive_002c-TIC54X-1985"></a><a name="index-g_t_0040code_007bubyte_007d-directive_002c-TIC54X-1986"></a><a name="index-g_t_0040code_007bchar_007d-directive_002c-TIC54X-1987"></a><a name="index-g_t_0040code_007buchar_007d-directive_002c-TIC54X-1988"></a><br><dt><code>.byte </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.ubyte </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.char </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uchar </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dd>Place one or more bytes into consecutive words of the current section. 
 The upper 8 bits of each word is zero-filled.  If a label is used, it
 points to the word allocated for the first byte encountered.
 
@@ -122,7 +122,7 @@ and available to other files.  <code>.ref</code> identifies a symbol used in
 the current file but defined elsewhere.  Both map to the standard
 <code>.global</code> directive.
 
-     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-TIC54X-2009"></a><a name="index-g_t_0040code_007buhalf_007d-directive_002c-TIC54X-2010"></a><a name="index-g_t_0040code_007bshort_007d-directive_002c-TIC54X-2011"></a><a name="index-g_t_0040code_007bushort_007d-directive_002c-TIC54X-2012"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-TIC54X-2013"></a><a name="index-g_t_0040code_007buint_007d-directive_002c-TIC54X-2014"></a><a name="index-g_t_0040code_007bword_007d-directive_002c-TIC54X-2015"></a><a name="index-g_t_0040code_007buword_007d-directive_002c-TIC54X-2016"></a><br><dt><code>.half </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uhalf </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.short </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.ushort </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.int </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uint </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.word </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uword </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dd>Place one or more values into consecutive words of the current section.
+     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-TIC54X-2009"></a><a name="index-g_t_0040code_007buhalf_007d-directive_002c-TIC54X-2010"></a><a name="index-g_t_0040code_007bshort_007d-directive_002c-TIC54X-2011"></a><a name="index-g_t_0040code_007bushort_007d-directive_002c-TIC54X-2012"></a><a name="index-g_t_0040code_007bint_007d-directive_002c-TIC54X-2013"></a><a name="index-g_t_0040code_007buint_007d-directive_002c-TIC54X-2014"></a><a name="index-g_t_0040code_007bword_007d-directive_002c-TIC54X-2015"></a><a name="index-g_t_0040code_007buword_007d-directive_002c-TIC54X-2016"></a><br><dt><code>.half </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uhalf </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.short </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.ushort </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.int </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uint </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.word </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dt><code>.uword </code><var>value</var><code> [,...,</code><var>value_n</var><code>]</code><dd>Place one or more values into consecutive words of the current section. 
 If a label is used, it points to the word allocated for the first value
 encountered.
 
@@ -140,7 +140,7 @@ not.
 
      <p><a name="index-g_t_0040code_007bloop_007d-directive_002c-TIC54X-2025"></a><a name="index-g_t_0040code_007bbreak_007d-directive_002c-TIC54X-2026"></a><a name="index-g_t_0040code_007bendloop_007d-directive_002c-TIC54X-2027"></a><br><dt><code>.loop [</code><var>count</var><code>]</code><dt><code>.break [</code><var>condition</var><code>]</code><dt><code>.endloop</code><dd>Repeatedly assemble a block of code.  <code>.loop</code> begins the block, and
 <code>.endloop</code> marks its termination.  <var>count</var> defaults to 1024,
-and indicates the number of times the block should be repeated.
+and indicates the number of times the block should be repeated. 
 <code>.break</code> terminates the loop so that assembly begins after the
 <code>.endloop</code> directive.  The optional <var>condition</var> will cause the
 loop to terminate only if it evaluates to zero.
@@ -181,7 +181,7 @@ them.  If a label is used with <code>.space</code>, it points to the
 
      <p><a name="index-g_t_0040code_007bsslist_007d-directive_002c-TIC54X-2042"></a><a name="index-g_t_0040code_007bssnolist_007d-directive_002c-TIC54X-2043"></a><br><dt><code>.sslist</code><dt><code>.ssnolist</code><dd>Controls the inclusion of subsym replacement in the listing output.  Ignored.
 
-     <p><a name="index-g_t_0040code_007bstring_007d-directive_002c-TIC54X-2044"></a><a name="index-g_t_0040code_007bpstring_007d-directive_002c-TIC54X-2045"></a><br><dt><code>.string "</code><var>string</var><code>" [,...,"</code><var>string_n</var><code>"]</code><dt><code>.pstring "</code><var>string</var><code>" [,...,"</code><var>string_n</var><code>"]</code><dd>Place 8-bit characters from <var>string</var> into the current section.
+     <p><a name="index-g_t_0040code_007bstring_007d-directive_002c-TIC54X-2044"></a><a name="index-g_t_0040code_007bpstring_007d-directive_002c-TIC54X-2045"></a><br><dt><code>.string "</code><var>string</var><code>" [,...,"</code><var>string_n</var><code>"]</code><dt><code>.pstring "</code><var>string</var><code>" [,...,"</code><var>string_n</var><code>"]</code><dd>Place 8-bit characters from <var>string</var> into the current section. 
 <code>.string</code> zero-fills the upper 8 bits of each word, while
 <code>.pstring</code> puts two characters into each word, filling the
 most-significant bits first.  Unused space is zero-filled.  If a label
@@ -196,7 +196,7 @@ into the structure.  If <var>stag</var> is missing, these become global
 symbols.  <var>count</var> adjusts the offset that many times, as if
 <code>element</code> were an array.  <code>element</code> may be one of
 <code>.byte</code>, <code>.word</code>, <code>.long</code>, <code>.float</code>, or any
-equivalent of those, and the structure offset is adjusted accordingly.
+equivalent of those, and the structure offset is adjusted accordingly. 
 <code>.field</code> and <code>.string</code> are also allowed; the size of
 <code>.field</code> is one bit, and <code>.string</code> is considered to be one
 word in size.  Only element descriptors, structure/union tags,
@@ -214,15 +214,15 @@ offsets using <var>label</var> as the structure base.
      <p><a name="index-g_t_0040code_007btab_007d-directive_002c-TIC54X-2049"></a><br><dt><code>.tab</code><dd>Set the tab size in the output listing.  Ignored.
 
      <p><a name="index-g_t_0040code_007bunion_007d-directive_002c-TIC54X-2050"></a><a name="index-g_t_0040code_007btag_007d-directive_002c-TIC54X-2051"></a><a name="index-g_t_0040code_007bendunion_007d-directive_002c-TIC54X-2052"></a><br><dt><code>[</code><var>utag</var><code>] .union</code><dt><code>[</code><var>name_1</var><code>] element [</code><var>count_1</var><code>]</code><dt><code>[</code><var>name_2</var><code>] element [</code><var>count_2</var><code>]</code><dt><code>[</code><var>tname</var><code>] .tag </code><var>utagx</var><code>[,</code><var>tcount</var><code>]</code><dt><code>...</code><dt><code>[</code><var>name_n</var><code>] element [</code><var>count_n</var><code>]</code><dt><code>[</code><var>usize</var><code>] .endstruct</code><dt><var>label</var><code> .tag [</code><var>utag</var><code>]</code><dd>Similar to <code>.struct</code>, but the offset after each element is reset to
-zero, and the <var>usize</var> is set to the maximum of all defined elements.
+zero, and the <var>usize</var> is set to the maximum of all defined elements. 
 Starting offset for the union is always zero.
 
      <p><a name="index-g_t_0040code_007busect_007d-directive_002c-TIC54X-2053"></a><br><dt><code>[</code><var>symbol</var><code>] .usect "</code><var>section_name</var><code>", </code><var>size</var><code>, [,[</code><var>blocking_flag</var><code>] [,</code><var>alignment_flag</var><code>]]</code><dd>Reserve space for variables in a named, uninitialized section (similar to
-.bss).  <code>.usect</code> allows definitions sections independent of .bss.
-<var>symbol</var> points to the first location reserved by this allocation.
+.bss).  <code>.usect</code> allows definitions sections independent of .bss. 
+<var>symbol</var> points to the first location reserved by this allocation. 
 The symbol may be used as a variable name.  <var>size</var> is the allocated
 size in words.  <var>blocking_flag</var> indicates whether to block this
-section on a page boundary (128 words) (see <a href="TIC54X_002dBlock.html#TIC54X_002dBlock">TIC54X-Block</a>).
+section on a page boundary (128 words) (see <a href="TIC54X_002dBlock.html#TIC54X_002dBlock">TIC54X-Block</a>). 
 <var>alignment flag</var> indicates whether the section should be
 longword-aligned.
 
@@ -236,3 +236,4 @@ values are accepted, the op is ignored.
      </dl>
 
    </body></html>
+

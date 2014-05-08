@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ individually.  These are:
      <ul>
 <li>global symbols in common section
 
-     <p>The m68k MRI assembler supports common sections which are merged by the linker.
+     <p>The m68k MRI assembler supports common sections which are merged by the linker. 
 Other object file formats do not support this.  <samp><span class="command">as</span></samp> handles
 common sections by treating them as a single common symbol.  It permits local
 symbols to be defined within a common section, but it can not support global
@@ -78,7 +78,7 @@ are not support by other object file formats.
 
      <li><code>END</code> pseudo-op specifying start address
 
-     <p>The MRI <code>END</code> pseudo-op permits the specification of a start address.
+     <p>The MRI <code>END</code> pseudo-op permits the specification of a start address. 
 This is not supported by other object file formats.  The start address may
 instead be specified using the <samp><span class="option">-e</span></samp> option to the linker, or in a linker
 script.
@@ -94,7 +94,7 @@ name to the output file.  This is not supported by other object file formats.
 address.  This differs from the usual <samp><span class="command">as</span></samp> <code>.org</code> pseudo-op,
 which changes the location within the current section.  Absolute sections are
 not supported by other object file formats.  The address of a section may be
-assigned within a linker script.
+assigned within a linker script. 
 </ul>
 
    <p>There are some other features of the MRI assembler which are not supported by
@@ -139,7 +139,7 @@ these options serve no purpose.
 
      <li><code>OPT</code> <code>D</code> option is default
 
-     <p>The m68k <code>OPT</code> <code>D</code> option is the default, unlike the MRI assembler.
+     <p>The m68k <code>OPT</code> <code>D</code> option is the default, unlike the MRI assembler. 
 <code>OPT NOD</code> may be used to turn it off.
 
      <li><code>XREF</code> pseudo-op.
@@ -173,3 +173,4 @@ these options serve no purpose.
    </ul>
 
    </body></html>
+

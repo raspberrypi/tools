@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,24 +75,24 @@ group, including floating-point select.
      <p>The <samp><span class="option">-mmfcrf</span></samp> option allows GCC to generate the move from
 condition register field instruction implemented on the POWER4
 processor and other processors that support the PowerPC V2.01
-architecture.
+architecture. 
 The <samp><span class="option">-mpopcntb</span></samp> option allows GCC to generate the popcount and
 double-precision FP reciprocal estimate instruction implemented on the
 POWER5 processor and other processors that support the PowerPC V2.02
-architecture.
+architecture. 
 The <samp><span class="option">-mpopcntd</span></samp> option allows GCC to generate the popcount
 instruction implemented on the POWER7 processor and other processors
-that support the PowerPC V2.06 architecture.
+that support the PowerPC V2.06 architecture. 
 The <samp><span class="option">-mfprnd</span></samp> option allows GCC to generate the FP round to
 integer instructions implemented on the POWER5+ processor and other
-processors that support the PowerPC V2.03 architecture.
+processors that support the PowerPC V2.03 architecture. 
 The <samp><span class="option">-mcmpb</span></samp> option allows GCC to generate the compare bytes
 instruction implemented on the POWER6 processor and other processors
-that support the PowerPC V2.05 architecture.
+that support the PowerPC V2.05 architecture. 
 The <samp><span class="option">-mmfpgpr</span></samp> option allows GCC to generate the FP move to/from
 general-purpose register instructions implemented on the POWER6X
 processor and other processors that support the extended PowerPC V2.05
-architecture.
+architecture. 
 The <samp><span class="option">-mhard-dfp</span></samp> option allows GCC to generate the decimal
 floating-point instructions implemented on some POWER processors.
 
@@ -102,7 +102,7 @@ and to treat GPRs as 64-bit, doubleword quantities.  GCC defaults to
 <samp><span class="option">-mno-powerpc64</span></samp>.
 
      <br><dt><code>-mcpu=</code><var>cpu_type</var><dd><a name="index-mcpu-1932"></a>Set architecture type, register usage, and
-instruction scheduling parameters for machine type <var>cpu_type</var>.
+instruction scheduling parameters for machine type <var>cpu_type</var>. 
 Supported values for <var>cpu_type</var> are &lsquo;<samp><span class="samp">401</span></samp>&rsquo;, &lsquo;<samp><span class="samp">403</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">405</span></samp>&rsquo;, &lsquo;<samp><span class="samp">405fp</span></samp>&rsquo;, &lsquo;<samp><span class="samp">440</span></samp>&rsquo;, &lsquo;<samp><span class="samp">440fp</span></samp>&rsquo;, &lsquo;<samp><span class="samp">464</span></samp>&rsquo;, &lsquo;<samp><span class="samp">464fp</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">476</span></samp>&rsquo;, &lsquo;<samp><span class="samp">476fp</span></samp>&rsquo;, &lsquo;<samp><span class="samp">505</span></samp>&rsquo;, &lsquo;<samp><span class="samp">601</span></samp>&rsquo;, &lsquo;<samp><span class="samp">602</span></samp>&rsquo;, &lsquo;<samp><span class="samp">603</span></samp>&rsquo;,
@@ -127,9 +127,9 @@ others.
      <p>The <samp><span class="option">-mcpu</span></samp> options automatically enable or disable the
 following options:
 
-     <pre class="smallexample">          -maltivec  -mfprnd  -mhard-float  -mmfcrf  -mmultiple
-          -mpopcntb -mpopcntd  -mpowerpc64
-          -mpowerpc-gpopt  -mpowerpc-gfxopt  -msingle-float -mdouble-float
+     <pre class="smallexample">          -maltivec  -mfprnd  -mhard-float  -mmfcrf  -mmultiple 
+          -mpopcntb -mpopcntd  -mpowerpc64 
+          -mpowerpc-gpopt  -mpowerpc-gfxopt  -msingle-float -mdouble-float 
           -msimple-fpu -mstring  -mmulhw  -mdlmzb  -mmfpgpr -mvsx
 </pre>
      <p>The particular options set for any particular CPU varies between
@@ -178,14 +178,14 @@ of a Cell microcode instruction is a variable shift.
 
      <br><dt><code>-msecure-plt</code><dd><a name="index-msecure_002dplt-1943"></a>Generate code that allows <samp><span class="command">ld</span></samp> and <samp><span class="command">ld.so</span></samp>
 to build executables and shared
-libraries with non-executable <code>.plt</code> and <code>.got</code> sections.
+libraries with non-executable <code>.plt</code> and <code>.got</code> sections. 
 This is a PowerPC
 32-bit SYSV ABI option.
 
      <br><dt><code>-mbss-plt</code><dd><a name="index-mbss_002dplt-1944"></a>Generate code that uses a BSS <code>.plt</code> section that <samp><span class="command">ld.so</span></samp>
 fills in, and
 requires <code>.plt</code> and <code>.got</code>
-sections that are both writable and executable.
+sections that are both writable and executable. 
 This is a PowerPC 32-bit SYSV ABI option.
 
      <br><dt><code>-misel</code><dt><code>-mno-isel</code><dd><a name="index-misel-1945"></a><a name="index-mno_002disel-1946"></a>This switch enables or disables the generation of ISEL instructions.
@@ -237,7 +237,7 @@ also places floating-point constants in the TOC.  However, only
 
      <p>If you receive a linker error message that saying you have overflowed
 the available TOC space, you can reduce the amount of TOC space used
-with the <samp><span class="option">-mno-fp-in-toc</span></samp> and <samp><span class="option">-mno-sum-in-toc</span></samp> options.
+with the <samp><span class="option">-mno-fp-in-toc</span></samp> and <samp><span class="option">-mno-sum-in-toc</span></samp> options. 
 <samp><span class="option">-mno-fp-in-toc</span></samp> prevents GCC from putting floating-point
 constants in the TOC and <samp><span class="option">-mno-sum-in-toc</span></samp> forces GCC to
 generate code to calculate the sum of an address and a constant at
@@ -253,7 +253,7 @@ uses extremely little TOC space.  You may wish to use this option
 only on files that contain less frequently-executed code.
 
      <br><dt><code>-maix64</code><dt><code>-maix32</code><dd><a name="index-maix64-1960"></a><a name="index-maix32-1961"></a>Enable 64-bit AIX ABI and calling convention: 64-bit pointers, 64-bit
-<code>long</code> type, and the infrastructure needed to support them.
+<code>long</code> type, and the infrastructure needed to support them. 
 Specifying <samp><span class="option">-maix64</span></samp> implies <samp><span class="option">-mpowerpc64</span></samp>,
 while <samp><span class="option">-maix32</span></samp> disables the 64-bit ABI and
 implies <samp><span class="option">-mno-powerpc64</span></samp>.  GCC defaults to <samp><span class="option">-maix32</span></samp>.
@@ -287,18 +287,18 @@ option are incompatible.
 
      <br><dt><code>-malign-natural</code><dt><code>-malign-power</code><dd><a name="index-malign_002dnatural-1965"></a><a name="index-malign_002dpower-1966"></a>On AIX, 32-bit Darwin, and 64-bit PowerPC GNU/Linux, the option
 <samp><span class="option">-malign-natural</span></samp> overrides the ABI-defined alignment of larger
-types, such as floating-point doubles, on their natural size-based boundary.
+types, such as floating-point doubles, on their natural size-based boundary. 
 The option <samp><span class="option">-malign-power</span></samp> instructs GCC to follow the ABI-specified
 alignment rules.  GCC defaults to the standard alignment defined in the ABI.
 
      <p>On 64-bit Darwin, natural alignment is the default, and <samp><span class="option">-malign-power</span></samp>
 is not supported.
 
-     <br><dt><code>-msoft-float</code><dt><code>-mhard-float</code><dd><a name="index-msoft_002dfloat-1967"></a><a name="index-mhard_002dfloat-1968"></a>Generate code that does not use (uses) the floating-point register set.
+     <br><dt><code>-msoft-float</code><dt><code>-mhard-float</code><dd><a name="index-msoft_002dfloat-1967"></a><a name="index-mhard_002dfloat-1968"></a>Generate code that does not use (uses) the floating-point register set. 
 Software floating-point emulation is provided if you use the
 <samp><span class="option">-msoft-float</span></samp> option, and pass the option to GCC when linking.
 
-     <br><dt><code>-msingle-float</code><dt><code>-mdouble-float</code><dd><a name="index-msingle_002dfloat-1969"></a><a name="index-mdouble_002dfloat-1970"></a>Generate code for single- or double-precision floating-point operations.
+     <br><dt><code>-msingle-float</code><dt><code>-mdouble-float</code><dd><a name="index-msingle_002dfloat-1969"></a><a name="index-mdouble_002dfloat-1970"></a>Generate code for single- or double-precision floating-point operations. 
 <samp><span class="option">-mdouble-float</span></samp> implies <samp><span class="option">-msingle-float</span></samp>.
 
      <br><dt><code>-msimple-fpu</code><dd><a name="index-msimple_002dfpu-1971"></a>Do not generate <code>sqrt</code> and <code>div</code> instructions for hardware
@@ -325,7 +325,7 @@ and the store string word instructions to save multiple registers and
 do small block moves.  These instructions are generated by default on
 POWER systems, and not generated on PowerPC systems.  Do not use
 <samp><span class="option">-mstring</span></samp> on little-endian PowerPC systems, since those
-instructions do not work when the processor is in little-endian mode.
+instructions do not work when the processor is in little-endian mode. 
 The exceptions are PPC740 and PPC750 which permit these instructions
 in little-endian mode.
 
@@ -351,7 +351,7 @@ if hardware floating point is used.  The machine-dependent
 mapped to <samp><span class="option">-ffp-contract=off</span></samp>.
 
      <br><dt><code>-mmulhw</code><dt><code>-mno-mulhw</code><dd><a name="index-mmulhw-1984"></a><a name="index-mno_002dmulhw-1985"></a>Generate code that uses (does not use) the half-word multiply and
-multiply-accumulate instructions on the IBM 405, 440, 464 and 476 processors.
+multiply-accumulate instructions on the IBM 405, 440, 464 and 476 processors. 
 These instructions are generated by default when targeting those
 processors.
 
@@ -378,7 +378,7 @@ PowerPC system loader should relocate the entire contents of
 <code>.got2</code> and 4-byte locations listed in the <code>.fixup</code> section,
 a table of 32-bit addresses generated by this option.  For this to
 work, all objects linked together must be compiled with
-<samp><span class="option">-mrelocatable</span></samp> or <samp><span class="option">-mrelocatable-lib</span></samp>.
+<samp><span class="option">-mrelocatable</span></samp> or <samp><span class="option">-mrelocatable-lib</span></samp>. 
 <samp><span class="option">-mrelocatable</span></samp> code aligns the stack to an 8-byte boundary.
 
      <br><dt><code>-mrelocatable-lib</code><dt><code>-mno-relocatable-lib</code><dd><a name="index-mrelocatable_002dlib-1994"></a><a name="index-mno_002drelocatable_002dlib-1995"></a>Like <samp><span class="option">-mrelocatable</span></samp>, <samp><span class="option">-mrelocatable-lib</span></samp> generates a
@@ -431,7 +431,7 @@ by the target during instruction scheduling.  The argument
           <br><dt>&lsquo;<samp><span class="samp">store_to_load</span></samp>&rsquo;<dd>Any dependence from store to load is costly.
 
           <br><dt><var>number</var><dd>Any dependence for which the latency is greater than or equal to
-<var>number</var> is costly.
+<var>number</var> is costly. 
 </dl>
 
      <br><dt><code>-minsert-sched-nops=</code><var>scheme</var><dd><a name="index-minsert_002dsched_002dnops-2006"></a>This option controls which NOP insertion scheme is used during
@@ -449,7 +449,7 @@ separate groups.  Insert exactly as many NOPs as needed to force an insn
 to a new group, according to the estimated processor grouping.
 
           <br><dt><var>number</var><dd>Insert NOPs to force costly dependent insns into
-separate groups.  Insert <var>number</var> NOPs to force an insn to a new group.
+separate groups.  Insert <var>number</var> NOPs to force an insn to a new group. 
 </dl>
 
      <br><dt><code>-mcall-sysv</code><dd><a name="index-mcall_002dsysv-2007"></a>On System V.4 and embedded PowerPC systems compile code using calling
@@ -481,7 +481,7 @@ OpenBSD operating system.
      <br><dt><code>-msvr4-struct-return</code><dd><a name="index-msvr4_002dstruct_002dreturn-2017"></a>Return structures smaller than 8 bytes in registers (as specified by the
 SVR4 ABI).
 
-     <br><dt><code>-mabi=</code><var>abi-type</var><dd><a name="index-mabi-2018"></a>Extend the current ABI with a particular extension, or remove such extension.
+     <br><dt><code>-mabi=</code><var>abi-type</var><dd><a name="index-mabi-2018"></a>Extend the current ABI with a particular extension, or remove such extension. 
 Valid values are <var>altivec</var>, <var>no-altivec</var>, <var>spe</var>,
 <var>no-spe</var>, <var>ibmlongdouble</var>, <var>ieeelongdouble</var>.
 
@@ -491,10 +491,10 @@ ABI.
 
      <br><dt><code>-mabi=no-spe</code><dd><a name="index-mabi_003dno_002dspe-2020"></a>Disable Book-E SPE ABI extensions for the current ABI.
 
-     <br><dt><code>-mabi=ibmlongdouble</code><dd><a name="index-mabi_003dibmlongdouble-2021"></a>Change the current ABI to use IBM extended-precision long double.
+     <br><dt><code>-mabi=ibmlongdouble</code><dd><a name="index-mabi_003dibmlongdouble-2021"></a>Change the current ABI to use IBM extended-precision long double. 
 This is a PowerPC 32-bit SYSV ABI option.
 
-     <br><dt><code>-mabi=ieeelongdouble</code><dd><a name="index-mabi_003dieeelongdouble-2022"></a>Change the current ABI to use IEEE extended-precision long double.
+     <br><dt><code>-mabi=ieeelongdouble</code><dd><a name="index-mabi_003dieeelongdouble-2022"></a>Change the current ABI to use IEEE extended-precision long double. 
 This is a PowerPC 32-bit Linux ABI option.
 
      <br><dt><code>-mprototype</code><dt><code>-mno-prototype</code><dd><a name="index-mprototype-2023"></a><a name="index-mno_002dprototype-2024"></a>On System V.4 and embedded PowerPC systems assume that all calls to
@@ -555,7 +555,7 @@ incompatible with the <samp><span class="option">-mrelocatable</span></samp> opt
      <br><dt><code>-msdata=sysv</code><dd><a name="index-msdata_003dsysv-2034"></a>On System V.4 and embedded PowerPC systems, put small global and static
 data in the &lsquo;<samp><span class="samp">.sdata</span></samp>&rsquo; section, which is pointed to by register
 <code>r13</code>.  Put small uninitialized global and static data in the
-&lsquo;<samp><span class="samp">.sbss</span></samp>&rsquo; section, which is adjacent to the &lsquo;<samp><span class="samp">.sdata</span></samp>&rsquo; section.
+&lsquo;<samp><span class="samp">.sbss</span></samp>&rsquo; section, which is adjacent to the &lsquo;<samp><span class="samp">.sdata</span></samp>&rsquo; section. 
 The <samp><span class="option">-msdata=sysv</span></samp> option is incompatible with the
 <samp><span class="option">-mrelocatable</span></samp> option.
 
@@ -581,7 +581,7 @@ targets.  The default value is target-specific.
      <br><dt><code>-G </code><var>num</var><dd><a name="index-G-2041"></a><a name="index-smaller-data-references-_0028PowerPC_0029-2042"></a><a name="index-g_t_002esdata_002f_002esdata2-references-_0028PowerPC_0029-2043"></a>On embedded PowerPC systems, put global and static items less than or
 equal to <var>num</var> bytes into the small data or BSS sections instead of
 the normal data or BSS section.  By default, <var>num</var> is 8.  The
-<samp><span class="option">-G </span><var>num</var></samp> switch is also passed to the linker.
+<samp><span class="option">-G </span><var>num</var></samp> switch is also passed to the linker. 
 All modules should be compiled with the same <samp><span class="option">-G </span><var>num</var></samp> value.
 
      <br><dt><code>-mregnames</code><dt><code>-mno-regnames</code><dd><a name="index-mregnames-2044"></a><a name="index-mno_002dregnames-2045"></a>On System V.4 and embedded PowerPC systems do (do not) emit register
@@ -589,7 +589,7 @@ names in the assembly language output using symbolic forms.
 
      <br><dt><code>-mlongcall</code><dt><code>-mno-longcall</code><dd><a name="index-mlongcall-2046"></a><a name="index-mno_002dlongcall-2047"></a>By default assume that all calls are far away so that a longer and more
 expensive calling sequence is required.  This is required for calls
-farther than 32 megabytes (33,554,432 bytes) from the current location.
+farther than 32 megabytes (33,554,432 bytes) from the current location. 
 A short call is generated if the compiler knows
 the call cannot be that far away.  This setting can be overridden by
 the <code>shortcall</code> function attribute, or by <code>#pragma
@@ -624,7 +624,7 @@ reliably associate function call with argument setup instructions for
 TLS optimization, which in turn allows GCC to better schedule the
 sequence.
 
-     <br><dt><code>-pthread</code><dd><a name="index-pthread-2050"></a>Adds support for multithreading with the <dfn>pthreads</dfn> library.
+     <br><dt><code>-pthread</code><dd><a name="index-pthread-2050"></a>Adds support for multithreading with the <dfn>pthreads</dfn> library. 
 This option sets flags for both the preprocessor and linker.
 
      <br><dt><code>-mrecip</code><dt><code>-mno-recip</code><dd><a name="index-mrecip-2051"></a>This option enables use of the reciprocal estimate and
@@ -661,7 +661,7 @@ which handle the double-precision reciprocal square root calculations.
      <br><dt><code>-mrecip-precision</code><dt><code>-mno-recip-precision</code><dd><a name="index-mrecip_002dprecision-2053"></a>Assume (do not assume) that the reciprocal estimate instructions
 provide higher-precision estimates than is mandated by the PowerPC
 ABI.  Selecting <samp><span class="option">-mcpu=power6</span></samp>, <samp><span class="option">-mcpu=power7</span></samp> or
-<samp><span class="option">-mcpu=power8</span></samp> automatically selects <samp><span class="option">-mrecip-precision</span></samp>.
+<samp><span class="option">-mcpu=power8</span></samp> automatically selects <samp><span class="option">-mrecip-precision</span></samp>. 
 The double-precision square root estimate instructions are not generated by
 default on low-precision machines, since they do not provide an
 estimate that converges after three steps.
@@ -669,7 +669,7 @@ estimate that converges after three steps.
      <br><dt><code>-mveclibabi=</code><var>type</var><dd><a name="index-mveclibabi-2054"></a>Specifies the ABI type to use for vectorizing intrinsics using an
 external library.  The only type supported at present is <code>mass</code>,
 which specifies to use IBM's Mathematical Acceleration Subsystem
-(MASS) libraries for vectorizing intrinsics using external libraries.
+(MASS) libraries for vectorizing intrinsics using external libraries. 
 GCC currently emits calls to <code>acosd2</code>, <code>acosf4</code>,
 <code>acoshd2</code>, <code>acoshf4</code>, <code>asind2</code>, <code>asinf4</code>,
 <code>asinhd2</code>, <code>asinhf4</code>, <code>atan2d2</code>, <code>atan2f4</code>,
@@ -708,7 +708,8 @@ you use the <samp><span class="option">-mno-pointers-to-nested-functions</span><
 stack location in the function prologue if the function calls through
 a pointer on AIX and 64-bit Linux systems.  If the TOC value is not
 saved in the prologue, it is saved just before the call through the
-pointer.  The <samp><span class="option">-mno-save-toc-indirect</span></samp> option is the default.
+pointer.  The <samp><span class="option">-mno-save-toc-indirect</span></samp> option is the default. 
 </dl>
 
  </body></html>
+

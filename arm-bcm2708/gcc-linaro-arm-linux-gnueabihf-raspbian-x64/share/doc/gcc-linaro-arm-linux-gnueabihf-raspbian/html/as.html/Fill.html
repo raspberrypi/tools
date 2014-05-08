@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,21 +47,22 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 
 <h3 class="section">7.54 <code>.fill </code><var>repeat</var><code> , </code><var>size</var><code> , </code><var>value</var></h3>
 
-<p><a name="index-g_t_0040code_007bfill_007d-directive-338"></a><a name="index-writing-patterns-in-memory-339"></a><a name="index-patterns_002c-writing-in-memory-340"></a><var>repeat</var>, <var>size</var> and <var>value</var> are absolute expressions.
+<p><a name="index-g_t_0040code_007bfill_007d-directive-338"></a><a name="index-writing-patterns-in-memory-339"></a><a name="index-patterns_002c-writing-in-memory-340"></a><var>repeat</var>, <var>size</var> and <var>value</var> are absolute expressions. 
 This emits <var>repeat</var> copies of <var>size</var> bytes.  <var>Repeat</var>
 may be zero or more.  <var>Size</var> may be zero or more, but if it is
 more than 8, then it is deemed to have the value 8, compatible with
 other people's assemblers.  The contents of each <var>repeat</var> bytes
 is taken from an 8-byte number.  The highest order 4 bytes are
 zero.  The lowest order 4 bytes are <var>value</var> rendered in the
-byte-order of an integer on the computer <samp><span class="command">as</span></samp> is assembling for.
+byte-order of an integer on the computer <samp><span class="command">as</span></samp> is assembling for. 
 Each <var>size</var> bytes in a repetition is taken from the lowest order
 <var>size</var> bytes of this number.  Again, this bizarre behavior is
 compatible with other people's assemblers.
 
-   <p><var>size</var> and <var>value</var> are optional.
+   <p><var>size</var> and <var>value</var> are optional. 
 If the second comma and <var>value</var> are absent, <var>value</var> is
 assumed zero.  If the first comma and following tokens are absent,
 <var>size</var> is assumed to be 1.
 
    </body></html>
+

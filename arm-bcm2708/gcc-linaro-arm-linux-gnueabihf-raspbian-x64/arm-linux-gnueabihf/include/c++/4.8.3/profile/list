@@ -30,8 +30,8 @@
 #define _GLIBCXX_PROFILE_LIST 1
 
 #include <list>
-#include <profile/base.h>
-#include <profile/iterator_tracker.h>
+#include <profile/base.h> 
+#include <profile/iterator_tracker.h> 
 
 namespace std _GLIBCXX_VISIBILITY(default)
 {
@@ -48,9 +48,9 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
       typedef typename _Base::reference             reference;
       typedef typename _Base::const_reference       const_reference;
 
-      typedef __iterator_tracker<typename _Base::iterator, list>
+      typedef __iterator_tracker<typename _Base::iterator, list>        
 				                    iterator;
-      typedef __iterator_tracker<typename _Base::const_iterator, list>
+      typedef __iterator_tracker<typename _Base::const_iterator, list>  
                                                     const_iterator;
 
       typedef typename _Base::size_type             size_type;
@@ -66,7 +66,7 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
       // 23.2.2.1 construct/copy/destroy:
       explicit
       list(const _Allocator& __a = _Allocator())
-      : _Base(__a)
+      : _Base(__a) 
       {
         __profcxx_list_construct(this); 	// list2slist
         __profcxx_list_construct2(this); 	// list2vector
@@ -75,27 +75,27 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
 #if __cplusplus >= 201103L
       explicit
       list(size_type __n)
-      : _Base(__n)
+      : _Base(__n) 
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 
       list(size_type __n, const _Tp& __value,
 	   const _Allocator& __a = _Allocator())
-      : _Base(__n, __value, __a)
+      : _Base(__n, __value, __a) 
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 #else
       explicit
       list(size_type __n, const _Tp& __value = _Tp(),
 	   const _Allocator& __a = _Allocator())
-      : _Base(__n, __value, __a)
+      : _Base(__n, __value, __a) 
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 #endif
 
@@ -109,30 +109,30 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
 	   const _Allocator& __a = _Allocator())
       : _Base(__first, __last, __a)
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 
       list(const list& __x)
-      : _Base(__x)
+      : _Base(__x) 
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 
       list(const _Base& __x)
-      : _Base(__x)
+      : _Base(__x) 
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 
 #if __cplusplus >= 201103L
       list(list&& __x) noexcept
       : _Base(std::move(__x))
       {
-        __profcxx_list_construct(this);
-        __profcxx_list_construct2(this);
+        __profcxx_list_construct(this); 
+        __profcxx_list_construct2(this); 
       }
 
       list(initializer_list<value_type> __l,
@@ -141,9 +141,9 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
 #endif
 
       ~list() _GLIBCXX_NOEXCEPT
-      {
-        __profcxx_list_destruct(this);
-        __profcxx_list_destruct2(this);
+      { 
+        __profcxx_list_destruct(this); 
+        __profcxx_list_destruct2(this); 
       }
 
       list&
@@ -224,7 +224,7 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
 
       const_reverse_iterator
       rbegin() const _GLIBCXX_NOEXCEPT
-      {
+      { 
         __profcxx_list_rewind(this);
         return const_reverse_iterator(end());
       }
@@ -353,10 +353,10 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
 #if __cplusplus >= 201103L
       iterator
       insert(iterator __position, _Tp&& __x)
-      {
+      { 
         _M_profile_insert(this, __position, size());
         return iterator(_Base::emplace(__position.base(), std::move(__x)),
-                        this);
+                        this); 
       }
 
       void
@@ -589,10 +589,10 @@ template<typename _Tp, typename _Allocator = std::allocator<_Tp> >
       void _M_profile_find() const
       { }
 
-      void _M_profile_iterate(int __rewind = 0) const
+      void _M_profile_iterate(int __rewind = 0) const 
       {
         __profcxx_list_operation(this);
-        __profcxx_list_iterate(this);
+        __profcxx_list_iterate(this); 
         if (__rewind)
           __profcxx_list_rewind(this);
       }

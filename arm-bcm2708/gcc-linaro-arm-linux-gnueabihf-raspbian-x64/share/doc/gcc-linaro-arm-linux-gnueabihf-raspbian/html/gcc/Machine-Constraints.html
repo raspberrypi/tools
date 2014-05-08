@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -141,7 +141,7 @@ multiple of 2
 
           <br><dt><code>Uy</code><dd>A memory reference suitable for iWMMXt load/store instructions.
 
-          <br><dt><code>Uq</code><dd>A memory reference suitable for the ARMv4 ldrsb instruction.
+          <br><dt><code>Uq</code><dd>A memory reference suitable for the ARMv4 ldrsb instruction. 
 </dl>
 
      <br><dt><em>AVR family&mdash;</em><samp><span class="file">config/avr/constraints.md</span></samp><dd>
@@ -186,7 +186,7 @@ multiple of 2
 
           <br><dt><code>G</code><dd>A floating point constant 0.0
 
-          <br><dt><code>Q</code><dd>A memory address based on Y or Z pointer with displacement.
+          <br><dt><code>Q</code><dd>A memory address based on Y or Z pointer with displacement. 
 </dl>
 
      <br><dt><em>Epiphany&mdash;</em><samp><span class="file">config/epiphany/constraints.md</span></samp><dd>
@@ -197,25 +197,25 @@ multiple of 2
 
           <br><dt><code>L</code><dd>A signed 11-bit constant.
 
-          <br><dt><code>Cm1</code><dd>A signed 11-bit constant added to &minus;1.
+          <br><dt><code>Cm1</code><dd>A signed 11-bit constant added to &minus;1. 
 Can only match when the <samp><span class="option">-m1reg-</span><var>reg</var></samp> option is active.
 
           <br><dt><code>Cl1</code><dd>Left-shift of &minus;1, i.e., a bit mask with a block of leading ones, the rest
-being a block of trailing zeroes.
+being a block of trailing zeroes. 
 Can only match when the <samp><span class="option">-m1reg-</span><var>reg</var></samp> option is active.
 
           <br><dt><code>Cr1</code><dd>Right-shift of &minus;1, i.e., a bit mask with a trailing block of ones, the
-rest being zeroes.  Or to put it another way, one less than a power of two.
+rest being zeroes.  Or to put it another way, one less than a power of two. 
 Can only match when the <samp><span class="option">-m1reg-</span><var>reg</var></samp> option is active.
 
-          <br><dt><code>Cal</code><dd>Constant for arithmetic/logical operations.
+          <br><dt><code>Cal</code><dd>Constant for arithmetic/logical operations. 
 This is like <code>i</code>, except that for position independent code,
 no symbols / expressions needing relocations are allowed.
 
           <br><dt><code>Csy</code><dd>Symbolic constant for call/jump instruction.
 
           <br><dt><code>Rcs</code><dd>The register class usable in short insns.  This is a register class
-constraint, and can thus drive register allocation.
+constraint, and can thus drive register allocation. 
 This constraint won't match unless <samp><span class="option">-mprefer-short-insn-regs</span></samp> is
 in effect.
 
@@ -224,7 +224,7 @@ sibcall call address.  I.e., a caller-saved register.
 
           <br><dt><code>Rct</code><dd>Core control register class.
 
-          <br><dt><code>Rgs</code><dd>The register group usable in short insns.
+          <br><dt><code>Rgs</code><dd>The register group usable in short insns. 
 This constraint does not use a register class, so that it only
 passively matches suitable registers, and doesn't drive register allocation.
 
@@ -235,7 +235,7 @@ passively matches suitable registers, and doesn't drive register allocation.
           <br><dt><code>Sra</code><dd>Matches the return address if it is in a stack slot.
 
           <br><dt><code>Cfm</code><dd>Matches control register values to switch fp mode, which are encapsulated in
-<code>UNSPEC_FP_MODE</code>.
+<code>UNSPEC_FP_MODE</code>. 
 </dl>
 
      <br><dt><em>CR16 Architecture&mdash;</em><samp><span class="file">config/cr16/cr16.h</span></samp><dd>
@@ -395,8 +395,8 @@ instruction per word
           <br><dt><code>H</code><dd>Integer/Floating point constant that can be loaded into a register using
 three instructions
 
-          <br><dt><code>m</code><dd>Memory operand.
-Normally, <code>m</code> does not allow addresses that update the base register.
+          <br><dt><code>m</code><dd>Memory operand. 
+Normally, <code>m</code> does not allow addresses that update the base register. 
 If &lsquo;<samp><span class="samp">&lt;</span></samp>&rsquo; or &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo; constraint is also used, they are allowed and
 therefore on PowerPC targets in that case it is only safe
 to use &lsquo;<samp><span class="samp">m&lt;&gt;</span></samp>&rsquo; in an <code>asm</code> statement if that <code>asm</code> statement
@@ -469,7 +469,7 @@ i386 processors (<code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>,
 
           <br><dt><code>A</code><dd>The <code>a</code> and <code>d</code> registers.  This class is used for instructions
 that return double word results in the <code>ax:dx</code> register pair.  Single
-word values will be allocated either in <code>ax</code> or <code>dx</code>.
+word values will be allocated either in <code>ax</code> or <code>dx</code>. 
 For example on i386 the following implements <code>rdtsc</code>:
 
           <pre class="smallexample">               unsigned long long rdtsc (void)
@@ -570,7 +570,7 @@ require printing with &lsquo;<samp><span class="samp">%Pn</span></samp>&rsquo; o
 
           <br><dt><code>S</code><dd>Memory operand except postincrement and postdecrement.  This is
 now roughly the same as &lsquo;<samp><span class="samp">m</span></samp>&rsquo; when not used together with &lsquo;<samp><span class="samp">&lt;</span></samp>&rsquo;
-or &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo;.
+or &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo;. 
 </dl>
 
      <br><dt><em>FRV&mdash;</em><samp><span class="file">config/frv/frv.h</span></samp><dd>
@@ -584,19 +584,19 @@ or &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo;.
 
           <br><dt><code>d</code><dd>Register in the class <code>GPR_REGS</code> (<code>gr0</code> to <code>gr63</code>).
 
-          <br><dt><code>e</code><dd>Register in the class <code>EVEN_REGS</code> (<code>gr0</code> to <code>gr63</code>).
+          <br><dt><code>e</code><dd>Register in the class <code>EVEN_REGS</code> (<code>gr0</code> to <code>gr63</code>). 
 Odd registers are excluded not in the class but through the use of a machine
 mode larger than 4 bytes.
 
           <br><dt><code>f</code><dd>Register in the class <code>FPR_REGS</code> (<code>fr0</code> to <code>fr63</code>).
 
-          <br><dt><code>h</code><dd>Register in the class <code>FEVEN_REGS</code> (<code>fr0</code> to <code>fr63</code>).
+          <br><dt><code>h</code><dd>Register in the class <code>FEVEN_REGS</code> (<code>fr0</code> to <code>fr63</code>). 
 Odd registers are excluded not in the class but through the use of a machine
 mode larger than 4 bytes.
 
           <br><dt><code>l</code><dd>Register in the class <code>LR_REG</code> (the <code>lr</code> register).
 
-          <br><dt><code>q</code><dd>Register in the class <code>QUAD_REGS</code> (<code>gr2</code> to <code>gr63</code>).
+          <br><dt><code>q</code><dd>Register in the class <code>QUAD_REGS</code> (<code>gr2</code> to <code>gr63</code>). 
 Register numbers not divisible by 4 are excluded not in the class but through
 the use of a machine mode larger than 8 bytes.
 
@@ -608,7 +608,7 @@ the use of a machine mode larger than 8 bytes.
 
           <br><dt><code>w</code><dd>Register in the class <code>FCR_REGS</code> (<code>cc0</code> to <code>cc3</code>).
 
-          <br><dt><code>x</code><dd>Register in the class <code>QUAD_FPR_REGS</code> (<code>fr0</code> to <code>fr63</code>).
+          <br><dt><code>x</code><dd>Register in the class <code>QUAD_FPR_REGS</code> (<code>fr0</code> to <code>fr63</code>). 
 Register numbers not divisible by 4 are excluded not in the class but through
 the use of a machine mode larger than 8 bytes.
 
@@ -717,7 +717,7 @@ use only with accumulator A1.
           <br><dt><code>L</code><dd>An integer constant with all bits set except exactly one.
 
           <br><dt><code>H</code>
-<br><dt><code>Q</code><dd>Any SYMBOL_REF.
+<br><dt><code>Q</code><dd>Any SYMBOL_REF. 
 </dl>
 
      <br><dt><em>M32C&mdash;</em><samp><span class="file">config/m32c/m32c.c</span></samp><dd>
@@ -767,7 +767,7 @@ registers.
           <br><dt><code>Rpi</code><dd>Registers that can hold pointers (16 bit registers for r8c, m16c; 24
 bit registers for m32cm, m32c).
 
-          <br><dt><code>Rpa</code><dd>Matches multiple registers in a PARALLEL to form a larger register.
+          <br><dt><code>Rpa</code><dd>Matches multiple registers in a PARALLEL to form a larger register. 
 Used to match function return values.
 
           <br><dt><code>Is3</code><dd>&minus;8 <small class="dots">...</small> 7
@@ -912,7 +912,7 @@ it is retained only for compatibility with glibc.
 
           <br><dt><code>K</code><dd>An unsigned 16-bit constant (for logic instructions).
 
-          <br><dt><code>L</code><dd>A signed 32-bit constant in which the lower 16 bits are zero.
+          <br><dt><code>L</code><dd>A signed 32-bit constant in which the lower 16 bits are zero. 
 Such constants can be loaded using <code>lui</code>.
 
           <br><dt><code>M</code><dd>A constant that cannot be loaded using <code>lui</code>, <code>addiu</code>
@@ -926,7 +926,7 @@ or <code>ori</code>.
 
           <br><dt><code>G</code><dd>Floating-point zero.
 
-          <br><dt><code>R</code><dd>An address that can be used in a non-macro load or store.
+          <br><dt><code>R</code><dd>An address that can be used in a non-macro load or store. 
 </dl>
 
      <br><dt><em>Motorola 680x0&mdash;</em><samp><span class="file">config/m68k/constraints.md</span></samp><dd>
@@ -1041,47 +1041,47 @@ offset) after the opcode.
 
      <br><dt><em>RL78&mdash;</em><samp><span class="file">config/rl78/constraints.md</span></samp><dd>
           <dl>
-<dt><code>Int3</code><dd>An integer constant in the range 1 <small class="dots">...</small> 7.
-<br><dt><code>Int8</code><dd>An integer constant in the range 0 <small class="dots">...</small> 255.
+<dt><code>Int3</code><dd>An integer constant in the range 1 <small class="dots">...</small> 7. 
+<br><dt><code>Int8</code><dd>An integer constant in the range 0 <small class="dots">...</small> 255. 
 <br><dt><code>J</code><dd>An integer constant in the range &minus;255 <small class="dots">...</small> 0
-<br><dt><code>K</code><dd>The integer constant 1.
-<br><dt><code>L</code><dd>The integer constant -1.
-<br><dt><code>M</code><dd>The integer constant 0.
-<br><dt><code>N</code><dd>The integer constant 2.
-<br><dt><code>O</code><dd>The integer constant -2.
-<br><dt><code>P</code><dd>An integer constant in the range 1 <small class="dots">...</small> 15.
-<br><dt><code>Qbi</code><dd>The built-in compare types&ndash;eq, ne, gtu, ltu, geu, and leu.
-<br><dt><code>Qsc</code><dd>The synthetic compare types&ndash;gt, lt, ge, and le.
-<br><dt><code>Wab</code><dd>A memory reference with an absolute address.
-<br><dt><code>Wbc</code><dd>A memory reference using <code>BC</code> as a base register, with an optional offset.
-<br><dt><code>Wca</code><dd>A memory reference using <code>AX</code>, <code>BC</code>, <code>DE</code>, or <code>HL</code> for the address, for calls.
-<br><dt><code>Wcv</code><dd>A memory reference using any 16-bit register pair for the address, for calls.
-<br><dt><code>Wd2</code><dd>A memory reference using <code>DE</code> as a base register, with an optional offset.
-<br><dt><code>Wde</code><dd>A memory reference using <code>DE</code> as a base register, without any offset.
-<br><dt><code>Wfr</code><dd>Any memory reference to an address in the far address space.
-<br><dt><code>Wh1</code><dd>A memory reference using <code>HL</code> as a base register, with an optional one-byte offset.
-<br><dt><code>Whb</code><dd>A memory reference using <code>HL</code> as a base register, with <code>B</code> or <code>C</code> as the index register.
-<br><dt><code>Whl</code><dd>A memory reference using <code>HL</code> as a base register, without any offset.
-<br><dt><code>Ws1</code><dd>A memory reference using <code>SP</code> as a base register, with an optional one-byte offset.
-<br><dt><code>Y</code><dd>Any memory reference to an address in the near address space.
-<br><dt><code>A</code><dd>The <code>AX</code> register.
-<br><dt><code>B</code><dd>The <code>BC</code> register.
-<br><dt><code>D</code><dd>The <code>DE</code> register.
-<br><dt><code>R</code><dd><code>A</code> through <code>L</code> registers.
-<br><dt><code>S</code><dd>The <code>SP</code> register.
-<br><dt><code>T</code><dd>The <code>HL</code> register.
-<br><dt><code>Z08W</code><dd>The 16-bit <code>R8</code> register.
-<br><dt><code>Z10W</code><dd>The 16-bit <code>R10</code> register.
-<br><dt><code>Zint</code><dd>The registers reserved for interrupts (<code>R24</code> to <code>R31</code>).
-<br><dt><code>a</code><dd>The <code>A</code> register.
-<br><dt><code>b</code><dd>The <code>B</code> register.
-<br><dt><code>c</code><dd>The <code>C</code> register.
-<br><dt><code>d</code><dd>The <code>D</code> register.
-<br><dt><code>e</code><dd>The <code>E</code> register.
-<br><dt><code>h</code><dd>The <code>H</code> register.
-<br><dt><code>l</code><dd>The <code>L</code> register.
-<br><dt><code>v</code><dd>The virtual registers.
-<br><dt><code>w</code><dd>The <code>PSW</code> register.
+<br><dt><code>K</code><dd>The integer constant 1. 
+<br><dt><code>L</code><dd>The integer constant -1. 
+<br><dt><code>M</code><dd>The integer constant 0. 
+<br><dt><code>N</code><dd>The integer constant 2. 
+<br><dt><code>O</code><dd>The integer constant -2. 
+<br><dt><code>P</code><dd>An integer constant in the range 1 <small class="dots">...</small> 15. 
+<br><dt><code>Qbi</code><dd>The built-in compare types&ndash;eq, ne, gtu, ltu, geu, and leu. 
+<br><dt><code>Qsc</code><dd>The synthetic compare types&ndash;gt, lt, ge, and le. 
+<br><dt><code>Wab</code><dd>A memory reference with an absolute address. 
+<br><dt><code>Wbc</code><dd>A memory reference using <code>BC</code> as a base register, with an optional offset. 
+<br><dt><code>Wca</code><dd>A memory reference using <code>AX</code>, <code>BC</code>, <code>DE</code>, or <code>HL</code> for the address, for calls. 
+<br><dt><code>Wcv</code><dd>A memory reference using any 16-bit register pair for the address, for calls. 
+<br><dt><code>Wd2</code><dd>A memory reference using <code>DE</code> as a base register, with an optional offset. 
+<br><dt><code>Wde</code><dd>A memory reference using <code>DE</code> as a base register, without any offset. 
+<br><dt><code>Wfr</code><dd>Any memory reference to an address in the far address space. 
+<br><dt><code>Wh1</code><dd>A memory reference using <code>HL</code> as a base register, with an optional one-byte offset. 
+<br><dt><code>Whb</code><dd>A memory reference using <code>HL</code> as a base register, with <code>B</code> or <code>C</code> as the index register. 
+<br><dt><code>Whl</code><dd>A memory reference using <code>HL</code> as a base register, without any offset. 
+<br><dt><code>Ws1</code><dd>A memory reference using <code>SP</code> as a base register, with an optional one-byte offset. 
+<br><dt><code>Y</code><dd>Any memory reference to an address in the near address space. 
+<br><dt><code>A</code><dd>The <code>AX</code> register. 
+<br><dt><code>B</code><dd>The <code>BC</code> register. 
+<br><dt><code>D</code><dd>The <code>DE</code> register. 
+<br><dt><code>R</code><dd><code>A</code> through <code>L</code> registers. 
+<br><dt><code>S</code><dd>The <code>SP</code> register. 
+<br><dt><code>T</code><dd>The <code>HL</code> register. 
+<br><dt><code>Z08W</code><dd>The 16-bit <code>R8</code> register. 
+<br><dt><code>Z10W</code><dd>The 16-bit <code>R10</code> register. 
+<br><dt><code>Zint</code><dd>The registers reserved for interrupts (<code>R24</code> to <code>R31</code>). 
+<br><dt><code>a</code><dd>The <code>A</code> register. 
+<br><dt><code>b</code><dd>The <code>B</code> register. 
+<br><dt><code>c</code><dd>The <code>C</code> register. 
+<br><dt><code>d</code><dd>The <code>D</code> register. 
+<br><dt><code>e</code><dd>The <code>E</code> register. 
+<br><dt><code>h</code><dd>The <code>H</code> register. 
+<br><dt><code>l</code><dd>The <code>L</code> register. 
+<br><dt><code>v</code><dd>The virtual registers. 
+<br><dt><code>w</code><dd>The <code>PSW</code> register. 
 <br><dt><code>x</code><dd>The <code>X</code> register.
 
      </dl>
@@ -1321,7 +1321,7 @@ has a value different from its other parts.
 
           <br><dt><code>N</code><dd>Signed 14 bit integer (in the range &minus;8192 to 8191).
 
-          <br><dt><code>Z</code><dd>Any SYMBOL_REF.
+          <br><dt><code>Z</code><dd>Any SYMBOL_REF. 
 </dl>
 
      <br><dt><em>Xstormy16&mdash;</em><samp><span class="file">config/stormy16/stormy16.h</span></samp><dd>
@@ -1534,3 +1534,4 @@ reference.
 <!-- configuration in older tetex distributions.  Known to not work: -->
 <!-- tetex-1.0.7, known to work: tetex-2.0.2. -->
  </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,12 +70,12 @@ example.  If a program says
 </pre>
    <p>The left operand of &lsquo;<samp><span class="samp">@</span></samp>&rsquo; must reside in memory.  Array values made
 with &lsquo;<samp><span class="samp">@</span></samp>&rsquo; in this way behave just like other arrays in terms of
-subscripting, and are coerced to pointers when used in expressions.
+subscripting, and are coerced to pointers when used in expressions. 
 Artificial arrays most often appear in expressions via the value history
 (see <a href="Value-History.html#Value-History">Value History</a>), after printing one out.
 
-   <p>Another way to create an artificial array is to use a cast.
-This re-interprets a value as if it were an array.
+   <p>Another way to create an artificial array is to use a cast. 
+This re-interprets a value as if it were an array. 
 The value need not be in memory:
 <pre class="smallexample">     (gdb) p/x (short[2])0x12345678
      $1 = {0x1234, 0x5678}
@@ -103,3 +103,4 @@ in each structure.  Here is an example of what you might type:
      ...
 </pre>
    </body></html>
+

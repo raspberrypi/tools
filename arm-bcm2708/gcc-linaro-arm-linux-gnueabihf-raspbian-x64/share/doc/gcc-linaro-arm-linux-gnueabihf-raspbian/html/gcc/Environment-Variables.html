@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ aspects of the compilation environment.
  <p>Note that you can also specify places to search using options such as
 <samp><span class="option">-B</span></samp>, <samp><span class="option">-I</span></samp> and <samp><span class="option">-L</span></samp> (see <a href="Directory-Options.html#Directory-Options">Directory Options</a>).  These
 take precedence over places specified using environment variables, which
-in turn take precedence over those specified by the configuration of GCC.
+in turn take precedence over those specified by the configuration of GCC. 
 See <a href="../gccint/Driver.html#Driver">Controlling the Compilation Driver <samp><span class="file">gcc</span></samp></a>.
 
      <dl>
@@ -137,7 +137,7 @@ directories whose name normally begins with &lsquo;<samp><span class="samp">/usr
 replacing that beginning with the specified prefix to produce an
 alternate directory name.  Thus, with <samp><span class="option">-Bfoo/</span></samp>, GCC searches
 <samp><span class="file">foo/bar</span></samp> just before it searches the standard directory
-<samp><span class="file">/usr/local/lib/bar</span></samp>.
+<samp><span class="file">/usr/local/lib/bar</span></samp>. 
 If a standard directory begins with the configured
 <var>prefix</var> then the value of <var>prefix</var> is replaced by
 <samp><span class="env">GCC_EXEC_PREFIX</span></samp> when looking for header files.
@@ -157,19 +157,19 @@ libraries for the <samp><span class="option">-l</span></samp> option (but direct
 
      <br><dt><samp><span class="env">LANG</span></samp><dd><a name="index-LANG-2384"></a><a name="index-locale-definition-2385"></a>This variable is used to pass locale information to the compiler.  One way in
 which this information is used is to determine the character set to be used
-when character literals, string literals and comments are parsed in C and C++.
+when character literals, string literals and comments are parsed in C and C++. 
 When the compiler is configured to allow multibyte characters,
 the following values for <samp><span class="env">LANG</span></samp> are recognized:
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">C-JIS</span></samp>&rsquo;<dd>Recognize JIS characters.
-<br><dt>&lsquo;<samp><span class="samp">C-SJIS</span></samp>&rsquo;<dd>Recognize SJIS characters.
-<br><dt>&lsquo;<samp><span class="samp">C-EUCJP</span></samp>&rsquo;<dd>Recognize EUCJP characters.
+<dt>&lsquo;<samp><span class="samp">C-JIS</span></samp>&rsquo;<dd>Recognize JIS characters. 
+<br><dt>&lsquo;<samp><span class="samp">C-SJIS</span></samp>&rsquo;<dd>Recognize SJIS characters. 
+<br><dt>&lsquo;<samp><span class="samp">C-EUCJP</span></samp>&rsquo;<dd>Recognize EUCJP characters. 
 </dl>
 
      <p>If <samp><span class="env">LANG</span></samp> is not defined, or if it has some other value, then the
 compiler uses <code>mblen</code> and <code>mbtowc</code> as defined by the default locale to
-recognize and translate multibyte characters.
+recognize and translate multibyte characters. 
 </dl>
 
 <p class="noindent">Some additional environment variables affect the behavior of the
@@ -187,7 +187,7 @@ preprocessor.
 <dt><samp><span class="env">CPATH</span></samp><a name="index-CPATH-2386"></a><dt><samp><span class="env">C_INCLUDE_PATH</span></samp><a name="index-C_005fINCLUDE_005fPATH-2387"></a><dt><samp><span class="env">CPLUS_INCLUDE_PATH</span></samp><a name="index-CPLUS_005fINCLUDE_005fPATH-2388"></a><dt><samp><span class="env">OBJC_INCLUDE_PATH</span></samp><a name="index-OBJC_005fINCLUDE_005fPATH-2389"></a><dd><!-- Commented out until ObjC++ is part of GCC: -->
 <!-- @itemx OBJCPLUS_INCLUDE_PATH -->
 Each variable's value is a list of directories separated by a special
-character, much like <samp><span class="env">PATH</span></samp>, in which to look for header files.
+character, much like <samp><span class="env">PATH</span></samp>, in which to look for header files. 
 The special character, <code>PATH_SEPARATOR</code>, is target-dependent and
 determined at GCC build time.  For Microsoft Windows-based targets it is a
 semicolon, and for almost all other targets it is a colon.
@@ -229,9 +229,10 @@ with an optional <samp><span class="option">-MT</span></samp> switch too.
      <br><dt><samp><span class="env">SUNPRO_DEPENDENCIES</span></samp><a name="index-SUNPRO_005fDEPENDENCIES-2392"></a><dd><a name="index-dependencies-for-make-as-output-2393"></a>This variable is the same as <samp><span class="env">DEPENDENCIES_OUTPUT</span></samp> (see above),
 except that system header files are not ignored, so it implies
 <samp><span class="option">-M</span></samp> rather than <samp><span class="option">-MM</span></samp>.  However, the dependence on the
-main input file is omitted.
-See <a href="Preprocessor-Options.html#Preprocessor-Options">Preprocessor Options</a>.
+main input file is omitted. 
+See <a href="Preprocessor-Options.html#Preprocessor-Options">Preprocessor Options</a>. 
 </dl>
 
 <!-- man end -->
  </body></html>
+

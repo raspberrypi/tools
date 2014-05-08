@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ to an object in the global offset table (GOT) or the procedure linkage
 table (PLT). The following expressions are allowed:
 &lsquo;<samp><span class="samp">symbol@modifier + constant</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">symbol@modifier + label + constant</span></samp>&rsquo;, and
-&lsquo;<samp><span class="samp">symbol@modifier - label + constant</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">symbol@modifier - label + constant</span></samp>&rsquo;. 
 The term &lsquo;<samp><span class="samp">symbol</span></samp>&rsquo; is the symbol that will be entered into the GOT or
 PLT, &lsquo;<samp><span class="samp">label</span></samp>&rsquo; is a local label, and &lsquo;<samp><span class="samp">constant</span></samp>&rsquo; is an arbitrary
 expression that the assembler can evaluate to a constant value.
@@ -68,16 +68,16 @@ converted to &lsquo;<samp><span class="samp">symbol@modifier +/- label + constan
 fields and 32-bit pc-relative immediate fields. The @got12 modifier is
 synonym to @got. The symbol is added to the GOT. For displacement
 fields and 16-bit immediate fields the symbol term is replaced with
-the offset from the start of the GOT to the GOT slot for the symbol.
+the offset from the start of the GOT to the GOT slot for the symbol. 
 For a 32-bit pc-relative field the pc-relative offset to the GOT
-slot from the current instruction address is used.
-<br><dt><code>@gotent</code><dd>The @gotent modifier can be used for 32-bit pc-relative immediate fields.
+slot from the current instruction address is used. 
+<br><dt><code>@gotent</code><dd>The @gotent modifier can be used for 32-bit pc-relative immediate fields. 
 The symbol is added to the GOT and the symbol term is replaced with
 the pc-relative offset from the current instruction to the GOT slot for the
-symbol.
+symbol. 
 <br><dt><code>@gotoff</code><dd>The @gotoff modifier can be used for 16-bit immediate fields. The symbol
 term is replaced with the offset from the start of the GOT to the
-address of the symbol.
+address of the symbol. 
 <br><dt><code>@gotplt</code><dd>The @gotplt modifier can be used for displacement fields, 16-bit immediate
 fields, and 32-bit pc-relative immediate fields. A procedure linkage
 table entry is generated for the symbol and a jump slot for the symbol
@@ -85,23 +85,23 @@ is added to the GOT. For displacement fields and 16-bit immediate
 fields the symbol term is replaced with the offset from the start of the
 GOT to the jump slot for the symbol. For a 32-bit pc-relative field
 the pc-relative offset to the jump slot from the current instruction
-address is used.
+address is used. 
 <br><dt><code>@plt</code><dd>The @plt modifier can be used for 16-bit and 32-bit pc-relative immediate
-fields. A procedure linkage table entry is generated for the symbol.
+fields. A procedure linkage table entry is generated for the symbol. 
 The symbol term is replaced with the relative offset from the current
-instruction to the PLT entry for the symbol.
+instruction to the PLT entry for the symbol. 
 <br><dt><code>@pltoff</code><dd>The @pltoff modifier can be used for 16-bit immediate fields. The symbol
 term is replaced with the offset from the start of the PLT to the address
-of the symbol.
+of the symbol. 
 <br><dt><code>@gotntpoff</code><dd>The @gotntpoff modifier can be used for displacement fields. The symbol
 is added to the static TLS block and the negated offset to the symbol
 in the static TLS block is added to the GOT. The symbol term is replaced
-with the offset to the GOT slot from the start of the GOT.
+with the offset to the GOT slot from the start of the GOT. 
 <br><dt><code>@indntpoff</code><dd>The @indntpoff modifier can be used for 32-bit pc-relative immediate
 fields. The symbol is added to the static TLS block and the negated offset
 to the symbol in the static TLS block is added to the GOT. The symbol term
 is replaced with the pc-relative offset to the GOT slot from the current
-instruction address.
+instruction address. 
 </dl>
 
    <p>For more information about the thread local storage modifiers
@@ -109,3 +109,4 @@ instruction address.
 &lsquo;<samp><span class="samp">ELF Handling For Thread-Local Storage</span></samp>&rsquo;.
 
    </body></html>
+

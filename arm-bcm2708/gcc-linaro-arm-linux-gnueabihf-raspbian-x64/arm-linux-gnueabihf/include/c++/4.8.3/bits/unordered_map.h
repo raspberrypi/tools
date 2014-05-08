@@ -347,8 +347,8 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        *  @param __x Pair to be inserted (see std::make_pair for easy
        *	     creation of pairs).
        *
-       *  @return  A pair, of which the first element is an iterator that
-       *           points to the possibly inserted pair, and the second is
+       *  @return  A pair, of which the first element is an iterator that 
+       *           points to the possibly inserted pair, and the second is 
        *           a bool that is true if the pair was actually inserted.
        *
        *  This function attempts to insert a (key, value) %pair into the
@@ -646,7 +646,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       size_type
       bucket(const key_type& __key) const
       { return _M_h.bucket(__key); }
-
+      
       /**
        *  @brief  Returns a read/write iterator pointing to the first bucket
        *         element.
@@ -1266,7 +1266,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       size_type
       bucket(const key_type& __key) const
       { return _M_h.bucket(__key); }
-
+      
       /**
        *  @brief  Returns a read/write iterator pointing to the first bucket
        *         element.

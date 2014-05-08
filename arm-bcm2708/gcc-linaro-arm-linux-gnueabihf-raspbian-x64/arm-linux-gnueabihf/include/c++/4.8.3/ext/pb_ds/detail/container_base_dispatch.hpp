@@ -271,7 +271,7 @@ namespace detail
 
     public:
       /// Dispatched type.
-      typedef cc_ht_map<Key, Mapped, at0t, at1t, _Alloc,
+      typedef cc_ht_map<Key, Mapped, at0t, at1t, _Alloc, 
 			at3t::value, at4t, at2t> 	       	type;
   };
 
@@ -318,7 +318,7 @@ namespace detail
 
     public:
       /// Dispatched type.
-      typedef gp_ht_map<Key, Mapped, at0t, at1t, _Alloc,
+      typedef gp_ht_map<Key, Mapped, at0t, at1t, _Alloc, 
 			at3t::value, at4t, at5t, at2t> 		type;
   };
 

@@ -91,7 +91,7 @@ namespace __gnu_debug
 	   iterators is at an extreme. */
 	/* Optim for classic [begin, it) or [it, end) ranges, limit checks
 	 * when code is valid.  Note, for the special case of forward_list,
-	 * before_begin replaces the role of begin.  */
+	 * before_begin replaces the role of begin.  */ 
 	if (_M_is_beginnest() || __rhs._M_is_end())
 	  return true;
 	if (_M_is_end() || __rhs._M_is_beginnest())
@@ -103,3 +103,4 @@ namespace __gnu_debug
 } // namespace __gnu_debug
 
 #endif
+

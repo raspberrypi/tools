@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Macros.html#Macros">Macros</a>
 <h3 class="section">3.5 Concatenation</h3>
 
 <p><a name="index-concatenation-52"></a><a name="index-token-pasting-53"></a><a name="index-token-concatenation-54"></a><a name="index-g_t_0040samp_007b_0023_0023_007d-operator-55"></a>
-It is often useful to merge two tokens into one while expanding macros.
+It is often useful to merge two tokens into one while expanding macros. 
 This is called <dfn>token pasting</dfn> or <dfn>token concatenation</dfn>.  The
 &lsquo;<samp><span class="samp">##</span></samp>&rsquo; preprocessing operator performs token pasting.  When a macro
 is expanded, the two tokens on either side of each &lsquo;<samp><span class="samp">##</span></samp>&rsquo; operator
@@ -66,7 +66,7 @@ the two original tokens in the macro expansion.  Usually both will be
 identifiers, or one will be an identifier and the other a preprocessing
 number.  When pasted, they make a longer identifier.  This isn't the
 only valid case.  It is also possible to concatenate two numbers (or a
-number and a name, such as <code>1.5</code> and <code>e3</code>) into a number.
+number and a name, such as <code>1.5</code> and <code>e3</code>) into a number. 
 Also, multi-character operators such as <code>+=</code> can be formed by
 token pasting.
 
@@ -79,7 +79,7 @@ in complex macros.  If you get this warning, it is likely that you can
 simply remove the &lsquo;<samp><span class="samp">##</span></samp>&rsquo;.
 
    <p>Both the tokens combined by &lsquo;<samp><span class="samp">##</span></samp>&rsquo; could come from the macro body,
-but you could just as well write them as one token in the first place.
+but you could just as well write them as one token in the first place. 
 Token pasting is most useful when one or both of the tokens comes from a
 macro argument.  If either of the tokens next to an &lsquo;<samp><span class="samp">##</span></samp>&rsquo; is a
 parameter name, it is replaced by its actual argument before &lsquo;<samp><span class="samp">##</span></samp>&rsquo;
@@ -104,7 +104,7 @@ as follows:
        char *name;
        void (*function) (void);
      };
-
+     
      struct command commands[] =
      {
        { "quit", quit_command },
@@ -119,7 +119,7 @@ constant can be created with stringification, and the function name by
 concatenating the argument with &lsquo;<samp><span class="samp">_command</span></samp>&rsquo;.  Here is how it is done:
 
 <pre class="smallexample">     #define COMMAND(NAME)  { #NAME, NAME ## _command }
-
+     
      struct command commands[] =
      {
        COMMAND (quit),
@@ -128,3 +128,4 @@ concatenating the argument with &lsquo;<samp><span class="samp">_command</span><
      };
 </pre>
    </body></html>
+

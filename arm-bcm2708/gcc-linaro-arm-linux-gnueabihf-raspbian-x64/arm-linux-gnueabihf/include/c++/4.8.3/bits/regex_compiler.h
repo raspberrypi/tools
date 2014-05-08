@@ -287,7 +287,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  if (*_M_current == _M_ctype.widen('\\'))
 	    _M_eat_escape();
 	}
-      else
+      else 
 	{
 	  if (*_M_current == _M_ctype.widen('}'))
 	    {
@@ -725,7 +725,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef _EndTagger<_InIter, _TraitsT> _End;
 
       _StateSeq __r(_M_state_store,
-		    _M_state_store._M_insert_subexpr_begin(_Start(0)));
+      		    _M_state_store._M_insert_subexpr_begin(_Start(0)));
       _M_disjunction();
       if (!_M_stack.empty())
 	{
@@ -740,7 +740,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     bool
     _Compiler<_InIter, _TraitsT>::
     _M_match_token(_Compiler<_InIter, _TraitsT>::_TokenT token)
-    {
+    { 
       if (token == _M_scanner._M_token())
 	{
 	  _M_cur_value = _M_scanner._M_value();
@@ -872,7 +872,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  _StateSeq __r(_M_stack.top());
 	  int __min_rep = _M_cur_int_value(10);
 	  for (int __i = 1; __i < __min_rep; ++__i)
-	    _M_stack.top()._M_append(__r._M_clone());
+	    _M_stack.top()._M_append(__r._M_clone()); 
 	  if (_M_match_token(_ScannerT::_S_token_comma))
 	    if (_M_match_token(_ScannerT::_S_token_dup_count))
 	      {

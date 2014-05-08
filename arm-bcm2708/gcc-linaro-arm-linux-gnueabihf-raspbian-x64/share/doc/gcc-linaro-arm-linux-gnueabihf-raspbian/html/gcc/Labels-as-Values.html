@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,11 +88,11 @@ indexing in C never does that.
 use that rather than an array unless the problem does not fit a
 <code>switch</code> statement very well.
 
- <p>Another use of label values is in an interpreter for threaded code.
+ <p>Another use of label values is in an interpreter for threaded code. 
 The labels within the interpreter function can be stored in the
 threaded code for super-fast dispatching.
 
- <p>You may not use this mechanism to jump to code in a different function.
+ <p>You may not use this mechanism to jump to code in a different function. 
 If you do that, totally unpredictable things happen.  The best way to
 avoid this is to store the label address only in automatic variables and
 never pass it as an argument.
@@ -124,3 +124,4 @@ variables.</p>
  <hr></div>
 
  </body></html>
+

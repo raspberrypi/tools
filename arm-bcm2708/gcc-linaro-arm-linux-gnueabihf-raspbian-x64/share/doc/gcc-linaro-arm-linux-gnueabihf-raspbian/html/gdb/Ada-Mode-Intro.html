@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Ada.html#Ada">Ada</a>
 
 <p><a name="index-Ada-mode_002c-general-941"></a>
 The Ada mode of <span class="sc">gdb</span> supports a fairly large subset of Ada expression
-syntax, with some extensions.
+syntax, with some extensions. 
 The philosophy behind the design of this subset is
 
      <ul>
@@ -59,7 +59,7 @@ program (which therefore may be called from <span class="sc">gdb</span>).
      <li>That type safety and strict adherence to Ada language restrictions
 are not particularly important to the <span class="sc">gdb</span> user.
 
-     <li>That brevity is important to the <span class="sc">gdb</span> user.
+     <li>That brevity is important to the <span class="sc">gdb</span> user. 
 </ul>
 
    <p>Thus, for brevity, the debugger acts as if all names declared in
@@ -68,7 +68,7 @@ according to Ada rules, thus making it unnecessary to fully qualify most
 names with their packages, regardless of context.  Where this causes
 ambiguity, <span class="sc">gdb</span> asks the user's intent.
 
-   <p>The debugger will start in Ada mode if it detects an Ada main program.
+   <p>The debugger will start in Ada mode if it detects an Ada main program. 
 As for other languages, it will enter Ada mode when stopped in a program that
 was translated from an Ada source file.
 
@@ -85,3 +85,4 @@ procedures to functions in the context of the <code>call</code> command, and
 functions to procedures elsewhere.
 
    </body></html>
+

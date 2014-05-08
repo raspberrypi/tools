@@ -172,3 +172,4 @@ swap_with_parent(node_pointer p_nd, node_pointer p_parent)
 
   _GLIBCXX_DEBUG_ASSERT(parent(p_parent) == p_nd);
 }
+

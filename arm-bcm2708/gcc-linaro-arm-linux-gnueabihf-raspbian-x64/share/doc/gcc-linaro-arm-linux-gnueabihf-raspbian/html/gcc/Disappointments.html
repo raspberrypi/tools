@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,14 +74,14 @@ executable and your source code, when you use optimization.
 like this:
 
      <pre class="smallexample">          int foo (struct mumble *);
-
+          
           struct mumble { ... };
-
+          
           int foo (struct mumble *x)
           { ... }
 </pre>
      <p>This code really is erroneous, because the scope of <code>struct
-mumble</code> in the prototype is limited to the argument list containing it.
+mumble</code> in the prototype is limited to the argument list containing it. 
 It does not refer to the <code>struct mumble</code> defined with file scope
 immediately below&mdash;they are two unrelated types with similar names in
 different scopes.
@@ -90,7 +90,7 @@ different scopes.
 because that is available to be inherited.  Thus, the definition and
 the prototype do not match, and you get an error.
 
-     <p>This behavior may seem silly, but it's what the ISO standard specifies.
+     <p>This behavior may seem silly, but it's what the ISO standard specifies. 
 It is easy enough for you to make your code work by moving the
 definition of <code>struct mumble</code> above the prototype.  It's not worth
 being incompatible with ISO C just to avoid an error for the example
@@ -119,7 +119,7 @@ to update the corrected header files.  They can be updated using the
 if you test the precise values of floating point numbers.  For example,
 you can find that a floating point value which is not a NaN is not equal
 to itself.  This results from the fact that the floating point registers
-hold a few more bits of precision than fit in a <code>double</code> in memory.
+hold a few more bits of precision than fit in a <code>double</code> in memory. 
 Compiled code moves values between memory and floating point registers
 at its convenience, and moving them into memory truncates them.
 
@@ -134,11 +134,12 @@ of templates will not be generated.
 constructors and destructors when linking an application before the
 linker prunes unreferenced symbols.  This is necessary to prevent the
 AIX linker from mistakenly assuming that static constructor or
-destructor are unused and removing them before the scanning can occur.
+destructor are unused and removing them before the scanning can occur. 
 All static constructors and destructors found will be referenced even
-though the modules in which they occur may not be used by the program.
+though the modules in which they occur may not be used by the program. 
 This may lead to both increased executable size and unexpected symbol
-references.
+references. 
 </ul>
 
  </body></html>
+

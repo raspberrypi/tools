@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 Access to symbol table data maintained by <span class="sc">gdb</span> on the inferior
 is exposed to Python via two objects: <code>gdb.Symtab_and_line</code> and
 <code>gdb.Symtab</code>.  Symbol table and line data for a frame is returned
-from the <code>find_sal</code> method in <code>gdb.Frame</code> object.
+from the <code>find_sal</code> method in <code>gdb.Frame</code> object. 
 See <a href="Frames-In-Python.html#Frames-In-Python">Frames In Python</a>.
 
    <p>For more information on <span class="sc">gdb</span>'s symbol table management, see
@@ -61,26 +61,26 @@ See <a href="Frames-In-Python.html#Frames-In-Python">Frames In Python</a>.
 
 <div class="defun">
 &mdash; Variable: <b>Symtab_and_line.symtab</b><var><a name="index-Symtab_005fand_005fline_002esymtab-2105"></a></var><br>
-<blockquote><p>The symbol table object (<code>gdb.Symtab</code>) for this frame.
-This attribute is not writable.
+<blockquote><p>The symbol table object (<code>gdb.Symtab</code>) for this frame. 
+This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Symtab_and_line.pc</b><var><a name="index-Symtab_005fand_005fline_002epc-2106"></a></var><br>
 <blockquote><p>Indicates the start of the address range occupied by code for the
-current source line.  This attribute is not writable.
+current source line.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Symtab_and_line.last</b><var><a name="index-Symtab_005fand_005fline_002elast-2107"></a></var><br>
 <blockquote><p>Indicates the end of the address range occupied by code for the current
-source line.  This attribute is not writable.
+source line.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Symtab_and_line.line</b><var><a name="index-Symtab_005fand_005fline_002eline-2108"></a></var><br>
 <blockquote><p>Indicates the current line number for this object.  This
-attribute is not writable.
+attribute is not writable. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Symtab_and_line</code> object has the following methods:
@@ -92,20 +92,20 @@ attribute is not writable.
 invalid if the Symbol table and line object it refers to does not
 exist in <span class="sc">gdb</span> any longer.  All other
 <code>gdb.Symtab_and_line</code> methods will throw an exception if it is
-invalid at the time the method is called.
+invalid at the time the method is called. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Symtab</code> object has the following attributes:
 
 <div class="defun">
 &mdash; Variable: <b>Symtab.filename</b><var><a name="index-Symtab_002efilename-2110"></a></var><br>
-<blockquote><p>The symbol table's source filename.  This attribute is not writable.
+<blockquote><p>The symbol table's source filename.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Symtab.objfile</b><var><a name="index-Symtab_002eobjfile-2111"></a></var><br>
-<blockquote><p>The symbol table's backing object file.  See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>.
-This attribute is not writable.
+<blockquote><p>The symbol table's backing object file.  See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>. 
+This attribute is not writable. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Symtab</code> object has the following methods:
@@ -116,24 +116,25 @@ This attribute is not writable.
 <code>False</code> if not.  A <code>gdb.Symtab</code> object can become invalid if
 the symbol table it refers to does not exist in <span class="sc">gdb</span> any
 longer.  All other <code>gdb.Symtab</code> methods will throw an exception
-if it is invalid at the time the method is called.
+if it is invalid at the time the method is called. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Symtab.fullname</b> ()<var><a name="index-Symtab_002efullname-2113"></a></var><br>
-<blockquote><p>Return the symbol table's source absolute file name.
+<blockquote><p>Return the symbol table's source absolute file name. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Symtab.global_block</b> ()<var><a name="index-Symtab_002eglobal_005fblock-2114"></a></var><br>
-<blockquote><p>Return the global block of the underlying symbol table.
-See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>.
+<blockquote><p>Return the global block of the underlying symbol table. 
+See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Symtab.static_block</b> ()<var><a name="index-Symtab_002estatic_005fblock-2115"></a></var><br>
-<blockquote><p>Return the static block of the underlying symbol table.
-See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>.
+<blockquote><p>Return the static block of the underlying symbol table. 
+See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>. 
 </p></blockquote></div>
 
    </body></html>
+

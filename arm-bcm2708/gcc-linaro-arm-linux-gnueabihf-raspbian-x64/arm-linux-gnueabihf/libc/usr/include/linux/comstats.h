@@ -109,7 +109,7 @@ typedef struct {
 /*
  *	Define the set of ioctls that give user level access to the
  *	private port, panel and board structures. The argument required
- *	will be driver dependent!
+ *	will be driver dependent!  
  */
 #define	COM_READPORT		_IO('c',40)
 #define	COM_READBOARD		_IO('c',41)

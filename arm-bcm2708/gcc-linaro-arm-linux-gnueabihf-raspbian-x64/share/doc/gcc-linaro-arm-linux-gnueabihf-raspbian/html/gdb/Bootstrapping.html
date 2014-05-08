@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,13 +55,13 @@ debugging target machine.
 serial port.
 
      <dl>
-<dt><code>int getDebugChar()</code><dd><a name="index-getDebugChar-1245"></a>Write this subroutine to read a single character from the serial port.
+<dt><code>int getDebugChar()</code><dd><a name="index-getDebugChar-1245"></a>Write this subroutine to read a single character from the serial port. 
 It may be identical to <code>getchar</code> for your target system; a
 different name is used to allow you to distinguish the two if you wish.
 
-     <br><dt><code>void putDebugChar(int)</code><dd><a name="index-putDebugChar-1246"></a>Write this subroutine to write a single character to the serial port.
+     <br><dt><code>void putDebugChar(int)</code><dd><a name="index-putDebugChar-1246"></a>Write this subroutine to write a single character to the serial port. 
 It may be identical to <code>putchar</code> for your target system; a
-different name is used to allow you to distinguish the two if you wish.
+different name is used to allow you to distinguish the two if you wish. 
 </dl>
 
    <p><a name="index-control-C_002c-and-remote-debugging-1247"></a><a name="index-interrupting-remote-targets-1248"></a>If you want <span class="sc">gdb</span> to be able to stop your program while it is
@@ -82,7 +82,7 @@ is to just execute a breakpoint instruction (the &ldquo;dirty&rdquo; part is tha
 handling tables.  You need to do this because the stub does not have any
 way of knowing what the exception handling tables on your target system
 are like (for example, the processor's table might be in <span class="sc">rom</span>,
-containing entries which point to a table in <span class="sc">ram</span>).
+containing entries which point to a table in <span class="sc">ram</span>). 
 <var>exception_number</var> is the exception number which should be changed;
 its meaning is architecture-dependent (for example, different numbers
 might represent divide by zero, misaligned access, etc).  When this
@@ -103,7 +103,7 @@ instruction cache, if any, on your target machine.  If there is no
 instruction cache, this subroutine may be a no-op.
 
      <p>On target machines that have instruction caches, <span class="sc">gdb</span> requires this
-function to make certain that the state of your program is stable.
+function to make certain that the state of your program is stable. 
 </dl>
 
 <p class="noindent">You must also make sure this library routine is available:
@@ -112,7 +112,7 @@ function to make certain that the state of your program is stable.
 <dt><code>void *memset(void *, int, int)</code><dd><a name="index-memset-1251"></a>This is the standard library function <code>memset</code> that sets an area of
 memory to a known value.  If you have one of the free versions of
 <code>libc.a</code>, <code>memset</code> can be found there; otherwise, you must
-either obtain it from your hardware manufacturer, or write your own.
+either obtain it from your hardware manufacturer, or write your own. 
 </dl>
 
    <p>If you do not use the GNU C compiler, you may need other standard
@@ -121,3 +121,4 @@ but in general the stubs are likely to use any of the common library
 subroutines which <span class="sc">gcc</span> generates as inline code.
 
    </body></html>
+

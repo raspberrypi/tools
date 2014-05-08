@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ You can use <dfn>catchpoints</dfn> to cause the debugger to stop for certain
 kinds of program events, such as C<tt>++</tt> exceptions or the loading of a
 shared library.  Use the <code>catch</code> command to set a catchpoint.
 
-
+     
 <a name="index-catch-262"></a>
 <dl><dt><code>catch </code><var>event</var><dd>Stop when <var>event</var> occurs.  <var>event</var> can be any of the following:
           <dl>
@@ -62,7 +62,7 @@ shared library.  Use the <code>catch</code> command to set a catchpoint.
 
           <br><dt><code>exception</code><dd><a name="index-Ada-exception-catching-264"></a><a name="index-catch-Ada-exceptions-265"></a>An Ada exception being raised.  If an exception name is specified
 at the end of the command (eg <code>catch exception Program_Error</code>),
-the debugger will stop only when this specific exception is raised.
+the debugger will stop only when this specific exception is raised. 
 Otherwise, the debugger stops execution when any Ada exception is raised.
 
           <p>When inserting an exception catchpoint on a user-defined exception whose
@@ -83,7 +83,7 @@ and <span class="sc">gnu</span>/Linux.
 
           <br><dt><code>syscall</code><dt><code>syscall </code><span class="roman">[</span><var>name</var> <span class="roman">|</span> <var>number</var><span class="roman">]</span><code> ...</code><dd><a name="index-break-on-a-system-call_002e-267"></a>A call to or return from a system call, a.k.a. <dfn>syscall</dfn>.  A
 syscall is a mechanism for application programs to request a service
-from the operating system (OS) or one of the OS system services.
+from the operating system (OS) or one of the OS system services. 
 <span class="sc">gdb</span> can catch some or all of the syscalls issued by the
 debuggee, and show the related information for each syscall.  If no
 argument is specified, calls to and returns from all system calls
@@ -119,14 +119,14 @@ arguments to it:
                Catchpoint 1 (syscall)
                (gdb) r
                Starting program: /tmp/catch-syscall
-
+               
                Catchpoint 1 (call to syscall 'close'), \
-		   0xffffe424 in __kernel_vsyscall ()
+               	   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
-
+               
                Catchpoint 1 (returned from syscall 'close'), \
-		0xffffe424 in __kernel_vsyscall ()
+               	0xffffe424 in __kernel_vsyscall ()
                (gdb)
 </pre>
           <p>Here is an example of catching a system call by name:
@@ -135,14 +135,14 @@ arguments to it:
                Catchpoint 1 (syscall 'chroot' [61])
                (gdb) r
                Starting program: /tmp/catch-syscall
-
+               
                Catchpoint 1 (call to syscall 'chroot'), \
-			   0xffffe424 in __kernel_vsyscall ()
+               		   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
-
+               
                Catchpoint 1 (returned from syscall 'chroot'), \
-		0xffffe424 in __kernel_vsyscall ()
+               	0xffffe424 in __kernel_vsyscall ()
                (gdb)
 </pre>
           <p>An example of specifying a system call numerically.  In the case
@@ -153,12 +153,12 @@ file, so <span class="sc">gdb</span> finds its name and prints it:
                Catchpoint 1 (syscall(s) 'exit_group')
                (gdb) r
                Starting program: /tmp/catch-syscall
-
+               
                Catchpoint 1 (call to syscall 'exit_group'), \
-			   0xffffe424 in __kernel_vsyscall ()
+               		   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
-
+               
                Program exited normally.
                (gdb)
 </pre>
@@ -225,7 +225,7 @@ will be caught.
 catchpoint.
 
           <p>When a signal is caught by a catchpoint, the signal's <code>stop</code> and
-<code>print</code> settings, as specified by <code>handle</code>, are ignored.
+<code>print</code> settings, as specified by <code>handle</code>, are ignored. 
 However, whether the signal is still delivered to the inferior depends
 on the <code>pass</code> setting; this can be changed in the catchpoint's
 commands.
@@ -254,7 +254,7 @@ disabled within interactive calls.
 
      <li>You cannot raise an exception interactively.
 
-     <li>You cannot install an exception handler interactively.
+     <li>You cannot install an exception handler interactively. 
 </ul>
 
    <p><a name="index-raise-exceptions-268"></a>Sometimes <code>catch</code> is not the best way to debug exception handling:
@@ -284,3 +284,4 @@ breakpoints to stop your program when any of a number of exceptions are
 raised.
 
    </body></html>
+

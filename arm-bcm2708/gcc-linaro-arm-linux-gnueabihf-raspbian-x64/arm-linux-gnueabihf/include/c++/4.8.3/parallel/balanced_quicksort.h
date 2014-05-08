@@ -284,7 +284,7 @@ namespace __gnu_parallel
 
               // Swap __pivot_pos value to end.
               if (__pivot_pos != (__end - 1))
-		std::iter_swap(__pivot_pos, __end - 1);
+        	std::iter_swap(__pivot_pos, __end - 1);
               __pivot_pos = __end - 1;
 
               __gnu_parallel::__binder2nd
@@ -303,28 +303,28 @@ namespace __gnu_parallel
 #endif
               // Swap pivot back to middle.
               if (__split_pos1 != __pivot_pos)
-		std::iter_swap(__split_pos1, __pivot_pos);
+        	std::iter_swap(__split_pos1, __pivot_pos);
               __pivot_pos = __split_pos1;
 
               // In case all elements are equal, __split_pos1 == 0.
               if ((__split_pos1 + 1 - __begin) < (__n >> 7)
 		  || (__end - __split_pos1) < (__n >> 7))
-		{
+        	{
                   // Very unequal split, one part smaller than one 128th
                   // elements not strictly larger than the pivot.
                   __gnu_parallel::__unary_negate<__gnu_parallel::__binder1st
                     <_Compare, _ValueType, _ValueType, bool>, _ValueType>
                     __pred(__gnu_parallel::__binder1st
-			 <_Compare, _ValueType, _ValueType, bool>
+                	 <_Compare, _ValueType, _ValueType, bool>
 			   (__comp, *__pivot_pos));
 
                   // Find other end of pivot-equal range.
                   __split_pos2 = __gnu_sequential::partition(__split_pos1 + 1,
 							     __end, __pred);
-		}
+        	}
               else
-		// Only skip the pivot.
-		__split_pos2 = __split_pos1 + 1;
+        	// Only skip the pivot.
+        	__split_pos2 = __split_pos1 + 1;
 
               // Elements equal to pivot are done.
               __elements_done += (__split_pos2 - __split_pos1);
@@ -333,7 +333,7 @@ namespace __gnu_parallel
 #endif
               // Always push larger part onto stack.
               if (((__split_pos1 + 1) - __begin) < (__end - (__split_pos2)))
-		{
+        	{
                   // Right side larger.
                   if ((__split_pos2) != __end)
                     __tl._M_leftover_parts.push_front
@@ -342,9 +342,9 @@ namespace __gnu_parallel
                   //__current.first = __begin;    //already set anyway
                   __current.second = __split_pos1;
                   continue;
-		}
+        	}
               else
-		{
+        	{
                   // Left side larger.
                   if (__begin != __split_pos1)
                     __tl._M_leftover_parts.push_front(std::make_pair
@@ -353,7 +353,7 @@ namespace __gnu_parallel
                   __current.first = __split_pos2;
                   //__current.second = __end;     //already set anyway
                   continue;
-		}
+        	}
             }
           else
             {
@@ -365,7 +365,7 @@ namespace __gnu_parallel
 
               // Prefer own stack, small pieces.
               if (__tl._M_leftover_parts.pop_front(__current))
-		continue;
+        	continue;
 
 #             pragma omp atomic
               *__tl._M_elements_leftover -= __elements_done;
@@ -385,7 +385,7 @@ namespace __gnu_parallel
                      && (omp_get_wtime() < (__search_start + 1.0))
 #endif
 		     )
-		{
+        	{
                   _ThreadIndex __victim;
                   __victim = __rng(__num_threads);
 
@@ -397,23 +397,23 @@ namespace __gnu_parallel
 #if !defined(__ICC) && !defined(__ECC)
 #                 pragma omp flush
 #endif
-		}
+        	}
 
 #if _GLIBCXX_ASSERTIONS
               if (omp_get_wtime() >= (__search_start + 1.0))
-		{
+        	{
                   sleep(1);
                   _GLIBCXX_PARALLEL_ASSERT(omp_get_wtime()
                                            < (__search_start + 1.0));
-		}
+        	}
 #endif
               if (!__successfully_stolen)
-		{
+        	{
 #if _GLIBCXX_ASSERTIONS
                   _GLIBCXX_PARALLEL_ASSERT(*__tl._M_elements_leftover == 0);
 #endif
                   return;
-		}
+        	}
             }
 	}
     }

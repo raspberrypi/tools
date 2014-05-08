@@ -95,7 +95,7 @@ namespace __parallel
 
   template<typename _IIter, typename _OIter, typename _BinaryOper>
     _OIter
-    adjacent_difference(_IIter, _IIter, _OIter, _BinaryOper,
+    adjacent_difference(_IIter, _IIter, _OIter, _BinaryOper, 
                         __gnu_parallel::sequential_tag);
 
   template<typename _IIter, typename _OIter>
@@ -105,7 +105,7 @@ namespace __parallel
 
   template<typename _IIter, typename _OIter, typename _BinaryOper>
     _OIter
-    adjacent_difference(_IIter, _IIter, _OIter, _BinaryOper,
+    adjacent_difference(_IIter, _IIter, _OIter, _BinaryOper, 
                         __gnu_parallel::_Parallelism);
 
   template<typename _IIter, typename _OIter, typename _BinaryOper,
@@ -116,9 +116,9 @@ namespace __parallel
 
   template<typename _IIter, typename _OIter, typename _BinaryOper>
     _OIter
-    __adjacent_difference_switch(_IIter, _IIter, _OIter, _BinaryOper,
-                               random_access_iterator_tag,
-                               random_access_iterator_tag,
+    __adjacent_difference_switch(_IIter, _IIter, _OIter, _BinaryOper, 
+                               random_access_iterator_tag, 
+                               random_access_iterator_tag, 
                                __gnu_parallel::_Parallelism __parallelism
                                = __gnu_parallel::parallel_unbalanced);
 
@@ -158,8 +158,8 @@ namespace __parallel
            typename BinaryFunction1, typename BinaryFunction2>
     _Tp
     __inner_product_switch(_RAIter1, _RAIter1, _RAIter2, _Tp, BinaryFunction1,
-                         BinaryFunction2, random_access_iterator_tag,
-                         random_access_iterator_tag,
+                         BinaryFunction2, random_access_iterator_tag, 
+                         random_access_iterator_tag, 
                          __gnu_parallel::_Parallelism
                          = __gnu_parallel::parallel_unbalanced);
 
@@ -167,7 +167,7 @@ namespace __parallel
            typename _BinaryFunction1, typename _BinaryFunction2,
            typename _Tag1, typename _Tag2>
     _Tp
-    __inner_product_switch(_IIter1, _IIter1, _IIter2, _Tp, _BinaryFunction1,
+    __inner_product_switch(_IIter1, _IIter1, _IIter2, _Tp, _BinaryFunction1, 
                          _BinaryFunction2, _Tag1, _Tag2);
 
 

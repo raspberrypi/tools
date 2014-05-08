@@ -145,10 +145,10 @@ namespace __cxxabiv1
   __cxa_deleted_virtual(void) __attribute__ ((__noreturn__));
 
   // Exception handling auxillary.
-  void
+  void 
   __cxa_bad_cast() __attribute__((__noreturn__));
 
-  void
+  void 
   __cxa_bad_typeid() __attribute__((__noreturn__));
 
 
@@ -602,7 +602,7 @@ namespace __cxxabiv1
   __cxa_allocate_exception(size_t) _GLIBCXX_NOTHROW;
 
   // Free the space allocated for the primary exception.
-  void
+  void 
   __cxa_free_exception(void*) _GLIBCXX_NOTHROW;
 
   // Throw the exception.
@@ -617,10 +617,10 @@ namespace __cxxabiv1
   void*
   __cxa_begin_catch(void*) _GLIBCXX_NOTHROW;
 
-  void
+  void 
   __cxa_end_catch();
 
-  void
+  void 
   __cxa_rethrow() __attribute__((__noreturn__));
 
   // Returns the type_info for the currently handled exception [15.3/8], or

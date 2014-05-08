@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,9 +54,9 @@ current ABI.
 
    <p><a name="index-OS-ABI-1577"></a><a name="index-set-osabi-1578"></a><a name="index-show-osabi-1579"></a><a name="index-Newlib-OS-ABI-and-its-influence-on-the-longjmp-handling-1580"></a>
 One <span class="sc">gdb</span> configuration can debug binaries for multiple operating
-system targets, either via remote debugging or native emulation.
+system targets, either via remote debugging or native emulation. 
 <span class="sc">gdb</span> will autodetect the <dfn>OS ABI</dfn> (Operating System ABI) in use,
-but you can override its conclusion using the <code>set osabi</code> command.
+but you can override its conclusion using the <code>set osabi</code> command. 
 One example where this is useful is in debugging of binaries which use
 an alternate C library (e.g. <span class="sc">uClibc</span> for <span class="sc">gnu</span>/Linux) which does
 not have the same identifying marks that the standard C library for your
@@ -64,7 +64,7 @@ platform provides.
 
    <p>When <span class="sc">gdb</span> is debugging the AArch64 architecture, it provides a
 &ldquo;Newlib&rdquo; OS ABI.  This is useful for handling <code>setjmp</code> and
-<code>longjmp</code> when debugging binaries that use the <span class="sc">newlib</span> C library.
+<code>longjmp</code> when debugging binaries that use the <span class="sc">newlib</span> C library. 
 The &ldquo;Newlib&rdquo; OS ABI can be selected by <code>set osabi Newlib</code>.
 
      <dl>
@@ -72,7 +72,7 @@ The &ldquo;Newlib&rdquo; OS ABI can be selected by <code>set osabi Newlib</code>
 
      <br><dt><code>set osabi</code><dd>With no argument, show the list of registered available OS ABI's.
 
-     <br><dt><code>set osabi </code><var>abi</var><dd>Set the current OS ABI to <var>abi</var>.
+     <br><dt><code>set osabi </code><var>abi</var><dd>Set the current OS ABI to <var>abi</var>. 
 </dl>
 
    <p><a name="index-float-promotion-1581"></a>
@@ -87,7 +87,7 @@ according to the architecture's convention for <code>float</code>.  For unprotot
 a function is prototyped.  If <span class="sc">gdb</span> calls a function that is not marked
 as prototyped, it consults <kbd>set coerce-float-to-double</kbd>.
 
-
+     
 <a name="index-set-coerce_002dfloat_002dto_002ddouble-1582"></a>
 <dl><dt><code>set coerce-float-to-double</code><dt><code>set coerce-float-to-double on</code><dd>Arguments of type <code>float</code> will be promoted to <code>double</code> when passed
 to an unprototyped function.  This is the default setting.
@@ -95,7 +95,7 @@ to an unprototyped function.  This is the default setting.
      <br><dt><code>set coerce-float-to-double off</code><dd>Arguments of type <code>float</code> will be passed directly to unprototyped
 functions.
 
-     <p><a name="index-show-coerce_002dfloat_002dto_002ddouble-1583"></a><br><dt><code>show coerce-float-to-double</code><dd>Show the current setting of promoting <code>float</code> to <code>double</code>.
+     <p><a name="index-show-coerce_002dfloat_002dto_002ddouble-1583"></a><br><dt><code>show coerce-float-to-double</code><dd>Show the current setting of promoting <code>float</code> to <code>double</code>. 
 </dl>
 
    <p><a name="index-set-cp_002dabi-1584"></a><a name="index-show-cp_002dabi-1585"></a><span class="sc">gdb</span> needs to know the ABI used for your program's C<tt>++</tt>
@@ -103,7 +103,7 @@ objects.  The correct C<tt>++</tt> ABI depends on which C<tt>++</tt> compiler wa
 used to build your application.  <span class="sc">gdb</span> only fully supports
 programs with a single C<tt>++</tt> ABI; if your program contains code using
 multiple C<tt>++</tt> ABI's or if <span class="sc">gdb</span> can not identify your
-program's ABI correctly, you can tell <span class="sc">gdb</span> which ABI to use.
+program's ABI correctly, you can tell <span class="sc">gdb</span> which ABI to use. 
 Currently supported ABI's include &ldquo;gnu-v2&rdquo;, for <code>g++</code> versions
 before 3.0, &ldquo;gnu-v3&rdquo;, for <code>g++</code> versions 3.0 and later, and
 &ldquo;hpaCC&rdquo; for the HP ANSI C<tt>++</tt> compiler.  Other C<tt>++</tt> compilers may
@@ -115,7 +115,8 @@ use the &ldquo;gnu-v2&rdquo; or &ldquo;gnu-v3&rdquo; ABI's as well.  The default
 
      <br><dt><code>set cp-abi</code><dd>With no argument, show the list of supported C<tt>++</tt> ABI's.
 
-     <br><dt><code>set cp-abi </code><var>abi</var><dt><code>set cp-abi auto</code><dd>Set the current C<tt>++</tt> ABI to <var>abi</var>, or return to automatic detection.
+     <br><dt><code>set cp-abi </code><var>abi</var><dt><code>set cp-abi auto</code><dd>Set the current C<tt>++</tt> ABI to <var>abi</var>, or return to automatic detection. 
 </dl>
 
    </body></html>
+

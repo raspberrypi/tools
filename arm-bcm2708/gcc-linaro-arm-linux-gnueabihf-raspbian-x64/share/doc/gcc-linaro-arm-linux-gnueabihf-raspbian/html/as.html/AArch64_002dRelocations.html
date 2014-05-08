@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="AArch64-Syntax.html#AArch64-Syntax">AAr
 <h5 class="subsubsection">9.1.2.3 Relocations</h5>
 
 <p><a name="index-relocations_002c-AArch64-531"></a><a name="index-AArch64-relocations-532"></a><a name="index-MOVN_002c-MOVZ-and-MOVK-group-relocations_002c-AArch64-533"></a>Relocations for &lsquo;<samp><span class="samp">MOVZ</span></samp>&rsquo; and &lsquo;<samp><span class="samp">MOVK</span></samp>&rsquo; instructions can be generated
-by prefixing the label with &lsquo;<samp><span class="samp">#:abs_g2:</span></samp>&rsquo; etc.
+by prefixing the label with &lsquo;<samp><span class="samp">#:abs_g2:</span></samp>&rsquo; etc. 
 For example to load the 48-bit absolute address of <var>foo</var> into x0:
 
 <pre class="smallexample">             movz x0, #:abs_g2:foo		// bits 32-47, overflow check
@@ -78,3 +78,4 @@ load the address of <var>foo</var> into x0:
 <pre class="smallexample">             adrp x0, #:pg_hi21:foo
 </pre>
    </body></html>
+

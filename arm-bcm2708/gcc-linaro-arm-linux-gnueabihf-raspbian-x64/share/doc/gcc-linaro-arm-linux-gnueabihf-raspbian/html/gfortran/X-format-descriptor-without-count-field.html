@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,10 +55,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.h
 <h4 class="subsection">6.1.4 <code>X</code> format descriptor without count field</h4>
 
 <p>To support legacy codes, GNU Fortran permits the count field of the
-<code>X</code> edit descriptor in <code>FORMAT</code> statements to be omitted.
+<code>X</code> edit descriptor in <code>FORMAT</code> statements to be omitted. 
 When omitted, the count is implicitly assumed to be one.
 
 <pre class="smallexample">            PRINT 10, 2, 3
      10     FORMAT (I1, X, I1)
 </pre>
    </body></html>
+

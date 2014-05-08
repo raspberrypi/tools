@@ -14,7 +14,7 @@
 #define _TC_MAKEVALUE(v,n) (_TC_MAKE32(v) << _TC_MAKE32(n))
 #define _TC_GETVALUE(v,n,m) ((_TC_MAKE32(v) & _TC_MAKE32(m)) >> _TC_MAKE32(n))
 
-/* verdict bit breakdown
+/* verdict bit breakdown 
  *
 bit 0: when set -> this packet has been munged already
 
@@ -23,12 +23,12 @@ bit 1: when set -> It is ok to munge this packet
 bit 2,3,4,5: Reclassify counter - sort of reverse TTL - if exceeded
 assume loop
 
-bit 6,7: Where this packet was last seen
+bit 6,7: Where this packet was last seen 
 0: Above the transmit example at the socket level
 1: on the Ingress
 2: on the Egress
 
-bit 8: when set --> Request not to classify on ingress.
+bit 8: when set --> Request not to classify on ingress. 
 
 bits 9,10,11: redirect counter -  redirect TTL. Loop avoidance
 
@@ -142,7 +142,7 @@ struct tcf_t {
 };
 
 struct tc_cnt {
-	int                   refcnt;
+	int                   refcnt; 
 	int                   bindcnt;
 };
 
@@ -184,7 +184,7 @@ enum {
 	TCA_U32_DIVISOR,
 	TCA_U32_SEL,
 	TCA_U32_POLICE,
-	TCA_U32_ACT,
+	TCA_U32_ACT,   
 	TCA_U32_INDEV,
 	TCA_U32_PCNT,
 	TCA_U32_MARK,
@@ -411,7 +411,7 @@ struct tcf_ematch_hdr {
 };
 
 /*  0                   1
- *  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+ *  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 
  * +-----------------------+-+-+---+
  * |         Unused        |S|I| R |
  * +-----------------------+-+-+---+

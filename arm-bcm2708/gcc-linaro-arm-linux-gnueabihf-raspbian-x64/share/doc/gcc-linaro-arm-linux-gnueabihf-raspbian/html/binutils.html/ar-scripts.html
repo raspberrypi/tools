@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -80,7 +80,7 @@ blanks.  Commas are shown in the explanations below, for clarity.
 
      <li>&lsquo;<samp><span class="samp">+</span></samp>&rsquo; is used as a line continuation character; if &lsquo;<samp><span class="samp">+</span></samp>&rsquo; appears
 at the end of a line, the text on the following line is considered part
-of the current command.
+of the current command. 
 </ul>
 
    <p>Here are the commands you can use in <samp><span class="command">ar</span></samp> scripts, or when using
@@ -111,7 +111,7 @@ effect) even if  no current archive is specified.
 
      <br><dt><code>CREATE </code><var>archive</var><dd>Creates an archive, and makes it the current archive (required for many
 other commands).  The new archive is created with a temporary name; it
-is not actually saved as <var>archive</var> until you use <code>SAVE</code>.
+is not actually saved as <var>archive</var> until you use <code>SAVE</code>. 
 You can overwrite existing archives; similarly, the contents of any
 existing file named <var>archive</var> will not be destroyed until <code>SAVE</code>.
 
@@ -153,13 +153,13 @@ many other commands).  Any changes as the result of subsequent commands
 will not actually affect <var>archive</var> until you next use <code>SAVE</code>.
 
      <br><dt><code>REPLACE </code><var>module</var><code>, </code><var>module</var><code>, ... </code><var>module</var><dd>In the current archive, replace each existing <var>module</var> (named in
-the <code>REPLACE</code> arguments) from files in the current working directory.
+the <code>REPLACE</code> arguments) from files in the current working directory. 
 To execute this command without errors, both the file, and the module in
 the current archive, must exist.
 
      <p>Requires prior use of <code>OPEN</code> or <code>CREATE</code>.
 
-     <br><dt><code>VERBOSE</code><dd>Toggle an internal flag governing the output from <code>DIRECTORY</code>.
+     <br><dt><code>VERBOSE</code><dd>Toggle an internal flag governing the output from <code>DIRECTORY</code>. 
 When the flag is on, <code>DIRECTORY</code> output matches output from
 &lsquo;<samp><span class="samp">ar -tv </span></samp>&rsquo;<small class="dots">...</small>.
 
@@ -172,3 +172,4 @@ command.
    </dl>
 
    </body></html>
+

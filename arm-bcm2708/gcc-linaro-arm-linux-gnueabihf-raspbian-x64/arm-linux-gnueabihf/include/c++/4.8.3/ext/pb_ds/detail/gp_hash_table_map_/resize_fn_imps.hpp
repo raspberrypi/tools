@@ -80,7 +80,7 @@ resize_imp(size_type new_size)
 {
 #ifdef PB_DS_REGRESSION
   typename _Alloc::group_adjustor adjust(m_num_e);
-#endif
+#endif 
 
   if (new_size == m_num_e)
     return;
@@ -130,9 +130,10 @@ resize_imp(entry_array a_entries_resized, size_type old_size)
 {
   for (size_type pos = 0; pos < old_size; ++pos)
     if (m_entries[pos].m_stat == valid_entry_status)
-      resize_imp_reassign(m_entries + pos, a_entries_resized,
+      resize_imp_reassign(m_entries + pos, a_entries_resized, 
 			  traits_base::m_store_extra_indicator);
 }
 
 #include <ext/pb_ds/detail/gp_hash_table_map_/resize_no_store_hash_fn_imps.hpp>
 #include <ext/pb_ds/detail/gp_hash_table_map_/resize_store_hash_fn_imps.hpp>
+

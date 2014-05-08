@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,15 +61,15 @@ module:
 <blockquote><p>This function looks up a type by name.  <var>name</var> is the name of the
 type to look up.  It must be a string.
 
-        <p>If <var>block</var> is given, then <var>name</var> is looked up in that scope.
+        <p>If <var>block</var> is given, then <var>name</var> is looked up in that scope. 
 Otherwise, it is searched for globally.
 
-        <p>Ordinarily, this function will return an instance of <code>gdb.Type</code>.
-If the named type cannot be found, it will throw an exception.
+        <p>Ordinarily, this function will return an instance of <code>gdb.Type</code>. 
+If the named type cannot be found, it will throw an exception. 
 </p></blockquote></div>
 
    <p>If the type is a structure or class type, or an enum type, the fields
-of that type can be accessed using the Python <dfn>dictionary syntax</dfn>.
+of that type can be accessed using the Python <dfn>dictionary syntax</dfn>. 
 For example, if <code>some_type</code> is a <code>gdb.Type</code> instance holding
 a structure type, you can access its <code>foo</code> field with:
 
@@ -84,14 +84,14 @@ description of the <code>Type.fields</code> method for a description of the
 <div class="defun">
 &mdash; Variable: <b>Type.code</b><var><a name="index-Type_002ecode-1791"></a></var><br>
 <blockquote><p>The type code for this type.  The type code will be one of the
-<code>TYPE_CODE_</code> constants defined below.
+<code>TYPE_CODE_</code> constants defined below. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Type.sizeof</b><var><a name="index-Type_002esizeof-1792"></a></var><br>
 <blockquote><p>The size of this type, in target <code>char</code> units.  Usually, a
 target's <code>char</code> type will be an 8-bit byte.  However, on some
-unusual platforms, this type may have a different size.
+unusual platforms, this type may have a different size. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -99,7 +99,7 @@ unusual platforms, this type may have a different size.
 <blockquote><p>The tag name for this type.  The tag name is the name after
 <code>struct</code>, <code>union</code>, or <code>enum</code> in C and C<tt>++</tt>; not all
 languages have this concept.  If this type has no tag name, then
-<code>None</code> is returned.
+<code>None</code> is returned. 
 </p></blockquote></div>
 
    <p>The following methods are provided:
@@ -136,7 +136,7 @@ non-zero value, which is the size of the field in bits.  Otherwise,
 this will be zero; in this case the field's size is given by its type.
 
           <br><dt><code>type</code><dd>The type of the field.  This is usually an instance of <code>Type</code>,
-but it can be <code>None</code> in some situations.
+but it can be <code>None</code> in some situations. 
 </dl>
         </p></blockquote></div>
 
@@ -147,7 +147,7 @@ type.  If one argument is given, it is the inclusive upper bound of
 the array; in this case the lower bound is zero.  If two arguments are
 given, the first argument is the lower bound of the array, and the
 second argument is the upper bound of the array.  An array's length
-must not be negative, but the bounds can be.
+must not be negative, but the bounds can be. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -161,26 +161,26 @@ must not be negative, but the bounds can be.
 
         <p>The difference between an <code>array</code> and a <code>vector</code> is that
 arrays behave like in C: when used in expressions they decay to a pointer
-to the first element whereas vectors are treated as first class values.
+to the first element whereas vectors are treated as first class values. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.const</b> ()<var><a name="index-Type_002econst-1797"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> object which represents a
-<code>const</code>-qualified variant of this type.
+<code>const</code>-qualified variant of this type. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.volatile</b> ()<var><a name="index-Type_002evolatile-1798"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> object which represents a
-<code>volatile</code>-qualified variant of this type.
+<code>volatile</code>-qualified variant of this type. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.unqualified</b> ()<var><a name="index-Type_002eunqualified-1799"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> object which represents an unqualified
 variant of this type.  That is, the result is neither <code>const</code> nor
-<code>volatile</code>.
+<code>volatile</code>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -188,25 +188,25 @@ variant of this type.  That is, the result is neither <code>const</code> nor
 <blockquote><p>Return a Python <code>Tuple</code> object that contains two elements: the
 low bound of the argument type and the high bound of that type.  If
 the type does not have a range, <span class="sc">gdb</span> will raise a
-<code>gdb.error</code> exception (see <a href="Exception-Handling.html#Exception-Handling">Exception Handling</a>).
+<code>gdb.error</code> exception (see <a href="Exception-Handling.html#Exception-Handling">Exception Handling</a>). 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.reference</b> ()<var><a name="index-Type_002ereference-1801"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> object which represents a reference to this
-type.
+type. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.pointer</b> ()<var><a name="index-Type_002epointer-1802"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> object which represents a pointer to this
-type.
+type. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Type.strip_typedefs</b> ()<var><a name="index-Type_002estrip_005ftypedefs-1803"></a></var><br>
 <blockquote><p>Return a new <code>gdb.Type</code> that represents the real type,
-after removing all layers of typedefs.
+after removing all layers of typedefs. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -222,7 +222,7 @@ the target type is the type of the elements.  For a typedef, the
 target type is the aliased type.
 
         <p>If the type does not have a target, this method will throw an
-exception.
+exception. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -234,15 +234,15 @@ return a new <code>gdb.Type</code> which represents the type of the
         <p>If this <code>gdb.Type</code> is not a template type, this will throw an
 exception.  Ordinarily, only C<tt>++</tt> code will have template types.
 
-        <p>If <var>block</var> is given, then <var>name</var> is looked up in that scope.
-Otherwise, it is searched for globally.
+        <p>If <var>block</var> is given, then <var>name</var> is looked up in that scope. 
+Otherwise, it is searched for globally. 
 </p></blockquote></div>
 
    <p>Each type has a code, which indicates what category this type falls
 into.  The available type categories are represented by constants
 defined in the <code>gdb</code> module:
 
-
+     
 <a name="index-TYPE_005fCODE_005fPTR-1806"></a>
 <a name="index-gdb_002eTYPE_005fCODE_005fPTR-1807"></a>
 <dl><dt><code>gdb.TYPE_CODE_PTR</code><dd>The type is a pointer.
@@ -297,10 +297,11 @@ language-defined string types; C strings are not represented this way.
      <p><a name="index-TYPE_005fCODE_005fDECFLOAT-1854"></a><a name="index-gdb_002eTYPE_005fCODE_005fDECFLOAT-1855"></a><br><dt><code>gdb.TYPE_CODE_DECFLOAT</code><dd>A decimal floating point type.
 
      <p><a name="index-TYPE_005fCODE_005fINTERNAL_005fFUNCTION-1856"></a><a name="index-gdb_002eTYPE_005fCODE_005fINTERNAL_005fFUNCTION-1857"></a><br><dt><code>gdb.TYPE_CODE_INTERNAL_FUNCTION</code><dd>A function internal to <span class="sc">gdb</span>.  This is the type used to represent
-convenience functions.
+convenience functions. 
 </dl>
 
    <p>Further support for types is provided in the <code>gdb.types</code>
 Python module (see <a href="gdb_002etypes.html#gdb_002etypes">gdb.types</a>).
 
    </body></html>
+

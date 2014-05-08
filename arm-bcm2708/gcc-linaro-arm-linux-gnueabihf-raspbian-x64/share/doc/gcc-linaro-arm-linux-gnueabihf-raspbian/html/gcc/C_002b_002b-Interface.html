@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ virtual functions) must be kept in each object file that includes class
 definitions.  You can use this pragma to avoid such duplication.  When a
 header file containing &lsquo;<samp><span class="samp">#pragma interface</span></samp>&rsquo; is included in a
 compilation, this auxiliary information is not generated (unless
-the main input source file itself uses &lsquo;<samp><span class="samp">#pragma implementation</span></samp>&rsquo;).
+the main input source file itself uses &lsquo;<samp><span class="samp">#pragma implementation</span></samp>&rsquo;). 
 Instead, the object files contain references to be resolved at link
 time.
 
@@ -90,7 +90,7 @@ implementation</span></samp>&rsquo;.
 
      <br><dt><code>#pragma implementation</code><dt><code>#pragma implementation "</code><var>objects</var><code>.h"</code><dd><a name="index-g_t_0023pragma-implementation-3514"></a>Use this pragma in a <em>main input file</em>, when you want full output from
 included header files to be generated (and made globally visible).  The
-included header file, in turn, should use &lsquo;<samp><span class="samp">#pragma interface</span></samp>&rsquo;.
+included header file, in turn, should use &lsquo;<samp><span class="samp">#pragma interface</span></samp>&rsquo;. 
 Backup copies of inline member functions, debugging information, and the
 internal tables used to implement virtual functions are all generated in
 implementation files.
@@ -114,7 +114,7 @@ implementation</span></samp>&rsquo; only specifies how to use the file&mdash;it 
 include it.)
 
      <p>There is no way to split up the contents of a single header file into
-multiple implementation files.
+multiple implementation files. 
 </dl>
 
  <p><a name="index-inlining-and-C_002b_002b-pragmas-3518"></a><a name="index-C_002b_002b-pragmas_002c-effect-on-inlining-3519"></a><a name="index-pragmas-in-C_002b_002b_002c-effect-on-inlining-3520"></a>&lsquo;<samp><span class="samp">#pragma implementation</span></samp>&rsquo; and &lsquo;<samp><span class="samp">#pragma interface</span></samp>&rsquo; also have an
@@ -131,7 +131,7 @@ that declares it as &lsquo;<samp><span class="samp">#pragma implementation</span
 code for the function itself; this defines a version of the function
 that can be found via pointers (or by callers compiled without
 inlining).  If all calls to the function can be inlined, you can avoid
-emitting the function by compiling with <samp><span class="option">-fno-implement-inlines</span></samp>.
+emitting the function by compiling with <samp><span class="option">-fno-implement-inlines</span></samp>. 
 If any calls are not inlined, you will get linker errors.
 
  <div class="footnote">
@@ -143,3 +143,4 @@ suffixes, such as &lsquo;<samp><span class="samp">.h</span></samp>&rsquo; or &ls
  <hr></div>
 
  </body></html>
+

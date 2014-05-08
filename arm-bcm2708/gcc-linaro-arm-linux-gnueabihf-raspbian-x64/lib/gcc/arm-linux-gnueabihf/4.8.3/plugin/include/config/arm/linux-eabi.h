@@ -1,6 +1,6 @@
 /* Configuration file for ARM GNU/Linux EABI targets.
    Copyright (C) 2004-2013 Free Software Foundation, Inc.
-   Contributed by CodeSourcery, LLC
+   Contributed by CodeSourcery, LLC   
 
    This file is part of GCC.
 

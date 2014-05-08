@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,22 +70,22 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
       [<b>--</b>|<var>files</var> ...]
      <!-- Target dependent options are listed below.  Keep the list sorted. -->
      <!-- Add an empty line for separation. -->
-
+     
      <em>Target AArch64 options:</em>
         [<b>-EB</b>|<b>-EL</b>]
         [<b>-mabi</b>=<var>ABI</var>]
-
+     
      <em>Target Alpha options:</em>
         [<b>-m</b><var>cpu</var>]
         [<b>-mdebug</b> | <b>-no-mdebug</b>]
         [<b>-replace</b> | <b>-noreplace</b>]
         [<b>-relax</b>] [<b>-g</b>] [<b>-G</b><var>size</var>]
         [<b>-F</b>] [<b>-32addr</b>]
-
+     
      <em>Target ARC options:</em>
         [<b>-marc[5|6|7|8]</b>]
         [<b>-EB</b>|<b>-EL</b>]
-
+     
      <em>Target ARM options:</em>
      <!-- Don't document the deprecated options -->
         [<b>-mcpu</b>=<var>processor</var>[+<var>extension</var>...]]
@@ -98,13 +98,13 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>-mapcs-32</b>|<b>-mapcs-26</b>|<b>-mapcs-float</b>|
          <b>-mapcs-reentrant</b>]
         [<b>-mthumb-interwork</b>] [<b>-k</b>]
-
+     
      <em>Target Blackfin options:</em>
         [<b>-mcpu</b>=<var>processor</var>[-<var>sirevision</var>]]
         [<b>-mfdpic</b>]
         [<b>-mno-fdpic</b>]
         [<b>-mnopic</b>]
-
+     
      <em>Target CRIS options:</em>
         [<b>--underscore</b> | <b>--no-underscore</b>]
         [<b>--pic</b>] [<b>-N</b>]
@@ -112,30 +112,30 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>--march=v0_v10</b> | <b>--march=v10</b> | <b>--march=v32</b> | <b>--march=common_v10_v32</b>]
      <!-- Deprecated - deliberately not documented. -->
      <!-- [@b{-h}] [@b{-H}] -->
-
+     
      <em>Target D10V options:</em>
         [<b>-O</b>]
-
+     
      <em>Target D30V options:</em>
         [<b>-O</b>|<b>-n</b>|<b>-N</b>]
-
+     
      <em>Target EPIPHANY options:</em>
         [<b>-mepiphany</b>|<b>-mepiphany16</b>]
-
+     
      <em>Target H8/300 options:</em>
         [-h-tick-hex]
      <!-- HPPA has no machine-dependent assembler options (yet). -->
-
+     
      <em>Target i386 options:</em>
         [<b>--32</b>|<b>--x32</b>|<b>--64</b>] [<b>-n</b>]
         [<b>-march</b>=<var>CPU</var>[+<var>EXTENSION</var>...]] [<b>-mtune</b>=<var>CPU</var>]
-
+     
      <em>Target i960 options:</em>
      <!-- see md_parse_option in tc-i960.c -->
         [<b>-ACA</b>|<b>-ACA_A</b>|<b>-ACB</b>|<b>-ACC</b>|<b>-AKA</b>|<b>-AKB</b>|
          <b>-AKC</b>|<b>-AMC</b>]
         [<b>-b</b>] [<b>-no-relax</b>]
-
+     
      <em>Target IA-64 options:</em>
         [<b>-mconstant-gp</b>|<b>-mauto-pic</b>]
         [<b>-milp32</b>|<b>-milp64</b>|<b>-mlp64</b>|<b>-mp64</b>]
@@ -144,20 +144,20 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>-munwind-check=warning</b>|<b>-munwind-check=error</b>]
         [<b>-mhint.b=ok</b>|<b>-mhint.b=warning</b>|<b>-mhint.b=error</b>]
         [<b>-x</b>|<b>-xexplicit</b>] [<b>-xauto</b>] [<b>-xdebug</b>]
-
+     
      <em>Target IP2K options:</em>
         [<b>-mip2022</b>|<b>-mip2022ext</b>]
-
+     
      <em>Target M32C options:</em>
         [<b>-m32c</b>|<b>-m16c</b>] [-relax] [-h-tick-hex]
-
+     
      <em>Target M32R options:</em>
         [<b>--m32rx</b>|<b>--[no-]warn-explicit-parallel-conflicts</b>|
         <b>--W[n]p</b>]
-
+     
      <em>Target M680X0 options:</em>
         [<b>-l</b>] [<b>-m68000</b>|<b>-m68010</b>|<b>-m68020</b>|...]
-
+     
      <em>Target M68HC11 options:</em>
         [<b>-m68hc11</b>|<b>-m68hc12</b>|<b>-m68hcs12</b>|<b>-mm9s12x</b>|<b>-mm9s12xg</b>]
         [<b>-mshort</b>|<b>-mlong</b>]
@@ -165,16 +165,16 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>--force-long-branches</b>] [<b>--short-branches</b>]
         [<b>--strict-direct-mode</b>] [<b>--print-insn-syntax</b>]
         [<b>--print-opcodes</b>] [<b>--generate-example</b>]
-
+     
      <em>Target MCORE options:</em>
         [<b>-jsri2bsr</b>] [<b>-sifilter</b>] [<b>-relax</b>]
         [<b>-mcpu=[210|340]</b>]
-
+     
      <em>Target Meta options:</em>
         [<b>-mcpu=</b><var>cpu</var>] [<b>-mfpu=</b><var>cpu</var>] [<b>-mdsp=</b><var>cpu</var>]
      <em>Target MICROBLAZE options:</em>
      <!-- MicroBlaze has no machine-dependent assembler options. -->
-
+     
      <em>Target MIPS options:</em>
         [<b>-nocpp</b>] [<b>-EL</b>] [<b>-EB</b>] [<b>-O</b>[<var>optimization level</var>]]
         [<b>-g</b>[<var>debug level</var>]] [<b>-G</b> <var>num</var>] [<b>-KPIC</b>] [<b>-call_shared</b>]
@@ -201,25 +201,25 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>-mfix-vr4130</b>] [<b>-mno-fix-vr4130</b>]
         [<b>-mdebug</b>] [<b>-no-mdebug</b>]
         [<b>-mpdr</b>] [<b>-mno-pdr</b>]
-
+     
      <em>Target MMIX options:</em>
         [<b>--fixed-special-register-names</b>] [<b>--globalize-symbols</b>]
         [<b>--gnu-syntax</b>] [<b>--relax</b>] [<b>--no-predefined-symbols</b>]
         [<b>--no-expand</b>] [<b>--no-merge-gregs</b>] [<b>-x</b>]
         [<b>--linker-allocated-gregs</b>]
-
+     
      <em>Target Nios II options:</em>
         [<b>-relax-all</b>] [<b>-relax-section</b>] [<b>-no-relax</b>]
         [<b>-EB</b>] [<b>-EL</b>]
-
+     
      <em>Target PDP11 options:</em>
         [<b>-mpic</b>|<b>-mno-pic</b>] [<b>-mall</b>] [<b>-mno-extensions</b>]
         [<b>-m</b><var>extension</var>|<b>-mno-</b><var>extension</var>]
         [<b>-m</b><var>cpu</var>] [<b>-m</b><var>machine</var>]
-
+     
      <em>Target picoJava options:</em>
         [<b>-mb</b>|<b>-me</b>]
-
+     
      <em>Target PowerPC options:</em>
         [<b>-a32</b>|<b>-a64</b>]
         [<b>-mpwrx</b>|<b>-mpwr2</b>|<b>-mpwr</b>|<b>-m601</b>|<b>-mppc</b>|<b>-mppc32</b>|<b>-m603</b>|<b>-m604</b>|<b>-m403</b>|<b>-m405</b>|
@@ -233,7 +233,7 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>-mlittle</b>|<b>-mlittle-endian</b>|<b>-le</b>|<b>-mbig</b>|<b>-mbig-endian</b>|<b>-be</b>]
         [<b>-msolaris</b>|<b>-mno-solaris</b>]
         [<b>-nops=</b><var>count</var>]
-
+     
      <em>Target RX options:</em>
         [<b>-mlittle-endian</b>|<b>-mbig-endian</b>]
         [<b>-m32bit-doubles</b>|<b>-m64bit-doubles</b>]
@@ -243,47 +243,47 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
         [<b>-mrelax</b>]
         [<b>-mint-register=</b><var>number</var>]
         [<b>-mgcc-abi</b>|<b>-mrx-abi</b>]
-
+     
      <em>Target s390 options:</em>
         [<b>-m31</b>|<b>-m64</b>] [<b>-mesa</b>|<b>-mzarch</b>] [<b>-march</b>=<var>CPU</var>]
         [<b>-mregnames</b>|<b>-mno-regnames</b>]
         [<b>-mwarn-areg-zero</b>]
-
+     
      <em>Target SCORE options:</em>
         [<b>-EB</b>][<b>-EL</b>][<b>-FIXDD</b>][<b>-NWARN</b>]
         [<b>-SCORE5</b>][<b>-SCORE5U</b>][<b>-SCORE7</b>][<b>-SCORE3</b>]
         [<b>-march=score7</b>][<b>-march=score3</b>]
         [<b>-USE_R1</b>][<b>-KPIC</b>][<b>-O0</b>][<b>-G</b> <var>num</var>][<b>-V</b>]
-
+     
      <em>Target SPARC options:</em>
      <!-- The order here is important.  See c-sparc.texi. -->
         [<b>-Av6</b>|<b>-Av7</b>|<b>-Av8</b>|<b>-Asparclet</b>|<b>-Asparclite</b>
          <b>-Av8plus</b>|<b>-Av8plusa</b>|<b>-Av9</b>|<b>-Av9a</b>]
         [<b>-xarch=v8plus</b>|<b>-xarch=v8plusa</b>] [<b>-bump</b>]
         [<b>-32</b>|<b>-64</b>]
-
+     
      <em>Target TIC54X options:</em>
       [<b>-mcpu=54[123589]</b>|<b>-mcpu=54[56]lp</b>] [<b>-mfar-mode</b>|<b>-mf</b>]
       [<b>-merrors-to-file</b> <var>&lt;filename&gt;</var>|<b>-me</b> <var>&lt;filename&gt;</var>]
-
-
+     
+     
      <em>Target TIC6X options:</em>
         [<b>-march=</b><var>arch</var>] [<b>-mbig-endian</b>|<b>-mlittle-endian</b>]
         [<b>-mdsbt</b>|<b>-mno-dsbt</b>] [<b>-mpid=no</b>|<b>-mpid=near</b>|<b>-mpid=far</b>]
         [<b>-mpic</b>|<b>-mno-pic</b>]
-
+     
      <em>Target TILE-Gx options:</em>
         [<b>-m32</b>|<b>-m64</b>][<b>-EB</b>][<b>-EL</b>]
      <!-- TILEPro has no machine-dependent assembler options -->
-
-
+     
+     
      <em>Target Xtensa options:</em>
       [<b>--[no-]text-section-literals</b>] [<b>--[no-]absolute-literals</b>]
       [<b>--[no-]target-align</b>] [<b>--[no-]longcalls</b>]
       [<b>--[no-]transform</b>]
       [<b>--rename-section</b> <var>oldname</var>=<var>newname</var>]
-
-
+     
+     
      <em>Target Z80 options:</em>
        [<b>-z80</b>] [<b>-r800</b>]
        [<b> -ignore-undocumented-instructions</b>] [<b>-Wnud</b>]
@@ -292,9 +292,9 @@ see <a href="Invoking.html#Invoking">Command-Line Options</a>.
        [<b> -warn-unportable-instructions</b>] [<b>-Wup</b>]
        [<b> -forbid-undocumented-instructions</b>] [<b>-Fud</b>]
        [<b> -forbid-unportable-instructions</b>] [<b>-Fup</b>]
-
+     
      <!-- Z8000 has no machine-dependent assembler options -->
-
+     
      <!-- man end -->
 </pre>
    <!-- man begin OPTIONS -->
@@ -340,7 +340,7 @@ with a backslash.  The <var>file</var> may itself contain additional
 listing without forms processing.  The &lsquo;<samp><span class="samp">=file</span></samp>&rsquo; option, if used, must be
 the last one.  By itself, &lsquo;<samp><span class="samp">-a</span></samp>&rsquo; defaults to &lsquo;<samp><span class="samp">-ahls</span></samp>&rsquo;.
 
-     <br><dt><code>--alternate</code><dd>Begin in alternate macro mode.
+     <br><dt><code>--alternate</code><dd>Begin in alternate macro mode. 
 See <a href="Altmacro.html#Altmacro"><code>.altmacro</code></a>.
 
      <br><dt><code>--compress-debug-sections</code><dd>Compress DWARF debug sections using zlib.  The debug sections are renamed
@@ -355,7 +355,7 @@ other assemblers.
      <br><dt><code>--debug-prefix-map </code><var>old</var><code>=</code><var>new</var><dd>When assembling files in directory <samp><var>old</var></samp>, record debugging
 information describing them as in <samp><var>new</var></samp> instead.
 
-     <br><dt><code>--defsym </code><var>sym</var><code>=</code><var>value</var><dd>Define the symbol <var>sym</var> to be <var>value</var> before assembling the input file.
+     <br><dt><code>--defsym </code><var>sym</var><code>=</code><var>value</var><dd>Define the symbol <var>sym</var> to be <var>value</var> before assembling the input file. 
 <var>value</var> must be an integer constant.  As in C, a leading &lsquo;<samp><span class="samp">0x</span></samp>&rsquo;
 indicates a hexadecimal value, and a leading &lsquo;<samp><span class="samp">0</span></samp>&rsquo; indicates an octal
 value.  The value of the symbol can be overridden inside a source file via the
@@ -403,7 +403,7 @@ suffix.
 
      <br><dt><code>-L</code><dt><code>--keep-locals</code><dd>Keep (in the symbol table) local symbols.  These symbols start with
 system-specific local label prefixes, typically &lsquo;<samp><span class="samp">.L</span></samp>&rsquo; for ELF systems
-or &lsquo;<samp><span class="samp">L</span></samp>&rsquo; for traditional a.out systems.
+or &lsquo;<samp><span class="samp">L</span></samp>&rsquo; for traditional a.out systems. 
 See <a href="Symbol-Names.html#Symbol-Names">Symbol Names</a>.
 
      <br><dt><code>--listing-lhs-width=</code><var>number</var><dd>Set the maximum width, in words, of the output data column for an assembler
@@ -469,24 +469,24 @@ for an Alpha processor.
 an ARC processor.
 
      <dl>
-<dt><code>-marc[5|6|7|8]</code><dd>This option selects the core processor variant.
-<br><dt><code>-EB | -EL</code><dd>Select either big-endian (-EB) or little-endian (-EL) output.
+<dt><code>-marc[5|6|7|8]</code><dd>This option selects the core processor variant. 
+<br><dt><code>-EB | -EL</code><dd>Select either big-endian (-EB) or little-endian (-EL) output. 
 </dl>
 
    <p>The following options are available when as is configured for the ARM
 processor family.
 
      <dl>
-<dt><code>-mcpu=</code><var>processor</var><code>[+</code><var>extension</var><code>...]</code><dd>Specify which ARM processor variant is the target.
-<br><dt><code>-march=</code><var>architecture</var><code>[+</code><var>extension</var><code>...]</code><dd>Specify which ARM architecture variant is used by the target.
-<br><dt><code>-mfpu=</code><var>floating-point-format</var><dd>Select which Floating Point architecture is the target.
-<br><dt><code>-mfloat-abi=</code><var>abi</var><dd>Select which floating point ABI is in use.
-<br><dt><code>-mthumb</code><dd>Enable Thumb only instruction decoding.
-<br><dt><code>-mapcs-32 | -mapcs-26 | -mapcs-float | -mapcs-reentrant</code><dd>Select which procedure calling convention is in use.
-<br><dt><code>-EB | -EL</code><dd>Select either big-endian (-EB) or little-endian (-EL) output.
+<dt><code>-mcpu=</code><var>processor</var><code>[+</code><var>extension</var><code>...]</code><dd>Specify which ARM processor variant is the target. 
+<br><dt><code>-march=</code><var>architecture</var><code>[+</code><var>extension</var><code>...]</code><dd>Specify which ARM architecture variant is used by the target. 
+<br><dt><code>-mfpu=</code><var>floating-point-format</var><dd>Select which Floating Point architecture is the target. 
+<br><dt><code>-mfloat-abi=</code><var>abi</var><dd>Select which floating point ABI is in use. 
+<br><dt><code>-mthumb</code><dd>Enable Thumb only instruction decoding. 
+<br><dt><code>-mapcs-32 | -mapcs-26 | -mapcs-float | -mapcs-reentrant</code><dd>Select which procedure calling convention is in use. 
+<br><dt><code>-EB | -EL</code><dd>Select either big-endian (-EB) or little-endian (-EL) output. 
 <br><dt><code>-mthumb-interwork</code><dd>Specify that the code has been generated with interworking between Thumb and
-ARM code in mind.
-<br><dt><code>-k</code><dd>Specify that PIC code has been generated.
+ARM code in mind. 
+<br><dt><code>-k</code><dd>Specify that PIC code has been generated. 
 </dl>
    <!-- man end -->
 
@@ -498,22 +498,22 @@ configured for the Blackfin processor family.
 
    <p>The following options are available when as is configured for
 a D10V processor.
-
+     
 <a name="index-D10V-optimization-5"></a>
 <a name="index-optimization_002c-D10V-6"></a>
-<dl><dt><code>-O</code><dd>Optimize output by parallelizing instructions.
+<dl><dt><code>-O</code><dd>Optimize output by parallelizing instructions. 
 </dl>
 
    <p>The following options are available when as is configured for a D30V
 processor.
-
+     
 <a name="index-D30V-optimization-7"></a>
 <a name="index-optimization_002c-D30V-8"></a>
 <dl><dt><code>-O</code><dd>Optimize output by parallelizing instructions.
 
      <p><a name="index-D30V-nops-9"></a><br><dt><code>-n</code><dd>Warn when nops are generated.
 
-     <p><a name="index-D30V-nops-after-32_002dbit-multiply-10"></a><br><dt><code>-N</code><dd>Warn when a nop after a 32-bit multiply instruction is generated.
+     <p><a name="index-D30V-nops-after-32_002dbit-multiply-10"></a><br><dt><code>-N</code><dd>Warn when a nop after a 32-bit multiply instruction is generated. 
 </dl>
    <!-- man end -->
 
@@ -589,7 +589,7 @@ Motorola 68000 series.
      <br><dt><code>-m68000 | -m68008 | -m68010 | -m68020 | -m68030</code><dt><code>| -m68040 | -m68060 | -m68302 | -m68331 | -m68332</code><dt><code>| -m68333 | -m68340 | -mcpu32 | -m5200</code><dd>Specify what processor in the 68000 family is the target.  The default
 is normally the 68020, but this can be changed at configuration time.
 
-     <br><dt><code>-m68881 | -m68882 | -mno-68881 | -mno-68882</code><dd>The target machine does (or does not) have a floating-point coprocessor.
+     <br><dt><code>-m68881 | -m68882 | -mno-68881 | -mno-68882</code><dd>The target machine does (or does not) have a floating-point coprocessor. 
 The default is to assume a coprocessor for 68020, 68030, and cpu32.  Although
 the basic 68000 is not compatible with the 68881, a combination of the
 two can be specified, since it's possible to do emulation of the
@@ -620,13 +620,13 @@ default is <samp><span class="option">-mpic</span></samp>.
 disable all other extensions.
 
      <br><dt><code>-m</code><var>machine</var><dd>Enable the instruction set extensions supported by a particular machine
-model, and disable all other extensions.
+model, and disable all other extensions. 
 </dl>
 
    <p>The following options are available when as is configured for
 a picoJava processor.
 
-
+     
 <a name="index-PJ-endianness-11"></a>
 <a name="index-endianness_002c-PJ-12"></a>
 <a name="index-big-endian-output_002c-PJ-13"></a>
@@ -668,7 +668,7 @@ when the instruction does not support direct addressing mode.
 
      <br><dt><code>--print-opcodes</code><dd>Print the list of instructions with syntax and then exit.
 
-     <br><dt><code>--generate-example</code><dd>Print an example of instruction for each possible instruction and then exit.
+     <br><dt><code>--generate-example</code><dd>Print an example of instruction for each possible instruction and then exit. 
 This option is only useful for testing <samp><span class="command">as</span></samp>.
 
    </dl>
@@ -679,7 +679,7 @@ for the SPARC architecture:
      <dl>
 <dt><code>-Av6 | -Av7 | -Av8 | -Asparclet | -Asparclite</code><dt><code>-Av8plus | -Av8plusa | -Av9 | -Av9a</code><dd>Explicitly select a variant of the SPARC architecture.
 
-     <p>&lsquo;<samp><span class="samp">-Av8plus</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-Av8plusa</span></samp>&rsquo; select a 32 bit environment.
+     <p>&lsquo;<samp><span class="samp">-Av8plus</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-Av8plusa</span></samp>&rsquo; select a 32 bit environment. 
 &lsquo;<samp><span class="samp">-Av9</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-Av9a</span></samp>&rsquo; select a 64 bit environment.
 
      <p>&lsquo;<samp><span class="samp">-Av8plusa</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-Av9a</span></samp>&rsquo; enable the SPARC V9 instruction set with
@@ -688,7 +688,7 @@ UltraSPARC extensions.
      <br><dt><code>-xarch=v8plus | -xarch=v8plusa</code><dd>For compatibility with the Solaris v9 assembler.  These options are
 equivalent to -Av8plus and -Av8plusa, respectively.
 
-     <br><dt><code>-bump</code><dd>Warn when the assembler switches to another architecture.
+     <br><dt><code>-bump</code><dd>Warn when the assembler switches to another architecture. 
 </dl>
 
    <p>The following options are available when as is configured for the 'c54x
@@ -696,10 +696,10 @@ architecture.
 
      <dl>
 <dt><code>-mfar-mode</code><dd>Enable extended addressing mode.  All addresses and relocations will assume
-extended addressing (usually 23 bits).
-<br><dt><code>-mcpu=</code><var>CPU_VERSION</var><dd>Sets the CPU version being compiled for.
+extended addressing (usually 23 bits). 
+<br><dt><code>-mcpu=</code><var>CPU_VERSION</var><dd>Sets the CPU version being compiled for. 
 <br><dt><code>-merrors-to-file </code><var>FILENAME</var><dd>Redirect error output to a file, for broken systems which don't support such
-behaviour in the shell.
+behaviour in the shell. 
 </dl>
 
    <p>The following options are available when as is configured for
@@ -714,10 +714,10 @@ use ECOFF format, such as a DECstation running Ultrix.  The default value is 8.
 
      <p><a name="index-little-endian-output_002c-MIPS-18"></a><br><dt><code>-EL</code><dd>Generate &ldquo;little endian&rdquo; format output.
 
-     <p><a name="index-MIPS-ISA-19"></a><br><dt><code>-mips1</code><dt><code>-mips2</code><dt><code>-mips3</code><dt><code>-mips4</code><dt><code>-mips5</code><dt><code>-mips32</code><dt><code>-mips32r2</code><dt><code>-mips64</code><dt><code>-mips64r2</code><dd>Generate code for a particular MIPS Instruction Set Architecture level.
+     <p><a name="index-MIPS-ISA-19"></a><br><dt><code>-mips1</code><dt><code>-mips2</code><dt><code>-mips3</code><dt><code>-mips4</code><dt><code>-mips5</code><dt><code>-mips32</code><dt><code>-mips32r2</code><dt><code>-mips64</code><dt><code>-mips64r2</code><dd>Generate code for a particular MIPS Instruction Set Architecture level. 
 &lsquo;<samp><span class="samp">-mips1</span></samp>&rsquo; is an alias for &lsquo;<samp><span class="samp">-march=r3000</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips2</span></samp>&rsquo; is an
 alias for &lsquo;<samp><span class="samp">-march=r6000</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips3</span></samp>&rsquo; is an alias for
-&lsquo;<samp><span class="samp">-march=r4000</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-mips4</span></samp>&rsquo; is an alias for &lsquo;<samp><span class="samp">-march=r8000</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">-march=r4000</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-mips4</span></samp>&rsquo; is an alias for &lsquo;<samp><span class="samp">-march=r8000</span></samp>&rsquo;. 
 &lsquo;<samp><span class="samp">-mips5</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips32</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips32r2</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips64</span></samp>&rsquo;, and
 &lsquo;<samp><span class="samp">-mips64r2</span></samp>&rsquo; correspond to generic MIPS V, MIPS32, MIPS32 Release 2,
 MIPS64, and MIPS64 Release 2 ISA processors, respectively.
@@ -749,32 +749,32 @@ turns off this option.  This is equivalent to putting <code>.set nomicromips</co
 at the start of the assembly file.
 
      <br><dt><code>-msmartmips</code><dt><code>-mno-smartmips</code><dd>Enables the SmartMIPS extension to the MIPS32 instruction set. This is
-equivalent to putting <code>.set smartmips</code> at the start of the assembly file.
+equivalent to putting <code>.set smartmips</code> at the start of the assembly file. 
 &lsquo;<samp><span class="samp">-mno-smartmips</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mips3d</code><dt><code>-no-mips3d</code><dd>Generate code for the MIPS-3D Application Specific Extension.
-This tells the assembler to accept MIPS-3D instructions.
+     <br><dt><code>-mips3d</code><dt><code>-no-mips3d</code><dd>Generate code for the MIPS-3D Application Specific Extension. 
+This tells the assembler to accept MIPS-3D instructions. 
 &lsquo;<samp><span class="samp">-no-mips3d</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdmx</code><dt><code>-no-mdmx</code><dd>Generate code for the MDMX Application Specific Extension.
-This tells the assembler to accept MDMX instructions.
+     <br><dt><code>-mdmx</code><dt><code>-no-mdmx</code><dd>Generate code for the MDMX Application Specific Extension. 
+This tells the assembler to accept MDMX instructions. 
 &lsquo;<samp><span class="samp">-no-mdmx</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdsp</code><dt><code>-mno-dsp</code><dd>Generate code for the DSP Release 1 Application Specific Extension.
-This tells the assembler to accept DSP Release 1 instructions.
+     <br><dt><code>-mdsp</code><dt><code>-mno-dsp</code><dd>Generate code for the DSP Release 1 Application Specific Extension. 
+This tells the assembler to accept DSP Release 1 instructions. 
 &lsquo;<samp><span class="samp">-mno-dsp</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdspr2</code><dt><code>-mno-dspr2</code><dd>Generate code for the DSP Release 2 Application Specific Extension.
-This option implies -mdsp.
-This tells the assembler to accept DSP Release 2 instructions.
+     <br><dt><code>-mdspr2</code><dt><code>-mno-dspr2</code><dd>Generate code for the DSP Release 2 Application Specific Extension. 
+This option implies -mdsp. 
+This tells the assembler to accept DSP Release 2 instructions. 
 &lsquo;<samp><span class="samp">-mno-dspr2</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mmt</code><dt><code>-mno-mt</code><dd>Generate code for the MT Application Specific Extension.
-This tells the assembler to accept MT instructions.
+     <br><dt><code>-mmt</code><dt><code>-mno-mt</code><dd>Generate code for the MT Application Specific Extension. 
+This tells the assembler to accept MT instructions. 
 &lsquo;<samp><span class="samp">-mno-mt</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mmcu</code><dt><code>-mno-mcu</code><dd>Generate code for the MCU Application Specific Extension.
-This tells the assembler to accept MCU instructions.
+     <br><dt><code>-mmcu</code><dt><code>-mno-mcu</code><dd>Generate code for the MCU Application Specific Extension. 
+This tells the assembler to accept MCU instructions. 
 &lsquo;<samp><span class="samp">-mno-mcu</span></samp>&rsquo; turns off this option.
 
      <br><dt><code>-minsn32</code><dt><code>-mno-insn32</code><dd>Only use 32-bit instruction encodings when generating code for the
@@ -800,7 +800,7 @@ out-of-range branches to produce an error.
 
      <p><a name="index-emulation-20"></a><br><dt><code>--emulation=</code><var>name</var><dd>This option was formerly used to switch between ELF and ECOFF output
 on targets like IRIX 5 that supported both.  MIPS ECOFF support was
-removed in GAS 2.24, so the option now serves little purpose.
+removed in GAS 2.24, so the option now serves little purpose. 
 It is retained for backwards compatibility.
 
      <p>The available configuration names are: &lsquo;<samp><span class="samp">mipself</span></samp>&rsquo;, &lsquo;<samp><span class="samp">mipslelf</span></samp>&rsquo; and
@@ -812,24 +812,24 @@ preferred options instead.
      <br><dt><code>-nocpp</code><dd><samp><span class="command">as</span></samp> ignores this option.  It is accepted for compatibility with
 the native tools.
 
-     <br><dt><code>--trap</code><dt><code>--no-trap</code><dt><code>--break</code><dt><code>--no-break</code><dd>Control how to deal with multiplication overflow and division by zero.
+     <br><dt><code>--trap</code><dt><code>--no-trap</code><dt><code>--break</code><dt><code>--no-break</code><dd>Control how to deal with multiplication overflow and division by zero. 
 &lsquo;<samp><span class="samp">--trap</span></samp>&rsquo; or &lsquo;<samp><span class="samp">--no-break</span></samp>&rsquo; (which are synonyms) take a trap exception
 (and only work for Instruction Set Architecture level 2 and higher);
 &lsquo;<samp><span class="samp">--break</span></samp>&rsquo; or &lsquo;<samp><span class="samp">--no-trap</span></samp>&rsquo; (also synonyms, and the default) take a
 break exception.
 
      <br><dt><code>-n</code><dd>When this option is used, <samp><span class="command">as</span></samp> will issue a warning every
-time it generates a nop instruction from a macro.
+time it generates a nop instruction from a macro. 
 </dl>
 
    <p>The following options are available when as is configured for
 an MCore processor.
 
      <dl>
-<dt><code>-jsri2bsr</code><dt><code>-nojsri2bsr</code><dd>Enable or disable the JSRI to BSR transformation.  By default this is enabled.
+<dt><code>-jsri2bsr</code><dt><code>-nojsri2bsr</code><dd>Enable or disable the JSRI to BSR transformation.  By default this is enabled. 
 The command line option &lsquo;<samp><span class="samp">-nojsri2bsr</span></samp>&rsquo; can be used to disable it.
 
-     <br><dt><code>-sifilter</code><dt><code>-nosifilter</code><dd>Enable or disable the silicon filter behaviour.  By default this is disabled.
+     <br><dt><code>-sifilter</code><dt><code>-nosifilter</code><dd>Enable or disable the silicon filter behaviour.  By default this is disabled. 
 The default can be overridden by the &lsquo;<samp><span class="samp">-sifilter</span></samp>&rsquo; command line option.
 
      <br><dt><code>-relax</code><dd>Alter jump instructions for long displacements.
@@ -861,15 +861,15 @@ for a PowerPC processor.
 processor family.
 
      <dl>
-<dt><code>-m31</code><dt><code>-m64</code><dd>Select the word size, either 31/32 bits or 64 bits.
+<dt><code>-m31</code><dt><code>-m64</code><dd>Select the word size, either 31/32 bits or 64 bits. 
 <br><dt><code>-mesa</code><br><dt><code>-mzarch</code><dd>Select the architecture mode, either the Enterprise System
-Architecture (esa) or the z/Architecture mode (zarch).
+Architecture (esa) or the z/Architecture mode (zarch). 
 <br><dt><code>-march=</code><var>processor</var><dd>Specify which s390 processor variant is the target, &lsquo;<samp><span class="samp">g6</span></samp>&rsquo;, &lsquo;<samp><span class="samp">g6</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">z900</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z990</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z9-109</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z9-ec</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z10</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">z196</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">zEC12</span></samp>&rsquo;.
-<br><dt><code>-mregnames</code><dt><code>-mno-regnames</code><dd>Allow or disallow symbolic names for registers.
+&lsquo;<samp><span class="samp">z196</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">zEC12</span></samp>&rsquo;. 
+<br><dt><code>-mregnames</code><dt><code>-mno-regnames</code><dd>Allow or disallow symbolic names for registers. 
 <br><dt><code>-mwarn-areg-zero</code><dd>Warn whenever the operand for a base or index register has been specified
-but evaluates to zero.
+but evaluates to zero. 
 </dl>
    <!-- man end -->
 
@@ -886,14 +886,14 @@ for an Xtensa processor.
    <p>The following options are available when as is configured for
 a Z80 family processor.
      <dl>
-<dt><code>-z80</code><dd>Assemble for Z80 processor.
-<br><dt><code>-r800</code><dd>Assemble for R800 processor.
-<br><dt><code>-ignore-undocumented-instructions</code><dt><code>-Wnud</code><dd>Assemble undocumented Z80 instructions that also work on R800 without warning.
-<br><dt><code>-ignore-unportable-instructions</code><dt><code>-Wnup</code><dd>Assemble all undocumented Z80 instructions without warning.
-<br><dt><code>-warn-undocumented-instructions</code><dt><code>-Wud</code><dd>Issue a warning for undocumented Z80 instructions that also work on R800.
-<br><dt><code>-warn-unportable-instructions</code><dt><code>-Wup</code><dd>Issue a warning for undocumented Z80 instructions that do not work on R800.
-<br><dt><code>-forbid-undocumented-instructions</code><dt><code>-Fud</code><dd>Treat all undocumented instructions as errors.
-<br><dt><code>-forbid-unportable-instructions</code><dt><code>-Fup</code><dd>Treat undocumented Z80 instructions that do not work on R800 as errors.
+<dt><code>-z80</code><dd>Assemble for Z80 processor. 
+<br><dt><code>-r800</code><dd>Assemble for R800 processor. 
+<br><dt><code>-ignore-undocumented-instructions</code><dt><code>-Wnud</code><dd>Assemble undocumented Z80 instructions that also work on R800 without warning. 
+<br><dt><code>-ignore-unportable-instructions</code><dt><code>-Wnup</code><dd>Assemble all undocumented Z80 instructions without warning. 
+<br><dt><code>-warn-undocumented-instructions</code><dt><code>-Wud</code><dd>Issue a warning for undocumented Z80 instructions that also work on R800. 
+<br><dt><code>-warn-unportable-instructions</code><dt><code>-Wup</code><dd>Issue a warning for undocumented Z80 instructions that do not work on R800. 
+<br><dt><code>-forbid-undocumented-instructions</code><dt><code>-Fud</code><dd>Treat all undocumented instructions as errors. 
+<br><dt><code>-forbid-unportable-instructions</code><dt><code>-Fup</code><dd>Treat undocumented Z80 instructions that do not work on R800 as errors. 
 </dl>
 
 <!-- man end -->
@@ -908,3 +908,4 @@ a Z80 family processor.
 </ul>
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ mentioned here.
 
      <ul>
 <li>Tracepoint expressions are intended to gather objects (lvalues).  Thus
-the full flexibility of GDB's expression evaluator is not available.
+the full flexibility of GDB's expression evaluator is not available. 
 You cannot call functions, cast objects to aggregate types, access
 convenience variables or modify values (except by assignment to trace
 state variables).  Some language features may implicitly call
@@ -91,7 +91,7 @@ by <code>ptr</code>.
 tracepoint.  Instead, you may collect the registers and a few hundred
 bytes from the stack pointer with something like <code>*(unsigned char *)$esp@300</code>
 (adjust to use the name of the actual stack pointer register on your
-target architecture, and the amount of stack you wish to capture).
+target architecture, and the amount of stack you wish to capture). 
 Then the <code>backtrace</code> command will show a partial backtrace when
 using a trace frame.  The number of stack frames that can be examined
 depends on the sizes of the frames in the collected stack.  Note that
@@ -111,3 +111,4 @@ it to zero.
    </ul>
 
    </body></html>
+

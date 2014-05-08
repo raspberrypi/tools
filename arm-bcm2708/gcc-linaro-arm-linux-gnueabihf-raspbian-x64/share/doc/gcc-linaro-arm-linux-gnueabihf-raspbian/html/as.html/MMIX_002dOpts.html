@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MMIX_002dDependent.html#MMIX_002dDepend
 names specified in <a href="MMIX_002dRegs.html#MMIX_002dRegs">MMIX-Regs</a> are recognized in the instructions
 <code>PUT</code> and <code>GET</code>.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dglobalize_002dsymbols_007d-command-line-option_002c-MMIX-1463"></a>You can use the &lsquo;<samp><span class="samp">--globalize-symbols</span></samp>&rsquo; to make all symbols global.
+   <p><a name="index-g_t_0040samp_007b_002d_002dglobalize_002dsymbols_007d-command-line-option_002c-MMIX-1463"></a>You can use the &lsquo;<samp><span class="samp">--globalize-symbols</span></samp>&rsquo; to make all symbols global. 
 This option is useful when splitting up a <code>mmixal</code> program into
 several files.
 
@@ -100,7 +100,7 @@ implemented in <code>ld</code>.)  The option &lsquo;<samp><span class="samp">-x<
 expansion is to not expand it, but just mark the call as redirectable to a
 stub, which <code>ld</code> creates at link-time, but only if the
 original &lsquo;<samp><span class="samp">PUSHJ</span></samp>&rsquo; instruction is found not to reach the target.  The
-stub consists of the necessary instructions to form a jump to the target.
+stub consists of the necessary instructions to form a jump to the target. 
 This happens if <code>as</code> can assert that the &lsquo;<samp><span class="samp">PUSHJ</span></samp>&rsquo;
 instruction can reach such a stub.  The option &lsquo;<samp><span class="samp">--no-pushj-stubs</span></samp>&rsquo;
 disables this shorter expansion, and the longer series of instructions is
@@ -115,3 +115,4 @@ passed through to the linker, which will allocate as many global registers
 as is needed.
 
    </body></html>
+

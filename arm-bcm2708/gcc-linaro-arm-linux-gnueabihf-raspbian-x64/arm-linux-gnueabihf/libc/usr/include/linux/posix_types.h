@@ -16,7 +16,7 @@
 
 /*
  * Those macros may have been defined in <gnu/types.h>. But we always
- * use the ones here.
+ * use the ones here. 
  */
 #undef __NFDBITS
 #define __NFDBITS	(8 * sizeof(unsigned long))

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -84,7 +84,7 @@ specified range.  Both bounds are considered to be inside the range.
 next trace frame that corresponds to a tracepoint at an address outside
 the specified range.  Both bounds are considered to be inside the range.
 
-     <br><dt>&lsquo;<samp><span class="samp">line</span></samp>&rsquo;<dd>Line specification is required as parameter.  See <a href="Specify-Location.html#Specify-Location">Specify Location</a>.
+     <br><dt>&lsquo;<samp><span class="samp">line</span></samp>&rsquo;<dd>Line specification is required as parameter.  See <a href="Specify-Location.html#Specify-Location">Specify Location</a>. 
 Finds next trace frame that corresponds to a tracepoint at
 the specified location.
 
@@ -104,7 +104,7 @@ the &lsquo;<samp><span class="samp">found</span></samp>&rsquo; field has value o
 the &lsquo;<samp><span class="samp">found</span></samp>&rsquo; field has value of &lsquo;<samp><span class="samp">1</span></samp>&rsquo;.
 
      <br><dt>&lsquo;<samp><span class="samp">frame</span></samp>&rsquo;<dd>The information about the frame corresponding to the found trace
-frame.  This field is present only if a trace frame was found.
+frame.  This field is present only if a trace frame was found. 
 See <a href="GDB_002fMI-Frame-Information.html#GDB_002fMI-Frame-Information">GDB/MI Frame Information</a>, for description of this field.
 
    </dl>
@@ -229,9 +229,9 @@ may be absent iff tracing was never stopped on target yet.  The
 value of &lsquo;<samp><span class="samp">request</span></samp>&rsquo; means the tracing was stopped as result of
 the <code>-trace-stop</code> command.  The value of &lsquo;<samp><span class="samp">overflow</span></samp>&rsquo; means
 the tracing buffer is full.  The value of &lsquo;<samp><span class="samp">disconnection</span></samp>&rsquo; means
-tracing was automatically stopped when <span class="sc">gdb</span> has disconnected.
+tracing was automatically stopped when <span class="sc">gdb</span> has disconnected. 
 The value of &lsquo;<samp><span class="samp">passcount</span></samp>&rsquo; means tracing was stopped when a
-tracepoint was passed a maximal number of times for that tracepoint.
+tracepoint was passed a maximal number of times for that tracepoint. 
 This field is present if &lsquo;<samp><span class="samp">supported</span></samp>&rsquo; field is not &lsquo;<samp><span class="samp">0</span></samp>&rsquo;.
 
      <br><dt>&lsquo;<samp><span class="samp">stopping-tracepoint</span></samp>&rsquo;<dd>The number of tracepoint whose passcount as exceeded.  This field is
@@ -282,3 +282,4 @@ fields as <code>-trace-status</code>, except that the &lsquo;<samp><span class="
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

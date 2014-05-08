@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
    <p><a name="index-string_002c-copying-to-object-file-470"></a><a name="index-string8_002c-copying-to-object-file-471"></a><a name="index-string16_002c-copying-to-object-file-472"></a><a name="index-string32_002c-copying-to-object-file-473"></a><a name="index-string64_002c-copying-to-object-file-474"></a><a name="index-g_t_0040code_007bstring_007d-directive-475"></a><a name="index-g_t_0040code_007bstring8_007d-directive-476"></a><a name="index-g_t_0040code_007bstring16_007d-directive-477"></a><a name="index-g_t_0040code_007bstring32_007d-directive-478"></a><a name="index-g_t_0040code_007bstring64_007d-directive-479"></a>
 Copy the characters in <var>str</var> to the object file.  You may specify more than
 one string to copy, separated by commas.  Unless otherwise specified for a
-particular machine, the assembler marks the end of each string with a 0 byte.
+particular machine, the assembler marks the end of each string with a 0 byte. 
 You can use any of the escape sequences described in <a href="Strings.html#Strings">Strings</a>.
 
    <p>The variants <code>string16</code>, <code>string32</code> and <code>string64</code> differ from
@@ -63,7 +63,8 @@ are stored in target endianness byte order.
    <p>Example:
 <pre class="smallexample">     	.string32 "BYE"
      expands to:
-	.string   "B\0\0\0Y\0\0\0E\0\0\0"  /* On little endian targets.  */
-	.string   "\0\0\0B\0\0\0Y\0\0\0E"  /* On big endian targets.  */
+     	.string   "B\0\0\0Y\0\0\0E\0\0\0"  /* On little endian targets.  */
+     	.string   "\0\0\0B\0\0\0Y\0\0\0E"  /* On big endian targets.  */
 </pre>
    </body></html>
+

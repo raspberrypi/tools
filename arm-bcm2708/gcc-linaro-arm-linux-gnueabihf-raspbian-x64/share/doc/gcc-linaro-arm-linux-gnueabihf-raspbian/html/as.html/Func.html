@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,12 +48,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 <h3 class="section">7.56 <code>.func </code><var>name</var><code>[,</code><var>label</var><code>]</code></h3>
 
 <p><a name="index-g_t_0040code_007bfunc_007d-directive-343"></a><code>.func</code> emits debugging information to denote function <var>name</var>, and
-is ignored unless the file is assembled with debugging enabled.
-Only &lsquo;<samp><span class="samp">--gstabs[+]</span></samp>&rsquo; is currently supported.
+is ignored unless the file is assembled with debugging enabled. 
+Only &lsquo;<samp><span class="samp">--gstabs[+]</span></samp>&rsquo; is currently supported. 
 <var>label</var> is the entry point of the function and if omitted <var>name</var>
-prepended with the &lsquo;<samp><span class="samp">leading char</span></samp>&rsquo; is used.
-&lsquo;<samp><span class="samp">leading char</span></samp>&rsquo; is usually <code>_</code> or nothing, depending on the target.
-All functions are currently defined to have <code>void</code> return type.
+prepended with the &lsquo;<samp><span class="samp">leading char</span></samp>&rsquo; is used. 
+&lsquo;<samp><span class="samp">leading char</span></samp>&rsquo; is usually <code>_</code> or nothing, depending on the target. 
+All functions are currently defined to have <code>void</code> return type. 
 The function must be terminated with <code>.endfunc</code>.
 
    </body></html>
+

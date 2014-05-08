@@ -76,7 +76,7 @@ join_imp(node_pointer p_x, node_pointer p_r)
   const bool right_join = h >= other_h;
   if (right_join)
     {
-      join_pos = find_join_pos_right(base_type::m_p_head->m_p_parent,
+      join_pos = find_join_pos_right(base_type::m_p_head->m_p_parent, 
 				     h, other_h);
       p_x_l = join_pos.first;
       p_x_r = p_r;
@@ -88,7 +88,7 @@ join_imp(node_pointer p_x, node_pointer p_r)
       if (p_r != 0)
 	p_r->m_p_parent = base_type::m_p_head;
 
-      join_pos = find_join_pos_left(base_type::m_p_head->m_p_parent,
+      join_pos = find_join_pos_left(base_type::m_p_head->m_p_parent, 
 				    h, other_h);
       p_x_r = join_pos.first;
     }
@@ -135,7 +135,7 @@ split_min()
 #ifdef _GLIBCXX_DEBUG
   const node_pointer p_head = base_type::m_p_head;
   _GLIBCXX_DEBUG_ASSERT(p_min != p_head);
-#endif
+#endif 
 
   remove_node(p_min);
   return p_min;
@@ -303,3 +303,4 @@ split_at_node(node_pointer p_nd, PB_DS_CLASS_C_DEC& other)
   PB_DS_STRUCT_ONLY_ASSERT_VALID((*this))
   PB_DS_STRUCT_ONLY_ASSERT_VALID(other)
 }
+

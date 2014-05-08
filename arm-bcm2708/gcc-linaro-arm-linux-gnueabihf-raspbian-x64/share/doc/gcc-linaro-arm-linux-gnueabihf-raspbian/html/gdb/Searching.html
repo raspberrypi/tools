@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,33 +46,33 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Readline-Interaction.html#Readline-Inte
 <h4 class="subsection">32.2.5 Searching for Commands in the History</h4>
 
 <p>Readline provides commands for searching through the command history
-for lines containing a specified string.
+for lines containing a specified string. 
 There are two search modes:  <dfn>incremental</dfn> and <dfn>non-incremental</dfn>.
 
    <p>Incremental searches begin before the user has finished typing the
-search string.
+search string. 
 As each character of the search string is typed, Readline displays
-the next entry from the history matching the string typed so far.
+the next entry from the history matching the string typed so far. 
 An incremental search requires only as many characters as needed to
-find the desired history entry.
+find the desired history entry. 
 To search backward in the history for a particular string, type
-<kbd>C-r</kbd>.  Typing <kbd>C-s</kbd> searches forward through the history.
+<kbd>C-r</kbd>.  Typing <kbd>C-s</kbd> searches forward through the history. 
 The characters present in the value of the <code>isearch-terminators</code> variable
-are used to terminate an incremental search.
+are used to terminate an incremental search. 
 If that variable has not been assigned a value, the &lt;ESC&gt; and
-<kbd>C-J</kbd> characters will terminate an incremental search.
-<kbd>C-g</kbd> will abort an incremental search and restore the original line.
+<kbd>C-J</kbd> characters will terminate an incremental search. 
+<kbd>C-g</kbd> will abort an incremental search and restore the original line. 
 When the search is terminated, the history entry containing the
 search string becomes the current line.
 
    <p>To find other matching entries in the history list, type <kbd>C-r</kbd> or
-<kbd>C-s</kbd> as appropriate.
+<kbd>C-s</kbd> as appropriate. 
 This will search backward or forward in the history for the next
-entry matching the search string typed so far.
+entry matching the search string typed so far. 
 Any other key sequence bound to a Readline command will terminate
-the search and execute that command.
+the search and execute that command. 
 For instance, a &lt;RET&gt; will terminate the search and accept
-the line, thereby executing the command from the history list.
+the line, thereby executing the command from the history list. 
 A movement command will terminate the search, make the last line found
 the current line, and begin editing.
 
@@ -85,3 +85,4 @@ to search for matching history lines.  The search string may be
 typed by the user or be part of the contents of the current line.
 
    </body></html>
+

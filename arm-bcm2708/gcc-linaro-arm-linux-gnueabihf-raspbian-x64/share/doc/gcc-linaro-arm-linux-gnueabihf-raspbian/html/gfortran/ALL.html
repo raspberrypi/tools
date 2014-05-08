@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ in the array along dimension <var>DIM</var>.
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>MASK</var> </td><td valign="top" width="70%">The type of the argument shall be <code>LOGICAL</code> and
-it shall not be scalar.
+it shall not be scalar. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>DIM</var>  </td><td valign="top" width="70%">(Optional) <var>DIM</var> shall be a scalar integer
 with a value that lies between one and the rank of <var>MASK</var>.
      <br></td></tr></table>
@@ -79,11 +79,11 @@ an array with the rank of <var>MASK</var> minus 1.  The shape is determined from
 the shape of <var>MASK</var> where the <var>DIM</var> dimension is elided.
 
           <dl>
-<dt>(A)<dd><code>ALL(MASK)</code> is true if all elements of <var>MASK</var> are true.
-It also is true if <var>MASK</var> has zero size; otherwise, it is false.
+<dt>(A)<dd><code>ALL(MASK)</code> is true if all elements of <var>MASK</var> are true. 
+It also is true if <var>MASK</var> has zero size; otherwise, it is false. 
 <br><dt>(B)<dd>If the rank of <var>MASK</var> is one, then <code>ALL(MASK,DIM)</code> is equivalent
 to <code>ALL(MASK)</code>.  If the rank is greater than one, then <code>ALL(MASK,DIM)</code>
-is determined by applying <code>ALL</code> to the array sections.
+is determined by applying <code>ALL</code> to the array sections. 
 </dl>
 
      <br><dt><em>Example</em>:<dd>
@@ -106,3 +106,4 @@ is determined by applying <code>ALL</code> to the array sections.
      </dl>
 
    </body></html>
+

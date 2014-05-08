@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ integer variables in DATA statements.  Since Fortran 2003 BOZ literals
 are also allowed as argument of <code>REAL</code>, <code>DBLE</code>, <code>INT</code>
 and <code>CMPLX</code>; the result is the same as if the integer BOZ
 literal had been converted by <code>TRANSFER</code> to, respectively,
-<code>real</code>, <code>double precision</code>, <code>integer</code> or <code>complex</code>.
+<code>real</code>, <code>double precision</code>, <code>integer</code> or <code>complex</code>. 
 As GNU Fortran extension the intrinsic procedures <code>FLOAT</code>,
 <code>DFLOAT</code>, <code>COMPLEX</code> and <code>DCMPLX</code> are treated alike.
 
@@ -79,7 +79,7 @@ suffix to the string, for example, <code>Z'ABC'</code> and <code>'ABC'Z</code> a
 equivalent.
 
    <p>Furthermore, GNU Fortran allows using BOZ literal constants outside
-DATA statements and the four intrinsic functions allowed by Fortran 2003.
+DATA statements and the four intrinsic functions allowed by Fortran 2003. 
 In DATA statements, in direct assignments, where the right-hand side
 only contains a BOZ literal constant, and for old-style initializers of
 the form <code>integer i /o'0173'/</code>, the constant is transferred
@@ -87,7 +87,7 @@ as if <code>TRANSFER</code> had been used; for <code>COMPLEX</code> numbers, onl
 the real part is initialized unless <code>CMPLX</code> is used.  In all other
 cases, the BOZ literal constant is converted to an <code>INTEGER</code> value with
 the largest decimal representation.  This value is then converted
-numerically to the type and kind of the variable in question.
+numerically to the type and kind of the variable in question. 
 (For instance, <code>real :: r = b'0000001' + 1</code> initializes <code>r</code>
 with <code>2.0</code>.) As different compilers implement the extension
 differently, one should be careful when doing bitwise initialization
@@ -101,3 +101,4 @@ option can be used as a workaround for legacy code that initializes
 integers in this manner.
 
    </body></html>
+

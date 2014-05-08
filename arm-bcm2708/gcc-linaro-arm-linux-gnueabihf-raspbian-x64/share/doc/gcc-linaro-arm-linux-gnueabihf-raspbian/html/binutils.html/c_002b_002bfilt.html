@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,9 +71,9 @@ program does the inverse mapping: it decodes (<dfn>demangles</dfn>) low-level
 names into user-level names so that they can be read.
 
    <p>Every alphanumeric word (consisting of letters, digits, underscores,
-dollars, or periods) seen in the input is a potential mangled name.
+dollars, or periods) seen in the input is a potential mangled name. 
 If the name decodes into a C++ name, the C++ name replaces the
-low-level name in the output, otherwise the original word is output.
+low-level name in the output, otherwise the original word is output. 
 In this way you can pass an entire assembler source file, containing
 mangled names, through <samp><span class="command">c++filt</span></samp> and see the same source file
 containing demangled names.
@@ -143,14 +143,14 @@ method it uses:
 <br><dt><code>arm</code><dd>the one specified by the C++ Annotated Reference Manual
 <br><dt><code>hp</code><dd>the one used by the HP compiler (aCC)
 <br><dt><code>edg</code><dd>the one used by the EDG compiler
-<br><dt><code>gnu-v3</code><dd>the one used by the <span class="sc">gnu</span> C++ compiler (g++) with the V3 ABI.
+<br><dt><code>gnu-v3</code><dd>the one used by the <span class="sc">gnu</span> C++ compiler (g++) with the V3 ABI. 
 <br><dt><code>java</code><dd>the one used by the <span class="sc">gnu</span> Java compiler (gcj)
-<br><dt><code>gnat</code><dd>the one used by the <span class="sc">gnu</span> Ada compiler (GNAT).
+<br><dt><code>gnat</code><dd>the one used by the <span class="sc">gnu</span> Ada compiler (GNAT). 
 </dl>
 
      <br><dt><samp><span class="env">--help</span></samp><dd>Print a summary of the options to <samp><span class="command">c++filt</span></samp> and exit.
 
-     <br><dt><samp><span class="env">--version</span></samp><dd>Print the version number of <samp><span class="command">c++filt</span></samp> and exit.
+     <br><dt><samp><span class="env">--version</span></samp><dd>Print the version number of <samp><span class="command">c++filt</span></samp> and exit. 
 </dl>
 
 <!-- man end -->
@@ -176,3 +176,4 @@ MS-DOS this program is named <samp><span class="command">CXXFILT</span></samp>.<
    <hr></div>
 
    </body></html>
+

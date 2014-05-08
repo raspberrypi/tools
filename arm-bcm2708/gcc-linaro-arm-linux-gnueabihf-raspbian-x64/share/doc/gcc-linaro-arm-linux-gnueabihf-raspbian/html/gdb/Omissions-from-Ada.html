@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ operand of the membership (<code>in</code>) operator.
           <li><tt>'Access</tt>, <tt>'Unchecked_Access</tt>, and
 <tt>'Unrestricted_Access</tt> (a GNAT extension).
 
-          <li><tt>'Address</tt>.
+          <li><tt>'Address</tt>. 
 </ul>
 
      <li>The names in
@@ -79,7 +79,7 @@ not currently available.
 
      <li>Equality tests (&lsquo;<samp><span class="samp">=</span></samp>&rsquo; and &lsquo;<samp><span class="samp">/=</span></samp>&rsquo;) on arrays test for bitwise
 equality of representations.  They will generally work correctly
-for strings and arrays whose elements have integer or enumeration types.
+for strings and arrays whose elements have integer or enumeration types. 
 They may not work correctly for arrays whose element
 types have user-defined equality, for arrays of real values
 (in particular, IEEE-conformant floating point, because of negative
@@ -102,7 +102,7 @@ permitted only on the right sides of assignments, as in these examples:
 </pre>
      <p>Changing a
 discriminant's value by assigning an aggregate has an
-undefined effect if that discriminant is used within the record.
+undefined effect if that discriminant is used within the record. 
 However, you can first modify discriminants by directly assigning to
 them (which normally would not be allowed in Ada), and then performing an
 aggregate assignment.  For example, given a variable <code>A_Rec</code>
@@ -148,10 +148,11 @@ formats are not supported.
 
      <li>The names <code>True</code> and <code>False</code>, when not part of a qualified name,
 are interpreted as if implicitly prefixed by <code>Standard</code>, regardless of
-context.
+context. 
 Should your program
 redefine these names in a package or procedure (at best a dubious practice),
-you will have to use fully qualified names to access their new definitions.
+you will have to use fully qualified names to access their new definitions. 
 </ul>
 
    </body></html>
+

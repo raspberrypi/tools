@@ -96,7 +96,7 @@ namespace __gnu_pbds
 
       /// Copy constructor.
       inline
-      binary_heap_const_iterator_(const binary_heap_const_iterator_& other)
+      binary_heap_const_iterator_(const binary_heap_const_iterator_& other) 
       : base_type(other)
       { }
 
@@ -110,7 +110,7 @@ namespace __gnu_pbds
       operator!=(const binary_heap_const_iterator_& other) const
       { return base_type::m_p_e != other.m_p_e; }
 
-      inline binary_heap_const_iterator_&
+      inline binary_heap_const_iterator_& 
       operator++()
       {
 	_GLIBCXX_DEBUG_ASSERT(base_type::m_p_e != 0);
@@ -136,4 +136,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

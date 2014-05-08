@@ -76,7 +76,7 @@ make_binomial_heap()
 #ifdef _GLIBCXX_DEBUG
       else
 	_GLIBCXX_DEBUG_ASSERT(0);
-#endif
+#endif 
     }
 
   m_rc.clear();
@@ -104,3 +104,4 @@ erase(point_iterator it)
   base_type::erase(it);
   base_type::find_max();
 }
+

@@ -100,3 +100,4 @@ clear_imp(node_pointer p_nd)
   p_nd->~Node();
   s_node_allocator.deallocate(p_nd, 1);
 }
+

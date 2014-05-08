@@ -65,7 +65,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _IIter, typename _Function>
     inline _Function
-    for_each(_IIter __begin, _IIter __end, _Function __f,
+    for_each(_IIter __begin, _IIter __end, _Function __f, 
              __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::for_each(__begin, __end, __f); }
 
@@ -73,15 +73,15 @@ namespace __parallel
   // Sequential fallback for input iterator case
   template<typename _IIter, typename _Function, typename _IteratorTag>
     inline _Function
-    __for_each_switch(_IIter __begin, _IIter __end, _Function __f,
+    __for_each_switch(_IIter __begin, _IIter __end, _Function __f, 
                     _IteratorTag)
     { return for_each(__begin, __end, __f, __gnu_parallel::sequential_tag()); }
 
   // Parallel algorithm for random access iterators
   template<typename _RAIter, typename _Function>
     _Function
-    __for_each_switch(_RAIter __begin, _RAIter __end,
-                    _Function __f, random_access_iterator_tag,
+    __for_each_switch(_RAIter __begin, _RAIter __end, 
+                    _Function __f, random_access_iterator_tag, 
                     __gnu_parallel::_Parallelism __parallelism_tag
                     = __gnu_parallel::parallel_balanced)
     {
@@ -106,18 +106,18 @@ namespace __parallel
   // Public interface
   template<typename _Iterator, typename _Function>
     inline _Function
-    for_each(_Iterator __begin, _Iterator __end, _Function __f,
+    for_each(_Iterator __begin, _Iterator __end, _Function __f, 
              __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_Iterator> _IteratorTraits;
       typedef typename _IteratorTraits::iterator_category _IteratorCategory;
-      return __for_each_switch(__begin, __end, __f, _IteratorCategory(),
+      return __for_each_switch(__begin, __end, __f, _IteratorCategory(), 
                              __parallelism_tag);
     }
 
   template<typename _Iterator, typename _Function>
     inline _Function
-    for_each(_Iterator __begin, _Iterator __end, _Function __f)
+    for_each(_Iterator __begin, _Iterator __end, _Function __f) 
     {
       typedef std::iterator_traits<_Iterator> _IteratorTraits;
       typedef typename _IteratorTraits::iterator_category _IteratorCategory;
@@ -128,7 +128,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _IIter, typename _Tp>
     inline _IIter
-    find(_IIter __begin, _IIter __end, const _Tp& __val,
+    find(_IIter __begin, _IIter __end, const _Tp& __val, 
          __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::find(__begin, __end, __val); }
 
@@ -173,21 +173,21 @@ namespace __parallel
   // Sequential fallback
   template<typename _IIter, typename _Predicate>
     inline _IIter
-    find_if(_IIter __begin, _IIter __end, _Predicate __pred,
+    find_if(_IIter __begin, _IIter __end, _Predicate __pred, 
             __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::find_if(__begin, __end, __pred); }
 
   // Sequential fallback for input iterator case
   template<typename _IIter, typename _Predicate, typename _IteratorTag>
     inline _IIter
-    __find_if_switch(_IIter __begin, _IIter __end, _Predicate __pred,
+    __find_if_switch(_IIter __begin, _IIter __end, _Predicate __pred, 
                    _IteratorTag)
     { return _GLIBCXX_STD_A::find_if(__begin, __end, __pred); }
 
   // Parallel find_if for random access iterators
   template<typename _RAIter, typename _Predicate>
     _RAIter
-    __find_if_switch(_RAIter __begin, _RAIter __end,
+    __find_if_switch(_RAIter __begin, _RAIter __end, 
                    _Predicate __pred, random_access_iterator_tag)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(true))
@@ -211,8 +211,8 @@ namespace __parallel
   // Sequential fallback
   template<typename _IIter, typename _FIterator>
     inline _IIter
-    find_first_of(_IIter __begin1, _IIter __end1,
-                  _FIterator __begin2, _FIterator __end2,
+    find_first_of(_IIter __begin1, _IIter __end1, 
+                  _FIterator __begin2, _FIterator __end2, 
                   __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::find_first_of(__begin1, __end1, __begin2, __end2);
       }
@@ -232,9 +232,9 @@ namespace __parallel
            typename _IteratorTag1, typename _IteratorTag2>
     inline _IIter
     __find_first_of_switch(_IIter __begin1, _IIter __end1,
-                         _FIterator __begin2, _FIterator __end2,
+                         _FIterator __begin2, _FIterator __end2, 
                          _IteratorTag1, _IteratorTag2)
-    { return find_first_of(__begin1, __end1, __begin2, __end2,
+    { return find_first_of(__begin1, __end1, __begin2, __end2, 
                            __gnu_parallel::sequential_tag()); }
 
   // Parallel algorithm for random access iterators
@@ -243,8 +243,8 @@ namespace __parallel
     inline _RAIter
     __find_first_of_switch(_RAIter __begin1,
                          _RAIter __end1,
-                         _FIterator __begin2, _FIterator __end2,
-                         _BinaryPredicate __comp, random_access_iterator_tag,
+                         _FIterator __begin2, _FIterator __end2, 
+                         _BinaryPredicate __comp, random_access_iterator_tag, 
                          _IteratorTag)
     {
       return __gnu_parallel::
@@ -259,9 +259,9 @@ namespace __parallel
            typename _IteratorTag2>
     inline _IIter
     __find_first_of_switch(_IIter __begin1, _IIter __end1,
-                         _FIterator __begin2, _FIterator __end2,
+                         _FIterator __begin2, _FIterator __end2, 
                          _BinaryPredicate __comp, _IteratorTag1, _IteratorTag2)
-    { return find_first_of(__begin1, __end1, __begin2, __end2, __comp,
+    { return find_first_of(__begin1, __end1, __begin2, __end2, __comp, 
                            __gnu_parallel::sequential_tag()); }
 
   // Public interface
@@ -269,7 +269,7 @@ namespace __parallel
            typename _BinaryPredicate>
     inline _IIter
     find_first_of(_IIter __begin1, _IIter __end1,
-                  _FIterator __begin2, _FIterator __end2,
+                  _FIterator __begin2, _FIterator __end2, 
                   _BinaryPredicate __comp)
     {
       typedef std::iterator_traits<_IIter> _IIterTraits;
@@ -284,7 +284,7 @@ namespace __parallel
   // Public interface, insert default comparator
   template<typename _IIter, typename _FIterator>
     inline _IIter
-    find_first_of(_IIter __begin1, _IIter __end1,
+    find_first_of(_IIter __begin1, _IIter __end1, 
                   _FIterator __begin2, _FIterator __end2)
     {
       typedef std::iterator_traits<_IIter> _IIterTraits;
@@ -315,8 +315,8 @@ namespace __parallel
   template<typename _IIter, typename _OutputIterator,
            typename _Predicate, typename _IteratorTag1, typename _IteratorTag2>
     inline _OutputIterator
-    __unique_copy_switch(_IIter __begin, _IIter __last,
-                       _OutputIterator __out, _Predicate __pred,
+    __unique_copy_switch(_IIter __begin, _IIter __last, 
+                       _OutputIterator __out, _Predicate __pred, 
                        _IteratorTag1, _IteratorTag2)
     { return _GLIBCXX_STD_A::unique_copy(__begin, __last, __out, __pred); }
 
@@ -324,8 +324,8 @@ namespace __parallel
   template<typename _RAIter, typename RandomAccessOutputIterator,
            typename _Predicate>
     RandomAccessOutputIterator
-    __unique_copy_switch(_RAIter __begin, _RAIter __last,
-                       RandomAccessOutputIterator __out, _Predicate __pred,
+    __unique_copy_switch(_RAIter __begin, _RAIter __last, 
+                       RandomAccessOutputIterator __out, _Predicate __pred, 
                        random_access_iterator_tag, random_access_iterator_tag)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -406,10 +406,10 @@ namespace __parallel
   template<typename _RAIter1, typename _RAIter2,
            typename _Output_RAIter, typename _Predicate>
     _Output_RAIter
-    __set_union_switch(_RAIter1 __begin1, _RAIter1 __end1,
-                     _RAIter2 __begin2, _RAIter2 __end2,
+    __set_union_switch(_RAIter1 __begin1, _RAIter1 __end1, 
+                     _RAIter2 __begin2, _RAIter2 __end2, 
                      _Output_RAIter __result, _Predicate __pred,
-                     random_access_iterator_tag, random_access_iterator_tag,
+                     random_access_iterator_tag, random_access_iterator_tag, 
                      random_access_iterator_tag)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -427,7 +427,7 @@ namespace __parallel
   // Public interface
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
-    inline _OutputIterator
+    inline _OutputIterator 
     set_union(_IIter1 __begin1, _IIter1 __end1,
               _IIter2 __begin2, _IIter2 __end2, _OutputIterator __out)
     {
@@ -451,7 +451,7 @@ namespace __parallel
   // Public interface
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Predicate>
-    inline _OutputIterator
+    inline _OutputIterator 
     set_union(_IIter1 __begin1, _IIter1 __end1,
               _IIter2 __begin2, _IIter2 __end2,
               _OutputIterator __out, _Predicate __pred)
@@ -486,7 +486,7 @@ namespace __parallel
     inline _OutputIterator
     set_intersection(_IIter1 __begin1, _IIter1 __end1,
                      _IIter2 __begin2, _IIter2 __end2,
-                     _OutputIterator __out, _Predicate __pred,
+                     _OutputIterator __out, _Predicate __pred, 
                      __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::set_intersection(
                __begin1, __end1, __begin2, __end2, __out, __pred); }
@@ -496,7 +496,7 @@ namespace __parallel
            typename _Predicate, typename _OutputIterator,
            typename _IteratorTag1, typename _IteratorTag2,
            typename _IteratorTag3>
-    inline _OutputIterator
+    inline _OutputIterator 
     __set_intersection_switch(_IIter1 __begin1, _IIter1 __end1,
                               _IIter2 __begin2, _IIter2 __end2,
                               _OutputIterator __result, _Predicate __pred,
@@ -533,9 +533,9 @@ namespace __parallel
   // Public interface
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
-    inline _OutputIterator
-    set_intersection(_IIter1 __begin1, _IIter1 __end1,
-                     _IIter2 __begin2, _IIter2 __end2,
+    inline _OutputIterator 
+    set_intersection(_IIter1 __begin1, _IIter1 __end1, 
+                     _IIter2 __begin2, _IIter2 __end2, 
                      _OutputIterator __out)
     {
       typedef std::iterator_traits<_IIter1> _IIterTraits1;
@@ -557,7 +557,7 @@ namespace __parallel
 
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Predicate>
-    inline _OutputIterator
+    inline _OutputIterator 
     set_intersection(_IIter1 __begin1, _IIter1 __end1,
                      _IIter2 __begin2, _IIter2 __end2,
                      _OutputIterator __out, _Predicate __pred)
@@ -603,7 +603,7 @@ namespace __parallel
            typename _Predicate, typename _OutputIterator,
            typename _IteratorTag1, typename _IteratorTag2,
            typename _IteratorTag3>
-    inline _OutputIterator
+    inline _OutputIterator 
     __set_symmetric_difference_switch(
       _IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2, _IIter2 __end2,
       _OutputIterator __result, _Predicate __pred,
@@ -640,7 +640,7 @@ namespace __parallel
   // Public interface.
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
-    inline _OutputIterator
+    inline _OutputIterator 
     set_symmetric_difference(_IIter1 __begin1, _IIter1 __end1,
                              _IIter2 __begin2, _IIter2 __end2,
                              _OutputIterator __out)
@@ -665,7 +665,7 @@ namespace __parallel
   // Public interface.
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Predicate>
-    inline _OutputIterator
+    inline _OutputIterator 
     set_symmetric_difference(_IIter1 __begin1, _IIter1 __end1,
                              _IIter2 __begin2, _IIter2 __end2,
                              _OutputIterator __out, _Predicate __pred)
@@ -688,8 +688,8 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
     inline _OutputIterator
-    set_difference(_IIter1 __begin1, _IIter1 __end1,
-                   _IIter2 __begin2, _IIter2 __end2,
+    set_difference(_IIter1 __begin1, _IIter1 __end1, 
+                   _IIter2 __begin2, _IIter2 __end2, 
                    _OutputIterator __out, __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::set_difference(
                __begin1,__end1, __begin2, __end2, __out); }
@@ -698,9 +698,9 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Predicate>
     inline _OutputIterator
-    set_difference(_IIter1 __begin1, _IIter1 __end1,
-                   _IIter2 __begin2, _IIter2 __end2,
-                   _OutputIterator __out, _Predicate __pred,
+    set_difference(_IIter1 __begin1, _IIter1 __end1, 
+                   _IIter2 __begin2, _IIter2 __end2, 
+                   _OutputIterator __out, _Predicate __pred, 
                    __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::set_difference(__begin1, __end1,
                                             __begin2, __end2, __out, __pred); }
@@ -710,9 +710,9 @@ namespace __parallel
            typename _OutputIterator, typename _IteratorTag1,
            typename _IteratorTag2, typename _IteratorTag3>
     inline _OutputIterator
-    __set_difference_switch(_IIter1 __begin1, _IIter1 __end1,
-                          _IIter2 __begin2, _IIter2 __end2,
-                          _OutputIterator __result, _Predicate __pred,
+    __set_difference_switch(_IIter1 __begin1, _IIter1 __end1, 
+                          _IIter2 __begin2, _IIter2 __end2, 
+                          _OutputIterator __result, _Predicate __pred, 
                           _IteratorTag1, _IteratorTag2, _IteratorTag3)
     { return _GLIBCXX_STD_A::set_difference(
                __begin1, __end1, __begin2, __end2, __result, __pred); }
@@ -746,8 +746,8 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
     inline _OutputIterator
-    set_difference(_IIter1 __begin1, _IIter1 __end1,
-                   _IIter2 __begin2, _IIter2 __end2,
+    set_difference(_IIter1 __begin1, _IIter1 __end1, 
+                   _IIter2 __begin2, _IIter2 __end2, 
                    _OutputIterator __out)
     {
       typedef std::iterator_traits<_IIter1> _IIterTraits1;
@@ -771,8 +771,8 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Predicate>
     inline _OutputIterator
-    set_difference(_IIter1 __begin1, _IIter1 __end1,
-                   _IIter2 __begin2, _IIter2 __end2,
+    set_difference(_IIter1 __begin1, _IIter1 __end1, 
+                   _IIter2 __begin2, _IIter2 __end2, 
                    _OutputIterator __out, _Predicate __pred)
     {
       typedef std::iterator_traits<_IIter1> _IIterTraits1;
@@ -792,14 +792,14 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator>
     inline _FIterator
-    adjacent_find(_FIterator __begin, _FIterator __end,
+    adjacent_find(_FIterator __begin, _FIterator __end, 
                   __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::adjacent_find(__begin, __end); }
 
   // Sequential fallback
   template<typename _FIterator, typename _BinaryPredicate>
     inline _FIterator
-    adjacent_find(_FIterator __begin, _FIterator __end,
+    adjacent_find(_FIterator __begin, _FIterator __end, 
                   _BinaryPredicate __binary_pred,
                   __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::adjacent_find(__begin, __end, __binary_pred); }
@@ -807,7 +807,7 @@ namespace __parallel
   // Parallel algorithm for random access iterators
   template<typename _RAIter>
     _RAIter
-    __adjacent_find_switch(_RAIter __begin, _RAIter __end,
+    __adjacent_find_switch(_RAIter __begin, _RAIter __end, 
                          random_access_iterator_tag)
     {
       typedef iterator_traits<_RAIter> _TraitsType;
@@ -850,7 +850,7 @@ namespace __parallel
   template<typename _FIterator, typename _BinaryPredicate,
            typename _IteratorTag>
     inline _FIterator
-    __adjacent_find_switch(_FIterator __begin, _FIterator __end,
+    __adjacent_find_switch(_FIterator __begin, _FIterator __end, 
                          _BinaryPredicate __pred, _IteratorTag)
     { return adjacent_find(__begin, __end, __pred,
                            __gnu_parallel::sequential_tag()); }
@@ -858,7 +858,7 @@ namespace __parallel
   // Parallel algorithm for random access iterators
   template<typename _RAIter, typename _BinaryPredicate>
     _RAIter
-    __adjacent_find_switch(_RAIter __begin, _RAIter __end,
+    __adjacent_find_switch(_RAIter __begin, _RAIter __end, 
                          _BinaryPredicate __pred, random_access_iterator_tag)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(true))
@@ -873,7 +873,7 @@ namespace __parallel
   // Public interface
   template<typename _FIterator, typename _BinaryPredicate>
     inline _FIterator
-    adjacent_find(_FIterator __begin, _FIterator __end,
+    adjacent_find(_FIterator __begin, _FIterator __end, 
                   _BinaryPredicate __pred)
     {
       typedef iterator_traits<_FIterator> _TraitsType;
@@ -885,16 +885,16 @@ namespace __parallel
   // Sequential fallback
   template<typename _IIter, typename _Tp>
     inline typename iterator_traits<_IIter>::difference_type
-    count(_IIter __begin, _IIter __end, const _Tp& __value,
+    count(_IIter __begin, _IIter __end, const _Tp& __value, 
           __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::count(__begin, __end, __value); }
 
   // Parallel code for random access iterators
   template<typename _RAIter, typename _Tp>
     typename iterator_traits<_RAIter>::difference_type
-    __count_switch(_RAIter __begin, _RAIter __end,
-                 const _Tp& __value, random_access_iterator_tag,
-                 __gnu_parallel::_Parallelism __parallelism_tag
+    __count_switch(_RAIter __begin, _RAIter __end, 
+                 const _Tp& __value, random_access_iterator_tag, 
+                 __gnu_parallel::_Parallelism __parallelism_tag 
                  = __gnu_parallel::parallel_unbalanced)
     {
       typedef iterator_traits<_RAIter> _TraitsType;
@@ -925,7 +925,7 @@ namespace __parallel
   // Sequential fallback for input iterator case.
   template<typename _IIter, typename _Tp, typename _IteratorTag>
     inline typename iterator_traits<_IIter>::difference_type
-    __count_switch(_IIter __begin, _IIter __end, const _Tp& __value,
+    __count_switch(_IIter __begin, _IIter __end, const _Tp& __value, 
                  _IteratorTag)
     { return count(__begin, __end, __value, __gnu_parallel::sequential_tag());
       }
@@ -933,7 +933,7 @@ namespace __parallel
   // Public interface.
   template<typename _IIter, typename _Tp>
     inline typename iterator_traits<_IIter>::difference_type
-    count(_IIter __begin, _IIter __end, const _Tp& __value,
+    count(_IIter __begin, _IIter __end, const _Tp& __value, 
           __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef iterator_traits<_IIter> _TraitsType;
@@ -955,14 +955,14 @@ namespace __parallel
   // Sequential fallback.
   template<typename _IIter, typename _Predicate>
     inline typename iterator_traits<_IIter>::difference_type
-    count_if(_IIter __begin, _IIter __end, _Predicate __pred,
+    count_if(_IIter __begin, _IIter __end, _Predicate __pred, 
              __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::count_if(__begin, __end, __pred); }
 
   // Parallel count_if for random access iterators
   template<typename _RAIter, typename _Predicate>
     typename iterator_traits<_RAIter>::difference_type
-    __count_if_switch(_RAIter __begin, _RAIter __end,
+    __count_if_switch(_RAIter __begin, _RAIter __end, 
                     _Predicate __pred, random_access_iterator_tag,
                     __gnu_parallel::_Parallelism __parallelism_tag
                     = __gnu_parallel::parallel_unbalanced)
@@ -996,7 +996,7 @@ namespace __parallel
   // Sequential fallback for input iterator case.
   template<typename _IIter, typename _Predicate, typename _IteratorTag>
     inline typename iterator_traits<_IIter>::difference_type
-    __count_if_switch(_IIter __begin, _IIter __end, _Predicate __pred,
+    __count_if_switch(_IIter __begin, _IIter __end, _Predicate __pred, 
                     _IteratorTag)
     { return count_if(__begin, __end, __pred,
                       __gnu_parallel::sequential_tag()); }
@@ -1004,12 +1004,12 @@ namespace __parallel
   // Public interface.
   template<typename _IIter, typename _Predicate>
     inline typename iterator_traits<_IIter>::difference_type
-    count_if(_IIter __begin, _IIter __end, _Predicate __pred,
+    count_if(_IIter __begin, _IIter __end, _Predicate __pred, 
              __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef iterator_traits<_IIter> _TraitsType;
       typedef typename _TraitsType::iterator_category _IteratorCategory;
-      return __count_if_switch(__begin, __end, __pred, _IteratorCategory(),
+      return __count_if_switch(__begin, __end, __pred, _IteratorCategory(), 
                              __parallelism_tag);
     }
 
@@ -1212,7 +1212,7 @@ namespace __parallel
   template<typename _IIter, typename _OutputIterator,
            typename _UnaryOperation>
     inline _OutputIterator
-    transform(_IIter __begin, _IIter __end, _OutputIterator __result,
+    transform(_IIter __begin, _IIter __end, _OutputIterator __result, 
               _UnaryOperation __unary_op, __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::transform(__begin, __end, __result, __unary_op); }
 
@@ -1245,7 +1245,7 @@ namespace __parallel
           return __functionality._M_finish_iterator;
         }
       else
-        return transform(__begin, __end, __result, __unary_op,
+        return transform(__begin, __end, __result, __unary_op, 
                          __gnu_parallel::sequential_tag());
     }
 
@@ -1257,7 +1257,7 @@ namespace __parallel
     __transform1_switch(_RAIter1 __begin, _RAIter1 __end,
                       _RAIter2 __result, _UnaryOperation __unary_op,
                       _IteratorTag1, _IteratorTag2)
-    { return transform(__begin, __end, __result, __unary_op,
+    { return transform(__begin, __end, __result, __unary_op, 
                        __gnu_parallel::sequential_tag()); }
 
   // Public interface.
@@ -1265,7 +1265,7 @@ namespace __parallel
            typename _UnaryOperation>
     inline _OutputIterator
     transform(_IIter __begin, _IIter __end, _OutputIterator __result,
-              _UnaryOperation __unary_op,
+              _UnaryOperation __unary_op, 
               __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_IIter> _IIterTraits;
@@ -1274,7 +1274,7 @@ namespace __parallel
       typedef typename _OIterTraits::iterator_category _OIterCategory;
 
       return __transform1_switch(__begin, __end, __result, __unary_op,
-                               _IIteratorCategory(), _OIterCategory(),
+                               _IIteratorCategory(), _OIterCategory(), 
                                __parallelism_tag);
     }
 
@@ -1313,7 +1313,7 @@ namespace __parallel
                       _RAIter3 __result, _BinaryOperation __binary_op,
                       random_access_iterator_tag, random_access_iterator_tag,
                       random_access_iterator_tag,
-                      __gnu_parallel::_Parallelism __parallelism_tag
+                      __gnu_parallel::_Parallelism __parallelism_tag 
                       = __gnu_parallel::parallel_balanced)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -1338,7 +1338,7 @@ namespace __parallel
           return __functionality._M_finish_iterator;
         }
       else
-        return transform(__begin1, __end1, __begin2, __result, __binary_op,
+        return transform(__begin1, __end1, __begin2, __result, __binary_op, 
                          __gnu_parallel::sequential_tag());
     }
 
@@ -1347,8 +1347,8 @@ namespace __parallel
            typename _OutputIterator, typename _BinaryOperation,
            typename _Tag1, typename _Tag2, typename _Tag3>
     inline _OutputIterator
-    __transform2_switch(_IIter1 __begin1, _IIter1 __end1,
-                      _IIter2 __begin2, _OutputIterator __result,
+    __transform2_switch(_IIter1 __begin1, _IIter1 __end1, 
+                      _IIter2 __begin2, _OutputIterator __result, 
                       _BinaryOperation __binary_op, _Tag1, _Tag2, _Tag3)
     { return transform(__begin1, __end1, __begin2, __result, __binary_op,
                        __gnu_parallel::sequential_tag()); }
@@ -1359,7 +1359,7 @@ namespace __parallel
     inline _OutputIterator
     transform(_IIter1 __begin1, _IIter1 __end1,
               _IIter2 __begin2, _OutputIterator __result,
-              _BinaryOperation __binary_op,
+              _BinaryOperation __binary_op, 
               __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_IIter1> _IIterTraits1;
@@ -1401,37 +1401,37 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator, typename _Tp>
     inline void
-    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value,
+    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value, 
             const _Tp& __new_value, __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::replace(__begin, __end, __old_value, __new_value); }
 
   // Sequential fallback for input iterator case
   template<typename _FIterator, typename _Tp, typename _IteratorTag>
     inline void
-    __replace_switch(_FIterator __begin, _FIterator __end,
+    __replace_switch(_FIterator __begin, _FIterator __end, 
                      const _Tp& __old_value, const _Tp& __new_value,
                      _IteratorTag)
-    { replace(__begin, __end, __old_value, __new_value,
+    { replace(__begin, __end, __old_value, __new_value, 
               __gnu_parallel::sequential_tag()); }
 
   // Parallel replace for random access iterators
   template<typename _RAIter, typename _Tp>
     inline void
-    __replace_switch(_RAIter __begin, _RAIter __end,
-                   const _Tp& __old_value, const _Tp& __new_value,
-                   random_access_iterator_tag,
+    __replace_switch(_RAIter __begin, _RAIter __end, 
+                   const _Tp& __old_value, const _Tp& __new_value, 
+                   random_access_iterator_tag, 
                    __gnu_parallel::_Parallelism __parallelism_tag
                    = __gnu_parallel::parallel_balanced)
     {
       // XXX parallel version is where?
-      replace(__begin, __end, __old_value, __new_value,
-              __gnu_parallel::sequential_tag());
+      replace(__begin, __end, __old_value, __new_value, 
+              __gnu_parallel::sequential_tag()); 
     }
 
   // Public interface
   template<typename _FIterator, typename _Tp>
     inline void
-    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value,
+    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value, 
             const _Tp& __new_value,
             __gnu_parallel::_Parallelism __parallelism_tag)
     {
@@ -1444,7 +1444,7 @@ namespace __parallel
 
   template<typename _FIterator, typename _Tp>
     inline void
-    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value,
+    replace(_FIterator __begin, _FIterator __end, const _Tp& __old_value, 
             const _Tp& __new_value)
     {
       typedef iterator_traits<_FIterator> _TraitsType;
@@ -1457,7 +1457,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator, typename _Predicate, typename _Tp>
     inline void
-    replace_if(_FIterator __begin, _FIterator __end, _Predicate __pred,
+    replace_if(_FIterator __begin, _FIterator __end, _Predicate __pred, 
                const _Tp& __new_value, __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::replace_if(__begin, __end, __pred, __new_value); }
 
@@ -1495,7 +1495,7 @@ namespace __parallel
               true, __dummy, -1, __parallelism_tag);
         }
       else
-        replace_if(__begin, __end, __pred, __new_value,
+        replace_if(__begin, __end, __pred, __new_value, 
                    __gnu_parallel::sequential_tag());
     }
 
@@ -1503,7 +1503,7 @@ namespace __parallel
   template<typename _FIterator, typename _Predicate, typename _Tp>
     inline void
     replace_if(_FIterator __begin, _FIterator __end,
-               _Predicate __pred, const _Tp& __new_value,
+               _Predicate __pred, const _Tp& __new_value, 
                __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_FIterator> _IteratorTraits;
@@ -1526,7 +1526,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator, typename _Generator>
     inline void
-    generate(_FIterator __begin, _FIterator __end, _Generator __gen,
+    generate(_FIterator __begin, _FIterator __end, _Generator __gen, 
              __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::generate(__begin, __end, __gen); }
 
@@ -1541,7 +1541,7 @@ namespace __parallel
   template<typename _RAIter, typename _Generator>
     void
     __generate_switch(_RAIter __begin, _RAIter __end,
-                    _Generator __gen, random_access_iterator_tag,
+                    _Generator __gen, random_access_iterator_tag, 
                     __gnu_parallel::_Parallelism __parallelism_tag
                     = __gnu_parallel::parallel_balanced)
     {
@@ -1588,7 +1588,7 @@ namespace __parallel
   // Sequential fallback.
   template<typename _OutputIterator, typename _Size, typename _Generator>
     inline _OutputIterator
-    generate_n(_OutputIterator __begin, _Size __n, _Generator __gen,
+    generate_n(_OutputIterator __begin, _Size __n, _Generator __gen, 
                __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::generate_n(__begin, __n, __gen); }
 
@@ -1604,8 +1604,8 @@ namespace __parallel
   // Parallel algorithm for random access iterators.
   template<typename _RAIter, typename _Size, typename _Generator>
     inline _RAIter
-    __generate_n_switch(_RAIter __begin, _Size __n, _Generator __gen,
-                      random_access_iterator_tag,
+    __generate_n_switch(_RAIter __begin, _Size __n, _Generator __gen, 
+                      random_access_iterator_tag, 
                       __gnu_parallel::_Parallelism __parallelism_tag
                       = __gnu_parallel::parallel_balanced)
     {
@@ -1616,13 +1616,13 @@ namespace __parallel
   // Public interface.
   template<typename _OutputIterator, typename _Size, typename _Generator>
     inline _OutputIterator
-    generate_n(_OutputIterator __begin, _Size __n, _Generator __gen,
+    generate_n(_OutputIterator __begin, _Size __n, _Generator __gen, 
                __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_OutputIterator> _IteratorTraits;
       typedef typename _IteratorTraits::iterator_category _IteratorCategory;
-      return __generate_n_switch(__begin, __n, __gen, _IteratorCategory(),
-                               __parallelism_tag);
+      return __generate_n_switch(__begin, __n, __gen, _IteratorCategory(), 
+                               __parallelism_tag); 
     }
 
   template<typename _OutputIterator, typename _Size, typename _Generator>
@@ -1638,7 +1638,7 @@ namespace __parallel
   // Sequential fallback.
   template<typename _RAIter>
     inline void
-    random_shuffle(_RAIter __begin, _RAIter __end,
+    random_shuffle(_RAIter __begin, _RAIter __end, 
                    __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::random_shuffle(__begin, __end); }
 
@@ -1742,7 +1742,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _RAIter>
     inline void
-    sort(_RAIter __begin, _RAIter __end,
+    sort(_RAIter __begin, _RAIter __end, 
          __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::sort(__begin, __end); }
 
@@ -1998,7 +1998,7 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
     inline _OutputIterator
-    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2,
+    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2, 
           _IIter2 __end2, _OutputIterator __result,
           __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::merge(
@@ -2030,10 +2030,10 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Compare>
     _OutputIterator
-    __merge_switch(_IIter1 __begin1, _IIter1 __end1,
-                 _IIter2 __begin2, _IIter2 __end2,
-                 _OutputIterator __result, _Compare __comp,
-                 random_access_iterator_tag, random_access_iterator_tag,
+    __merge_switch(_IIter1 __begin1, _IIter1 __end1, 
+                 _IIter2 __begin2, _IIter2 __end2, 
+                 _OutputIterator __result, _Compare __comp, 
+                 random_access_iterator_tag, random_access_iterator_tag, 
                  random_access_iterator_tag)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -2054,7 +2054,7 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator, typename _Compare>
     inline _OutputIterator
-    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2,
+    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2, 
           _IIter2 __end2, _OutputIterator __result, _Compare __comp)
     {
       typedef typename iterator_traits<_IIter1>::value_type _ValueType;
@@ -2078,7 +2078,7 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2,
            typename _OutputIterator>
     inline _OutputIterator
-    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2,
+    merge(_IIter1 __begin1, _IIter1 __end1, _IIter2 __begin2, 
           _IIter2 __end2, _OutputIterator __result)
     {
       typedef std::iterator_traits<_IIter1> _Iterator1Traits;
@@ -2093,22 +2093,22 @@ namespace __parallel
   // Sequential fallback
   template<typename _RAIter>
     inline void
-    nth_element(_RAIter __begin, _RAIter __nth,
+    nth_element(_RAIter __begin, _RAIter __nth, 
                 _RAIter __end, __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::nth_element(__begin, __nth, __end); }
 
   // Sequential fallback
   template<typename _RAIter, typename _Compare>
     inline void
-    nth_element(_RAIter __begin, _RAIter __nth,
-                _RAIter __end, _Compare __comp,
+    nth_element(_RAIter __begin, _RAIter __nth, 
+                _RAIter __end, _Compare __comp, 
               __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::nth_element(__begin, __nth, __end, __comp); }
 
   // Public interface
   template<typename _RAIter, typename _Compare>
     inline void
-    nth_element(_RAIter __begin, _RAIter __nth,
+    nth_element(_RAIter __begin, _RAIter __nth, 
                 _RAIter __end, _Compare __comp)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -2123,7 +2123,7 @@ namespace __parallel
   // Public interface, insert default comparator
   template<typename _RAIter>
     inline void
-    nth_element(_RAIter __begin, _RAIter __nth,
+    nth_element(_RAIter __begin, _RAIter __nth, 
                 _RAIter __end)
     {
       typedef iterator_traits<_RAIter> _TraitsType;
@@ -2135,7 +2135,7 @@ namespace __parallel
   // Sequential fallback
   template<typename _RAIter, typename _Compare>
     inline void
-    partial_sort(_RAIter __begin, _RAIter __middle,
+    partial_sort(_RAIter __begin, _RAIter __middle, 
                  _RAIter __end, _Compare __comp,
                  __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::partial_sort(__begin, __middle, __end, __comp); }
@@ -2143,14 +2143,14 @@ namespace __parallel
   // Sequential fallback
   template<typename _RAIter>
     inline void
-    partial_sort(_RAIter __begin, _RAIter __middle,
+    partial_sort(_RAIter __begin, _RAIter __middle, 
                  _RAIter __end, __gnu_parallel::sequential_tag)
     { _GLIBCXX_STD_A::partial_sort(__begin, __middle, __end); }
 
   // Public interface, parallel algorithm for random access iterators
   template<typename _RAIter, typename _Compare>
     void
-    partial_sort(_RAIter __begin, _RAIter __middle,
+    partial_sort(_RAIter __begin, _RAIter __middle, 
                  _RAIter __end, _Compare __comp)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -2166,7 +2166,7 @@ namespace __parallel
   // Public interface, insert default comparator
   template<typename _RAIter>
     inline void
-    partial_sort(_RAIter __begin, _RAIter __middle,
+    partial_sort(_RAIter __begin, _RAIter __middle, 
                  _RAIter __end)
     {
       typedef iterator_traits<_RAIter> _TraitsType;
@@ -2178,21 +2178,21 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator>
     inline _FIterator
-    max_element(_FIterator __begin, _FIterator __end,
+    max_element(_FIterator __begin, _FIterator __end, 
                 __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::max_element(__begin, __end); }
 
   // Sequential fallback
   template<typename _FIterator, typename _Compare>
     inline _FIterator
-    max_element(_FIterator __begin, _FIterator __end, _Compare __comp,
+    max_element(_FIterator __begin, _FIterator __end, _Compare __comp, 
                 __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::max_element(__begin, __end, __comp); }
 
   // Sequential fallback for input iterator case
   template<typename _FIterator, typename _Compare, typename _IteratorTag>
     inline _FIterator
-    __max_element_switch(_FIterator __begin, _FIterator __end,
+    __max_element_switch(_FIterator __begin, _FIterator __end, 
                        _Compare __comp, _IteratorTag)
     { return max_element(__begin, __end, __comp,
                          __gnu_parallel::sequential_tag()); }
@@ -2200,8 +2200,8 @@ namespace __parallel
   // Parallel algorithm for random access iterators
   template<typename _RAIter, typename _Compare>
     _RAIter
-    __max_element_switch(_RAIter __begin, _RAIter __end,
-                       _Compare __comp, random_access_iterator_tag,
+    __max_element_switch(_RAIter __begin, _RAIter __end, 
+                       _Compare __comp, random_access_iterator_tag, 
                        __gnu_parallel::_Parallelism __parallelism_tag
                        = __gnu_parallel::parallel_balanced)
     {
@@ -2228,7 +2228,7 @@ namespace __parallel
   // Public interface, insert default comparator
   template<typename _FIterator>
     inline _FIterator
-    max_element(_FIterator __begin, _FIterator __end,
+    max_element(_FIterator __begin, _FIterator __end, 
                 __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef typename iterator_traits<_FIterator>::value_type _ValueType;
@@ -2253,7 +2253,7 @@ namespace __parallel
     {
       typedef iterator_traits<_FIterator> _TraitsType;
       typedef typename _TraitsType::iterator_category _IteratorCategory;
-      return __max_element_switch(__begin, __end, __comp, _IteratorCategory(),
+      return __max_element_switch(__begin, __end, __comp, _IteratorCategory(), 
                                   __parallelism_tag);
     }
 
@@ -2270,21 +2270,21 @@ namespace __parallel
   // Sequential fallback
   template<typename _FIterator>
     inline _FIterator
-    min_element(_FIterator __begin, _FIterator __end,
+    min_element(_FIterator __begin, _FIterator __end, 
                 __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::min_element(__begin, __end); }
 
   // Sequential fallback
   template<typename _FIterator, typename _Compare>
     inline _FIterator
-    min_element(_FIterator __begin, _FIterator __end, _Compare __comp,
+    min_element(_FIterator __begin, _FIterator __end, _Compare __comp, 
                 __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::min_element(__begin, __end, __comp); }
 
   // Sequential fallback for input iterator case
   template<typename _FIterator, typename _Compare, typename _IteratorTag>
     inline _FIterator
-    __min_element_switch(_FIterator __begin, _FIterator __end,
+    __min_element_switch(_FIterator __begin, _FIterator __end, 
                        _Compare __comp, _IteratorTag)
     { return min_element(__begin, __end, __comp,
                          __gnu_parallel::sequential_tag()); }
@@ -2292,8 +2292,8 @@ namespace __parallel
   // Parallel algorithm for random access iterators
   template<typename _RAIter, typename _Compare>
     _RAIter
-    __min_element_switch(_RAIter __begin, _RAIter __end,
-                       _Compare __comp, random_access_iterator_tag,
+    __min_element_switch(_RAIter __begin, _RAIter __end, 
+                       _Compare __comp, random_access_iterator_tag, 
                        __gnu_parallel::_Parallelism __parallelism_tag
                        = __gnu_parallel::parallel_balanced)
     {
@@ -2320,7 +2320,7 @@ namespace __parallel
   // Public interface, insert default comparator
   template<typename _FIterator>
     inline _FIterator
-    min_element(_FIterator __begin, _FIterator __end,
+    min_element(_FIterator __begin, _FIterator __end, 
                 __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef typename iterator_traits<_FIterator>::value_type _ValueType;
@@ -2345,7 +2345,7 @@ namespace __parallel
     {
       typedef iterator_traits<_FIterator> _TraitsType;
       typedef typename _TraitsType::iterator_category _IteratorCategory;
-      return __min_element_switch(__begin, __end, __comp, _IteratorCategory(),
+      return __min_element_switch(__begin, __end, __comp, _IteratorCategory(), 
                                 __parallelism_tag);
     }
 

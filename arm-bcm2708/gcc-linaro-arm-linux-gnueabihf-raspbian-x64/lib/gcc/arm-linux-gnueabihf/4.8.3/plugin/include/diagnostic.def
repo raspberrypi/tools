@@ -42,3 +42,4 @@ DEFINE_DIAGNOSTIC_KIND (DK_DEBUG, "debug: ")
 prefix does not matter.  */
 DEFINE_DIAGNOSTIC_KIND (DK_PEDWARN, "pedwarn: ")
 DEFINE_DIAGNOSTIC_KIND (DK_PERMERROR, "permerror: ")
+

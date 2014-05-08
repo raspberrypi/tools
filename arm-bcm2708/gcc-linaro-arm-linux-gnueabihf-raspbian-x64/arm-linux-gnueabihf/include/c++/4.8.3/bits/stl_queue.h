@@ -329,12 +329,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *
    *  @tparam _Tp  Type of element.
    *  @tparam _Sequence  Type of underlying sequence, defaults to vector<_Tp>.
-   *  @tparam _Compare  Comparison function object type, defaults to
+   *  @tparam _Compare  Comparison function object type, defaults to 
    *                    less<_Sequence::value_type>.
    *
    *  This is not a true container, but an @e adaptor.  It holds
    *  another container, and provides a wrapper interface to that
-   *  container.  The wrapper is what enforces priority-based sorting
+   *  container.  The wrapper is what enforces priority-based sorting 
    *  and %queue behavior.  Very few of the standard container/sequence
    *  interface requirements are met (e.g., iterators).
    *

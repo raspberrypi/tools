@@ -24,7 +24,7 @@
 #define TUN_READQ_SIZE	500
 
 /* TUN device flags */
-#define TUN_TUN_DEV 	0x0001
+#define TUN_TUN_DEV 	0x0001	
 #define TUN_TAP_DEV	0x0002
 #define TUN_TYPE_MASK   0x000f
 
@@ -32,14 +32,14 @@
 #define TUN_NOCHECKSUM	0x0020
 #define TUN_NO_PI	0x0040
 #define TUN_ONE_QUEUE	0x0080
-#define TUN_PERSIST 	0x0100
+#define TUN_PERSIST 	0x0100	
 #define TUN_VNET_HDR 	0x0200
 
 /* Ioctl defines */
-#define TUNSETNOCSUM  _IOW('T', 200, int)
-#define TUNSETDEBUG   _IOW('T', 201, int)
-#define TUNSETIFF     _IOW('T', 202, int)
-#define TUNSETPERSIST _IOW('T', 203, int)
+#define TUNSETNOCSUM  _IOW('T', 200, int) 
+#define TUNSETDEBUG   _IOW('T', 201, int) 
+#define TUNSETIFF     _IOW('T', 202, int) 
+#define TUNSETPERSIST _IOW('T', 203, int) 
 #define TUNSETOWNER   _IOW('T', 204, int)
 #define TUNSETLINK    _IOW('T', 205, int)
 #define TUNSETGROUP   _IOW('T', 206, int)

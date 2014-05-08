@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,11 +67,11 @@ runtime.  To get the definition of this class you must include the
 
  <p>User defined libraries may want to implement their own constant string
 class.  To be able to support them, the GNU Objective-C compiler provides
-a new command line options <samp><span class="option">-fconstant-string-class=</span><var>class-name</var></samp>.
+a new command line options <samp><span class="option">-fconstant-string-class=</span><var>class-name</var></samp>. 
 The provided class should adhere to a strict structure, the same
 as <code>NXConstantString</code>'s structure:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      @interface MyConstantStringClass
      {
        Class isa;
@@ -79,7 +79,7 @@ as <code>NXConstantString</code>'s structure:
        unsigned int len;
      }
      @end
-
+     
 </pre>
  <p><code>NXConstantString</code> inherits from <code>Object</code>; user class
 libraries may choose to inherit the customized constant string class
@@ -109,3 +109,4 @@ restrictions in doing this.
 
 <!-- ========================================================================= -->
  </body></html>
+

@@ -96,9 +96,9 @@ namespace __gnu_pbds
     {
       enum
 	{
-	  value = is_fundamental<typename remove_const<T>::type>::value
-	  || is_pointer<typename remove_const<T>::type>::value
-	  || is_member_pointer<T>::value
+	  value = is_fundamental<typename remove_const<T>::type>::value 
+	  || is_pointer<typename remove_const<T>::type>::value 
+	  || is_member_pointer<T>::value 
 	};
     };
 
@@ -164,4 +164,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

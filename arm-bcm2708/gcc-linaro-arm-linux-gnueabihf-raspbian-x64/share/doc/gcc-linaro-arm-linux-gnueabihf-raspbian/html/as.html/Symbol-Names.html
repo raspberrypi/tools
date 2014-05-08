@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,21 +67,21 @@ in a program.
 
 <h4 class="subheading">Local Symbol Names</h4>
 
-<p><a name="index-local-symbol-names-215"></a><a name="index-symbol-names_002c-local-216"></a>A local symbol is any symbol beginning with certain local label prefixes.
+<p><a name="index-local-symbol-names-215"></a><a name="index-symbol-names_002c-local-216"></a>A local symbol is any symbol beginning with certain local label prefixes. 
 By default, the local label prefix is &lsquo;<samp><span class="samp">.L</span></samp>&rsquo; for ELF systems or
 &lsquo;<samp><span class="samp">L</span></samp>&rsquo; for traditional a.out systems, but each target may have its own
-set of local label prefixes.
+set of local label prefixes. 
 On the HPPA local symbols begin with &lsquo;<samp><span class="samp">L$</span></samp>&rsquo;.
 
    <p>Local symbols are defined and used within the assembler, but they are
-normally not saved in object files.  Thus, they are not visible when debugging.
+normally not saved in object files.  Thus, they are not visible when debugging. 
 You may use the &lsquo;<samp><span class="samp">-L</span></samp>&rsquo; option (see <a href="L.html#L">Include Local Symbols: <samp><span class="option">-L</span></samp></a>) to retain the local symbols in the object files.
 
 <h4 class="subheading">Local Labels</h4>
 
-<p><a name="index-local-labels-217"></a><a name="index-temporary-symbol-names-218"></a><a name="index-symbol-names_002c-temporary-219"></a>Local labels help compilers and programmers use names temporarily.
+<p><a name="index-local-labels-217"></a><a name="index-temporary-symbol-names-218"></a><a name="index-symbol-names_002c-temporary-219"></a>Local labels help compilers and programmers use names temporarily. 
 They create symbols which are guaranteed to be unique over the entire scope of
-the input source code and which can be referred to by a simple notation.
+the input source code and which can be referred to by a simple notation. 
 To define a local label, write a label of the form &lsquo;<samp><b>N</b><span class="samp">:</span></samp>&rsquo; (where <b>N</b>
 represents any positive integer).  To refer to the most recent previous
 definition of that label write &lsquo;<samp><b>N</b><span class="samp">b</span></samp>&rsquo;, using the same number as when
@@ -112,13 +112,13 @@ implemented in a slightly more efficient manner than the others.
      label_4:  branch label_3
 </pre>
    <p>Local label names are only a notational device.  They are immediately
-transformed into more conventional symbol names before the assembler uses them.
+transformed into more conventional symbol names before the assembler uses them. 
 The symbol names are stored in the symbol table, appear in error messages, and
 are optionally emitted to the object file.  The names are constructed using
 these parts:
 
      <dl>
-<dt><em>local label prefix</em><dd>All local symbols begin with the system-specific local label prefix.
+<dt><em>local label prefix</em><dd>All local symbols begin with the system-specific local label prefix. 
 Normally both <samp><span class="command">as</span></samp> and <code>ld</code> forget symbols
 that start with the local label prefix.  These labels are
 used for symbols you are never intended to see.  If you use the
@@ -135,7 +135,7 @@ of the same name.  The character has ASCII value of &lsquo;<samp><span class="sa
      <br><dt><em>ordinal number</em><dd>This is a serial number to keep the labels distinct.  The first definition of
 &lsquo;<samp><span class="samp">0:</span></samp>&rsquo; gets the number &lsquo;<samp><span class="samp">1</span></samp>&rsquo;.  The 15th definition of &lsquo;<samp><span class="samp">0:</span></samp>&rsquo; gets the
 number &lsquo;<samp><span class="samp">15</span></samp>&rsquo;, and so on.  Likewise the first definition of &lsquo;<samp><span class="samp">1:</span></samp>&rsquo; gets
-the number &lsquo;<samp><span class="samp">1</span></samp>&rsquo; and its 15th definition gets &lsquo;<samp><span class="samp">15</span></samp>&rsquo; as well.
+the number &lsquo;<samp><span class="samp">1</span></samp>&rsquo; and its 15th definition gets &lsquo;<samp><span class="samp">15</span></samp>&rsquo; as well. 
 </dl>
 
    <p>So for example, the first <code>1:</code> may be named <code>.L1</code><kbd>C-B</kbd><code>1</code>, and
@@ -161,3 +161,4 @@ to distinguish them from ordinary labels.  For example, the fifth definition of
 &lsquo;<samp><span class="samp">6$</span></samp>&rsquo; may be named &lsquo;<samp><span class="samp">.L6</span><kbd>C-A</kbd><span class="samp">5</span></samp>&rsquo;.
 
    </body></html>
+

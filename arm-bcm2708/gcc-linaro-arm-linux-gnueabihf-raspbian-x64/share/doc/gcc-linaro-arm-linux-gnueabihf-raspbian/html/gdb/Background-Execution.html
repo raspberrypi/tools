@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,11 +59,11 @@ a command prompt so that you can issue other commands while your program runs.
 background execution commands.  You can use these commands to
 manipulate the asynchronous mode setting:
 
-
+     
 <a name="index-set-target_002dasync-359"></a>
-<dl><dt><code>set target-async on</code><dd>Enable asynchronous mode.
-<br><dt><code>set target-async off</code><dd>Disable asynchronous mode.
-<a name="index-show-target_002dasync-360"></a><br><dt><code>show target-async</code><dd>Show the current target-async setting.
+<dl><dt><code>set target-async on</code><dd>Enable asynchronous mode. 
+<br><dt><code>set target-async off</code><dd>Disable asynchronous mode. 
+<a name="index-show-target_002dasync-360"></a><br><dt><code>show target-async</code><dd>Show the current target-async setting. 
 </dl>
 
    <p>If the target doesn't support async mode, <span class="sc">gdb</span> issues an error
@@ -74,7 +74,7 @@ the background form of the <code>continue</code> command is <code>continue&amp;<
 just <code>c&amp;</code>.  The execution commands that accept background execution
 are:
 
-
+     
 <a name="index-run_0026-361"></a>
 <dl><dt><code>run</code><dd>See <a href="Starting.html#Starting">Starting your Program</a>.
 
@@ -97,7 +97,7 @@ are:
    </dl>
 
    <p>Background execution is especially useful in conjunction with non-stop
-mode for debugging programs with multiple threads; see <a href="Non_002dStop-Mode.html#Non_002dStop-Mode">Non-Stop Mode</a>.
+mode for debugging programs with multiple threads; see <a href="Non_002dStop-Mode.html#Non_002dStop-Mode">Non-Stop Mode</a>. 
 However, you can also use these commands in the normal all-stop mode with
 the restriction that you cannot issue another execution command until the
 previous one finishes.  Examples of commands that are valid in all-stop
@@ -106,13 +106,14 @@ mode while the program is running include <code>help</code> and <code>info break
    <p>You can interrupt your program while it is running in the background by
 using the <code>interrupt</code> command.
 
-
+     
 <a name="index-interrupt-370"></a>
 <dl><dt><code>interrupt</code><dt><code>interrupt -a</code><dd>
 Suspend execution of the running program.  In all-stop mode,
 <code>interrupt</code> stops the whole process, but in non-stop mode, it stops
 only the current thread.  To stop the whole program in non-stop mode,
-use <code>interrupt -a</code>.
+use <code>interrupt -a</code>. 
 </dl>
 
    </body></html>
+

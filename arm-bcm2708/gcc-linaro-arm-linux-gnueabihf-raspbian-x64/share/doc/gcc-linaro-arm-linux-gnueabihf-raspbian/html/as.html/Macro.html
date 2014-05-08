@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,7 +88,7 @@ which takes two arguments; within the macro definition, write
 &lsquo;<samp><span class="samp">\p</span></samp>&rsquo; or &lsquo;<samp><span class="samp">\p1</span></samp>&rsquo; to evaluate the arguments.
 
           <br><dt><code>.macro reserve_str p1=0 p2</code><dd>Begin the definition of a macro called <code>reserve_str</code>, with two
-arguments.  The first argument has a default value, but not the second.
+arguments.  The first argument has a default value, but not the second. 
 After the definition is complete, you can call the macro either as
 &lsquo;<samp><span class="samp">reserve_str </span><var>a</var><span class="samp">,</span><var>b</var></samp>&rsquo; (with &lsquo;<samp><span class="samp">\p1</span></samp>&rsquo; evaluating to
 <var>a</var> and &lsquo;<samp><span class="samp">\p2</span></samp>&rsquo; evaluating to <var>b</var>), or as &lsquo;<samp><span class="samp">reserve_str
@@ -120,7 +120,7 @@ this macro definition:
 
      <pre class="example">          	.macro label l
           \l:
-		.endm
+          	.endm
 </pre>
      <p>might not work as expected.  Invoking &lsquo;<samp><span class="samp">label foo</span></samp>&rsquo; might not create a label
 called &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; but instead just insert the text &lsquo;<samp><span class="samp">\l:</span></samp>&rsquo; into the
@@ -134,7 +134,7 @@ length specifier like this:
 
      <pre class="example">          	.macro opcode base length
                   \base.\length
-		.endm
+          	.endm
 </pre>
      <p>and invoking it as &lsquo;<samp><span class="samp">opcode store l</span></samp>&rsquo; will not create a &lsquo;<samp><span class="samp">store.l</span></samp>&rsquo;
 instruction but instead generate some kind of error as the assembler tries to
@@ -148,22 +148,22 @@ solution.  eg:
 
           <pre class="example">               	.macro label l
                \l :
-		.endm
+               	.endm
 </pre>
           <br><dt><code>Use &lsquo;</code><samp><span class="samp">\()</span></samp><code>&rsquo;</code><dd>The string &lsquo;<samp><span class="samp">\()</span></samp>&rsquo; can be used to separate the end of a macro argument from
 the following text.  eg:
 
           <pre class="example">               	.macro opcode base length
                        \base\().\length
-		.endm
+               	.endm
 </pre>
           <br><dt><code>Use the alternate macro syntax mode</code><dd>In the alternative macro syntax mode the ampersand character (&lsquo;<samp><span class="samp">&amp;</span></samp>&rsquo;) can be
 used as a separator.  eg:
 
           <pre class="example">               	.altmacro
-		.macro label l
+               	.macro label l
                l&amp;:
-		.endm
+               	.endm
 </pre>
           </dl>
 
@@ -181,7 +181,8 @@ output with &lsquo;<samp><span class="samp">\@</span></samp>&rsquo;, but <em>onl
 
      <br><dt><code>LOCAL </code><var>name</var><code> [ , ... ]</code><a name="index-LOCAL-_0040var_007bname_007d-_005b-_002c-_0040dots_007b_007d-_005d-408"></a><dd><em>Warning: </em><code>LOCAL</code><em> is only available if you select &ldquo;alternate
 macro syntax&rdquo; with &lsquo;</em><samp><span class="samp">--alternate</span></samp><em>&rsquo; or </em><code>.altmacro</code><em>.</em>
-See <a href="Altmacro.html#Altmacro"><code>.altmacro</code></a>.
+See <a href="Altmacro.html#Altmacro"><code>.altmacro</code></a>. 
 </dl>
 
    </body></html>
+

@@ -131,7 +131,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       const size_type __old_size = this->size();
       const size_type __new_size = __old_size + __len2 - __len1;
-
+      
       if (__new_size <= this->capacity() && !this->_M_is_shared())
 	{
 	  _CharT* __p = this->_M_data() + __pos;
@@ -173,7 +173,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       this->_M_set_length(__new_size);
       return *this;
     }
-
+  
   template<typename _CharT, typename _Traits, typename _Alloc,
 	   template <typename, typename, typename> class _Base>
     __versa_string<_CharT, _Traits, _Alloc, _Base>
@@ -618,7 +618,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       if (__err)
 	__in.setstate(__err);
       return __in;
-    }
+    }      
 
   template<typename _CharT, typename _Traits, typename _Alloc,
            template <typename, typename, typename> class _Base>
@@ -669,7 +669,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 		__err |= __ios_base::eofbit;
 	      else if (_Traits::eq_int_type(__c, __idelim))
 		{
-		  ++__extracted;
+		  ++__extracted;		  
 		  __in.rdbuf()->sbumpc();
 		}
 	      else
@@ -693,7 +693,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       if (__err)
 	__in.setstate(__err);
       return __in;
-    }
+    }      
 
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace

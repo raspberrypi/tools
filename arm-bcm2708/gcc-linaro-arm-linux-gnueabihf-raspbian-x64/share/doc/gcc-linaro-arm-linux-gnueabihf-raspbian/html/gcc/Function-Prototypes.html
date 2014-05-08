@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,10 +64,10 @@ old-style non-prototype definition.  Consider the following example:
      #else
      #define P(x) ()
      #endif
-
+     
      /* <span class="roman">Prototype function declaration.</span>  */
      int isroot P((uid_t));
-
+     
      /* <span class="roman">Old-style function definition.</span>  */
      int
      isroot (x)   /* <span class="roman">??? lossage here ???</span> */
@@ -93,7 +93,7 @@ latter type before promotion.  Thus in GNU C the above example is
 equivalent to the following:
 
 <pre class="smallexample">     int isroot (uid_t);
-
+     
      int
      isroot (uid_t x)
      {
@@ -104,3 +104,4 @@ equivalent to the following:
 extension is irrelevant.
 
  </body></html>
+

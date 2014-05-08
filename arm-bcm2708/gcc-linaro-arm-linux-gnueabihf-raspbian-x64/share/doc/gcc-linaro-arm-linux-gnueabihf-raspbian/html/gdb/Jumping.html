@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Altering.html#Altering">Altering</a>
 it stopped, with the <code>continue</code> command.  You can instead continue at
 an address of your own choosing, with the following commands:
 
-
+     
 <a name="index-jump-1018"></a>
 <a name="index-j-_0040r_007b_0028_0040code_007bjump_007d_0029_007d-1019"></a>
 <dl><dt><code>jump </code><var>linespec</var><dt><code>j </code><var>linespec</var><dt><code>jump </code><var>location</var><dt><code>j </code><var>location</var><dd>Resume execution at line <var>linespec</var> or at address given by
@@ -69,7 +69,7 @@ be bizarre if the two functions expect different patterns of arguments or
 of local variables.  For this reason, the <code>jump</code> command requests
 confirmation if the specified line is not in the function currently
 executing.  However, even bizarre results are predictable if you are
-well acquainted with the machine-language code of your program.
+well acquainted with the machine-language code of your program. 
 </dl>
 
 <!-- Doesn't work on HP-UX; have to set $pcoqh and $pcoqt. -->
@@ -82,7 +82,7 @@ example,
 <pre class="smallexample">     set $pc = 0x485
 </pre>
    <p class="noindent">makes the next <code>continue</code> command or stepping command execute at
-address <code>0x485</code>, rather than at the address where your program stopped.
+address <code>0x485</code>, rather than at the address where your program stopped. 
 See <a href="Continuing-and-Stepping.html#Continuing-and-Stepping">Continuing and Stepping</a>.
 
    <p>The most common occasion to use the <code>jump</code> command is to back
@@ -92,3 +92,4 @@ detail.
 
 <!-- @group -->
    </body></html>
+

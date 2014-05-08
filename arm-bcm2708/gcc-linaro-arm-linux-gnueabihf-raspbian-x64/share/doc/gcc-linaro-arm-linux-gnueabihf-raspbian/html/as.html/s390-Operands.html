@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ Instruction operands can be grouped into three classes, operands located
 in registers, immediate operands, and operands in storage.
 
    <p>A register operand can be located in general, floating-point, access,
-or control register. The register is identified by a four-bit field.
+or control register. The register is identified by a four-bit field. 
 The field containing the register operand is called the R field.
 
    <p>Immediate operands are contained within the instruction and can have
@@ -71,7 +71,7 @@ register B plus the content of a displacement field D
 index register X and the base register B plus the content of a
 displacement field
 <li>The sum of the current instruction address and a 32-bit signed
-immediate field multiplied by two.
+immediate field multiplied by two. 
 </ul>
 
    <p>The length of a storage operand can be:
@@ -88,13 +88,13 @@ as follows:
 
      <dl>
 <dt><code>Dn(Bn)</code><dd>the address for operand number n is formed from the content of general
-register Bn called the base register and the displacement field Dn.
+register Bn called the base register and the displacement field Dn. 
 <br><dt><code>Dn(Xn,Bn)</code><dd>the address for operand number n is formed from the content of general
 register Xn called the index register, general register Bn called the
-base register and the displacement field Dn.
+base register and the displacement field Dn. 
 <br><dt><code>Dn(Ln,Bn)</code><dd>the address for operand number n is formed from the content of general
-regiser Bn called the base register and the displacement field Dn.
-The length of the operand n is specified by the field Ln.
+regiser Bn called the base register and the displacement field Dn. 
+The length of the operand n is specified by the field Ln. 
 </dl>
 
    <p>The base registers Bn and the index registers Xn of a storage operand can
@@ -110,3 +110,4 @@ field. The notation changes as follows:
      <br></td></tr></table>
 </pre>
    </body></html>
+

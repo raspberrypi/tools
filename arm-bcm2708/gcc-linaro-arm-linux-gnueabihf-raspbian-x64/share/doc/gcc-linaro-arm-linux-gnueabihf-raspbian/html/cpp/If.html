@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,9 +60,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Conditional-Syntax.html#Conditional-Syn
 expression, rather than the mere existence of one macro.  Its syntax is
 
 <pre class="smallexample">     #if <var>expression</var>
-
+     
      <var>controlled text</var>
-
+     
      #endif /* <var>expression</var> */
 </pre>
    <p><var>expression</var> is a C expression of integer type, subject to stringent
@@ -93,10 +93,10 @@ function call parentheses are also treated as zero.
 
      <p>In some contexts this shortcut is undesirable.  The <samp><span class="option">-Wundef</span></samp>
 option causes GCC to warn whenever it encounters an identifier which is
-not a macro in an &lsquo;<samp><span class="samp">#if</span></samp>&rsquo;.
+not a macro in an &lsquo;<samp><span class="samp">#if</span></samp>&rsquo;. 
 </ul>
 
-   <p>The preprocessor does not know anything about types in the language.
+   <p>The preprocessor does not know anything about types in the language. 
 Therefore, <code>sizeof</code> operators are not recognized in &lsquo;<samp><span class="samp">#if</span></samp>&rsquo;, and
 neither are <code>enum</code> constants.  They will be taken as identifiers
 which are not macros, and replaced by zero.  In the case of
@@ -111,3 +111,4 @@ comes out to be nonzero, the &lsquo;<samp><span class="samp">#if</span></samp>&r
 text</var> is included; otherwise it is skipped.
 
    </body></html>
+

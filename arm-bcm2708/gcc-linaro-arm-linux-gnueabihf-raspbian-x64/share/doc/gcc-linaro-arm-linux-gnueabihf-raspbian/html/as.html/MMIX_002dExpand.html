@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,18 +57,19 @@ instructions:
 
      <dl>
 <dt>&lsquo;<samp><span class="samp">GETA</span></samp>&rsquo;<dd>Expands to a sequence of four instructions: <code>SETL</code>, <code>INCML</code>,
-<code>INCMH</code> and <code>INCH</code>.  The operand must be a multiple of four.
+<code>INCMH</code> and <code>INCH</code>.  The operand must be a multiple of four. 
 <br><dt>Conditional branches<dd>A branch instruction is turned into a branch with the complemented
 condition and prediction bit over five instructions; four instructions
 setting <code>$255</code> to the operand value, which like with <code>GETA</code> must
-be a multiple of four, and a final <code>GO $255,$255,0</code>.
+be a multiple of four, and a final <code>GO $255,$255,0</code>. 
 <br><dt>&lsquo;<samp><span class="samp">PUSHJ</span></samp>&rsquo;<dd>Similar to expansion for conditional branches; four instructions set
-<code>$255</code> to the operand value, followed by a <code>PUSHGO $255,$255,0</code>.
+<code>$255</code> to the operand value, followed by a <code>PUSHGO $255,$255,0</code>. 
 <br><dt>&lsquo;<samp><span class="samp">JMP</span></samp>&rsquo;<dd>Similar to conditional branches and <code>PUSHJ</code>.  The final instruction
-is <code>GO $255,$255,0</code>.
+is <code>GO $255,$255,0</code>. 
 </dl>
 
    <p>The linker <code>ld</code> is expected to shrink these expansions for
 code assembled with &lsquo;<samp><span class="samp">--relax</span></samp>&rsquo; (though not currently implemented).
 
    </body></html>
+

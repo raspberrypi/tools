@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,30 +51,30 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GDB.html#Invoking-GDB">Invokin
 batch mode or quiet mode.
 
      <dl>
-<a name="g_t_002dnx"></a><dt><code>-nx</code><dt><code>-n</code><dd><a name="index-g_t_0040code_007b_002d_002dnx_007d-25"></a><a name="index-g_t_0040code_007b_002dn_007d-26"></a>Do not execute commands found in any initialization file.
+<a name="g_t_002dnx"></a><dt><code>-nx</code><dt><code>-n</code><dd><a name="index-g_t_0040code_007b_002d_002dnx_007d-25"></a><a name="index-g_t_0040code_007b_002dn_007d-26"></a>Do not execute commands found in any initialization file. 
 There are three init files, loaded in the following order:
 
           <dl>
-<dt><samp><span class="file">system.gdbinit</span></samp><dd>This is the system-wide init file.
+<dt><samp><span class="file">system.gdbinit</span></samp><dd>This is the system-wide init file. 
 Its location is specified with the <code>--with-system-gdbinit</code>
-configure option (see <a href="System_002dwide-configuration.html#System_002dwide-configuration">System-wide configuration</a>).
+configure option (see <a href="System_002dwide-configuration.html#System_002dwide-configuration">System-wide configuration</a>). 
 It is loaded first when <span class="sc">gdb</span> starts, before command line options
-have been processed.
-<br><dt><samp><span class="file">~/.gdbinit</span></samp><dd>This is the init file in your home directory.
+have been processed. 
+<br><dt><samp><span class="file">~/.gdbinit</span></samp><dd>This is the init file in your home directory. 
 It is loaded next, after <samp><span class="file">system.gdbinit</span></samp>, and before
-command options have been processed.
-<br><dt><samp><span class="file">./.gdbinit</span></samp><dd>This is the init file in the current directory.
+command options have been processed. 
+<br><dt><samp><span class="file">./.gdbinit</span></samp><dd>This is the init file in the current directory. 
 It is loaded last, after command line options other than <code>-x</code> and
 <code>-ex</code> have been processed.  Command line options <code>-x</code> and
-<code>-ex</code> are processed last, after <samp><span class="file">./.gdbinit</span></samp> has been loaded.
+<code>-ex</code> are processed last, after <samp><span class="file">./.gdbinit</span></samp> has been loaded. 
 </dl>
 
-     <p>For further documentation on startup processing, See <a href="Startup.html#Startup">Startup</a>.
+     <p>For further documentation on startup processing, See <a href="Startup.html#Startup">Startup</a>. 
 For documentation on how to write command files,
 See <a href="Command-Files.html#Command-Files">Command Files</a>.
 
      <p><a name="g_t_002dnh"></a><br><dt><code>-nh</code><dd><a name="index-g_t_0040code_007b_002d_002dnh_007d-27"></a>Do not execute commands found in <samp><span class="file">~/.gdbinit</span></samp>, the init file
-in your home directory.
+in your home directory. 
 See <a href="Startup.html#Startup">Startup</a>.
 
      <br><dt><code>-quiet</code><dt><code>-silent</code><dt><code>-q</code><dd><a name="index-g_t_0040code_007b_002d_002dquiet_007d-28"></a><a name="index-g_t_0040code_007b_002d_002dsilent_007d-29"></a><a name="index-g_t_0040code_007b_002dq_007d-30"></a>&ldquo;Quiet&rdquo;.  Do not print the introductory and copyright messages.  These
@@ -115,10 +115,10 @@ process (the process being debugged), with the following exceptions:
           <ul>
 <li><span class="sc">gdb</span> exits abnormally.  E.g., due to an incorrect argument or an
 internal error.  In this case the exit code is the same as it would have been
-without &lsquo;<samp><span class="samp">-return-child-result</span></samp>&rsquo;.
-<li>The user quits with an explicit value.  E.g., &lsquo;<samp><span class="samp">quit 1</span></samp>&rsquo;.
+without &lsquo;<samp><span class="samp">-return-child-result</span></samp>&rsquo;. 
+<li>The user quits with an explicit value.  E.g., &lsquo;<samp><span class="samp">quit 1</span></samp>&rsquo;. 
 <li>The child process never runs, or is not allowed to terminate, in which case
-the exit code will be -1.
+the exit code will be -1. 
 </ul>
 
      <p>This option is useful in conjunction with &lsquo;<samp><span class="samp">-batch</span></samp>&rsquo; or &lsquo;<samp><span class="samp">-batch-silent</span></samp>&rsquo;,
@@ -135,7 +135,7 @@ used if possible.
      <br><dt><code>-cd </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002dcd_007d-38"></a>Run <span class="sc">gdb</span> using <var>directory</var> as its working directory,
 instead of the current directory.
 
-     <br><dt><code>-data-directory </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002ddata_002ddirectory_007d-39"></a>Run <span class="sc">gdb</span> using <var>directory</var> as its data directory.
+     <br><dt><code>-data-directory </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002ddata_002ddirectory_007d-39"></a>Run <span class="sc">gdb</span> using <var>directory</var> as its data directory. 
 The data directory is where <span class="sc">gdb</span> searches for its
 auxiliary files.  See <a href="Data-Files.html#Data-Files">Data Files</a>.
 
@@ -162,7 +162,7 @@ that control <span class="sc">gdb</span>, and level 2 has been deprecated.
 (see <a href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>).
 
      <br><dt><code>--args</code><dd><a name="index-g_t_0040code_007b_002d_002dargs_007d-43"></a>Change interpretation of command line so that arguments following the
-executable file are passed as command line arguments to the inferior.
+executable file are passed as command line arguments to the inferior. 
 This option stops option processing.
 
      <br><dt><code>-baud </code><var>bps</var><dt><code>-b </code><var>bps</var><dd><a name="index-g_t_0040code_007b_002d_002dbaud_007d-44"></a><a name="index-g_t_0040code_007b_002db_007d-45"></a>Set the line speed (baud rate or bits per second) of any serial
@@ -171,7 +171,7 @@ interface used by <span class="sc">gdb</span> for remote debugging.
      <br><dt><code>-l </code><var>timeout</var><dd><a name="index-g_t_0040code_007b_002dl_007d-46"></a>Set the timeout (in seconds) of any communication used by <span class="sc">gdb</span>
 for remote debugging.
 
-     <br><dt><code>-tty </code><var>device</var><dt><code>-t </code><var>device</var><dd><a name="index-g_t_0040code_007b_002d_002dtty_007d-47"></a><a name="index-g_t_0040code_007b_002dt_007d-48"></a>Run using <var>device</var> for your program's standard input and output.
+     <br><dt><code>-tty </code><var>device</var><dt><code>-t </code><var>device</var><dd><a name="index-g_t_0040code_007b_002d_002dtty_007d-47"></a><a name="index-g_t_0040code_007b_002dt_007d-48"></a>Run using <var>device</var> for your program's standard input and output. 
 <!-- FIXME: kingdon thinks there is more to -tty.  Investigate. -->
 
      <!-- resolve the situation of these eventually -->
@@ -189,7 +189,7 @@ option if you run <span class="sc">gdb</span> from Emacs (see <a href="Emacs.htm
      <!-- systems. -->
      <br><dt><code>-interpreter </code><var>interp</var><dd><a name="index-g_t_0040code_007b_002d_002dinterpreter_007d-50"></a>Use the interpreter <var>interp</var> for interface with the controlling
 program or device.  This option is meant to be set by programs which
-communicate with <span class="sc">gdb</span> using it as a back end.
+communicate with <span class="sc">gdb</span> using it as a back end. 
 See <a href="Interpreters.html#Interpreters">Command Interpreters</a>.
 
      <p>&lsquo;<samp><span class="samp">--interpreter=mi</span></samp>&rsquo; (or &lsquo;<samp><span class="samp">--interpreter=mi2</span></samp>&rsquo;) causes
@@ -211,3 +211,4 @@ no-warranty blurb, and exit.
    </dl>
 
    </body></html>
+

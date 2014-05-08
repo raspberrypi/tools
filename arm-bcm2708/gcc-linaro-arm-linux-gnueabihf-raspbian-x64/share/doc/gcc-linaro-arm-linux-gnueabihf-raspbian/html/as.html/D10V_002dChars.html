@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,28 +56,29 @@ is treated as a comment, but in this case the line could also be a
 logical line number directive (see <a href="Comments.html#Comments">Comments</a>) or a preprocessor
 control command (see <a href="Preprocessing.html#Preprocessing">Preprocessing</a>).
 
-   <p><a name="index-sub_002dinstruction-ordering_002c-D10V-810"></a><a name="index-D10V-sub_002dinstruction-ordering-811"></a>Sub-instructions may be executed in order, in reverse-order, or in parallel.
-Instructions listed in the standard one-per-line format will be executed sequentially.
+   <p><a name="index-sub_002dinstruction-ordering_002c-D10V-810"></a><a name="index-D10V-sub_002dinstruction-ordering-811"></a>Sub-instructions may be executed in order, in reverse-order, or in parallel. 
+Instructions listed in the standard one-per-line format will be executed sequentially. 
 To specify the executing order, use the following symbols:
      <dl>
-<dt>&lsquo;<samp><span class="samp">-&gt;</span></samp>&rsquo;<dd>Sequential with instruction on the left first.
-<br><dt>&lsquo;<samp><span class="samp">&lt;-</span></samp>&rsquo;<dd>Sequential with instruction on the right first.
+<dt>&lsquo;<samp><span class="samp">-&gt;</span></samp>&rsquo;<dd>Sequential with instruction on the left first. 
+<br><dt>&lsquo;<samp><span class="samp">&lt;-</span></samp>&rsquo;<dd>Sequential with instruction on the right first. 
 <br><dt>&lsquo;<samp><span class="samp">||</span></samp>&rsquo;<dd>Parallel
 </dl>
    The D10V syntax allows either one instruction per line, one instruction per line with
 the execution symbol, or two instructions per line.  For example
      <dl>
 <dt><code>abs       a1      -&gt;      abs     r0</code><dd>Execute these sequentially.  The instruction on the right is in the right
-container and is executed second.
+container and is executed second. 
 <br><dt><code>abs       r0      &lt;-      abs     a1</code><dd>Execute these reverse-sequentially.  The instruction on the right is in the right
-container, and is executed first.
-<br><dt><code>ld2w    r2,@r8+         ||      mac     a0,r0,r7</code><dd>Execute these in parallel.
-<br><dt><code>ld2w    r2,@r8+         ||</code><dt><code>mac     a0,r0,r7</code><dd>Two-line format. Execute these in parallel.
+container, and is executed first. 
+<br><dt><code>ld2w    r2,@r8+         ||      mac     a0,r0,r7</code><dd>Execute these in parallel. 
+<br><dt><code>ld2w    r2,@r8+         ||</code><dt><code>mac     a0,r0,r7</code><dd>Two-line format. Execute these in parallel. 
 <br><dt><code>ld2w    r2,@r8+</code><dt><code>mac     a0,r0,r7</code><dd>Two-line format. Execute these sequentially.  Assembler will
-put them in the proper containers.
+put them in the proper containers. 
 <br><dt><code>ld2w    r2,@r8+         -&gt;</code><dt><code>mac     a0,r0,r7</code><dd>Two-line format. Execute these sequentially.  Same as above but
-second instruction will always go into right container.
+second instruction will always go into right container. 
 </dl>
    <a name="index-symbol-names_002c-_0040samp_007b_0024_007d-in-812"></a><a name="index-g_t_0040code_007b_0024_007d-in-symbol-names-813"></a>Since &lsquo;<samp><span class="samp">$</span></samp>&rsquo; has no special meaning, you may use it in symbol names.
 
    </body></html>
+

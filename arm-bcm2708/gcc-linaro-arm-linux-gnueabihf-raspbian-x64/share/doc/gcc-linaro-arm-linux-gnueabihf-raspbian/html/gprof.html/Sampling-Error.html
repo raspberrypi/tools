@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,22 +66,22 @@ profile says how often samples are taken.  The rule of thumb is that a
 run-time figure is accurate if it is considerably bigger than the sampling
 period.
 
-   <p>The actual amount of error can be predicted.
+   <p>The actual amount of error can be predicted. 
 For <var>n</var> samples, the <em>expected</em> error
 is the square-root of <var>n</var>.  For example,
 if the sampling period is 0.01 seconds and <code>foo</code>'s run-time is 1 second,
 <var>n</var> is 100 samples (1 second/0.01 seconds), sqrt(<var>n</var>) is 10 samples, so
 the expected error in <code>foo</code>'s run-time is 0.1 seconds (10*0.01 seconds),
-or ten percent of the observed value.
+or ten percent of the observed value. 
 Again, if the sampling period is 0.01 seconds and <code>bar</code>'s run-time is
 100 seconds, <var>n</var> is 10000 samples, sqrt(<var>n</var>) is 100 samples, so
 the expected error in <code>bar</code>'s run-time is 1 second,
-or one percent of the observed value.
+or one percent of the observed value. 
 It is likely to
-vary this much <em>on the average</em> from one profiling run to the next.
+vary this much <em>on the average</em> from one profiling run to the next. 
 (<em>Sometimes</em> it will vary more.)
 
-   <p>This does not mean that a small run-time figure is devoid of information.
+   <p>This does not mean that a small run-time figure is devoid of information. 
 If the program's <em>total</em> run-time is large, a small run-time for one
 function does tell you that that function used an insignificant fraction of
 the whole program's time.  Usually this means it is not worth optimizing.
@@ -110,3 +110,4 @@ several runs, using the &lsquo;<samp><span class="samp">-s</span></samp>&rsquo; 
      </ol>
 
    </body></html>
+

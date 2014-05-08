@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -45,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI-General-Design.html#GDB_002f
 
 <h4 class="subsection">27.1.3 Thread groups</h4>
 
-<p><span class="sc">gdb</span> may be used to debug several processes at the same time.
+<p><span class="sc">gdb</span> may be used to debug several processes at the same time. 
 On some platfroms, <span class="sc">gdb</span> may support debugging of several
 hardware systems, each one having several cores with several different
 processes running on each core.  This section describes the MI
@@ -76,7 +76,7 @@ wishes to debug, a concept of <dfn>available thread group</dfn> is
 introduced.  Available thread group is an thread group that
 <span class="sc">gdb</span> is not debugging, but that can be attached to, using the
 <code>-target-attach</code> command.  The list of available top-level thread
-groups can be obtained using &lsquo;<samp><span class="samp">-list-thread-groups --available</span></samp>&rsquo;.
+groups can be obtained using &lsquo;<samp><span class="samp">-list-thread-groups --available</span></samp>&rsquo;. 
 In general, the content of a thread group may be only retrieved only
 after attaching to that thread group.
 
@@ -86,3 +86,4 @@ such thread groups.
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

@@ -30,7 +30,6 @@
 #include <libintl.h>
 extern void gcc_init_libintl (void);
 extern size_t gcc_gettext_width (const char *);
-extern void gcc_init_libintl_program (const char *);
 #else
 /* Stubs.  */
 # undef textdomain

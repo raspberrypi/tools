@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,8 +65,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
      <br><dt><em>Syntax</em>:<dd><code>RESULT = MODULO(A, P)</code>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>A</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code> or <code>REAL</code>.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>P</var> </td><td valign="top" width="70%">Shall be a scalar of the same type and kind as <var>A</var>.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>A</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code> or <code>REAL</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>P</var> </td><td valign="top" width="70%">Shall be a scalar of the same type and kind as <var>A</var>. 
 It shall not be zero.
      <br></td></tr></table>
 
@@ -74,8 +74,8 @@ It shall not be zero.
           <dl>
 <dt>If <var>A</var> and <var>P</var> are of type <code>INTEGER</code>:<dd><code>MODULO(A,P)</code> has the value <var>R</var> such that <code>A=Q*P+R</code>, where
 <var>Q</var> is an integer and <var>R</var> is between 0 (inclusive) and <var>P</var>
-(exclusive).
-<br><dt>If <var>A</var> and <var>P</var> are of type <code>REAL</code>:<dd><code>MODULO(A,P)</code> has the value of <code>A - FLOOR (A / P) * P</code>.
+(exclusive). 
+<br><dt>If <var>A</var> and <var>P</var> are of type <code>REAL</code>:<dd><code>MODULO(A,P)</code> has the value of <code>A - FLOOR (A / P) * P</code>. 
 </dl>
      The returned value has the same sign as P and a magnitude less than
 the magnitude of P.
@@ -84,10 +84,10 @@ the magnitude of P.
      <pre class="smallexample">          program test_modulo
             print *, modulo(17,3)
             print *, modulo(17.5,5.5)
-
+          
             print *, modulo(-17,3)
             print *, modulo(-17.5,5.5)
-
+          
             print *, modulo(17,-3)
             print *, modulo(17.5,-5.5)
           end program
@@ -97,3 +97,4 @@ the magnitude of P.
    </dl>
 
    </body></html>
+

@@ -315,7 +315,7 @@ extern void copy_loop_info (struct loop *loop, struct loop *target);
 extern void duplicate_subloops (struct loop *, struct loop *);
 extern bool duplicate_loop_to_header_edge (struct loop *, edge,
 					   unsigned, sbitmap, edge,
-					   vec<edge> *, int);
+ 					   vec<edge> *, int);
 extern struct loop *loopify (edge, edge,
 			     basic_block, edge, edge, bool,
 			     unsigned, unsigned);

@@ -188,7 +188,7 @@ template<typename _Alloc>
     {
       using std::swap;
       return !_S_propagate_on_swap()
-	|| noexcept(swap(std::declval<_Alloc&>(), std::declval<_Alloc&>()));
+       	|| noexcept(swap(std::declval<_Alloc&>(), std::declval<_Alloc&>()));
     }
 
     template<typename _Tp>

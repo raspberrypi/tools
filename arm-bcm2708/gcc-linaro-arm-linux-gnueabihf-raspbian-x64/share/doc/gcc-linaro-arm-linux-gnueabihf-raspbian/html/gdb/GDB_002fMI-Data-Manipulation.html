@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -83,10 +83,10 @@ specified.  If <var>end-addr</var> is specified as a non-zero value, and
 <var>start-addr</var> and <var>end-addr</var>, only <var>lines</var> lines are
 displayed; if <var>lines</var> is higher than the number of lines between
 <var>start-addr</var> and <var>end-addr</var>, only the lines up to <var>end-addr</var>
-are displayed.
+are displayed. 
 <br><dt>&lsquo;<samp><var>mode</var></samp>&rsquo;<dd>is either 0 (meaning only disassembly), 1 (meaning mixed source and
 disassembly), 2 (meaning disassembly with raw opcodes), or 3 (meaning
-mixed source and disassembly with raw opcodes).
+mixed source and disassembly with raw opcodes). 
 </dl>
 
 <h5 class="subsubheading">Result</h5>
@@ -223,7 +223,7 @@ adjust its format.
 <pre class="smallexample">      -data-evaluate-expression <var>expr</var>
 </pre>
    <p>Evaluate <var>expr</var> as an expression.  The expression could contain an
-inferior function call.  The function call will execute synchronously.
+inferior function call.  The function call will execute synchronously. 
 If the expression contains spaces, it must be enclosed in double quotes.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -273,7 +273,7 @@ has the corresponding command &lsquo;<samp><span class="samp">gdb_changed_regist
 <pre class="smallexample">     (gdb)
      -exec-continue
      ^running
-
+     
      (gdb)
      *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={
      func="main",args=[],file="try.c",fullname="/home/foo/bar/try.c",
@@ -433,7 +433,7 @@ value of <var>aschar</var> is used as a padding character when a byte is not a
 member of the printable <span class="sc">ascii</span> character set (printable <span class="sc">ascii</span>
 characters are those whose code is between 32 and 126, inclusively).
 
-     <br><dt>&lsquo;<samp><var>byte-offset</var></samp>&rsquo;<dd>An offset to add to the <var>address</var> before fetching memory.
+     <br><dt>&lsquo;<samp><var>byte-offset</var></samp>&rsquo;<dd>An offset to add to the <var>address</var> before fetching memory. 
 </dl>
 
    <p>This command displays memory contents as a table of <var>nr-rows</var> by
@@ -612,3 +612,4 @@ write <var>contents</var> until it fills <var>count</var> bytes.
 </pre>
    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

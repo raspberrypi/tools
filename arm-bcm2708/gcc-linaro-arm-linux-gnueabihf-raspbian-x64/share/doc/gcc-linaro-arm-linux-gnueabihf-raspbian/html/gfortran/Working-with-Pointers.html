@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -94,14 +94,14 @@ consider this code in C:
 
 <pre class="smallexample">     /* Procedure implemented in Fortran.  */
      void get_values (void (*)(double));
-
+     
      /* Call-back routine we want called from Fortran.  */
      void
      print_it (double x)
      {
        printf ("Number is %f.\n", x);
      }
-
+     
      /* Call Fortran routine and pass call-back to it.  */
      void
      foobar ()
@@ -115,7 +115,7 @@ in the following <code>MODULE</code>:
 
 <pre class="smallexample">     MODULE m
        IMPLICIT NONE
-
+     
        ! Define interface of call-back routine.
        ABSTRACT INTERFACE
          SUBROUTINE callback (x)
@@ -123,29 +123,29 @@ in the following <code>MODULE</code>:
            REAL(KIND=C_DOUBLE), INTENT(IN), VALUE :: x
          END SUBROUTINE callback
        END INTERFACE
-
+     
      CONTAINS
-
+     
        ! Define C-bound procedure.
        SUBROUTINE get_values (cproc) BIND(C)
          USE, INTRINSIC :: ISO_C_BINDING
          TYPE(C_FUNPTR), INTENT(IN), VALUE :: cproc
-
+     
          PROCEDURE(callback), POINTER :: proc
-
+     
          ! Convert C to Fortran procedure pointer.
          CALL C_F_PROCPOINTER (cproc, proc)
-
+     
          ! Call it.
          CALL proc (1.0_C_DOUBLE)
          CALL proc (-42.0_C_DOUBLE)
          CALL proc (18.12_C_DOUBLE)
        END SUBROUTINE get_values
-
+     
      END MODULE m
 </pre>
    <p>Next, we want to call a C routine that expects a procedure pointer argument
-and pass it a Fortran procedure (which clearly must be interoperable!).
+and pass it a Fortran procedure (which clearly must be interoperable!). 
 Again, the C function may be:
 
 <pre class="smallexample">     int
@@ -159,7 +159,7 @@ Again, the C function may be:
 <pre class="smallexample">     MODULE m
        USE, INTRINSIC :: ISO_C_BINDING
        IMPLICIT NONE
-
+     
        ! Define interface of C function.
        INTERFACE
          INTEGER(KIND=C_INT) FUNCTION call_it (func, arg) BIND(C)
@@ -168,30 +168,31 @@ Again, the C function may be:
            INTEGER(KIND=C_INT), INTENT(IN), VALUE :: arg
          END FUNCTION call_it
        END INTERFACE
-
+     
      CONTAINS
-
+     
        ! Define procedure passed to C function.
        ! It must be interoperable!
        INTEGER(KIND=C_INT) FUNCTION double_it (arg) BIND(C)
          INTEGER(KIND=C_INT), INTENT(IN), VALUE :: arg
          double_it = arg + arg
        END FUNCTION double_it
-
+     
        ! Call C function.
        SUBROUTINE foobar ()
          TYPE(C_FUNPTR) :: cproc
          INTEGER(KIND=C_INT) :: i
-
+     
          ! Get C procedure pointer.
          cproc = C_FUNLOC (double_it)
-
+     
          ! Use it.
          DO i = 1_C_INT, 10_C_INT
            PRINT *, call_it (cproc, i)
          END DO
        END SUBROUTINE foobar
-
+     
      END MODULE m
 </pre>
    </body></html>
+

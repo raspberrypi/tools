@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ it reaches a stop event.  Stop events may include
 <li>breakpoints or watchpoints
 <li>signals or exceptions
 <li>the end of the process (or its beginning under &lsquo;<samp><span class="samp">--reverse</span></samp>&rsquo;)
-<li>the end or beginning of a replay log if one is being used.
+<li>the end or beginning of a replay log if one is being used. 
 </ul>
    In all-stop mode (see <a href="All_002dStop-Mode.html#All_002dStop-Mode">All-Stop Mode</a>), may resume only one thread, or all threads, depending on the
 value of the &lsquo;<samp><span class="samp">scheduler-locking</span></samp>&rsquo; variable.  If &lsquo;<samp><span class="samp">--all</span></samp>&rsquo; is
@@ -101,7 +101,7 @@ specified, then all threads in that thread group are resumed.
 <pre class="smallexample">      -exec-finish [--reverse]
 </pre>
    <p>Resumes the execution of the inferior program until the current
-function is exited.  Displays the results returned by the function.
+function is exited.  Displays the results returned by the function. 
 If the &lsquo;<samp><span class="samp">--reverse</span></samp>&rsquo; option is specified, resumes the reverse
 execution of the inferior program until the point where current
 function was called.
@@ -154,7 +154,7 @@ asynchronous just like other execution commands.  That is, first the
 &lsquo;<samp><span class="samp">^done</span></samp>&rsquo; response will be printed, and the target stop will be
 reported after that using the &lsquo;<samp><span class="samp">*stopped</span></samp>&rsquo; notification.
 
-   <p>In non-stop mode, only the context thread is interrupted by default.
+   <p>In non-stop mode, only the context thread is interrupted by default. 
 All threads (in all inferiors) will be interrupted if the
 &lsquo;<samp><span class="samp">--all</span></samp>&rsquo;  option is specified.  If the &lsquo;<samp><span class="samp">--thread-group</span></samp>&rsquo;
 option is specified, all threads in that group will be interrupted.
@@ -168,7 +168,7 @@ option is specified, all threads in that group will be interrupted.
 <pre class="smallexample">     (gdb)
      111-exec-continue
      111^running
-
+     
      (gdb)
      222-exec-interrupt
      222^done
@@ -177,7 +177,7 @@ option is specified, all threads in that group will be interrupted.
      frame={addr="0x00010140",func="foo",args=[],file="try.c",
      fullname="/home/foo/bar/try.c",line="13"}
      (gdb)
-
+     
      (gdb)
      -exec-interrupt
      ^error,msg="mi_cmd_exec_interrupt: Inferior not executing."
@@ -262,7 +262,7 @@ it will continue to execute in reverse until the call to that function
 <pre class="smallexample">     (gdb)
      -exec-next-instruction
      ^running
-
+     
      (gdb)
      *stopped,reason="end-stepping-range",
      addr="0x000100d4",line="5",file="hello.c"
@@ -276,7 +276,7 @@ it will continue to execute in reverse until the call to that function
 
 <pre class="smallexample">      -exec-return
 </pre>
-   <p>Makes current function return immediately.  Doesn't execute the inferior.
+   <p>Makes current function return immediately.  Doesn't execute the inferior. 
 Displays the new current frame.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -324,7 +324,7 @@ the program has exited exceptionally.
 
    <p>When no option is specified, the current inferior is started.  If the
 &lsquo;<samp><span class="samp">--thread-group</span></samp>&rsquo; option is specified, it should refer to a thread
-group of type &lsquo;<samp><span class="samp">process</span></samp>&rsquo;, and that thread group will be started.
+group of type &lsquo;<samp><span class="samp">process</span></samp>&rsquo;, and that thread group will be started. 
 If the &lsquo;<samp><span class="samp">--all</span></samp>&rsquo; option is specified, then all inferiors will be started.
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -423,7 +423,7 @@ previously executed source line.
 </pre>
    <p>Resumes the inferior which executes one machine instruction.  If the
 &lsquo;<samp><span class="samp">--reverse</span></samp>&rsquo; option is specified, resumes reverse execution of the
-inferior program, stopping at the previously executed instruction.
+inferior program, stopping at the previously executed instruction. 
 The output, once <span class="sc">gdb</span> has stopped, will vary depending on
 whether we have stopped in the middle of a source line or not.  In the
 former case, the address at which the program stopped will be printed
@@ -438,7 +438,7 @@ as well.
 <pre class="smallexample">     (gdb)
      -exec-step-instruction
      ^running
-
+     
      (gdb)
      *stopped,reason="end-stepping-range",
      frame={func="foo",args=[],file="try.c",
@@ -446,7 +446,7 @@ as well.
      (gdb)
      -exec-step-instruction
      ^running
-
+     
      (gdb)
      *stopped,reason="end-stepping-range",
      frame={addr="0x000100f4",func="foo",args=[],file="try.c",
@@ -483,3 +483,4 @@ reason for stopping in this case will be &lsquo;<samp><span class="samp">locatio
 </pre>
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

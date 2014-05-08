@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ languages themselves.  See <a href="Standards.html#Standards">Language Standards
 
  <p>This section describes the command-line options that are only meaningful
 for Objective-C and Objective-C++ programs.  You can also use most of
-the language-independent GNU compiler options.
+the language-independent GNU compiler options. 
 For example, you might compile a file <code>some_class.m</code> like this:
 
 <pre class="smallexample">     gcc -g -fgnu-runtime -O -c some_class.m
@@ -100,7 +100,7 @@ not <code>nil</code>.  This allows for more efficient entry points in the
 runtime to be used.  This option is only available in conjunction with
 the NeXT runtime and ABI version 0 or 1.
 
-     <br><dt><code>-fobjc-abi-version=</code><var>n</var><dd><a name="index-fobjc_002dabi_002dversion-216"></a>Use version <var>n</var> of the Objective-C ABI for the selected runtime.
+     <br><dt><code>-fobjc-abi-version=</code><var>n</var><dd><a name="index-fobjc_002dabi_002dversion-216"></a>Use version <var>n</var> of the Objective-C ABI for the selected runtime. 
 This option is currently supported only for the NeXT runtime.  In that
 case, Version 0 is the traditional (32-bit) ABI without support for
 properties and other Objective-C 2.0 additions.  Version 1 is the
@@ -149,10 +149,10 @@ GNU runtime has a different garbage collection implementation that
 does not require special compiler flags.
 
      <br><dt><code>-fobjc-nilcheck</code><dd><a name="index-fobjc_002dnilcheck-221"></a>For the NeXT runtime with version 2 of the ABI, check for a nil
-receiver in method invocations before doing the actual method call.
+receiver in method invocations before doing the actual method call. 
 This is the default and can be disabled using
 <samp><span class="option">-fno-objc-nilcheck</span></samp>.  Class methods and super calls are never
-checked for nil in this way no matter what this flag is set to.
+checked for nil in this way no matter what this flag is set to. 
 Currently this flag does nothing when the GNU runtime, or an older
 version of the NeXT runtime ABI, is used.
 
@@ -161,7 +161,7 @@ recognized by GCC 4.0.  This only affects the Objective-C additions to
 the C/C++ language; it does not affect conformance to C/C++ standards,
 which is controlled by the separate C/C++ dialect option flags.  When
 this option is used with the Objective-C or Objective-C++ compiler,
-any Objective-C syntax that is not recognized by GCC 4.0 is rejected.
+any Objective-C syntax that is not recognized by GCC 4.0 is rejected. 
 This is useful if you need to make sure that your Objective-C code can
 be compiled with older versions of GCC.
 
@@ -180,7 +180,7 @@ compile time) with static class references that get initialized at load time,
 which improves run-time performance.  Specifying the <samp><span class="option">-fzero-link</span></samp> flag
 suppresses this behavior and causes calls to <code>objc_getClass("...")</code>
 to be retained.  This is useful in Zero-Link debugging mode, since it allows
-for individual class implementations to be modified during program execution.
+for individual class implementations to be modified during program execution. 
 The GNU runtime currently always retains calls to <code>objc_get_class("...")</code>
 regardless of command-line options.
 
@@ -233,3 +233,4 @@ value, if any.
  </dl>
 
  </body></html>
+

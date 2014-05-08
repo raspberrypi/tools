@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,7 +77,7 @@ with an additional suffix
 <!-- ??? Should we have a mechanism to suppress this warning?  This is almost -->
 <!-- useful for implementing the operation under the control of an external -->
 <!-- mutex. -->
- <p>In most cases, these built-in functions are considered a <dfn>full barrier</dfn>.
+ <p>In most cases, these built-in functions are considered a <dfn>full barrier</dfn>. 
 That is,
 no memory operand is moved across the operation, either forward or
 backward.  Further, instructions are issued as necessary to prevent the
@@ -113,7 +113,7 @@ return the new value.  That is,
 as <code>*ptr = ~(*ptr &amp; value)</code> instead of
 <code>*ptr = ~*ptr &amp; value</code>.
 
-     <br><dt><code>bool __sync_bool_compare_and_swap (</code><var>type</var><code> *ptr, </code><var>type</var><code> oldval, </code><var>type</var><code> newval, ...)</code><dt><var>type</var><code> __sync_val_compare_and_swap (</code><var>type</var><code> *ptr, </code><var>type</var><code> oldval, </code><var>type</var><code> newval, ...)</code><dd><a name="index-g_t_005f_005fsync_005fbool_005fcompare_005fand_005fswap-2908"></a><a name="index-g_t_005f_005fsync_005fval_005fcompare_005fand_005fswap-2909"></a>These built-in functions perform an atomic compare and swap.
+     <br><dt><code>bool __sync_bool_compare_and_swap (</code><var>type</var><code> *ptr, </code><var>type</var><code> oldval, </code><var>type</var><code> newval, ...)</code><dt><var>type</var><code> __sync_val_compare_and_swap (</code><var>type</var><code> *ptr, </code><var>type</var><code> oldval, </code><var>type</var><code> newval, ...)</code><dd><a name="index-g_t_005f_005fsync_005fbool_005fcompare_005fand_005fswap-2908"></a><a name="index-g_t_005f_005fsync_005fval_005fcompare_005fand_005fswap-2909"></a>These built-in functions perform an atomic compare and swap. 
 That is, if the current
 value of <code>*</code><var>ptr</var> is <var>oldval</var>, then write <var>newval</var> into
 <code>*</code><var>ptr</var>.
@@ -136,21 +136,22 @@ immediate constant 1.  The exact value actually stored in <code>*</code><var>ptr
 is implementation defined.
 
      <p>This built-in function is not a full barrier,
-but rather an <dfn>acquire barrier</dfn>.
+but rather an <dfn>acquire barrier</dfn>. 
 This means that references after the operation cannot move to (or be
 speculated to) before the operation, but previous memory stores may not
 be globally visible yet, and previous memory loads may not yet be
 satisfied.
 
      <br><dt><code>void __sync_lock_release (</code><var>type</var><code> *ptr, ...)</code><dd><a name="index-g_t_005f_005fsync_005flock_005frelease-2912"></a>This built-in function releases the lock acquired by
-<code>__sync_lock_test_and_set</code>.
+<code>__sync_lock_test_and_set</code>. 
 Normally this means writing the constant 0 to <code>*</code><var>ptr</var>.
 
      <p>This built-in function is not a full barrier,
-but rather a <dfn>release barrier</dfn>.
+but rather a <dfn>release barrier</dfn>. 
 This means that all previous memory stores are globally visible, and all
 previous memory loads have been satisfied, but following memory reads
-are not prevented from being speculated to before the barrier.
+are not prevented from being speculated to before the barrier. 
 </dl>
 
  </body></html>
+

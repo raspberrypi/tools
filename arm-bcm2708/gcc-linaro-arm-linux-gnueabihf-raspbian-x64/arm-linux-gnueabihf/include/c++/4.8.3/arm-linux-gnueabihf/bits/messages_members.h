@@ -42,13 +42,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Non-virtual member functions.
   template<typename _CharT>
      messages<_CharT>::messages(size_t __refs)
-     : facet(__refs), _M_c_locale_messages(_S_get_c_locale()),
+     : facet(__refs), _M_c_locale_messages(_S_get_c_locale()), 
        _M_name_messages(_S_get_c_name())
      { }
 
   template<typename _CharT>
-     messages<_CharT>::messages(__c_locale __cloc, const char* __s,
-				size_t __refs)
+     messages<_CharT>::messages(__c_locale __cloc, const char* __s, 
+				size_t __refs) 
      : facet(__refs), _M_c_locale_messages(0), _M_name_messages(0)
      {
        if (__builtin_strcmp(__s, _S_get_c_name()) != 0)
@@ -66,28 +66,28 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
      }
 
   template<typename _CharT>
-    typename messages<_CharT>::catalog
-    messages<_CharT>::open(const basic_string<char>& __s, const locale& __loc,
+    typename messages<_CharT>::catalog 
+    messages<_CharT>::open(const basic_string<char>& __s, const locale& __loc, 
 			   const char* __dir) const
-    {
+    { 
       bindtextdomain(__s.c_str(), __dir);
-      return this->do_open(__s, __loc);
+      return this->do_open(__s, __loc); 
     }
 
   // Virtual member functions.
   template<typename _CharT>
     messages<_CharT>::~messages()
-    {
+    { 
       if (_M_name_messages != _S_get_c_name())
 	delete [] _M_name_messages;
-      _S_destroy_c_locale(_M_c_locale_messages);
+      _S_destroy_c_locale(_M_c_locale_messages); 
     }
 
   template<typename _CharT>
-    typename messages<_CharT>::catalog
-    messages<_CharT>::do_open(const basic_string<char>& __s,
+    typename messages<_CharT>::catalog 
+    messages<_CharT>::do_open(const basic_string<char>& __s, 
 			      const locale&) const
-    {
+    { 
       // No error checking is done, assume the catalog exists and can
       // be used.
       textdomain(__s.c_str());
@@ -95,15 +95,15 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   template<typename _CharT>
-    void
-    messages<_CharT>::do_close(catalog) const
+    void    
+    messages<_CharT>::do_close(catalog) const 
     { }
 
    // messages_byname
    template<typename _CharT>
      messages_byname<_CharT>::messages_byname(const char* __s, size_t __refs)
-     : messages<_CharT>(__refs)
-     {
+     : messages<_CharT>(__refs) 
+     { 
        if (this->_M_name_messages != locale::facet::_S_get_c_name())
 	 {
 	   delete [] this->_M_name_messages;
@@ -122,7 +122,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	   && __builtin_strcmp(__s, "POSIX") != 0)
 	 {
 	   this->_S_destroy_c_locale(this->_M_c_locale_messages);
-	   this->_S_create_c_locale(this->_M_c_locale_messages, __s);
+	   this->_S_create_c_locale(this->_M_c_locale_messages, __s); 
 	 }
      }
 

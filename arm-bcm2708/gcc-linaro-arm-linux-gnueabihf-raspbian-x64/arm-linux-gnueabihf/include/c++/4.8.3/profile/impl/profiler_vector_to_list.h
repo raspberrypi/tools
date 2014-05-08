@@ -80,7 +80,7 @@ namespace __gnu_profile
     { return _M_vector_cost - _M_list_cost; }
 
     std::string
-    __advice() const
+    __advice() const 
     { return "change std::vector to std::list"; }
 
     std::size_t
@@ -102,15 +102,15 @@ namespace __gnu_profile
     void
     __set_list_cost(float __lc)
     { _M_list_cost = __lc; }
-
+    
     void
     __set_vector_cost(float __vc)
     { _M_vector_cost = __vc; }
-
+    
     bool
     __is_valid()
     { return _M_valid; }
-
+    
     void
     __set_invalid()
     { _M_valid = false; }
@@ -149,14 +149,14 @@ namespace __gnu_profile
   : public __vector2list_info
   {
   public:
-    __vector2list_stack_info(const __vector2list_info& __o)
+    __vector2list_stack_info(const __vector2list_info& __o) 
     : __vector2list_info(__o) { }
   };
 
 
   /** @brief Vector-to-list instrumentation producer.  */
   class __trace_vector_to_list
-  : public __trace_base<__vector2list_info, __vector2list_stack_info>
+  : public __trace_base<__vector2list_info, __vector2list_stack_info> 
   {
   public:
     __trace_vector_to_list()
@@ -165,7 +165,7 @@ namespace __gnu_profile
 
     ~__trace_vector_to_list() { }
 
-    // Insert a new node at construct with object, callstack and initial size.
+    // Insert a new node at construct with object, callstack and initial size. 
     void
     __insert(__object_t __obj, __stack_t __stack)
     { __add_object(__obj, __vector2list_info(__stack)); }

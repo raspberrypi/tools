@@ -130,3 +130,4 @@ protected:
 
   friend class PB_DS_CLASS_C_DEC;
 };
+

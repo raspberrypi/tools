@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,18 +58,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.h
 GNU Fortran allows the conversion of unformatted data between little-
 and big-endian representation to facilitate moving of data
 between different systems.  The conversion can be indicated with
-the <code>CONVERT</code> specifier on the <code>OPEN</code> statement.
+the <code>CONVERT</code> specifier on the <code>OPEN</code> statement. 
 See <a href="GFORTRAN_005fCONVERT_005fUNIT.html#GFORTRAN_005fCONVERT_005fUNIT">GFORTRAN_CONVERT_UNIT</a>, for an alternative way of specifying
 the data format via an environment variable.
 
    <p>Valid values for <code>CONVERT</code> are:
      <ul>
-<li><code>CONVERT='NATIVE'</code> Use the native format.  This is the default.
-<li><code>CONVERT='SWAP'</code> Swap between little- and big-endian.
+<li><code>CONVERT='NATIVE'</code> Use the native format.  This is the default. 
+<li><code>CONVERT='SWAP'</code> Swap between little- and big-endian. 
 <li><code>CONVERT='LITTLE_ENDIAN'</code> Use the little-endian representation
-for unformatted files.
+for unformatted files. 
 <li><code>CONVERT='BIG_ENDIAN'</code> Use the big-endian representation for
-unformatted files.
+unformatted files. 
 </ul>
 
    <p>Using the option could look like this:
@@ -99,3 +99,4 @@ to you, it is best if you use this only for data that needs to be
 portable.
 
    </body></html>
+

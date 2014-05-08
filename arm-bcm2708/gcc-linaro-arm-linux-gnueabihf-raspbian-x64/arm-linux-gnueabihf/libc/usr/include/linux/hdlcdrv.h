@@ -20,7 +20,7 @@ struct hdlcdrv_params {
 	int seriobase;
 	int pariobase;
 	int midiiobase;
-};
+};	
 
 struct hdlcdrv_channel_params {
 	int tx_delay;  /* the transmitter keyup delay in 10ms units */
@@ -29,22 +29,22 @@ struct hdlcdrv_channel_params {
 	int ppersist;  /* the p-persistence 0..255 */
 	int fulldup;   /* some driver do not support full duplex, setting */
 	               /* this just makes them send even if DCD is on */
-};
+};	
 
 struct hdlcdrv_old_channel_state {
-	int ptt;
-	int dcd;
-	int ptt_keyed;
+  	int ptt;
+  	int dcd;
+  	int ptt_keyed;
 };
 
 struct hdlcdrv_channel_state {
-	int ptt;
-	int dcd;
-	int ptt_keyed;
-	unsigned long tx_packets;
-	unsigned long tx_errors;
-	unsigned long rx_packets;
-	unsigned long rx_errors;
+ 	int ptt;
+ 	int dcd;
+ 	int ptt_keyed;
+ 	unsigned long tx_packets;
+ 	unsigned long tx_errors;
+ 	unsigned long rx_packets;
+ 	unsigned long rx_errors;
 };
 
 struct hdlcdrv_ioctl {

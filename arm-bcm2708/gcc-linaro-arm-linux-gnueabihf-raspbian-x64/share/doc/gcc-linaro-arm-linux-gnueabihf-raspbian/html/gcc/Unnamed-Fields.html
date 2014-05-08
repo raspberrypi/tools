@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,7 +74,7 @@ union with code like &lsquo;<samp><span class="samp">foo.b</span></samp>&rsquo;.
 unions are allowed, you may not have, for example, an unnamed
 <code>int</code>.
 
- <p>You must never create such structures that cause ambiguous field definitions.
+ <p>You must never create such structures that cause ambiguous field definitions. 
 For example, in this structure:
 
 <pre class="smallexample">     struct {
@@ -84,7 +84,7 @@ For example, in this structure:
        };
      } foo;
 </pre>
- <p class="noindent">it is ambiguous which <code>a</code> is being referred to with &lsquo;<samp><span class="samp">foo.a</span></samp>&rsquo;.
+ <p class="noindent">it is ambiguous which <code>a</code> is being referred to with &lsquo;<samp><span class="samp">foo.a</span></samp>&rsquo;. 
 The compiler gives errors for such constructs.
 
  <p><a name="index-fms_002dextensions-3491"></a>Unless <samp><span class="option">-fms-extensions</span></samp> is used, the unnamed field must be a
@@ -119,3 +119,4 @@ name of the <code>typedef</code>.
  <p>These usages are only permitted when they are not ambiguous.
 
  </body></html>
+

@@ -37,7 +37,7 @@ namespace __profile
 {
 
   template<typename _Iterator, typename _Sequence>
-    class __iterator_tracker
+    class __iterator_tracker 
     {
       typedef __iterator_tracker _Self;
 
@@ -50,7 +50,7 @@ namespace __profile
 
     public:
       typedef _Iterator		              _Base_iterator;
-      typedef typename _Traits::iterator_category iterator_category;
+      typedef typename _Traits::iterator_category iterator_category; 
       typedef typename _Traits::value_type        value_type;
       typedef typename _Traits::difference_type   difference_type;
       typedef typename _Traits::reference         reference;
@@ -59,10 +59,10 @@ namespace __profile
       __iterator_tracker()
       : _M_current(), _M_ds(0) { }
 
-      __iterator_tracker(const _Iterator& __i, const _Sequence* __seq)
+      __iterator_tracker(const _Iterator& __i, const _Sequence* __seq) 
       : _M_current(__i), _M_ds(__seq) { }
 
-      __iterator_tracker(const __iterator_tracker& __x)
+      __iterator_tracker(const __iterator_tracker& __x) 
       : _M_current(__x._M_current), _M_ds(__x._M_ds) { }
 
       template<typename _MutableIterator>
@@ -75,7 +75,7 @@ namespace __profile
 
       _Iterator
       base() const { return _M_current; }
-
+  
       /**
        * @brief Conversion to underlying non-debug iterator to allow
        * better interaction with non-profile containers.
@@ -132,7 +132,7 @@ namespace __profile
 
       // ------ Random access iterator requirements ------
       reference
-      operator[](const difference_type& __n) const
+      operator[](const difference_type& __n) const 
       { return _M_current[__n]; }
 
       __iterator_tracker&
@@ -268,7 +268,7 @@ namespace __profile
 	      __n,
 	      const __iterator_tracker<_Iterator, _Sequence>& __i)
     { return __i + __n; }
-
+	
 }  // namespace __profile
 }  // namespace std
 #endif

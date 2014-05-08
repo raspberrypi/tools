@@ -95,3 +95,5 @@ struct ppdev_frob_struct {
 
 /* only masks user-visible flags */
 #define PP_FLAGMASK	(PP_FASTWRITE | PP_FASTREAD | PP_W91284PIC)
+
+

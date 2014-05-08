@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -129,7 +129,7 @@ language explicitly.  For example:
 </pre>
           </dl>
 
-     <p>GCC already has an extensive list of suffixes built into it.
+     <p>GCC already has an extensive list of suffixes built into it. 
 This directive adds an entry to the end of the list of suffixes, but
 since the list is searched from the end backwards, it is effectively
 possible to override earlier entries using this technique.
@@ -158,12 +158,12 @@ targets can also add their own spec strings to this list.
  <p>Here is a small example of a spec file:
 
 <pre class="smallexample">     %rename lib                 old_lib
-
+     
      *lib:
      --start-group -lgcc -lc -leval1 --end-group %(old_lib)
 </pre>
  <p>This example renames the spec called &lsquo;<samp><span class="samp">lib</span></samp>&rsquo; to &lsquo;<samp><span class="samp">old_lib</span></samp>&rsquo; and
-then overrides the previous definition of &lsquo;<samp><span class="samp">lib</span></samp>&rsquo; with a new one.
+then overrides the previous definition of &lsquo;<samp><span class="samp">lib</span></samp>&rsquo; with a new one. 
 The new definition adds in some extra command-line options before
 including the text of the old definition.
 
@@ -183,7 +183,7 @@ together or combine them with constant text in a single argument.
 
      <br><dt><code>%i</code><dd>Substitute the name of the input file being processed.
 
-     <br><dt><code>%b</code><dd>Substitute the basename of the input file being processed.
+     <br><dt><code>%b</code><dd>Substitute the basename of the input file being processed. 
 This is the substring up to (and not including) the last period
 and not including the directory.
 
@@ -243,8 +243,8 @@ into the sequence of arguments that &lsquo;<samp><span class="samp">%o</span></s
 
      <br><dt><code>%o</code><dd>Substitutes the names of all the output files, with spaces
 automatically placed around them.  You should write spaces
-around the &lsquo;<samp><span class="samp">%o</span></samp>&rsquo; as well or the results are undefined.
-&lsquo;<samp><span class="samp">%o</span></samp>&rsquo; is for use in the specs for running the linker.
+around the &lsquo;<samp><span class="samp">%o</span></samp>&rsquo; as well or the results are undefined. 
+&lsquo;<samp><span class="samp">%o</span></samp>&rsquo; is for use in the specs for running the linker. 
 Input files whose names have no recognized suffix are not compiled
 at all, but they are included among the output files, so they are
 linked.
@@ -270,7 +270,7 @@ C.
 <samp><span class="option">-isystem</span></samp> (made from <samp><span class="env">COMPILER_PATH</span></samp> and <samp><span class="option">-B</span></samp> options)
 and <samp><span class="option">-imultilib</span></samp> as necessary.
 
-     <br><dt><code>%s</code><dd>Current argument is the name of a library or startup file of some sort.
+     <br><dt><code>%s</code><dd>Current argument is the name of a library or startup file of some sort. 
 Search for that file in a standard list of directories and substitute
 the full name found.  The current working directory is included in the
 list of directories scanned.
@@ -282,7 +282,7 @@ followed by the full path name found.  If the file is not found then
 generate an error message.  Note: the current working directory is not
 searched.
 
-     <br><dt><code>%e</code><var>str</var><dd>Print <var>str</var> as an error message.  <var>str</var> is terminated by a newline.
+     <br><dt><code>%e</code><var>str</var><dd>Print <var>str</var> as an error message.  <var>str</var> is terminated by a newline. 
 Use this when inconsistent options are detected.
 
      <br><dt><code>%(</code><var>name</var><code>)</code><dd>Substitute the contents of spec string <var>name</var> at this point.
@@ -333,7 +333,7 @@ passed to the actual C compiler (&lsquo;<samp><span class="samp">cc1</span></sam
      <br><dt><code>%2</code><dd>Process the <code>cc1plus</code> spec.  This is used to construct the options to be
 passed to the actual C++ compiler (&lsquo;<samp><span class="samp">cc1plus</span></samp>&rsquo;).
 
-     <br><dt><code>%*</code><dd>Substitute the variable part of a matched option.  See below.
+     <br><dt><code>%*</code><dd>Substitute the variable part of a matched option.  See below. 
 Note that each comma in the substituted string is replaced by
 a single space.
 
@@ -342,7 +342,7 @@ command is position dependent.  &lsquo;<samp><span class="samp">%</span></samp>&
 before this one see <code>-S</code>, &lsquo;<samp><span class="samp">%</span></samp>&rsquo; commands in the spec string
 after this one do not.
 
-     <br><dt><code>%:</code><var>function</var><code>(</code><var>args</var><code>)</code><dd>Call the named function <var>function</var>, passing it <var>args</var>.
+     <br><dt><code>%:</code><var>function</var><code>(</code><var>args</var><code>)</code><dd>Call the named function <var>function</var>, passing it <var>args</var>. 
 <var>args</var> is first processed as a nested spec string, then split
 into an argument vector in the usual fashion.  The function returns
 a string which is processed as if it had appeared literally as part
@@ -371,7 +371,7 @@ pathname.  Here is a small example of its usage:
           <br><dt><code>if-exists-else</code><dd>The <code>if-exists-else</code> spec function is similar to the <code>if-exists</code>
 spec function, except that it takes two arguments.  The first argument is
 an absolute pathname to a file.  If the file exists, <code>if-exists-else</code>
-returns the pathname.  If it does not exist, it returns the second argument.
+returns the pathname.  If it does not exist, it returns the second argument. 
 This way, <code>if-exists-else</code> can be used to select one file or another,
 based on the existence of the first.  Here is a small example of its usage:
 
@@ -405,14 +405,14 @@ prints a banner like:
 
           <pre class="smallexample">               Assembler options
                =================
-
+               
                Use "-Wa,OPTION" to pass "OPTION" to the assembler.
 </pre>
           <p>It is used to separate compiler options from assembler options
-in the <samp><span class="option">--target-help</span></samp> output.
+in the <samp><span class="option">--target-help</span></samp> output. 
 </dl>
 
-     <br><dt><code>%{S}</code><dd>Substitutes the <code>-S</code> switch, if that switch is given to GCC.
+     <br><dt><code>%{S}</code><dd>Substitutes the <code>-S</code> switch, if that switch is given to GCC. 
 If that switch is not specified, this substitutes nothing.  Note that
 the leading dash is omitted when specifying this option, and it is
 automatically inserted if the substitution is performed.  Thus the spec
@@ -424,13 +424,13 @@ deleted on failure.
 
      <br><dt><code>%{S*}</code><dd>Substitutes all the switches specified to GCC whose names start
 with <code>-S</code>, but which also take an argument.  This is used for
-switches like <samp><span class="option">-o</span></samp>, <samp><span class="option">-D</span></samp>, <samp><span class="option">-I</span></samp>, etc.
+switches like <samp><span class="option">-o</span></samp>, <samp><span class="option">-D</span></samp>, <samp><span class="option">-I</span></samp>, etc. 
 GCC considers <samp><span class="option">-o foo</span></samp> as being
 one switch whose name starts with &lsquo;<samp><span class="samp">o</span></samp>&rsquo;.  %{o*} substitutes this
 text, including the space.  Thus two arguments are generated.
 
      <br><dt><code>%{S*&amp;T*}</code><dd>Like %{<code>S</code>*}, but preserve order of <code>S</code> and <code>T</code> options
-(the order of <code>S</code> and <code>T</code> in the spec is not significant).
+(the order of <code>S</code> and <code>T</code> in the spec is not significant). 
 There can be any number of ampersand-separated variables; for each the
 wild card is optional.  Useful for CPP as &lsquo;<samp><span class="samp">%{D*&amp;U*&amp;A*}</span></samp>&rsquo;.
 
@@ -482,7 +482,7 @@ be as many clauses as you need.  This may be combined with <code>.</code>,
 
  <p>The conditional text <code>X</code> in a %{<code>S</code>:<code>X</code>} or similar
 construct may contain other nested &lsquo;<samp><span class="samp">%</span></samp>&rsquo; constructs or spaces, or
-even newlines.  They are processed as usual, as described above.
+even newlines.  They are processed as usual, as described above. 
 Trailing white space in <code>X</code> is ignored.  White space may also
 appear anywhere on the left side of the colon in these constructs,
 except between <code>.</code> or <code>*</code> and the corresponding word.
@@ -498,7 +498,7 @@ just one letter, which passes all matching options.
 indicate that a command should be piped to the following command, but
 only if <samp><span class="option">-pipe</span></samp> is specified.
 
- <p>It is built into GCC which switches take arguments and which do not.
+ <p>It is built into GCC which switches take arguments and which do not. 
 (You might think it would be useful to generalize this to allow each
 compiler's spec to say which switches take arguments.  But this cannot
 be done in a consistent fashion.  GCC cannot even decide which input
@@ -512,3 +512,4 @@ proper position among the other output files.
 
 <!-- man begin OPTIONS -->
  </body></html>
+

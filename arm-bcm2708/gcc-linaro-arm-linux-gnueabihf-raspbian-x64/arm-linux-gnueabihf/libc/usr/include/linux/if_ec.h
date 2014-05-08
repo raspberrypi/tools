@@ -20,7 +20,7 @@ struct sockaddr_ec {
 };
 
 #define ECTYPE_PACKET_RECEIVED		0	/* Packet received */
-#define ECTYPE_TRANSMIT_STATUS		0x10	/* Transmit completed,
+#define ECTYPE_TRANSMIT_STATUS		0x10	/* Transmit completed, 
 						   low nibble holds status */
 
 #define ECTYPE_TRANSMIT_OK		1

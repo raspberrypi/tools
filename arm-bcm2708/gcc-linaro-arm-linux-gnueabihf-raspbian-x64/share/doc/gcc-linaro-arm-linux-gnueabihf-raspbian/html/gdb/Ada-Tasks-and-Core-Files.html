@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Ada.html#Ada">Ada</a>
 <p><a name="index-Ada-tasking-and-core-file-debugging-958"></a>
 When inspecting a core file, as opposed to debugging a live program,
 tasking support may be limited or even unavailable, depending on
-the platform being used.
+the platform being used. 
 For instance, on x86-linux, the list of tasks is available, but task
 switching is not supported.  On Tru64, however, task switching will work
 as usual.
@@ -58,8 +58,9 @@ as usual.
    <p>On certain platforms, including Tru64, the debugger needs to perform some
 memory writes in order to provide Ada tasking support.  When inspecting
 a core file, this means that the core file must be opened with read-write
-privileges, using the command &lsquo;<samp><span class="samp">"set write on"</span></samp>&rsquo; (see <a href="Patching.html#Patching">Patching</a>).
+privileges, using the command &lsquo;<samp><span class="samp">"set write on"</span></samp>&rsquo; (see <a href="Patching.html#Patching">Patching</a>). 
 Under these circumstances, you should make a backup copy of the core
 file before inspecting it with <span class="sc">gdb</span>.
 
    </body></html>
+

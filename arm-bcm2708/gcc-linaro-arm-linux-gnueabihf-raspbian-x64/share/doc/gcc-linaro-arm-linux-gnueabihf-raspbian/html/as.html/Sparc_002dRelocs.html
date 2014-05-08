@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ using &lsquo;<samp><span class="samp">%lox</span></samp>&rsquo;.  For example:
 
 <pre class="example">     sethi %hi(symbol), %g1
      or    %g1, %lo(symbol), %g1
-
+     
      sethi %hix(symbol), %g1
      xor   %g1, %lox(symbol), %g1
 </pre>
@@ -70,15 +70,15 @@ and the &ldquo;low&rdquo; mnemonics extract bits 9:0 of their operand.
 
      <ul>
 <li><code>R_SPARC_HH22</code> is requested using &lsquo;<samp><span class="samp">%hh</span></samp>&rsquo;.  It can
-also be generated using &lsquo;<samp><span class="samp">%uhi</span></samp>&rsquo;.
+also be generated using &lsquo;<samp><span class="samp">%uhi</span></samp>&rsquo;. 
 <li><code>R_SPARC_HM10</code> is requested using &lsquo;<samp><span class="samp">%hm</span></samp>&rsquo;.  It can
-also be generated using &lsquo;<samp><span class="samp">%ulo</span></samp>&rsquo;.
+also be generated using &lsquo;<samp><span class="samp">%ulo</span></samp>&rsquo;. 
 <li><code>R_SPARC_LM22</code> is requested using &lsquo;<samp><span class="samp">%lm</span></samp>&rsquo;.
 
-     <li><code>R_SPARC_H44</code> is requested using &lsquo;<samp><span class="samp">%h44</span></samp>&rsquo;.
-<li><code>R_SPARC_M44</code> is requested using &lsquo;<samp><span class="samp">%m44</span></samp>&rsquo;.
-<li><code>R_SPARC_L44</code> is requested using &lsquo;<samp><span class="samp">%l44</span></samp>&rsquo; or &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo;.
-<li><code>R_SPARC_H34</code> is requested using &lsquo;<samp><span class="samp">%h34</span></samp>&rsquo;.
+     <li><code>R_SPARC_H44</code> is requested using &lsquo;<samp><span class="samp">%h44</span></samp>&rsquo;. 
+<li><code>R_SPARC_M44</code> is requested using &lsquo;<samp><span class="samp">%m44</span></samp>&rsquo;. 
+<li><code>R_SPARC_L44</code> is requested using &lsquo;<samp><span class="samp">%l44</span></samp>&rsquo; or &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo;. 
+<li><code>R_SPARC_H34</code> is requested using &lsquo;<samp><span class="samp">%h34</span></samp>&rsquo;. 
 </ul>
 
    <p>The &lsquo;<samp><span class="samp">%l34</span></samp>&rsquo; generates a <code>R_SPARC_L44</code> relocation because it
@@ -94,7 +94,7 @@ model.  Here is an example abs34 address generation sequence:
 </pre>
    <p>The PC relative relocation <code>R_SPARC_PC22</code> can be obtained by
 enclosing an operand inside of &lsquo;<samp><span class="samp">%pc22</span></samp>&rsquo;.  Likewise, the
-<code>R_SPARC_PC10</code> relocation can be obtained using &lsquo;<samp><span class="samp">%pc10</span></samp>&rsquo;.
+<code>R_SPARC_PC10</code> relocation can be obtained using &lsquo;<samp><span class="samp">%pc10</span></samp>&rsquo;. 
 These are mostly used when assembling PIC code.  For example, the
 standard PIC sequence on Sparc to get the base of the global offset
 table, PC relative, into a register, can be performed as:
@@ -108,7 +108,7 @@ relocation can obtained by enclosing an operand inside of
 &lsquo;<samp><span class="samp">%gdop_hix22</span></samp>&rsquo;.  The <code>R_SPARC_GOTDATA_OP_LOX10</code>
 relocation can obtained by enclosing an operand inside of
 &lsquo;<samp><span class="samp">%gdop_lox10</span></samp>&rsquo;.  Likewise, <code>R_SPARC_GOTDATA_OP</code> can be
-obtained by enclosing an operand inside of &lsquo;<samp><span class="samp">%gdop</span></samp>&rsquo;.
+obtained by enclosing an operand inside of &lsquo;<samp><span class="samp">%gdop</span></samp>&rsquo;. 
 For example, assuming the GOT base is in register <code>%l7</code>:
 
 <pre class="example">     sethi %gdop_hix22(symbol), %l1
@@ -120,28 +120,28 @@ thread local storage variables.  All of the Sparc TLS mnemonics
 are supported:
 
      <ul>
-<li><code>R_SPARC_TLS_GD_HI22</code> is requested using &lsquo;<samp><span class="samp">%tgd_hi22</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_GD_LO10</code> is requested using &lsquo;<samp><span class="samp">%tgd_lo10</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_GD_ADD</code> is requested using &lsquo;<samp><span class="samp">%tgd_add</span></samp>&rsquo;.
+<li><code>R_SPARC_TLS_GD_HI22</code> is requested using &lsquo;<samp><span class="samp">%tgd_hi22</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_GD_LO10</code> is requested using &lsquo;<samp><span class="samp">%tgd_lo10</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_GD_ADD</code> is requested using &lsquo;<samp><span class="samp">%tgd_add</span></samp>&rsquo;. 
 <li><code>R_SPARC_TLS_GD_CALL</code> is requested using &lsquo;<samp><span class="samp">%tgd_call</span></samp>&rsquo;.
 
-     <li><code>R_SPARC_TLS_LDM_HI22</code> is requested using &lsquo;<samp><span class="samp">%tldm_hi22</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_LDM_LO10</code> is requested using &lsquo;<samp><span class="samp">%tldm_lo10</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_LDM_ADD</code> is requested using &lsquo;<samp><span class="samp">%tldm_add</span></samp>&rsquo;.
+     <li><code>R_SPARC_TLS_LDM_HI22</code> is requested using &lsquo;<samp><span class="samp">%tldm_hi22</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_LDM_LO10</code> is requested using &lsquo;<samp><span class="samp">%tldm_lo10</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_LDM_ADD</code> is requested using &lsquo;<samp><span class="samp">%tldm_add</span></samp>&rsquo;. 
 <li><code>R_SPARC_TLS_LDM_CALL</code> is requested using &lsquo;<samp><span class="samp">%tldm_call</span></samp>&rsquo;.
 
-     <li><code>R_SPARC_TLS_LDO_HIX22</code> is requested using &lsquo;<samp><span class="samp">%tldo_hix22</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_LDO_LOX10</code> is requested using &lsquo;<samp><span class="samp">%tldo_lox10</span></samp>&rsquo;.
+     <li><code>R_SPARC_TLS_LDO_HIX22</code> is requested using &lsquo;<samp><span class="samp">%tldo_hix22</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_LDO_LOX10</code> is requested using &lsquo;<samp><span class="samp">%tldo_lox10</span></samp>&rsquo;. 
 <li><code>R_SPARC_TLS_LDO_ADD</code> is requested using &lsquo;<samp><span class="samp">%tldo_add</span></samp>&rsquo;.
 
-     <li><code>R_SPARC_TLS_IE_HI22</code> is requested using &lsquo;<samp><span class="samp">%tie_hi22</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_IE_LO10</code> is requested using &lsquo;<samp><span class="samp">%tie_lo10</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_IE_LD</code> is requested using &lsquo;<samp><span class="samp">%tie_ld</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_IE_LDX</code> is requested using &lsquo;<samp><span class="samp">%tie_ldx</span></samp>&rsquo;.
+     <li><code>R_SPARC_TLS_IE_HI22</code> is requested using &lsquo;<samp><span class="samp">%tie_hi22</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_IE_LO10</code> is requested using &lsquo;<samp><span class="samp">%tie_lo10</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_IE_LD</code> is requested using &lsquo;<samp><span class="samp">%tie_ld</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_IE_LDX</code> is requested using &lsquo;<samp><span class="samp">%tie_ldx</span></samp>&rsquo;. 
 <li><code>R_SPARC_TLS_IE_ADD</code> is requested using &lsquo;<samp><span class="samp">%tie_add</span></samp>&rsquo;.
 
-     <li><code>R_SPARC_TLS_LE_HIX22</code> is requested using &lsquo;<samp><span class="samp">%tle_hix22</span></samp>&rsquo;.
-<li><code>R_SPARC_TLS_LE_LOX10</code> is requested using &lsquo;<samp><span class="samp">%tle_lox10</span></samp>&rsquo;.
+     <li><code>R_SPARC_TLS_LE_HIX22</code> is requested using &lsquo;<samp><span class="samp">%tle_hix22</span></samp>&rsquo;. 
+<li><code>R_SPARC_TLS_LE_LOX10</code> is requested using &lsquo;<samp><span class="samp">%tle_lox10</span></samp>&rsquo;. 
 </ul>
 
    <p>Here are some example TLS model sequences.
@@ -161,7 +161,7 @@ are supported:
      add    %l7, %l1, %o0, %tldm_add(symbol)
      call   __tls_get_addr, %tldm_call(symbol)
      nop
-
+     
      sethi  %tldo_hix22(symbol), %l1
      xor    %l1, %tldo_lox10(symbol), %l1
      add    %o0, %l1, %l1, %tldo_add(symbol)
@@ -172,7 +172,7 @@ are supported:
      add    %l1, %tie_lo10(symbol), %l1
      ld     [%l7 + %l1], %o0, %tie_ld(symbol)
      add    %g7, %o0, %o0, %tie_add(symbol)
-
+     
      sethi  %tie_hi22(symbol), %l1
      add    %l1, %tie_lo10(symbol), %l1
      ldx    [%l7 + %l1], %o0, %tie_ldx(symbol)
@@ -190,3 +190,4 @@ an <code>R_SPARC_LO10</code> relocation, the assembler will emit an
 <code>R_SPARC_OLO10</code> instead.
 
    </body></html>
+

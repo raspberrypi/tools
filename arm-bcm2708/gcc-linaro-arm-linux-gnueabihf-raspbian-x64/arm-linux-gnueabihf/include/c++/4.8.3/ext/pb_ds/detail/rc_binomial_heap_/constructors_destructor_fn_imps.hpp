@@ -47,7 +47,7 @@ rc_binomial_heap()
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-rc_binomial_heap(const Cmp_Fn& r_cmp_fn)
+rc_binomial_heap(const Cmp_Fn& r_cmp_fn) 
 : base_type(r_cmp_fn)
 {
   PB_DS_ASSERT_VALID((*this))
@@ -55,7 +55,7 @@ rc_binomial_heap(const Cmp_Fn& r_cmp_fn)
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-rc_binomial_heap(const PB_DS_CLASS_C_DEC& other)
+rc_binomial_heap(const PB_DS_CLASS_C_DEC& other) 
 : base_type(other)
 {
   make_binomial_heap();

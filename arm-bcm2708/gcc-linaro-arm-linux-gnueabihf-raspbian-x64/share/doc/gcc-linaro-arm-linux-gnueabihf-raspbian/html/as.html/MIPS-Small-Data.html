@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,19 +49,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MIPS_002dDependent.html#MIPS_002dDepend
 
 <!-- This section deliberately glosses over the possibility of using -G -->
 <!-- in SVR4-style PIC, as could be done on IRIX.  We don't support that. -->
-<p><a name="index-small-data_002c-MIPS-1406"></a><a name="index-g_t_0040code_007bgp_007d-register_002c-MIPS-1407"></a>It often takes several instructions to load the address of a symbol.
+<p><a name="index-small-data_002c-MIPS-1406"></a><a name="index-g_t_0040code_007bgp_007d-register_002c-MIPS-1407"></a>It often takes several instructions to load the address of a symbol. 
 For example, when &lsquo;<samp><span class="samp">addr</span></samp>&rsquo; is a 32-bit symbol, the non-PIC expansion
 of &lsquo;<samp><span class="samp">dla $4,addr</span></samp>&rsquo; is usually:
 
 <pre class="smallexample">     lui     $4,%hi(addr)
      daddiu  $4,$4,%lo(addr)
 </pre>
-   <p>The sequence is much longer when &lsquo;<samp><span class="samp">addr</span></samp>&rsquo; is a 64-bit symbol.
+   <p>The sequence is much longer when &lsquo;<samp><span class="samp">addr</span></samp>&rsquo; is a 64-bit symbol. 
 See <a href="MIPS-Symbol-Sizes.html#MIPS-Symbol-Sizes">Directives to override the size of symbols</a>.
 
    <p>In order to cut down on this overhead, most embedded MIPS systems
 set aside a 64-kilobyte &ldquo;small data&rdquo; area and guarantee that all
-data of size <var>n</var> and smaller will be placed in that area.
+data of size <var>n</var> and smaller will be placed in that area. 
 The limit <var>n</var> is passed to both the assembler and the linker
 using the command-line option <samp><span class="option">-G </span><var>n</var></samp>, see <a href="MIPS-Options.html#MIPS-Options">Assembler options</a>.  Note that the same value of <var>n</var> must be used
 when linking and when assembling all input files to the link; any
@@ -73,13 +73,13 @@ an external object may be set with the <code>.extern</code> directive.  For
 example, &lsquo;<samp><span class="samp">.extern sym,4</span></samp>&rsquo; declares that the object at <code>sym</code>
 is 4 bytes in length, while leaving <code>sym</code> otherwise undefined.
 
-   <p>When no <samp><span class="option">-G</span></samp> option is given, the default limit is 8 bytes.
+   <p>When no <samp><span class="option">-G</span></samp> option is given, the default limit is 8 bytes. 
 The option <samp><span class="option">-G 0</span></samp> prevents any data from being automatically
 classified as small.
 
    <p>It is also possible to mark specific objects as small by putting them
 in the special sections <code>.sdata</code> and <code>.sbss</code>, which are
-&ldquo;small&rdquo; counterparts of <code>.data</code> and <code>.bss</code> respectively.
+&ldquo;small&rdquo; counterparts of <code>.data</code> and <code>.bss</code> respectively. 
 The toolchain will treat such data as small regardless of the
 <samp><span class="option">-G</span></samp> setting.
 
@@ -94,3 +94,4 @@ the &lsquo;<samp><span class="samp">dla $4,addr</span></samp>&rsquo; instruction
    <p>Small data is not supported for SVR4-style PIC.
 
    </body></html>
+

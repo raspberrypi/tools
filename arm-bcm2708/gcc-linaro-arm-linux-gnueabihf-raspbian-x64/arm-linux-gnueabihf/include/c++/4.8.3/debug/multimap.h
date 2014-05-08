@@ -212,7 +212,7 @@ namespace __debug
 			  this);
 	}
 #endif
-
+      
       iterator
       insert(const value_type& __x)
       { return iterator(_Base::insert(__x), this); }

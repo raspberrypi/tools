@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ from <code>a</code>, then <code>foo</code> contributes 2 seconds to <code>a</cod
 from true.  Suppose that <code>foo</code> returns very quickly when its argument
 is zero; suppose that <code>a</code> always passes zero as an argument, while
 other callers of <code>foo</code> pass other arguments.  In this program, all the
-time spent in <code>foo</code> is in the calls from callers other than <code>a</code>.
+time spent in <code>foo</code> is in the calls from callers other than <code>a</code>. 
 But <code>gprof</code> has no way of knowing this; it will blindly and
 incorrectly charge 2 seconds of time in <code>foo</code> to the children of
 <code>a</code>.
@@ -75,3 +75,4 @@ this assumption is no longer needed, if we can figure out how.  For the
 novice, the estimated figures are usually more useful than misleading.
 
    </body></html>
+

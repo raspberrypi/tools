@@ -124,12 +124,12 @@ namespace std
     inline void
     __throw_with_nested(_Ex&& __ex, ...)
     { throw _Nested_exception<_Ex>(static_cast<_Ex&&>(__ex)); }
-
+  
   template<typename _Ex>
     void
     throw_with_nested(_Ex __ex) __attribute__ ((__noreturn__));
 
-  /// If @p __ex is derived from nested_exception, @p __ex.
+  /// If @p __ex is derived from nested_exception, @p __ex. 
   /// Else, an implementation-defined object derived from both.
   template<typename _Ex>
     inline void

@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Symbol-Attributes.html#Symbol-Attribute
 
 <p><a name="index-value-of-a-symbol-227"></a><a name="index-symbol-value-228"></a>The value of a symbol is (usually) 32 bits.  For a symbol which labels a
 location in the text, data, bss or absolute sections the value is the
-number of addresses from the start of that section to the label.
+number of addresses from the start of that section to the label. 
 Naturally for text, data and bss sections the value of a symbol changes
 as <code>ld</code> changes section base addresses during linking.  Absolute
 symbols' values do not change during linking: that is why they are
@@ -63,3 +63,4 @@ bytes (addresses).  The symbol refers to the first address of the
 allocated storage.
 
    </body></html>
+

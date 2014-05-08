@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,7 +55,7 @@ used to upload and download files to a remote target with its own
 filesystem.  Host I/O uses the same constant values and data structure
 layout as the target-initiated File-I/O protocol.  However, the
 Host I/O packets are structured differently.  The target-initiated
-protocol relies on target memory to store parameters and buffers.
+protocol relies on target memory to store parameters and buffers. 
 Host I/O requests are initiated by <span class="sc">gdb</span>, and the
 target's memory is not involved.  See <a href="File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension">File-I/O Remote Protocol Extension</a>, for more details on the target-initiated protocol.
 
@@ -98,7 +98,7 @@ documentation for the interpretation of <var>result</var> and
 return -1 if an error occurs.  <var>pathname</var> is a string,
 <var>flags</var> is an integer indicating a mask of open flags
 (see <a href="Open-Flags.html#Open-Flags">Open Flags</a>), and <var>mode</var> is an integer indicating a mask
-of mode bits to use if the file is created (see <a href="mode_005ft-Values.html#mode_005ft-Values">mode_t Values</a>).
+of mode bits to use if the file is created (see <a href="mode_005ft-Values.html#mode_005ft-Values">mode_t Values</a>). 
 See <a href="open.html#open">open</a>, for details of the open flags and mode values.
 
      <br><dt>&lsquo;<samp><span class="samp">vFile:close: </span><var>fd</var></samp>&rsquo;<dd>Close the open file corresponding to <var>fd</var> and return 0, or
@@ -112,7 +112,7 @@ condition.  The number of bytes read is returned.  Zero should only be
 returned for a successful read at the end of the file, or if
 <var>count</var> was zero.
 
-     <p>The data read should be returned as a binary attachment on success.
+     <p>The data read should be returned as a binary attachment on success. 
 If zero bytes were read, the response should include an empty binary
 attachment (i.e. a trailing semicolon).  The return value is the
 number of target bytes read; the binary attachment may be longer if
@@ -132,7 +132,7 @@ or -1 if an error occurs.  <var>pathname</var> is a string.
      <br><dt>&lsquo;<samp><span class="samp">vFile:readlink: </span><var>filename</var></samp>&rsquo;<dd>Read value of symbolic link <var>filename</var> on the target.  Return
 the number of bytes read, or -1 if an error occurs.
 
-     <p>The data read should be returned as a binary attachment on success.
+     <p>The data read should be returned as a binary attachment on success. 
 If zero bytes were read, the response should include an empty binary
 attachment (i.e. a trailing semicolon).  The return value is the
 number of target bytes read; the binary attachment may be longer if
@@ -141,3 +141,4 @@ some characters were escaped.
    </dl>
 
    </body></html>
+

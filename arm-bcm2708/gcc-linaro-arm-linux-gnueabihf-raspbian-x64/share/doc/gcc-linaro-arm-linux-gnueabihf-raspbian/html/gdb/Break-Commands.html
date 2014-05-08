@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ commands to execute when your program stops due to that breakpoint.  For
 example, you might want to print the values of certain expressions, or
 enable other breakpoints.
 
-
+     
 <a name="index-commands-285"></a>
 <a name="index-end_0040r_007b-_0028breakpoint-commands_0029_007d-286"></a>
 <dl><dt><code>commands </code><span class="roman">[</span><var>range</var><code>...</code><span class="roman">]</span><dt><code>... </code><var>command-list</var><code> ...</code><dt><code>end</code><dd>Specify a list of commands for the given breakpoints.  The commands
@@ -68,7 +68,7 @@ encountered).  If the most recent breakpoints were set with a single
 command, then the <code>commands</code> will apply to all the breakpoints
 set by that command.  This applies to breakpoints set by
 <code>rbreak</code>, and also applies when a single <code>break</code> command
-creates multiple breakpoints (see <a href="Ambiguous-Expressions.html#Ambiguous-Expressions">Ambiguous Expressions</a>).
+creates multiple breakpoints (see <a href="Ambiguous-Expressions.html#Ambiguous-Expressions">Ambiguous Expressions</a>). 
 </dl>
 
    <p>Pressing &lt;RET&gt; as a means of repeating the last <span class="sc">gdb</span> command is
@@ -121,3 +121,4 @@ command so that no output is produced.  Here is an example:
      end
 </pre>
    </body></html>
+

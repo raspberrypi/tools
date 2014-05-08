@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Syntax.html#Syntax">Syntax</a>
 <h3 class="section">3.1 Preprocessing</h3>
 
 <p><a name="index-preprocessing-114"></a>The <samp><span class="command">as</span></samp> internal preprocessor:
-
+     
 <a name="index-whitespace_002c-removed-by-preprocessor-115"></a>
 <ul><li>adjusts and removes extra whitespace.  It leaves one space or tab before
 the keywords on a line, and turns any other whitespace on the line into
@@ -55,7 +55,7 @@ a single space.
      <p><a name="index-comments_002c-removed-by-preprocessor-116"></a><li>removes all comments, replacing them with a single space, or an
 appropriate number of newlines.
 
-     <p><a name="index-constants_002c-converted-by-preprocessor-117"></a><li>converts character constants into the appropriate numeric values.
+     <p><a name="index-constants_002c-converted-by-preprocessor-117"></a><li>converts character constants into the appropriate numeric values. 
 </ul>
 
    <p>It does not do macro processing, include file handling, or
@@ -70,7 +70,7 @@ cannot be used in the portions of the input text that are not
 preprocessed.
 
    <p><a name="index-turning-preprocessing-on-and-off-118"></a><a name="index-preprocessing_002c-turning-on-and-off-119"></a><a name="index-g_t_0023NO_005fAPP-120"></a><a name="index-g_t_0023APP-121"></a>If the first line of an input file is <code>#NO_APP</code> or if you use the
-&lsquo;<samp><span class="samp">-f</span></samp>&rsquo; option, whitespace and comments are not removed from the input file.
+&lsquo;<samp><span class="samp">-f</span></samp>&rsquo; option, whitespace and comments are not removed from the input file. 
 Within an input file, you can ask for whitespace and comment removal in
 specific portions of the by putting a line that says <code>#APP</code> before the
 text that may contain whitespace or comments, and putting a line that says
@@ -79,3 +79,4 @@ text that may contain whitespace or comments, and putting a line that says
 and whitespace.
 
    </body></html>
+

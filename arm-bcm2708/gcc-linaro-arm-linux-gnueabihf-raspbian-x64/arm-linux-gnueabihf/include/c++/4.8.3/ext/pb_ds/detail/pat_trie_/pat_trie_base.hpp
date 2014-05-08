@@ -715,7 +715,7 @@ namespace __gnu_pbds
     {
     public:
       typedef _CIter<Node, Leaf, Head, Inode, Is_Forward_Iterator>
-							base_type;
+      							base_type;
       typedef typename base_type::allocator_type	allocator_type;
       typedef typename base_type::type_traits		type_traits;
       typedef typename type_traits::value_type		value_type;

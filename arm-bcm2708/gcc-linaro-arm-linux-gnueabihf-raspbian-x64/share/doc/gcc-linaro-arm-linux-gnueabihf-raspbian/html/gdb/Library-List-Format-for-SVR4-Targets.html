@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,13 +59,13 @@ target, the following parameters are reported:
 
      <ul>
 <li><code>name</code>, the absolute file name from the <code>l_name</code> field of
-<code>struct link_map</code>.
+<code>struct link_map</code>. 
 <li><code>lm</code> with address of <code>struct link_map</code> used for TLS
-(Thread Local Storage) access.
+(Thread Local Storage) access. 
 <li><code>l_addr</code>, the displacement as read from the field <code>l_addr</code> of
 <code>struct link_map</code>.  For prelinked libraries this is not an absolute
 memory address.  It is a displacement of absolute memory address against
-address the file was prelinked to during the library load.
+address the file was prelinked to during the library load. 
 <li><code>l_ld</code>, which is memory address of the <code>PT_DYNAMIC</code> segment
 </ul>
 
@@ -99,3 +99,4 @@ looks like this:
      &lt;!ATTLIST library            l_ld    CDATA   #REQUIRED&gt;
 </pre>
    </body></html>
+

@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -133,7 +133,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 file to another.  <samp><span class="command">objcopy</span></samp> uses the <span class="sc">gnu</span> <span class="sc">bfd</span> Library to
 read and write the object files.  It can write the destination object
 file in a format different from that of the source object file.  The
-exact behavior of <samp><span class="command">objcopy</span></samp> is controlled by command-line options.
+exact behavior of <samp><span class="command">objcopy</span></samp> is controlled by command-line options. 
 Note that <samp><span class="command">objcopy</span></samp> should be able to copy a fully linked file
 between any two formats. However, copying a relocatable object file
 between any two formats may not work as expected.
@@ -162,13 +162,13 @@ information that is not needed by the binary file.
    <p>Note&mdash;<samp><span class="command">objcopy</span></samp> is not able to change the endianness of its input
 files.  If the input format has an endianness (some formats do not),
 <samp><span class="command">objcopy</span></samp> can only copy the inputs into file formats that have the
-same endianness or which have no endianness (e.g., &lsquo;<samp><span class="samp">srec</span></samp>&rsquo;).
+same endianness or which have no endianness (e.g., &lsquo;<samp><span class="samp">srec</span></samp>&rsquo;). 
 (However, see the <samp><span class="option">--reverse-bytes</span></samp> option.)
 
 <!-- man end -->
 <!-- man begin OPTIONS objcopy -->
      <dl>
-<dt><samp><var>infile</var></samp><dt><samp><var>outfile</var></samp><dd>The input and output files, respectively.
+<dt><samp><var>infile</var></samp><dt><samp><var>outfile</var></samp><dd>The input and output files, respectively. 
 If you do not specify <var>outfile</var>, <samp><span class="command">objcopy</span></samp> creates a
 temporary file and destructively renames the result with
 the name of <var>infile</var>.
@@ -176,14 +176,14 @@ the name of <var>infile</var>.
      <br><dt><samp><span class="env">-I </span><var>bfdname</var></samp><dt><samp><span class="env">--input-target=</span><var>bfdname</var></samp><dd>Consider the source file's object format to be <var>bfdname</var>, rather than
 attempting to deduce it.  See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
-     <br><dt><samp><span class="env">-O </span><var>bfdname</var></samp><dt><samp><span class="env">--output-target=</span><var>bfdname</var></samp><dd>Write the output file using the object format <var>bfdname</var>.
+     <br><dt><samp><span class="env">-O </span><var>bfdname</var></samp><dt><samp><span class="env">--output-target=</span><var>bfdname</var></samp><dd>Write the output file using the object format <var>bfdname</var>. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
      <br><dt><samp><span class="env">-F </span><var>bfdname</var></samp><dt><samp><span class="env">--target=</span><var>bfdname</var></samp><dd>Use <var>bfdname</var> as the object format for both the input and the output
 file; i.e., simply transfer data from source to destination with no
 translation.  See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
-     <br><dt><samp><span class="env">-B </span><var>bfdarch</var></samp><dt><samp><span class="env">--binary-architecture=</span><var>bfdarch</var></samp><dd>Useful when transforming a architecture-less input file into an object file.
+     <br><dt><samp><span class="env">-B </span><var>bfdarch</var></samp><dt><samp><span class="env">--binary-architecture=</span><var>bfdarch</var></samp><dd>Useful when transforming a architecture-less input file into an object file. 
 In this case the output architecture can be set to <var>bfdarch</var>.  This
 option will be ignored if the input file has a known <var>bfdarch</var>.  You
 can access this binary data inside a program by referencing the special
@@ -192,12 +192,12 @@ called _binary_<var>objfile</var>_start, _binary_<var>objfile</var>_end and
 _binary_<var>objfile</var>_size.  e.g. you can transform a picture file into
 an object file and then access it in your code using these symbols.
 
-     <br><dt><samp><span class="env">-j </span><var>sectionpattern</var></samp><dt><samp><span class="env">--only-section=</span><var>sectionpattern</var></samp><dd>Copy only the indicated sections from the input file to the output file.
+     <br><dt><samp><span class="env">-j </span><var>sectionpattern</var></samp><dt><samp><span class="env">--only-section=</span><var>sectionpattern</var></samp><dd>Copy only the indicated sections from the input file to the output file. 
 This option may be given more than once.  Note that using this option
 inappropriately may make the output file unusable.  Wildcard
 characters are accepted in <var>sectionpattern</var>.
 
-     <br><dt><samp><span class="env">-R </span><var>sectionpattern</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionpattern</var></samp><dd>Remove any section matching <var>sectionpattern</var> from the output file.
+     <br><dt><samp><span class="env">-R </span><var>sectionpattern</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionpattern</var></samp><dd>Remove any section matching <var>sectionpattern</var> from the output file. 
 This option may be given more than once.  Note that using this option
 inappropriately may make the output file unusable.  Wildcard
 characters are accepted in <var>sectionpattern</var>.  Using both the
@@ -240,7 +240,7 @@ more than once.
 line options.  The question mark (?), asterisk (*), backslash (\) and
 square brackets ([]) operators can be used anywhere in the symbol
 name.  If the first character of the symbol name is the exclamation
-point (!) then the sense of the switch is reversed for that symbol.
+point (!) then the sense of the switch is reversed for that symbol. 
 For example:
 
      <pre class="smallexample">            -w -W !foo -W fo*
@@ -248,14 +248,14 @@ For example:
      <p>would cause objcopy to weaken all symbols that start with &ldquo;fo&rdquo;
 except for the symbol &ldquo;foo&rdquo;.
 
-     <br><dt><samp><span class="env">-x</span></samp><dt><samp><span class="env">--discard-all</span></samp><dd>Do not copy non-global symbols from the source file.
+     <br><dt><samp><span class="env">-x</span></samp><dt><samp><span class="env">--discard-all</span></samp><dd>Do not copy non-global symbols from the source file. 
 <!-- FIXME any reason to prefer "non-global" to "local" here? -->
 
-     <br><dt><samp><span class="env">-X</span></samp><dt><samp><span class="env">--discard-locals</span></samp><dd>Do not copy compiler-generated local symbols.
+     <br><dt><samp><span class="env">-X</span></samp><dt><samp><span class="env">--discard-locals</span></samp><dd>Do not copy compiler-generated local symbols. 
 (These usually start with &lsquo;<samp><span class="samp">L</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.</span></samp>&rsquo;.)
 
      <br><dt><samp><span class="env">-b </span><var>byte</var></samp><dt><samp><span class="env">--byte=</span><var>byte</var></samp><dd>If interleaving has been enabled via the <samp><span class="option">--interleave</span></samp> option
-then start the range of bytes to keep at the <var>byte</var>th byte.
+then start the range of bytes to keep at the <var>byte</var>th byte. 
 <var>byte</var> can be in the range from 0 to <var>breadth</var>-1, where
 <var>breadth</var> is the value given by the <samp><span class="option">--interleave</span></samp> option.
 
@@ -296,7 +296,7 @@ and writing the archive index, use zero for UIDs, GIDs, timestamps,
 and use consistent file modes for all files.
 
      <p>If <samp><span class="file">binutils</span></samp> was configured with
-<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default.
+<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default. 
 It can be disabled with the &lsquo;<samp><span class="samp">-U</span></samp>&rsquo; option, below.
 
      <br><dt><samp><span class="env">-U</span></samp><dt><samp><span class="env">--disable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-60"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-61"></a>Do <em>not</em> operate in <em>deterministic</em> mode.  This is the
@@ -355,7 +355,7 @@ warning will be issued, unless <samp><span class="option">--no-change-warnings</
 
      <br><dt><samp><span class="env">--change-section-vma </span><var>sectionpattern</var><span class="env">{=,+,-}</span><var>val</var></samp><dd><a name="index-changing-section-VMA-66"></a>Set or change the VMA address of any section matching
 <var>sectionpattern</var>.  The VMA address is the address where the
-section will be located once the program has started executing.
+section will be located once the program has started executing. 
 Normally this is the same as the LMA address, which is the address
 where the section will be loaded into memory, but on some systems,
 especially those where a program is held in ROM, the two can be
@@ -406,10 +406,10 @@ data you could use the following command line to achieve it:
 </pre>
      <br><dt><samp><span class="env">--long-section-names {enable,disable,keep}</span></samp><dd>Controls the handling of long section names when processing <code>COFF</code>
 and <code>PE-COFF</code> object formats.  The default behaviour, &lsquo;<samp><span class="samp">keep</span></samp>&rsquo;,
-is to preserve long section names if any are present in the input file.
+is to preserve long section names if any are present in the input file. 
 The &lsquo;<samp><span class="samp">enable</span></samp>&rsquo; and &lsquo;<samp><span class="samp">disable</span></samp>&rsquo; options forcibly enable or disable
 the use of long section names in the output object; when &lsquo;<samp><span class="samp">disable</span></samp>&rsquo;
-is in effect, any long section names in the input object will be truncated.
+is in effect, any long section names in the input object will be truncated. 
 The &lsquo;<samp><span class="samp">enable</span></samp>&rsquo; option will only emit long section names if any are
 present in the inputs; this is mostly the same as &lsquo;<samp><span class="samp">keep</span></samp>&rsquo;, but it
 is left undefined whether the &lsquo;<samp><span class="samp">enable</span></samp>&rsquo; option might force the
@@ -480,12 +480,12 @@ using an object file format which supports weak symbols.
 
      <br><dt><samp><span class="env">--keep-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--keep-symbol</span></samp> option to each symbol listed in the file
 <var>filename</var>.  <var>filename</var> is simply a flat file, with one symbol
-name per line.  Line comments may be introduced by the hash character.
+name per line.  Line comments may be introduced by the hash character. 
 This option may be given more than once.
 
      <br><dt><samp><span class="env">--strip-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--strip-symbol</span></samp> option to each symbol listed in the file
 <var>filename</var>.  <var>filename</var> is simply a flat file, with one symbol
-name per line.  Line comments may be introduced by the hash character.
+name per line.  Line comments may be introduced by the hash character. 
 This option may be given more than once.
 
      <br><dt><samp><span class="env">--strip-unneeded-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--strip-unneeded-symbol</span></samp> option to each symbol listed in
@@ -500,17 +500,17 @@ character.  This option may be given more than once.
 
      <br><dt><samp><span class="env">--localize-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--localize-symbol</span></samp> option to each symbol listed in the file
 <var>filename</var>.  <var>filename</var> is simply a flat file, with one symbol
-name per line.  Line comments may be introduced by the hash character.
+name per line.  Line comments may be introduced by the hash character. 
 This option may be given more than once.
 
      <br><dt><samp><span class="env">--globalize-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--globalize-symbol</span></samp> option to each symbol listed in the file
 <var>filename</var>.  <var>filename</var> is simply a flat file, with one symbol
-name per line.  Line comments may be introduced by the hash character.
+name per line.  Line comments may be introduced by the hash character. 
 This option may be given more than once.
 
      <br><dt><samp><span class="env">--weaken-symbols=</span><var>filename</var></samp><dd>Apply <samp><span class="option">--weaken-symbol</span></samp> option to each symbol listed in the file
 <var>filename</var>.  <var>filename</var> is simply a flat file, with one symbol
-name per line.  Line comments may be introduced by the hash character.
+name per line.  Line comments may be introduced by the hash character. 
 This option may be given more than once.
 
      <br><dt><samp><span class="env">--alt-machine-code=</span><var>index</var></samp><dd>If the output architecture has alternate machine codes, use the
@@ -560,11 +560,11 @@ to create these files is as follows:
 
           <ol type=1 start=1>
 <li>Link the executable as normal.  Assuming that is is called
-<code>foo</code> then...
+<code>foo</code> then... 
 <li>Run <code>objcopy --only-keep-debug foo foo.dbg</code> to
-create a file containing the debugging info.
+create a file containing the debugging info. 
 <li>Run <code>objcopy --strip-debug foo</code> to create a
-stripped executable.
+stripped executable. 
 <li>Run <code>objcopy --add-gnu-debuglink=foo.dbg foo</code>
 to add a link to the debugging info into the stripped executable.
           </ol>
@@ -574,7 +574,7 @@ file is arbitrary.  Also the <code>--only-keep-debug</code> step is
 optional.  You could instead do this:
 
           <ol type=1 start=1>
-<li>Link the executable as normal.
+<li>Link the executable as normal. 
 <li>Copy <code>foo</code> to  <code>foo.full</code>
 <li>Run <code>objcopy --strip-debug foo</code>
 <li>Run <code>objcopy --add-gnu-debuglink=foo.full foo</code>
@@ -592,7 +592,7 @@ debugging information, not multiple filenames on a one-per-object-file
 basis.
 
      <br><dt><samp><span class="env">--strip-dwo</span></samp><dd>Remove the contents of all DWARF .dwo sections, leaving the
-remaining debugging sections and all symbols intact.
+remaining debugging sections and all symbols intact. 
 This option is intended for use by the compiler as part of
 the <samp><span class="option">-gsplit-dwarf</span></samp> option, which splits debug information
 between the .o file and a separate .dwo file.  The compiler
@@ -606,11 +606,11 @@ those sections from the original .o file.
 
      <br><dt><samp><span class="env">--file-alignment </span><var>num</var></samp><dd>Specify the file alignment.  Sections in the file will always begin at
 file offsets which are multiples of this number.  This defaults to
-512.
+512. 
 [This option is specific to PE targets.]
 
      <br><dt><samp><span class="env">--heap </span><var>reserve</var></samp><dt><samp><span class="env">--heap </span><var>reserve</var><span class="env">,</span><var>commit</var></samp><dd>Specify the number of bytes of memory to reserve (and optionally commit)
-to be used as heap for this program.
+to be used as heap for this program. 
 [This option is specific to PE targets.]
 
      <br><dt><samp><span class="env">--image-base </span><var>value</var></samp><dd>Use <var>value</var> as the base address of your program or dll.  This is
@@ -618,15 +618,15 @@ the lowest memory location that will be used when your program or dll
 is loaded.  To reduce the need to relocate and improve performance of
 your dlls, each should have a unique base address and not overlap any
 other dlls.  The default is 0x400000 for executables, and 0x10000000
-for dlls.
+for dlls. 
 [This option is specific to PE targets.]
 
      <br><dt><samp><span class="env">--section-alignment </span><var>num</var></samp><dd>Sets the section alignment.  Sections in memory will always begin at
-addresses which are a multiple of this number.  Defaults to 0x1000.
+addresses which are a multiple of this number.  Defaults to 0x1000. 
 [This option is specific to PE targets.]
 
      <br><dt><samp><span class="env">--stack </span><var>reserve</var></samp><dt><samp><span class="env">--stack </span><var>reserve</var><span class="env">,</span><var>commit</var></samp><dd>Specify the number of bytes of memory to reserve (and optionally commit)
-to be used as stack for this program.
+to be used as stack for this program. 
 [This option is specific to PE targets.]
 
      <br><dt><samp><span class="env">--subsystem </span><var>which</var></samp><dt><samp><span class="env">--subsystem </span><var>which</var><span class="env">:</span><var>major</var></samp><dt><samp><span class="env">--subsystem </span><var>which</var><span class="env">:</span><var>major</var><span class="env">.</span><var>minor</var></samp><dd>Specifies the subsystem under which your program will execute.  The
@@ -634,19 +634,19 @@ legal values for <var>which</var> are <code>native</code>, <code>windows</code>,
 <code>console</code>, <code>posix</code>, <code>efi-app</code>, <code>efi-bsd</code>,
 <code>efi-rtd</code>, <code>sal-rtd</code>, and <code>xbox</code>.  You may optionally set
 the subsystem version also.  Numeric values are also accepted for
-<var>which</var>.
+<var>which</var>. 
 [This option is specific to PE targets.]
 
-     <br><dt><samp><span class="env">--extract-symbol</span></samp><dd>Keep the file's section flags and symbols but remove all section data.
+     <br><dt><samp><span class="env">--extract-symbol</span></samp><dd>Keep the file's section flags and symbols but remove all section data. 
 Specifically, the option:
 
           <ul>
 <li>removes the contents of all sections;
 <li>sets the size of every section to zero; and
-<li>sets the file's start address to zero.
+<li>sets the file's start address to zero. 
 </ul>
 
-     <p>This option is used to build a <samp><span class="file">.sym</span></samp> file for a VxWorks kernel.
+     <p>This option is used to build a <samp><span class="file">.sym</span></samp> file for a VxWorks kernel. 
 It can also be a useful way of reducing the size of a <samp><span class="option">--just-symbols</span></samp>
 linker input file.
 
@@ -661,8 +661,9 @@ archives, &lsquo;<samp><span class="samp">objcopy -V</span></samp>&rsquo; lists 
 
      <br><dt><samp><span class="env">--help</span></samp><dd>Show a summary of the options to <samp><span class="command">objcopy</span></samp>.
 
-     <br><dt><samp><span class="env">--info</span></samp><dd>Display a list showing all architectures and object formats available.
+     <br><dt><samp><span class="env">--info</span></samp><dd>Display a list showing all architectures and object formats available. 
 </dl>
 
 <!-- man end -->
    </body></html>
+

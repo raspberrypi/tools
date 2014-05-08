@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ configuration of GCC.
 <dt><samp><span class="env">CPATH</span></samp><a name="index-CPATH-204"></a><dt><samp><span class="env">C_INCLUDE_PATH</span></samp><a name="index-C_005fINCLUDE_005fPATH-205"></a><dt><samp><span class="env">CPLUS_INCLUDE_PATH</span></samp><a name="index-CPLUS_005fINCLUDE_005fPATH-206"></a><dt><samp><span class="env">OBJC_INCLUDE_PATH</span></samp><a name="index-OBJC_005fINCLUDE_005fPATH-207"></a><dd><!-- Commented out until ObjC++ is part of GCC: -->
 <!-- @itemx OBJCPLUS_INCLUDE_PATH -->
 Each variable's value is a list of directories separated by a special
-character, much like <samp><span class="env">PATH</span></samp>, in which to look for header files.
+character, much like <samp><span class="env">PATH</span></samp>, in which to look for header files. 
 The special character, <code>PATH_SEPARATOR</code>, is target-dependent and
 determined at GCC build time.  For Microsoft Windows-based targets it is a
 semicolon, and for almost all other targets it is a colon.
@@ -101,7 +101,7 @@ beginning or end of a path.  For instance, if the value of
 effect as &lsquo;<samp><span class="samp">-I.&nbsp;-I/special/include<!-- /@w --></span></samp>&rsquo;.
 
      <!-- man end -->
-     <p>See also <a href="Search-Path.html#Search-Path">Search Path</a>.
+     <p>See also <a href="Search-Path.html#Search-Path">Search Path</a>. 
 <!-- man begin ENVIRONMENT -->
 
      <br><dt><samp><span class="env">DEPENDENCIES_OUTPUT</span></samp><a name="index-DEPENDENCIES_005fOUTPUT-208"></a><dd><a name="index-dependencies-for-make-as-output-209"></a>If this variable is set, its value specifies how to output
@@ -123,11 +123,12 @@ with an optional <samp><span class="option">-MT</span></samp> switch too.
      <br><dt><samp><span class="env">SUNPRO_DEPENDENCIES</span></samp><a name="index-SUNPRO_005fDEPENDENCIES-210"></a><dd><a name="index-dependencies-for-make-as-output-211"></a>This variable is the same as <samp><span class="env">DEPENDENCIES_OUTPUT</span></samp> (see above),
 except that system header files are not ignored, so it implies
 <samp><span class="option">-M</span></samp> rather than <samp><span class="option">-MM</span></samp>.  However, the dependence on the
-main input file is omitted.
-See <a href="Invocation.html#Invocation">Invocation</a>.
+main input file is omitted. 
+See <a href="Invocation.html#Invocation">Invocation</a>. 
 </dl>
    <!-- man end -->
 
 <!-- Special handling for inclusion in the install manual. -->
 <!-- man begin DESCRIPTION -->
    </body></html>
+

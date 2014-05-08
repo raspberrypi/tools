@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Macros.html#Macros">Macros</a>
 <h3 class="section">3.3 Macro Arguments</h3>
 
 <p><a name="index-arguments-46"></a><a name="index-macros-with-arguments-47"></a><a name="index-arguments-in-macro-definitions-48"></a>
-Function-like macros can take <dfn>arguments</dfn>, just like true functions.
+Function-like macros can take <dfn>arguments</dfn>, just like true functions. 
 To define a macro that uses arguments, you insert <dfn>parameters</dfn>
 between the pair of parentheses in the macro definition that make the
 macro function-like.  The parameters must be valid C identifiers,
@@ -118,16 +118,16 @@ run into trouble if you try to be too clever, though.  See <a href="Argument-Pre
    <p class="noindent">(Line breaks shown here for clarity would not actually be generated.)
 
    <p><a name="index-empty-macro-arguments-49"></a>You can leave macro arguments empty; this is not an error to the
-preprocessor (but many macros will then expand to invalid code).
+preprocessor (but many macros will then expand to invalid code). 
 You cannot leave out arguments entirely; if a macro takes two arguments,
-there must be exactly one comma at the top level of its argument list.
+there must be exactly one comma at the top level of its argument list. 
 Here are some silly examples using <code>min</code>:
 
 <pre class="smallexample">     min(, b)        ==&gt; ((   ) &lt; (b) ? (   ) : (b))
      min(a, )        ==&gt; ((a  ) &lt; ( ) ? (a  ) : ( ))
      min(,)          ==&gt; ((   ) &lt; ( ) ? (   ) : ( ))
      min((,),)       ==&gt; (((,)) &lt; ( ) ? ((,)) : ( ))
-
+     
      min()      error--&gt; macro "min" requires 2 arguments, but only 1 given
      min(,,)    error--&gt; macro "min" passed 3 arguments, but takes just 2
 </pre>
@@ -145,3 +145,4 @@ their corresponding actual arguments.
      foo(bar)        ==&gt; bar, "x"
 </pre>
    </body></html>
+

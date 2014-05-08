@@ -114,17 +114,17 @@ namespace __gnu_pbds
       typedef Const_Reference 				const_reference;
 
       inline
-      bin_search_tree_const_it_(const Node_Pointer p_nd = 0)
+      bin_search_tree_const_it_(const Node_Pointer p_nd = 0) 
       : m_p_nd(const_cast<Node_Pointer>(p_nd))
       { }
 
       inline
-      bin_search_tree_const_it_(const PB_DS_TREE_CONST_ODIR_IT_C_DEC& other)
+      bin_search_tree_const_it_(const PB_DS_TREE_CONST_ODIR_IT_C_DEC& other) 
       : m_p_nd(other.m_p_nd)
       { }
 
       inline
-      PB_DS_TREE_CONST_IT_C_DEC&
+      PB_DS_TREE_CONST_IT_C_DEC& 
       operator=(const PB_DS_TREE_CONST_IT_C_DEC& other)
       {
 	m_p_nd = other.m_p_nd;
@@ -132,7 +132,7 @@ namespace __gnu_pbds
       }
 
       inline
-      PB_DS_TREE_CONST_IT_C_DEC&
+      PB_DS_TREE_CONST_IT_C_DEC& 
       operator=(const PB_DS_TREE_CONST_ODIR_IT_C_DEC& other)
       {
 	m_p_nd = other.m_p_nd;
@@ -169,7 +169,7 @@ namespace __gnu_pbds
       operator!=(const PB_DS_TREE_CONST_ODIR_IT_C_DEC& other) const
       { return m_p_nd != other.m_p_nd; }
 
-      inline PB_DS_TREE_CONST_IT_C_DEC&
+      inline PB_DS_TREE_CONST_IT_C_DEC& 
       operator++()
       {
 	_GLIBCXX_DEBUG_ASSERT(m_p_nd != 0);
@@ -185,7 +185,7 @@ namespace __gnu_pbds
 	return ret_it;
       }
 
-      inline PB_DS_TREE_CONST_IT_C_DEC&
+      inline PB_DS_TREE_CONST_IT_C_DEC& 
       operator--()
       {
 	dec(integral_constant<int,Is_Forward_Iterator>());
@@ -208,7 +208,7 @@ namespace __gnu_pbds
       void
       inc(true_type)
       {
-	if (m_p_nd->special()&&
+	if (m_p_nd->special()&& 
 	    m_p_nd->m_p_parent->m_p_parent == m_p_nd)
 	  {
 	    m_p_nd = m_p_nd->m_p_left;
@@ -283,17 +283,17 @@ namespace __gnu_pbds
     {
     public:
       inline
-      bin_search_tree_it_(const Node_Pointer p_nd = 0)
+      bin_search_tree_it_(const Node_Pointer p_nd = 0) 
       : PB_DS_TREE_CONST_IT_C_DEC((Node_Pointer)p_nd)
       { }
 
       inline
-      bin_search_tree_it_(const PB_DS_TREE_ODIR_IT_C_DEC& other)
+      bin_search_tree_it_(const PB_DS_TREE_ODIR_IT_C_DEC& other) 
       : PB_DS_TREE_CONST_IT_C_DEC(other.m_p_nd)
       { }
 
       inline
-      PB_DS_TREE_IT_C_DEC&
+      PB_DS_TREE_IT_C_DEC& 
       operator=(const PB_DS_TREE_IT_C_DEC& other)
       {
 	base_it_type::m_p_nd = other.m_p_nd;
@@ -301,7 +301,7 @@ namespace __gnu_pbds
       }
 
       inline
-      PB_DS_TREE_IT_C_DEC&
+      PB_DS_TREE_IT_C_DEC& 
       operator=(const PB_DS_TREE_ODIR_IT_C_DEC& other)
       {
 	base_it_type::m_p_nd = other.m_p_nd;
@@ -322,7 +322,7 @@ namespace __gnu_pbds
 	return base_it_type::m_p_nd->m_value;
       }
 
-      inline PB_DS_TREE_IT_C_DEC&
+      inline PB_DS_TREE_IT_C_DEC& 
       operator++()
       {
 	PB_DS_TREE_CONST_IT_C_DEC:: operator++();
@@ -337,7 +337,7 @@ namespace __gnu_pbds
 	return ret_it;
       }
 
-      inline PB_DS_TREE_IT_C_DEC&
+      inline PB_DS_TREE_IT_C_DEC& 
       operator--()
       {
 	PB_DS_TREE_CONST_IT_C_DEC:: operator--();
@@ -364,4 +364,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

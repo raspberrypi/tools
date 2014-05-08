@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,8 +77,8 @@ is supplied, it is set to the value returned by <code>signal(2)</code>.
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NUMBER</var> </td><td valign="top" width="70%">Shall be a scalar integer, with <code>INTENT(IN)</code>
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>HANDLER</var></td><td valign="top" width="70%">Signal handler (<code>INTEGER FUNCTION</code> or
-<code>SUBROUTINE</code>) or dummy/global <code>INTEGER</code> scalar.
-<code>INTEGER</code>. It is <code>INTENT(IN)</code>.
+<code>SUBROUTINE</code>) or dummy/global <code>INTEGER</code> scalar. 
+<code>INTEGER</code>. It is <code>INTENT(IN)</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) <var>STATUS</var> shall be a scalar
 integer. It has <code>INTENT(OUT)</code>.
      <br></td></tr></table>
@@ -90,13 +90,14 @@ integer. It has <code>INTENT(OUT)</code>.
      <pre class="smallexample">          program test_signal
             intrinsic signal
             external handler_print
-
+          
             call signal (12, handler_print)
             call signal (10, 1)
-
+          
             call sleep (30)
           end program test_signal
 </pre>
      </dl>
 
    </body></html>
+

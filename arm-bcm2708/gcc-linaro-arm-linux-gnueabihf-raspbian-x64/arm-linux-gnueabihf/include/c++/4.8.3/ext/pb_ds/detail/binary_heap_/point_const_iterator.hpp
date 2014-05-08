@@ -50,7 +50,7 @@ namespace __gnu_pbds
   namespace detail
   {
     /// Const point-type iterator.
-    template<typename Value_Type, typename Entry, bool Simple,
+    template<typename Value_Type, typename Entry, bool Simple, 
 	     typename _Alloc>
     class binary_heap_point_const_iterator_
     {
@@ -141,4 +141,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

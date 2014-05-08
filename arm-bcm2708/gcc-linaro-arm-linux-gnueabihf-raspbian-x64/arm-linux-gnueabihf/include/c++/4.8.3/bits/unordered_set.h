@@ -41,7 +41,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
   template<typename _Value,
 	   typename _Hash = hash<_Value>,
 	   typename _Pred = std::equal_to<_Value>,
-	   typename _Alloc = std::allocator<_Value>,
+  	   typename _Alloc = std::allocator<_Value>,
 	   typename _Tr = __uset_traits<__cache_default<_Value, _Hash>::value>>
     using __uset_hashtable = _Hashtable<_Value, _Value, _Alloc,
 					__detail::_Identity, _Pred, _Hash,

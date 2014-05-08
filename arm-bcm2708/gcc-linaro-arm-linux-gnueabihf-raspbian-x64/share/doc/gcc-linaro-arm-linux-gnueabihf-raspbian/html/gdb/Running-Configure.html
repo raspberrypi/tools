@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -94,7 +94,7 @@ argument.
      make
 </pre>
    <p class="noindent">where <var>host</var> is an identifier such as &lsquo;<samp><span class="samp">sun4</span></samp>&rsquo; or
-&lsquo;<samp><span class="samp">decstation</span></samp>&rsquo;, that identifies the platform where <span class="sc">gdb</span> will run.
+&lsquo;<samp><span class="samp">decstation</span></samp>&rsquo;, that identifies the platform where <span class="sc">gdb</span> will run. 
 (You can often leave off <var>host</var>; <samp><span class="file">configure</span></samp> tries to guess the
 correct value by examining your system.)
 
@@ -126,10 +126,11 @@ configuration of <samp><span class="file">bfd</span></samp>, <samp><span class="
 directories of the <samp><span class="file">gdb</span></samp> subdirectory.  This leads to build errors
 about missing include files such as <samp><span class="file">bfd/bfd.h</span></samp>.
 
-   <p>You can install <code>gdb</code> anywhere; it has no hardwired paths.
+   <p>You can install <code>gdb</code> anywhere; it has no hardwired paths. 
 However, you should make sure that the shell on your path (named by
 the &lsquo;<samp><span class="samp">SHELL</span></samp>&rsquo; environment variable) is publicly readable.  Remember
 that <span class="sc">gdb</span> uses the shell to start your program&mdash;some systems refuse to
 let <span class="sc">gdb</span> debug child processes whose programs are not readable.
 
    </body></html>
+

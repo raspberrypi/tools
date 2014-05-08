@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,7 +75,7 @@ virtual function calls.
 <pre class="smallexample">     extern A a;
      extern int (A::*fp)();
      typedef int (*fptr)(A *);
-
+     
      fptr p = (fptr)(a.*fp);
 </pre>
  <p>For PMF constants (i.e. expressions of the form &lsquo;<samp><span class="samp">&amp;Klasse::Member</span></samp>&rsquo;),
@@ -87,3 +87,4 @@ converted to function pointers directly:
  <p><a name="index-Wno_002dpmf_002dconversions-3528"></a>You must specify <samp><span class="option">-Wno-pmf-conversions</span></samp> to use this extension.
 
  </body></html>
+

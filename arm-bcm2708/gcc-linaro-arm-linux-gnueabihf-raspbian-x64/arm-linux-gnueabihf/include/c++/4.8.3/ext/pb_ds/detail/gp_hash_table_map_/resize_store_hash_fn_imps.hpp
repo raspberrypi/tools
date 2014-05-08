@@ -42,7 +42,7 @@
 PB_DS_CLASS_T_DEC
 inline void
 PB_DS_CLASS_C_DEC::
-resize_imp_reassign(entry_pointer p_e, entry_array a_entries_resized,
+resize_imp_reassign(entry_pointer p_e, entry_array a_entries_resized, 
 		    true_type)
 {
   key_const_reference r_key = PB_DS_V2F(p_e->m_value);
@@ -71,3 +71,4 @@ resize_imp_reassign(entry_pointer p_e, entry_array a_entries_resized,
     }
   __throw_insert_error();
 }
+

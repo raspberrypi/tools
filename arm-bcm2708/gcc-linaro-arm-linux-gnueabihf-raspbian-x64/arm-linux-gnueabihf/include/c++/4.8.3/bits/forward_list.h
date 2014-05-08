@@ -114,7 +114,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
   /**
    *   @brief A forward_list::iterator.
-   *
+   * 
    *   All the functions are op overloads.
    */
   template<typename _Tp>
@@ -133,7 +133,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       : _M_node() { }
 
       explicit
-      _Fwd_list_iterator(_Fwd_list_node_base* __n)
+      _Fwd_list_iterator(_Fwd_list_node_base* __n) 
       : _M_node(__n) { }
 
       reference
@@ -181,7 +181,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
   /**
    *   @brief A forward_list::const_iterator.
-   *
+   * 
    *   All the functions are op overloads.
    */
   template<typename _Tp>
@@ -201,7 +201,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       : _M_node() { }
 
       explicit
-      _Fwd_list_const_iterator(const _Fwd_list_node_base* __n)
+      _Fwd_list_const_iterator(const _Fwd_list_node_base* __n) 
       : _M_node(__n) { }
 
       _Fwd_list_const_iterator(const iterator& __iter)
@@ -284,7 +284,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
       typedef __gnu_cxx::__alloc_traits<_Node_alloc_type> _Node_alloc_traits;
 
-      struct _Fwd_list_impl
+      struct _Fwd_list_impl 
       : public _Node_alloc_type
       {
         _Fwd_list_node_base _M_head;
@@ -374,7 +374,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       _M_erase_after(_Fwd_list_node_base* __pos);
 
       _Fwd_list_node_base*
-      _M_erase_after(_Fwd_list_node_base* __pos,
+      _M_erase_after(_Fwd_list_node_base* __pos, 
                      _Fwd_list_node_base* __last);
     };
 
@@ -423,7 +423,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       typedef typename _Alloc_traits::const_pointer        const_pointer;
       typedef typename _Alloc_traits::reference            reference;
       typedef typename _Alloc_traits::const_reference      const_reference;
-
+ 
       typedef _Fwd_list_iterator<_Tp>                      iterator;
       typedef _Fwd_list_const_iterator<_Tp>                const_iterator;
       typedef std::size_t                                  size_type;
@@ -1333,7 +1333,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
    *  @param  __ly  A %forward_list of the same type as @a __lx.
    *  @return  True iff the elements of the forward lists are equal.
    *
-   *  This is an equivalence relation.  It is linear in the number of
+   *  This is an equivalence relation.  It is linear in the number of 
    *  elements of the forward lists.  Deques are considered equivalent
    *  if corresponding elements compare equal.
    */
@@ -1348,7 +1348,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
    *  @param  __ly  A %forward_list of the same type as @a __lx.
    *  @return  True iff @a __lx is lexicographically less than @a __ly.
    *
-   *  This is a total ordering relation.  It is linear in the number of
+   *  This is a total ordering relation.  It is linear in the number of 
    *  elements of the forward lists.  The elements must be comparable
    *  with @c <.
    *

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Annotations.html#Annotations">Annotatio
    <p>is output.  Before the <code>stopped</code> annotation, a variety of
 annotations describe how the program stopped.
 
-
+     
 <a name="index-exited-annotation-2397"></a>
 <dl><dt><code>^Z^Zexited </code><var>exit-status</var><dd>The program exited, and <var>exit-status</var> is the exit status (zero for
 successful exit, otherwise nonzero).
@@ -80,7 +80,7 @@ annotation continues:
 </pre>
      <p class="noindent">where <var>name</var> is the name of the signal, such as <code>SIGILL</code> or
 <code>SIGSEGV</code>, and <var>string</var> is the explanation of the signal, such
-as <code>Illegal Instruction</code> or <code>Segmentation fault</code>.
+as <code>Illegal Instruction</code> or <code>Segmentation fault</code>. 
 <var>intro-text</var>, <var>middle-text</var>, and <var>end-text</var> are for the
 user's benefit and have no particular format.
 
@@ -90,7 +90,8 @@ terminated with it.
 
      <p><a name="index-breakpoint-annotation-2404"></a><br><dt><code>^Z^Zbreakpoint </code><var>number</var><dd>The program hit breakpoint number <var>number</var>.
 
-     <p><a name="index-watchpoint-annotation-2405"></a><br><dt><code>^Z^Zwatchpoint </code><var>number</var><dd>The program hit watchpoint number <var>number</var>.
+     <p><a name="index-watchpoint-annotation-2405"></a><br><dt><code>^Z^Zwatchpoint </code><var>number</var><dd>The program hit watchpoint number <var>number</var>. 
 </dl>
 
    </body></html>
+

@@ -251,7 +251,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 	// NB: DR 675.
 	this->clear();
 	this->swap(__x);
-	return *this;
+      	return *this;
       }
 
       /**

@@ -27,7 +27,7 @@
  *  whether to use parallelized algorithms.
  *  This file is a GNU parallel extension to the Standard C++ Library.
  *
- *  @section parallelization_decision
+ *  @section parallelization_decision 
  *  The decision whether to run an algorithm in parallel.
  *
  *  There are several ways the user can switch on and __off the parallel
@@ -85,7 +85,7 @@
 
 #include <parallel/types.h>
 
-/**
+/** 
   * @brief Determine at compile(?)-time if the parallel variant of an
   * algorithm should be called.
   * @param __c A condition that is convertible to bool that is overruled by
@@ -123,7 +123,7 @@ namespace __gnu_parallel
   struct _Settings
   {
     _AlgorithmStrategy          algorithm_strategy;
-
+    
     _SortAlgorithm              sort_algorithm;
     _PartialSumAlgorithm        partial_sum_algorithm;
     _MultiwayMergeAlgorithm     multiway_merge_algorithm;
@@ -243,7 +243,7 @@ namespace __gnu_parallel
     /// Minimal input size for parallel std::transform.
     _SequenceIndex              transform_minimal_n;
 
-    /// Minimal input size for unique_copy.
+    /// Minimal input size for unique_copy. 
     _SequenceIndex              unique_copy_minimal_n;
 
     _SequenceIndex              workstealing_chunk_size;
@@ -283,7 +283,7 @@ namespace __gnu_parallel
     static void
     set(_Settings&) throw();
 
-    explicit
+    explicit 
     _Settings() :
             algorithm_strategy(heuristic),
             sort_algorithm(MWMS),

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,7 +61,7 @@ in the list, until it finds a file with the desired name.
 fails, <samp><span class="file">/mnt/cross/usr/src/foo-1.0/lib/foo.c</span></samp> is tried; if this
 fails, <samp><span class="file">/mnt/cross/foo.c</span></samp> is opened; if this fails, an error
 message is printed.  <span class="sc">gdb</span> does not look up the parts of the
-source file name, such as <samp><span class="file">/mnt/cross/src/foo-1.0/lib/foo.c</span></samp>.
+source file name, such as <samp><span class="file">/mnt/cross/src/foo-1.0/lib/foo.c</span></samp>. 
 Likewise, the subdirectories of the source path are not searched: if
 the source path is <samp><span class="file">/mnt/cross</span></samp>, and the binary refers to
 <samp><span class="file">foo.c</span></samp>, <span class="sc">gdb</span> would not find it under
@@ -82,7 +82,7 @@ any information it has cached about where source files are found and where
 each line is in the file.
 
    <p><a name="index-directory-489"></a><a name="index-dir-490"></a>When you start <span class="sc">gdb</span>, its source path includes only &lsquo;<samp><span class="samp">cdir</span></samp>&rsquo;
-and &lsquo;<samp><span class="samp">cwd</span></samp>&rsquo;, in that order.
+and &lsquo;<samp><span class="samp">cwd</span></samp>&rsquo;, in that order. 
 To add other directories, use the <code>directory</code> command.
 
    <p>The search path is used to find both program source files and <span class="sc">gdb</span>
@@ -94,7 +94,7 @@ rule</dfn> specifies how to rewrite source directories stored in the program's
 debug information in case the sources were moved to a different
 directory between compilation and debugging.  A rule is made of
 two strings, the first specifying what needs to be rewritten in
-the path, and the second specifying how it should be rewritten.
+the path, and the second specifying how it should be rewritten. 
 In <a href="set-substitute_002dpath.html#set-substitute_002dpath">set substitute-path</a>, we name these two parts <var>from</var> and
 <var>to</var> respectively.  <span class="sc">gdb</span> does a simple string replacement
 of <var>from</var> with <var>to</var> at the start of the directory part of the
@@ -111,7 +111,7 @@ substitution rule, use the <code>set substitute-path</code> command
 (see <a href="set-substitute_002dpath.html#set-substitute_002dpath">set substitute-path</a>).
 
    <p>To avoid unexpected substitution results, a rule is applied only if the
-<var>from</var> part of the directory name ends at a directory separator.
+<var>from</var> part of the directory name ends at a directory separator. 
 For instance, a rule substituting  <samp><span class="file">/usr/source</span></samp> into
 <samp><span class="file">/mnt/cross</span></samp> will be applied to <samp><span class="file">/usr/source/foo-1.0</span></samp> but
 not to <samp><span class="file">/usr/sourceware/foo-2.0</span></samp>.  And because the substitution
@@ -127,7 +127,7 @@ preserving its internal organization, then <code>set substitute-path</code>
 allows you to direct the debugger to all the sources with one single
 command.
 
-   <p><code>set substitute-path</code> is also more than just a shortcut command.
+   <p><code>set substitute-path</code> is also more than just a shortcut command. 
 The source path is only used if the file at the original location no
 longer exists.  On the other hand, <code>set substitute-path</code> modifies
 the debugger behavior to look at the rewritten location instead.  So, if
@@ -165,7 +165,7 @@ directory at the time you add an entry to the source path.
 
      <!-- RET-repeat for @code{directory} is explicitly disabled, but since -->
      <!-- repeating it would be a no-op we do not say that.  (thanks to RMS) -->
-     <br><dt><code>set directories </code><var>path-list</var><dd><a name="index-set-directories-502"></a>Set the source path to <var>path-list</var>.
+     <br><dt><code>set directories </code><var>path-list</var><dd><a name="index-set-directories-502"></a>Set the source path to <var>path-list</var>. 
 &lsquo;<samp><span class="samp">$cdir:$cwd</span></samp>&rsquo; are added if missing.
 
      <br><dt><code>show directories</code><dd><a name="index-show-directories-503"></a>Print the source path: show which directories it contains.
@@ -199,7 +199,7 @@ use the second rule to rewrite <samp><span class="file">/usr/src/lib/foo.c</span
 <samp><span class="file">/mnt/src/lib/foo.c</span></samp>.
 
      <br><dt><code>unset substitute-path [path]</code><dd><a name="index-unset-substitute_002dpath-505"></a>If a path is specified, search the current list of substitution rules
-for a rule that would rewrite that path.  Delete that rule if found.
+for a rule that would rewrite that path.  Delete that rule if found. 
 A warning is emitted by the debugger if no rule could be found.
 
      <p>If no path is specified, then all substitution rules are deleted.
@@ -225,3 +225,4 @@ directories in one command.
         </ol>
 
    </body></html>
+

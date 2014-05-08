@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ deferred-shape (i.e. allocatable or pointer) arrays.  However, those
 are allowed since the Technical Specification 29113, see
 <a href="Further-Interoperability-of-Fortran-with-C.html#Further-Interoperability-of-Fortran-with-C">Further Interoperability of Fortran with C</a>
 
-   <p>To pass a variable by value, use the <code>VALUE</code> attribute.
+   <p>To pass a variable by value, use the <code>VALUE</code> attribute. 
 Thus, the following C prototype
 
 <pre class="smallexample">     <code>int func(int i, int *j)</code>
@@ -82,7 +82,7 @@ see <a href="Working-with-Pointers.html#Working-with-Pointers">Working with Poin
 
    <p>Strings are handled quite differently in C and Fortran.  In C a string
 is a <code>NUL</code>-terminated array of characters while in Fortran each string
-has a length associated with it and is thus not terminated (by e.g.
+has a length associated with it and is thus not terminated (by e.g. 
 <code>NUL</code>).  For example, if one wants to use the following C function,
 
 <pre class="smallexample">       #include &lt;stdio.h&gt;
@@ -142,3 +142,4 @@ example, we ignore the return value:
    <p>The intrinsic procedures are described in <a href="Intrinsic-Procedures.html#Intrinsic-Procedures">Intrinsic Procedures</a>.
 
    </body></html>
+

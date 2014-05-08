@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,10 +52,10 @@ The <code>F</code> request packet has the following format:
 
      <dl>
 <dt>&lsquo;<samp><span class="samp">F</span><var>call-id</var><span class="samp">,</span><var>parameter<small class="dots">...</small></var></samp>&rsquo;<dd>
-<var>call-id</var> is the identifier to indicate the host system call to be called.
+<var>call-id</var> is the identifier to indicate the host system call to be called. 
 This is just the name of the function.
 
-     <p><var>parameter<small class="dots">...</small></var> are the parameters to the system call.
+     <p><var>parameter<small class="dots">...</small></var> are the parameters to the system call. 
 Parameters are hexadecimal integer values, either the actual values in case
 of scalar datatypes, pointers to target buffer space in case of compound
 datatypes and unspecified memory areas, or pointer/length pairs in case
@@ -66,3 +66,4 @@ string representation, pointer/length pairs separated by a slash.
    </dl>
 
    </body></html>
+

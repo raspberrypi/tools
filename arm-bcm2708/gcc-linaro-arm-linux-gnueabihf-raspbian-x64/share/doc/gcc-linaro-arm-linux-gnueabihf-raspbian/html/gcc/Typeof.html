@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,7 +55,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 <h3 class="section">6.6 Referring to a Type with <code>typeof</code></h3>
 
 <p><a name="index-typeof-2426"></a><a name="index-sizeof-2427"></a><a name="index-macros_002c-types-of-arguments-2428"></a>
-Another way to refer to the type of an expression is with <code>typeof</code>.
+Another way to refer to the type of an expression is with <code>typeof</code>. 
 The syntax of using of this keyword looks like <code>sizeof</code>, but the
 construct acts semantically like a type name defined with <code>typedef</code>.
 
@@ -74,7 +74,7 @@ the type described is that of the values of the functions.
  <p class="noindent">Here the type described is that of pointers to <code>int</code>.
 
  <p>If you are writing a header file that must work when included in ISO C
-programs, write <code>__typeof__</code> instead of <code>typeof</code>.
+programs, write <code>__typeof__</code> instead of <code>typeof</code>. 
 See <a href="Alternate-Keywords.html#Alternate-Keywords">Alternate Keywords</a>.
 
  <p>A <code>typeof</code> construct can be used anywhere a typedef name can be
@@ -86,7 +86,7 @@ only if it is an expression of variably modified type or the name of
 such a type.
 
  <p><code>typeof</code> is often useful in conjunction with
-statement expressions (see <a href="Statement-Exprs.html#Statement-Exprs">Statement Exprs</a>).
+statement expressions (see <a href="Statement-Exprs.html#Statement-Exprs">Statement Exprs</a>). 
 Here is how the two together can
 be used to define a safe &ldquo;maximum&rdquo; macro which operates on any
 arithmetic type and evaluates each of its arguments exactly once:
@@ -134,7 +134,7 @@ might be a useful way to write, rewrite it with these macros:
      <pre class="smallexample">          array (pointer (char), 4) y;
 </pre>
      <p class="noindent">Thus, <code>array (pointer (char), 4)</code> is the type of arrays of 4
-pointers to <code>char</code>.
+pointers to <code>char</code>. 
 </ul>
 
  <p><em>Compatibility Note:</em> In addition to <code>typeof</code>, GCC 2 supported
@@ -152,3 +152,4 @@ relies on it should be rewritten to use <code>typeof</code>:
  <p class="noindent">This works with all versions of GCC.
 
  </body></html>
+

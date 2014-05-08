@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ compatibility with other assemblers.
 
      <dl>
 <dt><code>db </code><var>expression</var><code>|</code><var>string</var><code>[,</code><var>expression</var><code>|</code><var>string</var><code>...]</code><dt><code>defb </code><var>expression</var><code>|</code><var>string</var><code>[,</code><var>expression</var><code>|</code><var>string</var><code>...]</code><dd>For each <var>string</var> the characters are copied to the object file, for
-each other <var>expression</var> the value is stored in one byte.
+each other <var>expression</var> the value is stored in one byte. 
 A warning is issued in case of an overflow.
 
      <br><dt><code>dw </code><var>expression</var><code>[,</code><var>expression</var><code>...]</code><dt><code>defw </code><var>expression</var><code>[,</code><var>expression</var><code>...]</code><dd>For each <var>expression</var> the value is stored in two bytes, ignoring
@@ -72,7 +72,7 @@ Fill <var>count</var> bytes in the object file with <var>value</var>, if
 <var>value</var> is omitted it defaults to zero.
 
      <br><dt><var>symbol</var><code> equ </code><var>expression</var><dt><var>symbol</var><code> defl </code><var>expression</var><dd>These directives set the value of <var>symbol</var> to <var>expression</var>. If
-<code>equ</code> is used, it is an error if <var>symbol</var> is already defined.
+<code>equ</code> is used, it is an error if <var>symbol</var> is already defined. 
 Symbols defined with <code>equ</code> are not protected from redefinition.
 
      <br><dt><code>set</code><dd>This is a normal instruction on Z80, and not an assembler directive.
@@ -82,3 +82,4 @@ Symbols defined with <code>equ</code> are not protected from redefinition.
    </dl>
 
    </body></html>
+

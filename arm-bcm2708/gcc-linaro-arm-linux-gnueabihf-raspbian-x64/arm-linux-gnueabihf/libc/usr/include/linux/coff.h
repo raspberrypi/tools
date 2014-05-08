@@ -20,7 +20,7 @@
  * and the values loaded from the character positions. It also makes it
  * nice to have it "endian" independent.
  */
-
+ 
 /* Load a short int from the following tables with little-endian formats */
 #define COFF_SHORT_L(ps) ((short)(((unsigned short)((unsigned char)ps[1])<<8)|\
 				  ((unsigned short)((unsigned char)ps[0]))))
@@ -30,7 +30,7 @@
 				 ((unsigned long)((unsigned char)ps[2])<<16) |\
 				 ((unsigned long)((unsigned char)ps[1])<<8)  |\
 				 ((unsigned long)((unsigned char)ps[0])))))
-
+ 
 /* Load a short int from the following tables with big-endian formats */
 #define COFF_SHORT_H(ps) ((short)(((unsigned short)((unsigned char)ps[0])<<8)|\
 				  ((unsigned short)((unsigned char)ps[1]))))
@@ -126,7 +126,7 @@ struct COFF_filehdr {
    structure actually written to the file!!
 */
 
-typedef struct
+typedef struct 
 {
   char 	magic[2];		/* type of file				 */
   char	vstamp[2];		/* version stamp			 */
@@ -236,7 +236,7 @@ struct COFF_lineno {
  *  All symbols and sections have the following definition
  */
 
-struct COFF_syment
+struct COFF_syment 
 {
   union {
     char e_name[E_SYMNMLEN];    /* Symbol name (first 8 characters) */
@@ -261,7 +261,7 @@ struct COFF_syment
 /*
  *  Auxiliary entries because the main table is too limiting.
  */
-
+  
 union COFF_auxent {
 
 /*
@@ -317,7 +317,7 @@ union COFF_auxent {
 /*
  *   Transfer vector (branch table)
  */
-
+  
   struct {
     char x_tvfill[4];	/* tv fill value */
     char x_tvlen[2];	/* length of .tv */
@@ -326,7 +326,7 @@ union COFF_auxent {
 };
 
 #define	COFF_SYMENT	struct COFF_syment
-#define	COFF_SYMESZ	18
+#define	COFF_SYMESZ	18	
 #define	COFF_AUXENT	union COFF_auxent
 #define	COFF_AUXESZ	18
 

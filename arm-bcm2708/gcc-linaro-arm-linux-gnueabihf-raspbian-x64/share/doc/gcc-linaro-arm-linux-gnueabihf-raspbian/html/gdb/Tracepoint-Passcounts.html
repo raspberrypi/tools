@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 
 <h4 class="subsection">13.1.3 Tracepoint Passcounts</h4>
 
-
+     
 <a name="index-passcount-766"></a>
 <a name="index-tracepoint-pass-count-767"></a>
 <dl><dt><code>passcount </code><span class="roman">[</span><var>n</var> <span class="roman">[</span><var>num</var><span class="roman">]]</span><dd>Set the <dfn>passcount</dfn> of a tracepoint.  The passcount is a way to
@@ -63,7 +63,7 @@ user.
 
      <pre class="smallexample">          (gdb) <b>passcount 5 2</b> // Stop on the 5th execution of
      <br>                                   <code>// tracepoint 2</code><br>
-
+          
           (gdb) <b>passcount 12</b>  // Stop on the 12th execution of the
      <br>                                   <code>// most recently defined tracepoint.</code><br>
           (gdb) <b>trace foo</b>
@@ -79,3 +79,4 @@ user.
      </dl>
 
    </body></html>
+

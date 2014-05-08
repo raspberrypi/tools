@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,9 +77,10 @@ the reciprocal estimate instructions.
  <p>The <code>__builtin_ppc_get_timebase</code> and <code>__builtin_ppc_mftb</code>
 functions generate instructions to read the Time Base Register.  The
 <code>__builtin_ppc_get_timebase</code> function may generate multiple
-instructions and always returns the 64 bits of the Time Base Register.
+instructions and always returns the 64 bits of the Time Base Register. 
 The <code>__builtin_ppc_mftb</code> function always generates one instruction and
 returns the Time Base Register value as an unsigned long, throwing away
 the most significant word on 32-bit environments.
 
  </body></html>
+

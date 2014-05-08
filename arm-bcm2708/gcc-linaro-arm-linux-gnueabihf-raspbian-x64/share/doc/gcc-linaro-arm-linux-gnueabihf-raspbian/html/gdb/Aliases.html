@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Extending-GDB.html#Extending-GDB">Exten
 <h3 class="section">23.3 Creating new spellings of existing commands</h3>
 
 <p><a name="index-aliases-for-commands-2180"></a>
-It is often useful to define alternate spellings of existing commands.
+It is often useful to define alternate spellings of existing commands. 
 For example, if a new <span class="sc">gdb</span> command defined in Python has
 a long name to type, it is handy to have an abbreviated version of it
 that involves less typing.
@@ -61,12 +61,12 @@ of multi-word commands.  For example, <span class="sc">gdb</span> provides the
 
    <p>You can define a new alias with the &lsquo;<samp><span class="samp">alias</span></samp>&rsquo; command.
 
-
+     
 <a name="index-alias-2181"></a>
 <dl><dt><code>alias [-a] [--] </code><var>ALIAS</var><code> = </code><var>COMMAND</var><dd>
 </dl>
 
-   <p><var>ALIAS</var> specifies the name of the new alias.
+   <p><var>ALIAS</var> specifies the name of the new alias. 
 Each word of <var>ALIAS</var> must consist of letters, numbers, dashes and
 underscores.
 
@@ -81,21 +81,21 @@ lists displayed by the &lsquo;<samp><span class="samp">help</span></samp>&rsquo;
 and is useful when <var>ALIAS</var> begins with a dash.
 
    <p>Here is a simple example showing how to make an abbreviation
-of a command so that there is less to type.
+of a command so that there is less to type. 
 Suppose you were tired of typing &lsquo;<samp><span class="samp">disas</span></samp>&rsquo;, the current
 shortest unambiguous abbreviation of the &lsquo;<samp><span class="samp">disassemble</span></samp>&rsquo; command
-and you wanted an even shorter version named &lsquo;<samp><span class="samp">di</span></samp>&rsquo;.
+and you wanted an even shorter version named &lsquo;<samp><span class="samp">di</span></samp>&rsquo;. 
 The following will accomplish this.
 
 <pre class="smallexample">     (gdb) alias -a di = disas
 </pre>
-   <p>Note that aliases are different from user-defined commands.
+   <p>Note that aliases are different from user-defined commands. 
 With a user-defined command, you also need to write documentation
-for it with the &lsquo;<samp><span class="samp">document</span></samp>&rsquo; command.
+for it with the &lsquo;<samp><span class="samp">document</span></samp>&rsquo; command. 
 An alias automatically picks up the documentation of the existing command.
 
    <p>Here is an example where we make &lsquo;<samp><span class="samp">elms</span></samp>&rsquo; an abbreviation of
-&lsquo;<samp><span class="samp">elements</span></samp>&rsquo; in the &lsquo;<samp><span class="samp">set print elements</span></samp>&rsquo; command.
+&lsquo;<samp><span class="samp">elements</span></samp>&rsquo; in the &lsquo;<samp><span class="samp">set print elements</span></samp>&rsquo; command. 
 This is to show that you can make an abbreviation of any part
 of a command.
 
@@ -115,10 +115,11 @@ command, then you need to define the latter separately.
 <pre class="smallexample">     (gdb) alias -a set pr elms = set p ele
 </pre>
    <p>Finally, here is an example showing the creation of a one word
-alias for a more complex command.
+alias for a more complex command. 
 This creates alias &lsquo;<samp><span class="samp">spe</span></samp>&rsquo; of the command &lsquo;<samp><span class="samp">set print elements</span></samp>&rsquo;.
 
 <pre class="smallexample">     (gdb) alias spe = set print elements
      (gdb) spe 20
 </pre>
    </body></html>
+

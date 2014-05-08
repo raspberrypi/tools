@@ -112,7 +112,7 @@ namespace __gnu_pbds
       void
       trace() const
       { std::cout << PB_DS_V2F(m_value); }
-#endif
+#endif 
 
       node_pointer m_p_left;
       node_pointer m_p_right;
@@ -123,4 +123,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

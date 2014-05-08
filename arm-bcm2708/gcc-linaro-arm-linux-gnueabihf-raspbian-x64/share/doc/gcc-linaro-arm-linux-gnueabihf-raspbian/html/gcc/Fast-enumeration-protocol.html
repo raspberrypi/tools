@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -86,7 +86,7 @@ a batch as requested by the caller.  The batch itself is returned in
 the <code>itemsPtr</code> field of the <code>NSFastEnumerationState</code> struct.
 
  <p>To help with returning the objects, the <code>objects</code> array is a C
-array preallocated by the caller (on the stack) of size <code>len</code>.
+array preallocated by the caller (on the stack) of size <code>len</code>. 
 In many cases you can put the objects you want to return in that
 <code>objects</code> array, then do <code>itemsPtr = objects</code>.  But you
 don't have to; if your collection already has the objects to return in
@@ -116,3 +116,4 @@ to be of type <code>unsigned int</code> and everything would still work.
 
 <!-- ========================================================================= -->
  </body></html>
+

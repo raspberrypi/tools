@@ -57,7 +57,7 @@ enum {
 /* Types of messages */
 #define IPQM_BASE	0x10	/* standard netlink messages below this */
 #define IPQM_MODE	(IPQM_BASE + 1)		/* Mode request from peer */
-#define IPQM_VERDICT	(IPQM_BASE + 2)		/* Verdict from peer */
+#define IPQM_VERDICT	(IPQM_BASE + 2)		/* Verdict from peer */ 
 #define IPQM_PACKET	(IPQM_BASE + 3)		/* Packet from kernel */
 #define IPQM_MAX	(IPQM_BASE + 4)
 

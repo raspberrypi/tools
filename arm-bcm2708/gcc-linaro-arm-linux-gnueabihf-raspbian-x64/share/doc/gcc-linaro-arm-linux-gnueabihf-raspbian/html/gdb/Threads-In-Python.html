@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ module:
 <div class="defun">
 &mdash; Function: <b>gdb.selected_thread</b> ()<var><a name="index-gdb_002eselected_005fthread-1898"></a></var><br>
 <blockquote><p>This function returns the thread object for the selected thread.  If there
-is no selected thread, this will return <code>None</code>.
+is no selected thread, this will return <code>None</code>. 
 </p></blockquote></div>
 
    <p>A <code>gdb.InferiorThread</code> object has the following attributes:
@@ -73,21 +73,21 @@ returns <code>None</code>.
 
         <p>This attribute can be assigned to.  The new value must be a string
 object, which sets the new name, or <code>None</code>, which removes any
-user-specified thread name.
+user-specified thread name. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>InferiorThread.num</b><var><a name="index-InferiorThread_002enum-1900"></a></var><br>
-<blockquote><p>ID of the thread, as assigned by GDB.
+<blockquote><p>ID of the thread, as assigned by GDB. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>InferiorThread.ptid</b><var><a name="index-InferiorThread_002eptid-1901"></a></var><br>
 <blockquote><p>ID of the thread, as assigned by the operating system.  This attribute is a
 tuple containing three integers.  The first is the Process ID (PID); the second
-is the Lightweight Process ID (LWPID), and the third is the Thread ID (TID).
+is the Lightweight Process ID (LWPID), and the third is the Thread ID (TID). 
 Either the LWPID or TID may be 0, which indicates that the operating system
-does not  use that identifier.
+does not  use that identifier. 
 </p></blockquote></div>
 
    <p>A <code>gdb.InferiorThread</code> object has the following methods:
@@ -98,28 +98,29 @@ does not  use that identifier.
 <code>False</code> if not.  A <code>gdb.InferiorThread</code> object will become
 invalid if the thread exits, or the inferior that the thread belongs
 is deleted.  All other <code>gdb.InferiorThread</code> methods will throw an
-exception if it is invalid at the time the method is called.
+exception if it is invalid at the time the method is called. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>InferiorThread.switch</b> ()<var><a name="index-InferiorThread_002eswitch-1903"></a></var><br>
 <blockquote><p>This changes <span class="sc">gdb</span>'s currently selected thread to the one represented
-by this object.
+by this object. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>InferiorThread.is_stopped</b> ()<var><a name="index-InferiorThread_002eis_005fstopped-1904"></a></var><br>
-<blockquote><p>Return a Boolean indicating whether the thread is stopped.
+<blockquote><p>Return a Boolean indicating whether the thread is stopped. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>InferiorThread.is_running</b> ()<var><a name="index-InferiorThread_002eis_005frunning-1905"></a></var><br>
-<blockquote><p>Return a Boolean indicating whether the thread is running.
+<blockquote><p>Return a Boolean indicating whether the thread is running. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>InferiorThread.is_exited</b> ()<var><a name="index-InferiorThread_002eis_005fexited-1906"></a></var><br>
-<blockquote><p>Return a Boolean indicating whether the thread is exited.
+<blockquote><p>Return a Boolean indicating whether the thread is exited. 
 </p></blockquote></div>
 
    </body></html>
+

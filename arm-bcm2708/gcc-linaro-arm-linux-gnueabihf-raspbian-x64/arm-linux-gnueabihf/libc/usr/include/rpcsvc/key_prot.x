@@ -170,7 +170,7 @@ program KEY_PROG {
 
 		/*
 		 * This is my secret key.
-		 * Store it for me.
+	 	 * Store it for me.
 		 */
 		keystatus
 		KEY_SET(keybuf) = 1;
@@ -178,7 +178,7 @@ program KEY_PROG {
 		/*
 		 * I want to talk to X.
 		 * Encrypt a conversation key for me.
-		 */
+	 	 */
 		cryptkeyres
 		KEY_ENCRYPT(cryptkeyarg) = 2;
 
@@ -212,7 +212,7 @@ program KEY_PROG {
 
 		/*
 		 * This is my secret key.
-		 * Store it for me.
+	 	 * Store it for me.
 		 */
 		keystatus
 		KEY_SET(keybuf) = 1;
@@ -220,7 +220,7 @@ program KEY_PROG {
 		/*
 		 * I want to talk to X.
 		 * Encrypt a conversation key for me.
-		 */
+	 	 */
 		cryptkeyres
 		KEY_ENCRYPT(cryptkeyarg) = 2;
 
@@ -247,7 +247,7 @@ program KEY_PROG {
 		/*
 		 * I want to talk to X. and I know X's public key
 		 * Encrypt a conversation key for me.
-		 */
+	 	 */
 		cryptkeyres
 		KEY_ENCRYPT_PK(cryptkeyarg2) = 6;
 
@@ -267,7 +267,7 @@ program KEY_PROG {
 		/*
 		 * Retrieve my public key, netname and private key.
 		 */
-		key_netstres
+ 		key_netstres
 		KEY_NET_GET(void) = 9;
 
 		/*

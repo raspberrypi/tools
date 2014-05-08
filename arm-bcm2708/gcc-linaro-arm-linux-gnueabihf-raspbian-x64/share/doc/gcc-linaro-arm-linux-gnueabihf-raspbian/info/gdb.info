@@ -1164,7 +1164,7 @@ several commands to control GDB's logging.
      Enable logging.
 
 `set logging off'
-     Disable logging.
+     Disable logging.  
 
 `set logging file FILE'
      Change the name of the current logfile.  The default logfile is
@@ -1177,7 +1177,7 @@ several commands to control GDB's logging.
 `set logging redirect [on|off]'
      By default, GDB output will go to both the terminal and the
      logfile.  Set `redirect' if you want output to go only to the log
-     file.
+     file.  
 
 `show logging'
      Show the current values of the logging settings.
@@ -3479,12 +3479,12 @@ shared library.  Use the `catch' command to set a catchpoint.
                Starting program: /tmp/catch-syscall
 
                Catchpoint 1 (call to syscall 'close'), \
-		   0xffffe424 in __kernel_vsyscall ()
+               	   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
 
                Catchpoint 1 (returned from syscall 'close'), \
-		0xffffe424 in __kernel_vsyscall ()
+               	0xffffe424 in __kernel_vsyscall ()
                (gdb)
 
           Here is an example of catching a system call by name:
@@ -3495,12 +3495,12 @@ shared library.  Use the `catch' command to set a catchpoint.
                Starting program: /tmp/catch-syscall
 
                Catchpoint 1 (call to syscall 'chroot'), \
-			   0xffffe424 in __kernel_vsyscall ()
+               		   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
 
                Catchpoint 1 (returned from syscall 'chroot'), \
-		0xffffe424 in __kernel_vsyscall ()
+               	0xffffe424 in __kernel_vsyscall ()
                (gdb)
 
           An example of specifying a system call numerically.  In the
@@ -3513,7 +3513,7 @@ shared library.  Use the `catch' command to set a catchpoint.
                Starting program: /tmp/catch-syscall
 
                Catchpoint 1 (call to syscall 'exit_group'), \
-			   0xffffe424 in __kernel_vsyscall ()
+               		   0xffffe424 in __kernel_vsyscall ()
                (gdb) c
                Continuing.
 
@@ -4822,7 +4822,7 @@ or attach to your program:
      Enable selection of non-stop mode.
 
 `set non-stop off'
-     Disable selection of non-stop mode.
+     Disable selection of non-stop mode.  
 
 `show non-stop'
      Show the current non-stop enablement setting.
@@ -4881,7 +4881,7 @@ manipulate the asynchronous mode setting:
      Enable asynchronous mode.
 
 `set target-async off'
-     Disable asynchronous mode.
+     Disable asynchronous mode.  
 
 `show target-async'
      Show the current target-async setting.
@@ -8640,7 +8640,7 @@ checking.  The following commands control this behaviour.
      to such memory.  The checks are only performed if there's at least
      one memory range defined.  If `off' is specified, make GDB treat
      the memory not explicitly described by the memory ranges as RAM.
-     The default value is `on'.
+     The default value is `on'.  
 
 `show mem inaccessible-by-default'
      Show the current handling of accesses to unknown memory.
@@ -10190,7 +10190,7 @@ File: gdb.info,  Node: Starting and Stopping Trace Experiments,  Next: Tracepoin
        > end
      > end
      (gdb) tstart
-	[time passes ...]
+     	[time passes ...]
      (gdb) tstop
 
    You can choose to continue running the trace experiment even if GDB
@@ -14214,7 +14214,7 @@ files are useful.
 
          `IS_COMMON'
                Section contains common symbols.
-
+     
 `set trust-readonly-sections on'
      Tell GDB that readonly sections in your object file really are
      read-only (i.e. that their contents will not change).  In that
@@ -17487,7 +17487,7 @@ Hardware breakpoints/watchpoint triggers can be set using:
    When triggered, it can capture low level data, like: `PC', `LSEA',
 `LDATA', `SDATA', `READSPR', `WRITESPR', `INSTR'.
 
-   `htrace' commands:
+   `htrace' commands: 
 `hwatch CONDITIONAL'
      Set hardware watchpoint on combination of Load/Store Effective
      Address(es) or Data.  For example:
@@ -18612,11 +18612,11 @@ control when to auto-load files and which files should be auto-loaded.
 *Note show auto-load gdb-scripts::.  Show setting of GDB command scripts.
 *Note info auto-load gdb-scripts::.  Show state of GDB command scripts.
 *Note set auto-load                  Control for GDB Python scripts.
-python-scripts::.
+python-scripts::.                    
 *Note show auto-load                 Show setting of GDB Python scripts.
-python-scripts::.
+python-scripts::.                    
 *Note info auto-load                 Show state of GDB Python scripts.
-python-scripts::.
+python-scripts::.                    
 *Note set auto-load                  Control for GDB auto-loaded scripts
 scripts-directory::.                 location.
 *Note show auto-load                 Show GDB auto-loaded scripts
@@ -18977,19 +18977,19 @@ commands.
 `set exec-done-display'
      Turns on or off the notification of asynchronous commands'
      completion.  When on, GDB will print a message when an
-     asynchronous command finishes its execution.  The default is off.
+     asynchronous command finishes its execution.  The default is off.  
 
 `show exec-done-display'
      Displays the current setting of asynchronous command completion
-     notification.
+     notification.  
 
 `set debug aarch64'
      Turns on or off display of debugging messages related to ARM
-     AArch64.  The default is off.
+     AArch64.  The default is off.  
 
 `show debug aarch64'
      Displays the current state of displaying debugging messages
-     related to ARM AArch64.
+     related to ARM AArch64.  
 
 `set debug arch'
      Turns on or off display of gdbarch debugging info.  The default is
@@ -19126,7 +19126,7 @@ commands.
 
 `show debug overload'
      Displays the current state of displaying GDB C++ overload
-     debugging info.
+     debugging info.  
 
 `set debug parser'
      Turns on or off the display of expression parser debugging output.
@@ -19135,7 +19135,7 @@ commands.
      The default is off.
 
 `show debug parser'
-     Show the current state of expression parser debugging.
+     Show the current state of expression parser debugging.  
 
 `set debug remote'
      Turns on or off display of reports on all packets sent back and
@@ -22046,24 +22046,24 @@ constants in the `gdb' module:
 `gdb.SYMBOL_UNDEF_DOMAIN'
      This is used when a domain has not been discovered or none of the
      following domains apply.  This usually indicates an error either
-     in the symbol information or in GDB's handling of symbols.
+     in the symbol information or in GDB's handling of symbols.  
 
 `gdb.SYMBOL_VAR_DOMAIN'
      This domain contains variables, function names, typedef names and
-     enum type values.
+     enum type values.  
 
 `gdb.SYMBOL_STRUCT_DOMAIN'
-     This domain holds struct, union and enum type names.
+     This domain holds struct, union and enum type names.  
 
 `gdb.SYMBOL_LABEL_DOMAIN'
-     This domain contains names of labels (for gotos).
+     This domain contains names of labels (for gotos).  
 
 `gdb.SYMBOL_VARIABLES_DOMAIN'
      This domain holds a subset of the `SYMBOLS_VAR_DOMAIN'; it
-     contains everything minus functions and types.
+     contains everything minus functions and types.  
 
 `gdb.SYMBOL_FUNCTION_DOMAIN'
-     This domain contains all functions.
+     This domain contains all functions.  
 
 `gdb.SYMBOL_TYPES_DOMAIN'
      This domain contains all types.
@@ -22073,51 +22073,51 @@ represented as constants in the `gdb' module:
 
 `gdb.SYMBOL_LOC_UNDEF'
      If this is returned by address class, it indicates an error either
-     in the symbol information or in GDB's handling of symbols.
+     in the symbol information or in GDB's handling of symbols.  
 
 `gdb.SYMBOL_LOC_CONST'
-     Value is constant int.
+     Value is constant int.  
 
 `gdb.SYMBOL_LOC_STATIC'
-     Value is at a fixed address.
+     Value is at a fixed address.  
 
 `gdb.SYMBOL_LOC_REGISTER'
-     Value is in a register.
+     Value is in a register.  
 
 `gdb.SYMBOL_LOC_ARG'
      Value is an argument.  This value is at the offset stored within
-     the symbol inside the frame's argument list.
+     the symbol inside the frame's argument list.  
 
 `gdb.SYMBOL_LOC_REF_ARG'
      Value address is stored in the frame's argument list.  Just like
      `LOC_ARG' except that the value's address is stored at the offset,
-     not the value itself.
+     not the value itself.  
 
 `gdb.SYMBOL_LOC_REGPARM_ADDR'
      Value is a specified register.  Just like `LOC_REGISTER' except
      the register holds the address of the argument instead of the
-     argument itself.
+     argument itself.  
 
 `gdb.SYMBOL_LOC_LOCAL'
-     Value is a local variable.
+     Value is a local variable.  
 
 `gdb.SYMBOL_LOC_TYPEDEF'
      Value not used.  Symbols in the domain `SYMBOL_STRUCT_DOMAIN' all
-     have this class.
+     have this class.  
 
 `gdb.SYMBOL_LOC_BLOCK'
-     Value is a block.
+     Value is a block.  
 
 `gdb.SYMBOL_LOC_CONST_BYTES'
-     Value is a byte-sequence.
+     Value is a byte-sequence.  
 
 `gdb.SYMBOL_LOC_UNRESOLVED'
      Value is at a fixed address, but the address of the variable has
      to be determined from the minimal symbol table whenever the
-     variable is referenced.
+     variable is referenced.  
 
 `gdb.SYMBOL_LOC_OPTIMIZED_OUT'
-     The value does not actually exist in the program.
+     The value does not actually exist in the program.  
 
 `gdb.SYMBOL_LOC_COMPUTED'
      The value's address is a computed location.
@@ -24038,7 +24038,7 @@ responsibility of the front end to work with the new one.
 
    The best way to avoid unexpected changes in MI that might break your
 front end is to make your project known to GDB developers and follow
-development on <gdb@sourceware.org> and <gdb-patches@sourceware.org>.
+development on <gdb@sourceware.org> and <gdb-patches@sourceware.org>.  
 
 
 File: gdb.info,  Node: GDB/MI Output Records,  Next: GDB/MI Simple Examples,  Prev: GDB/MI Development and Front Ends,  Up: GDB/MI
@@ -29715,14 +29715,14 @@ However, there are still some differences of two ends in two processes:
 protocol object:
 
 Name                   Size           Description
----------------------------------------------------------------------------
-_agent expression
-object_
+--------------------------------------------------------------------------- 
+_agent expression                     
+object_                               
 length                 4              length of bytes code
 byte code              LENGTH         contents of byte code
-_tracepoint action
-for collecting
-memory_
+_tracepoint action                    
+for collecting                        
+memory_                               
 'M'                    1              type of tracepoint action
 addr                   8              if BASEREG is `-1', ADDR is the
                                       address of the lowest byte to
@@ -29733,20 +29733,20 @@ len                    8              length of memory for collecting
 basereg                4              the register number containing the
                                       starting memory address for
                                       collecting.
-_tracepoint action
-for collecting
-registers_
+_tracepoint action                    
+for collecting                        
+registers_                            
 'R'                    1              type of tracepoint action
-_tracepoint action
-for collecting static
-trace data_
+_tracepoint action                    
+for collecting static                 
+trace data_                           
 'L'                    1              type of tracepoint action
-_tracepoint action
-for expression
-evaluation_
+_tracepoint action                    
+for expression                        
+evaluation_                           
 'X'                    1              type of tracepoint action
 agent expression       length of      *note agent expression object::
-_tracepoint object_
+_tracepoint object_                   
 number                 4              number of tracepoint
 address                8              address of tracepoint inserted on
 type                   4              type of tracepoint
@@ -29761,11 +29761,11 @@ orig_size              8              orig size
 condition              4 if           zero if condition is NULL,
                        condition is   otherwise is *note agent expression
                        NULL           object::
-                       otherwise
-                       length of
-                       *note agent
-                       expression
-                       object::
+                       otherwise      
+                       length of      
+                       *note agent    
+                       expression     
+                       object::       
 actions                variable       numactions number of *note
                                       tracepoint action object::
 
@@ -30193,7 +30193,7 @@ place later.
 Any number of consecutive kills save all of the killed text together, so
 that when you yank it back, you get it all.  The kill ring is not line
 specific; the text that you killed on a previously typed line is
-available to be yanked back later, when you are typing another line.
+available to be yanked back later, when you are typing another line.  
 
    Here is the list of commands for killing text.
 
@@ -31384,7 +31384,7 @@ File: gdb.info,  Node: Event Designators,  Next: Word Designators,  Up: History 
 
 An event designator is a reference to a command line entry in the
 history list.  Unless the reference is absolute, events are relative to
-the current position in the history list.
+the current position in the history list.  
 
 `!'
      Start a history substitution, except when followed by a space, tab,
@@ -32777,7 +32777,7 @@ letter, other than those described here, are reserved for future use.
      gathering data from memory for the response; even if ADDR is
      word-aligned and LENGTH is a multiple of the word size, the stub
      is free to use byte accesses, or not.  For this reason, this
-     packet may not be suitable for accessing memory-mapped I/O devices.
+     packet may not be suitable for accessing memory-mapped I/O devices.  
 
      Reply:
     `XX...'
@@ -33812,7 +33812,7 @@ GDB packet uses spaces to separate its components.
      These are the currently defined stub features and their properties:
 
      Feature Name            Value         Default  Probe Allowed
-                             Required
+                             Required               
      `PacketSize'            Yes           `-'      No
      `qXfer:auxv:read'       No            `-'      Yes
      `qXfer:btrace:read'     No            `-'      Yes
@@ -35185,11 +35185,11 @@ NotificationAck       Event                       Description
 Stop      vStopped  REPLY.  The REPLY has the   Report an asynchronous
                     form of a stop reply, as    stop event in non-stop
                     described in *note Stop     mode.
-                    Reply Packets::.  Refer to
-                    *note Remote Non-Stop::,
-                    for information on how
-                    these notifications are
-                    acknowledged by GDB.
+                    Reply Packets::.  Refer to  
+                    *note Remote Non-Stop::,    
+                    for information on how      
+                    these notifications are     
+                    acknowledged by GDB.        
 
 
 File: gdb.info,  Node: Remote Non-Stop,  Next: Packet Acknowledgment,  Prev: Notification Packets,  Up: Remote Protocol

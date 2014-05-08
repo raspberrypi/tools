@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ else it is false.  Requires: <code>type</code> shall be a complete type,
 
      <br><dt><code>__has_nothrow_copy (type)</code><dd>If <code>__has_trivial_copy (type)</code> is true then the trait is true, else if
 <code>type</code> is a cv class or union type with copy constructors that
-are known not to throw an exception then the trait is true, else it is false.
+are known not to throw an exception then the trait is true, else it is false. 
 Requires: <code>type</code> shall be a complete type, (possibly cv-qualified)
 <code>void</code>, or an array of unknown bound.
 
@@ -115,7 +115,7 @@ is true, else it is false.  Requires: <code>type</code> shall be a complete
 type, (possibly cv-qualified) <code>void</code>, or an array of unknown bound.
 
      <br><dt><code>__is_base_of (base_type, derived_type)</code><dd>If <code>base_type</code> is a base class of <code>derived_type</code>
-([class.derived]) then the trait is true, otherwise it is false.
+([class.derived]) then the trait is true, otherwise it is false. 
 Top-level cv qualifications of <code>base_type</code> and
 <code>derived_type</code> are ignored.  For the purposes of this trait, a
 class type is considered is own base.  Requires: if <code>__is_class
@@ -127,7 +127,7 @@ type.  Diagnostic is produced if this requirement is not met.
      <br><dt><code>__is_class (type)</code><dd>If <code>type</code> is a cv class type, and not a union type
 ([basic.compound]) the trait is true, else it is false.
 
-     <br><dt><code>__is_empty (type)</code><dd>If <code>__is_class (type)</code> is false then the trait is false.
+     <br><dt><code>__is_empty (type)</code><dd>If <code>__is_class (type)</code> is false then the trait is false. 
 Otherwise <code>type</code> is considered empty if and only if: <code>type</code>
 has no non-static data members, or all non-static data members, if
 any, are bit-fields of length 0, and <code>type</code> has no virtual
@@ -169,3 +169,4 @@ an enumeration type ([dcl.enum]).
  </dl>
 
  </body></html>
+

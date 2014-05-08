@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -195,7 +195,7 @@ exception of some sort, terminate with an error.
 
      <br><dt><code>pop</code> (0x29): <var>a</var> =&gt;<dd>Discard the top value on the stack.
 
-     <br><dt><code>pick</code> (0x32) <var>n</var>: <var>a</var> <small class="dots">...</small> <var>b</var> =&gt; <var>a</var> <small class="dots">...</small> <var>b</var> <var>a</var><dd>Duplicate an item from the stack and push it on the top of the stack.
+     <br><dt><code>pick</code> (0x32) <var>n</var>: <var>a</var> <small class="dots">...</small> <var>b</var> =&gt; <var>a</var> <small class="dots">...</small> <var>b</var> <var>a</var><dd>Duplicate an item from the stack and push it on the top of the stack. 
 <var>n</var>, a single byte, indicates the stack item to copy.  If <var>n</var>
 is zero, this is the same as <code>dup</code>; if <var>n</var> is one, it copies
 the item under the top item, etc.  If <var>n</var> exceeds the number of
@@ -206,7 +206,7 @@ items on the stack, terminate with an error.
      <br><dt><code>if_goto</code> (0x20) <var>offset</var>: <var>a</var> &rArr;<dd>Pop an integer off the stack; if it is non-zero, branch to the given
 offset in the bytecode string.  Otherwise, continue to the next
 instruction in the bytecode stream.  In other words, if <var>a</var> is
-non-zero, set the <code>pc</code> register to <code>start</code> + <var>offset</var>.
+non-zero, set the <code>pc</code> register to <code>start</code> + <var>offset</var>. 
 Thus, an offset of zero denotes the beginning of the expression.
 
      <p>The <var>offset</var> is stored as a sixteen-bit unsigned value, stored
@@ -222,7 +222,7 @@ offset one byte at a time.
 
      <p>The offset is stored in the same way as for the <code>if_goto</code> bytecode.
 
-     <br><dt><code>const8</code> (0x22) <var>n</var>: &rArr; <var>n</var><dt><code>const16</code> (0x23) <var>n</var>: &rArr; <var>n</var><dt><code>const32</code> (0x24) <var>n</var>: &rArr; <var>n</var><dt><code>const64</code> (0x25) <var>n</var>: &rArr; <var>n</var><dd>Push the integer constant <var>n</var> on the stack, without sign extension.
+     <br><dt><code>const8</code> (0x22) <var>n</var>: &rArr; <var>n</var><dt><code>const16</code> (0x23) <var>n</var>: &rArr; <var>n</var><dt><code>const32</code> (0x24) <var>n</var>: &rArr; <var>n</var><dt><code>const64</code> (0x25) <var>n</var>: &rArr; <var>n</var><dd>Push the integer constant <var>n</var> on the stack, without sign extension. 
 To produce a small negative value, push a small twos-complement value,
 and then sign-extend it using the <code>ext</code> bytecode.
 
@@ -239,7 +239,7 @@ registers are numbered following GDB's conventions.
 
      <p>The register number <var>n</var> is encoded as a 16-bit unsigned integer
 immediately following the <code>reg</code> bytecode.  It is always stored most
-significant byte first, regardless of the target's normal endianness.
+significant byte first, regardless of the target's normal endianness. 
 The register number is not guaranteed to fall at any particular
 alignment within the bytecode stream; thus, on machines where fetching a
 16-bit on an unaligned address raises an exception, you should fetch the
@@ -250,7 +250,7 @@ extension.
 
      <p>The variable number <var>n</var> is encoded as a 16-bit unsigned integer
 immediately following the <code>getv</code> bytecode.  It is always stored most
-significant byte first, regardless of the target's normal endianness.
+significant byte first, regardless of the target's normal endianness. 
 The variable number is not guaranteed to fall at any particular
 alignment within the bytecode stream; thus, on machines where fetching a
 16-bit on an unaligned address raises an exception, you should fetch the
@@ -282,7 +282,7 @@ buffer.  The handling of <var>n</var> is as described for <code>getv</code>.
 by GDB.  Stop at either the first zero byte, or when <var>size</var> bytes
 have been recorded, whichever occurs first.
 
-     <br><dt><code>printf</code> (0x34)  <var>numargs</var> <var>string</var> &rArr;<dd>Do a formatted print, in the style of the C function <code>printf</code>).
+     <br><dt><code>printf</code> (0x34)  <var>numargs</var> <var>string</var> &rArr;<dd>Do a formatted print, in the style of the C function <code>printf</code>). 
 The value of <var>numargs</var> is the number of arguments to expect on the
 stack, while <var>string</var> is the format string, prefixed with a
 two-byte length.  The last byte of the string must be zero, and is
@@ -306,3 +306,4 @@ address, and the top of the stack is the lvalue's size, in bytes.
    </dl>
 
    </body></html>
+

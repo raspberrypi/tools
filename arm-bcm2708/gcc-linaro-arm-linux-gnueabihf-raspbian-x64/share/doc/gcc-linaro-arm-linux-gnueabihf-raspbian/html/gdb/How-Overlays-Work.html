@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -90,12 +90,12 @@ there.
                                               +-----------+
                                               |           |
                                               +-----------+
-
+     
                          <a name="A-code-overlay"></a>A code overlay
 </pre>
    <p>The diagram (see <a href="A-code-overlay.html#A-code-overlay">A code overlay</a>) shows a system with separate data
 and instruction address spaces.  To map an overlay, the program copies
-its code from the larger address space to the instruction address space.
+its code from the larger address space to the instruction address space. 
 Since the overlays shown here all use the same mapped address, only one
 may be mapped at a time.  For a system with a single address space for
 data and instructions, the diagram would be similar, except that the
@@ -127,7 +127,7 @@ your program's performance.
      <li>The executable file you load onto your system must contain each
 overlay's instructions, appearing at the overlay's load address, not its
 mapped address.  However, each overlay's instructions must be relocated
-and its symbols defined as if the overlay were at its mapped address.
+and its symbols defined as if the overlay were at its mapped address. 
 You can use GNU linker scripts to specify different load and relocation
 addresses for pieces of your program; see <a href="../ld/Overlay-Description.html#Overlay-Description">Overlay Description</a>.
 
@@ -143,7 +143,7 @@ improved in many ways:
      <ul>
 <li>If your system has suitable bank switch registers or memory management
 hardware, you could use those facilities to make an overlay's load area
-contents simply appear at their mapped address in instruction space.
+contents simply appear at their mapped address in instruction space. 
 This would probably be faster than copying the overlay to its mapped
 area in the usual way.
 
@@ -161,3 +161,4 @@ different data overlay into the same mapped area.
    </ul>
 
    </body></html>
+

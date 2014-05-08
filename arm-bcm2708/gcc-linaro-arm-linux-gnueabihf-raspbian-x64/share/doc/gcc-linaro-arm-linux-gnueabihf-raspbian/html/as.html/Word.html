@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,12 +65,12 @@ interest to you does 32-bit addressing (or doesn't require it;
 see <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencies</a>), you can ignore this issue.
 
    <p>In order to assemble compiler output into something that works,
-<samp><span class="command">as</span></samp> occasionally does strange things to &lsquo;<samp><span class="samp">.word</span></samp>&rsquo; directives.
+<samp><span class="command">as</span></samp> occasionally does strange things to &lsquo;<samp><span class="samp">.word</span></samp>&rsquo; directives. 
 Directives of the form &lsquo;<samp><span class="samp">.word sym1-sym2</span></samp>&rsquo; are often emitted by
 compilers as part of jump tables.  Therefore, when <samp><span class="command">as</span></samp> assembles a
 directive of the form &lsquo;<samp><span class="samp">.word sym1-sym2</span></samp>&rsquo;, and the difference between
 <code>sym1</code> and <code>sym2</code> does not fit in 16 bits, <samp><span class="command">as</span></samp>
-creates a <dfn>secondary jump table</dfn>, immediately before the next label.
+creates a <dfn>secondary jump table</dfn>, immediately before the next label. 
 This secondary jump table is preceded by a short-jump to the
 first byte after the secondary table.  This short-jump prevents the flow
 of control from accidentally falling into the new table.  Inside the
@@ -88,3 +88,4 @@ entries in the original jump table as necessary.
 
 <!-- end     DIFF-TBL-KLUGE -->
    </body></html>
+

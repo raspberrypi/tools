@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,11 +71,11 @@ was no previously scheduled alarm.
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>SECONDS</var> </td><td valign="top" width="70%">The type of the argument shall be a scalar
-<code>INTEGER</code>. It is <code>INTENT(IN)</code>.
+<code>INTEGER</code>. It is <code>INTENT(IN)</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>HANDLER</var> </td><td valign="top" width="70%">Signal handler (<code>INTEGER FUNCTION</code> or
 <code>SUBROUTINE</code>) or dummy/global <code>INTEGER</code> scalar. The scalar
 values may be either <code>SIG_IGN=1</code> to ignore the alarm generated
-or <code>SIG_DFL=0</code> to set the default action. It is <code>INTENT(IN)</code>.
+or <code>SIG_DFL=0</code> to set the default action. It is <code>INTENT(IN)</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var>  </td><td valign="top" width="70%">(Optional) <var>STATUS</var> shall be a scalar
 variable of the default <code>INTEGER</code> kind. It is <code>INTENT(OUT)</code>.
      <br></td></tr></table>
@@ -90,7 +90,8 @@ variable of the default <code>INTEGER</code> kind. It is <code>INTENT(OUT)</code
           end program test_alarm
 </pre>
      <p>This will cause the external routine <var>handler_print</var> to be called
-after 3 seconds.
+after 3 seconds. 
 </dl>
 
    </body></html>
+

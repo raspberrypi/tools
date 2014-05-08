@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ stack element as follows:
 the largest integer and floating point types on the machine.
 
    <p>By the time the bytecode interpreter reaches the end of the expression,
-the value of the expression should be the only value left on the stack.
+the value of the expression should be the only value left on the stack. 
 For tracing applications, <code>trace</code> bytecodes in the expression will
 have recorded the necessary data, and the value on the stack may be
 discarded.  For other applications, like conditional breakpoints, the
@@ -109,7 +109,7 @@ extended to occupy the full length of the word.
 
    <p>If the interpreter is unable to evaluate an expression completely for
 some reason (a memory location is inaccessible, or a divisor is zero,
-for example), we say that interpretation &ldquo;terminates with an error&rdquo;.
+for example), we say that interpretation &ldquo;terminates with an error&rdquo;. 
 This means that the problem is reported back to the interpreter's caller
 in some helpful way.  In general, code using agent expressions should
 assume that they may attempt to divide by zero, fetch arbitrary memory
@@ -158,3 +158,4 @@ recorded.
    </dl>
 
    </body></html>
+

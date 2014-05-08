@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,9 +67,9 @@ actions.
 
      <p>Replies:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The packet was understood and carried out.
-<br><dt>&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo;<dd>See <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The packet was not recognized.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The packet was understood and carried out. 
+<br><dt>&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo;<dd>See <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The packet was not recognized. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">QTDP:-</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:[S]</span><var>action</var><span class="samp">...[-]</span></samp>&rsquo;<dd>Define actions to be taken when a tracepoint is hit.  <var>n</var> and
@@ -125,12 +125,12 @@ separate tracepoint, as far as these restrictions are concerned.)
 
      <p>Replies:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The packet was understood and carried out.
-<br><dt>&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo;<dd>See <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The packet was not recognized.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The packet was understood and carried out. 
+<br><dt>&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo;<dd>See <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The packet was not recognized. 
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">QTDPsrc:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>type</var><span class="samp">:</span><var>start</var><span class="samp">:</span><var>slen</var><span class="samp">:</span><var>bytes</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bQTDPsrc_007d-packet-2756"></a>Specify a source string of tracepoint <var>n</var> at address <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">QTDPsrc:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>type</var><span class="samp">:</span><var>start</var><span class="samp">:</span><var>slen</var><span class="samp">:</span><var>bytes</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bQTDPsrc_007d-packet-2756"></a>Specify a source string of tracepoint <var>n</var> at address <var>addr</var>. 
 This is useful to get accurate reproduction of the tracepoints
 originally downloaded at the beginning of the trace run.  <var>type</var>
 is the name of the tracepoint part, such as &lsquo;<samp><span class="samp">cond</span></samp>&rsquo; for the
@@ -138,14 +138,14 @@ tracepoint's conditional expression (see below for a list of types), while
 <var>bytes</var> is the string, encoded in hexadecimal.
 
      <p><var>start</var> is the offset of the <var>bytes</var> within the overall source
-string, while <var>slen</var> is the total length of the source string.
+string, while <var>slen</var> is the total length of the source string. 
 This is intended for handling source strings that are longer than will
-fit in a single packet.
+fit in a single packet. 
 <!-- Add detailed example when this info is moved into a dedicated -->
 <!-- tracepoint descriptions section. -->
 
      <p>The available string types are &lsquo;<samp><span class="samp">at</span></samp>&rsquo; for the location,
-&lsquo;<samp><span class="samp">cond</span></samp>&rsquo; for the conditional, and &lsquo;<samp><span class="samp">cmd</span></samp>&rsquo; for an action command.
+&lsquo;<samp><span class="samp">cond</span></samp>&rsquo; for the conditional, and &lsquo;<samp><span class="samp">cmd</span></samp>&rsquo; for an action command. 
 <span class="sc">gdb</span> sends a separate packet for each command in the action
 list, in the same order in which the commands are stored in the list.
 
@@ -214,12 +214,12 @@ arrange for that.
      <p>Replies:
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The minimum instruction length is currently unknown.
+<dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The minimum instruction length is currently unknown. 
 <br><dt>&lsquo;<samp><var>length</var></samp>&rsquo;<dd>The minimum instruction length is <var>length</var>, where <var>length</var> is greater
 or equal to 1.  <var>length</var> is a hexadecimal number.  A reply of 1 means
-that a fast tracepoint may be placed on any instruction regardless of size.
-<br><dt>&lsquo;<samp><span class="samp">E</span></samp>&rsquo;<dd>An error has occurred.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that the request is not supported by the stub.
+that a fast tracepoint may be placed on any instruction regardless of size. 
+<br><dt>&lsquo;<samp><span class="samp">E</span></samp>&rsquo;<dd>An error has occurred. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that the request is not supported by the stub. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">QTStart</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bQTStart_007d-packet-2761"></a>Begin the tracepoint experiment.  Begin collecting data from
@@ -282,14 +282,14 @@ stopped manually).  It is hex-encoded.
 
           <br><dt>&lsquo;<samp><span class="samp">terror:</span><var>text</var><span class="samp">:</span><var>tpnum</var></samp>&rsquo;<dd>The trace stopped because tracepoint <var>tpnum</var> had an error.  The
 string <var>text</var> is available to describe the nature of the error
-(for instance, a divide by zero in the condition expression).
+(for instance, a divide by zero in the condition expression). 
 <var>text</var> is hex encoded.
 
           <br><dt>&lsquo;<samp><span class="samp">tunknown:0</span></samp>&rsquo;<dd>The trace stopped for some other reason.
 
      </dl>
 
-     <p>Additional optional fields supply statistical and other information.
+     <p>Additional optional fields supply statistical and other information. 
 Although not required, they are extremely useful for users monitoring
 the progress of a trace run.  If a trace has stopped, and these
 numbers are reported, they must reflect the state of the just-stopped
@@ -341,7 +341,7 @@ program is running.
 
           <br><dt>&lsquo;<samp><span class="samp">U</span></samp>&rsquo;<dd>The value of the variable is unknown.  This would occur, for example,
 if the user is examining a trace frame in which the requested variable
-was not collected.
+was not collected. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qTfP</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bqTfP_007d-packet-2773"></a><dt>&lsquo;<samp><span class="samp">qTsP</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bqTsP_007d-packet-2774"></a>These packets request data about tracepoints that are being used by
@@ -365,13 +365,13 @@ pieces.  Replies to these packets take the following form:
           <dl>
 <dt>&lsquo;<samp><span class="samp">m </span><var>address</var><span class="samp">:</span><var>id</var><span class="samp">:</span><var>extra</var></samp>&rsquo;<dd>A single marker
 <br><dt>&lsquo;<samp><span class="samp">m </span><var>address</var><span class="samp">:</span><var>id</var><span class="samp">:</span><var>extra</var><span class="samp">,</span><var>address</var><span class="samp">:</span><var>id</var><span class="samp">:</span><var>extra</var><span class="samp">...</span></samp>&rsquo;<dd>a comma-separated list of markers
-<br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>(lower case letter &lsquo;<samp><span class="samp">L</span></samp>&rsquo;) denotes end of list.
-<br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
+<br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>(lower case letter &lsquo;<samp><span class="samp">L</span></samp>&rsquo;) denotes end of list. 
+<br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits. 
 <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that the request is not supported by the
-stub.
+stub. 
 </dl>
 
-     <p><var>address</var> is encoded in hex.
+     <p><var>address</var> is encoded in hex. 
 <var>id</var> and <var>extra</var> are strings encoded in hex.
 
      <p>In response to each query, the target will reply with a list of one or
@@ -392,9 +392,9 @@ absolute, wild cards, etc) is up to the target.
 
      <br><dt>&lsquo;<samp><span class="samp">qTBuffer:</span><var>offset</var><span class="samp">,</span><var>len</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bqTBuffer_007d-packet-2781"></a>Return up to <var>len</var> bytes of the current contents of trace buffer,
 starting at <var>offset</var>.  The trace buffer is treated as if it were
-a contiguous collection of traceframes, as per the trace file format.
+a contiguous collection of traceframes, as per the trace file format. 
 The reply consists as many hex-encoded bytes as the target can deliver
-in a packet; it is not an error to return fewer than were asked for.
+in a packet; it is not an error to return fewer than were asked for. 
 A reply consisting of just <code>l</code> indicates that no bytes are
 available.
 
@@ -436,15 +436,16 @@ This requests <span class="sc">gdb</span> to copy instruction at address <var>fr
 to address <var>to</var>, possibly adjusted so that executing the
 instruction at <var>to</var> has the same effect as executing it at
 <var>from</var>.  <span class="sc">gdb</span> writes the adjusted instruction to target
-memory starting at <var>to</var>.
+memory starting at <var>to</var>. 
 </dl>
 
    <p>Replies:
      <dl>
 <dt>&lsquo;<samp><span class="samp">qRelocInsn:</span><var>adjusted_size</var></samp>&rsquo;<dd>Informs the stub the relocation is complete.  <var>adjusted_size</var> is
-the length in bytes of resulting relocated instruction sequence.
+the length in bytes of resulting relocated instruction sequence. 
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>A badly formed request was detected, or an error was encountered while
-relocating the instruction.
+relocating the instruction. 
 </dl>
 
    </body></html>
+

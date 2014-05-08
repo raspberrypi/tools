@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,8 +55,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">T
 <h4 class="subsection">6.56.9 X86 transaction memory intrinsics</h4>
 
 <p>Hardware transactional memory intrinsics for i386. These allow to use
-memory transactions with RTM (Restricted Transactional Memory).
-For using HLE (Hardware Lock Elision) see <a href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory">x86 specific memory model extensions for transactional memory</a> instead.
+memory transactions with RTM (Restricted Transactional Memory). 
+For using HLE (Hardware Lock Elision) see <a href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory">x86 specific memory model extensions for transactional memory</a> instead. 
 This support is enabled with the <samp><span class="option">-mrtm</span></samp> option.
 
  <p>A memory transaction commits all changes to memory in an atomic way,
@@ -68,17 +68,17 @@ and suitable fallback code always needs to be supplied.
 
 <div class="defun">
 &mdash; RTM Function: unsigned <b>_xbegin</b> ()<var><a name="index-g_t_005fxbegin-3417"></a></var><br>
-<blockquote><p>Start a RTM (Restricted Transactional Memory) transaction.
+<blockquote><p>Start a RTM (Restricted Transactional Memory) transaction. 
 Returns _XBEGIN_STARTED when the transaction
 started successfully (note this is not 0, so the constant has to be
 explicitely tested). When the transaction aborts all side effects
 are undone and an abort code is returned. There is no guarantee
 any transaction ever succeeds, so there always needs to be a valid
-tested fallback path.
+tested fallback path. 
 </p></blockquote></div>
 
 <pre class="smallexample">     #include &lt;immintrin.h&gt;
-
+     
      if ((status = _xbegin ()) == _XBEGIN_STARTED) {
          ... transaction code...
          _xend ();
@@ -91,7 +91,7 @@ tested fallback path.
      <dl>
 <dt><code>_XABORT_EXPLICIT</code><dd>Transaction explicitely aborted with <code>_xabort</code>. The parameter passed
 to <code>_xabort</code> is available with <code>_XABORT_CODE(status)</code>
-<br><dt><code>_XABORT_RETRY</code><dd>Transaction retry is possible.
+<br><dt><code>_XABORT_RETRY</code><dd>Transaction retry is possible. 
 <br><dt><code>_XABORT_CONFLICT</code><dd>Transaction abort due to a memory conflict with another thread
 <br><dt><code>_XABORT_CAPACITY</code><dd>Transaction abort due to the transaction using too much memory
 <br><dt><code>_XABORT_DEBUG</code><dd>Transaction abort due to a debug trap
@@ -102,19 +102,20 @@ to <code>_xabort</code> is available with <code>_XABORT_CODE(status)</code>
 &mdash; RTM Function: void <b>_xend</b> ()<var><a name="index-g_t_005fxend-3418"></a></var><br>
 <blockquote><p>Commit the current transaction. When no transaction is active this will
 fault. All memory side effects of the transactions will become visible
-to other threads in an atomic matter.
+to other threads in an atomic matter. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; RTM Function: int <b>_xtest</b> ()<var><a name="index-g_t_005fxtest-3419"></a></var><br>
-<blockquote><p>Return a value not zero when a transaction is currently active, otherwise 0.
+<blockquote><p>Return a value not zero when a transaction is currently active, otherwise 0. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; RTM Function: void <b>_xabort</b> (<var>status</var>)<var><a name="index-g_t_005fxabort-3420"></a></var><br>
-<blockquote><p>Abort the current transaction. When no transaction is active this is a no-op.
+<blockquote><p>Abort the current transaction. When no transaction is active this is a no-op. 
 status must be a 8bit constant, that is included in the status code returned
 by <code>_xbegin</code>
 </p></blockquote></div>
 
  </body></html>
+

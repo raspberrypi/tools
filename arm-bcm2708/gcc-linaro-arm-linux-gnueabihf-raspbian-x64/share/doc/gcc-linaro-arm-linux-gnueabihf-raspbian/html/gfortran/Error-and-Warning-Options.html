@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -85,20 +85,20 @@ messages produced.
 will generate module files for each module present in the code, but no
 other output file.
 
-     <br><dt><code>-pedantic</code><dd><a name="index-g_t_0040code_007bpedantic_007d-127"></a>Issue warnings for uses of extensions to Fortran 95.
+     <br><dt><code>-pedantic</code><dd><a name="index-g_t_0040code_007bpedantic_007d-127"></a>Issue warnings for uses of extensions to Fortran 95. 
 <samp><span class="option">-pedantic</span></samp> also applies to C-language constructs where they
 occur in GNU Fortran source files, such as use of &lsquo;<samp><span class="samp">\e</span></samp>&rsquo; in a
 character constant within a directive like <code>#include</code>.
 
      <p>Valid Fortran 95 programs should compile properly with or without
-this option.
+this option. 
 However, without this option, certain GNU extensions and traditional
-Fortran features are supported as well.
+Fortran features are supported as well. 
 With this option, many of them are rejected.
 
-     <p>Some users try to use <samp><span class="option">-pedantic</span></samp> to check programs for conformance.
+     <p>Some users try to use <samp><span class="option">-pedantic</span></samp> to check programs for conformance. 
 They soon find that it does not do quite what they want&mdash;it finds some
-nonstandard practices, but not all.
+nonstandard practices, but not all. 
 However, improvements to GNU Fortran in this area are welcome.
 
      <p>This should be used in conjunction with <samp><span class="option">-std=f95</span></samp>,
@@ -108,7 +108,7 @@ However, improvements to GNU Fortran in this area are welcome.
 warnings.
 
      <br><dt><code>-Wall</code><dd><a name="index-g_t_0040code_007bWall_007d-129"></a><a name="index-all-warnings-130"></a><a name="index-warnings_002c-all-131"></a>Enables commonly used warning options pertaining to usage that
-we recommend avoiding and that we believe are easy to avoid.
+we recommend avoiding and that we believe are easy to avoid. 
 This currently includes <samp><span class="option">-Waliasing</span></samp>, <samp><span class="option">-Wampersand</span></samp>,
 <samp><span class="option">-Wconversion</span></samp>, <samp><span class="option">-Wsurprising</span></samp>, <samp><span class="option">-Wc-binding-type</span></samp>,
 <samp><span class="option">-Wintrinsics-std</span></samp>, <samp><span class="option">-Wno-tabs</span></samp>, <samp><span class="option">-Wintrinsic-shadow</span></samp>,
@@ -128,7 +128,7 @@ with an explicit interface.
               end subroutine
             end interface
             integer :: a
-
+          
             call bar(a,a)
 </pre>
      <br><dt><code>-Wampersand</code><dd><a name="index-g_t_0040code_007bWampersand_007d-135"></a><a name="index-warnings_002c-ampersand-136"></a><a name="index-g_t_0040code_007b_0026_007d-137"></a>Warn about missing ampersand in continued character constants. The warning is
@@ -162,7 +162,7 @@ the expression after conversion. Implied by <samp><span class="option">-Wall</sp
 may be problematic. This currently includes <samp><span class="option">-Wcompare-reals</span></samp>
 and <samp><span class="option">-Wunused-parameter</span></samp>.
 
-     <br><dt><code>-Wimplicit-interface</code><dd><a name="index-g_t_0040code_007bWimplicit_002dinterface_007d-155"></a><a name="index-warnings_002c-implicit-interface-156"></a>Warn if a procedure is called without an explicit interface.
+     <br><dt><code>-Wimplicit-interface</code><dd><a name="index-g_t_0040code_007bWimplicit_002dinterface_007d-155"></a><a name="index-warnings_002c-implicit-interface-156"></a>Warn if a procedure is called without an explicit interface. 
 Note this only checks that an explicit interface is present.  It does not
 check that the declared interfaces are consistent across program units.
 
@@ -178,7 +178,7 @@ regardless of the selected standard.
      <br><dt><code>-Wreal-q-constant</code><dd><a name="index-g_t_0040code_007bWreal_002dq_002dconstant_007d-162"></a><a name="index-warnings_002c-_0040code_007bq_007d-exponent_002dletter-163"></a>Produce a warning if a real-literal-constant contains a <code>q</code>
 exponent-letter.
 
-     <br><dt><code>-Wsurprising</code><dd><a name="index-g_t_0040code_007bWsurprising_007d-164"></a><a name="index-warnings_002c-suspicious-code-165"></a>Produce a warning when &ldquo;suspicious&rdquo; code constructs are encountered.
+     <br><dt><code>-Wsurprising</code><dd><a name="index-g_t_0040code_007bWsurprising_007d-164"></a><a name="index-warnings_002c-suspicious-code-165"></a>Produce a warning when &ldquo;suspicious&rdquo; code constructs are encountered. 
 While technically legal these usually indicate that an error has been made.
 
      <p>This currently produces a warning under the following circumstances:
@@ -194,7 +194,7 @@ lower value is greater than its upper value.
           <li>The type of a function result is declared more than once with the same type.  If
 <samp><span class="option">-pedantic</span></samp> or standard-conforming mode is enabled, this is an error.
 
-          <li>A <code>CHARACTER</code> variable is declared with negative length.
+          <li>A <code>CHARACTER</code> variable is declared with negative length. 
 </ul>
 
      <br><dt><code>-Wtabs</code><dd><a name="index-g_t_0040code_007bWtabs_007d-166"></a><a name="index-warnings_002c-tabs-167"></a><a name="index-tabulators-168"></a>By default, tabs are accepted as whitespace, but tabs are not members
@@ -229,7 +229,7 @@ enabled by the <samp><span class="option">-ffrontend-optimize</span></samp> opti
 
      <br><dt><code>-Wrealloc-lhs</code><dd><a name="index-g_t_0040code_007bWrealloc_002dlhs_007d-188"></a><a name="index-Reallocate-the-LHS-in-assignments_002c-notification-189"></a>Warn when the compiler might insert code to for allocation or reallocation of
 an allocatable array variable of intrinsic type in intrinsic assignments.  In
-hot loops, the Fortran 2003 reallocation feature may reduce the performance.
+hot loops, the Fortran 2003 reallocation feature may reduce the performance. 
 If the array is already allocated with the correct shape, consider using a
 whole-array array-spec (e.g. <code>(:,:,:)</code>) for the variable on the left-hand
 side to prevent the reallocation check. Note that in some cases the warning
@@ -240,13 +240,13 @@ a scalar.  See also <samp><span class="option">-frealloc-lhs</span></samp>.
      <br><dt><code>-Wrealloc-lhs-all</code><dd><a name="index-g_t_0040code_007bWrealloc_002dlhs_002dall_007d-190"></a>Warn when the compiler inserts code to for allocation or reallocation of an
 allocatable variable; this includes scalars and derived types.
 
-     <br><dt><code>-Wcompare-reals</code><dd><a name="index-g_t_0040code_007bWcompare_002dreals_007d-191"></a>Warn when comparing real or complex types for equality or inequality.
+     <br><dt><code>-Wcompare-reals</code><dd><a name="index-g_t_0040code_007bWcompare_002dreals_007d-191"></a>Warn when comparing real or complex types for equality or inequality. 
 This option is implied by <samp><span class="option">-Wextra</span></samp>.
 
      <br><dt><code>-Wtarget-lifetime</code><dd><a name="index-g_t_0040code_007bWtargt_002dlifetime_007d-192"></a>Warn if the pointer in a pointer assignment might be longer than the its
 target. This option is implied by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Werror</code><dd><a name="index-g_t_0040code_007bWerror_007d-193"></a><a name="index-warnings_002c-to-errors-194"></a>Turns all warnings into errors.
+     <br><dt><code>-Werror</code><dd><a name="index-g_t_0040code_007bWerror_007d-193"></a><a name="index-warnings_002c-to-errors-194"></a>Turns all warnings into errors. 
 </dl>
 
    <p>See <a href="../gcc/Warning-Options.html#Warning-Options">Options to Request or Suppress Errors and Warnings</a>, for information on
@@ -256,3 +256,4 @@ and other GNU compilers.
    <p>Some of these have no effect when compiling programs written in Fortran.
 
    </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,7 +70,7 @@ ascii strings by default.
      <br><dt><code>EQU</code><dd>The standard HLASM-style EQU directive is not supported; however, the
 standard <code>as</code> directive .equ can be used to the same effect.
 
-     <br><dt><code>.ltorg</code><dd>Dump the literal pool accumulated so far; begin a new literal pool.
+     <br><dt><code>.ltorg</code><dd>Dump the literal pool accumulated so far; begin a new literal pool. 
 The literal pool will be written in the current section; in order to
 generate correct assembly, a <code>.using</code> must have been previously
 specified in the same section.
@@ -87,7 +87,7 @@ straightforward way.  A <code>.using</code> directive must always be specified
 in the <code>.text</code> section; this will specify the base register that
 will be used for branches in the <code>.text</code> section.  A second
 <code>.using</code> may be specified in another section; this will specify
-the base register that is used for non-label address literals.
+the base register that is used for non-label address literals. 
 When a second <code>.using</code> is specified, then the subsequent
 <code>.ltorg</code> must be put in the same section; otherwise an error will
 result.
@@ -99,23 +99,23 @@ to the <code>.data</code> section.  The is, the constants <code>=A(some_routine)
 section.
 
      <pre class="example">          .data
-		.using  LITPOOL,r4
+          	.using  LITPOOL,r4
           .text
-		BASR	r3,0
-		.using	*,r3
+          	BASR	r3,0
+          	.using	*,r3
                   B       START
-		.long	LITPOOL
+          	.long	LITPOOL
           START:
-		L	r4,4(,r3)
-		L	r15,=A(some_routine)
-		LTR	r15,r15
-		BNE	LABEL
-		AH	r0,=H'42'
+          	L	r4,4(,r3)
+          	L	r15,=A(some_routine)
+          	LTR	r15,r15
+          	BNE	LABEL
+          	AH	r0,=H'42'
           LABEL:
-		ME	r6,=E'3.1416'
+          	ME	r6,=E'3.1416'
           .data
           LITPOOL:
-		.ltorg
+          	.ltorg
 </pre>
      <p>Note that this dual-<code>.using</code> directive semantics extends
 and is not compatible with HLASM semantics.  Note that this assembler
@@ -124,3 +124,4 @@ directive does not support the full range of HLASM semantics.
    </dl>
 
    </body></html>
+

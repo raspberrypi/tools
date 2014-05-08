@@ -60,7 +60,7 @@ struct rex_start {
 };
 
 struct rex_result {
-	int rlt_stat;		/* integer status code */
+   	int rlt_stat;		/* integer status code */
 	rexstring rlt_message;	/* string message for human consumption */
 };
 

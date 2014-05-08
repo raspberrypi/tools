@@ -67,7 +67,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     virtual char const*
     what() const noexcept;
 
-    virtual ~bad_weak_ptr() noexcept;
+    virtual ~bad_weak_ptr() noexcept;    
   };
 
   // Substitute for bad_weak_ptr object in the case of -fno-exceptions.
@@ -105,34 +105,34 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     class _Sp_counted_base
     : public _Mutex_base<_Lp>
     {
-    public:
+    public:  
       _Sp_counted_base() noexcept
       : _M_use_count(1), _M_weak_count(1) { }
-
+      
       virtual
       ~_Sp_counted_base() noexcept
       { }
-
+  
       // Called when _M_use_count drops to zero, to release the resources
       // managed by *this.
       virtual void
       _M_dispose() noexcept = 0;
-
+      
       // Called when _M_weak_count drops to zero.
       virtual void
       _M_destroy() noexcept
       { delete this; }
-
+      
       virtual void*
       _M_get_deleter(const std::type_info&) = 0;
 
       void
       _M_add_ref_copy()
       { __gnu_cxx::__atomic_add_dispatch(&_M_use_count, 1); }
-
+  
       void
       _M_add_ref_lock();
-
+      
       void
       _M_release() noexcept
       {
@@ -162,7 +162,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
               }
 	  }
       }
-
+  
       void
       _M_weak_add_ref() noexcept
       { __gnu_cxx::__atomic_add_dispatch(&_M_weak_count, 1); }
@@ -185,7 +185,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    _M_destroy();
 	  }
       }
-
+  
       long
       _M_get_use_count() const noexcept
       {
@@ -194,7 +194,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         return __atomic_load_n(&_M_use_count, __ATOMIC_RELAXED);
       }
 
-    private:
+    private:  
       _Sp_counted_base(_Sp_counted_base const&) = delete;
       _Sp_counted_base& operator=(_Sp_counted_base const&) = delete;
 
@@ -227,7 +227,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
     }
 
-  template<>
+  template<> 
     inline void
     _Sp_counted_base<_S_atomic>::
     _M_add_ref_lock()
@@ -239,10 +239,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  if (__count == 0)
 	    __throw_bad_weak_ptr();
 	  // Replace the current counter value with the old value + 1, as
-	  // long as it's not changed meanwhile.
+	  // long as it's not changed meanwhile. 
 	}
       while (!__atomic_compare_exchange_n(&_M_use_count, &__count, __count + 1,
-					  true, __ATOMIC_ACQ_REL,
+					  true, __ATOMIC_ACQ_REL, 
 					  __ATOMIC_RELAXED));
     }
 

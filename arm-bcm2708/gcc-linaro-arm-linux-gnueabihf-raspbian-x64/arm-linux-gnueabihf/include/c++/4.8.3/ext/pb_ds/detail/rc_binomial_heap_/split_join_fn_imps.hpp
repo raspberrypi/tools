@@ -74,3 +74,4 @@ join(PB_DS_CLASS_C_DEC& other)
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
 }
+

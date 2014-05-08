@@ -195,14 +195,14 @@ namespace __gnu_debug
 
       _Parameter() : _M_kind(__unused_param), _M_variant() { }
 
-      _Parameter(long __value, const char* __name)
+      _Parameter(long __value, const char* __name) 
       : _M_kind(__integer), _M_variant()
       {
 	_M_variant._M_integer._M_name = __name;
 	_M_variant._M_integer._M_value = __value;
       }
 
-      _Parameter(const char* __value, const char* __name)
+      _Parameter(const char* __value, const char* __name) 
       : _M_kind(__string), _M_variant()
       {
 	_M_variant._M_string._M_name = __name;

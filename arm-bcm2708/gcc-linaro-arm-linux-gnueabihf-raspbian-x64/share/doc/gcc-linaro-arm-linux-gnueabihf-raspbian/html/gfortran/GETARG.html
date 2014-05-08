@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,7 +74,7 @@ standard.
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>POS</var>   </td><td valign="top" width="70%">Shall be of type <code>INTEGER</code> and not wider than
 the default integer kind; <var>POS</var> \geq 0
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUE</var> </td><td valign="top" width="70%">Shall be of type <code>CHARACTER</code> and of default
-kind.
+kind. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUE</var> </td><td valign="top" width="70%">Shall be of type <code>CHARACTER</code>.
      <br></td></tr></table>
 
@@ -89,7 +89,7 @@ to the name of the program (on systems that support this feature).
      <pre class="smallexample">          PROGRAM test_getarg
             INTEGER :: i
             CHARACTER(len=32) :: arg
-
+          
             DO i = 1, iargc()
               CALL getarg(i, arg)
               WRITE (*,*) arg
@@ -103,3 +103,4 @@ to the name of the program (on systems that support this feature).
 </dl>
 
    </body></html>
+

@@ -90,12 +90,12 @@ extern tree objc_generate_write_barrier (tree, enum tree_code, tree);
 extern void objc_set_method_opt (bool);
 extern void objc_finish_foreach_loop (location_t, tree, tree, tree, tree, tree);
 extern bool  objc_method_decl (enum tree_code);
-extern void objc_add_property_declaration (location_t, tree, bool, bool, bool,
+extern void objc_add_property_declaration (location_t, tree, bool, bool, bool, 
 					   bool, bool, bool, tree, tree);
 extern tree objc_maybe_build_component_ref (tree, tree);
 extern tree objc_build_class_component_ref (tree, tree);
 extern tree objc_maybe_build_modify_expr (tree, tree);
-extern tree objc_build_incr_expr_for_property_ref (location_t, enum tree_code,
+extern tree objc_build_incr_expr_for_property_ref (location_t, enum tree_code, 
 						   tree, tree);
 extern void objc_add_synthesize_declaration (location_t, tree);
 extern void objc_add_dynamic_declaration (location_t, tree);

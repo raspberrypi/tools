@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -80,7 +80,7 @@ header is used otherwise.
 
  <p>Alternatively, you might decide to put the precompiled header file in a
 directory and use <samp><span class="option">-I</span></samp> to ensure that directory is searched
-before (or instead of) the directory containing the original header.
+before (or instead of) the directory containing the original header. 
 Then, if you want to check that the precompiled header file is always
 used, you can put a file of the same name as the original header in this
 directory containing an <code>#error</code> command.
@@ -127,7 +127,7 @@ generated, or must not affect the precompiled header, which usually
 means that they don't appear in the precompiled header at all.
 
      <p>The <samp><span class="option">-D</span></samp> option is one way to define a macro before a
-precompiled header is included; using a <code>#define</code> can also do it.
+precompiled header is included; using a <code>#define</code> can also do it. 
 There are also some options that define macros implicitly, like
 <samp><span class="option">-O</span></samp> and <samp><span class="option">-Wdeprecated</span></samp>; the same rule applies to macros
 defined this way.
@@ -154,9 +154,9 @@ which options are safe to change and which are not; the safest choice
 is to use exactly the same options when generating and using the
 precompiled header.  The following are known to be safe:
 
-     <pre class="smallexample">          -fmessage-length=  -fpreprocessed  -fsched-interblock
-          -fsched-spec  -fsched-spec-load  -fsched-spec-load-dangerous
-          -fsched-verbose=<var>number</var>  -fschedule-insns  -fvisibility=
+     <pre class="smallexample">          -fmessage-length=  -fpreprocessed  -fsched-interblock 
+          -fsched-spec  -fsched-spec-load  -fsched-spec-load-dangerous 
+          -fsched-verbose=<var>number</var>  -fschedule-insns  -fvisibility= 
           -pedantic-errors
 </pre>
      </ul>
@@ -177,3 +177,4 @@ not get debugging information for routines in the precompiled header.
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
  </body></html>
+

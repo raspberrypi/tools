@@ -59,7 +59,7 @@ extern void gimple_check_failed (const_gimple, const char *, int,          \
     const_gimple __gs = (GS);						\
     if (gimple_code (__gs) != (CODE))					\
       gimple_check_failed (__gs, __FILE__, __LINE__, __FUNCTION__,	\
-			   (CODE), ERROR_MARK);				\
+	  		   (CODE), ERROR_MARK);				\
   } while (0)
 #else  /* not ENABLE_GIMPLE_CHECKING  */
 #define gcc_gimple_checking_assert(EXPR) ((void)(0 && (EXPR)))
@@ -977,7 +977,7 @@ is_gimple_sizepos (tree expr)
 	  || TREE_CONSTANT (expr)
 	  || TREE_CODE (expr) == VAR_DECL
 	  || CONTAINS_PLACEHOLDER_P (expr));
-}
+}                                        
 
 extern enum gimplify_status gimplify_expr (tree *, gimple_seq *, gimple_seq *,
 					   bool (*) (tree), fallback_t);
@@ -5340,7 +5340,7 @@ bool fold_stmt (gimple_stmt_iterator *);
 bool fold_stmt_inplace (gimple_stmt_iterator *);
 tree get_symbol_constant_value (tree);
 tree canonicalize_constructor_val (tree, tree);
-extern tree maybe_fold_and_comparisons (enum tree_code, tree, tree,
+extern tree maybe_fold_and_comparisons (enum tree_code, tree, tree, 
 					enum tree_code, tree, tree);
 extern tree maybe_fold_or_comparisons (enum tree_code, tree, tree,
 				       enum tree_code, tree, tree);

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,7 +88,7 @@ local lifetime will likely to break with the stack reuse optimization.
      <pre class="smallexample">             int *p;
              {
                int local1;
-
+          
                p = &amp;local1;
                local1 = 10;
                ....
@@ -98,32 +98,32 @@ local lifetime will likely to break with the stack reuse optimization.
                 local2 = 20;
                 ...
              }
-
+          
              if (*p == 10)  // out of scope use of local1
                {
-
+          
                }
 </pre>
      <p>Another example:
-     <pre class="smallexample">
+     <pre class="smallexample">          
              struct A
              {
                  A(int k) : i(k), j(k) { }
                  int i;
                  int j;
              };
-
+          
              A *ap;
-
+          
              void foo(const A&amp; ar)
              {
                 ap = &amp;ar;
              }
-
+          
              void bar()
              {
                 foo(A(10)); // temp object's lifetime ends when foo returns
-
+          
                 {
                   A a(20);
                   ....
@@ -131,7 +131,7 @@ local lifetime will likely to break with the stack reuse optimization.
                 ap-&gt;i+= 10;  // ap references out of scope temp whose space
                              // is reused with a. What is the value of ap-&gt;i?
              }
-
+          
 </pre>
      <p>The lifetime of a compiler generated temporary is well defined by the C++
 standard. When a lifetime of a temporary ends, and if the temporary lives
@@ -163,7 +163,7 @@ properly with exception handlers written in C++.  You may also wish to
 disable this option if you are compiling older C++ programs that don't
 use exception handling.
 
-     <br><dt><code>-fnon-call-exceptions</code><dd><a name="index-fnon_002dcall_002dexceptions-2335"></a>Generate code that allows trapping instructions to throw exceptions.
+     <br><dt><code>-fnon-call-exceptions</code><dd><a name="index-fnon_002dcall_002dexceptions-2335"></a>Generate code that allows trapping instructions to throw exceptions. 
 Note that this requires platform-specific runtime support that does
 not exist everywhere.  Moreover, it only allows <em>trapping</em>
 instructions to throw exceptions, i.e. memory references or floating-point
@@ -171,13 +171,13 @@ instructions.  It does not allow exceptions to be thrown from
 arbitrary signal handlers such as <code>SIGALRM</code>.
 
      <br><dt><code>-fdelete-dead-exceptions</code><dd><a name="index-fdelete_002ddead_002dexceptions-2336"></a>Consider that instructions that may throw exceptions but don't otherwise
-contribute to the execution of the program can be optimized away.
+contribute to the execution of the program can be optimized away. 
 This option is enabled by default for the Ada front end, as permitted by
-the Ada language specification.
+the Ada language specification. 
 Optimization passes that cause dead exceptions to be removed are enabled independently at different optimization levels.
 
      <br><dt><code>-funwind-tables</code><dd><a name="index-funwind_002dtables-2337"></a>Similar to <samp><span class="option">-fexceptions</span></samp>, except that it just generates any needed
-static data, but does not affect the generated code in any other way.
+static data, but does not affect the generated code in any other way. 
 You normally do not need to enable this option; instead, a language processor
 that needs this handling enables it on your behalf.
 
@@ -199,10 +199,10 @@ that of some integer type.
 
      <p><strong>Warning:</strong> code compiled with the <samp><span class="option">-fpcc-struct-return</span></samp>
 switch is not binary compatible with code compiled with the
-<samp><span class="option">-freg-struct-return</span></samp> switch.
+<samp><span class="option">-freg-struct-return</span></samp> switch. 
 Use it to conform to a non-default application binary interface.
 
-     <br><dt><code>-freg-struct-return</code><dd><a name="index-freg_002dstruct_002dreturn-2340"></a>Return <code>struct</code> and <code>union</code> values in registers when possible.
+     <br><dt><code>-freg-struct-return</code><dd><a name="index-freg_002dstruct_002dreturn-2340"></a>Return <code>struct</code> and <code>union</code> values in registers when possible. 
 This is more efficient for small structures than
 <samp><span class="option">-fpcc-struct-return</span></samp>.
 
@@ -215,7 +215,7 @@ we chose the more efficient register return alternative.
 
      <p><strong>Warning:</strong> code compiled with the <samp><span class="option">-freg-struct-return</span></samp>
 switch is not binary compatible with code compiled with the
-<samp><span class="option">-fpcc-struct-return</span></samp> switch.
+<samp><span class="option">-fpcc-struct-return</span></samp> switch. 
 Use it to conform to a non-default application binary interface.
 
      <br><dt><code>-fshort-enums</code><dd><a name="index-fshort_002denums-2341"></a>Allocate to an <code>enum</code> type only as many bytes as it needs for the
@@ -223,13 +223,13 @@ declared range of possible values.  Specifically, the <code>enum</code> type
 is equivalent to the smallest integer type that has enough room.
 
      <p><strong>Warning:</strong> the <samp><span class="option">-fshort-enums</span></samp> switch causes GCC to generate
-code that is not binary compatible with code generated without that switch.
+code that is not binary compatible with code generated without that switch. 
 Use it to conform to a non-default application binary interface.
 
      <br><dt><code>-fshort-double</code><dd><a name="index-fshort_002ddouble-2342"></a>Use the same size for <code>double</code> as for <code>float</code>.
 
      <p><strong>Warning:</strong> the <samp><span class="option">-fshort-double</span></samp> switch causes GCC to generate
-code that is not binary compatible with code generated without that switch.
+code that is not binary compatible with code generated without that switch. 
 Use it to conform to a non-default application binary interface.
 
      <br><dt><code>-fshort-wchar</code><dd><a name="index-fshort_002dwchar-2343"></a>Override the underlying type for &lsquo;<samp><span class="samp">wchar_t</span></samp>&rsquo; to be &lsquo;<samp><span class="samp">short
@@ -237,24 +237,24 @@ unsigned int</span></samp>&rsquo; instead of the default for the target.  This o
 useful for building programs to run under WINE.
 
      <p><strong>Warning:</strong> the <samp><span class="option">-fshort-wchar</span></samp> switch causes GCC to generate
-code that is not binary compatible with code generated without that switch.
+code that is not binary compatible with code generated without that switch. 
 Use it to conform to a non-default application binary interface.
 
-     <br><dt><code>-fno-common</code><dd><a name="index-fno_002dcommon-2344"></a>In C code, controls the placement of uninitialized global variables.
+     <br><dt><code>-fno-common</code><dd><a name="index-fno_002dcommon-2344"></a>In C code, controls the placement of uninitialized global variables. 
 Unix C compilers have traditionally permitted multiple definitions of
 such variables in different compilation units by placing the variables
-in a common block.
+in a common block. 
 This is the behavior specified by <samp><span class="option">-fcommon</span></samp>, and is the default
-for GCC on most targets.
+for GCC on most targets. 
 On the other hand, this behavior is not required by ISO C, and on some
-targets may carry a speed or code size penalty on variable references.
+targets may carry a speed or code size penalty on variable references. 
 The <samp><span class="option">-fno-common</span></samp> option specifies that the compiler should place
 uninitialized global variables in the data section of the object file,
-rather than generating them as common blocks.
+rather than generating them as common blocks. 
 This has the effect that if the same variable is declared
 (without <code>extern</code>) in two different compilations,
-you get a multiple-definition error when you link them.
-In this case, you must compile with <samp><span class="option">-fcommon</span></samp> instead.
+you get a multiple-definition error when you link them. 
+In this case, you must compile with <samp><span class="option">-fcommon</span></samp> instead. 
 Compiling with <samp><span class="option">-fno-common</span></samp> is useful on targets for which
 it provides better performance, or if you wish to verify that the
 program will work on other systems that always treat uninitialized
@@ -278,13 +278,13 @@ extra information to be omitted and is useful when comparing two assembler
 files.
 
      <br><dt><code>-frecord-gcc-switches</code><dd><a name="index-frecord_002dgcc_002dswitches-2348"></a>This switch causes the command line used to invoke the
-compiler to be recorded into the object file that is being created.
+compiler to be recorded into the object file that is being created. 
 This switch is only implemented on some targets and the exact format
 of the recording is target and binary file format dependent, but it
 usually takes the form of a section containing ASCII text.  This
 switch is related to the <samp><span class="option">-fverbose-asm</span></samp> switch, but that
 switch only records information in the assembler output file as
-comments, so it never reaches the object file.
+comments, so it never reaches the object file. 
 See also <samp><span class="option">-grecord-gcc-switches</span></samp> for another
 way of storing compiler options into the object file.
 
@@ -319,7 +319,7 @@ only on certain machines.
 are defined to 2.
 
      <br><dt><code>-fpie</code><dt><code>-fPIE</code><dd><a name="index-fpie-2353"></a><a name="index-fPIE-2354"></a>These options are similar to <samp><span class="option">-fpic</span></samp> and <samp><span class="option">-fPIC</span></samp>, but
-generated position independent code can be only linked into executables.
+generated position independent code can be only linked into executables. 
 Usually these options are used when <samp><span class="option">-pie</span></samp> GCC option is
 used during linking.
 
@@ -350,7 +350,7 @@ clobbered by function calls.  It may be allocated for temporaries or
 variables that do not live across a call.  Functions compiled this way
 do not save and restore the register <var>reg</var>.
 
-     <p>It is an error to use this flag with the frame pointer or stack pointer.
+     <p>It is an error to use this flag with the frame pointer or stack pointer. 
 Use of this flag for other registers that have fixed pervasive roles in
 the machine's execution model produces disastrous results.
 
@@ -362,7 +362,7 @@ functions.  It may be allocated even for temporaries or variables that
 live across a call.  Functions compiled this way save and restore
 the register <var>reg</var> if they use it.
 
-     <p>It is an error to use this flag with the frame pointer or stack pointer.
+     <p>It is an error to use this flag with the frame pointer or stack pointer. 
 Use of this flag for other registers that have fixed pervasive roles in
 the machine's execution model produces disastrous results.
 
@@ -379,8 +379,8 @@ alignment (that is, objects with default alignment requirements larger than
 this are output potentially unaligned at the next fitting location.
 
      <p><strong>Warning:</strong> the <samp><span class="option">-fpack-struct</span></samp> switch causes GCC to generate
-code that is not binary compatible with code generated without that switch.
-Additionally, it makes the code suboptimal.
+code that is not binary compatible with code generated without that switch. 
+Additionally, it makes the code suboptimal. 
 Use it to conform to a non-default application binary interface.
 
      <br><dt><code>-finstrument-functions</code><dd><a name="index-finstrument_002dfunctions-2360"></a>Generate instrumentation calls for entry and exit to functions.  Just
@@ -493,7 +493,7 @@ and grows downwards, you can use the flags
 <samp><span class="option">-Wl,--defsym,__stack_limit=0x7ffe0000</span></samp> to enforce a stack limit
 of 128KB.  Note that this may only work with the GNU linker.
 
-     <br><dt><code>-fsplit-stack</code><dd><a name="index-fsplit_002dstack-2367"></a>Generate code to automatically split the stack before it overflows.
+     <br><dt><code>-fsplit-stack</code><dd><a name="index-fsplit_002dstack-2367"></a>Generate code to automatically split the stack before it overflows. 
 The resulting program has a discontiguous stack which can only
 overflow if the program is unable to allocate any more memory.  This
 is most useful when running threaded programs, as it is no longer
@@ -516,10 +516,10 @@ is to help link with legacy assembly code.
 
      <p><strong>Warning:</strong> the <samp><span class="option">-fleading-underscore</span></samp> switch causes GCC to
 generate code that is not binary compatible with code generated without that
-switch.  Use it to conform to a non-default application binary interface.
+switch.  Use it to conform to a non-default application binary interface. 
 Not all targets provide complete support for this switch.
 
-     <br><dt><code>-ftls-model=</code><var>model</var><dd><a name="index-ftls_002dmodel-2369"></a>Alter the thread-local storage model to be used (see <a href="Thread_002dLocal.html#Thread_002dLocal">Thread-Local</a>).
+     <br><dt><code>-ftls-model=</code><var>model</var><dd><a name="index-ftls_002dmodel-2369"></a>Alter the thread-local storage model to be used (see <a href="Thread_002dLocal.html#Thread_002dLocal">Thread-Local</a>). 
 The <var>model</var> argument should be one of <code>global-dynamic</code>,
 <code>local-dynamic</code>, <code>initial-exec</code> or <code>local-exec</code>.
 
@@ -527,17 +527,17 @@ The <var>model</var> argument should be one of <code>global-dynamic</code>,
 <samp><span class="option">-fpic</span></samp> the default is <code>global-dynamic</code>.
 
      <br><dt><code>-fvisibility=</code><var>default|internal|hidden|protected</var><dd><a name="index-fvisibility-2370"></a>Set the default ELF image symbol visibility to the specified option&mdash;all
-symbols are marked with this unless overridden within the code.
+symbols are marked with this unless overridden within the code. 
 Using this feature can very substantially improve linking and
 load times of shared object libraries, produce more optimized
-code, provide near-perfect API export and prevent symbol clashes.
+code, provide near-perfect API export and prevent symbol clashes. 
 It is <strong>strongly</strong> recommended that you use this in any shared objects
 you distribute.
 
      <p>Despite the nomenclature, <code>default</code> always means public; i.e.,
-available to be linked against from outside the shared object.
+available to be linked against from outside the shared object. 
 <code>protected</code> and <code>internal</code> are pretty useless in real-world
-usage so the only other commonly used option is <code>hidden</code>.
+usage so the only other commonly used option is <code>hidden</code>. 
 The default if <samp><span class="option">-fvisibility</span></samp> isn't specified is
 <code>default</code>, i.e., make every
 symbol public&mdash;this causes the same behavior as previous versions of
@@ -559,13 +559,13 @@ cross-platform projects.
 &lsquo;<samp><span class="samp">#pragma GCC visibility</span></samp>&rsquo; of use.  This works by you enclosing
 the declarations you wish to set visibility for with (for example)
 &lsquo;<samp><span class="samp">#pragma GCC visibility push(hidden)</span></samp>&rsquo; and
-&lsquo;<samp><span class="samp">#pragma GCC visibility pop</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">#pragma GCC visibility pop</span></samp>&rsquo;. 
 Bear in mind that symbol visibility should be viewed <strong>as
 part of the API interface contract</strong> and thus all new code should
 always specify visibility when it is not the default; i.e., declarations
 only for use within the local DSO should <strong>always</strong> be marked explicitly
 as hidden as so to avoid PLT indirection overheads&mdash;making this
-abundantly clear also aids readability and self-documentation of the code.
+abundantly clear also aids readability and self-documentation of the code. 
 Note that due to ISO C++ specification requirements, <code>operator new</code> and
 <code>operator delete</code> must always be of default visibility.
 
@@ -609,7 +609,7 @@ any portion of the bit-field, or memory-mapped registers unrelated to
 the one being updated.
 
      <p>If the target requires strict alignment, and honoring the field
-type would require violating this alignment, a warning is issued.
+type would require violating this alignment, a warning is issued. 
 If the field has <code>packed</code> attribute, the access is done without
 honoring the field type.  If the field doesn't have <code>packed</code>
 attribute, the access is done honoring the field type.  In both cases,
@@ -631,3 +631,4 @@ the implementation of the <samp><span class="file">libatomic</span></samp> runti
 
 <!-- man end -->
  </body></html>
+

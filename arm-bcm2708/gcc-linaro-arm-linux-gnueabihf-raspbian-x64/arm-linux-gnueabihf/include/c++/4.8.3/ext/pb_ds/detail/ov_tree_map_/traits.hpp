@@ -114,7 +114,7 @@ namespace __gnu_pbds
 	node_const_iterator,
 	node_iterator,
 	Cmp_Fn,
-	_Alloc>*
+	_Alloc>* 
       null_node_update_pointer;
     };
 
@@ -180,10 +180,11 @@ namespace __gnu_pbds
 	node_const_iterator,
 	node_iterator,
 	Cmp_Fn,
-	_Alloc>*
+	_Alloc>* 
       null_node_update_pointer;
     };
   } // namespace detail
 } // namespace __gnu_pbds
 
 #endif // #ifndef PB_DS_OV_TREE_NODE_AND_IT_TRAITS_HPP
+

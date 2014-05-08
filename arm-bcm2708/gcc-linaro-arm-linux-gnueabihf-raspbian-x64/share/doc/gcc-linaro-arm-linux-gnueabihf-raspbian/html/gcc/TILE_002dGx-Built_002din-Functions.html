@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,17 +58,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">T
 <p>GCC provides intrinsics to access every instruction of the TILE-Gx
 processor.  The intrinsics are of the form:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      unsigned long long __insn_<var>op</var> (...)
-
+     
 </pre>
  <p>Where <var>op</var> is the name of the instruction.  Refer to the ISA manual
 for the complete list of instructions.
 
- <p>GCC also provides intrinsics to directly access the network registers.
+ <p>GCC also provides intrinsics to directly access the network registers. 
 The intrinsics are:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      unsigned long long __tile_idn0_receive (void)
      unsigned long long __tile_idn1_receive (void)
      unsigned long long __tile_udn0_receive (void)
@@ -77,10 +77,11 @@ The intrinsics are:
      unsigned long long __tile_udn3_receive (void)
      void __tile_idn_send (unsigned long long)
      void __tile_udn_send (unsigned long long)
-
+     
 </pre>
  <p>The intrinsic <code>void __tile_network_barrier (void)</code> is used to
 guarantee that no network operations before it are reordered with
 those after it.
 
  </body></html>
+

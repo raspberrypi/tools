@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ special &lsquo;<samp><span class="samp">.drectve</span></samp>&rsquo; sections w
    <blockquote>
 <em>Note:</em> <samp><span class="command">dlltool</span></samp> is not always built as part of the
 binary utilities, since it is only useful for those targets which
-support DLLs.
+support DLLs. 
 </blockquote>
 
 <!-- man title dlltool Create files needed to build and use DLLs. -->
@@ -119,7 +119,7 @@ asm() operator:
 
 <pre class="smallexample">       asm (".section .drectve");
        asm (".ascii \"-export:my_func\"");
-
+     
        int my_func (void) { ... }
 </pre>
    <p>The second file needed for DLL creation is an exports file.  This file
@@ -240,7 +240,7 @@ not.
 
      <br><dt><samp><span class="env">--add-stdcall-underscore</span></samp><dd>Specifies that when <samp><span class="command">dlltool</span></samp> is creating the exports file it
 should prepend an underscore to the names of exported <em>stdcall</em>
-functions. Variable names and non-stdcall function names are not modified.
+functions. Variable names and non-stdcall function names are not modified. 
 This option is useful when creating GNU-compatible import libs for third
 party DLLs that were built with MS-Windows tools.
 
@@ -273,7 +273,7 @@ with certain operating systems.
      <br><dt><samp><span class="env">-I </span><var>filename</var></samp><dt><samp><span class="env">--identify </span><var>filename</var></samp><dd>Specifies that <samp><span class="command">dlltool</span></samp> should inspect the import library
 indicated by <var>filename</var> and report, on <code>stdout</code>, the name(s)
 of the associated DLL(s).  This can be performed in addition to any
-other operations indicated by the other options and arguments.
+other operations indicated by the other options and arguments. 
 <samp><span class="command">dlltool</span></samp> fails if the import library does not exist or is not
 actually an import library. See also <samp><span class="option">--identify-strict</span></samp>.
 
@@ -308,3 +308,4 @@ is generated from the pid.
 </ul>
 
    </body></html>
+

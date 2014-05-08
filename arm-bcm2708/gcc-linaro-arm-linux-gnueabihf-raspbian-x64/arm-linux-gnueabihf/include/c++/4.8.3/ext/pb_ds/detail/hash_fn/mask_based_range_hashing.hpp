@@ -77,7 +77,7 @@ namespace __gnu_pbds
     template<typename Size_Type>
     const typename mask_based_range_hashing<Size_Type>::size_type mask_based_range_hashing<Size_Type>::s_highest_bit_1 = static_cast<typename mask_based_range_hashing<Size_Type>::size_type>(1) << (s_num_bits_in_size_type - 1);
 
-
+ 
     template<typename Size_Type>
     void
     mask_based_range_hashing<Size_Type>::

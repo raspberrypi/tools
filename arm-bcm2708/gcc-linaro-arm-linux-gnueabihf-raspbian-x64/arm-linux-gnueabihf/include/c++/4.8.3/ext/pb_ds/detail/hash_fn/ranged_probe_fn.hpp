@@ -62,14 +62,14 @@ namespace __gnu_pbds
     ranged_probe_fn<Key, Hash_Fn, _Alloc, Comb_Probe_Fn, Probe_Fn, false>
 
     /**
-     * Specialization 1
+     * Specialization 1     
      * The client supplies a probe function and a ranged probe
      * function, and requests that hash values not be stored.
      **/
     template<typename Key, typename Hash_Fn, typename _Alloc,
 	     typename Comb_Probe_Fn, typename Probe_Fn>
     class ranged_probe_fn<Key, Hash_Fn, _Alloc, Comb_Probe_Fn,
-			  Probe_Fn, false>
+			  Probe_Fn, false> 
     : public Hash_Fn, public Comb_Probe_Fn, public Probe_Fn
     {
     protected:
@@ -86,7 +86,7 @@ namespace __gnu_pbds
 
       ranged_probe_fn(size_type, const Hash_Fn&, const Comb_Probe_Fn&);
 
-      ranged_probe_fn(size_type, const Hash_Fn&, const Comb_Probe_Fn&,
+      ranged_probe_fn(size_type, const Hash_Fn&, const Comb_Probe_Fn&, 
 		      const Probe_Fn&);
 
       void
@@ -109,22 +109,22 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn) 
     : Hash_Fn(r_hash_fn)
     { Comb_Probe_Fn::notify_resized(size); }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn,
-		    const Comb_Probe_Fn& r_comb_probe_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		    const Comb_Probe_Fn& r_comb_probe_fn) 
     : Hash_Fn(r_hash_fn), Comb_Probe_Fn(r_comb_probe_fn)
     { comb_probe_fn_base::notify_resized(size); }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn,
-		    const Comb_Probe_Fn& r_comb_probe_fn,
-		    const Probe_Fn& r_probe_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		    const Comb_Probe_Fn& r_comb_probe_fn, 
+		    const Probe_Fn& r_probe_fn) 
     : Hash_Fn(r_hash_fn), Comb_Probe_Fn(r_comb_probe_fn), Probe_Fn(r_probe_fn)
     { comb_probe_fn_base::notify_resized(size); }
 
@@ -173,8 +173,8 @@ namespace __gnu_pbds
      **/
     template<typename Key, typename Hash_Fn, typename _Alloc,
 	     typename Comb_Probe_Fn, typename Probe_Fn>
-    class ranged_probe_fn<Key, Hash_Fn, _Alloc, Comb_Probe_Fn,
-			  Probe_Fn, true>
+    class ranged_probe_fn<Key, Hash_Fn, _Alloc, Comb_Probe_Fn, 
+			  Probe_Fn, true> 
     : public Hash_Fn, public Comb_Probe_Fn, public Probe_Fn
     {
     protected:
@@ -190,10 +190,10 @@ namespace __gnu_pbds
 
       ranged_probe_fn(size_type, const Hash_Fn&);
 
-      ranged_probe_fn(size_type, const Hash_Fn&,
+      ranged_probe_fn(size_type, const Hash_Fn&, 
 		      const Comb_Probe_Fn&);
 
-      ranged_probe_fn(size_type, const Hash_Fn&, const Comb_Probe_Fn&,
+      ranged_probe_fn(size_type, const Hash_Fn&, const Comb_Probe_Fn&, 
 		      const Probe_Fn&);
 
       void
@@ -219,22 +219,22 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn) 
     : Hash_Fn(r_hash_fn)
     { Comb_Probe_Fn::notify_resized(size); }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn,
-		    const Comb_Probe_Fn& r_comb_probe_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		    const Comb_Probe_Fn& r_comb_probe_fn) 
     : Hash_Fn(r_hash_fn), Comb_Probe_Fn(r_comb_probe_fn)
     { comb_probe_fn_base::notify_resized(size); }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn,
-		    const Comb_Probe_Fn& r_comb_probe_fn,
-		    const Probe_Fn& r_probe_fn)
+    ranged_probe_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		    const Comb_Probe_Fn& r_comb_probe_fn, 
+		    const Probe_Fn& r_probe_fn) 
     : Hash_Fn(r_hash_fn), Comb_Probe_Fn(r_comb_probe_fn), Probe_Fn(r_probe_fn)
     { comb_probe_fn_base::notify_resized(size); }
 
@@ -276,9 +276,9 @@ namespace __gnu_pbds
     operator()
 #ifdef _GLIBCXX_DEBUG
       (key_const_reference r_key, size_type hash) const
-#else
+#else 
       (key_const_reference /*r_key*/, size_type hash) const
-#endif
+#endif 
     {
       _GLIBCXX_DEBUG_ASSERT(hash == hash_fn_base::operator()(r_key));
       return hash;
@@ -293,8 +293,8 @@ namespace __gnu_pbds
      * and requests that hash values not be stored.
      **/
     template<typename Key, typename _Alloc, typename Comb_Probe_Fn>
-    class ranged_probe_fn<Key, null_type, _Alloc, Comb_Probe_Fn,
-			  null_type, false>
+    class ranged_probe_fn<Key, null_type, _Alloc, Comb_Probe_Fn, 
+			  null_type, false> 
     : public Comb_Probe_Fn
     {
     protected:
@@ -310,8 +310,8 @@ namespace __gnu_pbds
       : Comb_Probe_Fn(r_comb_probe_fn)
       { }
 
-      ranged_probe_fn(size_type, const null_type&,
-		      const Comb_Probe_Fn& r_comb_probe_fn,
+      ranged_probe_fn(size_type, const null_type&, 
+		      const Comb_Probe_Fn& r_comb_probe_fn, 
 		      const null_type&)
       : Comb_Probe_Fn(r_comb_probe_fn)
       { }
@@ -324,3 +324,4 @@ namespace __gnu_pbds
 } // namespace __gnu_pbds
 
 #endif
+

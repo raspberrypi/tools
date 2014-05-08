@@ -55,4 +55,5 @@ trace() const
   std::cerr << std::endl;
 }
 
-#endif
+#endif 
+

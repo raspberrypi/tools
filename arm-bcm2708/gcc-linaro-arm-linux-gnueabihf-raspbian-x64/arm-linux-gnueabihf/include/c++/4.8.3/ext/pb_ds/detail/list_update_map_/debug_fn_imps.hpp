@@ -54,4 +54,4 @@ assert_valid(const char* __file, int __line) const
   debug_base::check_size(calc_size, __file, __line);
 }
 
-#endif
+#endif 

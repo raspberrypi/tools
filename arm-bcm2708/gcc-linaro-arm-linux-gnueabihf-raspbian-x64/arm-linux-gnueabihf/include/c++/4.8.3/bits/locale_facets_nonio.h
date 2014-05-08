@@ -144,7 +144,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     private:
       __timepunct_cache&
       operator=(const __timepunct_cache&);
-
+      
       explicit
       __timepunct_cache(const __timepunct_cache&);
     };
@@ -906,7 +906,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     private:
       __moneypunct_cache&
       operator=(const __moneypunct_cache&);
-
+      
       explicit
       __moneypunct_cache(const __moneypunct_cache&);
     };
@@ -1498,7 +1498,7 @@ _GLIBCXX_BEGIN_NAMESPACE_LDBL
       template<bool _Intl>
         iter_type
         _M_extract(iter_type __s, iter_type __end, ios_base& __io,
-		   ios_base::iostate& __err, string& __digits) const;
+		   ios_base::iostate& __err, string& __digits) const;     
     };
 
   template<typename _CharT, typename _InIter>

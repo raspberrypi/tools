@@ -118,4 +118,4 @@ next_after_0_pointer(node_const_pointer p_nd)
   return next_after_0_pointer(p_next);
 }
 
-#endif
+#endif 

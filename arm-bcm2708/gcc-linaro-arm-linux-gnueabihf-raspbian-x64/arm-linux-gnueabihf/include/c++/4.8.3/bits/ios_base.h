@@ -48,8 +48,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // as permitted (but not required) in the standard, in order to provide
   // better type safety in iostream calls.  A side effect is that
   // expressions involving them are no longer compile-time constants.
-  enum _Ios_Fmtflags
-    {
+  enum _Ios_Fmtflags 
+    { 
       _S_boolalpha 	= 1L << 0,
       _S_dec 		= 1L << 1,
       _S_fixed 		= 1L << 2,
@@ -68,7 +68,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _S_adjustfield 	= _S_left | _S_right | _S_internal,
       _S_basefield 	= _S_dec | _S_oct | _S_hex,
       _S_floatfield 	= _S_scientific | _S_fixed,
-      _S_ios_fmtflags_end = 1L << 16
+      _S_ios_fmtflags_end = 1L << 16 
     };
 
   inline _GLIBCXX_CONSTEXPR _Ios_Fmtflags
@@ -100,15 +100,15 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __a = __a ^ __b; }
 
 
-  enum _Ios_Openmode
-    {
+  enum _Ios_Openmode 
+    { 
       _S_app 		= 1L << 0,
       _S_ate 		= 1L << 1,
       _S_bin 		= 1L << 2,
       _S_in 		= 1L << 3,
       _S_out 		= 1L << 4,
       _S_trunc 		= 1L << 5,
-      _S_ios_openmode_end = 1L << 16
+      _S_ios_openmode_end = 1L << 16 
     };
 
   inline _GLIBCXX_CONSTEXPR _Ios_Openmode
@@ -141,12 +141,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 
   enum _Ios_Iostate
-    {
+    { 
       _S_goodbit 		= 0,
       _S_badbit 		= 1L << 0,
       _S_eofbit 		= 1L << 1,
       _S_failbit		= 1L << 2,
-      _S_ios_iostate_end = 1L << 16
+      _S_ios_iostate_end = 1L << 16 
     };
 
   inline _GLIBCXX_CONSTEXPR _Ios_Iostate
@@ -178,12 +178,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __a = __a ^ __b; }
 
 
-  enum _Ios_Seekdir
-    {
+  enum _Ios_Seekdir 
+    { 
       _S_beg = 0,
       _S_cur = _GLIBCXX_STDIO_SEEK_CUR,
       _S_end = _GLIBCXX_STDIO_SEEK_END,
-      _S_ios_seekdir_end = 1L << 16
+      _S_ios_seekdir_end = 1L << 16 
     };
 
   // 27.4.2  Class ios_base
@@ -200,7 +200,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   {
   public:
 
-    /**
+    /** 
      *  @brief These are thrown to indicate problems with io.
      *  @ingroup exceptions
      *
@@ -474,7 +474,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       // 0 => OK to delete.
       int
-      _M_remove_reference()
+      _M_remove_reference() 
       {
         // Be race-detector-friendly.  For more info see bits/c++config.
         _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&_M_refcount);

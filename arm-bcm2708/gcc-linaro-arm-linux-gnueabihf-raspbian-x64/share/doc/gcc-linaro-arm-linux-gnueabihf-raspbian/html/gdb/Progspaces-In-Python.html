@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,9 +48,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <h5 class="subsubsection">23.2.2.15 Program Spaces In Python</h5>
 
 <p><a name="index-progspaces-in-python-1987"></a><a name="index-gdb_002eProgspace-1988"></a><a name="index-Progspace-1989"></a>A program space, or <dfn>progspace</dfn>, represents a symbolic view
-of an address space.
-It consists of all of the objfiles of the program.
-See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>.
+of an address space. 
+It consists of all of the objfiles of the program. 
+See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>. 
 See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">program spaces</a>, for more details
 about program spaces.
 
@@ -61,15 +61,15 @@ about program spaces.
 
 <div class="defun">
 &mdash; Function: <b>gdb.current_progspace</b> ()<var><a name="index-gdb_002ecurrent_005fprogspace-1991"></a></var><br>
-<blockquote><p>This function returns the program space of the currently selected inferior.
-See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">Inferiors and Programs</a>.
+<blockquote><p>This function returns the program space of the currently selected inferior. 
+See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">Inferiors and Programs</a>. 
 </p></blockquote></div>
 
    <p><a name="index-gdb_002eprogspaces-1992"></a>
 
 <div class="defun">
 &mdash; Function: <b>gdb.progspaces</b> ()<var><a name="index-gdb_002eprogspaces-1993"></a></var><br>
-<blockquote><p>Return a sequence of all the progspaces currently known to <span class="sc">gdb</span>.
+<blockquote><p>Return a sequence of all the progspaces currently known to <span class="sc">gdb</span>. 
 </p></blockquote></div>
 
    <p>Each progspace is represented by an instance of the <code>gdb.Progspace</code>
@@ -77,7 +77,7 @@ class.
 
 <div class="defun">
 &mdash; Variable: <b>Progspace.filename</b><var><a name="index-Progspace_002efilename-1994"></a></var><br>
-<blockquote><p>The file name of the progspace as a string.
+<blockquote><p>The file name of the progspace as a string. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -87,13 +87,14 @@ used to look up pretty-printers.  A <code>Value</code> is passed to each
 function in order; if the function returns <code>None</code>, then the
 search continues.  Otherwise, the return value should be an object
 which is used to format the value.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>, for more
-information.
+information. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Progspace.type_printers</b><var><a name="index-Progspace_002etype_005fprinters-1996"></a></var><br>
-<blockquote><p>The <code>type_printers</code> attribute is a list of type printer objects.
-See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, for more information.
+<blockquote><p>The <code>type_printers</code> attribute is a list of type printer objects. 
+See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, for more information. 
 </p></blockquote></div>
 
    </body></html>
+

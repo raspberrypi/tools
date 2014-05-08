@@ -3807,102 +3807,102 @@ extern void cl_target_option_print (FILE *, int, struct cl_target_option *);
 /* Anything that includes tm.h, does not necessarily need this.  */
 #if !defined(GCC_TM_H)
 #include "input.h" /* for location_t */
-bool
-common_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           const struct cl_decoded_option *decoded,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-Ada_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-AdaSCIL_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-AdaWhy_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-C_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-CXX_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-Fortran_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-Go_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-Java_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-LTO_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-ObjC_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
-bool
-ObjCXX_handle_option_auto (struct gcc_options *opts,
-                           struct gcc_options *opts_set,
-                           size_t scode, const char *arg, int value,
-                           unsigned int lang_mask, int kind,
-                           location_t loc,
-                           const struct cl_option_handlers *handlers,
-                           diagnostic_context *dc);
+bool                                                                  
+common_handle_option_auto (struct gcc_options *opts,                  
+                           struct gcc_options *opts_set,              
+                           const struct cl_decoded_option *decoded,   
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+Ada_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+AdaSCIL_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+AdaWhy_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+C_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+CXX_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+Fortran_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+Go_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+Java_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+LTO_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+ObjC_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
+bool                                                                  
+ObjCXX_handle_option_auto (struct gcc_options *opts,              
+                           struct gcc_options *opts_set,              
+                           size_t scode, const char *arg, int value,  
+                           unsigned int lang_mask, int kind,          
+                           location_t loc,                            
+                           const struct cl_option_handlers *handlers, 
+                           diagnostic_context *dc);                   
 #endif
 #endif
 

@@ -110,7 +110,7 @@ def register_pretty_printer(obj, printer, replace=False):
     if not hasattr(printer, "__name__") and not hasattr(printer, "name"):
         raise TypeError("printer missing attribute: name")
     if hasattr(printer, "name") and not hasattr(printer, "enabled"):
-        raise TypeError("printer missing attribute: enabled")
+        raise TypeError("printer missing attribute: enabled") 
     if not hasattr(printer, "__call__"):
         raise TypeError("printer missing attribute: __call__")
 

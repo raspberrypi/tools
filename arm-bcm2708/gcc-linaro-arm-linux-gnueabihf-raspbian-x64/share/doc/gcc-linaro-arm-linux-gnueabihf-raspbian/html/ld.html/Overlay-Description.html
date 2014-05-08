@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -91,7 +91,7 @@ and defaults to the current value of the location counter).
    <p>If the <code>NOCROSSREFS</code> keyword is used, and there are any
 references among the sections, the linker will report an error.  Since
 the sections all run at the same address, it normally does not make
-sense for one section to refer directly to another.
+sense for one section to refer directly to another. 
 See <a href="Miscellaneous-Commands.html#Miscellaneous-Commands">NOCROSSREFS</a>.
 
    <p>For each section within the <code>OVERLAY</code>, the linker automatically
@@ -140,3 +140,4 @@ example could have been written identically as follows.
        . = 0x1000 + MAX (SIZEOF (.text0), SIZEOF (.text1));
 </pre>
    </body></html>
+

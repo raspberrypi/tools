@@ -55,14 +55,14 @@ namespace tr1
     /**
      *   @brief This routine returns the confluent hypergeometric function
      *          by series expansion.
-     *
+     * 
      *   @f[
      *     _1F_1(a;c;x) = \frac{\Gamma(c)}{\Gamma(a)}
      *                      \sum_{n=0}^{\infty}
      *                      \frac{\Gamma(a+n)}{\Gamma(c+n)}
      *                      \frac{x^n}{n!}
      *   @f]
-     *
+     * 
      *   If a and b are integers and a < 0 and either b > 0 or b < a
      *   then the series is a polynomial with a finite number of
      *   terms.  If b is an integer and b <= 0 the confluent
@@ -106,9 +106,9 @@ namespace tr1
      *          by an iterative procedure described in
      *          Luke, Algorithms for the Computation of Mathematical Functions.
      *
-     *  Like the case of the 2F1 rational approximations, these are
-     *  probably guaranteed to converge for x < 0, barring gross
-     *  numerical instability in the pre-asymptotic regime.
+     *  Like the case of the 2F1 rational approximations, these are 
+     *  probably guaranteed to converge for x < 0, barring gross    
+     *  numerical instability in the pre-asymptotic regime.         
      */
     template<typename _Tp>
     _Tp
@@ -209,7 +209,7 @@ namespace tr1
     /**
      *   @brief  Return the confluent hypogeometric function
      *           @f$ _1F_1(a;c;x) @f$.
-     *
+     * 
      *   @todo  Handle b == nonpositive integer blowup - return NaN.
      *
      *   @param  __a  The @a numerator parameter.
@@ -244,7 +244,7 @@ namespace tr1
     /**
      *   @brief Return the hypogeometric function @f$ _2F_1(a,b;c;x) @f$
      *   by series expansion.
-     *
+     * 
      *   The hypogeometric function is defined by
      *   @f[
      *     _2F_1(a,b;c;x) = \frac{\Gamma(c)}{\Gamma(a)\Gamma(b)}
@@ -252,7 +252,7 @@ namespace tr1
      *                      \frac{\Gamma(a+n)\Gamma(b+n)}{\Gamma(c+n)}
      *                      \frac{x^n}{n!}
      *   @f]
-     *
+     * 
      *   This works and it's pretty fast.
      *
      *   @param  __a  The first @a numerator parameter.
@@ -399,7 +399,7 @@ namespace tr1
 
 
     /**
-     *  @brief  Return the hypogeometric function @f$ _2F_1(a,b;c;x) @f$
+     *  @brief  Return the hypogeometric function @f$ _2F_1(a,b;c;x) @f$ 
      *  by the reflection formulae in Abramowitz & Stegun formula
      *  15.3.6 for d = c - a - b not integral and formula 15.3.11 for
      *  d = c - a - b integral.  This assumes a, b, c != negative
@@ -425,7 +425,7 @@ namespace tr1
      *   @f[
      *     _2F_1(a,b;a+b+m;x) = \frac{\Gamma(m)\Gamma(a+b+m)}{\Gamma(a+m)\Gamma(b+m)}
      *                        \sum_{k=0}^{m-1} \frac{(m+a)_k(m+b)_k}{k!(1-m)_k}
-     *                      -
+     *                      - 
      *   @f]
      */
     template<typename _Tp>

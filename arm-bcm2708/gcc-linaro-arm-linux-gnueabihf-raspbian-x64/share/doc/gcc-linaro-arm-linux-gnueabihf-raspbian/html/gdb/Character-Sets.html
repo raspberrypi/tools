@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -105,22 +105,22 @@ the character set used by the target's <code>wchar_t</code> type.  To
 display the list of supported wide character sets, type
 <kbd>set&nbsp;target-wide-charset&nbsp;&lt;TAB&gt;&lt;TAB&gt;<!-- /@w --></kbd>.
 
-     <br><dt><code>show target-wide-charset</code><dd><a name="index-show-target_002dwide_002dcharset-705"></a>Show the name of the current target's wide character set.
+     <br><dt><code>show target-wide-charset</code><dd><a name="index-show-target_002dwide_002dcharset-705"></a>Show the name of the current target's wide character set. 
 </dl>
 
-   <p>Here is an example of <span class="sc">gdb</span>'s character set support in action.
+   <p>Here is an example of <span class="sc">gdb</span>'s character set support in action. 
 Assume that the following source code has been placed in the file
 <samp><span class="file">charset-test.c</span></samp>:
 
 <pre class="smallexample">     #include &lt;stdio.h&gt;
-
+     
      char ascii_hello[]
        = {72, 101, 108, 108, 111, 44, 32, 119,
           111, 114, 108, 100, 33, 10, 0};
      char ibm1047_hello[]
        = {200, 133, 147, 147, 150, 107, 64, 166,
           150, 153, 147, 132, 90, 37, 0};
-
+     
      main ()
      {
        printf ("Hello, world!\n");
@@ -224,3 +224,4 @@ string literals you use in expressions:
 character.
 
    </body></html>
+

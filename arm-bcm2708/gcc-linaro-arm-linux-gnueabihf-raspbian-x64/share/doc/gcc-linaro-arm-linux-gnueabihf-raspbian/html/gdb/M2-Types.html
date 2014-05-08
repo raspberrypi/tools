@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Modula_002d2.html#Modula_002d2">Modula-
 Currently <span class="sc">gdb</span> can print the following data types in Modula-2
 syntax: array types, record types, set types, pointer types, procedure
 types, enumerated types, subrange types and base types.  You can also
-print the contents of variables declared using these type.
+print the contents of variables declared using these type. 
 This section gives a number of simple source code examples together with
 sample <span class="sc">gdb</span> sessions.
 
@@ -146,7 +146,7 @@ pointer types as shown in this example:
 <pre class="smallexample">     (gdb) ptype s
      type = POINTER TO ARRAY [1..5] OF CARDINAL
 </pre>
-   <p><span class="sc">gdb</span> handles compound types as we can see in this example.
+   <p><span class="sc">gdb</span> handles compound types as we can see in this example. 
 Here we combine array types, record types, pointer types and subrange
 types:
 
@@ -156,7 +156,7 @@ types:
                  f2: CHAR ;
                  f3: myarray ;
               END ;
-
+     
         myarray = ARRAY myrange OF CARDINAL ;
         myrange = [-2..2] ;
      VAR
@@ -173,3 +173,4 @@ below.
      END
 </pre>
    </body></html>
+

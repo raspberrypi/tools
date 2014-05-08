@@ -74,13 +74,13 @@ _GLIBCXX_HAS_NESTED_TYPE(difference_type)
     {
       template<typename _Ptr2, typename _Up2>
 	static constexpr bool
-	_S_chk(typename _Ptr2::template rebind<_Up2>*)
-	{ return true; }
+       	_S_chk(typename _Ptr2::template rebind<_Up2>*)
+       	{ return true; }
 
       template<typename, typename>
         static constexpr bool
-	_S_chk(...)
-	{ return false; }
+       	_S_chk(...)
+       	{ return false; }
 
     public:
       static const bool __value = _S_chk<_Ptr, _Up>(nullptr);

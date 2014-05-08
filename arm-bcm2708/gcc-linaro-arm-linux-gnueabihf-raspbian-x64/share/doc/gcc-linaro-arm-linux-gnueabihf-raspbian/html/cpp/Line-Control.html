@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ symbolic debuggers to be able to refer to <code>bison</code>'s input file.
    <p><a name="index-g_t_0023line-99"></a><samp><span class="command">bison</span></samp> or any such program can arrange this by writing
 &lsquo;<samp><span class="samp">#line</span></samp>&rsquo; directives into the output file.  &lsquo;<samp><span class="samp">#line</span></samp>&rsquo; is a
 directive that specifies the original line number and source file name
-for subsequent input in the current preprocessor input file.
+for subsequent input in the current preprocessor input file. 
 &lsquo;<samp><span class="samp">#line</span></samp>&rsquo; has three variants:
 
      <dl>
@@ -84,7 +84,7 @@ input.  Subsequent lines are counted from <var>linenum</var>.
      <br><dt><code>#line </code><var>linenum</var> <var>filename</var><dd><var>linenum</var> is the same as for the first form, and has the same
 effect.  In addition, <var>filename</var> is a string constant.  The
 following line and all subsequent lines are reported to come from the
-file it specifies, until something else happens to change that.
+file it specifies, until something else happens to change that. 
 <var>filename</var> is interpreted according to the normal rules for a string
 constant: backslash escapes are interpreted.  This is different from
 &lsquo;<samp><span class="samp">#include</span></samp>&rsquo;.
@@ -93,8 +93,8 @@ constant: backslash escapes are interpreted.  This is different from
 we have changed it because the standard requires they be interpreted,
 and most other compilers do.
 
-     <br><dt><code>#line </code><var>anything else</var><dd><var>anything else</var> is checked for macro calls, which are expanded.
-The result should match one of the above two forms.
+     <br><dt><code>#line </code><var>anything else</var><dd><var>anything else</var> is checked for macro calls, which are expanded. 
+The result should match one of the above two forms. 
 </dl>
 
    <p>&lsquo;<samp><span class="samp">#line</span></samp>&rsquo; directives alter the results of the <code>__FILE__</code> and
@@ -128,3 +128,4 @@ semantics could sometimes be corrected only by editing the generated
 files, which is difficult and error-prone.
 
    </body></html>
+

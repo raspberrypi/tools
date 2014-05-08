@@ -117,3 +117,4 @@ inline typename PB_DS_CLASS_C_DEC::node_iterator
 PB_DS_CLASS_C_DEC::
 node_end()
 { return node_iterator(0, this); }
+

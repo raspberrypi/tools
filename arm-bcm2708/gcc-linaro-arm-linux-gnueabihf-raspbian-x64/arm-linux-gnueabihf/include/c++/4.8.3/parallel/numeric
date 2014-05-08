@@ -53,7 +53,7 @@ namespace __parallel
   // Sequential fallback.
   template<typename _IIter, typename _Tp>
     inline _Tp
-    accumulate(_IIter __begin, _IIter __end, _Tp __init,
+    accumulate(_IIter __begin, _IIter __end, _Tp __init, 
                __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::accumulate(__begin, __end, __init); }
 
@@ -67,25 +67,25 @@ namespace __parallel
   template<typename _IIter, typename _Tp, typename _IteratorTag>
     inline _Tp
     __accumulate_switch(_IIter __begin, _IIter __end,
-                      _Tp __init, _IteratorTag)
+                      _Tp __init, _IteratorTag) 
     { return accumulate(__begin, __end, __init,
 			__gnu_parallel::sequential_tag()); }
 
   template<typename _IIter, typename _Tp, typename _BinaryOperation,
            typename _IteratorTag>
     inline _Tp
-    __accumulate_switch(_IIter __begin, _IIter __end, _Tp __init,
+    __accumulate_switch(_IIter __begin, _IIter __end, _Tp __init, 
                       _BinaryOperation __binary_op, _IteratorTag)
-    { return accumulate(__begin, __end, __init, __binary_op,
+    { return accumulate(__begin, __end, __init, __binary_op, 
                         __gnu_parallel::sequential_tag()); }
 
   // Parallel algorithm for random access iterators.
   template<typename __RAIter, typename _Tp, typename _BinaryOperation>
     _Tp
-    __accumulate_switch(__RAIter __begin, __RAIter __end,
-                      _Tp __init, _BinaryOperation __binary_op,
-                      random_access_iterator_tag,
-                      __gnu_parallel::_Parallelism __parallelism_tag
+    __accumulate_switch(__RAIter __begin, __RAIter __end, 
+                      _Tp __init, _BinaryOperation __binary_op, 
+                      random_access_iterator_tag, 
+                      __gnu_parallel::_Parallelism __parallelism_tag  
                       = __gnu_parallel::parallel_unbalanced)
     {
       if (_GLIBCXX_PARALLEL_CONDITION(
@@ -107,14 +107,14 @@ namespace __parallel
           return __res;
         }
       else
-        return accumulate(__begin, __end, __init, __binary_op,
+        return accumulate(__begin, __end, __init, __binary_op, 
                           __gnu_parallel::sequential_tag());
     }
 
   // Public interface.
   template<typename _IIter, typename _Tp>
     inline _Tp
-    accumulate(_IIter __begin, _IIter __end, _Tp __init,
+    accumulate(_IIter __begin, _IIter __end, _Tp __init, 
                __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef std::iterator_traits<_IIter> _IteratorTraits;
@@ -141,24 +141,24 @@ namespace __parallel
 
   template<typename _IIter, typename _Tp, typename _BinaryOperation>
     inline _Tp
-    accumulate(_IIter __begin, _IIter __end, _Tp __init,
-               _BinaryOperation __binary_op,
+    accumulate(_IIter __begin, _IIter __end, _Tp __init, 
+               _BinaryOperation __binary_op, 
                __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef iterator_traits<_IIter> _IteratorTraits;
       typedef typename _IteratorTraits::iterator_category _IteratorCategory;
-      return __accumulate_switch(__begin, __end, __init, __binary_op,
+      return __accumulate_switch(__begin, __end, __init, __binary_op, 
 				 _IteratorCategory(), __parallelism_tag);
     }
 
   template<typename _IIter, typename _Tp, typename _BinaryOperation>
     inline _Tp
-    accumulate(_IIter __begin, _IIter __end, _Tp __init,
-               _BinaryOperation __binary_op)
+    accumulate(_IIter __begin, _IIter __end, _Tp __init, 
+               _BinaryOperation __binary_op) 
     {
       typedef iterator_traits<_IIter> _IteratorTraits;
       typedef typename _IteratorTraits::iterator_category _IteratorCategory;
-      return __accumulate_switch(__begin, __end, __init, __binary_op,
+      return __accumulate_switch(__begin, __end, __init, __binary_op, 
 				 _IteratorCategory());
     }
 
@@ -166,7 +166,7 @@ namespace __parallel
   // Sequential fallback.
   template<typename _IIter1, typename _IIter2, typename _Tp>
     inline _Tp
-    inner_product(_IIter1 __first1, _IIter1 __last1,
+    inner_product(_IIter1 __first1, _IIter1 __last1, 
                   _IIter2 __first2, _Tp __init,
                   __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::inner_product(
@@ -176,7 +176,7 @@ namespace __parallel
            typename _BinaryFunction1, typename _BinaryFunction2>
     inline _Tp
     inner_product(_IIter1 __first1, _IIter1 __last1,
-                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1,
+                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1, 
                   _BinaryFunction2 __binary_op2,
                   __gnu_parallel::sequential_tag)
     { return _GLIBCXX_STD_A::inner_product(__first1, __last1, __first2, __init,
@@ -213,7 +213,7 @@ namespace __parallel
           return __res;
         }
       else
-        return inner_product(__first1, __last1, __first2, __init,
+        return inner_product(__first1, __last1, __first2, __init, 
                              __gnu_parallel::sequential_tag());
     }
 
@@ -222,10 +222,10 @@ namespace __parallel
            typename _BinaryFunction1, typename _BinaryFunction2,
            typename _IteratorTag1, typename _IteratorTag2>
     inline _Tp
-    __inner_product_switch(_IIter1 __first1, _IIter1 __last1,
-			   _IIter2 __first2, _Tp __init,
+    __inner_product_switch(_IIter1 __first1, _IIter1 __last1, 
+			   _IIter2 __first2, _Tp __init, 
 			   _BinaryFunction1 __binary_op1,
-			   _BinaryFunction2 __binary_op2,
+			   _BinaryFunction2 __binary_op2, 
 			   _IteratorTag1, _IteratorTag2)
     { return inner_product(__first1, __last1, __first2, __init, __binary_op1,
 			   __binary_op2, __gnu_parallel::sequential_tag()); }
@@ -233,9 +233,9 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2, typename _Tp,
            typename _BinaryFunction1, typename _BinaryFunction2>
     inline _Tp
-    inner_product(_IIter1 __first1, _IIter1 __last1,
-                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1,
-                  _BinaryFunction2 __binary_op2,
+    inner_product(_IIter1 __first1, _IIter1 __last1, 
+                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1, 
+                  _BinaryFunction2 __binary_op2, 
                   __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef iterator_traits<_IIter1> _TraitsType1;
@@ -253,8 +253,8 @@ namespace __parallel
   template<typename _IIter1, typename _IIter2, typename _Tp,
            typename _BinaryFunction1, typename _BinaryFunction2>
     inline _Tp
-    inner_product(_IIter1 __first1, _IIter1 __last1,
-                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1,
+    inner_product(_IIter1 __first1, _IIter1 __last1, 
+                  _IIter2 __first2, _Tp __init, _BinaryFunction1 __binary_op1, 
                   _BinaryFunction2 __binary_op2)
     {
       typedef iterator_traits<_IIter1> _TraitsType1;
@@ -271,8 +271,8 @@ namespace __parallel
 
   template<typename _IIter1, typename _IIter2, typename _Tp>
     inline _Tp
-    inner_product(_IIter1 __first1, _IIter1 __last1,
-                  _IIter2 __first2, _Tp __init,
+    inner_product(_IIter1 __first1, _IIter1 __last1, 
+                  _IIter2 __first2, _Tp __init, 
                   __gnu_parallel::_Parallelism __parallelism_tag)
     {
       typedef iterator_traits<_IIter1> _TraitsType1;
@@ -292,7 +292,7 @@ namespace __parallel
 
   template<typename _IIter1, typename _IIter2, typename _Tp>
     inline _Tp
-    inner_product(_IIter1 __first1, _IIter1 __last1,
+    inner_product(_IIter1 __first1, _IIter1 __last1, 
                   _IIter2 __first2, _Tp __init)
     {
       typedef iterator_traits<_IIter1> _TraitsType1;
@@ -442,7 +442,7 @@ namespace __parallel
           return __functionality._M_finish_iterator;
         }
       else
-        return adjacent_difference(__begin, __end, __result, __bin_op,
+        return adjacent_difference(__begin, __end, __result, __bin_op, 
                                    __gnu_parallel::sequential_tag());
     }
 

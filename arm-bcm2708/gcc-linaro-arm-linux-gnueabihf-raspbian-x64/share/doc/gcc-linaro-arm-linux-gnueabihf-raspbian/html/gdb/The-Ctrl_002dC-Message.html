@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -78,8 +78,9 @@ as if the break message arrived right after the system call.
 yet, <span class="sc">gdb</span> may send the <code>F</code> reply immediately, setting <code>EINTR</code> as
 <code>errno</code> in the packet.  If the system call on the host has been finished
 before the user requests a break, the full action must be finished by
-<span class="sc">gdb</span>.  This requires sending <code>M</code> or <code>X</code> packets as necessary.
+<span class="sc">gdb</span>.  This requires sending <code>M</code> or <code>X</code> packets as necessary. 
 The <code>F</code> packet may only be sent when either nothing has happened
 or the full action has been completed.
 
    </body></html>
+

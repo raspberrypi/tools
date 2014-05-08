@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,12 +49,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 
 <p>These commands are deprecated; they are equivalent to plain <code>disable</code> and <code>enable</code>.
 
-
+     
 <a name="index-disable-tracepoint-764"></a>
 <dl><dt><code>disable tracepoint </code><span class="roman">[</span><var>num</var><span class="roman">]</span><dd>Disable tracepoint <var>num</var>, or all tracepoints if no argument
 <var>num</var> is given.  A disabled tracepoint will have no effect during
 a trace experiment, but it is not forgotten.  You can re-enable
-a disabled tracepoint using the <code>enable tracepoint</code> command.
+a disabled tracepoint using the <code>enable tracepoint</code> command. 
 If the command is issued during a trace experiment and the debug target
 has support for disabling tracepoints during a trace experiment, then the
 change will be effective immediately.  Otherwise, it will be applied to the
@@ -64,7 +64,8 @@ next trace experiment.
 issued during a trace experiment and the debug target supports enabling
 tracepoints during a trace experiment, then the enabled tracepoints will
 become effective immediately.  Otherwise, they will become effective the
-next time a trace experiment is run.
+next time a trace experiment is run. 
 </dl>
 
    </body></html>
+

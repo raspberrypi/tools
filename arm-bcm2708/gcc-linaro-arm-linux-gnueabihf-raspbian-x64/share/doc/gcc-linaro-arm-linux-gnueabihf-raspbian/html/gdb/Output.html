@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ explicitly printed by the commands in the definition.  This section
 describes three commands useful for generating exactly the output you
 want.
 
-
+     
 <a name="index-echo-1700"></a>
 <dl><dt><code>echo </code><var>text</var><dd><!-- I do not consider backslash-space a standard C escape sequence -->
 <!-- because it is not in ANSI. -->
@@ -61,7 +61,7 @@ newline.  <strong>No newline is printed unless you specify one.</strong>
 In addition to the standard C escape sequences, a backslash followed
 by a space stands for a space.  This is useful for displaying a
 string with spaces at the beginning or the end, since leading and
-trailing spaces are otherwise trimmed from all arguments.
+trailing spaces are otherwise trimmed from all arguments. 
 To print &lsquo;<samp><span class="samp">&nbsp;<!-- /@w -->and foo =&nbsp;<!-- /@w --></span></samp>&rsquo;, use the command
 &lsquo;<samp><span class="samp">echo \&nbsp;<!-- /@w -->and foo = \&nbsp;<!-- /@w --></span></samp>&rsquo;.
 
@@ -124,7 +124,7 @@ supported.
 
           <li>The conversion letter &lsquo;<samp><span class="samp">n</span></samp>&rsquo; (as in &lsquo;<samp><span class="samp">%n</span></samp>&rsquo;) is not supported.
 
-          <li>The conversion letters &lsquo;<samp><span class="samp">a</span></samp>&rsquo; and &lsquo;<samp><span class="samp">A</span></samp>&rsquo; are not supported.
+          <li>The conversion letters &lsquo;<samp><span class="samp">a</span></samp>&rsquo; and &lsquo;<samp><span class="samp">A</span></samp>&rsquo; are not supported. 
 </ul>
 
      <p class="noindent">Note that the &lsquo;<samp><span class="samp">ll</span></samp>&rsquo; type modifier is supported only if the
@@ -140,7 +140,7 @@ supported.
 
      <p>Additionally, <code>printf</code> supports conversion specifications for DFP
 (<dfn>Decimal Floating Point</dfn>) types using the following length modifiers
-together with a floating point specifier.
+together with a floating point specifier. 
 letters:
 
           <ul>
@@ -148,7 +148,7 @@ letters:
 
           <li>&lsquo;<samp><span class="samp">D</span></samp>&rsquo; for printing <code>Decimal64</code> types.
 
-          <li>&lsquo;<samp><span class="samp">DD</span></samp>&rsquo; for printing <code>Decimal128</code> types.
+          <li>&lsquo;<samp><span class="samp">DD</span></samp>&rsquo; for printing <code>Decimal128</code> types. 
 </ul>
 
      <p>If the underlying <code>C</code> implementation used to build <span class="sc">gdb</span> has
@@ -167,3 +167,4 @@ the string <var>template</var> to a command line, and call it.
    </dl>
 
    </body></html>
+

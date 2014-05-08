@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,17 +57,17 @@ memory.  Files may be in binary, Motorola S-record, Intel hex, or
 Tektronix Hex format; however, <span class="sc">gdb</span> can only append to binary
 files.
 
-
+     
 <a name="index-dump-687"></a>
 <dl><dt><code>dump </code><span class="roman">[</span><var>format</var><span class="roman">]</span><code> memory </code><var>filename</var> <var>start_addr</var> <var>end_addr</var><dt><code>dump </code><span class="roman">[</span><var>format</var><span class="roman">]</span><code> value </code><var>filename</var> <var>expr</var><dd>Dump the contents of memory from <var>start_addr</var> to <var>end_addr</var>,
 or the value of <var>expr</var>, to <var>filename</var> in the given format.
 
      <p>The <var>format</var> parameter may be any one of:
           <dl>
-<dt><code>binary</code><dd>Raw binary form.
-<br><dt><code>ihex</code><dd>Intel hex format.
-<br><dt><code>srec</code><dd>Motorola S-record format.
-<br><dt><code>tekhex</code><dd>Tektronix Hex format.
+<dt><code>binary</code><dd>Raw binary form. 
+<br><dt><code>ihex</code><dd>Intel hex format. 
+<br><dt><code>srec</code><dd>Motorola S-record format. 
+<br><dt><code>tekhex</code><dd>Tektronix Hex format. 
 </dl>
 
      <p><span class="sc">gdb</span> uses the same definitions of these formats as the
@@ -76,7 +76,7 @@ or the value of <var>expr</var>, to <var>filename</var> in the given format.
 form.
 
      <p><a name="index-append-688"></a><br><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> memory </code><var>filename</var> <var>start_addr</var> <var>end_addr</var><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> value </code><var>filename</var> <var>expr</var><dd>Append the contents of memory from <var>start_addr</var> to <var>end_addr</var>,
-or the value of <var>expr</var>, to the file <var>filename</var>, in raw binary form.
+or the value of <var>expr</var>, to the file <var>filename</var>, in raw binary form. 
 (<span class="sc">gdb</span> can only append data to files in raw binary form.)
 
      <p><a name="index-restore-689"></a><br><dt><code>restore </code><var>filename</var> <span class="roman">[</span><code>binary</code><span class="roman">]</span> <var>bias</var> <var>start</var> <var>end</var><dd>Restore the contents of file <var>filename</var> into memory.  The
@@ -91,10 +91,11 @@ a built-in location; they will be restored at offset <var>bias</var>
 from that location.
 
      <p>If <var>start</var> and/or <var>end</var> are non-zero, then only data between
-file offset <var>start</var> and file offset <var>end</var> will be restored.
+file offset <var>start</var> and file offset <var>end</var> will be restored. 
 These offsets are relative to the addresses in the file, before
 the <var>bias</var> argument is applied.
 
    </dl>
 
    </body></html>
+

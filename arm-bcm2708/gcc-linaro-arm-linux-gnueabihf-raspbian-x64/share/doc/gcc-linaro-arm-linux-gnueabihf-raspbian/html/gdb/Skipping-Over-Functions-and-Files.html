@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,7 +77,7 @@ is called from many places.
    <p>You can also instruct <span class="sc">gdb</span> to skip all functions in a file, with, for
 example, <code>skip file boring.c</code>.
 
-
+     
 <a name="index-skip-function-327"></a>
 <dl><dt><code>skip </code><span class="roman">[</span><var>linespec</var><span class="roman">]</span><dt><code>skip function </code><span class="roman">[</span><var>linespec</var><span class="roman">]</span><dd>After running this command, the function named by <var>linespec</var> or the
 function containing the line named by <var>linespec</var> will be skipped over when
@@ -93,30 +93,30 @@ will be skipped.
 will be skipped over when stepping.
 
      <p>If you do not specify <var>filename</var>, functions whose source lives in the file
-you're currently debugging will be skipped.
+you're currently debugging will be skipped. 
 </dl>
 
-   <p>Skips can be listed, deleted, disabled, and enabled, much like breakpoints.
+   <p>Skips can be listed, deleted, disabled, and enabled, much like breakpoints. 
 These are the commands for managing your list of skips:
 
-
+     
 <a name="index-info-skip-329"></a>
 <dl><dt><code>info skip </code><span class="roman">[</span><var>range</var><span class="roman">]</span><dd>Print details about the specified skip(s).  If <var>range</var> is not specified,
-print a table with details about all functions and files marked for skipping.
+print a table with details about all functions and files marked for skipping. 
 <code>info skip</code> prints the following information about each skip:
 
           <dl>
-<dt><em>Identifier</em><dd>A number identifying this skip.
-<br><dt><em>Type</em><dd>The type of this skip, either &lsquo;<samp><span class="samp">function</span></samp>&rsquo; or &lsquo;<samp><span class="samp">file</span></samp>&rsquo;.
-<br><dt><em>Enabled or Disabled</em><dd>Enabled skips are marked with &lsquo;<samp><span class="samp">y</span></samp>&rsquo;.  Disabled skips are marked with &lsquo;<samp><span class="samp">n</span></samp>&rsquo;.
+<dt><em>Identifier</em><dd>A number identifying this skip. 
+<br><dt><em>Type</em><dd>The type of this skip, either &lsquo;<samp><span class="samp">function</span></samp>&rsquo; or &lsquo;<samp><span class="samp">file</span></samp>&rsquo;. 
+<br><dt><em>Enabled or Disabled</em><dd>Enabled skips are marked with &lsquo;<samp><span class="samp">y</span></samp>&rsquo;.  Disabled skips are marked with &lsquo;<samp><span class="samp">n</span></samp>&rsquo;. 
 <br><dt><em>Address</em><dd>For function skips, this column indicates the address in memory of the function
 being skipped.  If you've set a function skip on a function which has not yet
 been loaded, this field will contain &lsquo;<samp><span class="samp">&lt;PENDING&gt;</span></samp>&rsquo;.  Once a shared library
 which has the function is loaded, <code>info skip</code> will show the function's
-address here.
+address here. 
 <br><dt><em>What</em><dd>For file skips, this field contains the filename being skipped.  For functions
 skips, this field contains the function name and its line number in the file
-where it is defined.
+where it is defined. 
 </dl>
 
      <p><a name="index-skip-delete-330"></a><br><dt><code>skip delete </code><span class="roman">[</span><var>range</var><span class="roman">]</span><dd>Delete the specified skip(s).  If <var>range</var> is not specified, delete all
@@ -131,3 +131,4 @@ skips.
    </dl>
 
    </body></html>
+

@@ -688,7 +688,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{ return _M_allocator.construct(__p, std::forward<_Args>(__args)...); }
 
       template<typename _Up>
-        void
+        void 
         destroy(_Up* __p)
         { _M_allocator.destroy(__p); }
 #else

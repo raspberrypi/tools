@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,14 +59,14 @@ Binary compatibility encompasses several related concepts:
      <dl>
 <dt><dfn>application binary interface (ABI)</dfn><dd>The set of runtime conventions followed by all of the tools that deal
 with binary representations of a program, including compilers, assemblers,
-linkers, and language runtime support.
+linkers, and language runtime support. 
 Some ABIs are formal with a written specification, possibly designed
 by multiple interested parties.  Others are simply the way things are
 actually done by a particular set of tools.
 
      <br><dt><dfn>ABI conformance</dfn><dd>A compiler conforms to an ABI if it generates code that follows all of
-the specifications enumerated by that ABI.
-A library conforms to an ABI if it is implemented according to that ABI.
+the specifications enumerated by that ABI. 
+A library conforms to an ABI if it is implemented according to that ABI. 
 An application conforms to an ABI if it is built using tools that conform
 to that ABI and does not contain source code that specifically changes
 behavior specified by the ABI.
@@ -76,7 +76,7 @@ are passed and function results are returned.
 
      <br><dt><dfn>interoperability</dfn><dd>Different sets of tools are interoperable if they generate files that
 can be used in the same program.  The set of tools includes compilers,
-assemblers, linkers, libraries, header files, startup files, and debuggers.
+assemblers, linkers, libraries, header files, startup files, and debuggers. 
 Binaries produced by different sets of tools are not interoperable unless
 they implement the same ABI.  This applies to different versions of the
 same tools as well as tools from different vendors.
@@ -87,12 +87,12 @@ of interoperability.
 
      <br><dt><dfn>implementation-defined features</dfn><dd>Language standards include lists of implementation-defined features whose
 behavior can vary from one implementation to another.  Some of these
-features are normally covered by a platform's ABI and others are not.
+features are normally covered by a platform's ABI and others are not. 
 The features that are not covered by an ABI generally affect how a
 program behaves, but not intercallability.
 
      <br><dt><dfn>compatibility</dfn><dd>Conformance to the same ABI and the same behavior of implementation-defined
-features are both relevant for compatibility.
+features are both relevant for compatibility. 
 </dl>
 
  <p>The application binary interface implemented by a C or C++ compiler
@@ -122,7 +122,7 @@ does not conform to the platform's default ABI.  Other options cause
 different program behavior for implementation-defined features that are
 not covered by an ABI.  These options are provided for consistency with
 other compilers that do not follow the platform's default ABI or the
-usual behavior of implementation-defined features for the platform.
+usual behavior of implementation-defined features for the platform. 
 Be very careful about using such options.
 
  <p>Most platforms have a well-defined ABI that covers C code, but ABIs
@@ -131,14 +131,14 @@ that cover C++ functionality are not yet common.
  <p>Starting with GCC 3.2, GCC binary conventions for C++ are based on a
 written, vendor-neutral C++ ABI that was designed to be specific to
 64-bit Itanium but also includes generic specifications that apply to
-any platform.
+any platform. 
 This C++ ABI is also implemented by other compiler vendors on some
-platforms, notably GNU/Linux and BSD systems.
+platforms, notably GNU/Linux and BSD systems. 
 We have tried hard to provide a stable ABI that will be compatible with
 future GCC releases, but it is possible that we will encounter problems
 that make this difficult.  Such problems could include different
 interpretations of the C++ ABI by different vendors, bugs in the ABI, or
-bugs in the implementation of the ABI in different compilers.
+bugs in the implementation of the ABI in different compilers. 
 GCC's <samp><span class="option">-Wabi</span></samp> switch warns when G++ generates code that is
 probably not compatible with the C++ ABI.
 
@@ -157,7 +157,7 @@ those compilers can be used in the same program only if they use the same
 C++ library.  This requires specifying the location of the C++ library
 header files when invoking the compiler whose usual library is not being
 used.  The location of GCC's C++ header files depends on how the GCC
-build was configured, but can be seen by using the G++ <samp><span class="option">-v</span></samp> option.
+build was configured, but can be seen by using the G++ <samp><span class="option">-v</span></samp> option. 
 With default configuration options for G++ 3.3 the compile line for a
 different C++ compiler needs to include
 
@@ -185,3 +185,4 @@ support libraries with one or more of the options <samp><span class="option">-no
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
  </body></html>
+

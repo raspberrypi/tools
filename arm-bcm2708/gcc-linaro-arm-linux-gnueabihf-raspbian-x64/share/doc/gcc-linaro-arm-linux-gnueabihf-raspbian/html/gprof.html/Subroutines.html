@@ -32,8 +32,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -76,16 +76,17 @@ when <code>report</code> was called from <code>main</code>.
 of the total time spent in calls to <code>report</code> from <code>main</code>.
 
      <br><dt><code>called</code><dd>Two numbers, the number of calls to <code>report</code> from <code>main</code>
-followed by the total number of non-recursive calls to <code>report</code>.
+followed by the total number of non-recursive calls to <code>report</code>. 
 This ratio is used to determine how much of <code>report</code>'s <code>self</code>
-and <code>children</code> time gets credited to <code>main</code>.
+and <code>children</code> time gets credited to <code>main</code>. 
 See <a href="Assumptions.html#Assumptions">Estimating <code>children</code> Times</a>.
 
      <br><dt><code>name</code><dd>The name of the subroutine of <code>main</code> to which this line applies,
 followed by the subroutine's index number.
 
      <p>If the caller is part of a recursion cycle, the cycle number is
-printed between the name and the index number.
+printed between the name and the index number. 
 </dl>
 
    </body></html>
+

@@ -100,3 +100,4 @@ PB_DS_node_end_imp()
   return node_iterator(end(), end(),
 		  end(),(m_a_metadata == 0) ? 0 : m_a_metadata + m_size);
 }
+

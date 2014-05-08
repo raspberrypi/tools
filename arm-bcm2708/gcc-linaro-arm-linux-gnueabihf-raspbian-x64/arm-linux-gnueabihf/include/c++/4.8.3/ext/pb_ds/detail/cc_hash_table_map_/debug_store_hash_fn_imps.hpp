@@ -51,4 +51,4 @@ assert_entry_pointer_valid(const entry_pointer p_e, true_type,
   PB_DS_DEBUG_VERIFY(p_e->m_hash == pos_hash_pair.second);
 }
 
-#endif
+#endif 

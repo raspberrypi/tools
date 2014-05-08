@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ you wish.  The syntax is:
        }
 </pre>
    <p>The <var>name</var> is a name used in the linker script to refer to the
-region.  The region name has no meaning outside of the linker script.
+region.  The region name has no meaning outside of the linker script. 
 Region names are stored in a separate name space, and will not conflict
 with symbol names, file names, or section names.  Each memory region
 must have a distinct name within the <code>MEMORY</code> command.  However you can
@@ -143,3 +143,4 @@ expression via the <code>ORIGIN(</code><var>memory</var><code>)</code> and
 <pre class="smallexample">       _fstack = ORIGIN(ram) + LENGTH(ram) - 4;
 </pre>
    </body></html>
+

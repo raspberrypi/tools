@@ -132,3 +132,4 @@ namespace tr1
 }
 
 #endif // _GLIBCXX_TR1_SPECIAL_FUNCTION_UTIL_H
+

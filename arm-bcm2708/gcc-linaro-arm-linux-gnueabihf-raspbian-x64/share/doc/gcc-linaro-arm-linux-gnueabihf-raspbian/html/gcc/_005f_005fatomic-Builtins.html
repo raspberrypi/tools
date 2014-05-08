@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -83,7 +83,7 @@ of the integral sizes that may have lock free support, the generic
 version utilizes the lock free built-in function.  Otherwise an
 external call is left to be resolved at run time.  This external call is
 the same format with the addition of a &lsquo;<samp><span class="samp">size_t</span></samp>&rsquo; parameter inserted
-as the first parameter indicating the size of the object being pointed to.
+as the first parameter indicating the size of the object being pointed to. 
 All objects must be the same size.
 
  <p>There are 6 different memory models that can be specified.  These map
@@ -95,17 +95,17 @@ ascending order of strength. It is also possible to use target specific
 flags for memory model flags, like Hardware Lock Elision.
 
      <dl>
-<dt><code>__ATOMIC_RELAXED</code><dd>No barriers or synchronization.
+<dt><code>__ATOMIC_RELAXED</code><dd>No barriers or synchronization. 
 <br><dt><code>__ATOMIC_CONSUME</code><dd>Data dependency only for both barrier and synchronization with another
-thread.
+thread. 
 <br><dt><code>__ATOMIC_ACQUIRE</code><dd>Barrier to hoisting of code and synchronizes with release (or stronger)
-semantic stores from another thread.
+semantic stores from another thread. 
 <br><dt><code>__ATOMIC_RELEASE</code><dd>Barrier to sinking of code and synchronizes with acquire (or stronger)
-semantic loads from another thread.
+semantic loads from another thread. 
 <br><dt><code>__ATOMIC_ACQ_REL</code><dd>Full barrier in both directions and synchronizes with acquire loads and
-release stores in another thread.
+release stores in another thread. 
 <br><dt><code>__ATOMIC_SEQ_CST</code><dd>Full barrier in both directions and synchronizes with acquire loads and
-release stores in all threads.
+release stores in all threads. 
 </dl>
 
  <p>When implementing patterns for these built-in functions, the memory model
@@ -183,7 +183,7 @@ of <code>*</code><var>ptr</var> is copied into <code>*</code><var>ret</var>.
 
 <div class="defun">
 &mdash; Built-in Function: bool <b>__atomic_compare_exchange_n</b> (<var>type *ptr, type *expected, type desired, bool weak, int success_memmodel, int failure_memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fcompare_005fexchange_005fn-2919"></a></var><br>
-<blockquote><p>This built-in function implements an atomic compare and exchange operation.
+<blockquote><p>This built-in function implements an atomic compare and exchange operation. 
 This compares the contents of <code>*</code><var>ptr</var> with the contents of
 <code>*</code><var>expected</var> and if equal, writes <var>desired</var> into
 <code>*</code><var>ptr</var>.  If they are not equal, the current contents of
@@ -251,7 +251,7 @@ return the value that had previously been in <code>*</code><var>ptr</var>.  That
       <p>This built-in function performs an atomic test-and-set operation on
 the byte at <code>*</code><var>ptr</var>.  The byte is set to some implementation
 defined nonzero &ldquo;set&rdquo; value and the return value is <code>true</code> if and only
-if the previous contents were &ldquo;set&rdquo;.
+if the previous contents were &ldquo;set&rdquo;. 
 It should be only used for operands of type <code>bool</code> or <code>char</code>. For
 other types only part of the value may be set.
 
@@ -263,9 +263,9 @@ other types only part of the value may be set.
 &mdash; Built-in Function: void <b>__atomic_clear</b> (<var>bool *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fclear-2934"></a></var><br>
 <blockquote>
       <p>This built-in function performs an atomic clear operation on
-<code>*</code><var>ptr</var>.  After the operation, <code>*</code><var>ptr</var> contains 0.
+<code>*</code><var>ptr</var>.  After the operation, <code>*</code><var>ptr</var> contains 0. 
 It should be only used for operands of type <code>bool</code> or <code>char</code> and
-in conjunction with <code>__atomic_test_and_set</code>.
+in conjunction with <code>__atomic_test_and_set</code>. 
 For other types it may only clear partially. If the type is not <code>bool</code>
 prefer using <code>__atomic_store</code>.
 
@@ -299,7 +299,7 @@ and signal handlers based in the same thread.
 &mdash; Built-in Function: bool <b>__atomic_always_lock_free</b> (<var>size_t size, void *ptr</var>)<var><a name="index-g_t_005f_005fatomic_005falways_005flock_005ffree-2937"></a></var><br>
 <blockquote>
       <p>This built-in function returns true if objects of <var>size</var> bytes always
-generate lock free atomic instructions for the target architecture.
+generate lock free atomic instructions for the target architecture. 
 <var>size</var> must resolve to a compile-time constant and the result also
 resolves to a compile-time constant.
 
@@ -321,7 +321,8 @@ it is not known to be lock free a call is made to a runtime routine named
 
       <p><var>ptr</var> is an optional pointer to the object that may be used to determine
 alignment.  A value of 0 indicates typical alignment should be used.  The
-compiler may also ignore this parameter.
+compiler may also ignore this parameter. 
 </p></blockquote></div>
 
  </body></html>
+

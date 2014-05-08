@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -104,11 +104,11 @@ function pointer decay, and is returned by value to the enclosing
 expression.  For instance, if <code>A</code> is a class, then
 
 <pre class="smallexample">             A a;
-
+     
              ({a;}).Foo ()
 </pre>
  <p class="noindent">constructs a temporary <code>A</code> object to hold the result of the
-statement expression, and that is used to invoke <code>Foo</code>.
+statement expression, and that is used to invoke <code>Foo</code>. 
 Therefore the <code>this</code> pointer observed by <code>Foo</code> is not the
 address of <code>a</code>.
 
@@ -122,7 +122,7 @@ the statement expression.  For instance,
 
 <pre class="smallexample">     #define macro(a)  ({__typeof__(a) b = (a); b + 3; })
      template&lt;typename T&gt; T function(T a) { T b = a; return b + 3; }
-
+     
      void foo ()
      {
        macro (X ());
@@ -144,7 +144,7 @@ bug.)
 <code>switch</code> statement outside the statement expression with a
 <code>case</code> or <code>default</code> label inside the statement expression is
 not permitted.  Jumping into a statement expression with a computed
-<code>goto</code> (see <a href="Labels-as-Values.html#Labels-as-Values">Labels as Values</a>) has undefined behavior.
+<code>goto</code> (see <a href="Labels-as-Values.html#Labels-as-Values">Labels as Values</a>) has undefined behavior. 
 Jumping out of a statement expression is permitted, but if the
 statement expression is part of a larger expression then it is
 unspecified which other subexpressions of that expression have been
@@ -161,3 +161,4 @@ may or may not call <code>bar2</code>.  If <code>bar2</code> is called, it is
 called after <code>foo</code> and before <code>bar1</code>.
 
  </body></html>
+

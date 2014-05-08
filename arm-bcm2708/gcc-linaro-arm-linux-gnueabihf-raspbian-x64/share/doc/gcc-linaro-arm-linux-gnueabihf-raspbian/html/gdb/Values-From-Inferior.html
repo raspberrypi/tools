@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -91,7 +91,7 @@ execute this function, call it like so:
 &mdash; Variable: <b>Value.address</b><var><a name="index-Value_002eaddress-1771"></a></var><br>
 <blockquote><p>If this object is addressable, this read-only attribute holds a
 <code>gdb.Value</code> object representing the address.  Otherwise,
-this attribute holds <code>None</code>.
+this attribute holds <code>None</code>. 
 </p></blockquote></div>
 
    <p><a name="index-optimized-out-value-in-Python-1772"></a>
@@ -99,13 +99,13 @@ this attribute holds <code>None</code>.
 <div class="defun">
 &mdash; Variable: <b>Value.is_optimized_out</b><var><a name="index-Value_002eis_005foptimized_005fout-1773"></a></var><br>
 <blockquote><p>This read-only boolean attribute is true if the compiler optimized out
-this value, thus it is not available for fetching from the inferior.
+this value, thus it is not available for fetching from the inferior. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Value.type</b><var><a name="index-Value_002etype-1774"></a></var><br>
 <blockquote><p>The type of this <code>gdb.Value</code>.  The value of this attribute is a
-<code>gdb.Type</code> object (see <a href="Types-In-Python.html#Types-In-Python">Types In Python</a>).
+<code>gdb.Type</code> object (see <a href="Types-In-Python.html#Types-In-Python">Types In Python</a>). 
 </p></blockquote></div>
 
 <div class="defun">
@@ -122,21 +122,21 @@ type.
         <p>Note that this feature will only work when debugging a C<tt>++</tt> program
 that includes <acronym>RTTI</acronym> for the object in question.  Otherwise,
 it will just return the static type of the value as in <kbd>ptype foo</kbd>
-(see <a href="Symbols.html#Symbols">ptype</a>).
+(see <a href="Symbols.html#Symbols">ptype</a>). 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Value.is_lazy</b><var><a name="index-Value_002eis_005flazy-1776"></a></var><br>
 <blockquote><p>The value of this read-only boolean attribute is <code>True</code> if this
-<code>gdb.Value</code> has not yet been fetched from the inferior.
-<span class="sc">gdb</span> does not fetch values until necessary, for efficiency.
+<code>gdb.Value</code> has not yet been fetched from the inferior. 
+<span class="sc">gdb</span> does not fetch values until necessary, for efficiency. 
 For example:
 
      <pre class="smallexample">          myval = gdb.parse_and_eval ('somevar')
 </pre>
         <p>The value of <code>somevar</code> is not fetched at this time.  It will be
 fetched when the value is needed, or when the <code>fetch_lazy</code>
-method is invoked.
+method is invoked. 
 </p></blockquote></div>
 
    <p>The following methods are provided:
@@ -165,7 +165,7 @@ target encoding.
           <br><dt><code>gdb.Value</code><dd>If <code>val</code> is a <code>gdb.Value</code>, then a copy of the value is made.
 
           <br><dt><code>gdb.LazyString</code><dd>If <code>val</code> is a <code>gdb.LazyString</code> (see <a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">Lazy Strings In Python</a>), then the lazy string's <code>value</code> method is called, and
-its result is used.
+its result is used. 
 </dl>
         </p></blockquote></div>
 
@@ -174,7 +174,7 @@ its result is used.
 <blockquote><p>Return a new instance of <code>gdb.Value</code> that is the result of
 casting this instance to the type described by <var>type</var>, which must
 be a <code>gdb.Type</code> object.  If the cast cannot be performed for some
-reason, this method throws an exception.
+reason, this method throws an exception. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -229,7 +229,7 @@ to the corresponding C value.  For those cases where applying both
 the results obtained need not be identical (as we have seen in the above
 example).  The results are however identical when applied on
 <code>gdb.Value</code> objects corresponding to pointers (<code>gdb.Value</code>
-objects with type code <code>TYPE_CODE_PTR</code>) in a C/C<tt>++</tt> program.
+objects with type code <code>TYPE_CODE_PTR</code>) in a C/C<tt>++</tt> program. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -256,19 +256,19 @@ identical to that corresponding to <code>val</code>.
           py_val = py_ref.referenced_value ()  # Returns the referenced value
 </pre>
         <p>The <code>gdb.Value</code> object <code>py_val</code> is identical to that
-corresponding to <code>val</code>.
+corresponding to <code>val</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Value.dynamic_cast</b> (<var>type</var>)<var><a name="index-Value_002edynamic_005fcast-1781"></a></var><br>
 <blockquote><p>Like <code>Value.cast</code>, but works as if the C<tt>++</tt> <code>dynamic_cast</code>
-operator were used.  Consult a C<tt>++</tt> reference for details.
+operator were used.  Consult a C<tt>++</tt> reference for details. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Value.reinterpret_cast</b> (<var>type</var>)<var><a name="index-Value_002ereinterpret_005fcast-1782"></a></var><br>
 <blockquote><p>Like <code>Value.cast</code>, but works as if the C<tt>++</tt> <code>reinterpret_cast</code>
-operator were used.  Consult a C<tt>++</tt> reference for details.
+operator were used.  Consult a C<tt>++</tt> reference for details. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -301,7 +301,7 @@ will be used, if the current language is able to supply one.
 argument to Python's <code>string.decode</code> method.
 
         <p>If the optional <var>length</var> argument is given, the string will be
-fetched and converted to the given length.
+fetched and converted to the given length. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -325,7 +325,7 @@ please see <a href="Character-Sets.html#Character-Sets">Character Sets</a>.
         <p>If the optional <var>length</var> argument is given, the string will be
 fetched and encoded to the length of characters specified.  If
 the <var>length</var> argument is not provided, the string will be fetched
-and encoded until a null of appropriate width is found.
+and encoded until a null of appropriate width is found. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -338,7 +338,8 @@ will produce a Python exception.
         <p>If the <code>gdb.Value</code> object is not a lazy value, this method
 has no effect.
 
-        <p>This method does not return a value.
+        <p>This method does not return a value. 
 </p></blockquote></div>
 
    </body></html>
+

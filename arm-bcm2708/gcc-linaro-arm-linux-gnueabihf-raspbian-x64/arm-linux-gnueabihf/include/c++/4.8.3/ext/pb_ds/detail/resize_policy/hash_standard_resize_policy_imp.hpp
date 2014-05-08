@@ -40,20 +40,20 @@
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-hash_standard_resize_policy()
+hash_standard_resize_policy() 
 : m_size(Size_Policy::get_nearest_larger_size(1))
 { trigger_policy_base::notify_externally_resized(m_size); }
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-hash_standard_resize_policy(const Size_Policy& r_size_policy)
+hash_standard_resize_policy(const Size_Policy& r_size_policy) 
 : Size_Policy(r_size_policy), m_size(Size_Policy::get_nearest_larger_size(1))
 { trigger_policy_base::notify_externally_resized(m_size); }
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-hash_standard_resize_policy(const Size_Policy& r_size_policy,
-			    const Trigger_Policy& r_trigger_policy)
+hash_standard_resize_policy(const Size_Policy& r_size_policy, 
+			    const Trigger_Policy& r_trigger_policy) 
 : Size_Policy(r_size_policy), Trigger_Policy(r_trigger_policy),
   m_size(Size_Policy::get_nearest_larger_size(1))
 { trigger_policy_base::notify_externally_resized(m_size); }
@@ -224,25 +224,26 @@ do_resize(size_type)
 }
 
 PB_DS_CLASS_T_DEC
-Trigger_Policy&
+Trigger_Policy& 
 PB_DS_CLASS_C_DEC::
 get_trigger_policy()
 { return *this; }
 
 PB_DS_CLASS_T_DEC
-const Trigger_Policy&
+const Trigger_Policy& 
 PB_DS_CLASS_C_DEC::
 get_trigger_policy() const
 { return *this; }
 
 PB_DS_CLASS_T_DEC
-Size_Policy&
+Size_Policy& 
 PB_DS_CLASS_C_DEC::
 get_size_policy()
 { return *this; }
 
 PB_DS_CLASS_T_DEC
-const Size_Policy&
+const Size_Policy& 
 PB_DS_CLASS_C_DEC::
 get_size_policy() const
 { return *this; }
+

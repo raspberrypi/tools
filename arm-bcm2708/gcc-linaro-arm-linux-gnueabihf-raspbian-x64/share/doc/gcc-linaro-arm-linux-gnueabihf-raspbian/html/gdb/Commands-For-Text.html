@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,11 +71,11 @@ how to insert key sequences like <kbd>C-q</kbd>, for example.
 the character at the cursor, moving the
 cursor forward as well.  If the insertion point
 is at the end of the line, then this
-transposes the last two characters of the line.
+transposes the last two characters of the line. 
 Negative arguments have no effect.
 
      <br><dt><code>transpose-words (M-t)</code><a name="index-transpose_002dwords-_0028M_002dt_0029-2505"></a><dd>Drag the word before point past the word after point,
-moving point past that word as well.
+moving point past that word as well. 
 If the insertion point is at the end of the line, this transposes
 the last two words on the line.
 
@@ -91,11 +91,11 @@ capitalize the previous word, but do not move the cursor.
      <br><dt><code>overwrite-mode ()</code><a name="index-overwrite_002dmode-_0028_0029-2509"></a><dd>Toggle overwrite mode.  With an explicit positive numeric argument,
 switches to overwrite mode.  With an explicit non-positive numeric
 argument, switches to insert mode.  This command affects only
-<code>emacs</code> mode; <code>vi</code> mode does overwrite differently.
+<code>emacs</code> mode; <code>vi</code> mode does overwrite differently. 
 Each call to <code>readline()</code> starts in insert mode.
 
      <p>In overwrite mode, characters bound to <code>self-insert</code> replace
-the text at point rather than pushing the text to the right.
+the text at point rather than pushing the text to the right. 
 Characters bound to <code>backward-delete-char</code> replace the character
 before point with a space.
 
@@ -104,3 +104,4 @@ before point with a space.
 </dl>
 
    </body></html>
+

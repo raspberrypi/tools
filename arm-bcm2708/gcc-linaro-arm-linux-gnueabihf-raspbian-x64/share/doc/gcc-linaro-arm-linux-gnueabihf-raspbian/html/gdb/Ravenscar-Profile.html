@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ The <dfn>Ravenscar Profile</dfn> is a subset of the Ada tasking features,
 specifically designed for systems with safety-critical real-time
 requirements.
 
-
+     
 <a name="index-set-ravenscar-task_002dswitching-on-960"></a>
 <a name="index-task-switching-with-program-using-Ravenscar-Profile-961"></a>
 <dl><dt><code>set ravenscar task-switching on</code><dd>Allows task switching when debugging a program that uses the Ravenscar
@@ -61,7 +61,7 @@ Profile.  This is the default.
      <p><a name="index-set-ravenscar-task_002dswitching-off-962"></a><br><dt><code>set ravenscar task-switching off</code><dd>Turn off task switching when debugging a program that uses the Ravenscar
 Profile.  This is mostly intended to disable the code that adds support
 for the Ravenscar Profile, in case a bug in either <span class="sc">gdb</span> or in
-the Ravenscar runtime is preventing <span class="sc">gdb</span> from working properly.
+the Ravenscar runtime is preventing <span class="sc">gdb</span> from working properly. 
 To be effective, this command should be run before the program is started.
 
      <p><a name="index-show-ravenscar-task_002dswitching-963"></a><br><dt><code>show ravenscar task-switching</code><dd>Show whether it is possible to switch from task to task in a program
@@ -70,3 +70,4 @@ using the Ravenscar Profile.
    </dl>
 
    </body></html>
+

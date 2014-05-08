@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,10 +47,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Altering.html#Altering">Altering</a>
 
 <h3 class="section">17.5 Calling Program Functions</h3>
 
-
+     
 <a name="index-calling-functions-1024"></a>
 <a name="index-inferior-functions_002c-calling-1025"></a>
-<dl><dt><code>print </code><var>expr</var><dd>Evaluate the expression <var>expr</var> and display the resulting value.
+<dl><dt><code>print </code><var>expr</var><dd>Evaluate the expression <var>expr</var> and display the resulting value. 
 <var>expr</var> may include calls to functions in the program being
 debugged.
 
@@ -62,7 +62,7 @@ execute a function from your program that does not return anything
 (a.k.a. <dfn>a void function</dfn>), but without cluttering the output
 with <code>void</code> returned values that <span class="sc">gdb</span> will otherwise
 print.  If the result is not void, it is printed and saved in the
-value history.
+value history. 
 </dl>
 
    <p>It is possible for the function you call via the <code>print</code> or
@@ -106,9 +106,10 @@ the default C<tt>++</tt> exception handler and the inferior terminated.
    <p><a name="index-weak-alias-functions-1035"></a>Sometimes, a function you wish to call is actually a <dfn>weak alias</dfn>
 for another function.  In such case, <span class="sc">gdb</span> might not pick up
 the type information, including the types of the function arguments,
-which causes <span class="sc">gdb</span> to call the inferior function incorrectly.
+which causes <span class="sc">gdb</span> to call the inferior function incorrectly. 
 As a result, the called function will function erroneously and may
 even crash.  A solution to that is to use the name of the aliased
 function instead.
 
    </body></html>
+

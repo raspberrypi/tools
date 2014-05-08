@@ -39,7 +39,7 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
    the GNU userspace magical crtbegin.o file (see crtstuff.c) which
    provides part of the support for getting C++ file-scope static
    object constructed before entering `main'.  */
-
+   
 #if defined HAVE_LD_PIE
 #define GNU_USER_TARGET_STARTFILE_SPEC \
   "%{!shared: %{pg|p|profile:gcrt1.o%s;pie:Scrt1.o%s;:crt1.o%s}} \

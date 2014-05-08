@@ -28,7 +28,7 @@ class _GdbFile (object):
     # These two are needed in Python 3
     encoding = "UTF-8"
     errors = "strict"
-
+    
     def close(self):
         # Do nothing.
         return None

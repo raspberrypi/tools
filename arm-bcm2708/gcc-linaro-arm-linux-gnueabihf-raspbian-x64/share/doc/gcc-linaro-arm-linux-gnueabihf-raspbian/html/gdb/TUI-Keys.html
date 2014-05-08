@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,16 +49,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TUI.html#TUI">TUI</a>
 
 <p><a name="index-TUI-key-bindings-2191"></a>
 The TUI installs several key bindings in the readline keymaps
-(see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>).
+(see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>). 
 The following key bindings are installed for both TUI mode and the
 <span class="sc">gdb</span> standard mode.
 
-
+     
 <a name="index-C_002dx-C_002da-2192"></a>
 <dl><dt><kbd>C-x C-a</kbd><dd><a name="index-C_002dx-a-2193"></a><dt><kbd>C-x a</kbd><dd><a name="index-C_002dx-A-2194"></a><dt><kbd>C-x A</kbd><dd>Enter or leave the TUI mode.  When leaving the TUI mode,
 the curses window management stops and <span class="sc">gdb</span> operates using
 its standard mode, writing on the terminal directly.  When reentering
-the TUI mode, control is given back to the curses windows.
+the TUI mode, control is given back to the curses windows. 
 The screen is then refreshed.
 
      <p><a name="index-C_002dx-1-2195"></a><br><dt><kbd>C-x 1</kbd><dd>Use a TUI layout with only one window.  The layout will
@@ -68,7 +68,7 @@ is not active, it will switch to the TUI mode.
      <p>Think of this key binding as the Emacs <kbd>C-x 1</kbd> binding.
 
      <p><a name="index-C_002dx-2-2196"></a><br><dt><kbd>C-x 2</kbd><dd>Use a TUI layout with at least two windows.  When the current
-layout already has two windows, the next layout with two windows is used.
+layout already has two windows, the next layout with two windows is used. 
 When a new layout is chosen, one window will always be common to the
 previous layout and the new one.
 
@@ -81,12 +81,12 @@ gives the focus to the next TUI window.
      <p>Think of it as the Emacs <kbd>C-x o</kbd> binding.
 
      <p><a name="index-C_002dx-s-2198"></a><br><dt><kbd>C-x s</kbd><dd>Switch in and out of the TUI SingleKey mode that binds single
-keys to <span class="sc">gdb</span> commands (see <a href="TUI-Single-Key-Mode.html#TUI-Single-Key-Mode">TUI Single Key Mode</a>).
+keys to <span class="sc">gdb</span> commands (see <a href="TUI-Single-Key-Mode.html#TUI-Single-Key-Mode">TUI Single Key Mode</a>). 
 </dl>
 
    <p>The following key bindings only work in the TUI mode:
 
-
+     
 <a name="index-PgUp-2199"></a>
 <dl><dt>&lt;PgUp&gt;<dd>Scroll the active window one page up.
 
@@ -100,7 +100,7 @@ keys to <span class="sc">gdb</span> commands (see <a href="TUI-Single-Key-Mode.h
 
      <p><a name="index-Right-2204"></a><br><dt>&lt;Right&gt;<dd>Scroll the active window one column right.
 
-     <p><a name="index-C_002dL-2205"></a><br><dt><kbd>C-L</kbd><dd>Refresh the screen.
+     <p><a name="index-C_002dL-2205"></a><br><dt><kbd>C-L</kbd><dd>Refresh the screen. 
 </dl>
 
    <p>Because the arrow keys scroll the active window in the TUI mode, they
@@ -110,3 +110,4 @@ other readline key bindings such as <kbd>C-p</kbd>, <kbd>C-n</kbd>, <kbd>C-b</kb
 and <kbd>C-f</kbd> to control the command window.
 
    </body></html>
+

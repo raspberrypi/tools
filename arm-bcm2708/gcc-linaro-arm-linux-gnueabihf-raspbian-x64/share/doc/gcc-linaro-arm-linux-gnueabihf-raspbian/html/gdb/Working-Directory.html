@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Running.html#Running">Running</a>
 <h3 class="section">4.5 Your Program's Working Directory</h3>
 
 <p><a name="index-working-directory-_0028of-your-program_0029-125"></a>Each time you start your program with <code>run</code>, it inherits its
-working directory from the current working directory of <span class="sc">gdb</span>.
+working directory from the current working directory of <span class="sc">gdb</span>. 
 The <span class="sc">gdb</span> working directory is initially whatever it inherited
 from its parent process (typically the shell), but you can specify a new
 working directory in <span class="sc">gdb</span> with the <code>cd</code> command.
@@ -56,13 +56,13 @@ working directory in <span class="sc">gdb</span> with the <code>cd</code> comman
    <p>The <span class="sc">gdb</span> working directory also serves as a default for the commands
 that specify files for <span class="sc">gdb</span> to operate on.  See <a href="Files.html#Files">Commands to Specify Files</a>.
 
-
+     
 <a name="index-cd-126"></a>
 <a name="index-change-working-directory-127"></a>
 <dl><dt><code>cd </code><span class="roman">[</span><var>directory</var><span class="roman">]</span><dd>Set the <span class="sc">gdb</span> working directory to <var>directory</var>.  If not
 given, <var>directory</var> uses <samp><span class="file">'~'</span></samp>.
 
-     <p><a name="index-pwd-128"></a><br><dt><code>pwd</code><dd>Print the <span class="sc">gdb</span> working directory.
+     <p><a name="index-pwd-128"></a><br><dt><code>pwd</code><dd>Print the <span class="sc">gdb</span> working directory. 
 </dl>
 
    <p>It is generally impossible to find the current working directory of
@@ -73,3 +73,4 @@ proc</code> command (see <a href="SVR4-Process-Information.html#SVR4-Process-Inf
 current working directory of the debuggee.
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -76,10 +76,10 @@ reader is being unloaded (<code>destroy</code>).  The struct looks like this
      {
        /* Must be set to GDB_READER_INTERFACE_VERSION.  */
        int reader_version;
-
+     
        /* For use by the reader.  */
        void *priv_data;
-
+     
        gdb_read_debug_info *read;
        gdb_unwind_frame *unwind;
        gdb_get_frame_id *get_frame_id;
@@ -90,7 +90,7 @@ reader is being unloaded (<code>destroy</code>).  The struct looks like this
 The callbacks are provided with another set of callbacks by
 <span class="sc">gdb</span> to do their job.  For <code>read</code>, these callbacks are
 passed in a <code>struct gdb_symbol_callbacks</code> and for <code>unwind</code>
-and <code>get_frame_id</code>, in a <code>struct gdb_unwind_callbacks</code>.
+and <code>get_frame_id</code>, in a <code>struct gdb_unwind_callbacks</code>. 
 <code>struct gdb_symbol_callbacks</code> has callbacks to create new object
 files and new symbol tables inside those object files.  <code>struct
 gdb_unwind_callbacks</code> has callbacks to read registers off the current
@@ -99,3 +99,4 @@ frame.  Both have a callback (<code>target_read</code>) to read bytes off the
 target's address space.
 
    </body></html>
+

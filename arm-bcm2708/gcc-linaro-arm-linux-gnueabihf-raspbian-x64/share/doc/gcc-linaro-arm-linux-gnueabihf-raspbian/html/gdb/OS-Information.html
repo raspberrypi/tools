@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,14 +56,14 @@ startup.  This is akin to the arguments and environment that you
 specify for a program, but contains a system-dependent variety of
 binary values that tell system libraries important details about the
 hardware, operating system, and process.  Each value's purpose is
-identified by an integer tag; the meanings are well-known but system-specific.
+identified by an integer tag; the meanings are well-known but system-specific. 
 Depending on the configuration and operating system facilities,
 <span class="sc">gdb</span> may be able to show you this information.  For remote
 targets, this functionality may further depend on the remote stub's
 support of the &lsquo;<samp><span class="samp">qXfer:auxv:read</span></samp>&rsquo; packet, see
 <a href="qXfer-auxiliary-vector-read.html#qXfer-auxiliary-vector-read">qXfer auxiliary vector read</a>.
 
-
+     
 <a name="index-info-auxv-664"></a>
 <dl><dt><code>info auxv</code><dd>Display the auxiliary vector of the inferior, which can be either a
 live process or a core dump file.  <span class="sc">gdb</span> prints each tag value
@@ -71,7 +71,7 @@ numerically, and also shows names and text descriptions for recognized
 tags.  Some values in the vector are numbers, some bit masks, and some
 pointers to strings or other data.  <span class="sc">gdb</span> displays each value in the
 most appropriate form for a recognized tag, and in hexadecimal for
-an unrecognized tag.
+an unrecognized tag. 
 </dl>
 
    <p>On some targets, <span class="sc">gdb</span> can access operating system-specific
@@ -82,7 +82,7 @@ target.  The mechanism used to fetch the data is described in
 functionality depends on the remote stub's support of the
 &lsquo;<samp><span class="samp">qXfer:osdata:read</span></samp>&rsquo; packet, see <a href="qXfer-osdata-read.html#qXfer-osdata-read">qXfer osdata read</a>.
 
-
+     
 <a name="index-info-os-665"></a>
 <dl><dt><code>info os </code><var>infotype</var><dd>
 Display OS information of the requested type.
@@ -90,7 +90,7 @@ Display OS information of the requested type.
      <p>On <span class="sc">gnu</span>/Linux, the following values of <var>infotype</var> are valid:
 
      <p><a name="linux-info-os-infotypes"></a>
-
+          
 <a name="index-info-os-processes-666"></a>
 <dl><dt><code>processes</code><dd>Display the list of processes on the target.  For each process,
 <span class="sc">gdb</span> prints the process identifier, the name of the user, the
@@ -124,7 +124,7 @@ remote endpoints, the current state of the connection, the creator of
 the socket, the IP address family of the socket, and the type of the
 connection.
 
-          <p><a name="index-info-os-shm-671"></a><br><dt><code>shm</code><dd>Display the list of all System V shared-memory regions on the target.
+          <p><a name="index-info-os-shm-671"></a><br><dt><code>shm</code><dd>Display the list of all System V shared-memory regions on the target. 
 For each shared-memory region, <span class="sc">gdb</span> prints the region key,
 the shared-memory identifier, the access permissions, the size of the
 region, the process that created the region, the process that last
@@ -151,13 +151,14 @@ the message queue was last changed.
 module, <span class="sc">gdb</span> prints the module name, the size of the module in
 bytes, the number of times the module is used, the dependencies of the
 module, the status of the module, and the address of the loaded module
-in memory.
+in memory. 
 </dl>
 
      <br><dt><code>info os</code><dd>If <var>infotype</var> is omitted, then list the possible values for
 <var>infotype</var> and the kind of OS information available for each
 <var>infotype</var>.  If the target does not return a list of possible
-types, this command will report an error.
+types, this command will report an error. 
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -90,7 +90,7 @@ supported on the CPU specified.  The choices for <var>cpu_type</var> are:
 will automatically use a two byte opcode sequence.  The larger three
 byte opcode sequence is used on the 486 (and when no architecture is
 specified) because it executes faster on the 486.  Note that you can
-explicitly request the two byte opcode by writing &lsquo;<samp><span class="samp">sarl %eax</span></samp>&rsquo;.
+explicitly request the two byte opcode by writing &lsquo;<samp><span class="samp">sarl %eax</span></samp>&rsquo;. 
 Secondly, if you specify &lsquo;<samp><span class="samp">i8086</span></samp>&rsquo;, &lsquo;<samp><span class="samp">i186</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">i286</span></samp>&rsquo;,
 <em>and</em> &lsquo;<samp><span class="samp">.code16</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.code16gcc</span></samp>&rsquo; then byte offset
 conditional jumps will be promoted when necessary to a two instruction
@@ -101,10 +101,10 @@ an unconditional jump to the target.
 starting with a dot), you may specify &lsquo;<samp><span class="samp">jumps</span></samp>&rsquo; or &lsquo;<samp><span class="samp">nojumps</span></samp>&rsquo; to
 control automatic promotion of conditional jumps. &lsquo;<samp><span class="samp">jumps</span></samp>&rsquo; is the
 default, and enables jump promotion;  All external jumps will be of the long
-variety, and file-local jumps will be promoted as necessary.
+variety, and file-local jumps will be promoted as necessary. 
 (see <a href="i386_002dJumps.html#i386_002dJumps">i386-Jumps</a>)  &lsquo;<samp><span class="samp">nojumps</span></samp>&rsquo; leaves external conditional jumps as
 byte offset jumps, and warns about file-local conditional jumps that
-<code>as</code> promotes.
+<code>as</code> promotes. 
 Unconditional jumps are treated as for &lsquo;<samp><span class="samp">jumps</span></samp>&rsquo;.
 
    <p>For example
@@ -112,3 +112,4 @@ Unconditional jumps are treated as for &lsquo;<samp><span class="samp">jumps</sp
 <pre class="smallexample">      .arch i8086,nojumps
 </pre>
    </body></html>
+

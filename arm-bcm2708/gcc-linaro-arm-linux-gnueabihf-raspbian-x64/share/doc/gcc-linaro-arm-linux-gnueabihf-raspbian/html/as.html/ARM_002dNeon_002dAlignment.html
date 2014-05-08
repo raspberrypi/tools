@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="ARM-Syntax.html#ARM-Syntax">ARM Syntax<
 <h5 class="subsubsection">9.4.2.5 NEON Alignment Specifiers</h5>
 
 <p><a name="index-alignment-for-NEON-instructions-649"></a>Some NEON load/store instructions allow an optional address
-alignment qualifier.
+alignment qualifier. 
 The ARM documentation specifies that this is indicated by
 &lsquo;<samp><span class="samp">@ </span><var>align</var></samp>&rsquo;. However GAS already interprets
 the &lsquo;<samp><span class="samp">@</span></samp>&rsquo; character as a "line comment" start,
@@ -56,3 +56,4 @@ so &lsquo;<samp><span class="samp">: </span><var>align</var></samp>&rsquo; is us
 <pre class="smallexample">             vld1.8 {q0}, [r0, :128]
 </pre>
    </body></html>
+

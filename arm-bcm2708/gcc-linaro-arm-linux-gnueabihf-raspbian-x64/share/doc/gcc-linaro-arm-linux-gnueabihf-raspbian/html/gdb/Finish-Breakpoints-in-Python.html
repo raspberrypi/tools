@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,8 +51,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 A finish breakpoint is a temporary breakpoint set at the return address of
 a frame, based on the <code>finish</code> command.  <code>gdb.FinishBreakpoint</code>
 extends <code>gdb.Breakpoint</code>.  The underlying breakpoint will be disabled
-and deleted when the execution will run out of the breakpoint scope (i.e.
-<code>Breakpoint.stop</code> or <code>FinishBreakpoint.out_of_scope</code> triggered).
+and deleted when the execution will run out of the breakpoint scope (i.e. 
+<code>Breakpoint.stop</code> or <code>FinishBreakpoint.out_of_scope</code> triggered). 
 Finish breakpoints are thread specific and must be create with the right
 thread selected.
 
@@ -62,7 +62,7 @@ thread selected.
 object <var>frame</var>.  If <var>frame</var> is not provided, this defaults to the
 newest frame.  The optional <var>internal</var> argument allows the breakpoint to
 become invisible to the user.  See <a href="Breakpoints-In-Python.html#Breakpoints-In-Python">Breakpoints In Python</a>, for further
-details about this argument.
+details about this argument. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -79,7 +79,7 @@ method:
               def stop (self):
                   print "normal finish"
                   return True
-
+          
               def out_of_scope ():
                   print "abnormal finish"
 </pre>
@@ -92,7 +92,8 @@ used to build the <code>gdb.FinishBreakpoint</code> object had debug symbols, th
 attribute will contain a <code>gdb.Value</code> object corresponding to the return
 value of the function.  The value will be <code>None</code> if the function return
 type is <code>void</code> or if the return value was not computable.  This attribute
-is not writable.
+is not writable. 
 </p></blockquote></div>
 
    </body></html>
+

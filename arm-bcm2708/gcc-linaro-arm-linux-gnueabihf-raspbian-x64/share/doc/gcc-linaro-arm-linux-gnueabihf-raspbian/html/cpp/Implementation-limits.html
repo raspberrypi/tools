@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ consumed by other processes on the same computer, etc.
      <ul>
 <li>Nesting levels of &lsquo;<samp><span class="samp">#include</span></samp>&rsquo; files.
 
-     <p>We impose an arbitrary limit of 200 levels, to avoid runaway recursion.
+     <p>We impose an arbitrary limit of 200 levels, to avoid runaway recursion. 
 The standard requires at least 15 levels.
 
      <li>Nesting levels of conditional inclusion.
@@ -111,10 +111,11 @@ diagnostics for lines longer than 65,535 characters.
 
      <p>The standard does not specify any lower limit on the maximum size of a
 source file.  GNU cpp maps files into memory, so it is limited by the
-available address space.  This is generally at least two gigabytes.
+available address space.  This is generally at least two gigabytes. 
 Depending on the operating system, the size of physical memory may or
 may not be a limitation.
 
    </ul>
 
    </body></html>
+

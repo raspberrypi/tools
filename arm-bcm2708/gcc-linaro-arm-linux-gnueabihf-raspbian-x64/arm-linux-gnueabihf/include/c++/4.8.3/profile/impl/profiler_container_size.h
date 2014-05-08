@@ -40,12 +40,12 @@ namespace __gnu_profile
 {
   /** @brief A container size instrumentation line in the object table.  */
   class __container_size_info
-  : public __object_info_base
+  : public __object_info_base 
   {
   public:
     __container_size_info()
     : _M_init(0), _M_max(0), _M_min(0), _M_total(0), _M_item_min(0),
-      _M_item_max(0), _M_item_total(0), _M_count(0), _M_resize(0), _M_cost(0)
+      _M_item_max(0), _M_item_total(0), _M_count(0), _M_resize(0), _M_cost(0) 
     { }
 
     __container_size_info(const __container_size_info& __o)
@@ -67,7 +67,7 @@ namespace __gnu_profile
     void
     __write(FILE* __f) const
     {
-      std::fprintf(__f, "%Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu\n",
+      std::fprintf(__f, "%Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu %Zu\n", 
 		   _M_init, _M_count, _M_cost, _M_resize, _M_min, _M_max,
 		   _M_total, _M_item_min, _M_item_max, _M_item_total);
     }
@@ -109,7 +109,7 @@ namespace __gnu_profile
       _M_item_max = std::max(_M_item_max, __inum);
       if (_M_min == 0)
 	{
-	  _M_min = __num;
+	  _M_min = __num; 
 	  _M_item_min = __inum;
 	}
       else
@@ -122,7 +122,7 @@ namespace __gnu_profile
       _M_count += 1;
     }
 
-    // Estimate the cost of resize/rehash.
+    // Estimate the cost of resize/rehash. 
     float
     __resize_cost(std::size_t __from, std::size_t)
     { return __from; }
@@ -159,10 +159,10 @@ namespace __gnu_profile
     : __container_size_info(__o) { }
   };
 
-
+  
   /** @brief Container size instrumentation trace producer.  */
   class __trace_container_size
-  : public __trace_base<__container_size_info, __container_size_stack_info>
+  : public __trace_base<__container_size_info, __container_size_stack_info> 
   {
   public:
     ~__trace_container_size() { }
@@ -170,7 +170,7 @@ namespace __gnu_profile
     __trace_container_size()
     : __trace_base<__container_size_info, __container_size_stack_info>() { };
 
-    // Insert a new node at construct with object, callstack and initial size.
+    // Insert a new node at construct with object, callstack and initial size. 
     void
     __insert(const __object_t __obj, __stack_t __stack, std::size_t __num)
     { __add_object(__obj, __container_size_info(__stack, __num)); }
@@ -178,7 +178,7 @@ namespace __gnu_profile
     // XXX Undefined?
     void
     __construct(const void* __obj, std::size_t __inum);
-
+  
     // Call at destruction/clean to set container final size.
     void
     __destruct(const void* __obj, std::size_t __num, std::size_t __inum)

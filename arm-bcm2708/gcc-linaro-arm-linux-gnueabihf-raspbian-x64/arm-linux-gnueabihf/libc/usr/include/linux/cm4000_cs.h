@@ -31,9 +31,9 @@ typedef struct atreq {
 
 typedef struct ptsreq {
 	__u32 protocol; /*T=0: 2^0, T=1:  2^1*/
-	unsigned char flags;
-	unsigned char pts1;
-	unsigned char pts2;
+ 	unsigned char flags;
+ 	unsigned char pts1;
+ 	unsigned char pts2;
 	unsigned char pts3;
 } ptsreq_t;
 

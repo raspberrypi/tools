@@ -22,7 +22,7 @@ import sys
 if sys.version_info[0] > 2:
     # Python 3 renamed raw_input to input
     raw_input = input
-
+    
 class Explorer(object):
     """Internal class which invokes other explorers."""
 
@@ -161,7 +161,7 @@ class Explorer(object):
         is returning to the parent value. Useful when exploring values.
         """
         print ("\nReturning to parent value...\n")
-
+        
     @staticmethod
     def return_to_parent_value_prompt():
         """A utility function which prompts the user to press the 'enter' key
@@ -169,14 +169,14 @@ class Explorer(object):
         Useful when exploring values.
         """
         raw_input("\nPress enter to return to parent value: ")
-
+        
     @staticmethod
     def return_to_enclosing_type():
         """A utility function which prints that the current exploration session
         is returning to the enclosing type.  Useful when exploring types.
         """
         print ("\nReturning to enclosing type...\n")
-
+        
     @staticmethod
     def return_to_enclosing_type_prompt():
         """A utility function which prompts the user to press the 'enter' key
@@ -257,7 +257,7 @@ class PointerExplorer(object):
             Explorer.explore_expr("*%s" % Explorer.guard_expr(expr),
                                   deref_value, is_child)
             return False
-
+        
         option  = raw_input("Continue exploring it as a pointer to an "
                             "array [y/n]: ")
         if option == "y":
@@ -346,7 +346,7 @@ class ArrayExplorer(object):
             print ("Cannot read value at index %d." % index)
             raw_input("Press enter to continue... ")
             return True
-
+            
         Explorer.explore_expr("%s[%d]" % (Explorer.guard_expr(expr), index),
                               element, True)
         return True
@@ -525,12 +525,12 @@ class CompoundExplorer(object):
             choice = raw_input("Enter the field number of choice: ")
             if choice in choice_to_compound_field_map:
                 if is_child:
-                    new_name = ("%s '%s' of %s" %
+                    new_name = ("%s '%s' of %s" % 
                                 (choice_to_compound_field_map[choice][2],
                                  choice_to_compound_field_map[choice][0],
                                  name))
                 else:
-                    new_name = ("%s '%s' of '%s'" %
+                    new_name = ("%s '%s' of '%s'" % 
                                 (choice_to_compound_field_map[choice][2],
                                  choice_to_compound_field_map[choice][0],
                                  name))
@@ -545,7 +545,7 @@ class CompoundExplorer(object):
                 Explorer.return_to_enclosing_type_prompt()
 
         return False
-
+           
 
 class TypedefExplorer(object):
     """Internal class used to explore values whose type is a typedef."""
@@ -697,7 +697,7 @@ class ExploreValueCommand(gdb.Command):
          - At any stage of exploration, hit the return key (instead of a
            choice, if any) to return to the enclosing value.
     """
-
+ 
     def __init__(self):
         super(ExploreValueCommand, self).__init__(
             name = "explore value", command_class = gdb.COMMAND_DATA)
@@ -717,7 +717,7 @@ class ExploreValueCommand(gdb.Command):
         Explorer.explore_expr(arg_str, value, False)
 
 
-class ExploreTypeCommand(gdb.Command):
+class ExploreTypeCommand(gdb.Command):            
     """Explore a type or the type of an expression valid in the current
        context.
 

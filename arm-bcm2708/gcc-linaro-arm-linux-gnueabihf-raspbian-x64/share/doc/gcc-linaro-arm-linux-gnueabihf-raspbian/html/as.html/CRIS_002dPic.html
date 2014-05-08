@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ is entered, or a PC-relative value, or a value relative to the
 start of the global offset table.  All symbol suffixes start
 with the character &lsquo;<samp><span class="samp">:</span></samp>&rsquo; (omitted in the list below).  Every
 symbol use in code or a read-only section must therefore have a
-PIC suffix to enable a useful shared library to be created.
+PIC suffix to enable a useful shared library to be created. 
 Usually, these constructs must not be used with an additive
 constant offset as is usually allowed, i.e. no 4 as in
 <code>symbol + 4</code> is allowed.  This restriction is checked at
@@ -74,7 +74,7 @@ link-time, not at assembly-time.
 <dt><code>GOT</code><dd>
 Attaching this suffix to a symbol in an instruction causes the
 symbol to be entered into the global offset table.  The value is
-a 32-bit index for that symbol into the global offset table.
+a 32-bit index for that symbol into the global offset table. 
 The name of the corresponding relocation is
 &lsquo;<samp><span class="samp">R_CRIS_32_GOT</span></samp>&rsquo;.  Example: <code>move.d
 [$r0+extsym:GOT],$r9</code>
@@ -95,8 +95,8 @@ procedure linkage table.  This arrangement causes the run-time
 symbol resolver to be called to look up and set the value of the
 symbol the first time the function is called (at latest;
 depending environment variables).  It is only safe to leave the
-symbol unresolved this way if all references are function calls.
-The name of the relocation is &lsquo;<samp><span class="samp">R_CRIS_32_PLT_PCREL</span></samp>&rsquo;.
+symbol unresolved this way if all references are function calls. 
+The name of the relocation is &lsquo;<samp><span class="samp">R_CRIS_32_PLT_PCREL</span></samp>&rsquo;. 
 Example: <code>add.d fnname:PLT,$pc</code>
 
      <br><dt><code>PLTG</code><dd>
@@ -125,8 +125,9 @@ relocation name is &lsquo;<samp><span class="samp">R_CRIS_16_GOTPLT</span></samp
 This suffix must only be attached to a local symbol, but may be
 used in an expression adding an offset.  The value is the
 address of the symbol relative to the start of the global offset
-table.  The relocation name is &lsquo;<samp><span class="samp">R_CRIS_32_GOTREL</span></samp>&rsquo;.
+table.  The relocation name is &lsquo;<samp><span class="samp">R_CRIS_32_GOTREL</span></samp>&rsquo;. 
 Example: <code>move.d [$r0+localsym:GOTOFF],r3</code>
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -115,7 +115,7 @@ to refer to local variables in frames enclosing the selected frame:
        else
          process (a);    /* Stop here */
      }
-
+     
      int
      bar (int a)
      {
@@ -139,16 +139,16 @@ when the program stops after executing the call <code>bar(0)</code>:
 </pre>
    <p><a name="index-C_0040t_007b_002b_002b_007d-scope-resolution-547"></a>These uses of &lsquo;<samp><span class="samp">::</span></samp>&rsquo; are very rarely in conflict with the very similar
 use of the same notation in C<tt>++</tt>.  <span class="sc">gdb</span> also supports use of the C<tt>++</tt>
-scope resolution operator in <span class="sc">gdb</span> expressions.
+scope resolution operator in <span class="sc">gdb</span> expressions. 
 <!-- FIXME: Um, so what happens in one of those rare cases where it's in -->
 <!-- conflict??  -mew -->
 
    <p><a name="index-wrong-values-548"></a><a name="index-variable-values_002c-wrong-549"></a><a name="index-function-entry_002fexit_002c-wrong-values-of-variables-550"></a><a name="index-optimized-code_002c-wrong-values-of-variables-551"></a><blockquote>
 <em>Warning:</em> Occasionally, a local variable may appear to have the
 wrong value at certain points in a function&mdash;just after entry to a new
-scope, and just before exit.
+scope, and just before exit. 
 </blockquote>
-   You may see this problem when you are stepping by machine instructions.
+   You may see this problem when you are stepping by machine instructions. 
 This is because, on most machines, it takes more than one instruction to
 set up a stack frame (including local variable definitions); if you are
 stepping by machine instructions, variables may appear to have the wrong
@@ -157,7 +157,7 @@ also takes more than one machine instruction to destroy a stack frame;
 after you begin stepping through that group of instructions, local
 variable definitions may be gone.
 
-   <p>This may also happen when the compiler does significant optimizations.
+   <p>This may also happen when the compiler does significant optimizations. 
 To be sure of always seeing accurate values, turn off all optimization
 when compiling.
 
@@ -183,7 +183,7 @@ type&gt;</span></samp>&rsquo;.  See <a href="Symbols.html#Symbols">incomplete ty
 
    <p>If you append <kbd>@entry</kbd> string to a function parameter name you get its
 value at the time the function got called.  If the value is not available an
-error message is printed.  Entry values are available only with some compilers.
+error message is printed.  Entry values are available only with some compilers. 
 Entry values are normally also printed at the function parameter list according
 to <a href="set-print-entry_002dvalues.html#set-print-entry_002dvalues">set print entry-values</a>.
 
@@ -200,7 +200,7 @@ to <a href="set-print-entry_002dvalues.html#set-print-entry_002dvalues">set prin
 signedness.  Arrays of either <code>signed char</code> or <code>unsigned char</code> get
 printed as arrays of 1 byte sized integers.  <code>-fsigned-char</code> or
 <code>-funsigned-char</code> <span class="sc">gcc</span> options have no effect as <span class="sc">gdb</span>
-defines literal string type <code>"char"</code> as <code>char</code> without a sign.
+defines literal string type <code>"char"</code> as <code>char</code> without a sign. 
 For program code
 
 <pre class="smallexample">     char var0[] = "A";
@@ -213,3 +213,4 @@ For program code
      $2 = {65 'A', 0 '\0'}
 </pre>
    </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 understands the <code>mmo</code> format.  The binutils <code>objcopy</code> utility
 can translate between the two formats.
 
-   <p>There is one special section, the &lsquo;<samp><span class="samp">.MMIX.reg_contents</span></samp>&rsquo; section.
+   <p>There is one special section, the &lsquo;<samp><span class="samp">.MMIX.reg_contents</span></samp>&rsquo; section. 
 Contents in this section is assumed to correspond to that of global
 registers, and symbols referring to it are translated to special symbols,
 equal to registers.  In a final link, the start address of the
@@ -62,7 +62,7 @@ this section; it is always set to the program entry, which is at the
 symbol <code>Main</code> for <code>mmo</code> files.
 
    <p>Global symbols with the prefix <code>__.MMIX.start.</code>, for example
-<code>__.MMIX.start..text</code> and <code>__.MMIX.start..data</code> are special.
+<code>__.MMIX.start..text</code> and <code>__.MMIX.start..data</code> are special. 
 The default linker script uses these to set the default start address
 of a section.
 
@@ -70,3 +70,4 @@ of a section.
 are left out from an mmo file.
 
    </body></html>
+

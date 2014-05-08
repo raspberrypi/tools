@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,9 +77,9 @@ of 64 bits makes the <code>long double</code> type equivalent to the <code>doubl
 type. This is the default.
 
      <br><dt><code>-mbackchain</code><dt><code>-mno-backchain</code><dd><a name="index-mbackchain-2086"></a><a name="index-mno_002dbackchain-2087"></a>Store (do not store) the address of the caller's frame as backchain pointer
-into the callee's stack frame.
+into the callee's stack frame. 
 A backchain may be needed to allow debugging using tools that do not understand
-DWARF 2 call frame information.
+DWARF 2 call frame information. 
 When <samp><span class="option">-mno-packed-stack</span></samp> is in effect, the backchain pointer is stored
 at the bottom of the stack frame; when <samp><span class="option">-mpacked-stack</span></samp> is in effect,
 the backchain is placed into the topmost word of the 96/160 byte register
@@ -96,10 +96,10 @@ to build a linux kernel use <samp><span class="option">-msoft-float</span></samp
 
      <br><dt><code>-mpacked-stack</code><dt><code>-mno-packed-stack</code><dd><a name="index-mpacked_002dstack-2088"></a><a name="index-mno_002dpacked_002dstack-2089"></a>Use (do not use) the packed stack layout.  When <samp><span class="option">-mno-packed-stack</span></samp> is
 specified, the compiler uses the all fields of the 96/160 byte register save
-area only for their default purpose; unused fields still take up stack space.
+area only for their default purpose; unused fields still take up stack space. 
 When <samp><span class="option">-mpacked-stack</span></samp> is specified, register save slots are densely
 packed at the top of the register save area; unused space is reused for other
-purposes, allowing for more efficient use of the available stack space.
+purposes, allowing for more efficient use of the available stack space. 
 However, when <samp><span class="option">-mbackchain</span></samp> is also in effect, the topmost word of
 the save area is always used to store the backchain, and the return address
 register is always saved two words below the backchain.
@@ -117,7 +117,7 @@ to build a linux kernel use <samp><span class="option">-msoft-float</span></samp
      <p>The default is to not use the packed stack layout.
 
      <br><dt><code>-msmall-exec</code><dt><code>-mno-small-exec</code><dd><a name="index-msmall_002dexec-2090"></a><a name="index-mno_002dsmall_002dexec-2091"></a>Generate (or do not generate) code using the <code>bras</code> instruction
-to do subroutine calls.
+to do subroutine calls. 
 This only works reliably if the total executable size does not
 exceed 64k.  The default is to use the <code>basr</code> instruction instead,
 which does not have this limitation.
@@ -130,10 +130,10 @@ targets, the default is <samp><span class="option">-m31</span></samp>, while the
 targets default to <samp><span class="option">-m64</span></samp>.
 
      <br><dt><code>-mzarch</code><dt><code>-mesa</code><dd><a name="index-mzarch-2094"></a><a name="index-mesa-2095"></a>When <samp><span class="option">-mzarch</span></samp> is specified, generate code using the
-instructions available on z/Architecture.
+instructions available on z/Architecture. 
 When <samp><span class="option">-mesa</span></samp> is specified, generate code using the
 instructions available on ESA/390.  Note that <samp><span class="option">-mesa</span></samp> is
-not possible with <samp><span class="option">-m64</span></samp>.
+not possible with <samp><span class="option">-m64</span></samp>. 
 When generating code compliant to the GNU/Linux for S/390 ABI,
 the default is <samp><span class="option">-mesa</span></samp>.  When generating code compliant
 to the GNU/Linux for zSeries ABI, the default is <samp><span class="option">-mzarch</span></samp>.
@@ -143,20 +143,20 @@ to perform block moves.  When <samp><span class="option">-mno-mvcle</span></samp
 use a <code>mvc</code> loop instead.  This is the default unless optimizing for
 size.
 
-     <br><dt><code>-mdebug</code><dt><code>-mno-debug</code><dd><a name="index-mdebug-2098"></a><a name="index-mno_002ddebug-2099"></a>Print (or do not print) additional debug information when compiling.
+     <br><dt><code>-mdebug</code><dt><code>-mno-debug</code><dd><a name="index-mdebug-2098"></a><a name="index-mno_002ddebug-2099"></a>Print (or do not print) additional debug information when compiling. 
 The default is to not print debug information.
 
      <br><dt><code>-march=</code><var>cpu-type</var><dd><a name="index-march-2100"></a>Generate code that runs on <var>cpu-type</var>, which is the name of a system
 representing a certain processor type.  Possible values for
 <var>cpu-type</var> are &lsquo;<samp><span class="samp">g5</span></samp>&rsquo;, &lsquo;<samp><span class="samp">g6</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z900</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z990</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">z9-109</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z9-ec</span></samp>&rsquo; and &lsquo;<samp><span class="samp">z10</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">z9-109</span></samp>&rsquo;, &lsquo;<samp><span class="samp">z9-ec</span></samp>&rsquo; and &lsquo;<samp><span class="samp">z10</span></samp>&rsquo;. 
 When generating code using the instructions available on z/Architecture,
 the default is <samp><span class="option">-march=z900</span></samp>.  Otherwise, the default is
 <samp><span class="option">-march=g5</span></samp>.
 
      <br><dt><code>-mtune=</code><var>cpu-type</var><dd><a name="index-mtune-2101"></a>Tune to <var>cpu-type</var> everything applicable about the generated code,
-except for the ABI and the set of available instructions.
-The list of <var>cpu-type</var> values is the same as for <samp><span class="option">-march</span></samp>.
+except for the ABI and the set of available instructions. 
+The list of <var>cpu-type</var> values is the same as for <samp><span class="option">-march</span></samp>. 
 The default is the value used for <samp><span class="option">-march</span></samp>.
 
      <br><dt><code>-mtpf-trace</code><dt><code>-mno-tpf-trace</code><dd><a name="index-mtpf_002dtrace-2102"></a><a name="index-mno_002dtpf_002dtrace-2103"></a>Generate code that adds (does not add) in TPF OS specific branches to trace
@@ -178,20 +178,20 @@ arrays.  This is generally a bad idea with a limited stack size.
 
      <br><dt><code>-mstack-guard=</code><var>stack-guard</var><dt><code>-mstack-size=</code><var>stack-size</var><dd><a name="index-mstack_002dguard-2108"></a><a name="index-mstack_002dsize-2109"></a>If these options are provided the S/390 back end emits additional instructions in
 the function prologue that trigger a trap if the stack size is <var>stack-guard</var>
-bytes above the <var>stack-size</var> (remember that the stack on S/390 grows downward).
+bytes above the <var>stack-size</var> (remember that the stack on S/390 grows downward). 
 If the <var>stack-guard</var> option is omitted the smallest power of 2 larger than
-the frame size of the compiled function is chosen.
-These options are intended to be used to help debugging stack overflow problems.
+the frame size of the compiled function is chosen. 
+These options are intended to be used to help debugging stack overflow problems. 
 The additionally emitted code causes only little overhead and hence can also be
 used in production-like systems without greater performance degradation.  The given
 values have to be exact powers of 2 and <var>stack-size</var> has to be greater than
-<var>stack-guard</var> without exceeding 64k.
+<var>stack-guard</var> without exceeding 64k. 
 In order to be efficient the extra code makes the assumption that the stack starts
-at an address aligned to the value given by <var>stack-size</var>.
+at an address aligned to the value given by <var>stack-size</var>. 
 The <var>stack-guard</var> option can only be used in conjunction with <var>stack-size</var>.
 
      <br><dt><code>-mhotpatch[=</code><var>halfwords</var><code>]</code><dt><code>-mno-hotpatch</code><dd><a name="index-mhotpatch-2110"></a>If the hotpatch option is enabled, a &ldquo;hot-patching&rdquo; function
-prologue is generated for all functions in the compilation unit.
+prologue is generated for all functions in the compilation unit. 
 The funtion label is prepended with the given number of two-byte
 Nop instructions (<var>halfwords</var>, maximum 1000000) or 12 Nop
 instructions if no argument is present.  Functions with a
@@ -200,7 +200,8 @@ hot-patching prologue is never generated for functions functions
 that are explicitly inline.
 
      <p>This option can be overridden for individual functions with the
-<code>hotpatch</code> attribute.
+<code>hotpatch</code> attribute. 
 </dl>
 
  </body></html>
+

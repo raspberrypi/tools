@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ the last section in the located region.
 that covers the entire address space is used in the previous step.
 
      <li>If no suitable region could be found, or there was no previous
-section then the LMA is set equal to the VMA.
+section then the LMA is set equal to the VMA. 
 </ul>
 
    <p><a name="index-ROM-initialized-data-458"></a><a name="index-initialized-data-in-ROM-459"></a>This feature is designed to make it easy to build a ROM image.  For
@@ -110,13 +110,14 @@ script.
 <pre class="smallexample">     extern char _etext, _data, _edata, _bstart, _bend;
      char *src = &amp;_etext;
      char *dst = &amp;_data;
-
+     
      /* ROM has data at end of text; copy it.  */
      while (dst &lt; &amp;_edata)
        *dst++ = *src++;
-
+     
      /* Zero bss.  */
      for (dst = &amp;_bstart; dst&lt; &amp;_bend; dst++)
        *dst = 0;
 </pre>
    </body></html>
+

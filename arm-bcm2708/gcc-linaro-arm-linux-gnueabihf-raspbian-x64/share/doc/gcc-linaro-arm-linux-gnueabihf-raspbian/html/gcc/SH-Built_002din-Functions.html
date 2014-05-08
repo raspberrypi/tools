@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,22 +71,23 @@ value in user code must be done with caution, since the compiler might use
 
 <div class="defun">
 &mdash; Built-in Function: void * <b>__builtin_thread_pointer</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005fthread_005fpointer-3455"></a></var><br>
-<blockquote><p>Returns the value that is currently set in the &lsquo;<samp><span class="samp">GBR</span></samp>&rsquo; register.
+<blockquote><p>Returns the value that is currently set in the &lsquo;<samp><span class="samp">GBR</span></samp>&rsquo; register. 
 Memory loads and stores that use the thread pointer as a base address are
-turned into &lsquo;<samp><span class="samp">GBR</span></samp>&rsquo; based displacement loads and stores, if possible.
+turned into &lsquo;<samp><span class="samp">GBR</span></samp>&rsquo; based displacement loads and stores, if possible. 
 For example:
      <pre class="smallexample">          struct my_tcb
           {
              int a, b, c, d, e;
           };
-
+          
           int get_tcb_value (void)
           {
             // Generate &lsquo;<samp><span class="samp">mov.l @(8,gbr),r0</span></samp>&rsquo; instruction
             return ((my_tcb*)__builtin_thread_pointer ())-&gt;c;
           }
-
+          
 </pre>
       </blockquote></div>
 
  </body></html>
+

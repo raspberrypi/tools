@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ The i386 version of <code>as</code> has a few machine
 dependent options:
 
 <!-- man begin OPTIONS -->
-
+     
 <a name="index-g_t_0040samp_007b_002d_002d32_007d-option_002c-i386-908"></a>
 <a name="index-g_t_0040samp_007b_002d_002d32_007d-option_002c-x86_002d64-909"></a>
 <a name="index-g_t_0040samp_007b_002d_002dx32_007d-option_002c-i386-910"></a>
@@ -177,7 +177,7 @@ accept various extension mnemonics.  For example,
 <code>sse5</code>,
 <code>svme</code>,
 <code>abm</code> and
-<code>padlock</code>.
+<code>padlock</code>. 
 Note that rather than extending a basic instruction set, the extension
 mnemonics starting with <code>no</code> revoke the respective functionality.
 
@@ -195,41 +195,41 @@ generated.
      <p><a name="index-g_t_0040samp_007b_002dmsse2avx_007d-option_002c-i386-919"></a><a name="index-g_t_0040samp_007b_002dmsse2avx_007d-option_002c-x86_002d64-920"></a><br><dt><code>-msse2avx</code><dd>This option specifies that the assembler should encode SSE instructions
 with VEX prefix.
 
-     <p><a name="index-g_t_0040samp_007b_002dmsse_002dcheck_003d_007d-option_002c-i386-921"></a><a name="index-g_t_0040samp_007b_002dmsse_002dcheck_003d_007d-option_002c-x86_002d64-922"></a><br><dt><code>-msse-check=</code><var>none</var><dt><code>-msse-check=</code><var>warning</var><dt><code>-msse-check=</code><var>error</var><dd>These options control if the assembler should check SSE instructions.
+     <p><a name="index-g_t_0040samp_007b_002dmsse_002dcheck_003d_007d-option_002c-i386-921"></a><a name="index-g_t_0040samp_007b_002dmsse_002dcheck_003d_007d-option_002c-x86_002d64-922"></a><br><dt><code>-msse-check=</code><var>none</var><dt><code>-msse-check=</code><var>warning</var><dt><code>-msse-check=</code><var>error</var><dd>These options control if the assembler should check SSE instructions. 
 <samp><span class="option">-msse-check=</span><var>none</var></samp> will make the assembler not to check SSE
 instructions,  which is the default.  <samp><span class="option">-msse-check=</span><var>warning</var></samp>
-will make the assembler issue a warning for any SSE instruction.
+will make the assembler issue a warning for any SSE instruction. 
 <samp><span class="option">-msse-check=</span><var>error</var></samp> will make the assembler issue an error
 for any SSE instruction.
 
      <p><a name="index-g_t_0040samp_007b_002dmavxscalar_003d_007d-option_002c-i386-923"></a><a name="index-g_t_0040samp_007b_002dmavxscalar_003d_007d-option_002c-x86_002d64-924"></a><br><dt><code>-mavxscalar=</code><var>128</var><dt><code>-mavxscalar=</code><var>256</var><dd>These options control how the assembler should encode scalar AVX
 instructions.  <samp><span class="option">-mavxscalar=</span><var>128</var></samp> will encode scalar
-AVX instructions with 128bit vector length, which is the default.
+AVX instructions with 128bit vector length, which is the default. 
 <samp><span class="option">-mavxscalar=</span><var>256</var></samp> will encode scalar AVX instructions
 with 256bit vector length.
 
      <p><a name="index-g_t_0040samp_007b_002dmevexlig_003d_007d-option_002c-i386-925"></a><a name="index-g_t_0040samp_007b_002dmevexlig_003d_007d-option_002c-x86_002d64-926"></a><br><dt><code>-mevexlig=</code><var>128</var><dt><code>-mevexlig=</code><var>256</var><dt><code>-mevexlig=</code><var>512</var><dd>These options control how the assembler should encode length-ignored
 (LIG) EVEX instructions.  <samp><span class="option">-mevexlig=</span><var>128</var></samp> will encode LIG
-EVEX instructions with 128bit vector length, which is the default.
+EVEX instructions with 128bit vector length, which is the default. 
 <samp><span class="option">-mevexlig=</span><var>256</var></samp> and <samp><span class="option">-mevexlig=</span><var>512</var></samp> will
 encode LIG EVEX instructions with 256bit and 512bit vector length,
 respectively.
 
      <p><a name="index-g_t_0040samp_007b_002dmevexwig_003d_007d-option_002c-i386-927"></a><a name="index-g_t_0040samp_007b_002dmevexwig_003d_007d-option_002c-x86_002d64-928"></a><br><dt><code>-mevexwig=</code><var>0</var><dt><code>-mevexwig=</code><var>1</var><dd>These options control how the assembler should encode w-ignored (WIG)
 EVEX instructions.  <samp><span class="option">-mevexwig=</span><var>0</var></samp> will encode WIG
-EVEX instructions with evex.w = 0, which is the default.
+EVEX instructions with evex.w = 0, which is the default. 
 <samp><span class="option">-mevexwig=</span><var>1</var></samp> will encode WIG EVEX instructions with
 evex.w = 1.
 
-     <p><a name="index-g_t_0040samp_007b_002dmmnemonic_003d_007d-option_002c-i386-929"></a><a name="index-g_t_0040samp_007b_002dmmnemonic_003d_007d-option_002c-x86_002d64-930"></a><br><dt><code>-mmnemonic=</code><var>att</var><dt><code>-mmnemonic=</code><var>intel</var><dd>This option specifies instruction mnemonic for matching instructions.
+     <p><a name="index-g_t_0040samp_007b_002dmmnemonic_003d_007d-option_002c-i386-929"></a><a name="index-g_t_0040samp_007b_002dmmnemonic_003d_007d-option_002c-x86_002d64-930"></a><br><dt><code>-mmnemonic=</code><var>att</var><dt><code>-mmnemonic=</code><var>intel</var><dd>This option specifies instruction mnemonic for matching instructions. 
 The <code>.att_mnemonic</code> and <code>.intel_mnemonic</code> directives will
 take precedent.
 
-     <p><a name="index-g_t_0040samp_007b_002dmsyntax_003d_007d-option_002c-i386-931"></a><a name="index-g_t_0040samp_007b_002dmsyntax_003d_007d-option_002c-x86_002d64-932"></a><br><dt><code>-msyntax=</code><var>att</var><dt><code>-msyntax=</code><var>intel</var><dd>This option specifies instruction syntax when processing instructions.
+     <p><a name="index-g_t_0040samp_007b_002dmsyntax_003d_007d-option_002c-i386-931"></a><a name="index-g_t_0040samp_007b_002dmsyntax_003d_007d-option_002c-x86_002d64-932"></a><br><dt><code>-msyntax=</code><var>att</var><dt><code>-msyntax=</code><var>intel</var><dd>This option specifies instruction syntax when processing instructions. 
 The <code>.att_syntax</code> and <code>.intel_syntax</code> directives will
 take precedent.
 
-     <p><a name="index-g_t_0040samp_007b_002dmnaked_002dreg_007d-option_002c-i386-933"></a><a name="index-g_t_0040samp_007b_002dmnaked_002dreg_007d-option_002c-x86_002d64-934"></a><br><dt><code>-mnaked-reg</code><dd>This opetion specifies that registers don't require a &lsquo;<samp><span class="samp">%</span></samp>&rsquo; prefix.
+     <p><a name="index-g_t_0040samp_007b_002dmnaked_002dreg_007d-option_002c-i386-933"></a><a name="index-g_t_0040samp_007b_002dmnaked_002dreg_007d-option_002c-x86_002d64-934"></a><br><dt><code>-mnaked-reg</code><dd>This opetion specifies that registers don't require a &lsquo;<samp><span class="samp">%</span></samp>&rsquo; prefix. 
 The <code>.att_syntax</code> and <code>.intel_syntax</code> directives will take precedent.
 
      <p><a name="index-g_t_0040samp_007b_002dmadd_002dbnd_002dprefix_007d-option_002c-i386-935"></a><a name="index-g_t_0040samp_007b_002dmadd_002dbnd_002dprefix_007d-option_002c-x86_002d64-936"></a><br><dt><code>-madd-bnd-prefix</code><dd>This option forces the assembler to add BND prefix to all branches, even
@@ -239,3 +239,4 @@ if such prefix was not explicitly specified in the source code.
    <!-- man end -->
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -81,7 +81,7 @@ platform supports reverse execution, or stop if not.
    <p>For architecture environments that support process record and replay,
 <span class="sc">gdb</span> provides the following commands:
 
-
+     
 <a name="index-target-record-403"></a>
 <a name="index-target-record_002dfull-404"></a>
 <a name="index-target-record_002dbtrace-405"></a>
@@ -104,7 +104,7 @@ execution.
           <br><dt><code>btrace</code><dd>Hardware-supported instruction recording.  This method does not allow
 replaying and reverse execution.
 
-          <p>This recording method may not be available on all processors.
+          <p>This recording method may not be available on all processors. 
 </dl>
 
      <p>The process record and replay target can only debug a process that is
@@ -144,13 +144,13 @@ usual &ldquo;live&rdquo; debugging of the process from that state.
      <p>When the inferior process exits, or <span class="sc">gdb</span> detaches from it,
 process record and replay target will automatically stop itself.
 
-     <p><a name="index-record-save-417"></a><br><dt><code>record save </code><var>filename</var><dd>Save the execution log to a file <samp><var>filename</var></samp>.
+     <p><a name="index-record-save-417"></a><br><dt><code>record save </code><var>filename</var><dd>Save the execution log to a file <samp><var>filename</var></samp>. 
 Default filename is <samp><span class="file">gdb_record.</span><var>process_id</var></samp>, where
 <var>process_id</var> is the process ID of the inferior.
 
      <p>This command may not be available for all recording methods.
 
-     <p><a name="index-record-restore-418"></a><br><dt><code>record restore </code><var>filename</var><dd>Restore the execution log from a file <samp><var>filename</var></samp>.
+     <p><a name="index-record-restore-418"></a><br><dt><code>record restore </code><var>filename</var><dd>Restore the execution log from a file <samp><var>filename</var></samp>. 
 File must have been created with <code>record save</code>.
 
      <p><a name="index-set-record-full-419"></a><br><dt><code>set record full insn-number-max </code><var>limit</var><dd>Set the limit of instructions to be recorded for the <code>full</code>
@@ -160,7 +160,7 @@ recording method.  Default value is 200000.
 deleting instructions from the log once the number of the record
 instructions becomes greater than <var>limit</var>.  For every new recorded
 instruction, <span class="sc">gdb</span> will delete the earliest recorded
-instruction to keep the number of recorded instructions at the limit.
+instruction to keep the number of recorded instructions at the limit. 
 (Since deleting recorded instructions loses information, <span class="sc">gdb</span>
 lets you control what happens when the limit is reached, by means of
 the <code>stop-at-limit</code> option, described below.)
@@ -186,7 +186,7 @@ oldest record to make room for each new one, without asking.
      <br><dt><code>show record full stop-at-limit</code><dd>Show the current setting of <code>stop-at-limit</code>.
 
      <br><dt><code>set record full memory-query</code><dd>Control the behavior when <span class="sc">gdb</span> is unable to record memory
-changes caused by an instruction for the <code>full</code> recording method.
+changes caused by an instruction for the <code>full</code> recording method. 
 If ON, <span class="sc">gdb</span> will query whether to stop the inferior in that
 case.
 
@@ -206,17 +206,17 @@ method:
 record and its in-memory execution log buffer, including:
 
                <ul>
-<li>Whether in record mode or replay mode.
-<li>Lowest recorded instruction number (counting from when the current execution log started recording instructions).
-<li>Highest recorded instruction number.
-<li>Current instruction about to be replayed (if in replay mode).
-<li>Number of instructions contained in the execution log.
-<li>Maximum number of instructions that may be contained in the execution log.
+<li>Whether in record mode or replay mode. 
+<li>Lowest recorded instruction number (counting from when the current execution log started recording instructions). 
+<li>Highest recorded instruction number. 
+<li>Current instruction about to be replayed (if in replay mode). 
+<li>Number of instructions contained in the execution log. 
+<li>Maximum number of instructions that may be contained in the execution log. 
 </ul>
 
           <br><dt><code>btrace</code><dd>For the <code>btrace</code> recording method, it shows the number of
 instructions that have been recorded and the number of blocks of
-sequential control-flow that is formed by the recorded instructions.
+sequential control-flow that is formed by the recorded instructions. 
 </dl>
 
      <p><a name="index-record-delete-422"></a><a name="index-rec-del-423"></a><br><dt><code>record delete</code><dd>When record target runs in replay mode (&ldquo;in the past&rdquo;), delete the
@@ -246,7 +246,7 @@ instructions before instruction number <var>insn</var>.
 
           <br><dt><code>record instruction-history </code><var>begin</var> <var>end</var><dd>Disassembles instructions beginning with instruction number
 <var>begin</var> until instruction number <var>end</var>.  The instruction
-number <var>end</var> is not included.
+number <var>end</var> is not included. 
 </dl>
 
      <p>This command may not be available for all recording methods.
@@ -299,7 +299,7 @@ prints <var>n</var> functions before function number <var>func</var>.
 
           <br><dt><code>record function-call-history </code><var>begin</var> <var>end</var><dd>Prints functions beginning with function number <var>begin</var> until
 function number <var>end</var>.  The function number <var>end</var> is not
-included.
+included. 
 </dl>
 
      <p>This command may not be available for all recording methods.
@@ -308,7 +308,8 @@ included.
 <code>record function-call-history</code> command.  The default value is 10.
 
      <br><dt><code>show record function-call-history-size</code><dd>Show how many lines to print in the
-<code>record function-call-history</code> command.
+<code>record function-call-history</code> command. 
 </dl>
 
    </body></html>
+

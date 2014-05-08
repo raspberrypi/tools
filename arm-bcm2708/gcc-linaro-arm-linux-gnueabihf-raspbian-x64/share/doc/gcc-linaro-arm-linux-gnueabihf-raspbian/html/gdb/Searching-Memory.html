@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,14 +49,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 Memory can be searched for a particular sequence of bytes with the
 <code>find</code> command.
 
-
+     
 <a name="index-find-719"></a>
 <dl><dt><code>find </code><span class="roman">[</span><code>/</code><var>sn</var><span class="roman">]</span> <var>start_addr</var><code>, +</code><var>len</var><code>, </code><var>val1</var> <span class="roman">[</span><code>, </code><var>val2</var><code>, ...</code><span class="roman">]</span><dt><code>find </code><span class="roman">[</span><code>/</code><var>sn</var><span class="roman">]</span> <var>start_addr</var><code>, </code><var>end_addr</var><code>, </code><var>val1</var> <span class="roman">[</span><code>, </code><var>val2</var><code>, ...</code><span class="roman">]</span><dd>Search memory for the sequence of bytes specified by <var>val1</var>, <var>val2</var>,
 etc.  The search begins at address <var>start_addr</var> and continues for either
-<var>len</var> bytes or through to <var>end_addr</var> inclusive.
+<var>len</var> bytes or through to <var>end_addr</var> inclusive. 
 </dl>
 
-   <p><var>s</var> and <var>n</var> are optional parameters.
+   <p><var>s</var> and <var>n</var> are optional parameters. 
 They may be specified in either order, apart or together.
 
      <dl>
@@ -69,23 +69,23 @@ They may be specified in either order, apart or together.
 <br><dt><code>g</code><dd>giant words (eight bytes)
 </dl>
 
-     <p>All values are interpreted in the current language.
+     <p>All values are interpreted in the current language. 
 This means, for example, that if the current source language is C/C<tt>++</tt>
 then searching for the string &ldquo;hello&rdquo; includes the trailing '\0'.
 
      <p>If the value size is not specified, it is taken from the
-value's type in the current language.
+value's type in the current language. 
 This is useful when one wants to specify the search
-pattern as a mixture of types.
+pattern as a mixture of types. 
 Note that this means, for example, that in the case of C-like languages
 a search for an untyped 0x42 will search for &lsquo;<samp><span class="samp">(int) 0x42</span></samp>&rsquo;
 which is typically four bytes.
 
-     <br><dt><var>n</var><span class="roman">, maximum number of finds</span><dd>The maximum number of matches to print.  The default is to print all finds.
+     <br><dt><var>n</var><span class="roman">, maximum number of finds</span><dd>The maximum number of matches to print.  The default is to print all finds. 
 </dl>
 
    <p>You can use strings as search values.  Quote them with double-quotes
- (<code>"</code>).
+ (<code>"</code>). 
 The string value is copied into the search pattern byte by byte,
 regardless of the endianness of the target and the size specification.
 
@@ -93,7 +93,7 @@ regardless of the endianness of the target and the size specification.
 number of matches found.
 
    <p>The address of the last value found is stored in convenience variable
-&lsquo;<samp><span class="samp">$_</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">$_</span></samp>&rsquo;. 
 A count of the number of matches is stored in &lsquo;<samp><span class="samp">$numfound</span></samp>&rsquo;.
 
    <p>For example, if stopped at the <code>printf</code> in this function:
@@ -129,3 +129,4 @@ A count of the number of matches is stored in &lsquo;<samp><span class="samp">$n
      $2 = (void *) 0x8049560
 </pre>
    </body></html>
+

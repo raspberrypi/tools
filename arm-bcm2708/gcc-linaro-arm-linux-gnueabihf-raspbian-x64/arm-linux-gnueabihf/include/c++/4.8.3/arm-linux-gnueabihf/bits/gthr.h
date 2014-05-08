@@ -46,20 +46,20 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
    The threads interface must define the following macros:
 
      __GTHREAD_ONCE_INIT
-		to initialize __gthread_once_t
+     		to initialize __gthread_once_t
      __GTHREAD_MUTEX_INIT
-		to initialize __gthread_mutex_t to get a fast
+     		to initialize __gthread_mutex_t to get a fast
 		non-recursive mutex.
      __GTHREAD_MUTEX_INIT_FUNCTION
 		to initialize __gthread_mutex_t to get a fast
 		non-recursive mutex.
 		Define this to a function which looks like this:
 		  void __GTHREAD_MUTEX_INIT_FUNCTION (__gthread_mutex_t *)
-		Some systems can't initialize a mutex without a
+     		Some systems can't initialize a mutex without a
 		function call.  Don't define __GTHREAD_MUTEX_INIT in this case.
      __GTHREAD_RECURSIVE_MUTEX_INIT
      __GTHREAD_RECURSIVE_MUTEX_INIT_FUNCTION
-		as above, but for a recursive mutex.
+     		as above, but for a recursive mutex.
 
    The threads interface must define the following static functions:
 

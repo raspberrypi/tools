@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,38 +88,38 @@ a pointer type can be declared a weak pointer, including <code>id</code>,
 implement a class whose instances hold a weak pointer reference; the
 following class does this:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      @interface WeakPointer : Object
      {
          const void* weakPointer;
      }
-
+     
      - initWithPointer:(const void*)p;
      - (const void*)weakPointer;
      @end
-
-
+     
+     
      @implementation WeakPointer
-
+     
      + (void)initialize
      {
        if (self == objc_lookUpClass ("WeakPointer"))
          class_ivar_set_gcinvisible (self, "weakPointer", YES);
      }
-
+     
      - initWithPointer:(const void*)p
      {
        weakPointer = p;
        return self;
      }
-
+     
      - (const void*)weakPointer
      {
        return weakPointer;
      }
-
+     
      @end
-
+     
 </pre>
  <p>Weak pointers are supported through a new type character specifier
 represented by the &lsquo;<samp><span class="samp">!</span></samp>&rsquo; character.  The
@@ -129,3 +129,4 @@ as argument.
 
 <!-- ========================================================================= -->
  </body></html>
+

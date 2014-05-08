@@ -101,11 +101,11 @@ along with GCC; see the file COPYING3.  If not see
 	- Heap: allocation is done using malloc/free.  This is the
 	  default allocation strategy.
 
-	- Stack: allocation is done using alloca.
+  	- Stack: allocation is done using alloca.
 
-	- GC: allocation is done using ggc_alloc/ggc_free.
+  	- GC: allocation is done using ggc_alloc/ggc_free.
 
-	- GC atomic: same as GC with the exception that the elements
+  	- GC atomic: same as GC with the exception that the elements
 	  themselves are assumed to be of an atomic type that does
 	  not need to be garbage collected.  This means that marking
 	  routines do not need to traverse the array marking the
@@ -139,7 +139,7 @@ along with GCC; see the file COPYING3.  If not see
    Notes on the different layout strategies
 
    * Embeddable vectors (vec<T, A, vl_embed>)
-
+   
      These vectors are suitable to be embedded in other data
      structures so that they can be pre-allocated in a contiguous
      memory block.
@@ -183,11 +183,11 @@ along with GCC; see the file COPYING3.  If not see
 
 	- The whole vector and control data are allocated in a single
 	  contiguous block.
-	- The whole vector may be re-allocated.
-	- Vector data may grow and shrink.
-	- Access and manipulation requires a pointer test and
+  	- The whole vector may be re-allocated.
+  	- Vector data may grow and shrink.
+  	- Access and manipulation requires a pointer test and
 	  indirection.
-	- It requires 1 word of storage (prior to vector allocation).
+  	- It requires 1 word of storage (prior to vector allocation).
 
    An example of their use would be,
 
@@ -540,11 +540,11 @@ extern vnull vNULL;
 	- The whole vector and control data are allocated in a single
 	  contiguous block.  It uses the trailing-vector idiom, so
 	  allocation must reserve enough space for all the elements
-	  in the vector plus its control data.
-	- The vector cannot be re-allocated.
-	- The vector cannot grow nor shrink.
-	- No indirections needed for access/manipulation.
-	- It requires 2 words of storage (prior to vector allocation).  */
+  	  in the vector plus its control data.
+  	- The vector cannot be re-allocated.
+  	- The vector cannot grow nor shrink.
+  	- No indirections needed for access/manipulation.
+  	- It requires 2 words of storage (prior to vector allocation).  */
 
 template<typename T, typename A>
 struct GTY((user)) vec<T, A, vl_embed>
@@ -600,8 +600,8 @@ public:
 
 	1- The pointer may be NULL (e.g., before initial allocation).
 
-	2- When the vector needs to grow, it must be reallocated, so
-	   the pointer will change its value.
+  	2- When the vector needs to grow, it must be reallocated, so
+  	   the pointer will change its value.
 
    Because of limitations with the current GC machinery, all vectors
    in GC memory *must* be pointers.  */
@@ -1192,9 +1192,9 @@ gt_pch_nx (vec<T, A, vl_embed> *v, gt_pointer_operator op, void *cookie)
 
 	- The whole vector and control data are allocated in a single
 	  contiguous block.
-	- The whole vector may be re-allocated.
-	- Vector data may grow and shrink.
-	- Access and manipulation requires a pointer test and
+  	- The whole vector may be re-allocated.
+  	- Vector data may grow and shrink.
+  	- Access and manipulation requires a pointer test and
 	  indirection.
 	- It requires 1 word of storage (prior to vector allocation).
 

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ this file will be read and executed at startup (see <a href="Startup.html#Startu
 
      <dl>
 <dt><code>--with-system-gdbinit=</code><var>file</var><dd>Specify that the default location of the system-wide init file is
-<var>file</var>.
+<var>file</var>. 
 </dl>
 
    <p>If <span class="sc">gdb</span> has been configured with the option <samp><span class="option">--prefix=$prefix</span></samp>,
@@ -72,7 +72,7 @@ init file is looked for as <samp><span class="file">$install/etc/gdbinit</span><
 it will not be relocated.  E.g. if <span class="sc">gdb</span> has been configured with
 <samp><span class="option">--prefix=/usr/local --with-system-gdbinit=/usr/share/gdb/gdbinit</span></samp>,
 then <span class="sc">gdb</span> will always look for <samp><span class="file">/usr/share/gdb/gdbinit</span></samp>,
-wherever <span class="sc">gdb</span> is installed.
+wherever <span class="sc">gdb</span> is installed. 
 </ul>
 
    <p>If the configured location of the system-wide init file (as given by the
@@ -80,10 +80,11 @@ wherever <span class="sc">gdb</span> is installed.
 data-directory (as specified by <samp><span class="option">--with-gdb-datadir</span></samp> at configure
 time) or in one of its subdirectories, then <span class="sc">gdb</span> will look for the
 system-wide init file in the directory specified by the
-<samp><span class="option">--data-directory</span></samp> command-line option.
+<samp><span class="option">--data-directory</span></samp> command-line option. 
 Note that the system-wide init file is only read once, during <span class="sc">gdb</span>
 initialization.  If the data-directory is changed after <span class="sc">gdb</span> has
 started with the <code>set data-directory</code> command, the file will not be
 reread.
 
    </body></html>
+

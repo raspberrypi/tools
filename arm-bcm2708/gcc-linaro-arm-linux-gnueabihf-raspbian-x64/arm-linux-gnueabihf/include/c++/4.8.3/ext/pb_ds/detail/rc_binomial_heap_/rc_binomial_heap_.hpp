@@ -68,7 +68,7 @@ namespace __gnu_pbds
     {
     private:
       typedef binomial_heap_base<Value_Type, Cmp_Fn, _Alloc>
-							base_type;
+      							base_type;
       typedef typename base_type::node_pointer 		node_pointer;
       typedef typename base_type::node_const_pointer 	node_const_pointer;
       typedef PB_DS_RC_C_DEC 				rc_t;

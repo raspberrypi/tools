@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,12 +55,12 @@ of your program.  That is why you can use them freely.
 
    <p>Convenience variables are prefixed with &lsquo;<samp><span class="samp">$</span></samp>&rsquo;.  Any name preceded by
 &lsquo;<samp><span class="samp">$</span></samp>&rsquo; can be used for a convenience variable, unless it is one of
-the predefined machine-specific register names (see <a href="Registers.html#Registers">Registers</a>).
+the predefined machine-specific register names (see <a href="Registers.html#Registers">Registers</a>). 
 (Value history references, in contrast, are <em>numbers</em> preceded
 by &lsquo;<samp><span class="samp">$</span></samp>&rsquo;.  See <a href="Value-History.html#Value-History">Value History</a>.)
 
    <p>You can save a value in a convenience variable with an assignment
-expression, just as you would set a variable in your program.
+expression, just as you would set a variable in your program. 
 For example:
 
 <pre class="smallexample">     set $foo = *object_ptr
@@ -77,11 +77,11 @@ variable any type of value, including structures and arrays, even if
 that variable already has a value of a different type.  The convenience
 variable, when used as an expression, has the type of its current value.
 
-
+     
 <a name="index-show-convenience-629"></a>
 <a name="index-show-all-user-variables-and-functions-630"></a>
 <dl><dt><code>show convenience</code><dd>Print a list of convenience variables used so far, and their values,
-as well as a list of the convenience functions.
+as well as a list of the convenience functions. 
 Abbreviated <code>show conv</code>.
 
      <p><a name="index-init_002dif_002dundefined-631"></a><a name="index-convenience-variables_002c-initializing-632"></a><br><dt><code>init-if-undefined $</code><var>variable</var><code> = </code><var>expression</var><dd>Set a convenience variable if it has not already been set.  This is useful
@@ -91,7 +91,7 @@ convenience variables are global).  It can also be used to allow users to
 override default values used in a command script.
 
      <p>If the variable is already defined then the expression is not evaluated so
-any side-effects do not occur.
+any side-effects do not occur. 
 </dl>
 
    <p>One of the ways to use a convenience variable is as a counter to be
@@ -106,7 +106,7 @@ a field from successive elements of an array of structures:
    <p>Some convenience variables are created automatically by <span class="sc">gdb</span> and given
 values likely to be useful.
 
-
+     
 <a name="index-g_t_0024_005f_0040r_007b_002c-convenience-variable_007d-633"></a>
 <dl><dt><code>$_</code><dd>The variable <code>$_</code> is automatically set by the <code>x</code> command to
 the last address examined (see <a href="Memory.html#Memory">Examining Memory</a>).  Other
@@ -132,13 +132,13 @@ if extra static tracepoint data has not been collected.
 
      <br><dt><code>$_siginfo</code><dd><a name="index-g_t_0024_005fsiginfo_0040r_007b_002c-convenience-variable_007d-637"></a>The variable <code>$_siginfo</code> contains extra signal information
 (see <a href="extra-signal-information.html#extra-signal-information">extra signal information</a>).  Note that <code>$_siginfo</code>
-could be empty, if the application has not yet received any signals.
+could be empty, if the application has not yet received any signals. 
 For example, it will be empty before you execute the <code>run</code> command.
 
      <br><dt><code>$_tlb</code><dd><a name="index-g_t_0024_005ftlb_0040r_007b_002c-convenience-variable_007d-638"></a>The variable <code>$_tlb</code> is automatically set when debugging
 applications running on MS-Windows in native mode or connected to
-gdbserver that supports the <code>qGetTIBAddr</code> request.
-See <a href="General-Query-Packets.html#General-Query-Packets">General Query Packets</a>.
+gdbserver that supports the <code>qGetTIBAddr</code> request. 
+See <a href="General-Query-Packets.html#General-Query-Packets">General Query Packets</a>. 
 This variable contains the address of the thread information block.
 
    </dl>
@@ -148,3 +148,4 @@ begins with a dollar sign, <span class="sc">gdb</span> searches for a user or sy
 name first, before it searches for a convenience variable.
 
    </body></html>
+

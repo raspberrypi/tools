@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ is aligned, or the minimum alignment usually required by a type.  Its
 syntax is just like <code>sizeof</code>.
 
  <p>For example, if the target machine requires a <code>double</code> value to be
-aligned on an 8-byte boundary, then <code>__alignof__ (double)</code> is 8.
+aligned on an 8-byte boundary, then <code>__alignof__ (double)</code> is 8. 
 This is true on many RISC machines.  On more traditional machine
 designs, <code>__alignof__ (double)</code> is 4 or even 2.
 
@@ -83,3 +83,4 @@ alignment is probably 2 or 4, the same as <code>__alignof__ (int)</code>.
  <p>It is an error to ask for the alignment of an incomplete type.
 
  </body></html>
+

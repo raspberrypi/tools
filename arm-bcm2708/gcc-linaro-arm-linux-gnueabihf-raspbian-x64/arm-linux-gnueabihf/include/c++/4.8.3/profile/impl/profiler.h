@@ -129,10 +129,10 @@ namespace __gnu_profile
 
   void __trace_list_to_set_destruct(const void*);
   void __trace_list_to_set_construct(const void*);
-  void __trace_list_to_set_insert(const void*, std::size_t, std::size_t);
+  void __trace_list_to_set_insert(const void*, std::size_t, std::size_t); 
   void __trace_list_to_set_iterate(const void*, std::size_t);
   void __trace_list_to_set_invalid_operator(const void*);
-  void __trace_list_to_set_find(const void*, std::size_t);
+  void __trace_list_to_set_find(const void*, std::size_t); 
 
   void __trace_map_to_unordered_map_construct(const void*);
   void __trace_map_to_unordered_map_invalidate(const void*);
@@ -212,9 +212,9 @@ namespace __gnu_profile
   _GLIBCXX_PROFILE_REENTRANCE_GUARD( \
       __gnu_profile::__trace_hashtable_size_construct(__x))
 #else
-#define __profcxx_hashtable_resize(__x...)
-#define __profcxx_hashtable_destruct(__x...)
-#define __profcxx_hashtable_construct(__x...)
+#define __profcxx_hashtable_resize(__x...)  
+#define __profcxx_hashtable_destruct(__x...) 
+#define __profcxx_hashtable_construct(__x...)  
 #endif
 
 // Turn on/off instrumentation for VECTOR_TOO_SMALL and VECTOR_TOO_LARGE.
@@ -230,10 +230,10 @@ namespace __gnu_profile
   _GLIBCXX_PROFILE_REENTRANCE_GUARD( \
       __gnu_profile::__trace_vector_size_construct(__x))
 #else
-#define __profcxx_vector_resize(__x...)
-#define __profcxx_vector_destruct(__x...)
-#define __profcxx_vector_construct(__x...)
-#endif
+#define __profcxx_vector_resize(__x...)  
+#define __profcxx_vector_destruct(__x...) 
+#define __profcxx_vector_construct(__x...)  
+#endif 
 
 // Turn on/off instrumentation for INEFFICIENT_HASH.
 #if defined(_GLIBCXX_PROFILE_INEFFICIENT_HASH)
@@ -284,7 +284,7 @@ namespace __gnu_profile
 #define __profcxx_vector_find(__x...)
 #endif
 
-// Turn on/off instrumentation for LIST_TO_VECTOR.
+// Turn on/off instrumentation for LIST_TO_VECTOR. 
 #if defined(_GLIBCXX_PROFILE_LIST_TO_VECTOR)
 #define __profcxx_list_construct2(__x...) \
   _GLIBCXX_PROFILE_REENTRANCE_GUARD( \
@@ -309,7 +309,7 @@ namespace __gnu_profile
 #define __profcxx_list_invalid_operator(__x...)
 #endif
 
-// Turn on/off instrumentation for LIST_TO_SLIST.
+// Turn on/off instrumentation for LIST_TO_SLIST.  
 #if defined(_GLIBCXX_PROFILE_LIST_TO_SLIST)
 #define __profcxx_list_rewind(__x...) \
   _GLIBCXX_PROFILE_REENTRANCE_GUARD( \
@@ -324,11 +324,11 @@ namespace __gnu_profile
   _GLIBCXX_PROFILE_REENTRANCE_GUARD( \
       __gnu_profile::__trace_list_to_slist_construct(__x))
 #else
-#define __profcxx_list_rewind(__x...)
+#define __profcxx_list_rewind(__x...)  
 #define __profcxx_list_operation(__x...)
-#define __profcxx_list_destruct(__x...)
-#define __profcxx_list_construct(__x...)
-#endif
+#define __profcxx_list_destruct(__x...) 
+#define __profcxx_list_construct(__x...)  
+#endif 
 
 // Turn on/off instrumentation for MAP_TO_UNORDERED_MAP.
 #if defined(_GLIBCXX_PROFILE_MAP_TO_UNORDERED_MAP)
@@ -355,7 +355,7 @@ namespace __gnu_profile
       __gnu_profile::__trace_map_to_unordered_map_find(__x))
 #else
 #define __profcxx_map_to_unordered_map_construct(__x...) \
-
+  
 #define __profcxx_map_to_unordered_map_destruct(__x...)
 #define __profcxx_map_to_unordered_map_insert(__x...)
 #define __profcxx_map_to_unordered_map_erase(__x...)

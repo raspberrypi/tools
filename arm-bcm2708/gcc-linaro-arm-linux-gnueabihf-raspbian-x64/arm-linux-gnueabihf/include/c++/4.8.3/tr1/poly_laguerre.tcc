@@ -53,7 +53,7 @@ namespace tr1
   _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
     /**
-     *   @brief This routine returns the associated Laguerre polynomial
+     *   @brief This routine returns the associated Laguerre polynomial 
      *          of order @f$ n @f$, degree @f$ \alpha @f$ for large n.
      *   Abramowitz & Stegun, 13.5.21
      *
@@ -147,7 +147,7 @@ namespace tr1
 
 
     /**
-     *   @brief This routine returns the associated Laguerre polynomial
+     *   @brief This routine returns the associated Laguerre polynomial 
      *          of order @f$ n @f$, degree @f$ \alpha @f$: @f$ L_n^\alpha(x) @f$
      *          by recursion.
      *

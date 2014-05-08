@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,12 +64,12 @@ that document the exact semantics of the language extension.
      <blockquote>
 Within either execution environment, a <dfn>thread</dfn> is a flow of
 control within a program.  It is implementation defined whether
-or not there may be more than one thread associated with a program.
+or not there may be more than one thread associated with a program. 
 It is implementation defined how threads beyond the first are
 created, the name and type of the function called at thread
 startup, and how threads may be terminated.  However, objects
 with thread storage duration shall be initialized before thread
-startup.
+startup. 
 </blockquote>
 
      <li><cite>6.2.4  Storage durations of objects</cite>
@@ -78,9 +78,9 @@ startup.
 
      <blockquote>
 An object whose identifier is declared with the storage-class
-specifier <code>__thread</code><!-- /@w --> has <dfn>thread storage duration</dfn>.
+specifier <code>__thread</code><!-- /@w --> has <dfn>thread storage duration</dfn>. 
 Its lifetime is the entire execution of the thread, and its
-stored value is initialized only once, prior to thread startup.
+stored value is initialized only once, prior to thread startup. 
 </blockquote>
 
      <li><cite>6.4.1  Keywords</cite>
@@ -98,7 +98,7 @@ paragraph 1.
 With the exception of <code>__thread</code>, at most one storage-class
 specifier may be given [<small class="dots">...</small>].  The <code>__thread</code> specifier may
 be used alone, or immediately following <code>extern</code> or
-<code>static</code>.
+<code>static</code>. 
 </blockquote>
 
      <p>Add new text after paragraph 6
@@ -109,8 +109,9 @@ block scope that specifies <code>__thread</code> shall also
 specify either <code>extern</code> or <code>static</code>.
 
      <p>The <code>__thread</code> specifier shall be used only with
-variables.
+variables. 
 </blockquote>
      </ul>
 
  </body></html>
+

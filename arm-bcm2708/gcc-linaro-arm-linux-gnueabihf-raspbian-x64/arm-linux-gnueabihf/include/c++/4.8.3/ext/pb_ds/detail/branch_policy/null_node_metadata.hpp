@@ -54,7 +54,7 @@ namespace __gnu_pbds
       private:
 	typedef types_traits<Key, Data, _Alloc, false>	__traits_type;
 	typedef typename __traits_type::pointer        	const_iterator;
-
+	
       public:
 	typedef const_iterator 				value_type;
 	typedef const_iterator 				const_reference;

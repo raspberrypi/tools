@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 
 <h4 class="subsection">13.1.8 Listing Static Tracepoint Markers</h4>
 
-
+     
 <a name="index-info-static_002dtracepoint_002dmarkers-788"></a>
 <a name="index-information-about-static-tracepoint-markers-789"></a>
 <dl><dt><code>info static-tracepoint-markers</code><dd>Display information about all static tracepoint markers defined in the
@@ -57,15 +57,15 @@ program.
 
           <dl>
 <dt><em>Count</em><dd>An incrementing counter, output to help readability.  This is not a
-stable identifier.
-<br><dt><em>ID</em><dd>The marker ID, as reported by the target.
+stable identifier. 
+<br><dt><em>ID</em><dd>The marker ID, as reported by the target. 
 <br><dt><em>Enabled or Disabled</em><dd>Probed markers are tagged with &lsquo;<samp><span class="samp">y</span></samp>&rsquo;.  &lsquo;<samp><span class="samp">n</span></samp>&rsquo; identifies marks
-that are not enabled.
-<br><dt><em>Address</em><dd>Where the marker is in your program, as a memory address.
+that are not enabled. 
+<br><dt><em>Address</em><dd>Where the marker is in your program, as a memory address. 
 <br><dt><em>What</em><dd>Where the marker is in the source for your program, as a file and line
 number.  If the debug information included in the program does not
 allow <span class="sc">gdb</span> to locate the source of the marker, this column
-will be left blank.
+will be left blank. 
 </dl>
 
      <p class="noindent">In addition, the following information may be printed for each marker:
@@ -73,8 +73,8 @@ will be left blank.
           <dl>
 <dt><em>Data</em><dd>User data passed to the tracing library by the marker call.  In the
 UST backend, this is the format string passed as argument to the
-marker call.
-<br><dt><em>Static tracepoints probing the marker</em><dd>The list of static tracepoints attached to the marker.
+marker call. 
+<br><dt><em>Static tracepoints probing the marker</em><dd>The list of static tracepoints attached to the marker. 
 </dl>
 
      <pre class="smallexample">          (gdb) info static-tracepoint-markers
@@ -89,3 +89,4 @@ marker call.
      </dl>
 
    </body></html>
+

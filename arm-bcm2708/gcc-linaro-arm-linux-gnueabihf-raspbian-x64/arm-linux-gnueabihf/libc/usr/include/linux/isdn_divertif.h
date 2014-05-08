@@ -23,3 +23,4 @@
 #define DIVERT_REG_ERR  0x03  /* module already registered */
 #define DIVERT_REL_ERR  0x04  /* module not registered */
 #define DIVERT_REG_NAME isdn_register_divert
+

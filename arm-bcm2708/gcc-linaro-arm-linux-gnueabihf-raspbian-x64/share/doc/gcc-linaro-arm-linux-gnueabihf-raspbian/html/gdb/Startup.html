@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ gets loaded.
 
      <p><a name="Init-File-in-the-Current-Directory-during-Startup"></a><li>Reads and executes the commands from init file (if any) in the current
 working directory as long as &lsquo;<samp><span class="samp">set auto-load local-gdbinit</span></samp>&rsquo; is set to
-&lsquo;<samp><span class="samp">on</span></samp>&rsquo; (see <a href="Init-File-in-the-Current-Directory.html#Init-File-in-the-Current-Directory">Init File in the Current Directory</a>).
+&lsquo;<samp><span class="samp">on</span></samp>&rsquo; (see <a href="Init-File-in-the-Current-Directory.html#Init-File-in-the-Current-Directory">Init File in the Current Directory</a>). 
 This is only done if the current directory is
 different from your home directory.  Thus, you can have more than one
 init file, one generic in your home directory, and another, specific
@@ -78,7 +78,7 @@ to the program you are debugging, in the directory where you invoke
 
      <li>If the command line specified a program to debug, or a process to
 attach to, or a core file, <span class="sc">gdb</span> loads any auto-loaded
-scripts provided for the program or for its loaded shared libraries.
+scripts provided for the program or for its loaded shared libraries. 
 See <a href="Auto_002dloading.html#Auto_002dloading">Auto-loading</a>.
 
      <p>If you wish to disable the auto-loading during startup,
@@ -93,7 +93,7 @@ off too late.
 &lsquo;<samp><span class="samp">-x</span></samp>&rsquo; options in their specified order.  See <a href="Command-Files.html#Command-Files">Command Files</a>, for
 more details about <span class="sc">gdb</span> command files.
 
-     <li>Reads the command history recorded in the <dfn>history file</dfn>.
+     <li>Reads the command history recorded in the <dfn>history file</dfn>. 
 See <a href="Command-History.html#Command-History">Command History</a>, for more details about the command history and the
 files where <span class="sc">gdb</span> records it.
         </ol>
@@ -107,7 +107,7 @@ option (see <a href="Mode-Options.html#Mode-Options">Choosing Modes</a>).
    <p>To display the list of init files loaded by gdb at startup, you
 can use <kbd>gdb --help</kbd>.
 
-   <p><a name="index-init-file-name-56"></a><a name="index-g_t_0040file_007b_002egdbinit_007d-57"></a><a name="index-g_t_0040file_007bgdb_002eini_007d-58"></a>The <span class="sc">gdb</span> init files are normally called <samp><span class="file">.gdbinit</span></samp>.
+   <p><a name="index-init-file-name-56"></a><a name="index-g_t_0040file_007b_002egdbinit_007d-57"></a><a name="index-g_t_0040file_007bgdb_002eini_007d-58"></a>The <span class="sc">gdb</span> init files are normally called <samp><span class="file">.gdbinit</span></samp>. 
 The DJGPP port of <span class="sc">gdb</span> uses the name <samp><span class="file">gdb.ini</span></samp>, due to
 the limitations of file names imposed by DOS filesystems.  The Windows
 port of <span class="sc">gdb</span> uses the standard name, but if it finds a
@@ -123,3 +123,4 @@ DOS/Windows systems, the home directory is the one pointed to by the
    <hr></div>
 
    </body></html>
+

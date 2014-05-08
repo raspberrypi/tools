@@ -729,7 +729,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       template<typename _Iter>
         __normal_iterator(const __normal_iterator<_Iter,
 			  typename __enable_if<
-	       (std::__are_same<_Iter, typename _Container::pointer>::__value),
+      	       (std::__are_same<_Iter, typename _Container::pointer>::__value),
 		      _Container>::__type>& __i)
         : _M_current(__i.base()) { }
 
@@ -1010,10 +1010,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       move_iterator
       operator-(difference_type __n) const
       { return move_iterator(_M_current - __n); }
-
+    
       move_iterator&
       operator-=(difference_type __n)
-      {
+      { 
 	_M_current -= __n;
 	return *this;
       }

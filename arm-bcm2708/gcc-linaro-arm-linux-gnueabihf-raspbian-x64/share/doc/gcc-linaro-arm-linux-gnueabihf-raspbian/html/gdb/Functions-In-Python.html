@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ variable of type <code>internal function</code>, whose name is the same as
 the given <var>name</var>.
 
         <p>The documentation for the new function is taken from the documentation
-string for the new class.
+string for the new class. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -75,7 +75,7 @@ function can have default values for parameters without ill effect.
 
         <p>The return value of this method is used as its value in the enclosing
 expression.  If an ordinary Python value is returned, it is converted
-to a <code>gdb.Value</code> following the usual rules.
+to a <code>gdb.Value</code> following the usual rules. 
 </p></blockquote></div>
 
    <p>The following code snippet shows how a trivial convenience function can
@@ -84,13 +84,13 @@ be implemented in Python:
 <pre class="smallexample">     class Greet (gdb.Function):
        """Return string to greet someone.
      Takes a name as argument."""
-
+     
        def __init__ (self):
          super (Greet, self).__init__ ("greet")
-
+     
        def invoke (self, name):
          return "Hello, %s!" % name.string ()
-
+     
      Greet ()
 </pre>
    <p>The last line instantiates the class, and is necessary to trigger the
@@ -104,3 +104,4 @@ Python code is read into <span class="sc">gdb</span>, you may need to import the
      $1 = "Hello, Bob!"
 </pre>
    </body></html>
+

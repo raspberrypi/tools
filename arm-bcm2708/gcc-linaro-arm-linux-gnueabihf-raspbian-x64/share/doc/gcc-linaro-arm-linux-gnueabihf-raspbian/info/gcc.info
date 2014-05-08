@@ -36818,22 +36818,22 @@ Function prototype               Example usage           Assembly output
 `void __MQMACHS (acc, sw2, sw2)' `__MQMACHS (C, A, B)'   `MQMACHS A,B,C'
 `void __MQMACHU (acc, uw2, uw2)' `__MQMACHU (C, A, B)'   `MQMACHU A,B,C'
 `void __MQMACXHS (acc, sw2,      `__MQMACXHS (C, A, B)'  `MQMACXHS A,B,C'
-sw2)'
+sw2)'                                                    
 `void __MQMULHS (acc, sw2, sw2)' `__MQMULHS (C, A, B)'   `MQMULHS A,B,C'
 `void __MQMULHU (acc, uw2, uw2)' `__MQMULHU (C, A, B)'   `MQMULHU A,B,C'
 `void __MQMULXHS (acc, sw2,      `__MQMULXHS (C, A, B)'  `MQMULXHS A,B,C'
-sw2)'
+sw2)'                                                    
 `void __MQMULXHU (acc, uw2,      `__MQMULXHU (C, A, B)'  `MQMULXHU A,B,C'
-uw2)'
+uw2)'                                                    
 `sw2 __MQSATHS (sw2, sw2)'       `C = __MQSATHS (A, B)'  `MQSATHS A,B,C'
 `uw2 __MQSLLHI (uw2, int)'       `C = __MQSLLHI (A, B)'  `MQSLLHI A,B,C'
 `sw2 __MQSRAHI (sw2, int)'       `C = __MQSRAHI (A, B)'  `MQSRAHI A,B,C'
 `sw2 __MQSUBHSS (sw2, sw2)'      `C = __MQSUBHSS (A, B)' `MQSUBHSS A,B,C'
 `uw2 __MQSUBHUS (uw2, uw2)'      `C = __MQSUBHUS (A, B)' `MQSUBHUS A,B,C'
 `void __MQXMACHS (acc, sw2,      `__MQXMACHS (C, A, B)'  `MQXMACHS A,B,C'
-sw2)'
+sw2)'                                                    
 `void __MQXMACXHS (acc, sw2,     `__MQXMACXHS (C, A, B)' `MQXMACXHS A,B,C'
-sw2)'
+sw2)'                                                    
 `uw1 __MRDACC (acc)'             `B = __MRDACC (A)'      `MRDACC A,B'
 `uw1 __MRDACCG (acc)'            `B = __MRDACCG (A)'     `MRDACCG A,B'
 `uw1 __MROTLI (uw1, const)'      `C = __MROTLI (A, B)'   `MROTLI A,#B,C'
@@ -36966,11 +36966,11 @@ mode.  All of them implement the function that is part of the name.
 the 64-bit mode.
 
 `__float128 __builtin_infq (void)'
-     Similar to `__builtin_inf', except the return type is `__float128'.
+     Similar to `__builtin_inf', except the return type is `__float128'.  
 
 `__float128 __builtin_huge_valq (void)'
      Similar to `__builtin_huge_val', except the return type is
-     `__float128'.
+     `__float128'.  
 
  The following built-in functions are always available and can be used
 to check the target platform type.
@@ -43662,7 +43662,7 @@ selectors and methods and about objects and classes.
 `unsigned long'    `L'
 `long long'        `q'
 `unsigned long     `Q'
-long'
+long'              
 `float'            `f'
 `double'           `d'
 `long double'      `D'
@@ -43720,12 +43720,12 @@ compiler on an i386 machine:
 Objective-C type   Compiler encoding
      int a[10];    `[10i]'
      struct {      `{?=i[3f]b128i3b131i2c}'
-       int i;
-       float f[3];
-       int a:3;
-       int b:2;
-       char c;
-     }
+       int i;      
+       float f[3]; 
+       int a:3;    
+       int b:2;    
+       char c;     
+     }             
      int a __attribute__ ((vector_size (16)));`![16,16i]' (alignment would depend on the machine)
 
 

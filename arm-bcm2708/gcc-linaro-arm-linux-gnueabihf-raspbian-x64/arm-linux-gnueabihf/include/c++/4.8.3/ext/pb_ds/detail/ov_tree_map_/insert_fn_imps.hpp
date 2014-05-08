@@ -60,3 +60,4 @@ reallocate_metadata(Node_Update_* , size_type new_size)
     }
   std::swap(m_a_metadata, a_new_metadata_vec);
 }
+

@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ different to the line containing the argument causing the problem.
    <p>Here is an example illustrating this:
 
 <pre class="smallexample">     #define ignore_second_arg(a,b,c) a; c
-
+     
      ignore_second_arg (foo (),
                         ignored (),
                         syntax error);
@@ -76,3 +76,4 @@ even though the problematic code comes from line five.
    <p>We consider this a bug, and intend to fix it in the near future.
 
    </body></html>
+

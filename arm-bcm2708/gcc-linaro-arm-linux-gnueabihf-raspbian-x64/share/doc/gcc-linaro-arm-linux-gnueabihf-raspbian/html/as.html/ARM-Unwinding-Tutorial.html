@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="ARM_002dDependent.html#ARM_002dDependen
 
 <p>The ABI for the ARM Architecture specifies a standard format for
 exception unwind information.  This information is used when an
-exception is thrown to determine where control should be transferred.
+exception is thrown to determine where control should be transferred. 
 In particular, the unwind information is used to determine which
 function called the function that threw the exception, and which
 function called that one, and so forth.  This information is also used
@@ -127,7 +127,7 @@ must be located in the same locations relative to the frame pointer.
    <p>The <code>.fnstart</code> (see <a href="arm_005ffnstart.html#arm_005ffnstart">.fnstart pseudo op</a>) pseudo
 op appears immediately before the first instruction of the function
 while the <code>.fnend</code> (see <a href="arm_005ffnend.html#arm_005ffnend">.fnend pseudo op</a>) pseudo
-op appears immediately after the last instruction of the function.
+op appears immediately after the last instruction of the function. 
 These pseudo ops specify the range of the function.
 
    <p>Only the order of the other pseudos ops (e.g., <code>.setfp</code> or
@@ -154,21 +154,21 @@ done with the <code>ldmfd</code> instruction above.)
 
    <p>You do not have to save callee-saved registers at the very beginning
 of the function and you do not need to use the <code>.save</code> pseudo op
-immediately following the point at which the registers are saved.
+immediately following the point at which the registers are saved. 
 However, if you modify a callee-saved register, you must save it on
 the stack before modifying it and before calling any functions which
 might throw an exception.  And, you must use the <code>.save</code> pseudo
 op to indicate that you have done so.
 
    <p>The <code>.pad</code> (see <a href="arm_005fpad.html#arm_005fpad">.pad</a>) pseudo op indicates a
-modification of the stack pointer that does not save any registers.
+modification of the stack pointer that does not save any registers. 
 The argument is the number of bytes (in decimal) that are subtracted
 from the stack pointer.  (On ARM CPUs, the stack grows downwards, so
 subtracting from the stack pointer increases the size of the stack.)
 
    <p>The <code>.setfp</code> (see <a href="arm_005fsetfp.html#arm_005fsetfp">.setfp pseudo op</a>) pseudo op
 indicates the register that contains the frame pointer.  The first
-argument is the register that is set, which is typically <code>fp</code>.
+argument is the register that is set, which is typically <code>fp</code>. 
 The second argument indicates the register from which the frame
 pointer takes its value.  The third argument, if present, is the value
 (in decimal) added to the register specified by the second argument to
@@ -191,3 +191,4 @@ ARM Architecture</cite> available from <a href="http://infocenter.arm.com">http:
 <!-- This is part of the GAS manual. -->
 <!-- For copying conditions, see the file as.texinfo. -->
    </body></html>
+

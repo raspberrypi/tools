@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ find the beginning of a function.
 you may want to limit the size of this search, using one of these
 commands:
 
-
+     
 <a name="index-g_t_0040code_007bheuristic_002dfence_002dpost_007d-_0028Alpha_002c-_0040acronym_007bMIPS_007d_0029-1511"></a>
 <dl><dt><code>set heuristic-fence-post </code><var>limit</var><dd>Restrict <span class="sc">gdb</span> to examining at most <var>limit</var> bytes in its
 search for the beginning of a function.  A value of <var>0</var> (the
@@ -65,7 +65,7 @@ larger the limit the more bytes <code>heuristic-fence-post</code> must search
 and therefore the longer it takes to run.  You should only need to use
 this command when debugging a stripped executable.
 
-     <br><dt><code>show heuristic-fence-post</code><dd>Display the current limit.
+     <br><dt><code>show heuristic-fence-post</code><dd>Display the current limit. 
 </dl>
 
 <p class="noindent">These commands are available <em>only</em> when <span class="sc">gdb</span> is configured
@@ -80,7 +80,7 @@ values of <var>arg</var> are:
 
           <dl>
 <dt>&lsquo;<samp><span class="samp">auto</span></samp>&rsquo;<dd>The default ABI associated with the current binary (this is the
-default).
+default). 
 <br><dt>&lsquo;<samp><span class="samp">o32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">o64</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">n32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">n64</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">eabi32</span></samp>&rsquo;<br><dt>&lsquo;<samp><span class="samp">eabi64</span></samp>&rsquo;<dd></dl>
 
      <br><dt><code>show mips abi</code><dd><a name="index-show-mips-abi-1514"></a>Show the <acronym>MIPS</acronym> ABI used by <span class="sc">gdb</span> to debug the inferior.
@@ -90,11 +90,11 @@ default).
 inferior.  <span class="sc">gdb</span> uses this for code disassembly and other
 internal interpretation purposes.  This setting is only referred to
 when no executable has been associated with the debugging session or
-the executable does not provide information about the encoding it uses.
+the executable does not provide information about the encoding it uses. 
 Otherwise this setting is automatically updated from information
 provided by the executable.
 
-     <p>Possible values of <var>arg</var> are &lsquo;<samp><span class="samp">mips16</span></samp>&rsquo; and &lsquo;<samp><span class="samp">micromips</span></samp>&rsquo;.
+     <p>Possible values of <var>arg</var> are &lsquo;<samp><span class="samp">mips16</span></samp>&rsquo; and &lsquo;<samp><span class="samp">micromips</span></samp>&rsquo;. 
 The default compressed <acronym title="Instruction Set Architecture">ISA</acronym> encoding is &lsquo;<samp><span class="samp">mips16</span></samp>&rsquo;, as
 executables containing <acronym>MIPS16</acronym> code frequently are not
 identified as such.
@@ -132,7 +132,8 @@ and 64 bits for other registers, set this option to &lsquo;<samp><span class="sa
      <br><dt><code>set debug mips</code><dd><a name="index-set-debug-mips-1523"></a>This command turns on and off debugging messages for the <acronym>MIPS</acronym>-specific
 target code in <span class="sc">gdb</span>.
 
-     <br><dt><code>show debug mips</code><dd><a name="index-show-debug-mips-1524"></a>Show the current setting of <acronym>MIPS</acronym> debugging messages.
+     <br><dt><code>show debug mips</code><dd><a name="index-show-debug-mips-1524"></a>Show the current setting of <acronym>MIPS</acronym> debugging messages. 
 </dl>
 
    </body></html>
+

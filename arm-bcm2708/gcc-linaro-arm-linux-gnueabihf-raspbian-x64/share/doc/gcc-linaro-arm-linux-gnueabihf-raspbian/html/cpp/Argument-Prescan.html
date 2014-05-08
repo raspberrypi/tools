@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Macro-Pitfalls.html#Macro-Pitfalls">Mac
 Macro arguments are completely macro-expanded before they are
 substituted into a macro body, unless they are stringified or pasted
 with other tokens.  After substitution, the entire macro body, including
-the substituted arguments, is scanned again for macros to be expanded.
+the substituted arguments, is scanned again for macros to be expanded. 
 The result is that the arguments are scanned <em>twice</em> to expand
 macro calls in them.
 
@@ -74,12 +74,12 @@ same results.
    <p>You might expect the double scan to change the results when a
 self-referential macro is used in an argument of another macro
 (see <a href="Self_002dReferential-Macros.html#Self_002dReferential-Macros">Self-Referential Macros</a>): the self-referential macro would be
-expanded once in the first scan, and a second time in the second scan.
+expanded once in the first scan, and a second time in the second scan. 
 However, this is not what happens.  The self-references that do not
 expand in the first scan are marked so that they will not expand in the
 second scan either.
 
-   <p>You might wonder, &ldquo;Why mention the prescan, if it makes no difference?
+   <p>You might wonder, &ldquo;Why mention the prescan, if it makes no difference? 
 And why not skip it and make the preprocessor faster?&rdquo;  The answer is
 that the prescan does make a difference in three special cases:
 
@@ -139,3 +139,4 @@ definition from being interpreted as an argument separator.
    </ul>
 
    </body></html>
+

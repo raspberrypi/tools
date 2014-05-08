@@ -81,3 +81,4 @@ erase_imp(key_const_reference r_key,  false_type)
   resize_base::notify_erase_search_end();
   return false;
 }
+

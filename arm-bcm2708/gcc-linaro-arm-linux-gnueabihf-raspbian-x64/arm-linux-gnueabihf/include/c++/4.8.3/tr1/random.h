@@ -52,7 +52,7 @@ namespace tr1
   {
   _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-    template<typename _UIntType, int __w,
+    template<typename _UIntType, int __w, 
 	     bool = __w < std::numeric_limits<_UIntType>::digits>
       struct _Shift
       { static const _UIntType __value = 0; };
@@ -80,7 +80,7 @@ namespace tr1
      */
     template<typename _Engine, typename _Distribution>
       struct _Adaptor
-      {
+      { 
 	typedef typename remove_reference<_Engine>::type _BEngine;
 	typedef typename _BEngine::result_type           _Engine_result_type;
 	typedef typename _Distribution::input_type       result_type;
@@ -140,7 +140,7 @@ namespace tr1
 	    __return_value = result_type(_M_g() - _M_g.min())
 	      / result_type(_M_g.max() - _M_g.min() + result_type(1));
 	  else
-	    __return_value = (((_M_g() - _M_g.min())
+	    __return_value = (((_M_g() - _M_g.min()) 
 			       / (_M_g.max() - _M_g.min()))
 			      * std::numeric_limits<result_type>::max());
 	  return __return_value;
@@ -203,7 +203,7 @@ namespace tr1
 	    __return_value = result_type((*_M_g)() - _M_g->min())
 	      / result_type(_M_g->max() - _M_g->min() + result_type(1));
 	  else
-	    __return_value = ((((*_M_g)() - _M_g->min())
+	    __return_value = ((((*_M_g)() - _M_g->min()) 
 			       / (_M_g->max() - _M_g->min()))
 			      * std::numeric_limits<result_type>::max());
 	  return __return_value;
@@ -334,7 +334,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * requirements.  <table border=1 cellpadding=10 cellspacing=0>
    * <caption align=top>Random Number Generator Requirements</caption>
    * <tr><td>To be documented.</td></tr> </table>
-   *
+   * 
    * @{
    */
 
@@ -435,7 +435,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       /**
        * Compares two linear congruential random number generator
        * objects of the same type for equality.
-       *
+       *  
        * @param __lhs A linear congruential random number generator object.
        * @param __rhs Another linear congruential random number generator obj.
        *
@@ -703,7 +703,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * @brief The Marsaglia-Zaman generator.
-   *
+   * 
    * This is a model of a Generalized Fibonacci discrete random number
    * generator, sometimes referred to as the SWC generator.
    *
@@ -729,7 +729,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     public:
       /** The type of the generated random value. */
       typedef _IntType result_type;
-
+      
       // parameter values
       static const _IntType modulus   = __m;
       static const int      long_lag  = __r;
@@ -892,7 +892,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * @var _M_x     The state of the generator.  This is a ring buffer.
    * @var _M_carry The carry.
    * @var _M_p     Current index of x(i - r).
-   * @var _M_npows Precomputed negative powers of 2.
+   * @var _M_npows Precomputed negative powers of 2.   
    */
   template<typename _RealType, int __w, int __s, int __r>
     class subtract_with_carry_01
@@ -900,7 +900,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     public:
       /** The type of the generated random value. */
       typedef _RealType result_type;
-
+      
       // parameter values
       static const int      word_size = __w;
       static const int      long_lag  = __r;
@@ -937,7 +937,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         subtract_with_carry_01(_Gen& __g)
         {
 	  this->seed(__g);
-	  _M_initialize_npows();
+	  _M_initialize_npows();	  
 	}
 
       /**
@@ -1075,7 +1075,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   // _GLIBCXX_RESOLVE_LIB_DEFECTS
   // 508. Bad parameters for ranlux64_base_01.
-  typedef subtract_with_carry_01<double, 48, 5, 12> ranlux64_base_01;
+  typedef subtract_with_carry_01<double, 48, 5, 12> ranlux64_base_01;  
 
 
   /**
@@ -1320,7 +1320,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       // constructors and member function
       xor_combine()
-      : _M_b1(), _M_b2()
+      : _M_b1(), _M_b2()	
       { _M_initialize_max(); }
 
       xor_combine(const base1_type& __rng1, const base2_type& __rng2)
@@ -1570,7 +1570,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     class uniform_int
     {
       __glibcxx_class_requires(_IntType, _IntegerConcept)
-
+ 
     public:
       /** The type of the parameters of the distribution. */
       typedef _IntType input_type;
@@ -1711,7 +1711,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     explicit
     bernoulli_distribution(double __p = 0.5)
     : _M_p(__p)
-    {
+    { 
       _GLIBCXX_DEBUG_ASSERT((_M_p >= 0.0) && (_M_p <= 1.0));
     }
 
@@ -1780,7 +1780,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /**
    * @brief A discrete geometric random number distribution.
    *
-   * The formula for the geometric probability mass function is
+   * The formula for the geometric probability mass function is 
    * @f$ p(i) = (1 - p)p^{i-1} @f$ where @f$ p @f$ is the parameter of the
    * distribution.
    */
@@ -1953,7 +1953,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /**
    * @brief A discrete binomial random number distribution.
    *
-   * The formula for the binomial probability mass function is
+   * The formula for the binomial probability mass function is 
    * @f$ p(i) = \binom{n}{i} p^i (1 - p)^{t - i} @f$ where @f$ t @f$
    * and @f$ p @f$ are the parameters of the distribution.
    */
@@ -1981,7 +1981,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _IntType
       t() const
       { return _M_t; }
-
+      
       /**
        * Gets the distribution @p p parameter.
        */
@@ -2142,7 +2142,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /**
    * @brief An exponential continuous distribution for random numbers.
    *
-   * The formula for the exponential probability mass function is
+   * The formula for the exponential probability mass function is 
    * @f$ p(x) = \lambda e^{-\lambda x} @f$.
    *
    * <table border=1 cellpadding=10 cellspacing=0>
@@ -2170,7 +2170,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       explicit
       exponential_distribution(const result_type& __lambda = result_type(1))
       : _M_lambda(__lambda)
-      {
+      { 
 	_GLIBCXX_DEBUG_ASSERT(_M_lambda > 0);
       }
 
@@ -2233,8 +2233,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /**
    * @brief A normal continuous distribution for random numbers.
    *
-   * The formula for the normal probability mass function is
-   * @f$ p(x) = \frac{1}{\sigma \sqrt{2 \pi}}
+   * The formula for the normal probability mass function is 
+   * @f$ p(x) = \frac{1}{\sigma \sqrt{2 \pi}} 
    *            e^{- \frac{{x - mean}^ {2}}{2 \sigma ^ {2}} } @f$.
    */
   template<typename _RealType = double>
@@ -2254,7 +2254,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       normal_distribution(const result_type& __mean = result_type(0),
 			  const result_type& __sigma = result_type(1))
       : _M_mean(__mean), _M_sigma(__sigma), _M_saved_available(false)
-      {
+      { 
 	_GLIBCXX_DEBUG_ASSERT(_M_sigma > 0);
       }
 
@@ -2316,14 +2316,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       result_type _M_mean;
       result_type _M_sigma;
       result_type _M_saved;
-      bool        _M_saved_available;
+      bool        _M_saved_available;     
     };
 
 
   /**
    * @brief A gamma continuous distribution for random numbers.
    *
-   * The formula for the gamma probability mass function is
+   * The formula for the gamma probability mass function is 
    * @f$ p(x) = \frac{1}{\Gamma(\alpha)} x^{\alpha - 1} e^{-x} @f$.
    */
   template<typename _RealType = double>
@@ -2341,7 +2341,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       explicit
       gamma_distribution(const result_type& __alpha_val = result_type(1))
       : _M_alpha(__alpha_val)
-      {
+      { 
 	_GLIBCXX_DEBUG_ASSERT(_M_alpha > 0);
 	_M_initialize();
       }

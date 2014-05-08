@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Gcov.html#Gcov">Gcov</a>
 <p><samp><span class="command">gcov</span></samp> uses two files for profiling.  The names of these files
 are derived from the original <em>object</em> file by substituting the
 file suffix with either <samp><span class="file">.gcno</span></samp>, or <samp><span class="file">.gcda</span></samp>.  The files
-contain coverage and profile data stored in a platform-independent format.
+contain coverage and profile data stored in a platform-independent format. 
 The <samp><span class="file">.gcno</span></samp> files are placed in the same directory as the object
 file.  By default, the <samp><span class="file">.gcda</span></samp> files are also stored in the same
 directory as the object file, but the GCC <samp><span class="option">-fprofile-dir</span></samp> option
@@ -69,7 +69,7 @@ reconstruct the basic block graphs and assign source line numbers to
 blocks.
 
  <p>The <samp><span class="file">.gcda</span></samp> count data file is generated when a program containing
-object files built with the GCC <samp><span class="option">-fprofile-arcs</span></samp> option is executed.
+object files built with the GCC <samp><span class="option">-fprofile-arcs</span></samp> option is executed. 
 A separate <samp><span class="file">.gcda</span></samp> file is created for each object file compiled with
 this option.  It contains arc transition counts, value profile counts, and
 some summary information.
@@ -79,3 +79,4 @@ and functions provided in that header file should be used to access the
 coverage files.
 
  </body></html>
+

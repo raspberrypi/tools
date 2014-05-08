@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,8 +60,8 @@ which prints a flat profile and call graph analysis
 for all functions.
 
      <dl>
-<dt><code>-A[</code><var>symspec</var><code>]</code><dt><code>--annotated-source[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-A</span></samp>&rsquo; option causes <code>gprof</code> to print annotated source code.
-If <var>symspec</var> is specified, print output only for matching symbols.
+<dt><code>-A[</code><var>symspec</var><code>]</code><dt><code>--annotated-source[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-A</span></samp>&rsquo; option causes <code>gprof</code> to print annotated source code. 
+If <var>symspec</var> is specified, print output only for matching symbols. 
 See <a href="Annotated-Source.html#Annotated-Source">The Annotated Source Listing</a>.
 
      <br><dt><code>-b</code><dt><code>--brief</code><dd>If the &lsquo;<samp><span class="samp">-b</span></samp>&rsquo; option is given, <code>gprof</code> doesn't print the
@@ -70,7 +70,7 @@ the tables.  This is useful if you intend to print out the output, or
 are tired of seeing the blurbs.
 
      <br><dt><code>-C[</code><var>symspec</var><code>]</code><dt><code>--exec-counts[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-C</span></samp>&rsquo; option causes <code>gprof</code> to
-print a tally of functions and the number of times each was called.
+print a tally of functions and the number of times each was called. 
 If <var>symspec</var> is specified, print tally only for matching symbols.
 
      <p>If the profile data file contains basic-block count records, specifying
@@ -83,11 +83,11 @@ call graph, and basic-block count records is displayed.
 
      <br><dt><code>-I </code><var>dirs</var><dt><code>--directory-path=</code><var>dirs</var><dd>The &lsquo;<samp><span class="samp">-I</span></samp>&rsquo; option specifies a list of search directories in
 which to find source files.  Environment variable <var>GPROF_PATH</var>
-can also be used to convey this information.
+can also be used to convey this information. 
 Used mostly for annotated source output.
 
      <br><dt><code>-J[</code><var>symspec</var><code>]</code><dt><code>--no-annotated-source[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-J</span></samp>&rsquo; option causes <code>gprof</code> not to
-print annotated source code.
+print annotated source code. 
 If <var>symspec</var> is specified, <code>gprof</code> prints annotated source,
 but excludes matching symbols.
 
@@ -99,21 +99,21 @@ from symbolic debugging information in the image file
 and is relative to the directory in which the compiler
 was invoked.
 
-     <br><dt><code>-p[</code><var>symspec</var><code>]</code><dt><code>--flat-profile[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option causes <code>gprof</code> to print a flat profile.
-If <var>symspec</var> is specified, print flat profile only for matching symbols.
+     <br><dt><code>-p[</code><var>symspec</var><code>]</code><dt><code>--flat-profile[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option causes <code>gprof</code> to print a flat profile. 
+If <var>symspec</var> is specified, print flat profile only for matching symbols. 
 See <a href="Flat-Profile.html#Flat-Profile">The Flat Profile</a>.
 
-     <br><dt><code>-P[</code><var>symspec</var><code>]</code><dt><code>--no-flat-profile[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-P</span></samp>&rsquo; option causes <code>gprof</code> to suppress printing a flat profile.
+     <br><dt><code>-P[</code><var>symspec</var><code>]</code><dt><code>--no-flat-profile[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-P</span></samp>&rsquo; option causes <code>gprof</code> to suppress printing a flat profile. 
 If <var>symspec</var> is specified, <code>gprof</code> prints a flat profile,
 but excludes matching symbols.
 
-     <br><dt><code>-q[</code><var>symspec</var><code>]</code><dt><code>--graph[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-q</span></samp>&rsquo; option causes <code>gprof</code> to print the call graph analysis.
+     <br><dt><code>-q[</code><var>symspec</var><code>]</code><dt><code>--graph[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-q</span></samp>&rsquo; option causes <code>gprof</code> to print the call graph analysis. 
 If <var>symspec</var> is specified, print call graph only for matching symbols
-and their children.
+and their children. 
 See <a href="Call-Graph.html#Call-Graph">The Call Graph</a>.
 
      <br><dt><code>-Q[</code><var>symspec</var><code>]</code><dt><code>--no-graph[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-Q</span></samp>&rsquo; option causes <code>gprof</code> to suppress printing the
-call graph.
+call graph. 
 If <var>symspec</var> is specified, <code>gprof</code> prints a call graph,
 but excludes matching symbols.
 
@@ -121,7 +121,7 @@ but excludes matching symbols.
 each source file to be listed when source annotation is enabled.  The
 default is 10.
 
-     <br><dt><code>-y</code><dt><code>--separate-files</code><dd>This option affects annotated source output only.
+     <br><dt><code>-y</code><dt><code>--separate-files</code><dd>This option affects annotated source output only. 
 Normally, <code>gprof</code> prints annotated source files
 to standard-output.  If this option is specified,
 annotated source for a file named <samp><span class="file">path/</span><var>filename</var></samp>
@@ -133,11 +133,11 @@ original file name has an extension, that extension is <em>replaced</em>
 with <samp><span class="file">.ann</span></samp>).
 
      <br><dt><code>-Z[</code><var>symspec</var><code>]</code><dt><code>--no-exec-counts[=</code><var>symspec</var><code>]</code><dd>The &lsquo;<samp><span class="samp">-Z</span></samp>&rsquo; option causes <code>gprof</code> not to
-print a tally of functions and the number of times each was called.
+print a tally of functions and the number of times each was called. 
 If <var>symspec</var> is specified, print tally, but exclude matching symbols.
 
      <br><dt><code>-r</code><dt><code>--function-ordering</code><dd>The &lsquo;<samp><span class="samp">--function-ordering</span></samp>&rsquo; option causes <code>gprof</code> to print a
-suggested function ordering for the program based on profiling data.
+suggested function ordering for the program based on profiling data. 
 This option suggests an ordering which may improve paging, tlb and
 cache behavior for the program on systems which support arbitrary
 ordering of functions in an executable.
@@ -147,7 +147,7 @@ in a particular order is system dependent and out of the scope of this
 manual.
 
      <br><dt><code>-R </code><var>map_file</var><dt><code>--file-ordering </code><var>map_file</var><dd>The &lsquo;<samp><span class="samp">--file-ordering</span></samp>&rsquo; option causes <code>gprof</code> to print a
-suggested .o link line ordering for the program based on profiling data.
+suggested .o link line ordering for the program based on profiling data. 
 This option suggests an ordering which may improve paging, tlb and
 cache behavior for the program on systems which do not support arbitrary
 ordering of functions in an executable.
@@ -173,11 +173,11 @@ the output of the program <code>nm</code>.
      <br><dt><code>-T</code><dt><code>--traditional</code><dd>The &lsquo;<samp><span class="samp">-T</span></samp>&rsquo; option causes <code>gprof</code> to print its output in
 &ldquo;traditional&rdquo; BSD style.
 
-     <br><dt><code>-w </code><var>width</var><dt><code>--width=</code><var>width</var><dd>Sets width of output lines to <var>width</var>.
+     <br><dt><code>-w </code><var>width</var><dt><code>--width=</code><var>width</var><dd>Sets width of output lines to <var>width</var>. 
 Currently only used when printing the function index at the bottom
 of the call graph.
 
-     <br><dt><code>-x</code><dt><code>--all-lines</code><dd>This option affects annotated source output only.
+     <br><dt><code>-x</code><dt><code>--all-lines</code><dd>This option affects annotated source output only. 
 By default, only the lines at the beginning of a basic-block
 are annotated.  If this option is specified, every line in
 a basic-block is annotated by repeating the annotation for the
@@ -188,7 +188,8 @@ printing output.  The default is to demangle symbols.  The
 <code>--no-demangle</code> option may be used to turn off demangling. Different
 compilers have different mangling styles.  The optional demangling style
 argument can be used to choose an appropriate demangling style for your
-compiler.
+compiler. 
 </dl>
 
    </body></html>
+

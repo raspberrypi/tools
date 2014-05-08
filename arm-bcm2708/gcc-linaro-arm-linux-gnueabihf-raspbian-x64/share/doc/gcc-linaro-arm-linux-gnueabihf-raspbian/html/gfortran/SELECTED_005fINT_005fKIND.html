@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -78,9 +78,9 @@ this range, <code>SELECTED_INT_KIND</code> returns -1.
             integer,parameter :: k15 = selected_int_kind(15)
             integer(kind=k5) :: i5
             integer(kind=k15) :: i15
-
+          
             print *, huge(i5), huge(i15)
-
+          
             ! The following inequalities are always true
             print *, huge(i5) &gt;= 10_k5**5-1
             print *, huge(i15) &gt;= 10_k15**15-1
@@ -89,3 +89,4 @@ this range, <code>SELECTED_INT_KIND</code> returns -1.
      </dl>
 
    </body></html>
+

@@ -101,12 +101,12 @@ along with GCC; see the file COPYING3.  If not see
    sparse sets.  The canonical example in GCC is, of course, the "set of
    sets" for some CFG-based data flow problems (liveness analysis, dominance
    frontiers, etc.).
-
+   
    This representation also works well for data flow problems where the size
    of the set may grow dynamically, but care must be taken that the member_p,
    add_member, and remove_member operations occur with a suitable access
    pattern.
-
+   
    For random-access sets with a known, relatively small universe size, the
    SparseSet or simple bitmap representations may be more efficient than a
    linked-list set.  For random-access sets of unknown universe, a hash table
@@ -115,7 +115,7 @@ along with GCC; see the file COPYING3.  If not see
 
    Traversing linked lists is usually cache-unfriendly, even with the last
    accessed element cached.
-
+   
    Cache performance can be improved by keeping the elements in the set
    grouped together in memory, using a dedicated obstack for a set (or group
    of related sets).  Elements allocated on obstacks are released to a

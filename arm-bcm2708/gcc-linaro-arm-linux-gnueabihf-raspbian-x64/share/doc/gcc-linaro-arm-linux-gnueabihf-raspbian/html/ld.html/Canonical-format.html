@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ overlap between the information provided by the source format, that
 stored by the canonical format, and that needed by the
 destination format. A brief description of the canonical form may help
 you understand which kinds of data you can count on preserving across
-conversions.
+conversions. 
 <a name="index-BFD-canonical-format-714"></a><a name="index-internal-object_002dfile-format-715"></a>
      <dl>
 <dt><em>files</em><dd>Information stored on a per-file basis includes target machine
@@ -97,22 +97,23 @@ is in, and a pointer to a relocation type descriptor. Relocation is
 performed by passing messages through the relocation type
 descriptor and the symbol pointer. Therefore, relocations can be performed
 on output data using a relocation method that is only available in one of the
-input formats. For instance, Oasys provides a byte relocation format.
+input formats. For instance, Oasys provides a byte relocation format. 
 A relocation record requesting this relocation type would point
 indirectly to a routine to perform this, so the relocation may be
 performed on a byte being written to a 68k COFF file, even though 68k COFF
 has no such relocation type.
 
      <br><dt><em>line numbers</em><dd>Object formats can contain, for debugging purposes, some form of mapping
-between symbols, source line numbers, and addresses in the output file.
-These addresses have to be relocated along with the symbol information.
+between symbols, source line numbers, and addresses in the output file. 
+These addresses have to be relocated along with the symbol information. 
 Each symbol with an associated list of line number records points to the
 first record of the list.  The head of a line number list consists of a
 pointer to the symbol, which allows finding out the address of the
 function whose line number is being described. The rest of the list is
 made up of pairs: offsets into the section and line numbers. Any format
 which can simply derive this information can pass it successfully
-between formats (COFF, IEEE and Oasys).
+between formats (COFF, IEEE and Oasys). 
 </dl>
 
    </body></html>
+

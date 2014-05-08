@@ -55,7 +55,7 @@
 namespace __gnu_profile
 {
   /** @brief Internal environment.  Values can be set one of two ways:
-      1. In config file "var = value".  The default config file path is
+      1. In config file "var = value".  The default config file path is 
          libstdcxx-profile.conf.
       2. By setting process environment variables.  For instance, in a Bash
          shell you can set the unit cost of iterating through a map like this:
@@ -80,9 +80,9 @@ namespace __gnu_profile
     __warning_data()
     : __magnitude(0.0), __context(0), __warning_id(0) { }
 
-    __warning_data(float __m, __stack_t __c, const char* __id,
+    __warning_data(float __m, __stack_t __c, const char* __id, 
 		   const std::string& __msg)
-    : __magnitude(__m), __context(__c), __warning_id(__id),
+    : __magnitude(__m), __context(__c), __warning_id(__id), 
       __warning_message(__msg) { }
 
     bool
@@ -98,20 +98,20 @@ namespace __gnu_profile
   class __trace_map2umap;
   class __trace_vector_size;
   class __trace_vector_to_list;
-  class __trace_list_to_slist;
-  class __trace_list_to_vector;
+  class __trace_list_to_slist; 
+  class __trace_list_to_vector; 
   void __trace_vector_size_init();
   void __trace_hashtable_size_init();
   void __trace_hash_func_init();
   void __trace_vector_to_list_init();
-  void __trace_list_to_slist_init();
-  void __trace_list_to_vector_init();
+  void __trace_list_to_slist_init();  
+  void __trace_list_to_vector_init();  
   void __trace_map_to_unordered_map_init();
   void __trace_vector_size_report(FILE*, __warning_vector_t&);
   void __trace_hashtable_size_report(FILE*, __warning_vector_t&);
   void __trace_hash_func_report(FILE*, __warning_vector_t&);
   void __trace_vector_to_list_report(FILE*, __warning_vector_t&);
-  void __trace_list_to_slist_report(FILE*, __warning_vector_t&);
+  void __trace_list_to_slist_report(FILE*, __warning_vector_t&); 
   void __trace_list_to_vector_report(FILE*, __warning_vector_t&);
   void __trace_map_to_unordered_map_report(FILE*, __warning_vector_t&);
 
@@ -128,21 +128,21 @@ namespace __gnu_profile
   _GLIBCXX_PROFILE_DEFINE_DATA(__trace_map2umap*, _S_map2umap, 0);
   _GLIBCXX_PROFILE_DEFINE_DATA(__trace_vector_size*, _S_vector_size, 0);
   _GLIBCXX_PROFILE_DEFINE_DATA(__trace_vector_to_list*, _S_vector_to_list, 0);
-  _GLIBCXX_PROFILE_DEFINE_DATA(__trace_list_to_slist*, _S_list_to_slist, 0);
+  _GLIBCXX_PROFILE_DEFINE_DATA(__trace_list_to_slist*, _S_list_to_slist, 0); 
   _GLIBCXX_PROFILE_DEFINE_DATA(__trace_list_to_vector*, _S_list_to_vector, 0);
 
-  _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __vector_shift_cost_factor,
+  _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __vector_shift_cost_factor, 
 			       {"__vector_shift_cost_factor", 1.0});
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __vector_iterate_cost_factor,
 			       {"__vector_iterate_cost_factor", 1.0});
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __vector_resize_cost_factor,
-			       {"__vector_resize_cost_factor", 1.0});
+			       {"__vector_resize_cost_factor", 1.0}); 
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __list_shift_cost_factor,
 			       {"__list_shift_cost_factor", 0.0});
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __list_iterate_cost_factor,
-			       {"__list_iterate_cost_factor", 10.0});
+			       {"__list_iterate_cost_factor", 10.0}); 
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __list_resize_cost_factor,
-			       {"__list_resize_cost_factor", 0.0});
+			       {"__list_resize_cost_factor", 0.0}); 
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __map_insert_cost_factor,
 			       {"__map_insert_cost_factor", 1.5});
   _GLIBCXX_PROFILE_DEFINE_DATA(__cost_factor, __map_erase_cost_factor,
@@ -200,10 +200,10 @@ namespace __gnu_profile
     private:
       __gnu_cxx::__mutex __object_table_lock;
       __gnu_cxx::__mutex __stack_table_lock;
-      typedef _GLIBCXX_IMPL_UNORDERED_MAP<__object_t,
+      typedef _GLIBCXX_IMPL_UNORDERED_MAP<__object_t, 
 					  __object_info> __object_table_t;
       typedef _GLIBCXX_IMPL_UNORDERED_MAP<__stack_t, __stack_info,
-					  __stack_hash,
+					  __stack_hash, 
 					  __stack_hash> __stack_table_t;
       __object_table_t __object_table;
       __stack_table_t __stack_table;
@@ -230,7 +230,7 @@ namespace __gnu_profile
     __trace_base<__object_info, __stack_info>::
     __add_object(__object_t __object, __object_info __info)
     {
-      if (__max_mem() == 0
+      if (__max_mem() == 0 
 	  || __object_table.size() * sizeof(__object_info) <= __max_mem())
 	{
 	  this->__object_table_lock.lock();
@@ -273,20 +273,20 @@ namespace __gnu_profile
       this->__stack_table_lock.lock();
       typename __object_table_t::iterator __object_it
 	= __object_table.find(__object);
-
+  
       if (__object_it != __object_table.end())
 	{
 	  const __object_info& __info = __object_it->second;
 	  const __stack_t& __stack = __info.__stack();
 	  typename __stack_table_t::iterator __stack_it
 	    = __stack_table.find(__stack);
-
+    
 	  if (__stack_it == __stack_table.end())
 	    {
 	      // First occurence of this call context.
-	      if (__max_mem() == 0 || __stack_table_byte_size < __max_mem())
+	      if (__max_mem() == 0 || __stack_table_byte_size < __max_mem()) 
 		{
-		  __stack_table_byte_size
+		  __stack_table_byte_size 
 		    += (sizeof(__instruction_address_t) * __size(__stack)
 			+ sizeof(__stack) + sizeof(__stack_info));
 		  __stack_table.insert(make_pair(__stack,
@@ -356,7 +356,7 @@ namespace __gnu_profile
   inline void
   __set_max_mem()
   {
-    _GLIBCXX_PROFILE_DATA(_S_max_mem)
+    _GLIBCXX_PROFILE_DATA(_S_max_mem) 
       = __env_to_size_t(_GLIBCXX_PROFILE_MEM_PER_DIAGNOSTIC_ENV_VAR,
 			_GLIBCXX_PROFILE_DATA(_S_max_mem));
   }
@@ -368,13 +368,13 @@ namespace __gnu_profile
     int __result = 0;
     int __sign = 1;
 
-    if (__f < 0)
+    if (__f < 0) 
       {
 	__f = -__f;
 	__sign = -1;
       }
 
-    while (__f > __log_base)
+    while (__f > __log_base) 
       {
 	++__result;
 	__f /= 10.0;
@@ -382,11 +382,11 @@ namespace __gnu_profile
     return __sign * __result;
   }
 
-  inline FILE*
+  inline FILE* 
   __open_output_file(const char* __extension)
   {
     // The path is made of _S_trace_file_name + "." + extension.
-    std::size_t __root_len
+    std::size_t __root_len 
       = __builtin_strlen(_GLIBCXX_PROFILE_DATA(_S_trace_file_name));
     std::size_t __ext_len = __builtin_strlen(__extension);
     char* __file_name = new char[__root_len + 1 + __ext_len + 1];
@@ -556,7 +556,7 @@ namespace __gnu_profile
       if (!__env_value)
         {
           // Look it up in the config file.
-          __env_t::iterator __it
+          __env_t::iterator __it 
 	    = _GLIBCXX_PROFILE_DATA(__env).find(__factor->__env_var);
           if (__it != _GLIBCXX_PROFILE_DATA(__env).end())
             __env_value = (*__it).second.c_str();
@@ -620,7 +620,7 @@ namespace __gnu_profile
 	    __set_max_stack_trace_depth();
 	    __set_max_mem();
 	    __set_trace_path();
-	    __read_cost_factors();
+	    __read_cost_factors(); 
 	    __set_cost_factors();
 	    __write_cost_factors();
 
@@ -628,7 +628,7 @@ namespace __gnu_profile
 	    __trace_hashtable_size_init();
 	    __trace_hash_func_init();
 	    __trace_vector_to_list_init();
-	    __trace_list_to_slist_init();
+	    __trace_list_to_slist_init(); 
 	    __trace_list_to_vector_init();
 	    __trace_map_to_unordered_map_init();
 

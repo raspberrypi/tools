@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,26 +47,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pretty-Printing.html#Pretty-Printing">P
 <h4 class="subsection">10.9.3 Pretty-Printer Commands</h4>
 
 <p><a name="index-pretty_002dprinter-commands-617"></a>
-
+     
 <a name="index-info-pretty_002dprinter-618"></a>
-<dl><dt><code>info pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Print the list of installed pretty-printers.
+<dl><dt><code>info pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Print the list of installed pretty-printers. 
 This includes disabled pretty-printers, which are marked as such.
 
      <p><var>object-regexp</var> is a regular expression matching the objects
-whose pretty-printers to list.
+whose pretty-printers to list. 
 Objects can be <code>global</code>, the program space's file
 (see <a href="Progspaces-In-Python.html#Progspaces-In-Python">Progspaces In Python</a>),
-and the object files within that program space (see <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>).
+and the object files within that program space (see <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>). 
 See <a href="Selecting-Pretty_002dPrinters.html#Selecting-Pretty_002dPrinters">Selecting Pretty-Printers</a>, for details on how <span class="sc">gdb</span>
 looks up a printer from these three objects.
 
      <p><var>name-regexp</var> is a regular expression matching the name of the printers
 to list.
 
-     <p><a name="index-disable-pretty_002dprinter-619"></a><br><dt><code>disable pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Disable pretty-printers matching <var>object-regexp</var> and <var>name-regexp</var>.
+     <p><a name="index-disable-pretty_002dprinter-619"></a><br><dt><code>disable pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Disable pretty-printers matching <var>object-regexp</var> and <var>name-regexp</var>. 
 A disabled pretty-printer is not forgotten, it may be enabled again later.
 
-     <p><a name="index-enable-pretty_002dprinter-620"></a><br><dt><code>enable pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Enable pretty-printers matching <var>object-regexp</var> and <var>name-regexp</var>.
+     <p><a name="index-enable-pretty_002dprinter-620"></a><br><dt><code>enable pretty-printer [</code><var>object-regexp</var><code> [</code><var>name-regexp</var><code>]]</code><dd>Enable pretty-printers matching <var>object-regexp</var> and <var>name-regexp</var>. 
 </dl>
 
    <p>Example:
@@ -123,3 +123,4 @@ another from library2.so named <code>bar</code> that prints two types of objects
 as can each individual subprinter.
 
    </body></html>
+

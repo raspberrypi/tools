@@ -57,7 +57,7 @@ namespace __gnu_debug
       /// The underlying iterator
       _Iterator _M_current;
 
-      /// The bucket this local iterator belongs to
+      /// The bucket this local iterator belongs to 
       size_type _M_bucket;
 
       /// Determine if this is a constant iterator.

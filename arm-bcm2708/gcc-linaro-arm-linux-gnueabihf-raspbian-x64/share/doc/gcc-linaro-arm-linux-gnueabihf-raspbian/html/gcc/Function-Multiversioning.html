@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,28 +67,28 @@ the execution platform.  Here is an example.
        // The default version of foo.
        return 0;
      }
-
+     
      __attribute__ ((target ("sse4.2")))
      int foo ()
      {
        // foo version for SSE4.2
        return 1;
      }
-
+     
      __attribute__ ((target ("arch=atom")))
      int foo ()
      {
        // foo version for the Intel ATOM processor
        return 2;
      }
-
+     
      __attribute__ ((target ("arch=amdfam10")))
      int foo ()
      {
        // foo version for the AMD Family 0x10 processors.
        return 3;
      }
-
+     
      int main ()
      {
        int (*p)() = &amp;foo;
@@ -107,3 +107,4 @@ dispatching to call the right version at runtime.  Refer to the
 <a href="http://gcc.gnu.org/wiki/FunctionMultiVersioning">GCC wiki on Function Multiversioning</a> for more details.
 
  </body></html>
+

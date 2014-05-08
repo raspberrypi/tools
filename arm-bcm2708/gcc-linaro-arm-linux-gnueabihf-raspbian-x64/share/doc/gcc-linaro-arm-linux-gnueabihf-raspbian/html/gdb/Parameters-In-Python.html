@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -95,7 +95,7 @@ of a fourth argument will cause an exception to be thrown.
 
         <p>The help text for the new parameter is taken from the Python
 documentation string for the parameter's class, if there is one.  If
-there is no documentation string, a default value is used.
+there is no documentation string, a default value is used. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -103,7 +103,7 @@ there is no documentation string, a default value is used.
 <blockquote><p>If this attribute exists, and is a string, then its value is used as
 the help text for this parameter's <code>set</code> command.  The value is
 examined when <code>Parameter.__init__</code> is invoked; subsequent changes
-have no effect.
+have no effect. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -111,14 +111,14 @@ have no effect.
 <blockquote><p>If this attribute exists, and is a string, then its value is used as
 the help text for this parameter's <code>show</code> command.  The value is
 examined when <code>Parameter.__init__</code> is invoked; subsequent changes
-have no effect.
+have no effect. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Parameter.value</b><var><a name="index-Parameter_002evalue-1957"></a></var><br>
 <blockquote><p>The <code>value</code> attribute holds the underlying value of the
 parameter.  It can be read and assigned to just as any other
-attribute.  <span class="sc">gdb</span> does validation when assignments are made.
+attribute.  <span class="sc">gdb</span> does validation when assignments are made. 
 </p></blockquote></div>
 
    <p>There are two methods that should be implemented in any
@@ -127,9 +127,9 @@ attribute.  <span class="sc">gdb</span> does validation when assignments are mad
 <div class="defun">
 &mdash; Function: <b>Parameter.get_set_string</b> (<var>self</var>)<var><a name="index-Parameter_002eget_005fset_005fstring-1958"></a></var><br>
 <blockquote><p><span class="sc">gdb</span> will call this method when a <var>parameter</var>'s value has
-been changed via the <code>set</code> API (for example, <kbd>set foo off</kbd>).
+been changed via the <code>set</code> API (for example, <kbd>set foo off</kbd>). 
 The <code>value</code> attribute has already been populated with the new
-value and may be used in output.  This method must return a string.
+value and may be used in output.  This method must return a string. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -137,14 +137,14 @@ value and may be used in output.  This method must return a string.
 <blockquote><p><span class="sc">gdb</span> will call this method when a <var>parameter</var>'s
 <code>show</code> API has been invoked (for example, <kbd>show foo</kbd>).  The
 argument <code>svalue</code> receives the string representation of the
-current value.  This method must return a string.
+current value.  This method must return a string. 
 </p></blockquote></div>
 
    <p>When a new parameter is defined, its type must be specified.  The
 available types are represented by constants defined in the <code>gdb</code>
 module:
 
-
+     
 <a name="index-PARAM_005fBOOLEAN-1960"></a>
 <a name="index-gdb_002ePARAM_005fBOOLEAN-1961"></a>
 <dl><dt><code>gdb.PARAM_BOOLEAN</code><dd>The value is a plain boolean.  The Python boolean values, <code>True</code>
@@ -177,7 +177,8 @@ passed through untranslated.
 is interpreted as itself.
 
      <p><a name="index-PARAM_005fENUM-1978"></a><a name="index-gdb_002ePARAM_005fENUM-1979"></a><br><dt><code>gdb.PARAM_ENUM</code><dd>The value is a string, which must be one of a collection string
-constants provided when the parameter is created.
+constants provided when the parameter is created. 
 </dl>
 
    </body></html>
+

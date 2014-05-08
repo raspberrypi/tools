@@ -55,7 +55,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    {
 	      const bool __testeq = traits_type::eq(traits_type::
 						    to_char_type(__c),
-						    this->gptr()[-1]);
+						    this->gptr()[-1]);	  
 	      const bool __testout = this->_M_mode & ios_base::out;
 	      if (__testeq || __testout)
 		{

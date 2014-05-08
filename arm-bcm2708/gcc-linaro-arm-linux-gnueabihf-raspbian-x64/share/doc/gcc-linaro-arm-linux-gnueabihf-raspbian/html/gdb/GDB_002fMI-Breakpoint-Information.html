@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ the breakpoint will be deleted at the next stop, or &lsquo;<samp><span class="sa
 meaning that the breakpoint will not be deleted.
 
      <br><dt><code>enabled</code><dd>This indicates whether the breakpoint is enabled, in which case the
-value is &lsquo;<samp><span class="samp">y</span></samp>&rsquo;, or disabled, in which case the value is &lsquo;<samp><span class="samp">n</span></samp>&rsquo;.
+value is &lsquo;<samp><span class="samp">y</span></samp>&rsquo;, or disabled, in which case the value is &lsquo;<samp><span class="samp">n</span></samp>&rsquo;. 
 Note that this is not the same as the field <code>enable</code>.
 
      <br><dt><code>addr</code><dd>The address of the breakpoint.  This may be a hexidecimal number,
@@ -77,16 +77,16 @@ breakpoint; or the string &lsquo;<samp><span class="samp">&lt;MULTIPLE&gt;</span
 multiple locations.  This field will not be present if no address can
 be determined.  For example, a watchpoint does not have an address.
 
-     <br><dt><code>func</code><dd>If known, the function in which the breakpoint appears.
+     <br><dt><code>func</code><dd>If known, the function in which the breakpoint appears. 
 If not known, this field is not present.
 
-     <br><dt><code>filename</code><dd>The name of the source file which contains this function, if known.
+     <br><dt><code>filename</code><dd>The name of the source file which contains this function, if known. 
 If not known, this field is not present.
 
      <br><dt><code>fullname</code><dd>The full file name of the source file which contains this function, if
 known.  If not known, this field is not present.
 
-     <br><dt><code>line</code><dd>The line number at which this breakpoint appears, if known.
+     <br><dt><code>line</code><dd>The line number at which this breakpoint appears, if known. 
 If not known, this field is not present.
 
      <br><dt><code>at</code><dd>If the source file is not known, this field may be provided.  If
@@ -119,7 +119,7 @@ field will hold the task identifier.
 
      <br><dt><code>pass</code><dd>A tracepoint's pass count.
 
-     <br><dt><code>original-location</code><dd>The location of the breakpoint as originally specified by the user.
+     <br><dt><code>original-location</code><dd>The location of the breakpoint as originally specified by the user. 
 This field is optional.
 
      <br><dt><code>times</code><dd>The number of times the breakpoint has been hit.
@@ -143,3 +143,4 @@ is not.
      &lt;- (gdb)
 </pre>
    </body></html>
+

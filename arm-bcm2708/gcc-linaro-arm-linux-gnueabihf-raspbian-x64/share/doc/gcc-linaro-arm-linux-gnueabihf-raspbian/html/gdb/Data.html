@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,10 +60,10 @@ you can choose a different format by specifying &lsquo;<samp><span class="samp">
 
      <br><dt><code>print</code><dt><code>print /</code><var>f</var><dd><a name="index-reprint-the-last-value-528"></a>If you omit <var>expr</var>, <span class="sc">gdb</span> displays the last value again (from the
 <dfn>value history</dfn>; see <a href="Value-History.html#Value-History">Value History</a>).  This allows you to
-conveniently inspect the same value in an alternative format.
+conveniently inspect the same value in an alternative format. 
 </dl>
 
-   <p>A more low-level way of examining data is with the <code>x</code> command.
+   <p>A more low-level way of examining data is with the <code>x</code> command. 
 It examines data in memory at a specified address and prints it in a
 specified format.  See <a href="Memory.html#Memory">Examining Memory</a>.
 
@@ -81,7 +81,7 @@ embedded in the higher level data types.
 
      <dl>
 <dt><code>explore </code><var>arg</var><dd><var>arg</var> is either an expression (in the source language), or a type
-visible in the current context of the program being debugged.
+visible in the current context of the program being debugged. 
 </dl>
 
    <p>The working of the <code>explore</code> command can be illustrated with an
@@ -93,7 +93,7 @@ C program as
        int i;
        double d;
      };
-
+     
      struct ComplexStruct
      {
        struct SimpleStruct *ss_p;
@@ -111,10 +111,10 @@ C program as
 <pre class="smallexample">     (gdb) explore cs
      The value of `cs' is a struct/class of type `struct ComplexStruct' with
      the following fields:
-
+     
        ss_p = &lt;Enter 0 to explore this field of type `struct SimpleStruct *'&gt;
         arr = &lt;Enter 1 to explore this field of type `int [10]'&gt;
-
+     
      Enter the field number of choice:
 </pre>
    <p class="noindent">Since the fields of <code>cs</code> are not scalar values, you are being
@@ -130,10 +130,10 @@ field will be explored as if it were an array.
      Continue exploring it as a pointer to a single value [y/n]: y
      The value of `*(cs.ss_p)' is a struct/class of type `struct
      SimpleStruct' with the following fields:
-
+     
        i = 10 .. (Value of type `int')
        d = 1.1100000000000001 .. (Value of type `double')
-
+     
      Press enter to return to parent value:
 </pre>
    <p class="noindent">If the field <code>arr</code> of <code>cs</code> was chosen for exploration by
@@ -143,11 +143,11 @@ to explore.
 
 <pre class="smallexample">     `cs.arr' is an array of `int'.
      Enter the index of the element you want to explore in `cs.arr': 5
-
+     
      `(cs.arr)[5]' is a scalar value of type `int'.
-
+     
      (cs.arr)[5] = 4
-
+     
      Press enter to return to parent value:
 </pre>
    <p>In general, at any stage of exploration, you can go deeper towards the
@@ -191,7 +191,7 @@ debugged).  If <var>arg</var> is a type, then the behavior of this command is
 identical to that of the <code>explore</code> command being passed the
 argument <var>arg</var>.  If <var>arg</var> is an expression, then the behavior of
 this command will be identical to that of the <code>explore</code> command
-being passed the type of <var>arg</var> as the argument.
+being passed the type of <var>arg</var> as the argument. 
 </dl>
 
 <ul class="menu">
@@ -221,3 +221,4 @@ being passed the type of <var>arg</var> as the argument.
 </ul>
 
    </body></html>
+

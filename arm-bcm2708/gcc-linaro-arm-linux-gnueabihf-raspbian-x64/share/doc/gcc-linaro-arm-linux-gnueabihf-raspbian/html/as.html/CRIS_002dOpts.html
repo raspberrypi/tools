@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ machine-dependent command-line options.
    <p><a name="index-g_t_0040option_007b_002d_002demulation_003dcriself_007d-command-line-option_002c-CRIS-748"></a><a name="index-g_t_0040option_007b_002d_002demulation_003dcrisaout_007d-command-line-option_002c-CRIS-749"></a><a name="index-CRIS-_0040option_007b_002d_002demulation_003dcriself_007d-command-line-option-750"></a><a name="index-CRIS-_0040option_007b_002d_002demulation_003dcrisaout_007d-command-line-option-751"></a>
 The format of the generated object files can be either ELF or
 a.out, specified by the command-line options
-<samp><span class="option">--emulation=crisaout</span></samp> and <samp><span class="option">--emulation=criself</span></samp>.
+<samp><span class="option">--emulation=crisaout</span></samp> and <samp><span class="option">--emulation=criself</span></samp>. 
 The default is ELF (criself), unless <code>as</code> has been
 configured specifically for a.out by using the configuration
 name <code>cris-axis-aout</code>.
@@ -63,7 +63,7 @@ expected to be prefixed by a leading &lsquo;<samp><span class="samp">_</span></s
 environments without such a symbol prefix.  The variant used for
 GNU/Linux port has no symbol prefix.  Which variant to produce
 is specified by either of the options <samp><span class="option">--underscore</span></samp> and
-<samp><span class="option">--no-underscore</span></samp>.  The default is <samp><span class="option">--underscore</span></samp>.
+<samp><span class="option">--no-underscore</span></samp>.  The default is <samp><span class="option">--underscore</span></samp>. 
 Since symbols in CRIS a.out objects are expected to have a
 &lsquo;<samp><span class="samp">_</span></samp>&rsquo; prefix, specifying <samp><span class="option">--no-underscore</span></samp> when
 generating a.out objects is an error.  Besides the object format
@@ -100,7 +100,7 @@ configured as crisv32-*.  This value implies
 <samp><span class="option">--mul-bug-abort</span></samp> will turn it back on.)
 
      <br><dt><code>common_v10_v32</code><dd>Only instructions with register names and addressing modes with
-opcodes common to the v10 and v32 are recognized.
+opcodes common to the v10 and v32 are recognized. 
 </dl>
 
    <p><a name="index-g_t_0040option_007b_002dN_007d-command-line-option_002c-CRIS-764"></a><a name="index-CRIS-_0040option_007b_002dN_007d-command-line-option-765"></a>When <samp><span class="option">-N</span></samp> is specified, <code>as</code> will emit a
@@ -123,3 +123,4 @@ because it is located in a delay-slot.  The
 checking.
 
    </body></html>
+

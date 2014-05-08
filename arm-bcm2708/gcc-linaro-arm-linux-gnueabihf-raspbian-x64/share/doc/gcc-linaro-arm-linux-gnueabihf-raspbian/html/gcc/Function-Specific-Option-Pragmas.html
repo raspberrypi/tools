@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,13 +58,13 @@ This pragma allows you to set target specific options for functions
 defined later in the source file.  One or more strings can be
 specified.  Each function that is defined after this point is as
 if <code>attribute((target("STRING")))</code> was specified for that
-function.  The parenthesis around the options is optional.
+function.  The parenthesis around the options is optional. 
 See <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>, for more information about the
 <code>target</code> attribute and the attribute syntax.
 
      <p>The <code>#pragma GCC target</code> attribute is not implemented in GCC versions earlier
 than 4.4 for the i386/x86_64 and 4.6 for the PowerPC back ends.  At
-present, it is not implemented for other back ends.
+present, it is not implemented for other back ends. 
 </dl>
 
      <dl>
@@ -73,12 +73,12 @@ This pragma allows you to set global optimization options for functions
 defined later in the source file.  One or more strings can be
 specified.  Each function that is defined after this point is as
 if <code>attribute((optimize("STRING")))</code> was specified for that
-function.  The parenthesis around the options is optional.
+function.  The parenthesis around the options is optional. 
 See <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>, for more information about the
 <code>optimize</code> attribute and the attribute syntax.
 
      <p>The &lsquo;<samp><span class="samp">#pragma GCC optimize</span></samp>&rsquo; pragma is not implemented in GCC
-versions earlier than 4.4.
+versions earlier than 4.4. 
 </dl>
 
      <dl>
@@ -90,7 +90,7 @@ to switch to using a different &lsquo;<samp><span class="samp">#pragma GCC targe
 options.
 
      <p>The &lsquo;<samp><span class="samp">#pragma GCC push_options</span></samp>&rsquo; and &lsquo;<samp><span class="samp">#pragma GCC pop_options</span></samp>&rsquo;
-pragmas are not implemented in GCC versions earlier than 4.4.
+pragmas are not implemented in GCC versions earlier than 4.4. 
 </dl>
 
      <dl>
@@ -100,7 +100,8 @@ This pragma clears the current <code>#pragma GCC target</code> and
 on the command line.
 
      <p>The &lsquo;<samp><span class="samp">#pragma GCC reset_options</span></samp>&rsquo; pragma is not implemented in GCC
-versions earlier than 4.4.
+versions earlier than 4.4. 
 </dl>
 
  </body></html>
+

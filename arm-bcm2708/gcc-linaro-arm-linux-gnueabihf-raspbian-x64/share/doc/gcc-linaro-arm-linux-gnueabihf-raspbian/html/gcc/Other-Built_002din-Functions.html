@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ a specific FR-V instruction.
 <dt><code>sw2 __IACCreadll (iacc </code><var>reg</var><code>)</code><dd>Return the full 64-bit value of IACC0.  The <var>reg</var> argument is reserved
 for future expansion and must be 0.
 
-     <br><dt><code>sw1 __IACCreadl (iacc </code><var>reg</var><code>)</code><dd>Return the value of IACC0H if <var>reg</var> is 0 and IACC0L if <var>reg</var> is 1.
+     <br><dt><code>sw1 __IACCreadl (iacc </code><var>reg</var><code>)</code><dd>Return the value of IACC0H if <var>reg</var> is 0 and IACC0L if <var>reg</var> is 1. 
 Other values of <var>reg</var> are rejected as invalid.
 
      <br><dt><code>void __IACCsetll (iacc </code><var>reg</var><code>, sw2 </code><var>x</var><code>)</code><dd>Set the full 64-bit value of IACC0 to <var>x</var>.  The <var>reg</var> argument
@@ -73,7 +73,8 @@ is 1.  Other values of <var>reg</var> are rejected as invalid.
 into the data cache.
 
      <br><dt><code>void __data_prefetch (const void *</code><var>x</var><code>)</code><dd>Use the <code>nldub</code> instruction to load the contents of address <var>x</var>
-into the data cache.  The instruction is issued in slot I1.
+into the data cache.  The instruction is issued in slot I1. 
 </dl>
 
  </body></html>
+

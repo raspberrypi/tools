@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ On some platforms, a dynamic loader (e.g. <samp><span class="file">ld.so</span><
 same process as your application to manage libraries.  In this case,
 <span class="sc">gdb</span> can use the loader's symbol table and normal memory
 operations to maintain a list of shared libraries.  On other
-platforms, the operating system manages loaded libraries.
+platforms, the operating system manages loaded libraries. 
 <span class="sc">gdb</span> can not retrieve the list of currently loaded libraries
 through memory operations, so it uses the &lsquo;<samp><span class="samp">qXfer:libraries:read</span></samp>&rsquo;
 packet (see <a href="qXfer-library-list-read.html#qXfer-library-list-read">qXfer library list read</a>) instead.  The remote stub
@@ -111,3 +111,4 @@ single library element, and you must supply at least one segment or
 section for each library.
 
    </body></html>
+

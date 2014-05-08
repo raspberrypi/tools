@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Blackfin_002dDependent.html#Blackfin_00
 
 <p><a name="index-Blackfin-syntax-734"></a><a name="index-syntax_002c-Blackfin-735"></a>
      <dl>
-<dt><code>Special Characters</code><dd>Assembler input is free format and may appear anywhere on the line.
+<dt><code>Special Characters</code><dd>Assembler input is free format and may appear anywhere on the line. 
 One instruction may extend across multiple lines or more than one
 instruction may appear on the same line.  White space (space, tab,
 comments or newline) may appear anywhere between tokens.  A token must
@@ -87,14 +87,14 @@ R3.L, r3.l and r3.L are all equivalent input to the assembler.
 
      <p>Register names are reserved and may not be used as program identifiers.
 
-     <p>Some operations (such as "Move Register") require a register pair.
+     <p>Some operations (such as "Move Register") require a register pair. 
 Register pairs are always data registers and are denoted using a colon,
 eg., R3:2.  The larger number must be written firsts.  Note that the
 hardware only supports odd-even pairs, eg., R7:6, R5:4, R3:2, and R1:0.
 
      <p>Some instructions (such as &ndash;SP (Push Multiple)) require a group of
 adjacent registers.  Adjacent registers are denoted in the syntax by
-the range enclosed in parentheses and separated by a colon, eg., (R7:3).
+the range enclosed in parentheses and separated by a colon, eg., (R7:3). 
 Again, the larger number appears first.
 
      <p>Portions of a particular register may be individually specified.  This
@@ -108,11 +108,11 @@ are described later.
 is being manipulated.  Each accumulator can be accessed in four ways.
 
           <dl>
-<dt><code>one 40-bit register</code><dd>The register will be referred to as A1 or A0.
-<br><dt><code>one 32-bit register</code><dd>The registers are designated as A1.W or A0.W.
-<br><dt><code>two 16-bit registers</code><dd>The registers are designated as A1.H, A1.L, A0.H or A0.L.
+<dt><code>one 40-bit register</code><dd>The register will be referred to as A1 or A0. 
+<br><dt><code>one 32-bit register</code><dd>The registers are designated as A1.W or A0.W. 
+<br><dt><code>two 16-bit registers</code><dd>The registers are designated as A1.H, A1.L, A0.H or A0.L. 
 <br><dt><code>one 8-bit register</code><dd>The registers are designated as A1.X or A0.X for the bits that
-extend beyond bit 31.
+extend beyond bit 31. 
 </dl>
 
      <br><dt><code>Data Registers</code><dd>The set of 32-bit registers (R0, R1, R2, R3, R4, R5, R6 and R7) that
@@ -171,3 +171,4 @@ the Blackfin(r) Processor Instruction Set Reference.
    </dl>
 
    </body></html>
+

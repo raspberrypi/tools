@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ your program may stop even sooner, due to a breakpoint or a signal.  (If
 it stops due to a signal, you may want to use <code>handle</code>, or use
 &lsquo;<samp><span class="samp">signal 0</span></samp>&rsquo; to resume execution.  See <a href="Signals.html#Signals">Signals</a>.)
 
-
+     
 <a name="index-continue-306"></a>
 <a name="index-c-_0040r_007b_0028_0040code_007bcontinue_007d_0029_007d-307"></a>
 <a name="index-fg-_0040r_007b_0028resume-foreground-execution_0029_007d-308"></a>
@@ -73,7 +73,7 @@ stopped due to a breakpoint.  At other times, the argument to
      <p>The synonyms <code>c</code> and <code>fg</code> (for <dfn>foreground</dfn>, as the
 debugged program is deemed to be the foreground program) are provided
 purely for convenience, and have exactly the same behavior as
-<code>continue</code>.
+<code>continue</code>. 
 </dl>
 
    <p>To resume execution at a different place, you can use <code>return</code>
@@ -87,7 +87,7 @@ is believed to lie, run your program until it stops at that breakpoint,
 and then step through the suspect area, examining the variables that are
 interesting, until you see the problem happen.
 
-
+     
 <a name="index-step-309"></a>
 <a name="index-s-_0040r_007b_0028_0040code_007bstep_007d_0029_007d-310"></a>
 <dl><dt><code>step</code><dd>Continue running your program until control reaches a different source
@@ -105,7 +105,7 @@ execution proceeds until control reaches a function that does have
 debugging information.  Likewise, it will not step into a function which
 is compiled without debugging information.  To step through functions
 without debugging information, use the <code>stepi</code> command, described
-below.
+below. 
 </blockquote>
 
      <p>The <code>step</code> command only stops at the first instruction of a source
@@ -125,7 +125,7 @@ was any debugging information about the routine.
 breakpoint is reached, or a signal not related to stepping occurs before
 <var>count</var> steps, stepping stops right away.
 
-     <p><a name="index-next-311"></a><a name="index-n-_0040r_007b_0028_0040code_007bnext_007d_0029_007d-312"></a><br><dt><code>next </code><span class="roman">[</span><var>count</var><span class="roman">]</span><dd>Continue to the next source line in the current (innermost) stack frame.
+     <p><a name="index-next-311"></a><a name="index-n-_0040r_007b_0028_0040code_007bnext_007d_0029_007d-312"></a><br><dt><code>next </code><span class="roman">[</span><var>count</var><span class="roman">]</span><dd>Continue to the next source line in the current (innermost) stack frame. 
 This is similar to <code>step</code>, but function calls that appear within
 the line of code are executed without stopping.  Execution stops when
 control reaches a different line of code at the original stack level
@@ -205,7 +205,7 @@ argument.
 
      <br><dt><code>until </code><var>location</var><dt><code>u </code><var>location</var><dd>Continue running your program until either the specified location is
 reached, or the current stack frame returns.  <var>location</var> is any of
-the forms described in <a href="Specify-Location.html#Specify-Location">Specify Location</a>.
+the forms described in <a href="Specify-Location.html#Specify-Location">Specify Location</a>. 
 This form of the command uses temporary breakpoints, and
 hence is quicker than <code>until</code> without an argument.  The specified
 location is actually reached only if it is in the current frame.  This
@@ -225,7 +225,7 @@ invocations have returned.
 </pre>
      <p><a name="index-advance-_0040var_007blocation_007d-321"></a><br><dt><code>advance </code><var>location</var><dd>Continue running the program up to the given <var>location</var>.  An argument is
 required, which should be of one of the forms described in
-<a href="Specify-Location.html#Specify-Location">Specify Location</a>.
+<a href="Specify-Location.html#Specify-Location">Specify Location</a>. 
 Execution will also stop upon exit from the current stack
 frame.  This command is similar to <code>until</code>, but <code>advance</code> will
 not skip over recursive function calls, and the target location doesn't
@@ -242,7 +242,8 @@ instruction to be executed, each time your program stops.  See <a href="Auto-Dis
      <p><a name="index-nexti-324"></a><a name="index-ni-_0040r_007b_0028_0040code_007bnexti_007d_0029_007d-325"></a><br><dt><code>nexti</code><dt><code>nexti </code><var>arg</var><dt><code>ni</code><dd>Execute one machine instruction, but if it is a function call,
 proceed until the function returns.
 
-     <p>An argument is a repeat count, as in <code>next</code>.
+     <p>An argument is a repeat count, as in <code>next</code>. 
 </dl>
 
    </body></html>
+

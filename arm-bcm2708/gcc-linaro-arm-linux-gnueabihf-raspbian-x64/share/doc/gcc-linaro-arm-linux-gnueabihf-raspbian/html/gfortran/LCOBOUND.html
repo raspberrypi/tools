@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 <p><a name="index-LCOBOUND-788"></a><a name="index-coarray_002c-lower-bound-789"></a>
      <dl>
 <dt><em>Description</em>:<dd>Returns the lower bounds of a coarray, or a single lower cobound
-along the <var>DIM</var> codimension.
+along the <var>DIM</var> codimension. 
 <br><dt><em>Standard</em>:<dd>Fortran 2008 and later
 
      <br><dt><em>Class</em>:<dd>Inquiry function
@@ -65,14 +65,14 @@ along the <var>DIM</var> codimension.
      <br><dt><em>Syntax</em>:<dd><code>RESULT = LCOBOUND(COARRAY [, DIM [, KIND]])</code>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>ARRAY</var> </td><td valign="top" width="70%">Shall be an coarray, of any type.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>DIM</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar <code>INTEGER</code>.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>ARRAY</var> </td><td valign="top" width="70%">Shall be an coarray, of any type. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>DIM</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar <code>INTEGER</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>KIND</var> </td><td valign="top" width="70%">(Optional) An <code>INTEGER</code> initialization
 expression indicating the kind parameter of the result.
      <br></td></tr></table>
 
      <br><dt><em>Return value</em>:<dd>The return value is of type <code>INTEGER</code> and of kind <var>KIND</var>. If
-<var>KIND</var> is absent, the return value is of default integer kind.
+<var>KIND</var> is absent, the return value is of default integer kind. 
 If <var>DIM</var> is absent, the result is an array of the lower cobounds of
 <var>COARRAY</var>.  If <var>DIM</var> is present, the result is a scalar
 corresponding to the lower cobound of the array along that codimension.
@@ -81,3 +81,4 @@ corresponding to the lower cobound of the array along that codimension.
 </dl>
 
    </body></html>
+

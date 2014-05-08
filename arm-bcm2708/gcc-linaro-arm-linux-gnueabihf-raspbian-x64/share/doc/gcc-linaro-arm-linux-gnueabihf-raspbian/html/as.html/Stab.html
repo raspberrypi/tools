@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,10 +47,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 
 <h3 class="section">7.107 <code>.stabd, .stabn, .stabs</code></h3>
 
-<p><a name="index-symbolic-debuggers_002c-information-for-465"></a><a name="index-g_t_0040code_007bstab_0040var_007bx_007d_007d-directives-466"></a>There are three directives that begin &lsquo;<samp><span class="samp">.stab</span></samp>&rsquo;.
-All emit symbols (see <a href="Symbols.html#Symbols">Symbols</a>), for use by symbolic debuggers.
+<p><a name="index-symbolic-debuggers_002c-information-for-465"></a><a name="index-g_t_0040code_007bstab_0040var_007bx_007d_007d-directives-466"></a>There are three directives that begin &lsquo;<samp><span class="samp">.stab</span></samp>&rsquo;. 
+All emit symbols (see <a href="Symbols.html#Symbols">Symbols</a>), for use by symbolic debuggers. 
 The symbols are not entered in the <samp><span class="command">as</span></samp> hash table: they
-cannot be referenced elsewhere in the source file.
+cannot be referenced elsewhere in the source file. 
 Up to five fields are required:
 
      <dl>
@@ -69,7 +69,7 @@ low 8 bits of this expression.
      <br><dt><var>desc</var><dd>An absolute expression.  The symbol's descriptor is set to the low 16
 bits of this expression.
 
-     <br><dt><var>value</var><dd>An absolute expression which becomes the symbol's value.
+     <br><dt><var>value</var><dd>An absolute expression which becomes the symbol's value. 
 </dl>
 
    <p>If a warning is detected while reading a <code>.stabd</code>, <code>.stabn</code>,
@@ -77,10 +77,10 @@ or <code>.stabs</code> statement, the symbol has probably already been created;
 you get a half-formed symbol in your object file.  This is
 compatible with earlier assemblers!
 
-
+     
 <a name="index-g_t_0040code_007bstabd_007d-directive-467"></a>
 <dl><dt><code>.stabd </code><var>type</var><code> , </code><var>other</var><code> , </code><var>desc</var><dd>
-The &ldquo;name&rdquo; of the symbol generated is not even an empty string.
+The &ldquo;name&rdquo; of the symbol generated is not even an empty string. 
 It is a null pointer, for compatibility.  Older assemblers used a
 null pointer so they didn't waste space in object files with empty
 strings.
@@ -92,8 +92,9 @@ assembled.
 
      <p><a name="index-g_t_0040code_007bstabn_007d-directive-468"></a><br><dt><code>.stabn </code><var>type</var><code> , </code><var>other</var><code> , </code><var>desc</var><code> , </code><var>value</var><dd>The name of the symbol is set to the empty string <code>""</code>.
 
-     <p><a name="index-g_t_0040code_007bstabs_007d-directive-469"></a><br><dt><code>.stabs </code><var>string</var><code> ,  </code><var>type</var><code> , </code><var>other</var><code> , </code><var>desc</var><code> , </code><var>value</var><dd>All five fields are specified.
+     <p><a name="index-g_t_0040code_007bstabs_007d-directive-469"></a><br><dt><code>.stabs </code><var>string</var><code> ,  </code><var>type</var><code> , </code><var>other</var><code> , </code><var>desc</var><code> , </code><var>value</var><dd>All five fields are specified. 
 </dl>
    <!-- end     have-stabs -->
 
    </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,10 +69,10 @@ equals <code>TRUE</code>. Afterwards, positions are filled with elements taken f
      <br><dt><em>Syntax</em>:<dd><code>RESULT = PACK(ARRAY, MASK[,VECTOR]</code>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>ARRAY</var>  </td><td valign="top" width="70%">Shall be an array of any type.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>ARRAY</var>  </td><td valign="top" width="70%">Shall be an array of any type. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>MASK</var>   </td><td valign="top" width="70%">Shall be an array of type <code>LOGICAL</code> and
 of the same size as <var>ARRAY</var>. Alternatively, it may be a <code>LOGICAL</code>
-scalar.
+scalar. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>VECTOR</var> </td><td valign="top" width="70%">(Optional) shall be an array of the same type
 as <var>ARRAY</var> and of rank one. If present, the number of elements in
 <var>VECTOR</var> shall be equal to or greater than the number of true elements
@@ -81,7 +81,7 @@ in <var>MASK</var>. If <var>MASK</var> is scalar, the number of elements in
 <var>ARRAY</var>.
      <br></td></tr></table>
 
-     <br><dt><em>Return value</em>:<dd>The result is an array of rank one and the same type as that of <var>ARRAY</var>.
+     <br><dt><em>Return value</em>:<dd>The result is an array of rank one and the same type as that of <var>ARRAY</var>. 
 If <var>VECTOR</var> is present, the result size is that of <var>VECTOR</var>, the
 number of <code>TRUE</code> values in <var>MASK</var> otherwise.
 
@@ -103,3 +103,4 @@ number of <code>TRUE</code> values in <var>MASK</var> otherwise.
 </dl>
 
    </body></html>
+

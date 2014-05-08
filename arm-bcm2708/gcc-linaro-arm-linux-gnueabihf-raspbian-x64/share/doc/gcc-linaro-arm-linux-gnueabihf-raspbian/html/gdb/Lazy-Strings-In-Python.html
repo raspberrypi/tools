@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,20 +68,20 @@ wrapping a string is immediately retrieved and encoded on creation.
 <blockquote><p>Convert the <code>gdb.LazyString</code> to a <code>gdb.Value</code>.  This value
 will point to the string in memory, but will lose all the delayed
 retrieval, encoding and handling that <span class="sc">gdb</span> applies to a
-<code>gdb.LazyString</code>.
+<code>gdb.LazyString</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>LazyString.address</b><var><a name="index-LazyString_002eaddress-2159"></a></var><br>
 <blockquote><p>This attribute holds the address of the string.  This attribute is not
-writable.
+writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>LazyString.length</b><var><a name="index-LazyString_002elength-2160"></a></var><br>
 <blockquote><p>This attribute holds the length of the string in characters.  If the
 length is -1, then the string will be fetched and encoded up to the
-first null of appropriate width.  This attribute is not writable.
+first null of appropriate width.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -90,7 +90,7 @@ first null of appropriate width.  This attribute is not writable.
 when the string is printed by <span class="sc">gdb</span>.  If the encoding is not
 set, or contains an empty string,  then <span class="sc">gdb</span> will select the
 most appropriate encoding when the string is printed.  This attribute
-is not writable.
+is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -99,7 +99,8 @@ is not writable.
 type.  For a lazy string this will always be a pointer type.  To
 resolve this to the lazy string's character type, use the type's
 <code>target</code> method.  See <a href="Types-In-Python.html#Types-In-Python">Types In Python</a>.  This attribute is not
-writable.
+writable. 
 </p></blockquote></div>
 
    </body></html>
+

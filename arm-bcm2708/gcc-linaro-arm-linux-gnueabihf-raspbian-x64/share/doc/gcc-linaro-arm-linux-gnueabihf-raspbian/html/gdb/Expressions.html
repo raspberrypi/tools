@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,14 +69,14 @@ expressions regardless of your programming language.
 
    <p><a name="index-casts_002c-in-expressions-535"></a>Casts are supported in all languages, not just in C, because it is so
 useful to cast a number into a pointer in order to examine a structure
-at that address in memory.
+at that address in memory. 
 <!-- FIXME: casts supported-Mod2 true? -->
 
    <p><span class="sc">gdb</span> supports these operators, in addition to those common
 to programming languages:
 
      <dl>
-<dt><code>@</code><dd>&lsquo;<samp><span class="samp">@</span></samp>&rsquo; is a binary operator for treating parts of memory as arrays.
+<dt><code>@</code><dd>&lsquo;<samp><span class="samp">@</span></samp>&rsquo; is a binary operator for treating parts of memory as arrays. 
 See <a href="Arrays.html#Arrays">Artificial Arrays</a>, for more information.
 
      <br><dt><code>::</code><dd>&lsquo;<samp><span class="samp">::</span></samp>&rsquo; allows you to specify a variable in terms of the file or
@@ -86,7 +86,8 @@ function where it is defined.  See <a href="Variables.html#Variables">Program Va
 memory.  <var>addr</var> may be any expression whose value is an integer or
 pointer (but parentheses are required around binary operators, just as in
 a cast).  This construct is allowed regardless of what kind of data is
-normally supposed to reside at <var>addr</var>.
+normally supposed to reside at <var>addr</var>. 
 </dl>
 
    </body></html>
+

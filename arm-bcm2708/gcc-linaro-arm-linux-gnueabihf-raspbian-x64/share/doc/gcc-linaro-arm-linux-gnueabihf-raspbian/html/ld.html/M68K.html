@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,18 +47,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 
 <h3 class="section">4.6 <samp><span class="command">ld</span></samp> and the Motorola 68K family</h3>
 
-<p><a name="index-Motorola-68K-GOT-generation-628"></a><a name="index-g_t_002d_002dgot_003d_0040var_007btype_007d-629"></a>The &lsquo;<samp><span class="samp">--got=</span><var>type</var></samp>&rsquo; option lets you choose the GOT generation scheme.
+<p><a name="index-Motorola-68K-GOT-generation-628"></a><a name="index-g_t_002d_002dgot_003d_0040var_007btype_007d-629"></a>The &lsquo;<samp><span class="samp">--got=</span><var>type</var></samp>&rsquo; option lets you choose the GOT generation scheme. 
 The choices are &lsquo;<samp><span class="samp">single</span></samp>&rsquo;, &lsquo;<samp><span class="samp">negative</span></samp>&rsquo;, &lsquo;<samp><span class="samp">multigot</span></samp>&rsquo; and
 &lsquo;<samp><span class="samp">target</span></samp>&rsquo;.  When &lsquo;<samp><span class="samp">target</span></samp>&rsquo; is selected the linker chooses
-the default GOT generation scheme for the current target.
+the default GOT generation scheme for the current target. 
 &lsquo;<samp><span class="samp">single</span></samp>&rsquo; tells the linker to generate a single GOT with
-entries only at non-negative offsets.
+entries only at non-negative offsets. 
 &lsquo;<samp><span class="samp">negative</span></samp>&rsquo; instructs the linker to generate a single GOT with
 entries at both negative and positive offsets.  Not all environments
-support such GOTs.
+support such GOTs. 
 &lsquo;<samp><span class="samp">multigot</span></samp>&rsquo; allows the linker to generate several GOTs in the
 output file.  All GOT references from a single input object
 file access the same GOT, but references from different input object
 files might access different GOTs.  Not all environments support such GOTs.
 
    </body></html>
+

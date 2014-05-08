@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ the same as if the arguments were specified by the &lsquo;<samp><span class="sam
 first argument that does not have an associated option flag as
 equivalent to the &lsquo;<samp><span class="samp">-se</span></samp>&rsquo; option followed by that argument; and the
 second argument that does not have an associated option flag, if any, as
-equivalent to the &lsquo;<samp><span class="samp">-c</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option followed by that argument.)
+equivalent to the &lsquo;<samp><span class="samp">-c</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option followed by that argument.) 
 If the second argument begins with a decimal digit, <span class="sc">gdb</span> will
 first attempt to attach to it as a process, and if that fails, attempt
 to open it as a corefile.  If you have a corefile whose name begins with
@@ -65,7 +65,7 @@ argument and ignore it.
 
    <p>Many options have both long and short forms; both are shown in the
 following list.  <span class="sc">gdb</span> also recognizes the long forms if you truncate
-them, so long as enough of the option is present to be unambiguous.
+them, so long as enough of the option is present to be unambiguous. 
 (If you prefer, you can flag option arguments with &lsquo;<samp><span class="samp">--</span></samp>&rsquo; rather
 than &lsquo;<samp><span class="samp">-</span></samp>&rsquo;, though we illustrate the more usual convention.)
 
@@ -86,7 +86,7 @@ file.
      <br><dt><code>-pid </code><var>number</var><dt><code>-p </code><var>number</var><dd><a name="index-g_t_0040code_007b_002d_002dpid_007d-11"></a><a name="index-g_t_0040code_007b_002dp_007d-12"></a>Connect to process ID <var>number</var>, as with the <code>attach</code> command.
 
      <br><dt><code>-command </code><var>file</var><dt><code>-x </code><var>file</var><dd><a name="index-g_t_0040code_007b_002d_002dcommand_007d-13"></a><a name="index-g_t_0040code_007b_002dx_007d-14"></a>Execute commands from file <var>file</var>.  The contents of this file is
-evaluated exactly as the <code>source</code> command would.
+evaluated exactly as the <code>source</code> command would. 
 See <a href="Command-Files.html#Command-Files">Command files</a>.
 
      <br><dt><code>-eval-command </code><var>command</var><dt><code>-ex </code><var>command</var><dd><a name="index-g_t_0040code_007b_002d_002deval_002dcommand_007d-15"></a><a name="index-g_t_0040code_007b_002dex_007d-16"></a>Execute a single <span class="sc">gdb</span> command.
@@ -98,19 +98,20 @@ also be interleaved with &lsquo;<samp><span class="samp">-command</span></samp>&
              -x setbreakpoints -ex 'run' a.out
 </pre>
      <br><dt><code>-init-command </code><var>file</var><dt><code>-ix </code><var>file</var><dd><a name="index-g_t_0040code_007b_002d_002dinit_002dcommand_007d-17"></a><a name="index-g_t_0040code_007b_002dix_007d-18"></a>Execute commands from file <var>file</var> before loading the inferior (but
-after loading gdbinit files).
+after loading gdbinit files). 
 See <a href="Startup.html#Startup">Startup</a>.
 
      <br><dt><code>-init-eval-command </code><var>command</var><dt><code>-iex </code><var>command</var><dd><a name="index-g_t_0040code_007b_002d_002dinit_002deval_002dcommand_007d-19"></a><a name="index-g_t_0040code_007b_002diex_007d-20"></a>Execute a single <span class="sc">gdb</span> command before loading the inferior (but
-after loading gdbinit files).
+after loading gdbinit files). 
 See <a href="Startup.html#Startup">Startup</a>.
 
      <br><dt><code>-directory </code><var>directory</var><dt><code>-d </code><var>directory</var><dd><a name="index-g_t_0040code_007b_002d_002ddirectory_007d-21"></a><a name="index-g_t_0040code_007b_002dd_007d-22"></a>Add <var>directory</var> to the path to search for source and script files.
 
      <br><dt><code>-r</code><dt><code>-readnow</code><dd><a name="index-g_t_0040code_007b_002d_002dreadnow_007d-23"></a><a name="index-g_t_0040code_007b_002dr_007d-24"></a>Read each symbol file's entire symbol table immediately, rather than
-the default, which is to read it incrementally as it is needed.
+the default, which is to read it incrementally as it is needed. 
 This makes startup slower, but makes future operations faster.
 
    </dl>
 
    </body></html>
+

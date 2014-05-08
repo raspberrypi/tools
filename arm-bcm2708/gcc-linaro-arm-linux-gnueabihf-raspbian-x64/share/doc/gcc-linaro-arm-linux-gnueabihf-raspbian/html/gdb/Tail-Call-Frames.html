@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -78,7 +78,7 @@ kind by text <code>tail call frame</code> such as in this sample <span class="sc
       Arglist at unknown address.
       Locals at unknown address, Previous frame's sp is 0x7fffffffda30
 </pre>
-   <p>The detection of all the possible code path executions can find them ambiguous.
+   <p>The detection of all the possible code path executions can find them ambiguous. 
 There is no execution history stored (possible <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a> is never
 used for this purpose) and the last known caller could have reached the known
 callee by multiple different jump sequences.  In such case <span class="sc">gdb</span> still
@@ -93,7 +93,7 @@ of them with the final unambiguous (possibly partial or even empty) code path
 result.
 
      <br><dt><code>show debug entry-values</code><dd><a name="index-show-debug-entry_002dvalues-725"></a>Show the current state of analysis messages printing for both frame argument
-values at function entry and tail calls.
+values at function entry and tail calls. 
 </dl>
 
    <p>The analysis messages for tail calls can for example show why the virtual tail
@@ -105,7 +105,7 @@ reference by variable <code>x</code>):
      static void __attribute__((noinline, noclone)) a (void) { x++; }
      static void __attribute__((noinline, noclone)) c (void) { a (); }
      int main (void) { x (); return 0; }
-
+     
      Breakpoint 1, DW_OP_GNU_entry_value resolving cannot find
      DW_TAG_GNU_call_site 0x40039a in main
      a () at t.c:3
@@ -125,7 +125,7 @@ reference by variable <code>x</code>):
      { if (i) c (); else e (); }
      static void __attribute__((noinline, noclone)) a (void) { b (); }
      int main (void) { a (); return 0; }
-
+     
      tailcall: initial: 0x4004d2(a) 0x4004ce(b) 0x4004b2(c) 0x4004a2(d)
      tailcall: compare: 0x4004d2(a) 0x4004cc(b) 0x400492(e)
      tailcall: reduced: 0x4004d2(a) |
@@ -135,7 +135,7 @@ reference by variable <code>x</code>):
      #2  0x0000000000400395 in main () at t.c:9
 </pre>
    <!-- Convert CALLSEQ#A to CALLSEQ#B depending on HAVE_MAKEINFO_CLICK. -->
-   <p>Frames #0 and #2 are real, #1 is a virtual tail call frame.
+   <p>Frames #0 and #2 are real, #1 is a virtual tail call frame. 
 The code can have possible execution paths <code>main&rarr;a&rarr;b&rarr;c&rarr;d&rarr;f</code> or
 <code>main&rarr;a&rarr;b&rarr;e&rarr;f</code>, <span class="sc">gdb</span> cannot find which one from the inferior state.
 
@@ -162,7 +162,7 @@ entry may fail:
      static void __attribute__((noinline, noclone)) a (int i)
      { if (i) b (i - 1); else c (0); }
      int main (void) { a (5); return 0; }
-
+     
      (gdb) bt
      #0  c (i=i@entry=0) at t.c:2
      #1  0x0000000000400428 in a (DW_OP_GNU_entry_value resolving has found
@@ -177,3 +177,4 @@ tail calls.  Such tail calls would modify thue <code>i</code> variable, therefor
 prints <code>&lt;optimized out&gt;</code> instead.
 
    </body></html>
+

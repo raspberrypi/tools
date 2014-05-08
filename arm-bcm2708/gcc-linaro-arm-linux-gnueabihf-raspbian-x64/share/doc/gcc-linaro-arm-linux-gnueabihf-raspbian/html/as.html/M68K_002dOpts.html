@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="M68K_002dDependent.html#M68K_002dDepend
 <p><a name="index-options_002c-M680x0-1242"></a><a name="index-M680x0-options-1243"></a>The Motorola 680x0 version of <code>as</code> has a few machine
 dependent options:
 
-
+     
 <a name="index-g_t_0040samp_007b_002dmarch_003d_007d-command-line-option_002c-M680x0-1244"></a>
 <dl><dt>&lsquo;<samp><span class="samp">-march=</span><var>architecture</var></samp>&rsquo;<dd>This option specifies a target architecture.  The following
 architectures are recognized:
@@ -83,7 +83,7 @@ symbols are wide enough for a full <code>long</code> (32 bits).  (Since
 <code>as</code> cannot know where these symbols end up, <code>as</code> can
 only allocate space for the linker to fill in later.  Since <code>as</code>
 does not know how far away these symbols are, it allocates as much space as it
-can.)  If you use this option, the references are only one word wide (16 bits).
+can.)  If you use this option, the references are only one word wide (16 bits). 
 This may be useful if you want the object file to be as small as possible, and
 you know that the relevant symbols are always less than 17 bits away.
 
@@ -106,11 +106,11 @@ either use C style comments, or start comments with a &lsquo;<samp><span class="
 at the beginning of a line.
 
      <p><a name="index-g_t_0040samp_007b_002d_002dbase_002dsize_002ddefault_002d16_007d-1256"></a><a name="index-g_t_0040samp_007b_002d_002dbase_002dsize_002ddefault_002d32_007d-1257"></a><br><dt>&lsquo;<samp><span class="samp">--base-size-default-16  --base-size-default-32</span></samp>&rsquo;<dd>If you use an addressing mode with a base register without specifying
-the size, <code>as</code> will normally use the full 32 bit value.
+the size, <code>as</code> will normally use the full 32 bit value. 
 For example, the addressing mode &lsquo;<samp><span class="samp">%a0@(%d0)</span></samp>&rsquo; is equivalent to
 &lsquo;<samp><span class="samp">%a0@(%d0:l)</span></samp>&rsquo;.  You may use the &lsquo;<samp><span class="samp">--base-size-default-16</span></samp>&rsquo;
-option to tell <code>as</code> to default to using the 16 bit value.
-In this case, &lsquo;<samp><span class="samp">%a0@(%d0)</span></samp>&rsquo; is equivalent to &lsquo;<samp><span class="samp">%a0@(%d0:w)</span></samp>&rsquo;.
+option to tell <code>as</code> to default to using the 16 bit value. 
+In this case, &lsquo;<samp><span class="samp">%a0@(%d0)</span></samp>&rsquo; is equivalent to &lsquo;<samp><span class="samp">%a0@(%d0:w)</span></samp>&rsquo;. 
 You may use the &lsquo;<samp><span class="samp">--base-size-default-32</span></samp>&rsquo; option to restore the
 default behaviour.
 
@@ -132,7 +132,7 @@ that is not available, it normally emits an absolute jump instead.  This
 option disables this substitution.  When this option is given and no long
 branches are available, only word branches will be emitted.  An error
 message will be generated if a word branch cannot reach its target.  This
-option has no effect on 68020 and other processors that have long branches.
+option has no effect on 68020 and other processors that have long branches. 
 see <a href="M68K_002dBranch.html#M68K_002dBranch">Branch Improvement</a>.
 
      <p><a name="index-g_t_0040samp_007b_002dm68000_007d-and-related-options-1261"></a><a name="index-architecture-options_002c-M680x0-1262"></a><a name="index-M680x0-architecture-options-1263"></a><br><dt>&lsquo;<samp><span class="samp">-m68000</span></samp>&rsquo;<dd><code>as</code> can assemble code for several different members of the
@@ -178,8 +178,9 @@ together.
 
           <br><dt>&lsquo;<samp><span class="samp">-mno-68851</span></samp>&rsquo;<dd>Do not assemble 68851 MMU instructions.  This is the default for the
 68000, 68010, and the CPU32.  The 68040 accepts a somewhat different set
-of MMU instructions.
+of MMU instructions. 
 </dl>
      </dl>
 
    </body></html>
+

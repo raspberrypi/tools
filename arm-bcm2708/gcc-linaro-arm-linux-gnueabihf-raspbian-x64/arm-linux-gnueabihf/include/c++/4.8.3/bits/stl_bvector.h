@@ -356,7 +356,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       return *this;
     }
 
-    const_iterator
+    const_iterator 
     operator+(difference_type __i) const
     {
       const_iterator __tmp = *this;
@@ -404,7 +404,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
     {
       typedef typename _Alloc::template rebind<_Bit_type>::other
         _Bit_alloc_type;
-
+      
       struct _Bvector_impl
       : public _Bit_alloc_type
       {
@@ -415,7 +415,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 	_Bvector_impl()
 	: _Bit_alloc_type(), _M_start(), _M_finish(), _M_end_of_storage(0)
 	{ }
-
+ 
 	_Bvector_impl(const _Bit_alloc_type& __a)
 	: _Bit_alloc_type(__a), _M_start(), _M_finish(), _M_end_of_storage(0)
 	{ }
@@ -445,7 +445,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
       _Bvector_base()
       : _M_impl() { }
-
+      
       _Bvector_base(const allocator_type& __a)
       : _M_impl(__a) { }
 
@@ -560,22 +560,22 @@ template<typename _Alloc>
     : vector(__n, false, __a)
     { }
 
-    vector(size_type __n, const bool& __value,
+    vector(size_type __n, const bool& __value, 
 	   const allocator_type& __a = allocator_type())
     : _Base(__a)
     {
       _M_initialize(__n);
-      std::fill(this->_M_impl._M_start._M_p, this->_M_impl._M_end_of_storage,
+      std::fill(this->_M_impl._M_start._M_p, this->_M_impl._M_end_of_storage, 
 		__value ? ~0 : 0);
     }
 #else
     explicit
-    vector(size_type __n, const bool& __value = bool(),
+    vector(size_type __n, const bool& __value = bool(), 
 	   const allocator_type& __a = allocator_type())
     : _Base(__a)
     {
       _M_initialize(__n);
-      std::fill(this->_M_impl._M_start._M_p, this->_M_impl._M_end_of_storage,
+      std::fill(this->_M_impl._M_start._M_p, this->_M_impl._M_end_of_storage, 
 		__value ? ~0 : 0);
     }
 #endif
@@ -642,7 +642,7 @@ template<typename _Alloc>
       // NB: DR 1204.
       // NB: DR 675.
       this->clear();
-      this->swap(__x);
+      this->swap(__x); 
       return *this;
     }
 
@@ -836,7 +836,7 @@ template<typename _Alloc>
     {
       std::swap(this->_M_impl._M_start, __x._M_impl._M_start);
       std::swap(this->_M_impl._M_finish, __x._M_impl._M_finish);
-      std::swap(this->_M_impl._M_end_of_storage,
+      std::swap(this->_M_impl._M_end_of_storage, 
 		__x._M_impl._M_end_of_storage);
 
       // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -941,7 +941,7 @@ template<typename _Alloc>
     clear() _GLIBCXX_NOEXCEPT
     { _M_erase_at_end(begin()); }
 
-
+   
   protected:
     // Precondition: __first._M_offset == 0 && __result._M_offset == 0.
     iterator
@@ -979,15 +979,15 @@ template<typename _Alloc>
       _M_initialize_dispatch(_Integer __n, _Integer __x, __true_type)
       {
 	_M_initialize(static_cast<size_type>(__n));
-	std::fill(this->_M_impl._M_start._M_p,
+	std::fill(this->_M_impl._M_start._M_p, 
 		  this->_M_impl._M_end_of_storage, __x ? ~0 : 0);
       }
 
     template<typename _InputIterator>
-      void
+      void 
       _M_initialize_dispatch(_InputIterator __first, _InputIterator __last,
 			     __false_type)
-      { _M_initialize_range(__first, __last,
+      { _M_initialize_range(__first, __last, 
 			    std::__iterator_category(__first)); }
 
     template<typename _InputIterator>
@@ -1027,14 +1027,14 @@ template<typename _Alloc>
     {
       if (__n > size())
 	{
-	  std::fill(this->_M_impl._M_start._M_p,
+	  std::fill(this->_M_impl._M_start._M_p, 
 		    this->_M_impl._M_end_of_storage, __x ? ~0 : 0);
 	  insert(end(), __n - size(), __x);
 	}
       else
 	{
 	  _M_erase_at_end(begin() + __n);
-	  std::fill(this->_M_impl._M_start._M_p,
+	  std::fill(this->_M_impl._M_start._M_p, 
 		    this->_M_impl._M_end_of_storage, __x ? ~0 : 0);
 	}
     }
@@ -1052,7 +1052,7 @@ template<typename _Alloc>
 	else
 	  insert(end(), __first, __last);
       }
-
+    
     template<typename _ForwardIterator>
       void
       _M_assign_aux(_ForwardIterator __first, _ForwardIterator __last,
@@ -1093,7 +1093,7 @@ template<typename _Alloc>
 
     template<typename _InputIterator>
       void
-      _M_insert_range(iterator __pos, _InputIterator __first,
+      _M_insert_range(iterator __pos, _InputIterator __first, 
 		      _InputIterator __last, std::input_iterator_tag)
       {
 	for (; __first != __last; ++__first)
@@ -1105,7 +1105,7 @@ template<typename _Alloc>
 
     template<typename _ForwardIterator>
       void
-      _M_insert_range(iterator __position, _ForwardIterator __first,
+      _M_insert_range(iterator __position, _ForwardIterator __first, 
 		      _ForwardIterator __last, std::forward_iterator_tag);
 
     void

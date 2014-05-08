@@ -53,7 +53,7 @@ struct GTY(()) symtab_node_base
   unsigned address_taken : 1;
   /* Set when variable is used from other LTRANS partition.  */
   unsigned used_from_other_partition : 1;
-  /* Set when function is available in the other LTRANS partition.
+  /* Set when function is available in the other LTRANS partition.  
      During WPA output it is used to mark nodes that are present in
      multiple partitions.  */
   unsigned in_other_partition : 1;
@@ -1180,7 +1180,7 @@ varpool_can_remove_if_no_refs (struct varpool_node *node)
   if (DECL_EXTERNAL (node->symbol.decl))
     return true;
   return (!node->symbol.force_output && !node->symbol.used_from_other_partition
-	  && ((DECL_COMDAT (node->symbol.decl)
+  	  && ((DECL_COMDAT (node->symbol.decl)
 	       && !symtab_used_from_object_file_p ((symtab_node) node))
 	      || !node->symbol.externally_visible
 	      || DECL_HAS_VALUE_EXPR_P (node->symbol.decl)));

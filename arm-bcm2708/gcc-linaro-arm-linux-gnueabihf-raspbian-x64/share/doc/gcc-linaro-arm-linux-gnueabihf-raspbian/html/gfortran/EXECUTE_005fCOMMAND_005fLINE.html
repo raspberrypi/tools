@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,7 +70,7 @@ synchronously.
      <p>The three last arguments allow the user to get status information.  After
 synchronous execution, <code>EXITSTAT</code> contains the integer exit code of
 the command, as returned by <code>system</code>.  <code>CMDSTAT</code> is set to zero
-if the command line was executed (whatever its exit status was).
+if the command line was executed (whatever its exit status was). 
 <code>CMDMSG</code> is assigned an error message if an error has occurred.
 
      <p>Note that the <code>system</code> function need not be thread-safe. It is
@@ -84,12 +84,12 @@ called concurrently.
      <br><dt><em>Syntax</em>:<dd><code>CALL EXECUTE_COMMAND_LINE(COMMAND [, WAIT, EXITSTAT, CMDSTAT, CMDMSG ])</code>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>COMMAND</var> </td><td valign="top" width="70%">Shall be a default <code>CHARACTER</code> scalar.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>WAIT</var> </td><td valign="top" width="70%">(Optional) Shall be a default <code>LOGICAL</code> scalar.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>COMMAND</var> </td><td valign="top" width="70%">Shall be a default <code>CHARACTER</code> scalar. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>WAIT</var> </td><td valign="top" width="70%">(Optional) Shall be a default <code>LOGICAL</code> scalar. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>EXITSTAT</var> </td><td valign="top" width="70%">(Optional) Shall be an <code>INTEGER</code> of the
-default kind.
+default kind. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>CMDSTAT</var> </td><td valign="top" width="70%">(Optional) Shall be an <code>INTEGER</code> of the
-default kind.
+default kind. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>CMDMSG</var> </td><td valign="top" width="70%">(Optional) Shall be an <code>CHARACTER</code> scalar of the
 default kind.
      <br></td></tr></table>
@@ -97,13 +97,13 @@ default kind.
      <br><dt><em>Example</em>:<dd>
      <pre class="smallexample">          program test_exec
             integer :: i
-
+          
             call execute_command_line ("external_prog.exe", exitstat=i)
             print *, "Exit status of external_prog.exe was ", i
-
+          
             call execute_command_line ("reindex_files.exe", wait=.false.)
             print *, "Now reindexing files in the background"
-
+          
           end program test_exec
 </pre>
      <br><dt><em>Note</em>:<dd>
@@ -118,3 +118,4 @@ terminated alongside.
 </dl>
 
    </body></html>
+

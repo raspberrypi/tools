@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i386_002dSyntax.html#i386_002dSyntax">i
 <h5 class="subsubsection">9.15.3.1 AT&amp;T Syntax versus Intel Syntax</h5>
 
 <p><a name="index-i386-intel_005fsyntax-pseudo-op-940"></a><a name="index-intel_005fsyntax-pseudo-op_002c-i386-941"></a><a name="index-i386-att_005fsyntax-pseudo-op-942"></a><a name="index-att_005fsyntax-pseudo-op_002c-i386-943"></a><a name="index-i386-syntax-compatibility-944"></a><a name="index-syntax-compatibility_002c-i386-945"></a><a name="index-x86_002d64-intel_005fsyntax-pseudo-op-946"></a><a name="index-intel_005fsyntax-pseudo-op_002c-x86_002d64-947"></a><a name="index-x86_002d64-att_005fsyntax-pseudo-op-948"></a><a name="index-att_005fsyntax-pseudo-op_002c-x86_002d64-949"></a><a name="index-x86_002d64-syntax-compatibility-950"></a><a name="index-syntax-compatibility_002c-x86_002d64-951"></a>
-<code>as</code> now supports assembly using Intel assembler syntax.
+<code>as</code> now supports assembly using Intel assembler syntax. 
 <code>.intel_syntax</code> selects Intel mode, and <code>.att_syntax</code> switches
 back to the usual AT&amp;T mode for compatibility with the output of
 <code>gcc</code>.  Either of these directives may have an optional
@@ -61,7 +61,7 @@ between the two syntaxes are:
 <a name="index-immediate-operands_002c-x86_002d64-959"></a><a name="index-x86_002d64-immediate-operands-960"></a><a name="index-register-operands_002c-x86_002d64-961"></a><a name="index-x86_002d64-register-operands-962"></a><a name="index-jump_002fcall-operands_002c-x86_002d64-963"></a><a name="index-x86_002d64-jump_002fcall-operands-964"></a><a name="index-operand-delimiters_002c-x86_002d64-965"></a>
      <ul>
 <li>AT&amp;T immediate operands are preceded by &lsquo;<samp><span class="samp">$</span></samp>&rsquo;; Intel immediate
-operands are undelimited (Intel &lsquo;<samp><span class="samp">push 4</span></samp>&rsquo; is AT&amp;T &lsquo;<samp><span class="samp">pushl $4</span></samp>&rsquo;).
+operands are undelimited (Intel &lsquo;<samp><span class="samp">push 4</span></samp>&rsquo; is AT&amp;T &lsquo;<samp><span class="samp">pushl $4</span></samp>&rsquo;). 
 AT&amp;T register operands are preceded by &lsquo;<samp><span class="samp">%</span></samp>&rsquo;; Intel register operands
 are undelimited.  AT&amp;T absolute (as opposed to PC relative) jump/call
 operands are prefixed by &lsquo;<samp><span class="samp">*</span></samp>&rsquo;; they are undelimited in Intel syntax.
@@ -94,7 +94,8 @@ is &lsquo;<samp><span class="samp">lret $</span><var>stack-adjust</var></samp>&r
 &lsquo;<samp><span class="samp">ret far </span><var>stack-adjust</var></samp>&rsquo;.
 
      <p><a name="index-sections_002c-i386-980"></a><a name="index-i386-sections-981"></a><a name="index-sections_002c-x86_002d64-982"></a><a name="index-x86_002d64-sections-983"></a><li>The AT&amp;T assembler does not provide support for multiple section
-programs.  Unix style systems expect all programs to be single sections.
+programs.  Unix style systems expect all programs to be single sections. 
 </ul>
 
    </body></html>
+

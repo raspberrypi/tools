@@ -154,7 +154,7 @@ join(PB_DS_CLASS_C_DEC& other)
   other.m_actual_size = resize_policy::min_size;
   other.notify_arbitrary(resize_policy::min_size);
   other.make_heap();
-
+  
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
 }

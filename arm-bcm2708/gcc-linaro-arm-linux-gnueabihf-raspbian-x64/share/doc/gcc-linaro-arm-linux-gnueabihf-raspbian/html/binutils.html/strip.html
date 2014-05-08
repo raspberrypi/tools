@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,7 +71,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 </pre>
    <!-- man begin DESCRIPTION strip -->
    <p><span class="sc">gnu</span> <samp><span class="command">strip</span></samp> discards all symbols from object files
-<var>objfile</var>.  The list of object files may include archives.
+<var>objfile</var>.  The list of object files may include archives. 
 At least one object file must be given.
 
    <p><samp><span class="command">strip</span></samp> modifies the files named in its argument,
@@ -81,7 +81,7 @@ rather than writing modified copies under different names.
 <!-- man begin OPTIONS strip -->
      <dl>
 <dt><samp><span class="env">-F </span><var>bfdname</var></samp><dt><samp><span class="env">--target=</span><var>bfdname</var></samp><dd>Treat the original <var>objfile</var> as a file with the object
-code format <var>bfdname</var>, and rewrite it in the same format.
+code format <var>bfdname</var>, and rewrite it in the same format. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
      <br><dt><samp><span class="env">--help</span></samp><dd>Show a summary of the options to <samp><span class="command">strip</span></samp> and exit.
@@ -89,10 +89,10 @@ See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for m
      <br><dt><samp><span class="env">--info</span></samp><dd>Display a list showing all architectures and object formats available.
 
      <br><dt><samp><span class="env">-I </span><var>bfdname</var></samp><dt><samp><span class="env">--input-target=</span><var>bfdname</var></samp><dd>Treat the original <var>objfile</var> as a file with the object
-code format <var>bfdname</var>.
+code format <var>bfdname</var>. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
-     <br><dt><samp><span class="env">-O </span><var>bfdname</var></samp><dt><samp><span class="env">--output-target=</span><var>bfdname</var></samp><dd>Replace <var>objfile</var> with a file in the output format <var>bfdname</var>.
+     <br><dt><samp><span class="env">-O </span><var>bfdname</var></samp><dt><samp><span class="env">--output-target=</span><var>bfdname</var></samp><dd>Replace <var>objfile</var> with a file in the output format <var>bfdname</var>. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
      <br><dt><samp><span class="env">-R </span><var>sectionname</var></samp><dt><samp><span class="env">--remove-section=</span><var>sectionname</var></samp><dd>Remove any section named <var>sectionname</var> from the output file.  This
@@ -106,7 +106,7 @@ so, then any section starting with <var>sectionname</var> will be removed.
      <br><dt><samp><span class="env">-g</span></samp><dt><samp><span class="env">-S</span></samp><dt><samp><span class="env">-d</span></samp><dt><samp><span class="env">--strip-debug</span></samp><dd>Remove debugging symbols only.
 
      <br><dt><samp><span class="env">--strip-dwo</span></samp><dd>Remove the contents of all DWARF .dwo sections, leaving the
-remaining debugging sections and all symbols intact.
+remaining debugging sections and all symbols intact. 
 See the description of this option in the <samp><span class="command">objcopy</span></samp> section
 for more information.
 
@@ -130,7 +130,7 @@ and writing the archive index, use zero for UIDs, GIDs, timestamps,
 and use consistent file modes for all files.
 
      <p>If <samp><span class="file">binutils</span></samp> was configured with
-<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default.
+<samp><span class="option">--enable-deterministic-archives</span></samp>, then this mode is on by default. 
 It can be disabled with the &lsquo;<samp><span class="samp">-U</span></samp>&rsquo; option, below.
 
      <br><dt><samp><span class="env">-U</span></samp><dt><samp><span class="env">--disable-deterministic-archives</span></samp><dd><a name="index-deterministic-archives-134"></a><a name="index-g_t_002d_002denable_002ddeterministic_002darchives-135"></a>Do <em>not</em> operate in <em>deterministic</em> mode.  This is the
@@ -145,7 +145,7 @@ and file mode values.
 line options.  The question mark (?), asterisk (*), backslash (\) and
 square brackets ([]) operators can be used anywhere in the symbol
 name.  If the first character of the symbol name is the exclamation
-point (!) then the sense of the switch is reversed for that symbol.
+point (!) then the sense of the switch is reversed for that symbol. 
 For example:
 
      <pre class="smallexample">            -w -K !foo -K fo*
@@ -155,7 +155,7 @@ For example:
 
      <br><dt><samp><span class="env">-x</span></samp><dt><samp><span class="env">--discard-all</span></samp><dd>Remove non-global symbols.
 
-     <br><dt><samp><span class="env">-X</span></samp><dt><samp><span class="env">--discard-locals</span></samp><dd>Remove compiler-generated local symbols.
+     <br><dt><samp><span class="env">-X</span></samp><dt><samp><span class="env">--discard-locals</span></samp><dd>Remove compiler-generated local symbols. 
 (These usually start with &lsquo;<samp><span class="samp">L</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.</span></samp>&rsquo;.)
 
      <br><dt><samp><span class="env">--keep-file-symbols</span></samp><dd>When stripping a file, perhaps with <samp><span class="option">--strip-debug</span></samp> or
@@ -175,11 +175,11 @@ to create these files is as follows:
 
           <ol type=1 start=1>
 <li>Link the executable as normal.  Assuming that is is called
-<code>foo</code> then...
+<code>foo</code> then... 
 <li>Run <code>objcopy --only-keep-debug foo foo.dbg</code> to
-create a file containing the debugging info.
+create a file containing the debugging info. 
 <li>Run <code>objcopy --strip-debug foo</code> to create a
-stripped executable.
+stripped executable. 
 <li>Run <code>objcopy --add-gnu-debuglink=foo.dbg foo</code>
 to add a link to the debugging info into the stripped executable.
           </ol>
@@ -189,7 +189,7 @@ file is arbitrary.  Also the <code>--only-keep-debug</code> step is
 optional.  You could instead do this:
 
           <ol type=1 start=1>
-<li>Link the executable as normal.
+<li>Link the executable as normal. 
 <li>Copy <code>foo</code> to <code>foo.full</code>
 <li>Run <code>strip --strip-debug foo</code>
 <li>Run <code>objcopy --add-gnu-debuglink=foo.full foo</code>
@@ -209,8 +209,9 @@ basis.
      <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Show the version number for <samp><span class="command">strip</span></samp>.
 
      <br><dt><samp><span class="env">-v</span></samp><dt><samp><span class="env">--verbose</span></samp><dd>Verbose output: list all object files modified.  In the case of
-archives, &lsquo;<samp><span class="samp">strip -v</span></samp>&rsquo; lists all members of the archive.
+archives, &lsquo;<samp><span class="samp">strip -v</span></samp>&rsquo; lists all members of the archive. 
 </dl>
 
 <!-- man end -->
    </body></html>
+

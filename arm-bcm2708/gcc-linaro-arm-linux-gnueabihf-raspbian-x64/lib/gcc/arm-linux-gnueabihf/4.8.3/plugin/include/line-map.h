@@ -58,7 +58,7 @@ typedef size_t (*line_map_round_alloc_size_func) (size_t);
 
 /* An ordinary line map encodes physical source locations. Those
    physical source locations are called "spelling locations".
-
+   
    Physical source file TO_FILE at line TO_LINE at column 0 is represented
    by the logical START_LOCATION.  TO_LINE+L at column C is represented by
    START_LOCATION+(L*(1<<column_bits))+C, as long as C<(1<<column_bits),
@@ -94,11 +94,11 @@ struct cpp_hashnode;
 
 /* A macro line map encodes location of tokens coming from a macro
    expansion.
-
+   
    Please note that this struct line_map_macro is a field of struct
    line_map below, go read the comments of struct line_map below and
    then come back here.
-
+   
    The offset from START_LOCATION is used to index into
    MACRO_LOCATIONS; this holds the original location of the token.  */
 struct GTY(()) line_map_macro {
@@ -243,7 +243,7 @@ struct GTY(()) line_map {
 struct GTY(()) maps_info {
   /* This array contains the different line maps.
      A line map is created for the following events:
-       - when a new preprocessing unit start.
+       - when a new preprocessing unit start. 
        - when a preprocessing unit ends.
        - when a macro expansion occurs.  */
   struct line_map * GTY ((length ("%h.used"))) maps;
@@ -285,7 +285,7 @@ struct GTY(()) location_adhoc_data_map {
 
 /* A set of chronological line_map structures.  */
 struct GTY(()) line_maps {
-
+  
   struct maps_info info_ordinary;
 
   struct maps_info info_macro;

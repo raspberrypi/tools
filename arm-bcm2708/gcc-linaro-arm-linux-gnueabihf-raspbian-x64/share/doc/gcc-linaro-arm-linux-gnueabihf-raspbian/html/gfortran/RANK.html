@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,10 +75,11 @@ kind. For arrays, their rank is returned; for scalars zero is returned.
      <pre class="smallexample">          program test_rank
             integer :: a
             real, allocatable :: b(:,:)
-
+          
             print *, rank(a), rank(b) ! Prints:  0  3
           end program test_rank
 </pre>
      </dl>
 
    </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 
      <br><dt><code>-mno-clearbss</code><dd><a name="index-mno_002dclearbss-1714"></a>This option is deprecated.  Use <samp><span class="option">-fno-zero-initialized-in-bss</span></samp> instead.
 
-     <br><dt><code>-mcpu=</code><var>cpu-type</var><dd><a name="index-mcpu_003d-1715"></a>Use features of, and schedule code for, the given CPU.
+     <br><dt><code>-mcpu=</code><var>cpu-type</var><dd><a name="index-mcpu_003d-1715"></a>Use features of, and schedule code for, the given CPU. 
 Supported values are in the format &lsquo;<samp><span class="samp">v</span><var>X</var><span class="samp">.</span><var>YY</var><span class="samp">.</span><var>Z</var></samp>&rsquo;,
 where <var>X</var> is a major version, <var>YY</var> is the minor version, and
 <var>Z</var> is compatibility code.  Example values are &lsquo;<samp><span class="samp">v3.00.a</span></samp>&rsquo;,
@@ -104,14 +104,14 @@ where <var>X</var> is a major version, <var>YY</var> is the minor version, and
 software intrusive debug agent called xmdstub. This uses startup file
 <samp><span class="file">crt1.o</span></samp> and sets the start address of the program to 0x800.
 
-          <br><dt>&lsquo;<samp><span class="samp">bootstrap</span></samp>&rsquo;<dd>for applications that are loaded using a bootloader.
+          <br><dt>&lsquo;<samp><span class="samp">bootstrap</span></samp>&rsquo;<dd>for applications that are loaded using a bootloader. 
 This model uses startup file <samp><span class="file">crt2.o</span></samp> which does not contain a processor
 reset vector handler. This is suitable for transferring control on a
 processor reset to the bootloader rather than the application.
 
           <br><dt>&lsquo;<samp><span class="samp">novectors</span></samp>&rsquo;<dd>for applications that do not require any of the
 MicroBlaze vectors. This option may be useful for applications running
-within a monitoring application. This model uses <samp><span class="file">crt3.o</span></samp> as a startup file.
+within a monitoring application. This model uses <samp><span class="file">crt3.o</span></samp> as a startup file. 
 </dl>
 
      <p>Option <samp><span class="option">-xl-mode-</span><var>app-model</var></samp> is a deprecated alias for
@@ -120,3 +120,4 @@ within a monitoring application. This model uses <samp><span class="file">crt3.o
  </dl>
 
  </body></html>
+

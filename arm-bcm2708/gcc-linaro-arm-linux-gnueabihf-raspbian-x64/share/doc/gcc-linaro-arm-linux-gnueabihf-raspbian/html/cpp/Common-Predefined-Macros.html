@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -115,7 +115,7 @@ testing <code>(__GNUC__&nbsp;&amp;&amp;&nbsp;__cplusplus)<!-- /@w --></code>.
 
      <br><dt><code>__STRICT_ANSI__</code><dd>GCC defines this macro if and only if the <samp><span class="option">-ansi</span></samp> switch, or a
 <samp><span class="option">-std</span></samp> switch specifying strict conformance to some version of ISO C
-or ISO C++, was specified when GCC was invoked.  It is defined to &lsquo;<samp><span class="samp">1</span></samp>&rsquo;.
+or ISO C++, was specified when GCC was invoked.  It is defined to &lsquo;<samp><span class="samp">1</span></samp>&rsquo;. 
 This macro exists primarily to direct GNU libc's header files to
 restrict their definitions to the minimal set found in the 1989 C
 standard.
@@ -139,7 +139,7 @@ release number.
 
      <br><dt><code>__OPTIMIZE__</code><dt><code>__OPTIMIZE_SIZE__</code><dt><code>__NO_INLINE__</code><dd>These macros describe the compilation mode.  <code>__OPTIMIZE__</code> is
 defined in all optimizing compilations.  <code>__OPTIMIZE_SIZE__</code> is
-defined if the compiler is optimizing for size, not speed.
+defined if the compiler is optimizing for size, not speed. 
 <code>__NO_INLINE__</code> is defined if no functions will be inlined into
 their callers (when not optimizing, or when inlining has been
 specifically disabled by <samp><span class="option">-fno-inline</span></samp>).
@@ -206,7 +206,7 @@ OSF/rose <samp><span class="option">-mno-underscores</span></samp> option).
 <code>uint_fast8_t</code>, <code>uint_fast16_t</code>, <code>uint_fast32_t</code>,
 <code>uint_fast64_t</code>, <code>intptr_t</code>, and <code>uintptr_t</code> typedefs,
 respectively.  They exist to make the standard header files
-<samp><span class="file">stddef.h</span></samp>, <samp><span class="file">stdint.h</span></samp>, and <samp><span class="file">wchar.h</span></samp> work correctly.
+<samp><span class="file">stddef.h</span></samp>, <samp><span class="file">stdint.h</span></samp>, and <samp><span class="file">wchar.h</span></samp> work correctly. 
 You should not use these macros directly; instead, include the
 appropriate headers and use the typedefs.  Some of these macros may
 not be defined on particular systems if GCC does not provide a
@@ -233,7 +233,7 @@ this macro directly; instead, include the appropriate headers.
 to the minimum value of the <code>wchar_t</code>, <code>wint_t</code>, and
 <code>sig_atomic_t</code> types respectively.  They exist to make the
 standard header given numerical limits work correctly.  You should not
-use these macros directly; instead, include the appropriate headers.
+use these macros directly; instead, include the appropriate headers. 
 Some of these macros may not be defined on particular systems if GCC
 does not provide a <samp><span class="file">stdint.h</span></samp> header on those systems.
 
@@ -323,7 +323,7 @@ in use.
      <br><dt><code>__TIMESTAMP__</code><dd>This macro expands to a string constant that describes the date and time
 of the last modification of the current source file. The string constant
 contains abbreviated day of the week, month, day of the month, time in
-hh:mm:ss form, year and looks like <code>"Sun&nbsp;Sep&nbsp;16&nbsp;01:03:52&nbsp;1973"<!-- /@w --></code>.
+hh:mm:ss form, year and looks like <code>"Sun&nbsp;Sep&nbsp;16&nbsp;01:03:52&nbsp;1973"<!-- /@w --></code>. 
 If the day of the month is less than 10, it is padded with a space on the left.
 
      <p>If GCC cannot determine the current date, it will emit a warning message
@@ -341,7 +341,8 @@ directives in inline assembly.
 <code>fma</code>, <code>fmaf</code>, and <code>fmal</code> builtin functions, so that
 the include file <samp><span class="file">math.h</span></samp> can define the macros
 <code>FP_FAST_FMA</code>, <code>FP_FAST_FMAF</code>, and <code>FP_FAST_FMAL</code>
-for compatibility with the 1999 C standard.
+for compatibility with the 1999 C standard. 
 </dl>
 
    </body></html>
+

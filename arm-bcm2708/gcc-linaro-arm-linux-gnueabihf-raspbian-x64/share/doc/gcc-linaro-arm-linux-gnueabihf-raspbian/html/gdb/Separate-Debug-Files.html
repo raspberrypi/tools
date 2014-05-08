@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB-Files.html#GDB-Files">GDB Files</a>
 <p><a name="index-separate-debugging-information-files-1101"></a><a name="index-debugging-information-in-separate-files-1102"></a><a name="index-g_t_0040file_007b_002edebug_007d-subdirectories-1103"></a><a name="index-debugging-information-directory_002c-global-1104"></a><a name="index-global-debugging-information-directories-1105"></a><a name="index-build-ID_002c-and-separate-debugging-files-1106"></a><a name="index-g_t_0040file_007b_002ebuild_002did_007d-directory-1107"></a>
 <span class="sc">gdb</span> allows you to put a program's debugging information in a
 file separate from the executable itself, in a way that allows
-<span class="sc">gdb</span> to find and load the debugging information automatically.
+<span class="sc">gdb</span> to find and load the debugging information automatically. 
 Since debugging information can be very large&mdash;sometimes larger
 than the executable code itself&mdash;some systems distribute debugging
 information for their executables in separate files, which users can
@@ -76,7 +76,7 @@ for binary files and the <span class="sc">gnu</span> Binutils.)  For more detail
 this feature, see the description of the <samp><span class="option">--build-id</span></samp>
 command-line option in <a href="../ld/Options.html#Options">Command Line Options</a>.  The debug info file's name is not specified
 explicitly by the build ID, but can be computed from the build ID, see
-below.
+below. 
 </ul>
 
    <p>Depending on the way the debug info file is specified, <span class="sc">gdb</span>
@@ -94,7 +94,7 @@ directories of the executable's absolute file name.
 a file named <samp><var>nn</var><span class="file">/</span><var>nnnnnnnn</var><span class="file">.debug</span></samp>, where <var>nn</var> are the
 first 2 hex characters of the build ID bit string, and <var>nnnnnnnn</var>
 are the rest of the bit string.  (Real build ID strings are 32 or more
-hex characters, not 10.)
+hex characters, not 10.) 
 </ul>
 
    <p>So, for example, suppose you ask <span class="sc">gdb</span> to debug
@@ -108,7 +108,7 @@ debug information files, in the indicated order:
 <li><samp><span class="file">/usr/lib/debug/.build-id/ab/cdef1234.debug</span></samp>
 <li><samp><span class="file">/usr/bin/ls.debug</span></samp>
 <li><samp><span class="file">/usr/bin/.debug/ls.debug</span></samp>
-<li><samp><span class="file">/usr/lib/debug/usr/bin/ls.debug</span></samp>.
+<li><samp><span class="file">/usr/lib/debug/usr/bin/ls.debug</span></samp>. 
 </ul>
 
    <p><a name="debug_002dfile_002ddirectory"></a>Global debugging info directories default to what is set by <span class="sc">gdb</span>
@@ -116,7 +116,7 @@ configure option <samp><span class="option">--with-separate-debug-dir</span></sa
 you can also set the global debugging info directories, and view the list
 <span class="sc">gdb</span> is currently using.
 
-
+     
 <a name="index-set-debug_002dfile_002ddirectory-1108"></a>
 <dl><dt><code>set debug-file-directory </code><var>directories</var><dd>Set the directories which <span class="sc">gdb</span> searches for separate debugging
 information files to <var>directory</var>.  Multiple path components can be set
@@ -138,7 +138,7 @@ boundary within the section, and
 <li>a four-byte CRC checksum, stored in the same endianness used for the
 executable file itself.  The checksum is computed on the debugging
 information file's full contents by the function given below, passing
-zero as the <var>crc</var> argument.
+zero as the <var>crc</var> argument. 
 </ul>
 
    <p>Any executable file format can carry a debug link, as long as it can
@@ -147,7 +147,7 @@ described above.
 
    <p><a name="index-g_t_0040code_007b_002enote_002egnu_002ebuild_002did_007d-sections-1112"></a><a name="index-build-ID-sections-1113"></a>The build ID is a special section in the executable file (and in other
 ELF binary files that <span class="sc">gdb</span> may consider).  This section is
-often named <code>.note.gnu.build-id</code>, but that name is not mandatory.
+often named <code>.note.gnu.build-id</code>, but that name is not mandatory. 
 It contains unique identification for the built files&mdash;the ID remains
 the same across multiple builds of the same build tree.  The default
 algorithm SHA1 produces 160 bits (40 hexadecimal characters) of the
@@ -189,7 +189,7 @@ the <code>ln -s</code> command above, together.
      <li>Build ID gets embedded into the main executable using <code>ld --build-id</code> or
 the <span class="sc">gcc</span> counterpart <code>gcc -Wl,--build-id</code>.  Build ID support plus
 compatibility fixes for debug files separation are present in <span class="sc">gnu</span> binary
-utilities (Binutils) package since version 2.18.
+utilities (Binutils) package since version 2.18. 
 </ul>
 
 <p class="noindent"><a name="index-CRC-algorithm-definition-1114"></a>The CRC used in <code>.gnu_debuglink</code> is the CRC-32 defined in
@@ -281,7 +281,7 @@ this function passing in zero will start computing the CRC using
            0x2d02ef8d
          };
        unsigned char *end;
-
+     
        crc = ~crc &amp; 0xffffffff;
        for (end = buf + len; buf &lt; end; ++buf)
          crc = crc32_table[(crc ^ *buf) &amp; 0xff] ^ (crc &gt;&gt; 8);
@@ -291,3 +291,4 @@ this function passing in zero will start computing the CRC using
    <p class="noindent">This computation does not apply to the &ldquo;build ID&rdquo; method.
 
    </body></html>
+

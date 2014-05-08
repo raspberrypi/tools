@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,13 +49,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sparclet.html#Sparclet">Sparclet</a>
 
 <p><a name="index-download-to-Sparclet-1482"></a>Once connected to the Sparclet target,
 you can use the <span class="sc">gdb</span>
-<code>load</code> command to download the file from the host to the target.
+<code>load</code> command to download the file from the host to the target. 
 The file name and load offset should be given as arguments to the <code>load</code>
-command.
+command. 
 Since the file format is aout, the program must be loaded to the starting
 address.  You can use <code>objdump</code> to find out what this value is.  The load
 offset is an offset which is added to the VMA (virtual memory address)
-of each of the file's sections.
+of each of the file's sections. 
 For instance, if the program
 <samp><span class="file">prog</span></samp> was linked to text address 0x1201000, with data at 0x12010160
 and bss at 0x12010170, in <span class="sc">gdb</span>, type:
@@ -68,3 +68,4 @@ to, you may need to use the <code>section</code> and <code>add-symbol-file</code
 to tell <span class="sc">gdb</span> where to map the symbol table.
 
    </body></html>
+

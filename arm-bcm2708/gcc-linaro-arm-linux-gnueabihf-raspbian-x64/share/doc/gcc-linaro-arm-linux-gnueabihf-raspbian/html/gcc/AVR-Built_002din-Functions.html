@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -91,7 +91,7 @@ integer constant; delays with a variable number of cycles are not supported.
  <p class="noindent">This built-in takes a byte address to the 24-bit
 <a href="AVR-Named-Address-Spaces.html#AVR-Named-Address-Spaces">address space</a> <code>__memx</code> and returns
 the number of the flash segment (the 64 KiB chunk) where the address
-points to.  Counting starts at <code>0</code>.
+points to.  Counting starts at <code>0</code>. 
 If the address does not point to flash memory, return <code>-1</code>.
 
 <pre class="smallexample">     unsigned char __builtin_avr_insert_bits (unsigned long map, unsigned char bits, unsigned char val)
@@ -130,3 +130,4 @@ output values to non-contiguous port layouts. Some examples:
      __builtin_avr_insert_bits (0x01234567, bits, 0)
 </pre>
  </body></html>
+

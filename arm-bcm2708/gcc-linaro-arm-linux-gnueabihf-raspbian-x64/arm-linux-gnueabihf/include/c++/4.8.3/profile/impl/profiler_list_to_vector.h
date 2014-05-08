@@ -82,12 +82,12 @@ namespace __gnu_profile
     float
     __magnitude() const
     { return _M_list_cost - _M_vector_cost; }
-
+  
     std::string
     __advice() const
     {
       std::stringstream __sstream;
-      __sstream
+      __sstream 
 	<< "change std::list to std::vector and its initial size from 0 to "
 	<< _M_max_size;
       return __sstream.str();
@@ -96,31 +96,31 @@ namespace __gnu_profile
     std::size_t
     __shift_count()
     { return _M_shift_count; }
-
+  
     std::size_t
     __iterate()
     { return _M_iterate; }
-
+  
     float
     __list_cost()
     { return _M_list_cost; }
-
+  
     std::size_t
     __resize()
     { return _M_resize; }
-
+  
     void
     __set_list_cost(float __lc)
     { _M_list_cost = __lc; }
-
+    
     void
     __set_vector_cost(float __vc)
     { _M_vector_cost = __vc; }
-
+    
     bool
     __is_valid()
     { return _M_valid; }
-
+    
     void
     __set_invalid()
     { _M_valid = false; }
@@ -150,16 +150,16 @@ namespace __gnu_profile
     std::size_t _M_max_size;
   };
 
-  class __list2vector_stack_info
+  class __list2vector_stack_info 
   : public __list2vector_info
   {
   public:
-    __list2vector_stack_info(const __list2vector_info& __o)
+    __list2vector_stack_info(const __list2vector_info& __o) 
     : __list2vector_info(__o) {}
   };
 
   class __trace_list_to_vector
-  : public __trace_base<__list2vector_info, __list2vector_stack_info>
+  : public __trace_base<__list2vector_info, __list2vector_stack_info> 
   {
   public:
     __trace_list_to_vector()
@@ -234,7 +234,7 @@ namespace __gnu_profile
       return (__shift
 	      * _GLIBCXX_PROFILE_DATA(__vector_shift_cost_factor).__value
 	      + __iterate
-	      * _GLIBCXX_PROFILE_DATA(__vector_iterate_cost_factor).__value);
+	      * _GLIBCXX_PROFILE_DATA(__vector_iterate_cost_factor).__value); 
     }
 
     float
@@ -243,7 +243,7 @@ namespace __gnu_profile
       return (__shift
 	      * _GLIBCXX_PROFILE_DATA(__list_shift_cost_factor).__value
 	      + __iterate
-	      * _GLIBCXX_PROFILE_DATA(__list_iterate_cost_factor).__value);
+	      * _GLIBCXX_PROFILE_DATA(__list_iterate_cost_factor).__value); 
     }
   };
 
@@ -282,13 +282,13 @@ namespace __gnu_profile
   }
 
   inline void
-  __trace_list_to_vector_insert(const void* __obj,
+  __trace_list_to_vector_insert(const void* __obj, 
 				std::size_t __shift, std::size_t __size)
   {
     if (!__profcxx_init())
       return;
 
-    _GLIBCXX_PROFILE_DATA(_S_list_to_vector)->__opr_insert(__obj, __shift,
+    _GLIBCXX_PROFILE_DATA(_S_list_to_vector)->__opr_insert(__obj, __shift, 
 							   __size);
   }
 
@@ -311,7 +311,7 @@ namespace __gnu_profile
   }
 
   inline void
-  __trace_list_to_vector_resize(const void* __obj,
+  __trace_list_to_vector_resize(const void* __obj, 
 				std::size_t __from, std::size_t __to)
   {
     if (!__profcxx_init())

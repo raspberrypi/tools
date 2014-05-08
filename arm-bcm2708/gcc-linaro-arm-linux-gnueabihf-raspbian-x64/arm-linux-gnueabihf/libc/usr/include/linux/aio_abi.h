@@ -4,7 +4,7 @@
  *
  * Written by Benjamin LaHaise <bcrl@kvack.org>
  *
- * Distribute under the terms of the GPLv2 (see ../../COPYING) or under
+ * Distribute under the terms of the GPLv2 (see ../../COPYING) or under 
  * the following terms.
  *
  * Permission to use, copy, modify, and distribute this software and its
@@ -108,3 +108,4 @@ struct iocb {
 #undef IFLITTLE
 
 #endif /* __LINUX__AIO_ABI_H */
+

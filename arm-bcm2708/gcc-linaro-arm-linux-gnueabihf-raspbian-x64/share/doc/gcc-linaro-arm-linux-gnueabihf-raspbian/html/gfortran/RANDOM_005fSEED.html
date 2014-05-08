@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -76,11 +76,11 @@ poor quality random numbers being generated.
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>SIZE</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar and of type default
 <code>INTEGER</code>, with <code>INTENT(OUT)</code>. It specifies the minimum size
-of the arrays used with the <var>PUT</var> and <var>GET</var> arguments.
+of the arrays used with the <var>PUT</var> and <var>GET</var> arguments. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>PUT</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
 <code>INTEGER</code> and rank one. It is <code>INTENT(IN)</code> and the size of
 the array must be larger than or equal to the number returned by the
-<var>SIZE</var> argument.
+<var>SIZE</var> argument. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>GET</var>  </td><td valign="top" width="70%">(Optional) Shall be an array of type default
 <code>INTEGER</code> and rank one. It is <code>INTENT(OUT)</code> and the size
 of the array must be larger than or equal to the number returned by
@@ -93,7 +93,7 @@ the <var>SIZE</var> argument.
             integer, allocatable :: seed(:)
             integer :: i, n, un, istat, dt(8), pid, t(2), s
             integer(8) :: count, tms
-
+          
             call random_seed(size = n)
             allocate(seed(n))
             ! First try if the OS provides a random number generator
@@ -140,3 +140,4 @@ the <var>SIZE</var> argument.
 </dl>
 
    </body></html>
+

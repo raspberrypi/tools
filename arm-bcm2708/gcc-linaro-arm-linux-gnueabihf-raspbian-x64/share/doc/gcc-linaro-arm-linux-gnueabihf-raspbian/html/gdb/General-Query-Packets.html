@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,13 +60,13 @@ definitions with the stub.  These packet names follow some
 conventions:
 
      <ul>
-<li>The name must not contain commas, colons or semicolons.
+<li>The name must not contain commas, colons or semicolons. 
 <li>Most <span class="sc">gdb</span> query and set packets have a leading upper case
-letter.
+letter. 
 <li>The names of custom vendor packets should use a company prefix, in
 lower case, followed by a period.  For example, packets designed at
 the Acme Corporation might begin with &lsquo;<samp><span class="samp">qacme.foo</span></samp>&rsquo; (for querying
-foos) or &lsquo;<samp><span class="samp">Qacme.bar</span></samp>&rsquo; (for setting bars).
+foos) or &lsquo;<samp><span class="samp">Qacme.bar</span></samp>&rsquo; (for setting bars). 
 </ul>
 
    <p>The name of a query or set packet should be separated from any
@@ -103,8 +103,8 @@ insert breakpoints, it may not need to install its own trap handler.)
      <p>Reply:
           <dl>
 <dt>&lsquo;<samp><span class="samp">QC </span><var>thread-id</var></samp>&rsquo;<dd>Where <var>thread-id</var> is a thread ID as documented in
-<a href="thread_002did-syntax.html#thread_002did-syntax">thread-id syntax</a>.
-<br><dt>&lsquo;<samp><span class="samp">(anything else)</span></samp>&rsquo;<dd>Any other reply implies the old thread ID.
+<a href="thread_002did-syntax.html#thread_002did-syntax">thread-id syntax</a>. 
+<br><dt>&lsquo;<samp><span class="samp">(anything else)</span></samp>&rsquo;<dd>Any other reply implies the old thread ID. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qCRC:</span><var>addr</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="index-CRC-of-memory-block_002c-remote-request-2706"></a><a name="index-g_t_0040samp_007bqCRC_007d-packet-2707"></a>Compute the CRC checksum of a block of memory using CRC-32 defined in
@@ -121,7 +121,7 @@ detect trailing zeros.
      <p>Reply:
           <dl>
 <dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>An error (such as memory fault)
-<br><dt>&lsquo;<samp><span class="samp">C </span><var>crc32</var></samp>&rsquo;<dd>The specified memory region's checksum is <var>crc32</var>.
+<br><dt>&lsquo;<samp><span class="samp">C </span><var>crc32</var></samp>&rsquo;<dd>The specified memory region's checksum is <var>crc32</var>. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">QDisableRandomization:</span><var>value</var></samp>&rsquo;<dd><a name="index-disable-address-space-randomization_002c-remote-request-2708"></a><a name="index-g_t_0040samp_007bQDisableRandomization_007d-packet-2709"></a>Some target operating systems will randomize the virtual address space
@@ -142,11 +142,11 @@ randomization.
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">QDisableRandomization</span></samp>&rsquo; is not supported
-by the stub.
+by the stub. 
 </dl>
 
      <p>This packet is not probed by default; the remote stub must request it,
-by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
+by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>). 
 This should only be done on targets that actually support disabling
 address space randomization.
 
@@ -163,14 +163,14 @@ sequence will be the &lsquo;<samp><span class="samp">qsThreadInfo</span></samp>&
           <dl>
 <dt>&lsquo;<samp><span class="samp">m </span><var>thread-id</var></samp>&rsquo;<dd>A single thread ID
 <br><dt>&lsquo;<samp><span class="samp">m </span><var>thread-id</var><span class="samp">,</span><var>thread-id</var><span class="samp">...</span></samp>&rsquo;<dd>a comma-separated list of thread IDs
-<br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>(lower case letter &lsquo;<samp><span class="samp">L</span></samp>&rsquo;) denotes end of list.
+<br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>(lower case letter &lsquo;<samp><span class="samp">L</span></samp>&rsquo;) denotes end of list. 
 </dl>
 
      <p>In response to each query, the target will reply with a list of one or
-more thread IDs, separated by commas.
+more thread IDs, separated by commas. 
 <span class="sc">gdb</span> will respond to each reply with a request for more thread
 ids (using the &lsquo;<samp><span class="samp">qs</span></samp>&rsquo; form of the query), until the target responds
-with &lsquo;<samp><span class="samp">l</span></samp>&rsquo; (lower-case ell, for <dfn>last</dfn>).
+with &lsquo;<samp><span class="samp">l</span></samp>&rsquo; (lower-case ell, for <dfn>last</dfn>). 
 Refer to <a href="thread_002did-syntax.html#thread_002did-syntax">thread-id syntax</a>, for the format of the <var>thread-id</var>
 fields.
 
@@ -187,7 +187,7 @@ information associated with the variable.)
      <p><var>lm</var> is the (big endian, hex encoded) OS/ABI-specific encoding of the
 load module associated with the thread local storage.  For example,
 a <span class="sc">gnu</span>/Linux system will pass the link map address of the shared
-object associated with the thread local storage under consideration.
+object associated with the thread local storage under consideration. 
 Other operating environments may choose to represent the load module
 differently, so the precise meaning of this parameter will vary.
 
@@ -198,7 +198,7 @@ local storage requested.
 
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
 
-          <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qGetTLSAddr</span></samp>&rsquo; is not supported by the stub.
+          <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qGetTLSAddr</span></samp>&rsquo; is not supported by the stub. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qGetTIBAddr:</span><var>thread-id</var></samp>&rsquo;<dd><a name="index-get-thread-information-block-address-2715"></a><a name="index-g_t_0040samp_007bqGetTIBAddr_007d-packet-2716"></a>Fetch address of the Windows OS specific Thread Information Block.
@@ -213,7 +213,7 @@ thread information block.
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occured.  This means that either the thread was not found, or the
 address could not be retrieved.
 
-          <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qGetTIBAddr</span></samp>&rsquo; is not supported by the stub.
+          <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qGetTIBAddr</span></samp>&rsquo; is not supported by the stub. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qL </span><var>startflag</var> <var>threadcount</var> <var>nextthread</var></samp>&rsquo;<dd>Obtain thread information from RTOS.  Where: <var>startflag</var> (one hex
@@ -232,7 +232,7 @@ returned; <var>done</var> (one hex digit) is zero to indicate more threads
 and one indicates no further threads; <var>argthreadid</var> (eight hex
 digits) is <var>nextthread</var> from the request packet; <var>thread</var><small class="dots">...</small>
 is a sequence of thread IDs from the target.  <var>threadid</var> (eight hex
-digits).  See <code>remote.c:parse_threadlist_response()</code>.
+digits).  See <code>remote.c:parse_threadlist_response()</code>. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qOffsets</span></samp>&rsquo;<dd><a name="index-section-offsets_002c-remote-request-2717"></a><a name="index-g_t_0040samp_007bqOffsets_007d-packet-2718"></a>Get section offsets that the target used when relocating the downloaded
@@ -240,8 +240,8 @@ image.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">Text=</span><var>xxx</var><span class="samp">;Data=</span><var>yyy</var><span class="samp">[;Bss=</span><var>zzz</var><span class="samp">]</span></samp>&rsquo;<dd>Relocate the <code>Text</code> section by <var>xxx</var> from its original address.
-Relocate the <code>Data</code> section by <var>yyy</var> from its original address.
+<dt>&lsquo;<samp><span class="samp">Text=</span><var>xxx</var><span class="samp">;Data=</span><var>yyy</var><span class="samp">[;Bss=</span><var>zzz</var><span class="samp">]</span></samp>&rsquo;<dd>Relocate the <code>Text</code> section by <var>xxx</var> from its original address. 
+Relocate the <code>Data</code> section by <var>yyy</var> from its original address. 
 If the object file format provides segment information (e.g. <span class="sc">elf</span>
 &lsquo;<samp><span class="samp">PT_LOAD</span></samp>&rsquo; program headers), <span class="sc">gdb</span> will relocate entire
 segments by the supplied offsets.
@@ -257,7 +257,7 @@ conventionally contains modifiable data, to a starting address of
 <var>yyy</var>.  <span class="sc">gdb</span> will report an error if the object file
 does not contain segment information, or does not contain at least
 as many segments as mentioned in the reply.  Extra segments are
-kept at fixed offsets relative to the last relocated segment.
+kept at fixed offsets relative to the last relocated segment. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qP </span><var>mode</var> <var>thread-id</var></samp>&rsquo;<dd><a name="index-thread-information_002c-remote-request-2719"></a><a name="index-g_t_0040samp_007bqP_007d-packet-2720"></a>Returns information on <var>thread-id</var>.  Where: <var>mode</var> is a hex
@@ -269,7 +269,7 @@ encoded 32 bit mode; <var>thread-id</var> is a thread ID
 
      <p>Reply: see <code>remote.c:remote_unpack_thread_info_response()</code>.
 
-     <br><dt>&lsquo;<samp><span class="samp">QNonStop:1</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QNonStop:0</span></samp>&rsquo;<dd><a name="index-non_002dstop-mode_002c-remote-request-2721"></a><a name="index-g_t_0040samp_007bQNonStop_007d-packet-2722"></a><a name="QNonStop"></a>Enter non-stop (&lsquo;<samp><span class="samp">QNonStop:1</span></samp>&rsquo;) or all-stop (&lsquo;<samp><span class="samp">QNonStop:0</span></samp>&rsquo;) mode.
+     <br><dt>&lsquo;<samp><span class="samp">QNonStop:1</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QNonStop:0</span></samp>&rsquo;<dd><a name="index-non_002dstop-mode_002c-remote-request-2721"></a><a name="index-g_t_0040samp_007bQNonStop_007d-packet-2722"></a><a name="QNonStop"></a>Enter non-stop (&lsquo;<samp><span class="samp">QNonStop:1</span></samp>&rsquo;) or all-stop (&lsquo;<samp><span class="samp">QNonStop:0</span></samp>&rsquo;) mode. 
 See <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>, for more information.
 
      <p>Reply:
@@ -279,15 +279,15 @@ See <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>, 
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">QNonStop</span></samp>&rsquo; is not supported by
-the stub.
+the stub. 
 </dl>
 
      <p>This packet is not probed by default; the remote stub must request it,
-by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
+by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>). 
 Use of this packet is controlled by the <code>set non-stop</code> command;
 see <a href="Non_002dStop-Mode.html#Non_002dStop-Mode">Non-Stop Mode</a>.
 
-     <br><dt>&lsquo;<samp><span class="samp">QPassSignals: </span><var>signal</var><span class="samp"> [;</span><var>signal</var><span class="samp">]...</span></samp>&rsquo;<dd><a name="index-pass-signals-to-inferior_002c-remote-request-2723"></a><a name="index-g_t_0040samp_007bQPassSignals_007d-packet-2724"></a><a name="QPassSignals"></a>Each listed <var>signal</var> should be passed directly to the inferior process.
+     <br><dt>&lsquo;<samp><span class="samp">QPassSignals: </span><var>signal</var><span class="samp"> [;</span><var>signal</var><span class="samp">]...</span></samp>&rsquo;<dd><a name="index-pass-signals-to-inferior_002c-remote-request-2723"></a><a name="index-g_t_0040samp_007bQPassSignals_007d-packet-2724"></a><a name="QPassSignals"></a>Each listed <var>signal</var> should be passed directly to the inferior process. 
 Signals are numbered identically to continue packets and stop replies
 (see <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>).  Each <var>signal</var> list item should be
 strictly greater than the previous item.  These signals do not need to stop
@@ -304,15 +304,15 @@ new list.  This packet improves performance when using &lsquo;<samp><span class=
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">QPassSignals</span></samp>&rsquo; is not supported by
-the stub.
+the stub. 
 </dl>
 
      <p>Use of this packet is controlled by the <code>set remote pass-signals</code>
-command (see <a href="Remote-Configuration.html#Remote-Configuration">set remote pass-signals</a>).
+command (see <a href="Remote-Configuration.html#Remote-Configuration">set remote pass-signals</a>). 
 This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
-     <br><dt>&lsquo;<samp><span class="samp">QProgramSignals: </span><var>signal</var><span class="samp"> [;</span><var>signal</var><span class="samp">]...</span></samp>&rsquo;<dd><a name="index-signals-the-inferior-may-see_002c-remote-request-2725"></a><a name="index-g_t_0040samp_007bQProgramSignals_007d-packet-2726"></a><a name="QProgramSignals"></a>Each listed <var>signal</var> may be delivered to the inferior process.
+     <br><dt>&lsquo;<samp><span class="samp">QProgramSignals: </span><var>signal</var><span class="samp"> [;</span><var>signal</var><span class="samp">]...</span></samp>&rsquo;<dd><a name="index-signals-the-inferior-may-see_002c-remote-request-2725"></a><a name="index-g_t_0040samp_007bQProgramSignals_007d-packet-2726"></a><a name="QProgramSignals"></a>Each listed <var>signal</var> may be delivered to the inferior process. 
 Others should be silently discarded.
 
      <p>In some cases, the remote stub may need to decide whether to deliver a
@@ -339,11 +339,11 @@ strictly greater than the previous item.  Multiple
           <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>An error occurred.  <var>nn</var> are hex digits.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">QProgramSignals</span></samp>&rsquo; is not supported
-by the stub.
+by the stub. 
 </dl>
 
      <p>Use of this packet is controlled by the <code>set remote program-signals</code>
-command (see <a href="Remote-Configuration.html#Remote-Configuration">set remote program-signals</a>).
+command (see <a href="Remote-Configuration.html#Remote-Configuration">set remote program-signals</a>). 
 This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
@@ -356,10 +356,10 @@ stubs's interpreter may have security implications</em>.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>A command response with no output.
-<br><dt>&lsquo;<samp><var>OUTPUT</var></samp>&rsquo;<dd>A command response with the hex encoded output string <var>OUTPUT</var>.
-<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>Indicate a badly formed request.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qRcmd</span></samp>&rsquo; is not recognized.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>A command response with no output. 
+<br><dt>&lsquo;<samp><var>OUTPUT</var></samp>&rsquo;<dd>A command response with the hex encoded output string <var>OUTPUT</var>. 
+<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>Indicate a badly formed request. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qRcmd</span></samp>&rsquo; is not recognized. 
 </dl>
 
      <p>(Note that the <code>qRcmd</code> packet's name is separated from the
@@ -367,16 +367,16 @@ command by a &lsquo;<samp><span class="samp">,</span></samp>&rsquo;, not a &lsqu
 conventions above.  Please don't use this packet as a model for new
 packets.)
 
-     <br><dt>&lsquo;<samp><span class="samp">qSearch:memory:</span><var>address</var><span class="samp">;</span><var>length</var><span class="samp">;</span><var>search-pattern</var></samp>&rsquo;<dd><a name="index-searching-memory_002c-in-remote-debugging-2729"></a><a name="index-g_t_0040samp_007bqSearch_003amemory_007d-packet-2730"></a><a name="index-g_t_0040samp_007bqSearch-memory_007d-packet-2731"></a><a name="qSearch-memory"></a>Search <var>length</var> bytes at <var>address</var> for <var>search-pattern</var>.
-<var>address</var> and <var>length</var> are encoded in hex.
+     <br><dt>&lsquo;<samp><span class="samp">qSearch:memory:</span><var>address</var><span class="samp">;</span><var>length</var><span class="samp">;</span><var>search-pattern</var></samp>&rsquo;<dd><a name="index-searching-memory_002c-in-remote-debugging-2729"></a><a name="index-g_t_0040samp_007bqSearch_003amemory_007d-packet-2730"></a><a name="index-g_t_0040samp_007bqSearch-memory_007d-packet-2731"></a><a name="qSearch-memory"></a>Search <var>length</var> bytes at <var>address</var> for <var>search-pattern</var>. 
+<var>address</var> and <var>length</var> are encoded in hex. 
 <var>search-pattern</var> is a sequence of bytes, hex encoded.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The pattern was not found.
-<br><dt>&lsquo;<samp><span class="samp">1,address</span></samp>&rsquo;<dd>The pattern was found at <var>address</var>.
-<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>A badly formed request or an error was encountered while searching memory.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qSearch:memory</span></samp>&rsquo; is not recognized.
+<dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The pattern was not found. 
+<br><dt>&lsquo;<samp><span class="samp">1,address</span></samp>&rsquo;<dd>The pattern was found at <var>address</var>. 
+<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>A badly formed request or an error was encountered while searching memory. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qSearch:memory</span></samp>&rsquo; is not recognized. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bQStartNoAckMode_007d-packet-2732"></a><a name="QStartNoAckMode"></a>Request that the remote stub disable the normal &lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo;
@@ -384,11 +384,11 @@ protocol acknowledgments (see <a href="Packet-Acknowledgment.html#Packet-Acknowl
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The stub has switched to no-acknowledgment mode.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The stub has switched to no-acknowledgment mode. 
 <span class="sc">gdb</span> acknowledges this reponse,
 but neither the stub nor <span class="sc">gdb</span> shall send or expect further
-&lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments in the current connection.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that the stub does not support no-acknowledgment mode.
+&lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments in the current connection. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that the stub does not support no-acknowledgment mode. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qSupported [:</span><var>gdbfeature</var><span class="samp"> [;</span><var>gdbfeature</var><span class="samp">]... ]</span></samp>&rsquo;<dd><a name="index-supported-packets_002c-remote-query-2733"></a><a name="index-features-of-the-remote-protocol-2734"></a><a name="index-g_t_0040samp_007bqSupported_007d-packet-2735"></a><a name="qSupported"></a>Tell the remote stub about features supported by <span class="sc">gdb</span>, and
@@ -410,9 +410,9 @@ versions of <span class="sc">gdb</span> which support increasing numbers of pack
           <dl>
 <dt>&lsquo;<samp><var>stubfeature</var><span class="samp"> [;</span><var>stubfeature</var><span class="samp">]...</span></samp>&rsquo;<dd>The stub supports or does not support each returned <var>stubfeature</var>,
 depending on the form of each <var>stubfeature</var> (see below for the
-possible forms).
+possible forms). 
 <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates that &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; is not recognized,
-or that no features needed to be reported to <span class="sc">gdb</span>.
+or that no features needed to be reported to <span class="sc">gdb</span>. 
 </dl>
 
      <p>The allowed forms for each feature (either a <var>gdbfeature</var> in the
@@ -422,14 +422,14 @@ are:
           <dl>
 <dt>&lsquo;<samp><var>name</var><span class="samp">=</span><var>value</var></samp>&rsquo;<dd>The remote protocol feature <var>name</var> is supported, and associated
 with the specified <var>value</var>.  The format of <var>value</var> depends
-on the feature, but it must not include a semicolon.
+on the feature, but it must not include a semicolon. 
 <br><dt>&lsquo;<samp><var>name</var><span class="samp">+</span></samp>&rsquo;<dd>The remote protocol feature <var>name</var> is supported, and does not
-need an associated value.
-<br><dt>&lsquo;<samp><var>name</var><span class="samp">-</span></samp>&rsquo;<dd>The remote protocol feature <var>name</var> is not supported.
+need an associated value. 
+<br><dt>&lsquo;<samp><var>name</var><span class="samp">-</span></samp>&rsquo;<dd>The remote protocol feature <var>name</var> is not supported. 
 <br><dt>&lsquo;<samp><var>name</var><span class="samp">?</span></samp>&rsquo;<dd>The remote protocol feature <var>name</var> may be supported, and
 <span class="sc">gdb</span> should auto-detect support in some other way when it is
 needed.  This form will not be used for <var>gdbfeature</var> notifications,
-but may be used for <var>stubfeature</var> responses.
+but may be used for <var>stubfeature</var> responses. 
 </dl>
 
      <p>Whenever the stub receives a &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; request, the
@@ -445,7 +445,7 @@ are defined:
 <dt>&lsquo;<samp><span class="samp">multiprocess</span></samp>&rsquo;<dd>This feature indicates whether <span class="sc">gdb</span> supports multiprocess
 extensions to the remote protocol.  <span class="sc">gdb</span> does not use such
 extensions unless the stub also reports that it supports them by
-including &lsquo;<samp><span class="samp">multiprocess+</span></samp>&rsquo; in its &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; reply.
+including &lsquo;<samp><span class="samp">multiprocess+</span></samp>&rsquo; in its &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; reply. 
 See <a href="multiprocess-extensions.html#multiprocess-extensions">multiprocess extensions</a>, for details.
 
           <br><dt>&lsquo;<samp><span class="samp">xmlRegisters</span></samp>&rsquo;<dd>This feature indicates that <span class="sc">gdb</span> supports the XML target
@@ -454,7 +454,7 @@ specific strings separated by a comma, it will report register
 description.
 
           <br><dt>&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo;<dd>This feature indicates whether <span class="sc">gdb</span> supports the
-&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo; packet (see <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>).
+&lsquo;<samp><span class="samp">qRelocInsn</span></samp>&rsquo; packet (see <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>). 
 </dl>
 
      <p>Stubs should ignore any unknown values for
@@ -666,12 +666,12 @@ stubs which may be configured for multiple targets.
 
      <p>These are the currently defined stub features, in more detail:
 
-
+          
 <a name="index-packet-size_002c-remote-protocol-2736"></a>
 <dl><dt>&lsquo;<samp><span class="samp">PacketSize=</span><var>bytes</var></samp>&rsquo;<dd>The remote stub can accept packets up to at least <var>bytes</var> in
 length.  <span class="sc">gdb</span> will send packets up to this size for bulk
 transfers, and will never send larger packets.  This is a limit on the
-data characters in the packet, including the frame and checksum.
+data characters in the packet, including the frame and checksum. 
 There is no trailing NUL byte in a remote protocol packet; if the stub
 stores packets in a NUL-terminated format, it should allow an extra
 byte in its buffer for the NUL.  If this stub feature is not supported,
@@ -777,7 +777,7 @@ to be enabled and disabled while a trace experiment is running.
           <br><dt>&lsquo;<samp><span class="samp">QTBuffer:size</span></samp>&rsquo;<dd>The remote stub supports the &lsquo;<samp><span class="samp">QTBuffer:size</span></samp>&rsquo; (see <a href="QTBuffer_002dsize.html#QTBuffer_002dsize">QTBuffer-size</a>)
 packet that allows to change the size of the trace buffer.
 
-          <br><dt>&lsquo;<samp><span class="samp">tracenz</span></samp>&rsquo;<dd><a name="index-string-tracing_002c-in-remote-protocol-2739"></a>The remote stub supports the &lsquo;<samp><span class="samp">tracenz</span></samp>&rsquo; bytecode for collecting strings.
+          <br><dt>&lsquo;<samp><span class="samp">tracenz</span></samp>&rsquo;<dd><a name="index-string-tracing_002c-in-remote-protocol-2739"></a>The remote stub supports the &lsquo;<samp><span class="samp">tracenz</span></samp>&rsquo; bytecode for collecting strings. 
 See <a href="Bytecode-Descriptions.html#Bytecode-Descriptions">Bytecode Descriptions</a> for details about the bytecode.
 
           <br><dt>&lsquo;<samp><span class="samp">BreakpointCommands</span></samp>&rsquo;<dd><a name="index-breakpoint-commands_002c-in-remote-protocol-2740"></a>The remote stub supports running a breakpoint's command list itself,
@@ -794,11 +794,11 @@ requests.  Accept requests from the target for the values of symbols.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The target does not need to look up any (more) symbols.
-<br><dt>&lsquo;<samp><span class="samp">qSymbol:</span><var>sym_name</var></samp>&rsquo;<dd>The target requests the value of symbol <var>sym_name</var> (hex encoded).
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The target does not need to look up any (more) symbols. 
+<br><dt>&lsquo;<samp><span class="samp">qSymbol:</span><var>sym_name</var></samp>&rsquo;<dd>The target requests the value of symbol <var>sym_name</var> (hex encoded). 
 <span class="sc">gdb</span> may provide the value by using the
 &lsquo;<samp><span class="samp">qSymbol:</span><var>sym_value</var><span class="samp">:</span><var>sym_name</var></samp>&rsquo; message, described
-below.
+below. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qSymbol:</span><var>sym_value</var><span class="samp">:</span><var>sym_name</var></samp>&rsquo;<dd>Set the value of <var>sym_name</var> to <var>sym_value</var>.
@@ -812,10 +812,10 @@ will be empty.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The target does not need to look up any (more) symbols.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The target does not need to look up any (more) symbols. 
 <br><dt>&lsquo;<samp><span class="samp">qSymbol:</span><var>sym_name</var></samp>&rsquo;<dd>The target requests the value of a new symbol <var>sym_name</var> (hex
 encoded).  <span class="sc">gdb</span> will continue to supply the values of symbols
-(if available), until the target ceases to request them.
+(if available), until the target ceases to request them. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qTBuffer</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTBuffer</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTDisconnected</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTDP</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTDPsrc</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTDV</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">qTfP</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">qTfV</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">QTFrame</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">qTMinFTPILen</span></samp>&rsquo;<dd>
@@ -834,7 +834,7 @@ examples of possible thread extra info strings are &lsquo;<samp><span class="sam
           <dl>
 <dt>&lsquo;<samp><var>XX</var><span class="samp">...</span></samp>&rsquo;<dd>Where &lsquo;<samp><var>XX</var><span class="samp">...</span></samp>&rsquo; is a hex encoding of <span class="sc">ascii</span> data,
 comprising the printable string containing the extra information about
-the thread's attributes.
+the thread's attributes. 
 </dl>
 
      <p>(Note that the <code>qThreadExtraInfo</code> packet's name is separated from
@@ -860,7 +860,7 @@ formats, listed below.
           <p>This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
-          <br><dt>&lsquo;<samp><span class="samp">qXfer:btrace:read:</span><var>annex</var><span class="samp">:</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-btrace-read"></a>Return a description of the current branch trace.
+          <br><dt>&lsquo;<samp><span class="samp">qXfer:btrace:read:</span><var>annex</var><span class="samp">:</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-btrace-read"></a>Return a description of the current branch trace. 
 See <a href="Branch-Trace-Format.html#Branch-Trace-Format">Branch Trace Format</a>.  The annex part of the generic &lsquo;<samp><span class="samp">qXfer</span></samp>&rsquo;
 packet may have one of the following values:
 
@@ -868,7 +868,7 @@ packet may have one of the following values:
 <dt><code>all</code><dd>Returns all available branch trace.
 
                <br><dt><code>new</code><dd>Returns all available branch trace if the branch trace changed since
-the last read request.
+the last read request. 
 </dl>
 
           <p>This packet is not probed by default; the remote stub must request it
@@ -881,7 +881,7 @@ always loaded from the &lsquo;<samp><span class="samp">target.xml</span></samp>&
           <p>This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
-          <br><dt>&lsquo;<samp><span class="samp">qXfer:libraries:read:</span><var>annex</var><span class="samp">:</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-library-list-read"></a>Access the target's list of loaded libraries.  See <a href="Library-List-Format.html#Library-List-Format">Library List Format</a>.
+          <br><dt>&lsquo;<samp><span class="samp">qXfer:libraries:read:</span><var>annex</var><span class="samp">:</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-library-list-read"></a>Access the target's list of loaded libraries.  See <a href="Library-List-Format.html#Library-List-Format">Library List Format</a>. 
 The annex part of the generic &lsquo;<samp><span class="samp">qXfer</span></samp>&rsquo; packet must be empty
 (see <a href="qXfer-read.html#qXfer-read">qXfer read</a>).
 
@@ -896,7 +896,7 @@ by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></s
 platform.  See <a href="Library-List-Format-for-SVR4-Targets.html#Library-List-Format-for-SVR4-Targets">Library List Format for SVR4 Targets</a>.  The annex part
 of the generic &lsquo;<samp><span class="samp">qXfer</span></samp>&rsquo; packet must be empty (see <a href="qXfer-read.html#qXfer-read">qXfer read</a>).
 
-          <p>This packet is optional for better performance on SVR4 targets.
+          <p>This packet is optional for better performance on SVR4 targets. 
 <span class="sc">gdb</span> uses memory read packets to read the SVR4 library list otherwise.
 
           <p>This packet is not probed by default; the remote stub must request it,
@@ -942,7 +942,7 @@ annex part of the generic &lsquo;<samp><span class="samp">qXfer</span></samp>&rs
           <p>This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
-          <br><dt>&lsquo;<samp><span class="samp">qXfer:traceframe-info:read::</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-traceframe-info-read"></a>Return a description of the current traceframe's contents.
+          <br><dt>&lsquo;<samp><span class="samp">qXfer:traceframe-info:read::</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-traceframe-info-read"></a>Return a description of the current traceframe's contents. 
 See <a href="Traceframe-Info-Format.html#Traceframe-Info-Format">Traceframe Info Format</a>.  The annex part of the generic
 &lsquo;<samp><span class="samp">qXfer</span></samp>&rsquo; packet must be empty (see <a href="qXfer-read.html#qXfer-read">qXfer read</a>).
 
@@ -961,7 +961,7 @@ executable <code>loadmap</code> or interpreter <code>loadmap</code> to read.
           <p>This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
 
-          <br><dt>&lsquo;<samp><span class="samp">qXfer:osdata:read::</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-osdata-read"></a>Access the target's <dfn>operating system information</dfn>.
+          <br><dt>&lsquo;<samp><span class="samp">qXfer:osdata:read::</span><var>offset</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="qXfer-osdata-read"></a>Access the target's <dfn>operating system information</dfn>. 
 See <a href="Operating-System-Information.html#Operating-System-Information">Operating System Information</a>.
 
      </dl>
@@ -971,24 +971,24 @@ See <a href="Operating-System-Information.html#Operating-System-Information">Ope
 <dt>&lsquo;<samp><span class="samp">m </span><var>data</var></samp>&rsquo;<dd>Data <var>data</var> (see <a href="Binary-Data.html#Binary-Data">Binary Data</a>) has been read from the
 target.  There may be more data at a higher address (although
 it is permitted to return &lsquo;<samp><span class="samp">m</span></samp>&rsquo; even for the last valid
-block of data, as long as at least one byte of data was read).
+block of data, as long as at least one byte of data was read). 
 <var>data</var> may have fewer bytes than the <var>length</var> in the
 request.
 
-          <br><dt>&lsquo;<samp><span class="samp">l </span><var>data</var></samp>&rsquo;<dd>Data <var>data</var> (see <a href="Binary-Data.html#Binary-Data">Binary Data</a>) has been read from the target.
+          <br><dt>&lsquo;<samp><span class="samp">l </span><var>data</var></samp>&rsquo;<dd>Data <var>data</var> (see <a href="Binary-Data.html#Binary-Data">Binary Data</a>) has been read from the target. 
 There is no more data to be read.  <var>data</var> may have fewer bytes
 than the <var>length</var> in the request.
 
-          <br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>The <var>offset</var> in the request is at the end of the data.
+          <br><dt>&lsquo;<samp><span class="samp">l</span></samp>&rsquo;<dd>The <var>offset</var> in the request is at the end of the data. 
 There is no more data to be read.
 
           <br><dt>&lsquo;<samp><span class="samp">E00</span></samp>&rsquo;<dd>The request was malformed, or <var>annex</var> was invalid.
 
-          <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>The offset was invalid, or there was an error encountered reading the data.
+          <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>The offset was invalid, or there was an error encountered reading the data. 
 <var>nn</var> is a hex-encoded <code>errno</code> value.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates the <var>object</var> string was not recognized by
-the stub, or that the object does not support reading.
+the stub, or that the object does not support reading. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qXfer:</span><var>object</var><span class="samp">:write:</span><var>annex</var><span class="samp">:</span><var>offset</var><span class="samp">:</span><var>data</var><span class="samp">...</span></samp>&rsquo;<dd><a name="index-write-data-into-object_002c-remote-request-2747"></a><a name="qXfer-write"></a>Write uninterpreted bytes into the target's special data area
@@ -1003,7 +1003,7 @@ to access.
 formats, listed below.
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">qXfer:siginfo:write::</span><var>offset</var><span class="samp">:</span><var>data</var><span class="samp">...</span></samp>&rsquo;<dd><a name="qXfer-siginfo-write"></a>Write <var>data</var> to the extra signal information on the target system.
+<dt>&lsquo;<samp><span class="samp">qXfer:siginfo:write::</span><var>offset</var><span class="samp">:</span><var>data</var><span class="samp">...</span></samp>&rsquo;<dd><a name="qXfer-siginfo-write"></a>Write <var>data</var> to the extra signal information on the target system. 
 The annex part of the generic &lsquo;<samp><span class="samp">qXfer</span></samp>&rsquo; packet must be
 empty (see <a href="qXfer-write.html#qXfer-write">qXfer write</a>).
 
@@ -1018,21 +1018,21 @@ in the target process, and <var>name</var> identifes the <code>spufs</code> file
 in that context to be accessed.
 
           <p>This packet is not probed by default; the remote stub must request it,
-by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>).
+by supplying an appropriate &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo; response (see <a href="qSupported.html#qSupported">qSupported</a>). 
 </dl>
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><var>nn</var></samp>&rsquo;<dd><var>nn</var> (hex encoded) is the number of bytes written.
+<dt>&lsquo;<samp><var>nn</var></samp>&rsquo;<dd><var>nn</var> (hex encoded) is the number of bytes written. 
 This may be fewer bytes than supplied in the request.
 
           <br><dt>&lsquo;<samp><span class="samp">E00</span></samp>&rsquo;<dd>The request was malformed, or <var>annex</var> was invalid.
 
-          <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>The offset was invalid, or there was an error encountered writing the data.
+          <br><dt>&lsquo;<samp><span class="samp">E </span><var>nn</var></samp>&rsquo;<dd>The offset was invalid, or there was an error encountered writing the data. 
 <var>nn</var> is a hex-encoded <code>errno</code> value.
 
           <br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>An empty reply indicates the <var>object</var> string was not
-recognized by the stub, or that the object does not support writing.
+recognized by the stub, or that the object does not support writing. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">qXfer:</span><var>object</var><span class="samp">:</span><var>operation</var><span class="samp">:...</span></samp>&rsquo;<dd>Requests of this form may be added in the future.  When a stub does
@@ -1053,25 +1053,25 @@ the <code>quit</code> command.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">1</span></samp>&rsquo;<dd>The remote server attached to an existing process.
-<br><dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The remote server created a new process.
-<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>A badly formed request or an error was encountered.
+<dt>&lsquo;<samp><span class="samp">1</span></samp>&rsquo;<dd>The remote server attached to an existing process. 
+<br><dt>&lsquo;<samp><span class="samp">0</span></samp>&rsquo;<dd>The remote server created a new process. 
+<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>A badly formed request or an error was encountered. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">Qbtrace:bts</span></samp>&rsquo;<dd>Enable branch tracing for the current thread using bts tracing.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>Branch tracing has been enabled.
-<br><dt>&lsquo;<samp><span class="samp">E.errtext</span></samp>&rsquo;<dd>A badly formed request or an error was encountered.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>Branch tracing has been enabled. 
+<br><dt>&lsquo;<samp><span class="samp">E.errtext</span></samp>&rsquo;<dd>A badly formed request or an error was encountered. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">Qbtrace:off</span></samp>&rsquo;<dd>Disable branch tracing for the current thread.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>Branch tracing has been disabled.
-<br><dt>&lsquo;<samp><span class="samp">E.errtext</span></samp>&rsquo;<dd>A badly formed request or an error was encountered.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>Branch tracing has been disabled. 
+<br><dt>&lsquo;<samp><span class="samp">E.errtext</span></samp>&rsquo;<dd>A badly formed request or an error was encountered. 
 </dl>
 
    </dl>
@@ -1088,3 +1088,4 @@ packet.</p>
    <hr></div>
 
    </body></html>
+

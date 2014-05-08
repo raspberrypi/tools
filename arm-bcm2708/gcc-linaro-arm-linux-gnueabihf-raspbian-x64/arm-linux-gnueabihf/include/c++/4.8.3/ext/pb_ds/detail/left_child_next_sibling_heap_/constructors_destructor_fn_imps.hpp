@@ -67,7 +67,7 @@ left_child_next_sibling_heap(const Cmp_Fn& r_cmp_fn) :
 
 PB_DS_CLASS_T_DEC
 PB_DS_CLASS_C_DEC::
-left_child_next_sibling_heap(const PB_DS_CLASS_C_DEC& other)
+left_child_next_sibling_heap(const PB_DS_CLASS_C_DEC& other) 
 : Cmp_Fn(other), m_p_root(0), m_size(0)
 {
   m_size = other.m_size;
@@ -149,3 +149,4 @@ recursive_copy_node(node_const_pointer p_nd)
 
   return p_ret;
 }
+

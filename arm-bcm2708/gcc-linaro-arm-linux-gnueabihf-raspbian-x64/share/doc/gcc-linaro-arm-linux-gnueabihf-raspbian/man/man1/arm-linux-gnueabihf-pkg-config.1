@@ -1,4 +1,4 @@
-.\"
+.\" 
 .\" pkg-config manual page.
 .\" (C) Red Hat, Inc. based on gnome-config man page (C) Miguel de Icaza (miguel@gnu.org)
 .\"
@@ -28,7 +28,7 @@ pkg-config \- Return metainformation about installed libraries
 .SH SYNOPSIS
 .PP
 .B pkg-config
-[\-\-modversion] [\-\-help] [\-\-print-errors] [\-\-silence-errors]
+[\-\-modversion] [\-\-help] [\-\-print-errors] [\-\-silence-errors] 
 [\-\-cflags] [\-\-libs] [\-\-libs-only-L]
 [\-\-libs-only-l] [\-\-cflags-only-I]
 [\-\-variable=VARIABLENAME]
@@ -91,7 +91,7 @@ problem to be printed. With "predicate" options such as "--exists"
 .I "pkg-config"
 runs silently by default, because it's usually used
 in scripts that want to control what's output. This option can be used
-alone (to just print errors encountered locating modules on the
+alone (to just print errors encountered locating modules on the 
 command line) or with other options. The PKG_CONFIG_DEBUG_SPEW
 environment variable overrides this option.
 .TP
@@ -123,7 +123,7 @@ line.
 .I "--cflags-only-I"
 This prints the -I part of "--cflags". That is, it defines the header
 search path but doesn't specify anything else.
-.TP
+.TP 
 .I "--libs"
 This option is identical to "--cflags", only it prints the link
 flags. As with "--cflags", duplicate flags are merged (maintaining
@@ -131,7 +131,7 @@ proper ordering), and flags for dependencies are included in the
 output.
 .TP
 .I "--libs-only-L"
-This prints the -L/-R part of "--libs". That is, it defines the
+This prints the -L/-R part of "--libs". That is, it defines the 
 library search path but doesn't specify which libraries to link with.
 .TP
 .I "--libs-only-l"
@@ -142,7 +142,7 @@ the command line. Note that the union of "--libs-only-l" and
 .TP
 .I "--variable=VARIABLENAME"
 This returns the value of a variable defined in a package's \fI.pc\fP
-file. Most packages define the variable "prefix", for example, so you
+file. Most packages define the variable "prefix", for example, so you 
 can say:
 .nf
   $ pkg-config --variable=prefix glib-2.0
@@ -166,7 +166,7 @@ Returns a list of all variables defined in the package.
 .TP
 .I "--uninstalled"
 Normally if you request the package "foo" and the package
-"foo-uninstalled" exists, \fIpkg-config\fP will prefer the
+"foo-uninstalled" exists, \fIpkg-config\fP will prefer the 
 "-uninstalled" variant. This allows compilation/linking against
 uninstalled packages. If you specify the "--uninstalled" option,
 .I pkg-config
@@ -254,14 +254,14 @@ debugging information and report all errors.
 A value to set for the magic variable \fIpc_top_builddir\fP
 which may appear in \fI.pc\fP files. If the environment variable is
 not set, the default value '$(top_builddir)' will be used. This
-variable should refer to the top builddir of the Makefile where the
+variable should refer to the top builddir of the Makefile where the 
 compile/link flags reported by \fIpkg-config\fP will be used.
 This only matters when compiling/linking against a package that hasn't
 yet been installed.
 .TP
 .I "PKG_CONFIG_DISABLE_UNINSTALLED"
 Normally if you request the package "foo" and the package
-"foo-uninstalled" exists, \fIpkg-config\fP will prefer the
+"foo-uninstalled" exists, \fIpkg-config\fP will prefer the 
 "-uninstalled" variant. This allows compilation/linking against
 uninstalled packages.  If this environment variable is set, it
 disables said behavior.
@@ -275,7 +275,7 @@ Don't strip -L/usr/lib out of libs
 .I "PKG_CONFIG_SYSROOT_DIR"
 Modify -I and -L to use the directories located in target sysroot.
 this option is useful when crosscompiling package that use pkg-config
-to determine CFLAGS anf LDFLAGS. -I and -L are modified to point to
+to determine CFLAGS anf LDFLAGS. -I and -L are modified to point to 
 the new system root. this means that a -I/usr/include/libfoo will
 become -I/var/target/usr/include/libfoo with a PKG_CONFIG_SYSROOT_DIR
 equal to /var/target (same rule apply to -L)
@@ -307,19 +307,19 @@ value of \fIprefix\fP is used instead.
 .TP
 .I "PKG_CHECK_MODULES(VARIABLE-PREFIX, MODULES [,ACTION-IF-FOUND [,ACTION-IF-NOT-FOUND]])"
 
-The macro PKG_CHECK_MODULES can be used in \fIconfigure.ac\fP to
+The macro PKG_CHECK_MODULES can be used in \fIconfigure.ac\fP to 
 check whether modules exist. A typical usage would be:
 .nf
  PKG_CHECK_MODULES([MYSTUFF], [gtk+-2.0 >= 1.3.5 libxml = 1.8.4])
 .fi
 
 This would result in MYSTUFF_LIBS and MYSTUFF_CFLAGS substitution
-variables, set to the libs and cflags for the given module list.
+variables, set to the libs and cflags for the given module list. 
 If a module is missing or has the wrong version, by default configure
-will abort with a message. To replace the default action,
+will abort with a message. To replace the default action, 
 specify an \%ACTION-IF-NOT-FOUND. \%PKG_CHECK_MODULES will not print any
 error messages if you specify your own ACTION-IF-NOT-FOUND.
-However, it will set the variable MYSTUFF_PKG_ERRORS, which you can
+However, it will set the variable MYSTUFF_PKG_ERRORS, which you can 
 use to display what went wrong.
 
 Note that if there is a possibility the first call to
@@ -344,7 +344,7 @@ PKG_CHECK_EXISTS manually.
 
 .SH METADATA FILE SYNTAX
 To add a library to the set of packages \fIpkg-config\fP knows about,
-simply install a \fI.pc\fP file. You should install this file to
+simply install a \fI.pc\fP file. You should install this file to 
 .I libdir\fP/pkgconfig.
 .PP
 Here is an example file:
@@ -363,7 +363,7 @@ Requires: glib-2.0 = 1.3.1
 Conflicts: foobar <= 4.5
 Libs: -L${libdir} -lgobject-1.3
 Libs.private: -lm
-Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib/include
+Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib/include 
 .fi
 .PP
 You would normally generate the file using configure, of course, so
@@ -395,10 +395,10 @@ This should be the most-specific-possible package version string.
 .I "Requires:"
 This is a comma-separated list of packages that are required by your
 package. Flags from dependent packages will be merged in to the flags
-reported for your package. Optionally, you can specify the version
+reported for your package. Optionally, you can specify the version 
 of the required package (using the operators =, <, >, >=, <=);
 specifying a version allows \fIpkg-config\fP to perform extra sanity
-checks. You may only mention the same package one time on the
+checks. You may only mention the same package one time on the 
 .I "Requires:"
 line. If the version of a package is unspecified, any version will
 be used with no checking.
@@ -422,16 +422,16 @@ sanity checks, primarily to detect broken user installations.  The
 syntax is the same as
 .I "Requires:"
 except that
-you can list the same package more than once here, for example
+you can list the same package more than once here, for example 
 "foobar = 1.2.3, foobar = 1.2.5, foobar >= 1.3", if you have reason to
 do so. If a version isn't specified, then your package conflicts with
-all versions of the mentioned package.
+all versions of the mentioned package. 
 If a user tries to use your package and a conflicting package at the
 same time, then \fIpkg-config\fP will complain.
 .TP
 .I "Libs:"
-This line should give the link flags specific to your package.
-Don't add any flags for required packages; \fIpkg-config\fP will
+This line should give the link flags specific to your package. 
+Don't add any flags for required packages; \fIpkg-config\fP will 
 add those automatically.
 .TP
 .I "Libs.private:"
@@ -443,8 +443,8 @@ in that it references libraries that do not have package files
 installed.
 .TP
 .I "Cflags:"
-This line should list the compile flags specific to your package.
-Don't add any flags for required packages; \fIpkg-config\fP will
+This line should list the compile flags specific to your package. 
+Don't add any flags for required packages; \fIpkg-config\fP will 
 add those automatically.
 .\"
 .SH AUTHOR

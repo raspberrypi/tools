@@ -76,10 +76,10 @@ PB_DS_CLASS_C_DEC::
 PB_DS_BIN_TREE_NAME(const PB_DS_CLASS_C_DEC& other) :
 #ifdef _GLIBCXX_DEBUG
   debug_base(other),
-#endif
+#endif 
 #ifdef PB_DS_TREE_TRACE
   PB_DS_TREE_TRACE_BASE_C_DEC(other),
-#endif
+#endif 
   Cmp_Fn(other),
   node_update(other),
   m_p_head(s_node_allocator.allocate(1)),
@@ -215,3 +215,4 @@ initialize_min_max()
     m_p_head->m_p_right = p_max;
   }
 }
+

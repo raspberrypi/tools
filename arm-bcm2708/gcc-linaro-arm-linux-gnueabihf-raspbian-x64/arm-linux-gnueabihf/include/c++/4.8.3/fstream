@@ -111,7 +111,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       __state_type		_M_state_last;
 
       /// Pointer to the beginning of internal buffer.
-      char_type*		_M_buf;
+      char_type*		_M_buf; 	
 
       /**
        *  Actual size of internal buffer. This number is equal to the size
@@ -359,7 +359,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Common code for seekoff, seekpos, and overflow
       pos_type
       _M_seek(off_type __off, ios_base::seekdir __way, __state_type __state);
-
+      
       int
       _M_get_ext_pos(__state_type &__state);
 
@@ -394,9 +394,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       void
       _M_set_buffer(streamsize __off)
       {
-	const bool __testin = _M_mode & ios_base::in;
-	const bool __testout = _M_mode & ios_base::out;
-
+ 	const bool __testin = _M_mode & ios_base::in;
+ 	const bool __testout = _M_mode & ios_base::out;
+	
 	if (__testin && __off > 0)
 	  this->setg(_M_buf, _M_buf, _M_buf + __off);
 	else

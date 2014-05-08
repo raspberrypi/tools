@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,9 +48,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 <h3 class="section">7.11 <code>.cfi_sections </code><var>section_list</var></h3>
 
 <p><a name="index-g_t_0040code_007bcfi_005fsections_007d-directive-299"></a><code>.cfi_sections</code> may be used to specify whether CFI directives
-should emit <code>.eh_frame</code> section and/or <code>.debug_frame</code> section.
+should emit <code>.eh_frame</code> section and/or <code>.debug_frame</code> section. 
 If <var>section_list</var> is <code>.eh_frame</code>, <code>.eh_frame</code> is emitted,
-if <var>section_list</var> is <code>.debug_frame</code>, <code>.debug_frame</code> is emitted.
+if <var>section_list</var> is <code>.debug_frame</code>, <code>.debug_frame</code> is emitted. 
 To emit both use <code>.eh_frame, .debug_frame</code>.  The default if this
 directive is not used is <code>.cfi_sections .eh_frame</code>.
 
@@ -72,19 +72,19 @@ unwind entry previously opened by
 
 <h3 class="section">7.14 <code>.cfi_personality </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></h3>
 
-<p><code>.cfi_personality</code> defines personality routine and its encoding.
+<p><code>.cfi_personality</code> defines personality routine and its encoding. 
 <var>encoding</var> must be a constant determining how the personality
 should be encoded.  If it is 255 (<code>DW_EH_PE_omit</code>), second
 argument is not present, otherwise second argument should be
 a constant or a symbol name.  When using indirect encodings,
 the symbol provided should be the location where personality
-can be loaded from, not the personality routine itself.
+can be loaded from, not the personality routine itself. 
 The default after <code>.cfi_startproc</code> is <code>.cfi_personality 0xff</code>,
 no personality routine.
 
 <h3 class="section">7.15 <code>.cfi_lsda </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></h3>
 
-<p><code>.cfi_lsda</code> defines LSDA and its encoding.
+<p><code>.cfi_lsda</code> defines LSDA and its encoding. 
 <var>encoding</var> must be a constant determining how the LSDA
 should be encoded.  If it is 255 (<code>DW_EH_PE_omit</code>), second
 argument is not present, otherwise second argument should be a constant
@@ -123,7 +123,7 @@ CFA.
 
 <p>Previous value of <var>register</var> is saved at offset <var>offset</var> from
 the current CFA register.  This is transformed to <code>.cfi_offset</code>
-using the known displacement of the CFA register from the CFA.
+using the known displacement of the CFA register from the CFA. 
 This is often easier to use, because the number will match the
 code it's annotating.
 
@@ -185,3 +185,4 @@ by a direct branch and no copy of the return address exists in memory
 or another register.
 
    </body></html>
+

@@ -71,4 +71,5 @@ assert_special_imp(const node_pointer p_nd,
   assert_special_imp(p_nd->m_p_right, __file, __line);
 }
 
-#endif
+#endif 
+

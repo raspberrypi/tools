@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,15 +49,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sparclet.html#Sparclet">Sparclet</a>
 
 <pre class="smallexample">     (gdbslet) file prog
 </pre>
-   <p><span class="sc">gdb</span> then attempts to read the symbol table of <samp><span class="file">prog</span></samp>.
+   <p><span class="sc">gdb</span> then attempts to read the symbol table of <samp><span class="file">prog</span></samp>. 
 <span class="sc">gdb</span> locates
 the file by searching the directories listed in the command search
-path.
+path. 
 If the file was compiled with debug information (option &lsquo;<samp><span class="samp">-g</span></samp>&rsquo;), source
-files will be searched as well.
+files will be searched as well. 
 <span class="sc">gdb</span> locates
 the source files by searching the directories listed in the directory search
-path (see <a href="Environment.html#Environment">Your Program's Environment</a>).
+path (see <a href="Environment.html#Environment">Your Program's Environment</a>). 
 If it fails
 to find a file, it displays a message such as:
 
@@ -68,3 +68,4 @@ the <span class="sc">gdb</span> commands <code>path</code> and <code>dir</code>,
 <code>target</code> command again.
 
    </body></html>
+

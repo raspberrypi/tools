@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,12 +46,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sections.html#Sections">Sections</a>
 <h3 class="section">4.1 Background</h3>
 
 <p>Roughly, a section is a range of addresses, with no gaps; all data
-&ldquo;in&rdquo; those addresses is treated the same for some particular purpose.
+&ldquo;in&rdquo; those addresses is treated the same for some particular purpose. 
 For example there may be a &ldquo;read only&rdquo; section.
 
    <p><a name="index-linker_002c-and-assembler-187"></a><a name="index-assembler_002c-and-linker-188"></a>The linker <code>ld</code> reads many object files (partial programs) and
 combines their contents to form a runnable program.  When <samp><span class="command">as</span></samp>
-emits an object file, the partial program is assumed to start at address 0.
+emits an object file, the partial program is assumed to start at address 0. 
 <code>ld</code> assigns the final addresses for the partial program, so that
 different partial programs do not overlap.  This is actually an
 oversimplification, but it suffices to explain how <samp><span class="command">as</span></samp> uses
@@ -63,7 +63,7 @@ units; their length does not change and neither does the order of bytes
 within them.  Such a rigid unit is called a <em>section</em>.  Assigning
 run-time addresses to sections is called <dfn>relocation</dfn>.  It includes
 the task of adjusting mentions of object-file addresses so they refer to
-the proper run-time addresses.
+the proper run-time addresses. 
 For the H8/300, and for the Renesas / SuperH SH,
 <samp><span class="command">as</span></samp> pads sections if needed to
 ensure they end on a word (sixteen bit) boundary.
@@ -74,7 +74,7 @@ of which may be empty.  These are named <dfn>text</dfn>, <dfn>data</dfn> and
 
    <p>When it generates COFF or ELF output,
 <samp><span class="command">as</span></samp> can also generate whatever other named sections you specify
-using the &lsquo;<samp><span class="samp">.section</span></samp>&rsquo; directive (see <a href="Section.html#Section"><code>.section</code></a>).
+using the &lsquo;<samp><span class="samp">.section</span></samp>&rsquo; directive (see <a href="Section.html#Section"><code>.section</code></a>). 
 If you do not use any directives that place output in the &lsquo;<samp><span class="samp">.text</span></samp>&rsquo;
 or &lsquo;<samp><span class="samp">.data</span></samp>&rsquo; sections, these sections still exist, but are empty.
 
@@ -104,19 +104,19 @@ object file details of the relocation needed.  To perform relocation
 file is mentioned:
      <ul>
 <li>Where in the object file is the beginning of this reference to
-an address?
-<li>How long (in bytes) is this reference?
+an address? 
+<li>How long (in bytes) is this reference? 
 <li>Which section does the address refer to?  What is the numeric value of
      <pre class="display">          (<var>address</var>) &minus; (<var>start-address of section</var>)?
 </pre>
-     <li>Is the reference to an address &ldquo;Program-Counter relative&rdquo;?
+     <li>Is the reference to an address &ldquo;Program-Counter relative&rdquo;? 
 </ul>
 
    <p><a name="index-addresses_002c-format-of-190"></a><a name="index-section_002drelative-addressing-191"></a>In fact, every address <samp><span class="command">as</span></samp> ever uses is expressed as
 <pre class="display">     (<var>section</var>) + (<var>offset into section</var>)
 </pre>
    <p class="noindent">Further, most expressions <samp><span class="command">as</span></samp> computes have this section-relative
-nature.
+nature. 
 (For some object formats, such as SOM for the HPPA, some expressions are
 symbol-relative instead.)
 
@@ -135,7 +135,7 @@ address <code>{absolute 239}</code> in any other part of the program.
 
    <p>The idea of sections is extended to the <dfn>undefined</dfn> section.  Any
 address whose section is unknown at assembly time is by definition
-rendered {undefined <var>U</var>}&mdash;where <var>U</var> is filled in later.
+rendered {undefined <var>U</var>}&mdash;where <var>U</var> is filled in later. 
 Since numbers are always defined, the only way to generate an undefined
 address is to mention an undefined symbol.  A reference to a named
 common block would be such a symbol: its value is unknown at assembly
@@ -152,3 +152,4 @@ data and bss sections.
 use of <samp><span class="command">as</span></samp> and have no meaning except during assembly.
 
    </body></html>
+

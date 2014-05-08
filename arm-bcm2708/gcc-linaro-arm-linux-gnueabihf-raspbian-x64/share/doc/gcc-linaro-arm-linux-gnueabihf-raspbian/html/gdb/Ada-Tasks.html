@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,10 +48,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Ada.html#Ada">Ada</a>
 <h5 class="subsubsection">15.4.9.5 Extensions for Ada Tasks</h5>
 
 <p><a name="index-Ada_002c-tasking-949"></a>
-Support for Ada tasks is analogous to that for threads (see <a href="Threads.html#Threads">Threads</a>).
+Support for Ada tasks is analogous to that for threads (see <a href="Threads.html#Threads">Threads</a>). 
 <span class="sc">gdb</span> provides the following task-related commands:
 
-
+     
 <a name="index-info-tasks-950"></a>
 <dl><dt><code>info tasks</code><dd>This command shows a list of current Ada tasks, as in the following example:
 
@@ -61,7 +61,7 @@ Support for Ada tasks is analogous to that for threads (see <a href="Threads.htm
              2   80a4000   1   15 Accept Statement      b
              3   809a800   1   15 Child Activation Wait a
           *  4   80ae800   3   15 Runnable              c
-
+          
 </pre>
      <p class="noindent">In this listing, the asterisk before the last task indicates it to be the
 task currently being inspected.
@@ -107,7 +107,7 @@ waiting on a terminate Phase.
                <br><dt><code>Wait Child in Term Alt</code><dd>The task is sleeping waiting for tasks on terminate alternatives to
 finish terminating.
 
-               <br><dt><code>Accepting RV with </code><var>taskno</var><dd>The task is accepting a rendez-vous with the task <var>taskno</var>.
+               <br><dt><code>Accepting RV with </code><var>taskno</var><dd>The task is accepting a rendez-vous with the task <var>taskno</var>. 
 </dl>
 
           <br><dt>Name<dd>Name of the task in the program.
@@ -156,7 +156,7 @@ from the current task to the given task.
           #4  0x804aacc in un () at un.adb:5
 </pre>
      <br><dt><code>break </code><var>linespec</var><code> task </code><var>taskno</var><dt><code>break </code><var>linespec</var><code> task </code><var>taskno</var><code> if ...</code><dd><a name="index-breakpoints-and-tasks_002c-in-Ada-955"></a><a name="index-task-breakpoints_002c-in-Ada-956"></a><a name="index-break-_0040dots_007b_007d-task-_0040var_007btaskno_007d_0040r_007b-_0028Ada_0029_007d-957"></a>These commands are like the <code>break ... thread ...</code>
-command (see <a href="Thread-Stops.html#Thread-Stops">Thread Stops</a>).
+command (see <a href="Thread-Stops.html#Thread-Stops">Thread Stops</a>). 
 <var>linespec</var> specifies source lines, as described
 in <a href="Specify-Location.html#Specify-Location">Specify Location</a>.
 
@@ -188,7 +188,7 @@ breakpoint condition (before the <code>if</code>).
           Continuing.
           task # 1 running
           task # 2 running
-
+          
           Breakpoint 5, test_task_debug () at test_task_debug.adb:15
           15               flush;
           (gdb) info tasks
@@ -201,3 +201,4 @@ breakpoint condition (before the <code>if</code>).
      </dl>
 
    </body></html>
+

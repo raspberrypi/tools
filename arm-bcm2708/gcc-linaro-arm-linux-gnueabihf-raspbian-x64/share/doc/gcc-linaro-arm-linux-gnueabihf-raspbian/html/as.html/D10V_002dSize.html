@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,16 +47,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="D10V_002dSyntax.html#D10V_002dSyntax">D
 <h5 class="subsubsection">9.9.2.1 Size Modifiers</h5>
 
 <p><a name="index-D10V-size-modifiers-804"></a><a name="index-size-modifiers_002c-D10V-805"></a>The D10V version of <code>as</code> uses the instruction names in the D10V
-Architecture Manual.  However, the names in the manual are sometimes ambiguous.
-There are instruction names that can assemble to a short or long form opcode.
+Architecture Manual.  However, the names in the manual are sometimes ambiguous. 
+There are instruction names that can assemble to a short or long form opcode. 
 How does the assembler pick the correct form?  <code>as</code> will always pick the
 smallest form if it can.  When dealing with a symbol that is not defined yet when a
 line is being assembled, it will always use the long form.  If you need to force the
 assembler to use either the short or long form of the instruction, you can append
 either &lsquo;<samp><span class="samp">.s</span></samp>&rsquo; (short) or &lsquo;<samp><span class="samp">.l</span></samp>&rsquo; (long) to it.  For example, if you are writing
 an assembly program and you want to do a branch to a symbol that is defined later
-in your program, you can write &lsquo;<samp><span class="samp">bra.s   foo</span></samp>&rsquo;.
+in your program, you can write &lsquo;<samp><span class="samp">bra.s   foo</span></samp>&rsquo;. 
 Objdump and GDB will always append &lsquo;<samp><span class="samp">.s</span></samp>&rsquo; or &lsquo;<samp><span class="samp">.l</span></samp>&rsquo; to instructions which
 have both short and long forms.
 
    </body></html>
+

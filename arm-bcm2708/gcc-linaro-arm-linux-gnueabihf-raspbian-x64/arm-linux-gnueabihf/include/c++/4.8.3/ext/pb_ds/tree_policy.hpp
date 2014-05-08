@@ -59,7 +59,7 @@ namespace __gnu_pbds
   detail::branch_policy<Node_CItr, Node_Itr, _Alloc>
 
   /// Functor updating ranks of entrees.
-  template<typename Node_CItr, typename Node_Itr,
+  template<typename Node_CItr, typename Node_Itr, 
 	   typename Cmp_Fn, typename _Alloc>
   class tree_order_statistics_node_update : private PB_DS_BRANCH_POLICY_BASE
   {
@@ -133,7 +133,7 @@ namespace __gnu_pbds
     node_end() = 0;
 
     /// Access to the cmp_fn object.
-    virtual cmp_fn&
+    virtual cmp_fn& 
     get_cmp_fn() = 0;
 
   protected:
@@ -154,4 +154,4 @@ namespace __gnu_pbds
 
 } // namespace __gnu_pbds
 
-#endif
+#endif 

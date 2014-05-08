@@ -191,7 +191,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _BidirectionalIterator>
     inline _BidirectionalIterator
     prev(_BidirectionalIterator __x, typename
-	 iterator_traits<_BidirectionalIterator>::difference_type __n = 1)
+	 iterator_traits<_BidirectionalIterator>::difference_type __n = 1) 
     {
       std::advance(__x, -__n);
       return __x;

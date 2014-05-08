@@ -84,7 +84,7 @@ namespace __gnu_pbds
     /// Specialization for rc_binary_heap.
     template<typename _VTp, typename Cmp_Fn, typename _Alloc>
       struct container_base_dispatch<_VTp, Cmp_Fn, _Alloc, rc_binomial_heap_tag,
-				     null_type>
+  				     null_type>
       {
 	/// Dispatched type.
 	typedef rc_binomial_heap<_VTp, Cmp_Fn, _Alloc>	       	type;
@@ -93,7 +93,7 @@ namespace __gnu_pbds
     /// Specialization for binary_heap.
     template<typename _VTp, typename Cmp_Fn, typename _Alloc>
       struct container_base_dispatch<_VTp, Cmp_Fn, _Alloc, binary_heap_tag,
-				     null_type>
+  				     null_type>
       {
 	/// Dispatched type.
 	typedef binary_heap<_VTp, Cmp_Fn, _Alloc> 		type;
@@ -102,7 +102,7 @@ namespace __gnu_pbds
     /// Specialization for thin_heap.
     template<typename _VTp, typename Cmp_Fn, typename _Alloc>
       struct container_base_dispatch<_VTp, Cmp_Fn, _Alloc, thin_heap_tag,
-				     null_type>
+  				     null_type>    
       {
 	/// Dispatched type.
 	typedef thin_heap<_VTp, Cmp_Fn, _Alloc> 		type;

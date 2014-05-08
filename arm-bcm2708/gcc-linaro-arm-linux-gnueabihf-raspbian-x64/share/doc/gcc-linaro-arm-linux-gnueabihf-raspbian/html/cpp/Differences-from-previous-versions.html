@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -124,14 +124,14 @@ comma, then &lsquo;<samp><span class="samp">##</span></samp>&rsquo; behaves as a
 
      <p>The &lsquo;<samp><span class="samp">#line</span></samp>&rsquo; directive used to change GCC's notion of the
 &ldquo;directory containing the current file&rdquo;, used by &lsquo;<samp><span class="samp">#include</span></samp>&rsquo; with
-a double-quoted header file name.  In 3.0 and later, it does not.
+a double-quoted header file name.  In 3.0 and later, it does not. 
 See <a href="Line-Control.html#Line-Control">Line Control</a>, for further explanation.
 
      <li>Syntax of &lsquo;<samp><span class="samp">#line</span></samp>&rsquo;
 
      <p>In GCC 2.95 and previous, the string constant argument to &lsquo;<samp><span class="samp">#line</span></samp>&rsquo;
 was treated the same way as the argument to &lsquo;<samp><span class="samp">#include</span></samp>&rsquo;: backslash
-escapes were not honored, and the string ended at the second &lsquo;<samp><span class="samp">"</span></samp>&rsquo;.
+escapes were not honored, and the string ended at the second &lsquo;<samp><span class="samp">"</span></samp>&rsquo;. 
 This is not compliant with the C standard.  In GCC 3.0, an attempt was
 made to correct the behavior, so that the string was treated as a real
 string constant, but it turned out to be buggy.  In 3.1, the bugs have
@@ -141,3 +141,4 @@ relatively few people and the fix is quite invasive.)
    </ul>
 
    </body></html>
+

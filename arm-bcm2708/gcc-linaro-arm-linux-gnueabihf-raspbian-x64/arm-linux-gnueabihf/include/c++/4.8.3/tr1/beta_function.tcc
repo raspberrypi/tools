@@ -59,7 +59,7 @@ namespace tr1
 
     /**
      *   @brief  Return the beta function: \f$B(x,y)\f$.
-     *
+     * 
      *   The beta function is defined by
      *   @f[
      *     B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
@@ -107,7 +107,7 @@ namespace tr1
     /**
      *   @brief  Return the beta function \f$B(x,y)\f$ using
      *           the log gamma functions.
-     *
+     * 
      *   The beta function is defined by
      *   @f[
      *     B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
@@ -138,7 +138,7 @@ namespace tr1
     /**
      *   @brief  Return the beta function \f$B(x,y)\f$ using
      *           the product form.
-     *
+     * 
      *   The beta function is defined by
      *   @f[
      *     B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
@@ -169,7 +169,7 @@ namespace tr1
 
     /**
      *   @brief  Return the beta function \f$ B(x,y) \f$.
-     *
+     * 
      *   The beta function is defined by
      *   @f[
      *     B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}

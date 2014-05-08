@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,7 +58,7 @@ was never called.
    <p>This is part of a flat profile for a small program:
 
 <pre class="smallexample">     Flat profile:
-
+     
      Each sample counts as 0.01 seconds.
        %   cumulative   self              self     total
       time   seconds   seconds    calls  ms/call  ms/call  name
@@ -85,11 +85,11 @@ apparatus and appear in every flat profile; their time gives a measure of
 the amount of overhead due to profiling.
 
    <p>Just before the column headers, a statement appears indicating
-how much time each sample counted as.
+how much time each sample counted as. 
 This <dfn>sampling period</dfn> estimates the margin of error in each of the time
 figures.  A time figure that is not much larger than this is not
 reliable.  In this example, each sample counted as 0.01 seconds,
-suggesting a 100 Hz sampling rate.
+suggesting a 100 Hz sampling rate. 
 The program's total execution time was 0.06
 seconds, as indicated by the &lsquo;<samp><span class="samp">cumulative seconds</span></samp>&rsquo; field.  Since
 each sample counted for 0.01 seconds, this means only six samples
@@ -97,12 +97,12 @@ were taken during the run.  Two of the samples occurred while the
 program was in the &lsquo;<samp><span class="samp">open</span></samp>&rsquo; function, as indicated by the
 &lsquo;<samp><span class="samp">self seconds</span></samp>&rsquo; field.  Each of the other four samples
 occurred one each in &lsquo;<samp><span class="samp">offtime</span></samp>&rsquo;, &lsquo;<samp><span class="samp">memccpy</span></samp>&rsquo;, &lsquo;<samp><span class="samp">write</span></samp>&rsquo;,
-and &lsquo;<samp><span class="samp">mcount</span></samp>&rsquo;.
+and &lsquo;<samp><span class="samp">mcount</span></samp>&rsquo;. 
 Since only six samples were taken, none of these values can
-be regarded as particularly reliable.
+be regarded as particularly reliable. 
 In another run,
 the &lsquo;<samp><span class="samp">self seconds</span></samp>&rsquo; field for
-&lsquo;<samp><span class="samp">mcount</span></samp>&rsquo; might well be &lsquo;<samp><span class="samp">0.00</span></samp>&rsquo; or &lsquo;<samp><span class="samp">0.02</span></samp>&rsquo;.
+&lsquo;<samp><span class="samp">mcount</span></samp>&rsquo; might well be &lsquo;<samp><span class="samp">0.00</span></samp>&rsquo; or &lsquo;<samp><span class="samp">0.02</span></samp>&rsquo;. 
 See <a href="Sampling-Error.html#Sampling-Error">Statistical Sampling Error</a>,
 for a complete discussion.
 
@@ -110,7 +110,7 @@ for a complete discussion.
 &lsquo;<samp><span class="samp">self seconds</span></samp>&rsquo; field is &lsquo;<samp><span class="samp">0.00</span></samp>&rsquo;) didn't appear
 in the histogram samples at all.  However, the call graph
 indicated that they were called, so therefore they are listed,
-sorted in decreasing order by the &lsquo;<samp><span class="samp">calls</span></samp>&rsquo; field.
+sorted in decreasing order by the &lsquo;<samp><span class="samp">calls</span></samp>&rsquo; field. 
 Clearly some time was spent executing these functions,
 but the paucity of histogram samples prevents any
 determination of how much time each took.
@@ -125,7 +125,7 @@ in this function.  These should all add up to 100%.
 executing this functions, plus the time spent in all the functions
 above this one in this table.
 
-     <br><dt><code>self seconds</code><dd>This is the number of seconds accounted for by this function alone.
+     <br><dt><code>self seconds</code><dd>This is the number of seconds accounted for by this function alone. 
 The flat profile listing is sorted first by this number.
 
      <br><dt><code>calls</code><dd>This is the total number of times the function was called.  If the
@@ -138,13 +138,14 @@ function per call, if this function is profiled.  Otherwise, this field
 is blank for this function.
 
      <br><dt><code>total ms/call</code><dd>This represents the average number of milliseconds spent in this
-function and its descendants per call, if this function is profiled.
-Otherwise, this field is blank for this function.
+function and its descendants per call, if this function is profiled. 
+Otherwise, this field is blank for this function. 
 This is the only field in the flat profile that uses call graph analysis.
 
      <br><dt><code>name</code><dd>This is the name of the function.   The flat profile is sorted by this
 field alphabetically after the <dfn>self seconds</dfn> and <dfn>calls</dfn>
-fields are sorted.
+fields are sorted. 
 </dl>
 
    </body></html>
+

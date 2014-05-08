@@ -1,10 +1,10 @@
 /*
  * $Id: kernelcapi.h,v 1.8.6.2 2001/02/07 11:31:31 kai Exp $
- *
+ * 
  * Kernel CAPI 2.0 Interface for Linux
- *
+ * 
  * (c) Copyright 1997 by Carsten Paeth (calle@calle.in-berlin.de)
- *
+ * 
  */
 
 #ifndef __KERNELCAPI_H__
@@ -32,7 +32,7 @@ typedef struct kcapi_carddef {
 #define KCAPI_CMD_TRACE		10
 #define KCAPI_CMD_ADDCARD	11	/* OBSOLETE */
 
-/*
+/* 
  * flag > 2 => trace also data
  * flag & 1 => show trace
  */

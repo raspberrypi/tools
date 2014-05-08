@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Source.html#Source">Source</a>
 <h3 class="section">9.1 Printing Source Lines</h3>
 
 <p><a name="index-list-471"></a><a name="index-l-_0040r_007b_0028_0040code_007blist_007d_0029_007d-472"></a>To print lines from a source file, use the <code>list</code> command
-(abbreviated <code>l</code>).  By default, ten lines are printed.
+(abbreviated <code>l</code>).  By default, ten lines are printed. 
 There are several ways to specify what part of the file you want to
 print; see <a href="Specify-Location.html#Specify-Location">Specify Location</a>, for the full list.
 
@@ -64,19 +64,19 @@ current source file.
 printed; however, if the last line printed was a solitary line printed
 as part of displaying a stack frame (see <a href="Stack.html#Stack">Examining the Stack</a>), this prints lines centered around that line.
 
-     <br><dt><code>list -</code><dd>Print lines just before the lines last printed.
+     <br><dt><code>list -</code><dd>Print lines just before the lines last printed. 
 </dl>
 
    <p><a name="index-g_t_0040code_007blist_007d_002c-how-many-lines-to-display-473"></a>By default, <span class="sc">gdb</span> prints ten source lines with any of these forms of
 the <code>list</code> command.  You can change this using <code>set listsize</code>:
 
-
+     
 <a name="index-set-listsize-474"></a>
 <dl><dt><code>set listsize </code><var>count</var><dd>Make the <code>list</code> command display <var>count</var> source lines (unless
-the <code>list</code> argument explicitly specifies some other number).
+the <code>list</code> argument explicitly specifies some other number). 
 Setting <var>count</var> to 0 means there's no limit.
 
-     <p><a name="index-show-listsize-475"></a><br><dt><code>show listsize</code><dd>Display the number of lines that <code>list</code> prints.
+     <p><a name="index-show-listsize-475"></a><br><dt><code>show listsize</code><dd>Display the number of lines that <code>list</code> prints. 
 </dl>
 
    <p>Repeating a <code>list</code> command with &lt;RET&gt; discards the argument,
@@ -108,7 +108,8 @@ the same source file as the first linespec.
 
      <br><dt><code>list -</code><dd>Print lines just before the lines last printed.
 
-     <br><dt><code>list</code><dd>As described in the preceding table.
+     <br><dt><code>list</code><dd>As described in the preceding table. 
 </dl>
 
    </body></html>
+

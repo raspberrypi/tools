@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,13 +50,13 @@ The Xtensa assembler will automatically align certain instructions, both
 to optimize performance and to satisfy architectural requirements.
 
    <p>As an optimization to improve performance, the assembler attempts to
-align branch targets so they do not cross instruction fetch boundaries.
+align branch targets so they do not cross instruction fetch boundaries. 
 (Xtensa processors can be configured with either 32-bit or 64-bit
 instruction fetch widths.)  An
 instruction immediately following a call is treated as a branch target
 in this context, because it will be the target of a return from the
 call.  This alignment has the potential to reduce branch penalties at
-some expense in code size.
+some expense in code size. 
 This optimization is enabled by default.  You can disable it with the
 &lsquo;<samp><span class="samp">--no-target-align</span></samp>&rsquo; command-line option (see <a href="Xtensa-Options.html#Xtensa-Options">Command Line Options</a>).
 
@@ -66,7 +66,7 @@ density instructions in the code preceding a target, the assembler can
 change the target alignment by widening some of those instructions to
 the equivalent 24-bit instructions.  Extra bytes of padding can be
 inserted immediately following unconditional jump and return
-instructions.
+instructions. 
 This approach is usually successful in aligning many, but not all,
 branch targets.
 
@@ -88,3 +88,4 @@ instructions to 4-byte boundaries, but that alignment is now the
 programmer's responsibility.
 
    </body></html>
+

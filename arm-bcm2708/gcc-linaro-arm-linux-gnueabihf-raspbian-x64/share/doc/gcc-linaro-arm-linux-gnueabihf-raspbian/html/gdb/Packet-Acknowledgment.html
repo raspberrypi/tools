@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,12 +49,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Protocol.html#Remote-Protocol">R
 
 <p><a name="index-acknowledgment_002c-for-_0040value_007bGDBN_007d-remote-2789"></a><a name="index-packet-acknowledgment_002c-for-_0040value_007bGDBN_007d-remote-2790"></a>By default, when either the host or the target machine receives a packet,
 the first response expected is an acknowledgment: either &lsquo;<samp><span class="samp">+</span></samp>&rsquo; (to indicate
-the package was received correctly) or &lsquo;<samp><span class="samp">-</span></samp>&rsquo; (to request retransmission).
+the package was received correctly) or &lsquo;<samp><span class="samp">-</span></samp>&rsquo; (to request retransmission). 
 This mechanism allows the <span class="sc">gdb</span> remote protocol to operate over
 unreliable transport mechanisms, such as a serial line.
 
    <p>In cases where the transport mechanism is itself reliable (such as a pipe or
-TCP connection), the &lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments are redundant.
+TCP connection), the &lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments are redundant. 
 It may be desirable to disable them in that case to reduce communication
 overhead, or for other reasons.  This can be accomplished by means of the
 &lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo; packet; see <a href="QStartNoAckMode.html#QStartNoAckMode">QStartNoAckMode</a>.
@@ -67,22 +67,23 @@ and response format still includes the normal checksum, as described in
    <p>If the stub supports &lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo; and prefers to operate in
 no-acknowledgment mode, it should report that to <span class="sc">gdb</span>
 by including &lsquo;<samp><span class="samp">QStartNoAckMode+</span></samp>&rsquo; in its response to &lsquo;<samp><span class="samp">qSupported</span></samp>&rsquo;;
-see <a href="qSupported.html#qSupported">qSupported</a>.
+see <a href="qSupported.html#qSupported">qSupported</a>. 
 If <span class="sc">gdb</span> also supports &lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo; and it has not been
 disabled via the <code>set remote noack-packet off</code> command
 (see <a href="Remote-Configuration.html#Remote-Configuration">Remote Configuration</a>),
-<span class="sc">gdb</span> may then send a &lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo; packet to the stub.
-Only then may the stub actually turn off packet acknowledgments.
+<span class="sc">gdb</span> may then send a &lsquo;<samp><span class="samp">QStartNoAckMode</span></samp>&rsquo; packet to the stub. 
+Only then may the stub actually turn off packet acknowledgments. 
 <span class="sc">gdb</span> sends a final &lsquo;<samp><span class="samp">+</span></samp>&rsquo; acknowledgment of the stub's &lsquo;<samp><span class="samp">OK</span></samp>&rsquo;
 response, which can be safely ignored by the stub.
 
    <p>Note that <code>set remote noack-packet</code> command only affects negotiation
 between <span class="sc">gdb</span> and the stub when subsequent connections are made;
 it does not affect the protocol acknowledgment state for any current
-connection.
+connection. 
 Since &lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments are enabled by default when a
 new connection is established,
 there is also no protocol request to re-enable the acknowledgments
 for the current connection, once disabled.
 
    </body></html>
+

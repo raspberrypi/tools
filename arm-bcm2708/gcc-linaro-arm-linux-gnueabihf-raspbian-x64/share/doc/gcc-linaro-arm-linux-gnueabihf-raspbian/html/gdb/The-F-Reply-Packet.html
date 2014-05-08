@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,11 +55,11 @@ The <code>F</code> reply packet has the following format:
 <var>retcode</var> is the return code of the system call as hexadecimal value.
 
      <p><var>errno</var> is the <code>errno</code> set by the call, in protocol-specific
-representation.
+representation. 
 This parameter can be omitted if the call was successful.
 
      <p><var>Ctrl-C flag</var> is only sent if the user requested a break.  In this
-case, <var>errno</var> must be sent as well, even if the call was successful.
+case, <var>errno</var> must be sent as well, even if the call was successful. 
 The <var>Ctrl-C flag</var> itself consists of the character &lsquo;<samp><span class="samp">C</span></samp>&rsquo;:
 
      <pre class="smallexample">          F0,0,C
@@ -73,3 +73,4 @@ The <var>Ctrl-C flag</var> itself consists of the character &lsquo;<samp><span c
    </dl>
 
    </body></html>
+

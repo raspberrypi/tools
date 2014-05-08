@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -62,7 +62,7 @@ vice versa (C90 6.3.4, C99 6.3.2.3).</cite>
 pointer representation is larger than the integer type,
 sign-extends<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
 if the pointer representation is smaller than the integer type, otherwise
-the bits are unchanged.
+the bits are unchanged. 
 <!-- ??? We've always claimed that pointers were unsigned entities. -->
 <!-- Shouldn't we therefore be doing zero-extension?  If so, the bug -->
 <!-- is in convert_to_integer, where we call type_for_size and request -->
@@ -96,3 +96,4 @@ a target-defined <code>ptr_extend</code> pattern.  Do not rely on sign extension
  <hr></div>
 
  </body></html>
+

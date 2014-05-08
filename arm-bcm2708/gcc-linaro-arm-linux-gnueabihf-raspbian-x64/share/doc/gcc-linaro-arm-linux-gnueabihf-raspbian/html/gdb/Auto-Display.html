@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,9 +50,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 <p><a name="index-automatic-display-569"></a><a name="index-display-of-expressions-570"></a>
 If you find that you want to print the value of an expression frequently
 (to see how it changes), you might want to add it to the <dfn>automatic
-display list</dfn> so that <span class="sc">gdb</span> prints its value each time your program stops.
+display list</dfn> so that <span class="sc">gdb</span> prints its value each time your program stops. 
 Each expression added to the list is given a number to identify it;
-to remove an expression from the list, you specify that number.
+to remove an expression from the list, you specify that number. 
 The automatic display looks like this:
 
 <pre class="smallexample">     2: foo = 38
@@ -65,7 +65,7 @@ whether to use <code>print</code> or <code>x</code> depending your format
 specification&mdash;it uses <code>x</code> if you specify either the &lsquo;<samp><span class="samp">i</span></samp>&rsquo;
 or &lsquo;<samp><span class="samp">s</span></samp>&rsquo; format, or a unit size; otherwise it uses <code>print</code>.
 
-
+     
 <a name="index-display-571"></a>
 <dl><dt><code>display </code><var>expr</var><dd>Add the expression <var>expr</var> to the list of expressions to display
 each time your program stops.  See <a href="Expressions.html#Expressions">Expressions</a>.
@@ -74,20 +74,20 @@ each time your program stops.  See <a href="Expressions.html#Expressions">Expres
 
      <br><dt><code>display/</code><var>fmt</var> <var>expr</var><dd>For <var>fmt</var> specifying only a display format and not a size or
 count, add the expression <var>expr</var> to the auto-display list but
-arrange to display it each time in the specified format <var>fmt</var>.
+arrange to display it each time in the specified format <var>fmt</var>. 
 See <a href="Output-Formats.html#Output-Formats">Output Formats</a>.
 
      <br><dt><code>display/</code><var>fmt</var> <var>addr</var><dd>For <var>fmt</var> &lsquo;<samp><span class="samp">i</span></samp>&rsquo; or &lsquo;<samp><span class="samp">s</span></samp>&rsquo;, or including a unit-size or a
 number of units, add the expression <var>addr</var> as a memory address to
 be examined each time your program stops.  Examining means in effect
-doing &lsquo;<samp><span class="samp">x/</span><var>fmt</var> <var>addr</var></samp>&rsquo;.  See <a href="Memory.html#Memory">Examining Memory</a>.
+doing &lsquo;<samp><span class="samp">x/</span><var>fmt</var> <var>addr</var></samp>&rsquo;.  See <a href="Memory.html#Memory">Examining Memory</a>. 
 </dl>
 
    <p>For example, &lsquo;<samp><span class="samp">display/i $pc</span></samp>&rsquo; can be helpful, to see the machine
 instruction about to be executed each time execution stops (&lsquo;<samp><span class="samp">$pc</span></samp>&rsquo;
 is a common name for the program counter; see <a href="Registers.html#Registers">Registers</a>).
 
-
+     
 <a name="index-delete-display-572"></a>
 <a name="index-undisplay-573"></a>
 <dl><dt><code>undisplay </code><var>dnums</var><code>...</code><dt><code>delete display </code><var>dnums</var><code>...</code><dd>Remove items from the list of expressions to display.  Specify the
@@ -96,7 +96,7 @@ argument <var>dnums</var>.  It can be a single display number, one of the
 numbers shown in the first field of the &lsquo;<samp><span class="samp">info display</span></samp>&rsquo; display;
 or it could be a range of display numbers, as in <code>2-4</code>.
 
-     <p><code>undisplay</code> does not repeat if you press &lt;RET&gt; after using it.
+     <p><code>undisplay</code> does not repeat if you press &lt;RET&gt; after using it. 
 (Otherwise you would just get the error &lsquo;<samp><span class="samp">No display number ...</span></samp>&rsquo;.)
 
      <p><a name="index-disable-display-574"></a><br><dt><code>disable display </code><var>dnums</var><code>...</code><dd>Disable the display of item numbers <var>dnums</var>.  A disabled display
@@ -108,7 +108,7 @@ the &lsquo;<samp><span class="samp">info display</span></samp>&rsquo; display; o
 numbers, as in <code>2-4</code>.
 
      <p><a name="index-enable-display-575"></a><br><dt><code>enable display </code><var>dnums</var><code>...</code><dd>Enable display of item numbers <var>dnums</var>.  It becomes effective once
-again in auto display of its expression, until you specify otherwise.
+again in auto display of its expression, until you specify otherwise. 
 Specify the numbers of the displays that you want affected with the
 command argument <var>dnums</var>.  It can be a single display number, one
 of the numbers shown in the first field of the &lsquo;<samp><span class="samp">info display</span></samp>&rsquo;
@@ -119,9 +119,9 @@ done when your program stops.
 
      <p><a name="index-info-display-576"></a><br><dt><code>info display</code><dd>Print the list of expressions previously set up to display
 automatically, each one with its item number, but without showing the
-values.  This includes disabled expressions, which are marked as such.
+values.  This includes disabled expressions, which are marked as such. 
 It also includes expressions which would not be displayed right now
-because they refer to automatic variables not currently available.
+because they refer to automatic variables not currently available. 
 </dl>
 
    <p><a name="index-display-disabled-out-of-scope-577"></a>If a display expression refers to local variables, then it does not make
@@ -136,3 +136,4 @@ automatically.  The next time your program stops where <code>last_char</code>
 is meaningful, you can enable the display expression once again.
 
    </body></html>
+

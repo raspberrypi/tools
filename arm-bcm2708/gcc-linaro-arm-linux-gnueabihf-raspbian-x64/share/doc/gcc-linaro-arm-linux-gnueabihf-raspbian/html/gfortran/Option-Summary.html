@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,41 +58,41 @@ by type.  Explanations are in the following sections.
 
      <dl>
 <dt><em>Fortran Language Options</em><dd>See <a href="Fortran-Dialect-Options.html#Fortran-Dialect-Options">Options controlling Fortran dialect</a>.
-     <pre class="smallexample">          -fall-intrinsics -fbackslash -fcray-pointer -fd-lines-as-code
-          -fd-lines-as-comments -fdefault-double-8 -fdefault-integer-8
-          -fdefault-real-8 -fdollar-ok -ffixed-line-length-<var>n</var>
-          -ffixed-line-length-none -ffree-form -ffree-line-length-<var>n</var>
-          -ffree-line-length-none -fimplicit-none -finteger-4-integer-8
-          -fmax-identifier-length -fmodule-private -fno-fixed-form -fno-range-check
-          -fopenmp -freal-4-real-10 -freal-4-real-16 -freal-4-real-8
+     <pre class="smallexample">          -fall-intrinsics -fbackslash -fcray-pointer -fd-lines-as-code 
+          -fd-lines-as-comments -fdefault-double-8 -fdefault-integer-8 
+          -fdefault-real-8 -fdollar-ok -ffixed-line-length-<var>n</var> 
+          -ffixed-line-length-none -ffree-form -ffree-line-length-<var>n</var> 
+          -ffree-line-length-none -fimplicit-none -finteger-4-integer-8 
+          -fmax-identifier-length -fmodule-private -fno-fixed-form -fno-range-check 
+          -fopenmp -freal-4-real-10 -freal-4-real-16 -freal-4-real-8 
           -freal-8-real-10 -freal-8-real-16 -freal-8-real-4 -std=<var>std</var>
-
+          
 </pre>
      <br><dt><em>Preprocessing Options</em><dd>See <a href="Preprocessing-Options.html#Preprocessing-Options">Enable and customize preprocessing</a>.
      <pre class="smallexample">          -A-<var>question</var><span class="roman">[</span>=<var>answer</var><span class="roman">]</span>
           -A<var>question</var>=<var>answer</var> -C -CC -D<var>macro</var><span class="roman">[</span>=<var>defn</var><span class="roman">]</span>
-          -H -P
+          -H -P 
           -U<var>macro</var> -cpp -dD -dI -dM -dN -dU -fworking-directory
-          -imultilib <var>dir</var>
+          -imultilib <var>dir</var> 
           -iprefix <var>file</var> -iquote -isysroot <var>dir</var> -isystem <var>dir</var> -nocpp
-          -nostdinc
+          -nostdinc 
           -undef
-
+          
 </pre>
      <br><dt><em>Error and Warning Options</em><dd>See <a href="Error-and-Warning-Options.html#Error-and-Warning-Options">Options to request or suppress errors and warnings</a>.
      <pre class="smallexample">          -Waliasing -Wall -Wampersand -Warray-bounds
-          -Wc-binding-type -Wcharacter-truncation
-          -Wconversion -Wfunction-elimination -Wimplicit-interface
-          -Wimplicit-procedure -Wintrinsic-shadow -Wintrinsics-std
-          -Wline-truncation -Wno-align-commons -Wno-tabs -Wreal-q-constant
-          -Wsurprising -Wunderflow -Wunused-parameter -Wrealloc-lhs Wrealloc-lhs-all
+          -Wc-binding-type -Wcharacter-truncation 
+          -Wconversion -Wfunction-elimination -Wimplicit-interface 
+          -Wimplicit-procedure -Wintrinsic-shadow -Wintrinsics-std 
+          -Wline-truncation -Wno-align-commons -Wno-tabs -Wreal-q-constant 
+          -Wsurprising -Wunderflow -Wunused-parameter -Wrealloc-lhs Wrealloc-lhs-all 
           -Wtarget-lifetime -fmax-errors=<var>n</var> -fsyntax-only -pedantic -pedantic-errors
-
+          
 </pre>
      <br><dt><em>Debugging Options</em><dd>See <a href="Debugging-Options.html#Debugging-Options">Options for debugging your program or GNU Fortran</a>.
-     <pre class="smallexample">          -fbacktrace -fdump-fortran-optimized -fdump-fortran-original
+     <pre class="smallexample">          -fbacktrace -fdump-fortran-optimized -fdump-fortran-original 
           -fdump-parse-tree -ffpe-trap=<var>list</var>
-
+          
 </pre>
      <br><dt><em>Directory Options</em><dd>See <a href="Directory-Options.html#Directory-Options">Options for directory search</a>.
      <pre class="smallexample">          -I<var>dir</var>  -J<var>dir</var> -fintrinsic-modules-path <var>dir</var>
@@ -101,26 +101,27 @@ by type.  Explanations are in the following sections.
      <pre class="smallexample">          -static-libgfortran
 </pre>
      <br><dt><em>Runtime Options</em><dd>See <a href="Runtime-Options.html#Runtime-Options">Options for influencing runtime behavior</a>.
-     <pre class="smallexample">          -fconvert=<var>conversion</var> -fmax-subrecord-length=<var>length</var>
+     <pre class="smallexample">          -fconvert=<var>conversion</var> -fmax-subrecord-length=<var>length</var> 
           -frecord-marker=<var>length</var> -fsign-zero
-
+          
 </pre>
      <br><dt><em>Code Generation Options</em><dd>See <a href="Code-Gen-Options.html#Code-Gen-Options">Options for code generation conventions</a>.
-     <pre class="smallexample">          -faggressive-function-elimination -fblas-matmul-limit=<var>n</var>
-          -fbounds-check -fcheck-array-temporaries
-          -fcheck=<var>&lt;all|array-temps|bounds|do|mem|pointer|recursion&gt;</var>
+     <pre class="smallexample">          -faggressive-function-elimination -fblas-matmul-limit=<var>n</var> 
+          -fbounds-check -fcheck-array-temporaries 
+          -fcheck=<var>&lt;all|array-temps|bounds|do|mem|pointer|recursion&gt;</var> 
           -fcoarray=<var>&lt;none|single|lib&gt;</var> -fexternal-blas -ff2c
-          -ffrontend-optimize
-          -finit-character=<var>n</var> -finit-integer=<var>n</var> -finit-local-zero
+          -ffrontend-optimize 
+          -finit-character=<var>n</var> -finit-integer=<var>n</var> -finit-local-zero 
           -finit-logical=<var>&lt;true|false&gt;</var>
-          -finit-real=<var>&lt;zero|inf|-inf|nan|snan&gt;</var>
+          -finit-real=<var>&lt;zero|inf|-inf|nan|snan&gt;</var> 
           -fmax-array-constructor=<var>n</var> -fmax-stack-var-size=<var>n</var>
-          -fno-align-commons
-          -fno-automatic -fno-protect-parens -fno-underscoring -fno-whole-file
-          -fsecond-underscore -fpack-derived -frealloc-lhs -frecursive
+          -fno-align-commons 
+          -fno-automatic -fno-protect-parens -fno-underscoring -fno-whole-file 
+          -fsecond-underscore -fpack-derived -frealloc-lhs -frecursive 
           -frepack-arrays -fshort-enums -fstack-arrays
-
+          
 </pre>
      </dl>
 
    </body></html>
+

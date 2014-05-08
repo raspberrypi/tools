@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,14 +69,14 @@ from the first alternative, a comma, the letters for this operand from
 the second alternative, a comma, and so on until the last alternative.
 
 <!-- FIXME Is this ? and ! stuff of use in asm()?  If not, hide unless INTERNAL -->
- <p>If all the operands fit any one alternative, the instruction is valid.
+ <p>If all the operands fit any one alternative, the instruction is valid. 
 Otherwise, for each alternative, the compiler counts how many instructions
-must be added to copy the operands so that that alternative applies.
+must be added to copy the operands so that that alternative applies. 
 The alternative requiring the least copying is chosen.  If two alternatives
-need the same amount of copying, the one that comes first is chosen.
+need the same amount of copying, the one that comes first is chosen. 
 These choices can be altered with the &lsquo;<samp><span class="samp">?</span></samp>&rsquo; and &lsquo;<samp><span class="samp">!</span></samp>&rsquo; characters:
 
-
+     
 <a name="index-g_t_0040samp_007b_003f_007d-in-constraint-2851"></a>
 <a name="index-question-mark-2852"></a>
 <dl><dt><code>?</code><dd>Disparage slightly the alternative that the &lsquo;<samp><span class="samp">?</span></samp>&rsquo; appears in,
@@ -84,9 +84,10 @@ as a choice when no alternative applies exactly.  The compiler regards
 this alternative as one unit more costly for each &lsquo;<samp><span class="samp">?</span></samp>&rsquo; that appears
 in it.
 
-     <p><a name="index-g_t_0040samp_007b_0021_007d-in-constraint-2853"></a><a name="index-exclamation-point-2854"></a><br><dt><code>!</code><dd>Disparage severely the alternative that the &lsquo;<samp><span class="samp">!</span></samp>&rsquo; appears in.
+     <p><a name="index-g_t_0040samp_007b_0021_007d-in-constraint-2853"></a><a name="index-exclamation-point-2854"></a><br><dt><code>!</code><dd>Disparage severely the alternative that the &lsquo;<samp><span class="samp">!</span></samp>&rsquo; appears in. 
 This alternative can still be used if it fits without reloading,
-but if reloading is needed, some other alternative will be used.
+but if reloading is needed, some other alternative will be used. 
 </dl>
 
  </body></html>
+

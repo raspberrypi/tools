@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,11 +47,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 
 <h4 class="subsection">13.1.9 Starting and Stopping Trace Experiments</h4>
 
-
+     
 <a name="index-tstart-_005b-_0040var_007bnotes_007d-_005d-790"></a>
 <a name="index-start-a-new-trace-experiment-791"></a>
 <a name="index-collected-data-discarded-792"></a>
-<dl><dt><code>tstart</code><dd>This command starts the trace experiment, and begins collecting data.
+<dl><dt><code>tstart</code><dd>This command starts the trace experiment, and begins collecting data. 
 It has the side effect of discarding all the data collected in the
 trace buffer during the previous trace experiment.  If any arguments
 are supplied, they are taken as a note and stored with the trace
@@ -71,7 +71,7 @@ automatically if any tracepoint's passcount is reached
 (see <a href="Tracepoint-Passcounts.html#Tracepoint-Passcounts">Tracepoint Passcounts</a>), or if the trace buffer becomes full.
 
      <p><a name="index-tstatus-795"></a><a name="index-status-of-trace-data-collection-796"></a><a name="index-trace-experiment_002c-status-of-797"></a><br><dt><code>tstatus</code><dd>This command displays the status of the current trace data
-collection.
+collection. 
 </dl>
 
    <p>Here is an example of the commands we described so far:
@@ -85,7 +85,7 @@ collection.
        &gt; end
      &gt; end
      (gdb) <b>tstart</b>
-	[time passes ...]
+     	[time passes ...]
      (gdb) <b>tstop</b>
 </pre>
    <p><a name="disconnected-tracing"></a><a name="index-disconnected-tracing-798"></a>You can choose to continue running the trace experiment even if
@@ -161,7 +161,7 @@ will only match the actual size if the target supports size-setting,
 and was able to handle the requested size.  For instance, if the
 target can only change buffer size between runs, this variable will
 not reflect the change until the next run starts.  Use <code>tstatus</code>
-to get a report of the actual buffer size.
+to get a report of the actual buffer size. 
 </dl>
 
      <dl>
@@ -180,3 +180,4 @@ stop note that is mistaken or incomplete.
    </dl>
 
    </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,7 +61,7 @@ processors when the <samp><span class="option">-mcpu=iwmmxt</span></samp> switch
 <pre class="smallexample">     typedef int v2si __attribute__ ((vector_size (8)));
      typedef short v4hi __attribute__ ((vector_size (8)));
      typedef char v8qi __attribute__ ((vector_size (8)));
-
+     
      int __builtin_arm_getwcgr0 (void)
      void __builtin_arm_setwcgr0 (int)
      int __builtin_arm_getwcgr1 (void)
@@ -204,3 +204,4 @@ processors when the <samp><span class="option">-mcpu=iwmmxt</span></samp> switch
      long long __builtin_arm_wzero ()
 </pre>
  </body></html>
+

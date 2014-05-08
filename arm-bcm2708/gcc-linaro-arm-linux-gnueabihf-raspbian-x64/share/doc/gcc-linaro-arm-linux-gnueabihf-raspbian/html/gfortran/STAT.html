@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -76,7 +76,7 @@ directories in path that lead to the file.
 <br></td></tr><tr align="left"><td valign="top" width="15%"><code>VALUES(13)</code>  </td><td valign="top" width="70%">Number of blocks allocated (-1 if not available)
      <br></td></tr></table>
 
-     <p>Not all these elements are relevant on all systems.
+     <p>Not all these elements are relevant on all systems. 
 If an element is not relevant, it is returned as 0.
 
      <p>This intrinsic is provided in both subroutine and function forms; however,
@@ -93,8 +93,8 @@ only one form can be used in any given program unit.
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NAME</var>   </td><td valign="top" width="70%">The type shall be <code>CHARACTER</code>, of the
-default kind and a valid path within the file system.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUES</var> </td><td valign="top" width="70%">The type shall be <code>INTEGER(4), DIMENSION(13)</code>.
+default kind and a valid path within the file system. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUES</var> </td><td valign="top" width="70%">The type shall be <code>INTEGER(4), DIMENSION(13)</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) status flag of type <code>INTEGER(4)</code>. Returns 0
 on success and a system specific error code otherwise.
      <br></td></tr></table>
@@ -103,9 +103,9 @@ on success and a system specific error code otherwise.
      <pre class="smallexample">          PROGRAM test_stat
             INTEGER, DIMENSION(13) :: buff
             INTEGER :: status
-
+          
             CALL STAT("/etc/passwd", buff, status)
-
+          
             IF (status == 0) THEN
               WRITE (*, FMT="('Device ID:',               T30, I19)") buff(1)
               WRITE (*, FMT="('Inode number:',            T30, I19)") buff(2)
@@ -127,3 +127,4 @@ on success and a system specific error code otherwise.
 </dl>
 
    </body></html>
+

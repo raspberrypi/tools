@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,7 +66,7 @@ directories to this list with the <samp><span class="option">-I</span></samp> op
 searches for a file named <var>file</var> first in the directory containing
 the current file, then in the quote directories and then the same
 directories used for <code>&lt;</code><var>file</var><code>&gt;</code>.  You can prepend directories
-to the list of quote directories with the <samp><span class="option">-iquote</span></samp> option.
+to the list of quote directories with the <samp><span class="option">-iquote</span></samp> option. 
 </dl>
 
    <p>The argument of &lsquo;<samp><span class="samp">#include</span></samp>&rsquo;, whether delimited with quote marks or
@@ -75,9 +75,9 @@ recognized, and macro names are not expanded.  Thus, <code>#include&nbsp;&lt;x/*
 
    <p>However, if backslashes occur within <var>file</var>, they are considered
 ordinary text characters, not escape characters.  None of the character
-escape sequences appropriate to string constants in C are processed.
+escape sequences appropriate to string constants in C are processed. 
 Thus, <code>#include&nbsp;"x\n\\y"<!-- /@w --></code> specifies a filename containing three
-backslashes.  (Some systems interpret &lsquo;<samp><span class="samp">\</span></samp>&rsquo; as a pathname separator.
+backslashes.  (Some systems interpret &lsquo;<samp><span class="samp">\</span></samp>&rsquo; as a pathname separator. 
 All of these also interpret &lsquo;<samp><span class="samp">/</span></samp>&rsquo; the same way.  It is most portable
 to use only &lsquo;<samp><span class="samp">/</span></samp>&rsquo;.)
 
@@ -85,3 +85,4 @@ to use only &lsquo;<samp><span class="samp">/</span></samp>&rsquo;.)
 after the file name.
 
    </body></html>
+

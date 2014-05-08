@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/array
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_ARRAY
@@ -85,7 +85,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { return iterator(std::__addressof(_M_instance[0])); }
 
       const_iterator
-      begin() const
+      begin() const 
       { return const_iterator(std::__addressof(_M_instance[0])); }
 
       iterator
@@ -96,30 +96,30 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       end() const
       { return const_iterator(std::__addressof(_M_instance[_Nm])); }
 
-      reverse_iterator
+      reverse_iterator 
       rbegin()
       { return reverse_iterator(end()); }
 
-      const_reverse_iterator
+      const_reverse_iterator 
       rbegin() const
       { return const_reverse_iterator(end()); }
 
-      reverse_iterator
+      reverse_iterator 
       rend()
       { return reverse_iterator(begin()); }
 
-      const_reverse_iterator
+      const_reverse_iterator 
       rend() const
       { return const_reverse_iterator(begin()); }
 
       // Capacity.
-      size_type
+      size_type 
       size() const { return _Nm; }
 
-      size_type
+      size_type 
       max_size() const { return _Nm; }
 
-      bool
+      bool 
       empty() const { return size() == 0; }
 
       // Element access.
@@ -147,19 +147,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	return _M_instance[__n];
       }
 
-      reference
+      reference 
       front()
       { return *begin(); }
 
-      const_reference
+      const_reference 
       front() const
       { return *begin(); }
 
-      reference
+      reference 
       back()
       { return _Nm ? *(end() - 1) : *end(); }
 
-      const_reference
+      const_reference 
       back() const
       { return _Nm ? *(end() - 1) : *end(); }
 
@@ -174,7 +174,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   // Array comparisons.
   template<typename _Tp, std::size_t _Nm>
-    inline bool
+    inline bool 
     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
     { return std::equal(__one.begin(), __one.end(), __two.begin()); }
 
@@ -186,9 +186,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp, std::size_t _Nm>
     inline bool
     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
-    {
+    { 
       return std::lexicographical_compare(__a.begin(), __a.end(),
-					  __b.begin(), __b.end());
+					  __b.begin(), __b.end()); 
     }
 
   template<typename _Tp, std::size_t _Nm>
@@ -215,7 +215,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Tuple interface to class template array [6.2.2.5].
 
   /// tuple_size
-  template<typename _Tp>
+  template<typename _Tp> 
     class tuple_size;
 
   /// tuple_element
@@ -228,7 +228,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Tp, std::size_t _Nm>
     const int
-    tuple_size<array<_Tp, _Nm> >::value;
+    tuple_size<array<_Tp, _Nm> >::value;  
 
   template<int _Int, typename _Tp, std::size_t _Nm>
     struct tuple_element<_Int, array<_Tp, _Nm> >

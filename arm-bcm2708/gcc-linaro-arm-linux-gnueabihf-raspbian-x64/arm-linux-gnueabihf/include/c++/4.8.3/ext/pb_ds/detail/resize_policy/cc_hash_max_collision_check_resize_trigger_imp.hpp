@@ -140,9 +140,9 @@ notify_resized(size_type new_size)
   m_size = new_size;
 
 #ifdef PB_DS_HT_MAP_RESIZE_TRACE_
-  std::cerr << "chmccrt::notify_resized "
+  std::cerr << "chmccrt::notify_resized " 
 	    << static_cast<unsigned long>(new_size) << std::endl;
-#endif
+#endif 
 
   calc_max_num_coll();
   calc_resize_needed();
@@ -159,10 +159,10 @@ calc_max_num_coll()
   m_max_col = size_type(std::ceil(std::sqrt(2 * m_load * std::log(ln_arg))));
 
 #ifdef PB_DS_HT_MAP_RESIZE_TRACE_
-  std::cerr << "chmccrt::calc_max_num_coll "
-	    << static_cast<unsigned long>(m_size) <<    "    "
+  std::cerr << "chmccrt::calc_max_num_coll " 
+	    << static_cast<unsigned long>(m_size) <<    "    " 
 	    << static_cast<unsigned long>(m_max_col) << std::endl;
-#endif
+#endif 
 }
 
 PB_DS_CLASS_T_DEC
@@ -208,3 +208,4 @@ set_load(float load)
   calc_max_num_coll();
   calc_resize_needed();
 }
+

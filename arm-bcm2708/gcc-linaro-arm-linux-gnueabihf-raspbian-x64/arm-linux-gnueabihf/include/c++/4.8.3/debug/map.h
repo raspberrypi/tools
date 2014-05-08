@@ -139,7 +139,7 @@ namespace __debug
       using _Base::get_allocator;
 
       // iterators:
-      iterator
+      iterator 
       begin() _GLIBCXX_NOEXCEPT
       { return iterator(_Base::begin(), this); }
 

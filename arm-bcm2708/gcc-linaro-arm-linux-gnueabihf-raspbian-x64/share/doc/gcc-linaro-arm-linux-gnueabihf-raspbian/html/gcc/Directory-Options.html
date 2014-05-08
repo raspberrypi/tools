@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,9 +71,9 @@ order; the standard system directories come after.
      <p>If a standard system include directory, or a directory specified with
 <samp><span class="option">-isystem</span></samp>, is also specified with <samp><span class="option">-I</span></samp>, the <samp><span class="option">-I</span></samp>
 option is ignored.  The directory is still searched but as a
-system directory at its normal position in the system include chain.
+system directory at its normal position in the system include chain. 
 This is to ensure that GCC's procedure to fix buggy system headers and
-the ordering for the <code>include_next</code> directive are not inadvertently changed.
+the ordering for the <code>include_next</code> directive are not inadvertently changed. 
 If you really need to change the search order for system directories,
 use the <samp><span class="option">-nostdinc</span></samp> and/or <samp><span class="option">-isystem</span></samp> options.
 
@@ -137,7 +137,7 @@ program uses when determining what switches to pass to <samp><span class="comman
 <samp><span class="option">-specs=</span><var>file</var></samp> can be specified on the command line, and they
 are processed in order, from left to right.
 
-     <br><dt><code>--sysroot=</code><var>dir</var><dd><a name="index-sysroot-1064"></a>Use <var>dir</var> as the logical root directory for headers and libraries.
+     <br><dt><code>--sysroot=</code><var>dir</var><dd><a name="index-sysroot-1064"></a>Use <var>dir</var> as the logical root directory for headers and libraries. 
 For example, if the compiler normally searches for headers in
 <samp><span class="file">/usr/include</span></samp> and libraries in <samp><span class="file">/usr/lib</span></samp>, it instead
 searches <samp><var>dir</var><span class="file">/usr/include</span></samp> and <samp><var>dir</var><span class="file">/usr/lib</span></samp>.
@@ -159,7 +159,7 @@ headers may for example be found in
 such a suffix.
 
      <br><dt><code>-I-</code><dd><a name="index-I_002d-1066"></a>This option has been deprecated.  Please use <samp><span class="option">-iquote</span></samp> instead for
-<samp><span class="option">-I</span></samp> directories before the <samp><span class="option">-I-</span></samp> and remove the <samp><span class="option">-I-</span></samp>.
+<samp><span class="option">-I</span></samp> directories before the <samp><span class="option">-I-</span></samp> and remove the <samp><span class="option">-I-</span></samp>. 
 Any directories you specify with <samp><span class="option">-I</span></samp> options before the <samp><span class="option">-I-</span></samp>
 option are searched only for the case of &lsquo;<samp><span class="samp">#include "</span><var>file</var><span class="samp">"</span></samp>&rsquo;;
 they are not searched for &lsquo;<samp><span class="samp">#include &lt;</span><var>file</var><span class="samp">&gt;</span></samp>&rsquo;.
@@ -179,8 +179,9 @@ by default, but it is often satisfactory.
 
      <p><samp><span class="option">-I-</span></samp> does not inhibit the use of the standard system directories
 for header files.  Thus, <samp><span class="option">-I-</span></samp> and <samp><span class="option">-nostdinc</span></samp> are
-independent.
+independent. 
 </dl>
 
 <!-- man end -->
  </body></html>
+

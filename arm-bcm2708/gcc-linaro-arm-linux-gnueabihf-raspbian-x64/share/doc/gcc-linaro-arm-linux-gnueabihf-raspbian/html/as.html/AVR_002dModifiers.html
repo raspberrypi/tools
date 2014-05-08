@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ in AVR instruction operands.  The general syntax is the following:
 
 <pre class="smallexample">     modifier(relocatable-expression)
 </pre>
-
+     
 <a name="index-symbol-modifiers-722"></a>
 <dl>
 <dt><code>lo8</code><dd>
@@ -71,7 +71,7 @@ AVR &lsquo;<samp><span class="samp">ldi</span></samp>&rsquo; instruction and &ls
 </pre>
      <br><dt><code>hh8</code><dd>
 This modifier allows you to use bits 16 through 23 of
-an address expression as 8 bit relocatable expression.
+an address expression as 8 bit relocatable expression. 
 Also, can be useful for loading 32 bit constants.
 
      <br><dt><code>hlo8</code><dd>
@@ -93,23 +93,24 @@ AVR &lsquo;<samp><span class="samp">ldi</span></samp>&rsquo; instruction and &ls
 </pre>
      <br><dt><code>pm_lo8</code><dd>
 This modifier allows you to use bits 0 through 7 of
-an address expression as 8 bit relocatable expression.
+an address expression as 8 bit relocatable expression. 
 This modifier useful for addressing data or code from
 Flash/Program memory. The using of &lsquo;<samp><span class="samp">pm_lo8</span></samp>&rsquo; similar
 to &lsquo;<samp><span class="samp">lo8</span></samp>&rsquo;.
 
      <br><dt><code>pm_hi8</code><dd>
 This modifier allows you to use bits 8 through 15 of
-an address expression as 8 bit relocatable expression.
+an address expression as 8 bit relocatable expression. 
 This modifier useful for addressing data or code from
 Flash/Program memory.
 
      <br><dt><code>pm_hh8</code><dd>
 This modifier allows you to use bits 15 through 23 of
-an address expression as 8 bit relocatable expression.
+an address expression as 8 bit relocatable expression. 
 This modifier useful for addressing data or code from
 Flash/Program memory.
 
    </dl>
 
    </body></html>
+

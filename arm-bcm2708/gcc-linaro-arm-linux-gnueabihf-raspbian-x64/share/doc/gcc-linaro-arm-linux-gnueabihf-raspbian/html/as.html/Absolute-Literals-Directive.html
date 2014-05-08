@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ include the absolute addressing option for <code>L32R</code> instructions.
 </pre>
    <p>These directives do not change the <code>L32R</code> mode&mdash;they only cause
 the assembler to emit the appropriate kind of relocation for <code>L32R</code>
-instructions and to place the literal values in the appropriate section.
+instructions and to place the literal values in the appropriate section. 
 To change the <code>L32R</code> mode, the program must write the
 <code>LITBASE</code> special register.  It is the programmer's responsibility
 to keep track of the mode and indicate to the assembler which mode is
@@ -64,8 +64,8 @@ used in each region of code.
 
    <p>If the Xtensa configuration includes the absolute <code>L32R</code> addressing
 option, the default is to assume absolute <code>L32R</code> addressing unless
-the &lsquo;<samp><span class="samp">--no-absolute-literals</span></samp>&rsquo; command-line option is specified.
-Otherwise, the default is to assume PC-relative <code>L32R</code> addressing.
+the &lsquo;<samp><span class="samp">--no-absolute-literals</span></samp>&rsquo; command-line option is specified. 
+Otherwise, the default is to assume PC-relative <code>L32R</code> addressing. 
 The <code>absolute-literals</code> directive can then be used to override
 the default determined by the command-line options.
 
@@ -74,3 +74,4 @@ the default determined by the command-line options.
 <!-- End: -->
 <!-- reverse effect of @down at top of generic Machine-Dep chapter -->
    </body></html>
+

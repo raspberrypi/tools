@@ -129,7 +129,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { swap(__t); }
 
     template<typename _Callable, typename... _Args>
-      explicit
+      explicit 
       thread(_Callable&& __f, _Args&&... __args)
       {
         _M_start_thread(_M_make_routine(std::__bind_simple(

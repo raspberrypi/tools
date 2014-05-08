@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ handles the &lsquo;<samp><span class="samp">VPATH</span></samp>&rsquo; feature (
 program specified there.
 
    <p>To build <code>gdb</code> in a separate directory, run <samp><span class="file">configure</span></samp>
-with the &lsquo;<samp><span class="samp">--srcdir</span></samp>&rsquo; option to specify where to find the source.
+with the &lsquo;<samp><span class="samp">--srcdir</span></samp>&rsquo; option to specify where to find the source. 
 (You also need to specify a path to find <samp><span class="file">configure</span></samp>
 itself from your working directory.  If the path to <samp><span class="file">configure</span></samp>
 would be the same as the argument to &lsquo;<samp><span class="samp">--srcdir</span></samp>&rsquo;, you can leave out
@@ -88,7 +88,7 @@ build errors about missing include files such as <samp><span class="file">bfd/bf
    <p>One popular reason to build several <span class="sc">gdb</span> configurations in separate
 directories is to configure <span class="sc">gdb</span> for cross-compiling (where
 <span class="sc">gdb</span> runs on one machine&mdash;the <dfn>host</dfn>&mdash;while debugging
-programs that run on another machine&mdash;the <dfn>target</dfn>).
+programs that run on another machine&mdash;the <dfn>target</dfn>). 
 You specify a cross-debugging target by
 giving the &lsquo;<samp><span class="samp">--target=</span><var>target</var></samp>&rsquo; option to <samp><span class="file">configure</span></samp>.
 
@@ -108,3 +108,4 @@ if they are NFS-mounted on each of the hosts); they will not interfere
 with each other.
 
    </body></html>
+

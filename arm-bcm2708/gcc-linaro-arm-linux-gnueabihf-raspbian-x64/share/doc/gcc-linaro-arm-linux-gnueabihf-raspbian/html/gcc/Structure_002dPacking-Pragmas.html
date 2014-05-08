@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -62,14 +62,14 @@ classes subsequently defined. The <var>n</var> value below always is required
 to be a small power of two and specifies the new alignment in bytes.
 
      <ol type=1 start=1>
-<li><code>#pragma pack(</code><var>n</var><code>)</code> simply sets the new alignment.
+<li><code>#pragma pack(</code><var>n</var><code>)</code> simply sets the new alignment. 
 <li><code>#pragma pack()</code> sets the alignment to the one that was in
 effect when compilation started (see also command-line option
-<samp><span class="option">-fpack-struct[=</span><var>n</var><span class="option">]</span></samp> see <a href="Code-Gen-Options.html#Code-Gen-Options">Code Gen Options</a>).
+<samp><span class="option">-fpack-struct[=</span><var>n</var><span class="option">]</span></samp> see <a href="Code-Gen-Options.html#Code-Gen-Options">Code Gen Options</a>). 
 <li><code>#pragma pack(push[,</code><var>n</var><code>])</code> pushes the current alignment
-setting on an internal stack and then optionally sets the new alignment.
+setting on an internal stack and then optionally sets the new alignment. 
 <li><code>#pragma pack(pop)</code> restores the alignment setting to the one
-saved at the top of the internal stack (and removes that stack entry).
+saved at the top of the internal stack (and removes that stack entry). 
 Note that <code>#pragma pack([</code><var>n</var><code>])</code> does not influence this internal
 stack; thus it is possible to have <code>#pragma pack(push)</code> followed by
 multiple <code>#pragma pack(</code><var>n</var><code>)</code> instances and finalized by a single
@@ -81,10 +81,11 @@ multiple <code>#pragma pack(</code><var>n</var><code>)</code> instances and fina
 <code>__attribute__ ((ms_struct))</code>.
      <ol type=1 start=1>
 <li><code>#pragma ms_struct on</code> turns on the layout for structures
-declared.
+declared. 
 <li><code>#pragma ms_struct off</code> turns off the layout for structures
-declared.
+declared. 
 <li><code>#pragma ms_struct reset</code> goes back to the default layout.
       </ol>
 
  </body></html>
+

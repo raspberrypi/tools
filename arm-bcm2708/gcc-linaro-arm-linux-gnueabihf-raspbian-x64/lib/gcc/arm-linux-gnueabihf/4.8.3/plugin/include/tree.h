@@ -243,7 +243,7 @@ extern const char *const tree_code_name[];
 typedef struct GTY(()) alias_pair
 {
   tree decl;
-  tree target;
+  tree target;  
 } alias_pair;
 
 /* Define gc'd vector type.  */
@@ -1015,7 +1015,7 @@ extern void omp_clause_range_check_failed (const_tree, const char *, int,
    && TREE_CODE (TREE_TYPE (TYPE)) == REAL_TYPE)
 
 /* Nonzero if TYPE represents a vector integer type.  */
-
+                
 #define VECTOR_INTEGER_TYPE_P(TYPE)                   \
              (TREE_CODE (TYPE) == VECTOR_TYPE      \
                  && TREE_CODE (TREE_TYPE (TYPE)) == INTEGER_TYPE)
@@ -5007,7 +5007,7 @@ extern tree private_lookup_attribute (const char *, size_t, tree);
 static inline tree
 lookup_attribute (const char *attr_name, tree list)
 {
-  gcc_checking_assert (attr_name[0] != '_');
+  gcc_checking_assert (attr_name[0] != '_');  
   /* In most cases, list is NULL_TREE.  */
   if (list == NULL_TREE)
     return NULL_TREE;

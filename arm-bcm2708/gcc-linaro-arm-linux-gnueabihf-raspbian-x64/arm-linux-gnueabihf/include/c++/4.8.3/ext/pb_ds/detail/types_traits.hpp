@@ -61,7 +61,7 @@ namespace __gnu_pbds
       struct no_throw_copies
       {
 	static const bool __simple = is_simple<Key>::value
-				 && is_simple<Mapped>::value;
+			   	 && is_simple<Mapped>::value;
 	typedef integral_constant<int, __simple> 	       	indicator;
       };
 
@@ -121,7 +121,7 @@ namespace __gnu_pbds
 	typedef typename __rebind_m::other			__rebind_ma;
 	typedef std::pair<const Key, Mapped>			__value_type;
 	typedef typename _Alloc::template rebind<__value_type>	__rebind_v;
-	typedef typename __rebind_v::other			__rebind_va;
+       	typedef typename __rebind_v::other			__rebind_va;
 
       public:
 	typedef typename __rebind_ma::value_type       	mapped_type;
@@ -154,7 +154,7 @@ namespace __gnu_pbds
 	typedef typename __rebind_m::other			__rebind_ma;
 	typedef std::pair<const Key, Mapped>			__value_type;
 	typedef typename _Alloc::template rebind<__value_type>	__rebind_v;
-	typedef typename __rebind_v::other			__rebind_va;
+       	typedef typename __rebind_v::other			__rebind_va;
 
       public:
 	typedef typename __rebind_ma::value_type       	mapped_type;
@@ -188,7 +188,7 @@ namespace __gnu_pbds
 	typedef typename _Alloc::template rebind<null_type>  	__rebind_m;
 	typedef typename __rebind_m::other			__rebind_ma;
 	typedef typename _Alloc::template rebind<value_type>	__rebind_v;
-	typedef typename __rebind_v::other			__rebind_va;
+       	typedef typename __rebind_v::other			__rebind_va;
 
       public:
 	typedef typename __rebind_ma::value_type       	mapped_type;
@@ -227,7 +227,7 @@ namespace __gnu_pbds
 	typedef typename _Alloc::template rebind<null_type>  	__rebind_m;
 	typedef typename __rebind_m::other			__rebind_ma;
 	typedef typename _Alloc::template rebind<value_type>	__rebind_v;
-	typedef typename __rebind_v::other			__rebind_va;
+       	typedef typename __rebind_v::other			__rebind_va;
 
       public:
 	typedef typename __rebind_ma::value_type       	mapped_type;

@@ -50,11 +50,11 @@ namespace __gnu_pbds
     {
       Metadata m_update_metadata;
     };
-
+    
     template<>
     struct lu_map_entry_metadata_base<null_type>
-    { };
+    { };  
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

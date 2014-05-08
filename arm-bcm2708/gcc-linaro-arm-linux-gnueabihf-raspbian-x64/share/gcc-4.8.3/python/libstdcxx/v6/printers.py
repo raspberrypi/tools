@@ -502,7 +502,7 @@ class StdBitsetPrinter:
             tsize = wtype.target ().sizeof
         else:
             words = [words]
-            tsize = wtype.sizeof
+            tsize = wtype.sizeof 
 
         nwords = wtype.sizeof / tsize
         result = []

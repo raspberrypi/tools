@@ -113,22 +113,22 @@ namespace __gnu_pbds
 
       typedef typename __conditional_type<simple_value,
 					  value_type, pointer>::__type
-							entry;
+      							entry;
 
       typedef typename _Alloc::template rebind<entry>::other
-							entry_allocator;
+      							entry_allocator;
 
       typedef typename entry_allocator::pointer 	entry_pointer;
 
       typedef binary_heap_point_const_iterator_<value_type, entry,
 						simple_value, _Alloc>
-							point_const_iterator;
+      							point_const_iterator;
 
       typedef point_const_iterator 			point_iterator;
 
       typedef binary_heap_const_iterator_<value_type, entry,
 					  simple_value, _Alloc>
-							const_iterator;
+      							const_iterator;
 
       typedef const_iterator 				iterator;
 

@@ -87,7 +87,7 @@ cmp_with_other(const Other_Map_Type& other) const
 #ifdef PB_DS_DATA_TRUE_INDICATOR
       if (p_mapped_value->second != it->second)
 	return false;
-#endif
+#endif 
     }
   return true;
 }

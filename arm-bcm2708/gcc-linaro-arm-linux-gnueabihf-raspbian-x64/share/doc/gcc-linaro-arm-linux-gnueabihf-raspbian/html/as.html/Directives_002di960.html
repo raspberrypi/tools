@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,16 +49,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i960_002dDependent.html#i960_002dDepend
 <h4 class="subsection">9.17.3 i960 Machine Directives</h4>
 
 <p><a name="index-machine-directives_002c-i960-1103"></a><a name="index-i960-machine-directives-1104"></a>
-
+     
 <a name="index-g_t_0040code_007bbss_007d-directive_002c-i960-1105"></a>
 <dl><dt><code>.bss </code><var>symbol</var><code>, </code><var>length</var><code>, </code><var>align</var><dd>Reserve <var>length</var> bytes in the bss section for a local <var>symbol</var>,
 aligned to the power of two specified by <var>align</var>.  <var>length</var> and
 <var>align</var> must be positive absolute expressions.  This directive
 differs from &lsquo;<samp><span class="samp">.lcomm</span></samp>&rsquo; only in that it permits you to specify
-an alignment.  See <a href="Lcomm.html#Lcomm"><code>.lcomm</code></a>.
+an alignment.  See <a href="Lcomm.html#Lcomm"><code>.lcomm</code></a>. 
 </dl>
 
-
+     
 <a name="index-g_t_0040code_007bextended_007d-directive_002c-i960-1106"></a>
 <dl><dt><code>.extended </code><var>flonums</var><dd><code>.extended</code> expects zero or more flonums, separated by commas; for
 each flonum, &lsquo;<samp><span class="samp">.extended</span></samp>&rsquo; emits an <span class="sc">ieee</span> extended-format (80-bit)
@@ -82,13 +82,14 @@ needed later to choose between converting the &lsquo;<samp><span class="samp">ca
 two arguments are identical, the single argument is assumed to be the
 <code>bal</code> entry point.
 
-     <p><a name="index-g_t_0040code_007bsysproc_007d-directive_002c-i960-1108"></a><br><dt><code>.sysproc </code><var>name</var><code>, </code><var>index</var><dd>The &lsquo;<samp><span class="samp">.sysproc</span></samp>&rsquo; directive defines a name for a system procedure.
+     <p><a name="index-g_t_0040code_007bsysproc_007d-directive_002c-i960-1108"></a><br><dt><code>.sysproc </code><var>name</var><code>, </code><var>index</var><dd>The &lsquo;<samp><span class="samp">.sysproc</span></samp>&rsquo; directive defines a name for a system procedure. 
 After you define it using &lsquo;<samp><span class="samp">.sysproc</span></samp>&rsquo;, you can use <var>name</var> to
 refer to the system procedure identified by <var>index</var> when calling
 procedures with the optimized call instruction &lsquo;<samp><span class="samp">callj</span></samp>&rsquo;.
 
      <p>Both arguments are required; <var>index</var> must be between 0 and 31
-(inclusive).
+(inclusive). 
 </dl>
 
    </body></html>
+

@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/cfloat
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_CFLOAT
@@ -39,4 +39,4 @@
 #define FLT_EVAL_METHOD __FLT_EVAL_METHOD__
 #endif
 
-#endif //_GLIBCXX_TR1_CFLOAT
+#endif //_GLIBCXX_TR1_CFLOAT 

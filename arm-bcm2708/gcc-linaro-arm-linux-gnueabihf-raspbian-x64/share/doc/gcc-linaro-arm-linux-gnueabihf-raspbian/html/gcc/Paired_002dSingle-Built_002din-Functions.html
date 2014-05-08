@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -80,10 +80,10 @@ for details on what each instruction does.
 
      <p><em>Note:</em> The value of the third parameter must be 0 or 4
 modulo 8, otherwise the result is unpredictable.  Please read the
-instruction description for details.
+instruction description for details. 
 </dl>
 
- <p>The following multi-instruction functions are also available.
+ <p>The following multi-instruction functions are also available. 
 In each case, <var>cond</var> can be any of the 16 floating-point conditions:
 <code>f</code>, <code>un</code>, <code>eq</code>, <code>ueq</code>, <code>olt</code>, <code>ult</code>,
 <code>ole</code>, <code>ule</code>, <code>sf</code>, <code>ngle</code>, <code>seq</code>, <code>ngl</code>,
@@ -113,7 +113,7 @@ and return either the upper or lower half of the result.  For example:
             upper_halves_are_equal ();
           else
             upper_halves_are_unequal ();
-
+          
           if (__builtin_mips_lower_c_eq_ps (a, b))
             lower_halves_are_equal ();
           else
@@ -122,3 +122,4 @@ and return either the upper or lower half of the result.  For example:
      </dl>
 
  </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ vector extensions (see <a href="Vector-Extensions.html#Vector-Extensions">Vector
 MIPS-specific built-in functions.  Both kinds of support are
 enabled by the <samp><span class="option">-mdsp</span></samp> command-line option.
 
- <p>Revision 2 of the ASE was introduced in the second half of 2006.
+ <p>Revision 2 of the ASE was introduced in the second half of 2006. 
 This revision adds extra instructions to the original ASE, but is
 otherwise backwards-compatible with it.  You can select revision 2
 using the command-line option <samp><span class="option">-mdspr2</span></samp>; this option implies
@@ -96,7 +96,7 @@ initialized in the same way as aggregates.  For example:
 <pre class="smallexample">     v4i8 a = {1, 2, 3, 4};
      v4i8 b;
      b = (v4i8) {5, 6, 7, 8};
-
+     
      v2q15 c = {0x0fcb, 0x3a75};
      v2q15 d;
      d = (v2q15) {0.1234 * 0x1.0p15, 0.4567 * 0x1.0p15};
@@ -330,3 +330,4 @@ for details on what each instruction does.
      a64 __builtin_mips_dpsqx_sa_w_ph (a64, v2q15, v2q15);
 </pre>
  </body></html>
+

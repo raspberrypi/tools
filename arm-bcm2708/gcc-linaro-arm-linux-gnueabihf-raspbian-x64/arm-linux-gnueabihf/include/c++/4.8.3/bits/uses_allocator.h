@@ -81,7 +81,7 @@ _GLIBCXX_HAS_NESTED_TYPE(allocator_type)
     : conditional<
         is_constructible<_Tp, allocator_arg_t, _Alloc, _Args...>::value,
         __uses_alloc1<_Alloc>,
-	__uses_alloc2<_Alloc>>::type
+       	__uses_alloc2<_Alloc>>::type
     { };
 
   template<typename _Tp, typename _Alloc, typename... _Args>

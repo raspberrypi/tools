@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,14 +50,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RX_002dDependent.html#RX_002dDependent"
 The Renesas RX port of <code>as</code> has a few target specfic
 command line options:
 
-
+     
 <a name="index-g_t_0040samp_007b_002dm32bit_002ddoubles_007d-1732"></a>
-<dl><dt><code>-m32bit-doubles</code><dd>This option controls the ABI and indicates to use a 32-bit float ABI.
+<dl><dt><code>-m32bit-doubles</code><dd>This option controls the ABI and indicates to use a 32-bit float ABI. 
 It has no effect on the assembled instructions, but it does influence
-the behaviour of the &lsquo;<samp><span class="samp">.double</span></samp>&rsquo; pseudo-op.
+the behaviour of the &lsquo;<samp><span class="samp">.double</span></samp>&rsquo; pseudo-op. 
 This is the default.
 
-     <p><a name="index-g_t_0040samp_007b_002dm64bit_002ddoubles_007d-1733"></a><br><dt><code>-m64bit-doubles</code><dd>This option controls the ABI and indicates to use a 64-bit float ABI.
+     <p><a name="index-g_t_0040samp_007b_002dm64bit_002ddoubles_007d-1733"></a><br><dt><code>-m64bit-doubles</code><dd>This option controls the ABI and indicates to use a 64-bit float ABI. 
 It has no effect on the assembled instructions, but it does influence
 the behaviour of the &lsquo;<samp><span class="samp">.double</span></samp>&rsquo; pseudo-op.
 
@@ -69,14 +69,14 @@ influence the behaviour of the &lsquo;<samp><span class="samp">.short</span></sa
      <p><a name="index-g_t_0040samp_007b_002dmlittle_002dendian_007d-1735"></a><br><dt><code>-mlittle-endian</code><dd>This option controls the ABI and indicates to use a little-endian data
 ABI.  It has no effect on the assembled instructions, but it does
 influence the behaviour of the &lsquo;<samp><span class="samp">.short</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.hword</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.int</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.quad</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.octa</span></samp>&rsquo; pseudo-ops.
+&lsquo;<samp><span class="samp">.word</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.long</span></samp>&rsquo;, &lsquo;<samp><span class="samp">.quad</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.octa</span></samp>&rsquo; pseudo-ops. 
 This is the default.
 
      <p><a name="index-g_t_0040samp_007b_002dmuse_002dconventional_002dsection_002dnames_007d-1736"></a><br><dt><code>-muse-conventional-section-names</code><dd>This option controls the default names given to the code (.text),
 initialised data (.data) and uninitialised data sections (.bss).
 
      <p><a name="index-g_t_0040samp_007b_002dmuse_002drenesas_002dsection_002dnames_007d-1737"></a><br><dt><code>-muse-renesas-section-names</code><dd>This option controls the default names given to the code (.P),
-initialised data (.D_1) and uninitialised data sections (.B_1).
+initialised data (.D_1) and uninitialised data sections (.B_1). 
 This is the default.
 
      <p><a name="index-g_t_0040samp_007b_002dmsmall_002ddata_002dlimit_007d-1738"></a><br><dt><code>-msmall-data-limit</code><dd>This option tells the assembler that the small data limit feature of
@@ -113,3 +113,4 @@ indicated cpu type will result in an error message being generated.
    </dl>
 
    </body></html>
+

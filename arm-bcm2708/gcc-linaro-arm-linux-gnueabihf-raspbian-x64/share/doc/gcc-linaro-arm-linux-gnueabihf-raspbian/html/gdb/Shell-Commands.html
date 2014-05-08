@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,26 +51,27 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invocation.html#Invocation">Invocation<
 debugging session, there is no need to leave or suspend <span class="sc">gdb</span>; you can
 just use the <code>shell</code> command.
 
-
+     
 <a name="index-shell-64"></a>
 <a name="index-g_t_0021-65"></a>
 <a name="index-shell-escape-66"></a>
-<dl><dt><code>shell </code><var>command-string</var><dt><code>!</code><var>command-string</var><dd>Invoke a standard shell to execute <var>command-string</var>.
-Note that no space is needed between <code>!</code> and <var>command-string</var>.
+<dl><dt><code>shell </code><var>command-string</var><dt><code>!</code><var>command-string</var><dd>Invoke a standard shell to execute <var>command-string</var>. 
+Note that no space is needed between <code>!</code> and <var>command-string</var>. 
 If it exists, the environment variable <code>SHELL</code> determines which
 shell to run.  Otherwise <span class="sc">gdb</span> uses the default shell
-(<samp><span class="file">/bin/sh</span></samp> on Unix systems, <samp><span class="file">COMMAND.COM</span></samp> on MS-DOS, etc.).
+(<samp><span class="file">/bin/sh</span></samp> on Unix systems, <samp><span class="file">COMMAND.COM</span></samp> on MS-DOS, etc.). 
 </dl>
 
-   <p>The utility <code>make</code> is often needed in development environments.
+   <p>The utility <code>make</code> is often needed in development environments. 
 You do not have to use the <code>shell</code> command for this purpose in
 <span class="sc">gdb</span>:
 
-
+     
 <a name="index-make-67"></a>
 <a name="index-calling-make-68"></a>
 <dl><dt><code>make </code><var>make-args</var><dd>Execute the <code>make</code> program with the specified
-arguments.  This is equivalent to &lsquo;<samp><span class="samp">shell make </span><var>make-args</var></samp>&rsquo;.
+arguments.  This is equivalent to &lsquo;<samp><span class="samp">shell make </span><var>make-args</var></samp>&rsquo;. 
 </dl>
 
    </body></html>
+

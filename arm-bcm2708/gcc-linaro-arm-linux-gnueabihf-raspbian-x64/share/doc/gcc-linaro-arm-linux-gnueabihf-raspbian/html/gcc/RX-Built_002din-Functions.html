@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,132 +61,133 @@ following functions are supported:
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_brk</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fbrk-3421"></a></var><br>
-<blockquote><p>Generates the <code>brk</code> machine instruction.
+<blockquote><p>Generates the <code>brk</code> machine instruction. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_clrpsw</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fclrpsw-3422"></a></var><br>
 <blockquote><p>Generates the <code>clrpsw</code> machine instruction to clear the specified
-bit in the processor status word.
+bit in the processor status word. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_int</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fint-3423"></a></var><br>
 <blockquote><p>Generates the <code>int</code> machine instruction to generate an interrupt
-with the specified value.
+with the specified value. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_machi</b> (<var>int, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmachi-3424"></a></var><br>
 <blockquote><p>Generates the <code>machi</code> machine instruction to add the result of
 multiplying the top 16 bits of the two arguments into the
-accumulator.
+accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_maclo</b> (<var>int, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmaclo-3425"></a></var><br>
 <blockquote><p>Generates the <code>maclo</code> machine instruction to add the result of
 multiplying the bottom 16 bits of the two arguments into the
-accumulator.
+accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mulhi</b> (<var>int, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmulhi-3426"></a></var><br>
 <blockquote><p>Generates the <code>mulhi</code> machine instruction to place the result of
 multiplying the top 16 bits of the two arguments into the
-accumulator.
+accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mullo</b> (<var>int, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmullo-3427"></a></var><br>
 <blockquote><p>Generates the <code>mullo</code> machine instruction to place the result of
 multiplying the bottom 16 bits of the two arguments into the
-accumulator.
+accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_rx_mvfachi</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvfachi-3428"></a></var><br>
 <blockquote><p>Generates the <code>mvfachi</code> machine instruction to read the top
-32 bits of the accumulator.
+32 bits of the accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_rx_mvfacmi</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvfacmi-3429"></a></var><br>
 <blockquote><p>Generates the <code>mvfacmi</code> machine instruction to read the middle
-32 bits of the accumulator.
+32 bits of the accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_rx_mvfc</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvfc-3430"></a></var><br>
 <blockquote><p>Generates the <code>mvfc</code> machine instruction which reads the control
-register specified in its argument and returns its value.
+register specified in its argument and returns its value. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mvtachi</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvtachi-3431"></a></var><br>
 <blockquote><p>Generates the <code>mvtachi</code> machine instruction to set the top
-32 bits of the accumulator.
+32 bits of the accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mvtaclo</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvtaclo-3432"></a></var><br>
 <blockquote><p>Generates the <code>mvtaclo</code> machine instruction to set the bottom
-32 bits of the accumulator.
+32 bits of the accumulator. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mvtc</b> (<var>int reg, int val</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvtc-3433"></a></var><br>
 <blockquote><p>Generates the <code>mvtc</code> machine instruction which sets control
-register number <code>reg</code> to <code>val</code>.
+register number <code>reg</code> to <code>val</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_mvtipl</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fmvtipl-3434"></a></var><br>
 <blockquote><p>Generates the <code>mvtipl</code> machine instruction set the interrupt
-priority level.
+priority level. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_racw</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fracw-3435"></a></var><br>
 <blockquote><p>Generates the <code>racw</code> machine instruction to round the accumulator
-according to the specified mode.
+according to the specified mode. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_rx_revw</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005frevw-3436"></a></var><br>
 <blockquote><p>Generates the <code>revw</code> machine instruction which swaps the bytes in
 the argument so that bits 0&ndash;7 now occupy bits 8&ndash;15 and vice versa,
-and also bits 16&ndash;23 occupy bits 24&ndash;31 and vice versa.
+and also bits 16&ndash;23 occupy bits 24&ndash;31 and vice versa. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_rmpa</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005frmpa-3437"></a></var><br>
 <blockquote><p>Generates the <code>rmpa</code> machine instruction which initiates a
-repeated multiply and accumulate sequence.
+repeated multiply and accumulate sequence. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_round</b> (<var>float</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fround-3438"></a></var><br>
 <blockquote><p>Generates the <code>round</code> machine instruction which returns the
 floating-point argument rounded according to the current rounding mode
-set in the floating-point status word register.
+set in the floating-point status word register. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_rx_sat</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fsat-3439"></a></var><br>
 <blockquote><p>Generates the <code>sat</code> machine instruction which returns the
-saturated value of the argument.
+saturated value of the argument. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_setpsw</b> (<var>int</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fsetpsw-3440"></a></var><br>
 <blockquote><p>Generates the <code>setpsw</code> machine instruction to set the specified
-bit in the processor status word.
+bit in the processor status word. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_rx_wait</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005frx_005fwait-3441"></a></var><br>
-<blockquote><p>Generates the <code>wait</code> machine instruction.
+<blockquote><p>Generates the <code>wait</code> machine instruction. 
 </p></blockquote></div>
 
  </body></html>
+

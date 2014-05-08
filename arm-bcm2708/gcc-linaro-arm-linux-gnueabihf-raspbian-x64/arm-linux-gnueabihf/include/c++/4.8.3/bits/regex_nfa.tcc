@@ -70,31 +70,31 @@ _M_dot(std::ostream& __ostr, _StateIdT __id) const
   switch (_M_opcode)
   {
     case _S_opcode_alternative:
-      __ostr << __id << " [label=\"" << __id << "\\nALT\"];\n"
+      __ostr << __id << " [label=\"" << __id << "\\nALT\"];\n" 
              << __id << " -> " << _M_next
              << " [label=\"epsilon\", tailport=\"s\"];\n"
-             << __id << " -> " << _M_alt
+             << __id << " -> " << _M_alt 
              << " [label=\"epsilon\", tailport=\"n\"];\n";
       break;
     case _S_opcode_subexpr_begin:
       __ostr << __id << " [label=\"" << __id << "\\nSBEGIN "
-             << _M_subexpr << "\"];\n"
+             << _M_subexpr << "\"];\n" 
              << __id << " -> " << _M_next << " [label=\"epsilon\"];\n";
       break;
     case _S_opcode_subexpr_end:
       __ostr << __id << " [label=\"" << __id << "\\nSEND "
-             << _M_subexpr << "\"];\n"
+             << _M_subexpr << "\"];\n" 
              << __id << " -> " << _M_next << " [label=\"epsilon\"];\n";
       break;
     case _S_opcode_match:
-      __ostr << __id << " [label=\"" << __id << "\\nMATCH\"];\n"
+      __ostr << __id << " [label=\"" << __id << "\\nMATCH\"];\n" 
              << __id << " -> " << _M_next << " [label=\"<match>\"];\n";
       break;
     case _S_opcode_accept:
       __ostr << __id << " [label=\"" << __id << "\\nACC\"];\n" ;
       break;
     default:
-      __ostr << __id << " [label=\"" << __id << "\\nUNK\"];\n"
+      __ostr << __id << " [label=\"" << __id << "\\nUNK\"];\n" 
              << __id << " -> " << _M_next << " [label=\"?\"];\n";
       break;
   }

@@ -12,3 +12,4 @@
 #define FBIO_RADEON_SET_MIRROR	_IOW('@', 4, size_t)
 
 #endif
+

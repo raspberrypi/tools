@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,10 +52,10 @@ immediate value can be a constant or label reference (or portion of a
 label reference), as in this example:
 
 <pre class="example">     	movi	4,r2
-	pt	function, tr4
-	movi	(function &gt;&gt; 16) &amp; 65535,r0
-	shori	function &amp; 65535, r0
-	ld.l	r0,4,r0
+     	pt	function, tr4
+     	movi	(function &gt;&gt; 16) &amp; 65535,r0
+     	shori	function &amp; 65535, r0
+     	ld.l	r0,4,r0
 </pre>
    <p><a name="index-datalabel_002c-SH64-1870"></a>Instruction label references can reference labels in either SHmedia or
 SHcompact.  To differentiate between the two, labels in SHmedia sections
@@ -66,7 +66,7 @@ of a label, you can use the <code>datalabel</code> modifier, as in this
 example:
 
 <pre class="example">     	.long	function
-	.long	datalabel function
+     	.long	datalabel function
 </pre>
    <p>In that example, the first longword may or may not have the least
 significant bit set depending on whether the label is an SHmedia label
@@ -74,3 +74,4 @@ or an SHcompact label.  The second longword will be the actual address
 of the label, regardless of what type of label it is.
 
    </body></html>
+

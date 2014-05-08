@@ -68,13 +68,13 @@ namespace __gnu_profile
   {
     if (!__profcxx_init())
       return;
-
+  
     _GLIBCXX_PROFILE_DATA(_S_hashtable_size)->__insert(__obj, __get_stack(),
 						       __num);
   }
 
   inline void
-  __trace_hashtable_size_destruct(const void* __obj, std::size_t __num,
+  __trace_hashtable_size_destruct(const void* __obj, std::size_t __num, 
 				  std::size_t __inum)
   {
     if (!__profcxx_init())
@@ -84,7 +84,7 @@ namespace __gnu_profile
   }
 
   inline void
-  __trace_hashtable_size_resize(const void* __obj, std::size_t __from,
+  __trace_hashtable_size_resize(const void* __obj, std::size_t __from, 
 				std::size_t __to)
   {
     if (!__profcxx_init())

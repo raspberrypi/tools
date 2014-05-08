@@ -44,7 +44,7 @@ namespace std _GLIBCXX_VISIBILITY(default)
 namespace __profile
 {
   /** @brief Unordered_set wrapper with performance instrumentation.  */
-  template<typename _Key,
+  template<typename _Key, 
 	   typename _Hash = std::hash<_Key>,
 	   typename _Pred = std::equal_to<_Key>,
 	   typename _Alloc =  std::allocator<_Key> >
@@ -128,7 +128,7 @@ namespace __profile
       void
       clear() noexcept
       {
-        __profcxx_hashtable_destruct(this, _Base::bucket_count(),
+        __profcxx_hashtable_destruct(this, _Base::bucket_count(), 
                                      _Base::size());
         this->_M_profile_destruct();
         _Base::clear();
@@ -158,10 +158,10 @@ namespace __profile
 
       void
       insert(std::initializer_list<value_type> __l)
-      {
+      { 
         size_type __old_size = _Base::bucket_count();
-        _Base::insert(__l);
-        _M_profile_resize(__old_size);
+        _Base::insert(__l); 
+        _M_profile_resize(__old_size); 
       }
 
       std::pair<iterator, bool>
@@ -169,16 +169,16 @@ namespace __profile
       {
         size_type __old_size = _Base::bucket_count();
         std::pair<iterator, bool> __res = _Base::insert(__obj);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
       iterator
       insert(const_iterator __iter, const value_type& __v)
-      {
-        size_type __old_size = _Base::bucket_count();
+      { 
+        size_type __old_size = _Base::bucket_count(); 
         iterator __res = _Base::insert(__iter, __v);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
@@ -187,16 +187,16 @@ namespace __profile
       {
         size_type __old_size = _Base::bucket_count();
         std::pair<iterator, bool> __res = _Base::insert(std::move(__obj));
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
       iterator
       insert(const_iterator __iter, value_type&& __v)
-      {
+      { 
         size_type __old_size = _Base::bucket_count();
         iterator __res = _Base::insert(__iter, std::move(__v));
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
@@ -204,9 +204,9 @@ namespace __profile
         void
         insert(_InputIter __first, _InputIter __last)
         {
-	  size_type __old_size = _Base::bucket_count();
+	  size_type __old_size = _Base::bucket_count(); 
 	  _Base::insert(__first, __last);
-	  _M_profile_resize(__old_size);
+	  _M_profile_resize(__old_size); 
 	}
 
       void
@@ -214,7 +214,7 @@ namespace __profile
       {
         size_type __old_size = _Base::bucket_count();
         _Base::rehash(__n);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
       }
 
     private:
@@ -336,7 +336,7 @@ namespace __profile
       void
       clear() noexcept
       {
-        __profcxx_hashtable_destruct(this, _Base::bucket_count(),
+        __profcxx_hashtable_destruct(this, _Base::bucket_count(), 
                                      _Base::size());
         this->_M_profile_destruct();
         _Base::clear();
@@ -365,10 +365,10 @@ namespace __profile
 
       void
       insert(std::initializer_list<value_type> __l)
-      {
+      { 
         size_type __old_size = _Base::bucket_count();
-        _Base::insert(__l);
-        _M_profile_resize(__old_size);
+        _Base::insert(__l); 
+        _M_profile_resize(__old_size); 
       }
 
       iterator
@@ -376,16 +376,16 @@ namespace __profile
       {
         size_type __old_size = _Base::bucket_count();
         iterator __res = _Base::insert(__obj);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
       iterator
       insert(const_iterator __iter, const value_type& __v)
       {
-        size_type __old_size = _Base::bucket_count();
+        size_type __old_size = _Base::bucket_count(); 
         iterator __res = _Base::insert(__iter, __v);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
@@ -394,16 +394,16 @@ namespace __profile
       {
 	size_type __old_size = _Base::bucket_count();
         iterator __res = _Base::insert(std::move(__obj));
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
       iterator
       insert(const_iterator __iter, value_type&& __v)
       {
-        size_type __old_size = _Base::bucket_count();
+        size_type __old_size = _Base::bucket_count(); 
         iterator __res = _Base::insert(__iter, std::move(__v));
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
         return __res;
       }
 
@@ -411,9 +411,9 @@ namespace __profile
         void
         insert(_InputIter __first, _InputIter __last)
         {
-	  size_type __old_size = _Base::bucket_count();
+	  size_type __old_size = _Base::bucket_count(); 
 	  _Base::insert(__first, __last);
-	  _M_profile_resize(__old_size);
+	  _M_profile_resize(__old_size); 
 	}
 
       void
@@ -421,7 +421,7 @@ namespace __profile
       {
         size_type __old_size = _Base::bucket_count();
         _Base::rehash(__n);
-        _M_profile_resize(__old_size);
+        _M_profile_resize(__old_size); 
       }
 
     private:

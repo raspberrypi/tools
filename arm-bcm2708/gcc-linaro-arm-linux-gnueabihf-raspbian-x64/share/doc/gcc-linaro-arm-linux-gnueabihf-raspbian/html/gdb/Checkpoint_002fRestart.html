@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,9 +69,9 @@ steps to reach the point where you think the bug occurs.
 
    <p>To use the <code>checkpoint</code>/<code>restart</code> method of debugging:
 
-
+     
 <a name="index-checkpoint-198"></a>
-<dl><dt><code>checkpoint</code><dd>Save a snapshot of the debugged program's current execution state.
+<dl><dt><code>checkpoint</code><dd>Save a snapshot of the debugged program's current execution state. 
 The <code>checkpoint</code> command takes no arguments, but each checkpoint
 is assigned a small integer id, similar to a breakpoint id.
 
@@ -88,7 +88,7 @@ etc.  will be returned to the values that they had when the checkpoint
 was saved.  In essence, gdb will &ldquo;wind back the clock&rdquo; to the point
 in time when the checkpoint was saved.
 
-     <p>Note that breakpoints, <span class="sc">gdb</span> variables, command history etc.
+     <p>Note that breakpoints, <span class="sc">gdb</span> variables, command history etc. 
 are not affected by restoring a checkpoint.  In general, a checkpoint
 only restores things that reside in the program being debugged, not in
 the debugger.
@@ -120,7 +120,7 @@ different execution path this time.
    <p><a name="index-checkpoints-and-process-id-202"></a>Finally, there is one bit of internal program state that will be
 different when you return to a checkpoint &mdash; the program's process
 id.  Each checkpoint will have a unique process id (or <var>pid</var>),
-and each will be different from the program's original <var>pid</var>.
+and each will be different from the program's original <var>pid</var>. 
 If your program has saved a local copy of its process id, this could
 potentially pose a problem.
 
@@ -133,7 +133,7 @@ absolute address if you have to restart the program, since the
 absolute location of a symbol will change from one execution to the
 next.
 
-   <p>A checkpoint, however, is an <em>identical</em> copy of a process.
+   <p>A checkpoint, however, is an <em>identical</em> copy of a process. 
 Therefore if you create a checkpoint at (eg.) the start of main,
 and simply return to that checkpoint instead of restarting the
 process, you can avoid the effects of address randomization and
@@ -147,3 +147,4 @@ your symbols will all stay in the same place.
    <hr></div>
 
    </body></html>
+

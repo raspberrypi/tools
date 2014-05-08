@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -84,12 +84,12 @@ and the vtable is only emitted in the translation unit where the key
 method is defined.
 
      <p><em>Note:</em> If the chosen key method is later defined as inline, the
-vtable is still emitted in every translation unit that defines it.
+vtable is still emitted in every translation unit that defines it. 
 Make sure that any inline virtuals are declared inline in the class
 body, even if they are not defined there.
 
      <br><dt><code>type_info</code> objects<dd><a name="index-g_t_0040code_007btype_005finfo_007d-3508"></a><a name="index-RTTI-3509"></a>C++ requires information about types to be written out in order to
-implement &lsquo;<samp><span class="samp">dynamic_cast</span></samp>&rsquo;, &lsquo;<samp><span class="samp">typeid</span></samp>&rsquo; and exception handling.
+implement &lsquo;<samp><span class="samp">dynamic_cast</span></samp>&rsquo;, &lsquo;<samp><span class="samp">typeid</span></samp>&rsquo; and exception handling. 
 For polymorphic classes (classes with virtual functions), the &lsquo;<samp><span class="samp">type_info</span></samp>&rsquo;
 object is written out along with the vtable so that &lsquo;<samp><span class="samp">dynamic_cast</span></samp>&rsquo;
 can determine the dynamic type of a class object at run time.  For all
@@ -98,7 +98,7 @@ applying &lsquo;<samp><span class="samp">typeid</span></samp>&rsquo; to an expre
 referring to a type in a catch clause or exception specification.
 
      <br><dt>Template Instantiations<dd>Most everything in this section also applies to template instantiations,
-but there are other options as well.
+but there are other options as well. 
 See <a href="Template-Instantiation.html#Template-Instantiation">Where's the Template?</a>.
 
  </dl>
@@ -122,3 +122,4 @@ almost certainly breaks things.
 another way to control placement of these constructs.
 
  </body></html>
+

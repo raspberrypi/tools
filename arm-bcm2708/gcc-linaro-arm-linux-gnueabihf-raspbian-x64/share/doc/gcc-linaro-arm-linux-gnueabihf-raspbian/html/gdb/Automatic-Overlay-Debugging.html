@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,13 +65,13 @@ current state of the overlays.
           {
             /* The overlay's mapped address.  */
             unsigned long vma;
-
+          
             /* The size of the overlay, in bytes.  */
             unsigned long size;
-
+          
             /* The overlay's load address.  */
             unsigned long lma;
-
+          
             /* Non-zero if the overlay is currently mapped;
                zero otherwise.  */
             unsigned long mapped;
@@ -100,3 +100,4 @@ overlays are kept in ROM or other non-writable memory while they
 are not being executed.
 
    </body></html>
+

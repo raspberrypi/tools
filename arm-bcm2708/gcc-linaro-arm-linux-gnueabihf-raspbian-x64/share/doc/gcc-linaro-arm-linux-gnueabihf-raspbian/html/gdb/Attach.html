@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ find out the <var>process-id</var> of a Unix process is with the <code>ps</code>
 or with the &lsquo;<samp><span class="samp">jobs -l</span></samp>&rsquo; shell command.
 
      <p><code>attach</code> does not repeat if you press &lt;RET&gt; a second time after
-executing the command.
+executing the command. 
 </dl>
 
    <p>To use <code>attach</code>, your program must be running in an environment
@@ -78,21 +78,22 @@ can step and continue; you can modify storage.  If you would rather the
 process continue running, you may use the <code>continue</code> command after
 attaching <span class="sc">gdb</span> to the process.
 
-
+     
 <a name="index-detach-141"></a>
 <dl><dt><code>detach</code><dd>When you have finished debugging the attached process, you can use the
 <code>detach</code> command to release it from <span class="sc">gdb</span> control.  Detaching
 the process continues its execution.  After the <code>detach</code> command,
 that process and <span class="sc">gdb</span> become completely independent once more, and you
-are ready to <code>attach</code> another process or start one with <code>run</code>.
+are ready to <code>attach</code> another process or start one with <code>run</code>. 
 <code>detach</code> does not repeat if you press &lt;RET&gt; again after
-executing the command.
+executing the command. 
 </dl>
 
    <p>If you exit <span class="sc">gdb</span> while you have an attached process, you detach
-that process.  If you use the <code>run</code> command, you kill that process.
+that process.  If you use the <code>run</code> command, you kill that process. 
 By default, <span class="sc">gdb</span> asks for confirmation if you try to do either of these
 things; you can control whether or not you need to confirm by using the
 <code>set confirm</code> command (see <a href="Messages_002fWarnings.html#Messages_002fWarnings">Optional Warnings and Messages</a>).
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,14 +68,14 @@ used as the second of the two linespecs in a <code>list</code> command,
 this specifies the line <var>offset</var> lines up or down from the first
 linespec.
 
-     <br><dt><var>filename</var><code>:</code><var>linenum</var><dd>Specifies the line <var>linenum</var> in the source file <var>filename</var>.
+     <br><dt><var>filename</var><code>:</code><var>linenum</var><dd>Specifies the line <var>linenum</var> in the source file <var>filename</var>. 
 If <var>filename</var> is a relative file name, then it will match any
 source file name with the same trailing components.  For example, if
 <var>filename</var> is &lsquo;<samp><span class="samp">gcc/expr.c</span></samp>&rsquo;, then it will match source file
 name of <samp><span class="file">/build/trunk/gcc/expr.c</span></samp>, but not
 <samp><span class="file">/build/trunk/libcpp/expr.c</span></samp> or <samp><span class="file">/build/trunk/gcc/x-expr.c</span></samp>.
 
-     <br><dt><var>function</var><dd>Specifies the line that begins the body of the function <var>function</var>.
+     <br><dt><var>function</var><dd>Specifies the line that begins the body of the function <var>function</var>. 
 For example, in C, this is the line with the open brace.
 
      <br><dt><var>function</var><code>:</code><var>label</var><dd>Specifies the line where <var>label</var> appears in <var>function</var>.
@@ -85,7 +85,7 @@ in the file <var>filename</var>.  You only need the file name with a
 function name to avoid ambiguity when there are identically named
 functions in different source files.
 
-     <br><dt><var>label</var><dd>Specifies the line at which the label named <var>label</var> appears.
+     <br><dt><var>label</var><dd>Specifies the line at which the label named <var>label</var> appears. 
 <span class="sc">gdb</span> searches for the label in the function corresponding to
 the currently selected stack frame.  If there is no current selected
 stack frame (for instance, if the inferior is not running), then
@@ -121,7 +121,7 @@ before the stack frame and arguments have been set up.
           <br><dt><code>'</code><var>filename</var><code>'::</code><var>funcaddr</var><dd>Like <var>funcaddr</var> above, but also specifies the name of the source
 file explicitly.  This is useful if the name of the function does not
 specify the function unambiguously, e.g., if there are several
-functions with identical names in different source files.
+functions with identical names in different source files. 
 </dl>
 
      <p><a name="index-breakpoint-at-static-probe-point-478"></a><br><dt><code>-pstap|-probe-stap </code><span class="roman">[</span><var>objfile</var><code>:</code><span class="roman">[</span><var>provider</var><code>:</code><span class="roman">]</span><span class="roman">]</span><var>name</var><dd>The <span class="sc">gnu</span>/Linux tool <code>SystemTap</code> provides a way for
@@ -130,11 +130,12 @@ information on finding and using static probes.  This form of linespec
 specifies the location of such a static probe.
 
      <p>If <var>objfile</var> is given, only probes coming from that shared library
-or executable matching <var>objfile</var> as a regular expression are considered.
-If <var>provider</var> is given, then only probes from that provider are considered.
+or executable matching <var>objfile</var> as a regular expression are considered. 
+If <var>provider</var> is given, then only probes from that provider are considered. 
 If several probes match the spec, <span class="sc">gdb</span> will insert a breakpoint at
 each one of those probes.
 
    </dl>
 
    </body></html>
+

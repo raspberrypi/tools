@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,13 +66,13 @@ macros are defined.
 <dt><code>#pragma GCC diagnostic </code><var>kind</var> <var>option</var><dd><a name="index-pragma_002c-diagnostic-3479"></a>
 Modifies the disposition of a diagnostic.  Note that not all
 diagnostics are modifiable; at the moment only warnings (normally
-controlled by &lsquo;<samp><span class="samp">-W...</span></samp>&rsquo;) can be controlled, and not all of them.
+controlled by &lsquo;<samp><span class="samp">-W...</span></samp>&rsquo;) can be controlled, and not all of them. 
 Use <samp><span class="option">-fdiagnostics-show-option</span></samp> to determine which diagnostics
 are controllable and which option controls them.
 
      <p><var>kind</var> is &lsquo;<samp><span class="samp">error</span></samp>&rsquo; to treat this diagnostic as an error,
 &lsquo;<samp><span class="samp">warning</span></samp>&rsquo; to treat it like a warning (even if <samp><span class="option">-Werror</span></samp> is
-in effect), or &lsquo;<samp><span class="samp">ignored</span></samp>&rsquo; if the diagnostic is to be ignored.
+in effect), or &lsquo;<samp><span class="samp">ignored</span></samp>&rsquo; if the diagnostic is to be ignored. 
 <var>option</var> is a double quoted string that matches the command-line
 option.
 
@@ -118,7 +118,7 @@ information.  For example,
 
      <pre class="smallexample">          #define DO_PRAGMA(x) _Pragma (#x)
           #define TODO(x) DO_PRAGMA(message ("TODO - " #x))
-
+          
           TODO(Remember to fix this)
 </pre>
      <p class="noindent">prints &lsquo;<samp><span class="samp">/tmp/file.c:4: note: #pragma message:
@@ -127,3 +127,4 @@ TODO - Remember to fix this</span></samp>&rsquo;.
  </dl>
 
  </body></html>
+

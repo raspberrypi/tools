@@ -68,3 +68,4 @@ insert_imp(const_reference r_val, true_type)
   PB_DS_CHECK_KEY_DOES_NOT_EXIST(key)
   return std::make_pair(insert_new_imp(r_val, pos_hash_pair), true);
 }
+

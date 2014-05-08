@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -151,7 +151,7 @@ because they would end in the same place anyway.
         // <span class="roman">contains line comment</span>
         <span class="roman">yet more comment</span>
       */ <span class="roman">outside comment</span>
-
+     
      // <span class="roman">line comment</span> /* <span class="roman">contains block comment</span> */
 </pre>
    <p>But beware of commenting out one end of a block comment with a line
@@ -160,7 +160,7 @@ comment.
 <pre class="smallexample">      // <span class="roman">l.c.</span>  /* <span class="roman">block comment begins</span>
          <span class="roman">oops! this isn't a comment anymore</span> */
 </pre>
-   <p>Comments are not recognized within string literals.
+   <p>Comments are not recognized within string literals. 
 <tt>"/*&nbsp;blah&nbsp;*/"<!-- /@w --></tt> is the string constant &lsquo;<samp><span class="samp">/*&nbsp;blah&nbsp;*/<!-- /@w --></span></samp>&rsquo;, not
 an empty string.
 
@@ -172,7 +172,7 @@ of the C standard, they are an official part of the language.
 split a line mechanically with backslash-newline anywhere.  You can
 comment out the end of a line.  You can continue a line comment onto the
 next line with backslash-newline.  You can even split &lsquo;<samp><span class="samp">/*</span></samp>&rsquo;,
-&lsquo;<samp><span class="samp">*/</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">//</span></samp>&rsquo; onto multiple lines with backslash-newline.
+&lsquo;<samp><span class="samp">*/</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">//</span></samp>&rsquo; onto multiple lines with backslash-newline. 
 For example:
 
 <pre class="smallexample">     /\
@@ -192,3 +192,4 @@ interpreted as a backslash-newline.  This cannot affect any correct
 program, however.
 
    </body></html>
+

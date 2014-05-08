@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ top of real-mode DOS systems and their emulations.
 defines a few commands specific to the <span class="sc">djgpp</span> port.  This
 subsection describes those commands.
 
-
+     
 <a name="index-info-dos-1284"></a>
 <dl><dt><code>info dos</code><dd>This is a prefix of <span class="sc">djgpp</span>-specific commands which print
 information about the target system and important OS structures.
@@ -80,7 +80,7 @@ allows access to DOS/BIOS data structures and absolute addresses in
 conventional memory).  However, the DPMI host will usually define
 additional segments in order to support the DPMI environment.
 
-     <p><a name="index-garbled-pointers-1293"></a>These commands allow to display entries from the descriptor tables.
+     <p><a name="index-garbled-pointers-1293"></a>These commands allow to display entries from the descriptor tables. 
 Without an argument, all entries from the specified table are
 displayed.  An argument, which should be an integer expression, means
 display a single entry whose index is given by the argument.  For
@@ -151,14 +151,14 @@ clearly shows that this DPMI server maps the addresses in conventional
 memory 1:1, i.e. the physical (<code>0x00029000</code> + <code>0x110</code>) and
 linear (<code>0x29110</code>) addresses are identical.
 
-     <p>This command is supported only with some DPMI servers.
+     <p>This command is supported only with some DPMI servers. 
 </dl>
 
    <p><a name="index-DOS-serial-data-link_002c-remote-debugging-1297"></a>In addition to native debugging, the DJGPP port supports remote
 debugging via a serial data link.  The following commands are specific
 to remote serial debugging in the DJGPP port of <span class="sc">gdb</span>.
 
-
+     
 <a name="index-set-com1base-1298"></a>
 <a name="index-set-com1irq-1299"></a>
 <a name="index-set-com2base-1300"></a>
@@ -177,14 +177,15 @@ for the <samp><span class="file">COM1</span></samp> serial port.
 etc. for setting the port address and the <code>IRQ</code> lines for the
 other 3 COM ports.
 
-     <p><a name="index-show-com1base-1306"></a><a name="index-show-com1irq-1307"></a><a name="index-show-com2base-1308"></a><a name="index-show-com2irq-1309"></a><a name="index-show-com3base-1310"></a><a name="index-show-com3irq-1311"></a><a name="index-show-com4base-1312"></a><a name="index-show-com4irq-1313"></a>The related commands &lsquo;<samp><span class="samp">show com1base</span></samp>&rsquo;, &lsquo;<samp><span class="samp">show com1irq</span></samp>&rsquo; etc.
+     <p><a name="index-show-com1base-1306"></a><a name="index-show-com1irq-1307"></a><a name="index-show-com2base-1308"></a><a name="index-show-com2irq-1309"></a><a name="index-show-com3base-1310"></a><a name="index-show-com3irq-1311"></a><a name="index-show-com4base-1312"></a><a name="index-show-com4irq-1313"></a>The related commands &lsquo;<samp><span class="samp">show com1base</span></samp>&rsquo;, &lsquo;<samp><span class="samp">show com1irq</span></samp>&rsquo; etc. 
 display the current settings of the base address and the <code>IRQ</code>
 lines used by the COM ports.
 
      <br><dt><code>info serial</code><dd><a name="index-info-serial-1314"></a><a name="index-DOS-serial-port-status-1315"></a>This command prints the status of the 4 DOS serial ports.  For each
 port, it prints whether it's active or not, its I/O base address and
 IRQ number, whether it uses a 16550-style FIFO, its baudrate, and the
-counts of various errors encountered so far.
+counts of various errors encountered so far. 
 </dl>
 
    </body></html>
+

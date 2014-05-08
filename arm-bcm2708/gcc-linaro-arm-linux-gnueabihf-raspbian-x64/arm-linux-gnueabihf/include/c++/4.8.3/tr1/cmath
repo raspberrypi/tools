@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/cmath
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_CMATH
@@ -428,7 +428,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_acoshl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     acosh(_Tp __x)
     { return __builtin_acosh(__x); }
@@ -444,7 +444,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_asinhl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     asinh(_Tp __x)
     { return __builtin_asinh(__x); }
@@ -461,7 +461,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_atanhl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     atanh(_Tp __x)
     { return __builtin_atanh(__x); }
@@ -475,7 +475,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_cbrtl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     cbrt(_Tp __x)
     { return __builtin_cbrt(__x); }
@@ -499,7 +499,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   using std::cos;
-  using std::cosh;
+  using std::cosh;  
 
   inline float
   erf(float __x)
@@ -510,7 +510,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_erfl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     erf(_Tp __x)
     { return __builtin_erf(__x); }
@@ -524,7 +524,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_erfcl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     erfc(_Tp __x)
     { return __builtin_erfc(__x); }
@@ -540,7 +540,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_exp2l(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     exp2(_Tp __x)
     { return __builtin_exp2(__x); }
@@ -554,7 +554,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_expm1l(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     expm1(_Tp __x)
     { return __builtin_expm1(__x); }
@@ -577,7 +577,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_fabsl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     fabs(_Tp __x)
     { return __builtin_fabs(__x); }
@@ -677,7 +677,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_ilogbl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   int>::__type
     ilogb(_Tp __x)
     { return __builtin_ilogb(__x); }
@@ -693,7 +693,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_lgammal(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     lgamma(_Tp __x)
     { return __builtin_lgamma(__x); }
@@ -707,7 +707,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_llrintl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   long long>::__type
     llrint(_Tp __x)
     { return __builtin_llrint(__x); }
@@ -721,7 +721,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_llroundl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   long long>::__type
     llround(_Tp __x)
     { return __builtin_llround(__x); }
@@ -738,7 +738,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_log1pl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     log1p(_Tp __x)
     { return __builtin_log1p(__x); }
@@ -753,7 +753,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_log2l(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     log2(_Tp __x)
     { return __builtin_log2(__x); }
@@ -767,7 +767,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_logbl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     logb(_Tp __x)
     {
@@ -783,7 +783,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_lrintl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   long>::__type
     lrint(_Tp __x)
     { return __builtin_lrint(__x); }
@@ -797,7 +797,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_lroundl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   long>::__type
     lround(_Tp __x)
     { return __builtin_lround(__x); }
@@ -811,7 +811,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_nearbyintl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     nearbyint(_Tp __x)
     { return __builtin_nearbyint(__x); }
@@ -841,7 +841,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_nexttowardl(__x, __y); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     nexttoward(_Tp __x, long double __y)
     { return __builtin_nexttoward(__x, __y); }
@@ -891,7 +891,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_rintl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     rint(_Tp __x)
     { return __builtin_rint(__x); }
@@ -905,7 +905,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_roundl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     round(_Tp __x)
     { return __builtin_round(__x); }
@@ -919,11 +919,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_scalblnl(__x, __ex); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     scalbln(_Tp __x, long __ex)
     { return __builtin_scalbln(__x, __ex); }
-
+ 
   inline float
   scalbn(float __x, int __ex)
   { return __builtin_scalbnf(__x, __ex); }
@@ -933,7 +933,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_scalbnl(__x, __ex); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     scalbn(_Tp __x, int __ex)
     { return __builtin_scalbn(__x, __ex); }
@@ -953,11 +953,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_tgammal(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     tgamma(_Tp __x)
     { return __builtin_tgamma(__x); }
-
+ 
   inline float
   trunc(float __x)
   { return __builtin_truncf(__x); }
@@ -967,7 +967,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   { return __builtin_truncl(__x); }
 
   template<typename _Tp>
-    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+    inline typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
 					   double>::__type
     trunc(_Tp __x)
     { return __builtin_trunc(__x); }

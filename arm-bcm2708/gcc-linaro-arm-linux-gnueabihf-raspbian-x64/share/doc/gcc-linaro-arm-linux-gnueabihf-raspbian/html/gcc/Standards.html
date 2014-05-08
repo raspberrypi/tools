@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ the most recent version is not yet complete.
 published in 1990.  This standard was ratified as an ISO standard
 (ISO/IEC 9899:1990) later in 1990.  There were no technical
 differences between these publications, although the sections of the
-ANSI standard were renumbered and became clauses in the ISO standard.
+ANSI standard were renumbered and became clauses in the ISO standard. 
 This standard, in both its forms, is commonly known as <dfn>C89</dfn>, or
 occasionally as <dfn>C90</dfn>, from the dates of ratification.  The ANSI
 standard, but not the ISO standard, also came with a Rationale
@@ -154,7 +154,7 @@ option <samp><span class="option">-ffreestanding</span></samp>; it will then def
 <code>__STDC_HOSTED__</code> to <code>0</code> and not make assumptions about the
 meanings of function names from the standard library, with exceptions
 noted below.  To build an OS kernel, you may well still need to make
-your own arrangements for linking and startup.
+your own arrangements for linking and startup. 
 See <a href="C-Dialect-Options.html#C-Dialect-Options">Options Controlling C Dialect</a>.
 
  <p>GCC does not provide the library facilities required only of hosted
@@ -166,7 +166,7 @@ GNU C library).  See <a href="Standard-Libraries.html#Standard-Libraries">Standa
  <p>Most of the compiler support routines used by GCC are present in
 <samp><span class="file">libgcc</span></samp>, but there are a few exceptions.  GCC requires the
 freestanding environment provide <code>memcpy</code>, <code>memmove</code>,
-<code>memset</code> and <code>memcmp</code>.
+<code>memset</code> and <code>memcmp</code>. 
 Finally, if <code>__builtin_trap</code> is used, and the target does
 not implement the <code>trap</code> pattern, then GCC will emit a call
 to <code>abort</code>.
@@ -233,7 +233,7 @@ documented in this manual.  The options <samp><span class="option">-fgnu-runtime
 that works with the GNU Objective-C runtime library and output that
 works with the Apple/NeXT Objective-C runtime library.
 
- <p>There is no formal written standard for Objective-C or Objective-C++.
+ <p>There is no formal written standard for Objective-C or Objective-C++. 
 The authoritative manual on traditional Objective-C (1.0) is
 &ldquo;Object-Oriented Programming and the Objective-C Language&rdquo;,
 available at a number of web sites:
@@ -295,3 +295,4 @@ for details of compatibility between <samp><span class="command">gcj</span></sam
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
  </body></html>
+

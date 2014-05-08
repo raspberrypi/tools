@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,14 +56,14 @@ the current trace snapshot.
      Enter actions for tracepoint #2, one per line:
      &gt; collect $regs, $locals, $args, gdb_long_test
      &gt; end
-
+     
      (gdb) <b>tstart</b>
-
+     
      (gdb) <b>tfind line 444</b>
      #0  gdb_test (p1=0x11, p2=0x22, p3=0x33, p4=0x44, p5=0x55, p6=0x66)
      at gdb_test.c:444
      444        printp( "%s: arguments = 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X\n", )
-
+     
      (gdb) <b>tdump</b>
      Data collected at tracepoint 2, trace frame 1:
      d0             0xc4aa0085       -995491707
@@ -95,7 +95,7 @@ the current trace snapshot.
      p5 = (void *) 0x55
      p6 = (void *) 0x66
      gdb_long_test = 17 '\021'
-
+     
      (gdb)
 </pre>
    <p><code>tdump</code> works by scanning the tracepoint's current collection
@@ -111,7 +111,8 @@ to display the basic list of collections, or the collections from the
 body of the while-stepping loop.  However, if <code>$pc</code> was not collected,
 then <code>tdump</code> will always attempt to dump using the basic collection
 list, and may fail if a while-stepping frame does not include all the
-same data that is collected at the tracepoint hit.
+same data that is collected at the tracepoint hit. 
 <!-- This is getting pretty arcane, example would be good. -->
 
    </body></html>
+

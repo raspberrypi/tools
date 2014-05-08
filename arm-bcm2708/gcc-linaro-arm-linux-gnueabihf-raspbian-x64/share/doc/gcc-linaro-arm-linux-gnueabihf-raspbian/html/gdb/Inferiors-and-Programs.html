@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ threads running in it.
 
    <p>To find out what inferiors exist at any moment, use <code>info&nbsp;inferiors</code><!-- /@w -->:
 
-
+     
 <a name="index-info-inferiors-144"></a>
 <dl><dt><code>info inferiors</code><dd>Print a list of all inferiors currently being managed by <span class="sc">gdb</span>.
 
@@ -96,11 +96,11 @@ indicates the current inferior.
 </pre>
    <p>To switch focus between inferiors, use the <code>inferior</code> command:
 
-
+     
 <a name="index-inferior-_0040var_007binfno_007d-145"></a>
 <dl><dt><code>inferior </code><var>infno</var><dd>Make inferior number <var>infno</var> the current inferior.  The argument
 <var>infno</var> is the inferior number assigned by <span class="sc">gdb</span>, as shown
-in the first field of the &lsquo;<samp><span class="samp">info inferiors</span></samp>&rsquo; display.
+in the first field of the &lsquo;<samp><span class="samp">info inferiors</span></samp>&rsquo; display. 
 </dl>
 
    <p>You can get multiple executables into a debugging session via the
@@ -110,7 +110,7 @@ automatically by following calls to <code>fork</code> and <code>exec</code>.  To
 remove inferiors from the debugging session use the
 <code>remove-inferiors</code><!-- /@w --> command.
 
-
+     
 <a name="index-add_002dinferior-146"></a>
 <dl><dt><code>add-inferior [ -copies </code><var>n</var><code> ] [ -exec </code><var>executable</var><code> ]</code><dd>Adds <var>n</var> inferiors to be run using <var>executable</var> as the
 executable.  <var>n</var> defaults to 1.  If no executable is specified,
@@ -146,7 +146,7 @@ those, use the <code>kill</code> or <code>detach</code> command first.
 inferior, you can either detach from it by using the <code>detach&nbsp;inferior</code><!-- /@w --> command (allowing it to run independently), or kill it
 using the <code>kill&nbsp;inferiors</code><!-- /@w --> command:
 
-
+     
 <a name="index-detach-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-149"></a>
 <dl><dt><code>detach inferior </code><var>infno</var><code>...</code><dd>Detach from the inferior or inferiors identified by <span class="sc">gdb</span>
 inferior number(s) <var>infno</var><small class="dots">...</small>.  Note that the inferior's entry
@@ -156,7 +156,7 @@ but its Description will show &lsquo;<samp><span class="samp">&lt;null&gt;</span
      <p><a name="index-kill-inferiors-_0040var_007binfno_007d_0040dots_007b_007d-150"></a><br><dt><code>kill inferiors </code><var>infno</var><code>...</code><dd>Kill the inferior or inferiors identified by <span class="sc">gdb</span> inferior
 number(s) <var>infno</var><small class="dots">...</small>.  Note that the inferior's entry still
 stays on the list of inferiors shown by <code>info inferiors</code>, but its
-Description will show &lsquo;<samp><span class="samp">&lt;null&gt;</span></samp>&rsquo;.
+Description will show &lsquo;<samp><span class="samp">&lt;null&gt;</span></samp>&rsquo;. 
 </dl>
 
    <p>After the successful completion of a command such as <code>detach</code>,
@@ -167,7 +167,7 @@ a normal process exit, the inferior is still valid and listed with
    <p>To be notified when inferiors are started or exit under <span class="sc">gdb</span>'s
 control use <code>set&nbsp;print&nbsp;inferior-events</code><!-- /@w -->:
 
-
+     
 <a name="index-set-print-inferior_002devents-151"></a>
 <a name="index-print-messages-on-inferior-start-and-exit-152"></a>
 <dl><dt><code>set print inferior-events</code><dt><code>set print inferior-events on</code><dt><code>set print inferior-events off</code><dd>The <code>set print inferior-events</code> command allows you to enable or
@@ -176,7 +176,7 @@ inferiors have started or that inferiors have exited or have been
 detached.  By default, these messages will not be printed.
 
      <p><a name="index-show-print-inferior_002devents-153"></a><br><dt><code>show print inferior-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that
-inferiors have started, exited or have been detached.
+inferiors have started, exited or have been detached. 
 </dl>
 
    <p>Many commands will work the same with multiple programs as with a
@@ -187,7 +187,7 @@ value of <code>myglobal</code> in the current inferior.
 get more info about the relationship of inferiors, programs, address
 spaces in a debug session.  You can do that with the <code>maint&nbsp;info&nbsp;program-spaces</code><!-- /@w --> command.
 
-
+     
 <a name="index-maint-info-program_002dspaces-154"></a>
 <dl><dt><code>maint info program-spaces</code><dd>Print a list of all program spaces currently being managed by
 <span class="sc">gdb</span>.
@@ -227,7 +227,8 @@ the parent and child processes of a <code>vfork</code> call.  For example,
                   Bound inferiors: ID 2 (process 18050), ID 1 (process 18045)
 </pre>
      <p>Here, both inferior 2 and inferior 1 are running in the same program
-space as a result of inferior 1 having executed a <code>vfork</code> call.
+space as a result of inferior 1 having executed a <code>vfork</code> call. 
 </dl>
 
    </body></html>
+

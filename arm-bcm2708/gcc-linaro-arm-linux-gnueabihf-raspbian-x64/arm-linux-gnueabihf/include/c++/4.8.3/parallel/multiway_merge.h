@@ -140,7 +140,7 @@ namespace __gnu_parallel
 	if (__bi1._M_current == __bi1._M_end)       // __bi2 is sup
 	  return false;
 	return !(__bi1.__comp)(*__bi2, *__bi1);     // normal compare
-      }
+      } 
     };
 
   template<typename _RAIter, typename _Compare>
@@ -158,7 +158,7 @@ namespace __gnu_parallel
       *  @param __end Unused, only for compatibility.
       *  @param __comp Unused, only for compatibility. */
       _UnguardedIterator(_RAIter __begin,
-			 _RAIter /* __end */, _Compare& __comp)
+                	 _RAIter /* __end */, _Compare& __comp)
       : _M_current(__begin), __comp(__comp)
       { }
 
@@ -280,9 +280,9 @@ namespace __gnu_parallel
           if (__seq1 <= __seq2)
             {
               if (__seq0 <= __seq2)
-		goto __s102;
+        	goto __s102;
               else
-		goto __s120;
+        	goto __s120;
             }
           else
             goto __s210;
@@ -392,8 +392,8 @@ namespace __gnu_parallel
             _GLIBCXX_PARALLEL_DECISION(0,1,2,3)
             else
               if (__seq2 < __seq0)
-		_GLIBCXX_PARALLEL_DECISION(2,0,1,3)
-		else
+        	_GLIBCXX_PARALLEL_DECISION(2,0,1,3)
+        	else
                   _GLIBCXX_PARALLEL_DECISION(0,2,1,3)
                     }
       else
@@ -401,8 +401,8 @@ namespace __gnu_parallel
           if (__seq1 <= __seq2)
             {
               if (__seq0 <= __seq2)
-		_GLIBCXX_PARALLEL_DECISION(1,0,2,3)
-		else
+        	_GLIBCXX_PARALLEL_DECISION(1,0,2,3)
+        	else
                   _GLIBCXX_PARALLEL_DECISION(1,2,0,3)
                     }
           else
@@ -1139,7 +1139,7 @@ namespace __gnu_parallel
 
       // (Settings::multiway_merge_splitting
       //  == __gnu_parallel::_Settings::EXACT).
-      std::vector<_RAIter1>* __offsets =
+      std::vector<_RAIter1>* __offsets = 
 	new std::vector<_RAIter1>[__num_threads];
       std::vector<std::pair<_RAIter1, _RAIter1> > __se(__k);
 
@@ -1256,8 +1256,8 @@ namespace __gnu_parallel
             _DifferenceTp __seq_length = _GLIBCXX_PARALLEL_LENGTH(*__raii);
             if(__seq_length > 0)
               {
-		__total_length += __seq_length;
-		__ne_seqs[__k++] = *__raii;
+        	__total_length += __seq_length;
+        	__ne_seqs[__k++] = *__raii;
               }
           }
 

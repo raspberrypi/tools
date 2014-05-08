@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,7 +61,7 @@ a template function or class.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1<
 of instantiation.  For example, consider
 
 <pre class="smallexample">       void foo(double);
-
+     
        struct A {
          template &lt;typename T&gt;
          void f () {
@@ -71,7 +71,7 @@ of instantiation.  For example, consider
            t.bar();        // <span class="roman">3</span>
            foo (t);        // <span class="roman">4</span>
          }
-
+     
          static const int N;
        };
 </pre>
@@ -100,7 +100,7 @@ different from non-template codes.  The most common is probably this:
 <pre class="smallexample">       template &lt;typename T&gt; struct Base {
          int i;
        };
-
+     
        template &lt;typename T&gt; struct Derived : public Base&lt;T&gt; {
          int get_i() { return i; }
        };
@@ -127,14 +127,14 @@ class:
 <pre class="smallexample">       template &lt;typename T&gt; struct Base {
            int f();
        };
-
+     
        template &lt;typename T&gt; struct Derived : Base&lt;T&gt; {
            int g() { return f(); };
        };
 </pre>
  <p>Again, the call to <code>f()</code> is not dependent on template arguments
 (there are no arguments that depend on the type <code>T</code>, and it is also
-not otherwise specified that the call should be in a dependent context).
+not otherwise specified that the call should be in a dependent context). 
 Thus a global declaration of such a function must be available, since
 the one in the base class is not visible until instantiation time.  The
 compiler will consequently produce the following error message:
@@ -149,7 +149,7 @@ compiler will consequently produce the following error message:
 <code>Base&lt;T&gt;::f()</code>.  Using the <samp><span class="option">-fpermissive</span></samp> flag will also let
 the compiler accept the code, by marking all function calls for which no
 declaration is visible at the time of definition of the template for
-later lookup at instantiation time, as if it were a dependent call.
+later lookup at instantiation time, as if it were a dependent call. 
 We do not recommend using <samp><span class="option">-fpermissive</span></samp> to work around invalid
 code, and it will also only catch cases where functions in base classes
 are called, not where variables in base classes are used (as in the
@@ -169,3 +169,4 @@ this section.</p>
  <hr></div>
 
  </body></html>
+

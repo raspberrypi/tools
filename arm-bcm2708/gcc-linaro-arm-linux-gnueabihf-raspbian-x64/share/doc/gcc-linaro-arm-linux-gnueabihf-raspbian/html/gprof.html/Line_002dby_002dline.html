@@ -32,8 +32,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,43 +59,43 @@ profiling information.
 
    <p>With the older versions of <code>gcc</code> the program usually has to be
 compiled with a &lsquo;<samp><span class="samp">-g</span></samp>&rsquo; option, in addition to &lsquo;<samp><span class="samp">-pg</span></samp>&rsquo;, in order
-to generate debugging symbols for tracking source code lines.
+to generate debugging symbols for tracking source code lines. 
 Note, in much older versions of <code>gcc</code> the program had to be
 compiled with the &lsquo;<samp><span class="samp">-a</span></samp>&rsquo; command line option as well.
 
    <p>The flat profile is the most useful output table
-in line-by-line mode.
+in line-by-line mode. 
 The call graph isn't as useful as normal, since
 the current version of <code>gprof</code> does not propagate
-call graph arcs from source code lines to the enclosing function.
+call graph arcs from source code lines to the enclosing function. 
 The call graph does, however, show each line of code
 that called each function, along with a count.
 
-   <p>Here is a section of <code>gprof</code>'s output, without line-by-line profiling.
+   <p>Here is a section of <code>gprof</code>'s output, without line-by-line profiling. 
 Note that <code>ct_init</code> accounted for four histogram hits, and
 13327 calls to <code>init_block</code>.
 
 <pre class="smallexample">     Flat profile:
-
+     
      Each sample counts as 0.01 seconds.
        %   cumulative   self              self     total
       time   seconds   seconds    calls  us/call  us/call  name
       30.77      0.13     0.04     6335     6.31     6.31  ct_init
-
-
-		     Call graph (explanation follows)
-
-
+     
+     
+     		     Call graph (explanation follows)
+     
+     
      granularity: each sample hit covers 4 byte(s) for 7.69% of 0.13 seconds
-
+     
      index % time    self  children    called     name
-
+     
                      0.00    0.00       1/13496       name_too_long
                      0.00    0.00      40/13496       deflate
                      0.00    0.00     128/13496       deflate_fast
                      0.00    0.00   13327/13496       ct_init
      [7]      0.0    0.00    0.00   13496         init_block
-
+     
 </pre>
    <p>Now let's look at some of <code>gprof</code>'s output from the same program run,
 this time with line-by-line profiling enabled.  Note that <code>ct_init</code>'s
@@ -107,7 +107,7 @@ into one call from line 396, 3071 calls from line 384, 3730 calls
 from line 385, and 6525 calls from 387.
 
 <pre class="smallexample">     Flat profile:
-
+     
      Each sample counts as 0.01 seconds.
        %   cumulative   self
       time   seconds   seconds    calls  name
@@ -115,15 +115,15 @@ from line 385, and 6525 calls from 387.
        7.69      0.11     0.01           ct_init (trees.c:351)
        7.69      0.12     0.01           ct_init (trees.c:382)
        7.69      0.13     0.01           ct_init (trees.c:385)
-
-
-		     Call graph (explanation follows)
-
-
+     
+     
+     		     Call graph (explanation follows)
+     
+     
      granularity: each sample hit covers 4 byte(s) for 7.69% of 0.13 seconds
-
+     
        % time    self  children    called     name
-
+     
                  0.00    0.00       1/13496       name_too_long (gzip.c:1440)
                  0.00    0.00       1/13496       deflate (deflate.c:763)
                  0.00    0.00       1/13496       ct_init (trees.c:396)
@@ -137,6 +137,7 @@ from line 385, and 6525 calls from 387.
                  0.00    0.00    3730/13496       ct_init (trees.c:385)
                  0.00    0.00    6525/13496       ct_init (trees.c:387)
      [6]  0.0    0.00    0.00   13496         init_block (trees.c:408)
-
+     
 </pre>
    </body></html>
+

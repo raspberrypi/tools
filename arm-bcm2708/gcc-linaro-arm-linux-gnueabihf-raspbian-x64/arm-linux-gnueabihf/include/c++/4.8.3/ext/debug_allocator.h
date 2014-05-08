@@ -54,7 +54,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  @brief  A meta-allocator with debugging bits, as per [20.4].
    *  @ingroup allocators
    *
-   *  This is precisely the allocator defined in the C++ Standard.
+   *  This is precisely the allocator defined in the C++ Standard. 
    *    - all allocation calls operator new
    *    - all deallocation calls operator delete
    */
@@ -74,20 +74,20 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // _M_extra is the number of objects that correspond to the
       // extra space where debug information is stored.
       size_type 		_M_extra;
-
+      
       _Alloc			_M_allocator;
 
     public:
       debug_allocator()
       {
 	const size_t __obj_size = sizeof(value_type);
-	_M_extra = (sizeof(size_type) + __obj_size - 1) / __obj_size;
+	_M_extra = (sizeof(size_type) + __obj_size - 1) / __obj_size; 
       }
-
+      
       pointer
       allocate(size_type __n)
       {
-        pointer __res = _M_allocator.allocate(__n + _M_extra);
+        pointer __res = _M_allocator.allocate(__n + _M_extra);      
 	size_type* __ps = reinterpret_cast<size_type*>(__res);
 	*__ps = __n;
         return __res + _M_extra;

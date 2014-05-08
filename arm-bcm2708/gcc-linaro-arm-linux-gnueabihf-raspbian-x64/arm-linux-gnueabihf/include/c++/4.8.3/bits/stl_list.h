@@ -73,7 +73,7 @@ namespace std _GLIBCXX_VISIBILITY(default)
     // "needless" static_cast'ing later on, but it's all safe
     // downcasting.
 
-    /// Common part of a node in the %list.
+    /// Common part of a node in the %list. 
     struct _List_node_base
     {
       _List_node_base* _M_next;
@@ -111,7 +111,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 #if __cplusplus >= 201103L
       template<typename... _Args>
         _List_node(_Args&&... __args)
-	: __detail::_List_node_base(), _M_data(std::forward<_Args>(__args)...)
+	: __detail::_List_node_base(), _M_data(std::forward<_Args>(__args)...) 
         { }
 #endif
     };
@@ -432,7 +432,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
    *  pointing to @e D, not to @e A!  To get to the head of the %list,
    *  we start at the tail and move forward by one.  When this member
    *  iterator's next/previous pointers refer to itself, the %list is
-   *  %empty.
+   *  %empty. 
   */
   template<typename _Tp, typename _Alloc = std::allocator<_Tp> >
     class list : protected _List_base<_Tp, _Alloc>
@@ -630,7 +630,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
         list(_InputIterator __first, _InputIterator __last,
 	     const allocator_type& __a = allocator_type())
 	: _Base(_Node_alloc_type(__a))
-        {
+        { 
 	  // Check whether it's an integral type.  If so, it's not an iterator.
 	  typedef typename std::__is_integer<_InputIterator>::__type _Integral;
 	  _M_initialize_dispatch(__first, __last, _Integral());
@@ -941,7 +941,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       reference
       back()
-      {
+      { 
 	iterator __tmp = end();
 	--__tmp;
 	return *__tmp;
@@ -953,7 +953,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       const_reference
       back() const
-      {
+      { 
 	const_iterator __tmp = end();
 	--__tmp;
 	return *__tmp;
@@ -1209,7 +1209,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       void
       swap(list& __x)
       {
-	__detail::_List_node_base::swap(this->_M_impl._M_node,
+	__detail::_List_node_base::swap(this->_M_impl._M_node, 
 					__x._M_impl._M_node);
 
 	// _GLIBCXX_RESOLVE_LIB_DEFECTS

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,24 +75,24 @@ or attach to your program:
 
 <pre class="smallexample">     # Enable the async interface.
      set target-async 1
-
+     
      # If using the CLI, pagination breaks non-stop.
      set pagination off
-
+     
      # Finally, turn it on!
      set non-stop on
 </pre>
    <p>You can use these commands to manipulate the non-stop mode setting:
 
-
+     
 <a name="index-set-non_002dstop-353"></a>
-<dl><dt><code>set non-stop on</code><dd>Enable selection of non-stop mode.
-<br><dt><code>set non-stop off</code><dd>Disable selection of non-stop mode.
-<a name="index-show-non_002dstop-354"></a><br><dt><code>show non-stop</code><dd>Show the current non-stop enablement setting.
+<dl><dt><code>set non-stop on</code><dd>Enable selection of non-stop mode. 
+<br><dt><code>set non-stop off</code><dd>Disable selection of non-stop mode. 
+<a name="index-show-non_002dstop-354"></a><br><dt><code>show non-stop</code><dd>Show the current non-stop enablement setting. 
 </dl>
 
    <p>Note these commands only reflect whether non-stop mode is enabled,
-not whether the currently-executing program is being run in non-stop mode.
+not whether the currently-executing program is being run in non-stop mode. 
 In particular, the <code>set non-stop</code> preference is only consulted when
 <span class="sc">gdb</span> starts or connects to the target program, and it is generally
 not possible to switch modes once debugging has started.  Furthermore,
@@ -101,19 +101,19 @@ non-stop mode, <span class="sc">gdb</span> may still fall back to all-stop opera
 default.
 
    <p>In non-stop mode, all execution commands apply only to the current thread
-by default.  That is, <code>continue</code> only continues one thread.
+by default.  That is, <code>continue</code> only continues one thread. 
 To continue all threads, issue <code>continue -a</code> or <code>c -a</code>.
 
    <p>You can use <span class="sc">gdb</span>'s background execution commands
 (see <a href="Background-Execution.html#Background-Execution">Background Execution</a>) to run some threads in the background
-while you continue to examine or step others from <span class="sc">gdb</span>.
+while you continue to examine or step others from <span class="sc">gdb</span>. 
 The MI execution commands (see <a href="GDB_002fMI-Program-Execution.html#GDB_002fMI-Program-Execution">GDB/MI Program Execution</a>) are
 always executed asynchronously in non-stop mode.
 
    <p>Suspending execution is done with the <code>interrupt</code> command when
-running in the background, or <kbd>Ctrl-c</kbd> during foreground execution.
+running in the background, or <kbd>Ctrl-c</kbd> during foreground execution. 
 In all-stop mode, this stops the whole process;
-but in non-stop mode the interrupt applies only to the current thread.
+but in non-stop mode the interrupt applies only to the current thread. 
 To stop the whole program, use <code>interrupt -a</code>.
 
    <p>Other execution commands do not currently support the <code>-a</code> option.
@@ -126,3 +126,4 @@ changed to a different thread just as you entered a command to operate on the
 previously current thread.
 
    </body></html>
+

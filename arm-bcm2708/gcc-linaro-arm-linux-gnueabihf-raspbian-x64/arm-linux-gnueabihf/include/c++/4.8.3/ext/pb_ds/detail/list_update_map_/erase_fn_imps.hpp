@@ -131,3 +131,4 @@ actual_erase_entry(entry_pointer p_l)
   p_l->~entry();
   s_entry_allocator.deallocate(p_l, 1);
 }
+

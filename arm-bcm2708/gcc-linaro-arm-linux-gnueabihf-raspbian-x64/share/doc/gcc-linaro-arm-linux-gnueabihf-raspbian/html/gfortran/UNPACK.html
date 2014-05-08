@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,8 +66,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>VECTOR</var> </td><td valign="top" width="70%">Shall be an array of any type and rank one. It
-shall have at least as many elements as <var>MASK</var> has <code>TRUE</code> values.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>MASK</var>   </td><td valign="top" width="70%">Shall be an array of type <code>LOGICAL</code>.
+shall have at least as many elements as <var>MASK</var> has <code>TRUE</code> values. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>MASK</var>   </td><td valign="top" width="70%">Shall be an array of type <code>LOGICAL</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>FIELD</var>  </td><td valign="top" width="70%">Shall be of the same type as <var>VECTOR</var> and have
 the same shape as <var>MASK</var>.
      <br></td></tr></table>
@@ -80,7 +80,7 @@ of <var>MASK</var> replaced by values from <var>VECTOR</var> in array element or
             integer :: vector(2)  = (/1,1/)
             logical :: mask(4)  = (/ .TRUE., .FALSE., .FALSE., .TRUE. /)
             integer :: field(2,2) = 0, unity(2,2)
-
+          
             ! result: unity matrix
             unity = unpack(vector, reshape(mask, (/2,2/)), field)
           END PROGRAM
@@ -89,3 +89,4 @@ of <var>MASK</var> replaced by values from <var>VECTOR</var> in array element or
 </dl>
 
    </body></html>
+

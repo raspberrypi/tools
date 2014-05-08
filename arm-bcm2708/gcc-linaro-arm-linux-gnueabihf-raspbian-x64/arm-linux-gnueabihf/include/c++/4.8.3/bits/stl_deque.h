@@ -225,7 +225,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       operator[](difference_type __n) const
       { return *(*this + __n); }
 
-      /**
+      /** 
        *  Prepares to traverse new_node.  Sets everything except
        *  _M_cur, which should therefore be set by the caller
        *  immediately afterwards, based on _M_first and _M_last.
@@ -529,7 +529,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
       _Tp*
       _M_allocate_node()
-      {
+      { 
 	return _M_impl._Tp_alloc_type::allocate(__deque_buf_size(sizeof(_Tp)));
       }
 
@@ -767,7 +767,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       using _Base::_M_deallocate_map;
       using _Base::_M_get_Tp_allocator;
 
-      /**
+      /** 
        *  A total of four data members accumulated down the hierarchy.
        *  May be accessed via _M_impl.*
        */
@@ -840,7 +840,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        */
       deque(const deque& __x)
       : _Base(__x._M_get_Tp_allocator(), __x.size())
-      { std::__uninitialized_copy_a(__x.begin(), __x.end(),
+      { std::__uninitialized_copy_a(__x.begin(), __x.end(), 
 				    this->_M_impl._M_start,
 				    _M_get_Tp_allocator()); }
 

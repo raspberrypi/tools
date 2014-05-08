@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -118,7 +118,7 @@ directory, and the pathname to the source directory is not wanted when
 determining the output file names.  Note that this prefix detection is
 applied before determining whether the source file is absolute.
 
-     <br><dt><code>-u</code><dt><code>--unconditional-branches</code><dd>When branch probabilities are given, include those of unconditional branches.
+     <br><dt><code>-u</code><dt><code>--unconditional-branches</code><dd>When branch probabilities are given, include those of unconditional branches. 
 Unconditional branches are normally not interesting.
 
      <br><dt><code>-d</code><dt><code>--display-progress</code><dd>Display the progress on the standard output.
@@ -129,7 +129,7 @@ Unconditional branches are normally not interesting.
 when you invoked the compiler.  Otherwise it will not be able to locate
 the source files.  <samp><span class="command">gcov</span></samp> produces files called
 <samp><var>mangledname</var><span class="file">.gcov</span></samp> in the current directory.  These contain
-the coverage information of the source file they correspond to.
+the coverage information of the source file they correspond to. 
 One <samp><span class="file">.gcov</span></samp> file is produced for each source (or header) file
 containing code,
 which was compiled to produce the data files.  The <var>mangledname</var> part
@@ -153,7 +153,7 @@ containing no code.  Unexecuted lines are marked &lsquo;<samp><span class="samp"
 non-exceptional paths or only exceptional paths such as C++ exception
 handlers, respectively.
 
- <p>Some lines of information at the start have <var>line_number</var> of zero.
+ <p>Some lines of information at the start have <var>line_number</var> of zero. 
 These preamble lines are of the form
 
 <pre class="smallexample">     -:0:<var>tag</var>:<var>value</var>
@@ -175,7 +175,7 @@ conventionally be rounded to 0% or 100% are instead printed as the
 nearest non-boundary value.
 
  <p>When using <samp><span class="command">gcov</span></samp>, you must first compile your program with two
-special GCC options: &lsquo;<samp><span class="samp">-fprofile-arcs -ftest-coverage</span></samp>&rsquo;.
+special GCC options: &lsquo;<samp><span class="samp">-fprofile-arcs -ftest-coverage</span></samp>&rsquo;. 
 This tells the compiler to generate additional information needed by
 gcov (basically a flow graph of the program) and also includes
 additional code in the object files for generating the extra profiling
@@ -197,7 +197,7 @@ is what you see when you use the basic <samp><span class="command">gcov</span></
      90.00% of 10 source lines executed in file tmp.c
      Creating tmp.c.gcov.
 </pre>
- <p>The file <samp><span class="file">tmp.c.gcov</span></samp> contains output from <samp><span class="command">gcov</span></samp>.
+ <p>The file <samp><span class="file">tmp.c.gcov</span></samp> contains output from <samp><span class="command">gcov</span></samp>. 
 Here is a sample:
 
 <pre class="smallexample">             -:    0:Source:tmp.c
@@ -259,14 +259,14 @@ counts, and the output looks like this:
  <p>In this mode, each basic block is only shown on one line &ndash; the last
 line of the block.  A multi-line block will only contribute to the
 execution count of that last line, and other lines will not be shown
-to contain code, unless previous blocks end on those lines.
+to contain code, unless previous blocks end on those lines. 
 The total execution count of a line is shown and subsequent lines show
 the execution counts for individual blocks that end on that line.  After each
 block, the branch and call counts of the block will be shown, if the
 <samp><span class="option">-b</span></samp> option is given.
 
  <p>Because of the way GCC instruments calls, a call count can be shown
-after a line with no individual blocks.
+after a line with no individual blocks. 
 As you can see, line 13 contains a basic block that was not executed.
 
  <p>When you use the <samp><span class="option">-b</span></samp> option, your output looks like this:
@@ -351,3 +351,4 @@ counts) it will ignore the contents of the file.  It then adds in the
 new execution counts and finally writes the data to the file.
 
  </body></html>
+

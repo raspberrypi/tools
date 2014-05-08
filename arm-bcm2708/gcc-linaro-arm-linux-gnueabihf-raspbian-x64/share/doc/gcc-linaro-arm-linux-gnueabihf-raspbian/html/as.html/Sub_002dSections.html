@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sections.html#Sections">Sections</a>
 
 <p><a name="index-numbered-subsections-204"></a><a name="index-grouping-data-205"></a>Assembled bytes
 conventionally
-fall into two sections: text and data.
+fall into two sections: text and data. 
 You may have separate groups of
 data in named sections
 that you want to end up near to each other in the object file, even though they
@@ -67,27 +67,27 @@ constants being output.
    <p>Subsections are optional.  If you do not use subsections, everything
 goes in subsection number zero.
 
-   <p>Each subsection is zero-padded up to a multiple of four bytes.
+   <p>Each subsection is zero-padded up to a multiple of four bytes. 
 (Subsections may be padded a different amount on different flavors
 of <samp><span class="command">as</span></samp>.)
 
    <p>Subsections appear in your object file in numeric order, lowest numbered
-to highest.  (All this to be compatible with other people's assemblers.)
+to highest.  (All this to be compatible with other people's assemblers.) 
 The object file contains no representation of subsections; <code>ld</code> and
-other programs that manipulate object files see no trace of them.
+other programs that manipulate object files see no trace of them. 
 They just see all your text subsections as a text section, and all your
 data subsections as a data section.
 
    <p>To specify which subsection you want subsequent statements assembled
 into, use a numeric argument to specify it, in a &lsquo;<samp><span class="samp">.text
-</span><var>expression</var></samp>&rsquo; or a &lsquo;<samp><span class="samp">.data </span><var>expression</var></samp>&rsquo; statement.
+</span><var>expression</var></samp>&rsquo; or a &lsquo;<samp><span class="samp">.data </span><var>expression</var></samp>&rsquo; statement. 
 When generating COFF output, you
 can also use an extra subsection
 argument with arbitrary named sections: &lsquo;<samp><span class="samp">.section </span><var>name</var><span class="samp">,
-</span><var>expression</var></samp>&rsquo;.
+</span><var>expression</var></samp>&rsquo;. 
 When generating ELF output, you
 can also use the <code>.subsection</code> directive (see <a href="SubSection.html#SubSection">SubSection</a>)
-to specify a subsection: &lsquo;<samp><span class="samp">.subsection </span><var>expression</var></samp>&rsquo;.
+to specify a subsection: &lsquo;<samp><span class="samp">.subsection </span><var>expression</var></samp>&rsquo;. 
 <var>Expression</var> should be an absolute expression
 (see <a href="Expressions.html#Expressions">Expressions</a>).  If you just say &lsquo;<samp><span class="samp">.text</span></samp>&rsquo; then &lsquo;<samp><span class="samp">.text 0</span></samp>&rsquo;
 is assumed.  Likewise &lsquo;<samp><span class="samp">.data</span></samp>&rsquo; means &lsquo;<samp><span class="samp">.data 0</span></samp>&rsquo;.  Assembly
@@ -112,3 +112,4 @@ current value.  The location counter of the section where statements are being
 assembled is said to be the <dfn>active</dfn> location counter.
 
    </body></html>
+

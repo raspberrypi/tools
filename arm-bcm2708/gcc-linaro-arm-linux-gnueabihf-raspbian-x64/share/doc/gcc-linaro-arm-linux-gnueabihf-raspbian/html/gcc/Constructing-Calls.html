@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ to the current function.
       <p>The function saves the arg pointer register, structure value address,
 and all registers that might be used to pass arguments to a function
 into a block of memory allocated on the stack.  Then it returns the
-address of that block.
+address of that block. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -99,14 +99,14 @@ is saved in a block of memory allocated on the stack.
       <p>It is not always simple to compute the proper value for <var>size</var>.  The
 value is used by <code>__builtin_apply</code> to compute the amount of data
 that should be pushed on the stack and copied from the incoming argument
-area.
+area. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_return</b> (<var>void *result</var>)<var><a name="index-g_t_005f_005fbuiltin_005freturn-2423"></a></var><br>
 <blockquote><p>This built-in function returns the value described by <var>result</var> from
 the containing function.  You should specify, for <var>result</var>, a value
-returned by <code>__builtin_apply</code>.
+returned by <code>__builtin_apply</code>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -115,7 +115,7 @@ returned by <code>__builtin_apply</code>.
 function.  It can be used only in inline functions that are always
 inlined, never compiled as a separate function, such as those using
 <code>__attribute__ ((__always_inline__))</code> or
-<code>__attribute__ ((__gnu_inline__))</code> extern inline functions.
+<code>__attribute__ ((__gnu_inline__))</code> extern inline functions. 
 It must be only passed as last argument to some other function
 with variable arguments.  This is useful for writing small wrapper
 inlines for variable argument functions, when using preprocessor
@@ -141,7 +141,7 @@ macros is undesirable.  For example:
 an inline function.  It can be used only in inline functions that
 are always inlined, never compiled as a separate function, such
 as those using <code>__attribute__ ((__always_inline__))</code> or
-<code>__attribute__ ((__gnu_inline__))</code> extern inline functions.
+<code>__attribute__ ((__gnu_inline__))</code> extern inline functions. 
 For example following does link- or run-time checking of open
 arguments for optimized code:
      <pre class="smallexample">          #ifdef __OPTIMIZE__
@@ -150,7 +150,7 @@ arguments for optimized code:
           {
             if (__builtin_va_arg_pack_len () &gt; 1)
               warn_open_too_many_arguments ();
-
+          
             if (__builtin_constant_p (oflag))
               {
                 if ((oflag &amp; O_CREAT) != 0 &amp;&amp; __builtin_va_arg_pack_len () &lt; 1)
@@ -160,10 +160,10 @@ arguments for optimized code:
                   }
                 return open (path, oflag, __builtin_va_arg_pack ());
               }
-
+          
             if (__builtin_va_arg_pack_len () &lt; 1)
               return __open_2 (path, oflag);
-
+          
             return open (path, oflag, __builtin_va_arg_pack ());
           }
           #endif
@@ -171,3 +171,4 @@ arguments for optimized code:
       </blockquote></div>
 
  </body></html>
+

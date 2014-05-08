@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Readline-Init-File.html#Readline-Init-F
 <p>Here is an example of an <var>inputrc</var> file.  This illustrates key
 binding, variable assignment, and conditional syntax.
 
-<pre class="example">
+<pre class="example">     
      # This file controls the behaviour of line input editing for
      # programs that use the GNU Readline library.  Existing
      # programs include FTP, Bash, and GDB.
@@ -59,16 +59,16 @@ binding, variable assignment, and conditional syntax.
      # First, include any systemwide bindings and variable
      # assignments from /etc/Inputrc
      $include /etc/Inputrc
-
+     
      #
      # Set various bindings for emacs mode.
-
+     
      set editing-mode emacs
-
+     
      $if mode=emacs
-
+     
      Meta-Control-h:	backward-kill-word	Text after the function name is ignored
-
+     
      #
      # Arrow keys in keypad mode
      #
@@ -97,14 +97,14 @@ binding, variable assignment, and conditional syntax.
      #"\M-\C-[C":       forward-char
      #"\M-\C-[A":       previous-history
      #"\M-\C-[B":       next-history
-
+     
      C-q: quoted-insert
-
+     
      $endif
-
+     
      # An old-style binding.  This happens to be the default.
      TAB: complete
-
+     
      # Macros that are convenient for shell interaction
      $if Bash
      # edit the path
@@ -123,25 +123,25 @@ binding, variable assignment, and conditional syntax.
      # Edit variable on current line.
      "\M-\C-v": "\C-a\C-k$\C-y\M-\C-e\C-a\C-y="
      $endif
-
+     
      # use a visible bell if one is available
      set bell-style visible
-
+     
      # don't strip characters to 7 bits when reading
      set input-meta on
-
+     
      # allow iso-latin1 characters to be inserted rather
      # than converted to prefix-meta sequences
      set convert-meta off
-
+     
      # display characters with the eighth bit set directly
      # rather than as meta-prefixed characters
      set output-meta on
-
+     
      # if there are more than 150 possible completions for
      # a word, ask the user if he wants to see all of them
      set completion-query-items 150
-
+     
      # For FTP
      $if Ftp
      "\C-xg": "get \M-?"
@@ -150,3 +150,4 @@ binding, variable assignment, and conditional syntax.
      $endif
 </pre>
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,13 +58,13 @@ must provide.
 
 <pre class="smallexample">     class StdStringPrinter(object):
          "Print a std::string"
-
+     
          def __init__(self, val):
              self.val = val
-
+     
          def to_string(self):
              return self.val['_M_dataplus']['_M_p']
-
+     
          def display_hint(self):
              return 'string'
 </pre>
@@ -87,7 +87,7 @@ returns <code>None</code>.
 
    <p>We recommend that you put your core pretty-printers into a Python
 package.  If your pretty-printers are for use with a library, we
-further recommend embedding a version number into the package name.
+further recommend embedding a version number into the package name. 
 This practice will enable <span class="sc">gdb</span> to load multiple versions of
 your pretty-printers at the same time, because they will have
 different names.
@@ -99,9 +99,9 @@ printer modules, followed by a call to a register pretty-printers with
 the current objfile.
 
    <p>Taken as a whole, this approach will scale nicely to multiple
-inferiors, each potentially using a different library version.
+inferiors, each potentially using a different library version. 
 Embedding a version number in the Python package name will ensure that
-<span class="sc">gdb</span> is able to load both sets of printers simultaneously.
+<span class="sc">gdb</span> is able to load both sets of printers simultaneously. 
 Then, because the search for pretty-printers is done by objfile, and
 because your auto-loaded code took care to register your library's
 printers with a specific objfile, <span class="sc">gdb</span> will find the correct
@@ -119,8 +119,8 @@ this code might appear in <code>gdb.libstdcxx.v6</code>:
 <pre class="smallexample">     import gdb.libstdcxx.v6
      gdb.libstdcxx.v6.register_printers(gdb.current_objfile())
 </pre>
-   <p>The previous example illustrates a basic pretty-printer.
-There are a few things that can be improved on.
+   <p>The previous example illustrates a basic pretty-printer. 
+There are a few things that can be improved on. 
 The printer doesn't have a name, making it hard to identify in a
 list of installed printers.  The lookup function has a name, but
 lookup functions can have arbitrary, even identical, names.
@@ -128,12 +128,12 @@ lookup functions can have arbitrary, even identical, names.
    <p>Second, the printer only handles one type, whereas a library typically has
 several types.  One could install a lookup function for each desired type
 in the library, but one could also have a single lookup function recognize
-several types.  The latter is the conventional way this is handled.
+several types.  The latter is the conventional way this is handled. 
 If a pretty-printer can handle multiple data types, then its
 <dfn>subprinters</dfn> are the printers for the individual data types.
 
    <p>The <code>gdb.printing</code> module provides a formal way of solving these
-problems (see <a href="gdb_002eprinting.html#gdb_002eprinting">gdb.printing</a>).
+problems (see <a href="gdb_002eprinting.html#gdb_002eprinting">gdb.printing</a>). 
 Here is another example that handles multiple types.
 
    <p>These are the types we are going to pretty-print:
@@ -145,20 +145,20 @@ Here is another example that handles multiple types.
 
 <pre class="smallexample">     class fooPrinter:
          """Print a foo object."""
-
+     
          def __init__(self, val):
              self.val = val
-
+     
          def to_string(self):
              return ("a=&lt;" + str(self.val["a"]) +
                      "&gt; b=&lt;" + str(self.val["b"]) + "&gt;")
-
+     
      class barPrinter:
          """Print a bar object."""
-
+     
          def __init__(self, val):
              self.val = val
-
+     
          def to_string(self):
              return ("x=&lt;" + str(self.val["x"]) +
                      "&gt; y=&lt;" + str(self.val["y"]) + "&gt;")
@@ -168,7 +168,7 @@ Here is another example that handles multiple types.
 the object that handles the lookup.
 
 <pre class="smallexample">     import gdb.printing
-
+     
      def build_pretty_printer():
          pp = gdb.printing.RegexpCollectionPrettyPrinter(
              "my_library")
@@ -194,3 +194,4 @@ corresponding output of &lsquo;<samp><span class="samp">info pretty-printer</spa
          bar
 </pre>
    </body></html>
+

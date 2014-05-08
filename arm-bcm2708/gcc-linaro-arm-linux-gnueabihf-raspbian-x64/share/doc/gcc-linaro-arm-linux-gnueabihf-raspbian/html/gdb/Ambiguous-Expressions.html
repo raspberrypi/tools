@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ as well.
 
    <p>When an ambiguity that needs to be resolved is detected, the debugger
 has the capability to display a menu of numbered choices for each
-possibility, and then waits for the selection with the prompt &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo;.
+possibility, and then waits for the selection with the prompt &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo;. 
 The first option is always &lsquo;<samp><span class="samp">[0] cancel</span></samp>&rsquo;, and typing <kbd>0 &lt;RET&gt;</kbd>
 aborts the current command.  If the command in which the expression was
 used allows more than one choice to be selected, the next option in the
@@ -73,7 +73,7 @@ menu is &lsquo;<samp><span class="samp">[1] all</span></samp>&rsquo;, and typing
 choices.
 
    <p>For example, the following session excerpt shows an attempt to set a
-breakpoint at the overloaded symbol <code>String::after</code>.
+breakpoint at the overloaded symbol <code>String::after</code>. 
 We choose three particular definitions of that function name:
 
 <!-- FIXME! This is likely to change to show arg type lists, at least -->
@@ -95,7 +95,7 @@ We choose three particular definitions of that function name:
       breakpoints.
      (gdb)
 </pre>
-
+     
 <a name="index-set-multiple_002dsymbols-541"></a>
 <dl><dt><code>set multiple-symbols </code><var>mode</var><dd><a name="index-multiple_002dsymbols-menu-542"></a>
 This option allows you to adjust the debugger behavior when an expression
@@ -106,7 +106,7 @@ the expression is used allows more than one choice, then <span class="sc">gdb</s
 automatically selects all possible choices.  For instance, inserting
 a breakpoint on a function using an ambiguous name results in a breakpoint
 inserted on each possible match.  However, if a unique choice must be made,
-then <span class="sc">gdb</span> uses the menu to help you disambiguate the expression.
+then <span class="sc">gdb</span> uses the menu to help you disambiguate the expression. 
 For instance, printing the address of an overloaded function will result
 in the use of the menu.
 
@@ -116,7 +116,8 @@ when an ambiguity is detected.
      <p>Finally, when <var>mode</var> is set to <code>cancel</code>, the debugger reports
 an error due to the ambiguity and the command is aborted.
 
-     <p><a name="index-show-multiple_002dsymbols-543"></a><br><dt><code>show multiple-symbols</code><dd>Show the current value of the <code>multiple-symbols</code> setting.
+     <p><a name="index-show-multiple_002dsymbols-543"></a><br><dt><code>show multiple-symbols</code><dd>Show the current value of the <code>multiple-symbols</code> setting. 
 </dl>
 
    </body></html>
+

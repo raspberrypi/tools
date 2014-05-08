@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,11 +57,11 @@ in IPA finally.
 
      <p>Replies:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK </span><var>target_address</var> <var>gdb_jump_pad_head</var> <var>fjump_size</var> <var>fjump</var></samp>&rsquo;<dd><var>target_address</var> is address of tracepoint in the inferior.
+<dt>&lsquo;<samp><span class="samp">OK </span><var>target_address</var> <var>gdb_jump_pad_head</var> <var>fjump_size</var> <var>fjump</var></samp>&rsquo;<dd><var>target_address</var> is address of tracepoint in the inferior. 
 <var>gdb_jump_pad_head</var> is updated head of jumppad.  Both of
-<var>target_address</var> and <var>gdb_jump_pad_head</var> are 8-byte long.
-<var>fjump</var> contains a sequence of instructions jump to jumppad entry.
-<var>fjump_size</var>, 4-byte long, is the size of <var>fjump</var>.
+<var>target_address</var> and <var>gdb_jump_pad_head</var> are 8-byte long. 
+<var>fjump</var> contains a sequence of instructions jump to jumppad entry. 
+<var>fjump_size</var>, 4-byte long, is the size of <var>fjump</var>. 
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 
      </dl>
@@ -69,16 +69,17 @@ in IPA finally.
      <br><dt>&lsquo;<samp><span class="samp">close</span></samp>&rsquo;<dd>Closes the in-process agent.  This command is sent when <span class="sc">gdb</span> or GDBserver
 is about to kill inferiors.
 
-     <br><dt>&lsquo;<samp><span class="samp">qTfSTM</span></samp>&rsquo;<dd>See <a href="qTfSTM.html#qTfSTM">qTfSTM</a>.
-<br><dt>&lsquo;<samp><span class="samp">qTsSTM</span></samp>&rsquo;<dd>See <a href="qTsSTM.html#qTsSTM">qTsSTM</a>.
-<br><dt>&lsquo;<samp><span class="samp">qTSTMat</span></samp>&rsquo;<dd>See <a href="qTSTMat.html#qTSTMat">qTSTMat</a>.
+     <br><dt>&lsquo;<samp><span class="samp">qTfSTM</span></samp>&rsquo;<dd>See <a href="qTfSTM.html#qTfSTM">qTfSTM</a>. 
+<br><dt>&lsquo;<samp><span class="samp">qTsSTM</span></samp>&rsquo;<dd>See <a href="qTsSTM.html#qTsSTM">qTsSTM</a>. 
+<br><dt>&lsquo;<samp><span class="samp">qTSTMat</span></samp>&rsquo;<dd>See <a href="qTSTMat.html#qTSTMat">qTSTMat</a>. 
 <br><dt>&lsquo;<samp><span class="samp">probe_marker_at:</span><var>address</var></samp>&rsquo;<dd>Asks in-process agent to probe the marker at <var>address</var>.
 
      <p>Replies:
           <dl>
 <dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
-     <br><dt>&lsquo;<samp><span class="samp">unprobe_marker_at:</span><var>address</var></samp>&rsquo;<dd>Asks in-process agent to unprobe the marker at <var>address</var>.
+     <br><dt>&lsquo;<samp><span class="samp">unprobe_marker_at:</span><var>address</var></samp>&rsquo;<dd>Asks in-process agent to unprobe the marker at <var>address</var>. 
 </dl>
 
    </body></html>
+

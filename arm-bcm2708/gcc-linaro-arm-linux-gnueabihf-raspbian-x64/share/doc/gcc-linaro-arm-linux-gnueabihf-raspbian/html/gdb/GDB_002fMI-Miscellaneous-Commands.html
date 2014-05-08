@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,7 +75,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 
 <pre class="smallexample">      -gdb-set
 </pre>
-   <p>Set an internal <span class="sc">gdb</span> variable.
+   <p>Set an internal <span class="sc">gdb</span> variable. 
 <!-- IS THIS A DOLLAR VARIABLE? OR SOMETHING LIKE ANNOTATE ????? -->
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -170,18 +170,18 @@ is given below.
      <dl>
 <dt>&lsquo;<samp><span class="samp">frozen-varobjs</span></samp>&rsquo;<dd>Indicates support for the <code>-var-set-frozen</code> command, as well
 as possible presense of the <code>frozen</code> field in the output
-of <code>-varobj-create</code>.
+of <code>-varobj-create</code>. 
 <br><dt>&lsquo;<samp><span class="samp">pending-breakpoints</span></samp>&rsquo;<dd>Indicates support for the <samp><span class="option">-f</span></samp> option to the <code>-break-insert</code>
-command.
+command. 
 <br><dt>&lsquo;<samp><span class="samp">python</span></samp>&rsquo;<dd>Indicates Python scripting support, Python-based
 pretty-printing commands, and possible presence of the
 &lsquo;<samp><span class="samp">display_hint</span></samp>&rsquo; field in the output of <code>-var-list-children</code>
-<br><dt>&lsquo;<samp><span class="samp">thread-info</span></samp>&rsquo;<dd>Indicates support for the <code>-thread-info</code> command.
+<br><dt>&lsquo;<samp><span class="samp">thread-info</span></samp>&rsquo;<dd>Indicates support for the <code>-thread-info</code> command. 
 <br><dt>&lsquo;<samp><span class="samp">data-read-memory-bytes</span></samp>&rsquo;<dd>Indicates support for the <code>-data-read-memory-bytes</code> and the
-<code>-data-write-memory-bytes</code> commands.
+<code>-data-write-memory-bytes</code> commands. 
 <br><dt>&lsquo;<samp><span class="samp">breakpoint-notifications</span></samp>&rsquo;<dd>Indicates that changes to breakpoints and breakpoints created via the
-CLI will be announced via async records.
-<br><dt>&lsquo;<samp><span class="samp">ada-task-info</span></samp>&rsquo;<dd>Indicates support for the <code>-ada-task-info</code> command.
+CLI will be announced via async records. 
+<br><dt>&lsquo;<samp><span class="samp">ada-task-info</span></samp>&rsquo;<dd>Indicates support for the <code>-ada-task-info</code> command. 
 </dl>
 
 <h4 class="subheading">The <code>-list-target-features</code> Command</h4>
@@ -193,7 +193,7 @@ unlike the features reported by the <code>-list-features</code> command, the
 features depend on which target GDB is using at the moment.  Whenever
 a target can change, due to commands such as <code>-target-select</code>,
 <code>-target-attach</code> or <code>-exec-run</code>, the list of target features
-may change, and the frontend should obtain it again.
+may change, and the frontend should obtain it again. 
 Example output:
 
 <pre class="smallexample">     (gdb) -list-features
@@ -206,7 +206,7 @@ Example output:
 execution, which means that <span class="sc">gdb</span> will accept further commands
 while the target is running.
 
-     <br><dt>&lsquo;<samp><span class="samp">reverse</span></samp>&rsquo;<dd>Indicates that the target is capable of reverse execution.
+     <br><dt>&lsquo;<samp><span class="samp">reverse</span></samp>&rsquo;<dd>Indicates that the target is capable of reverse execution. 
 See <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a>, for more information.
 
    </dl>
@@ -220,12 +220,12 @@ See <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a>, fo
 <pre class="smallexample">     -list-thread-groups [ --available ] [ --recurse 1 ] [ <var>group</var> ... ]
 </pre>
    <p>Lists thread groups (see <a href="Thread-groups.html#Thread-groups">Thread groups</a>).  When a single thread
-group is passed as the argument, lists the children of that group.
+group is passed as the argument, lists the children of that group. 
 When several thread group are passed, lists information about those
 thread groups.  Without any parameters, lists information about all
 top-level thread groups.
 
-   <p>Normally, thread groups that are being debugged are reported.
+   <p>Normally, thread groups that are being debugged are reported. 
 With the &lsquo;<samp><span class="samp">--available</span></samp>&rsquo; option, <span class="sc">gdb</span> reports thread groups
 available on the target.
 
@@ -255,7 +255,7 @@ anything, the &lsquo;<samp><span class="samp">recurse</span></samp>&rsquo; optio
      <li>When the &lsquo;<samp><span class="samp">--available</span></samp>&rsquo; option is passed, limited information may
 be available.  In particular, the list of threads of a process might
 be inaccessible.  Further, specifying specific thread groups might
-not give any performance advantage over listing all thread groups.
+not give any performance advantage over listing all thread groups. 
 The frontend should assume that &lsquo;<samp><span class="samp">-list-thread-groups --available</span></samp>&rsquo;
 is always an expensive operation and cache the results.
 
@@ -265,7 +265,7 @@ is always an expensive operation and cache the results.
 have the following fields:
 
      <dl>
-<dt><code>id</code><dd>Identifier of the thread group.  This field is always present.
+<dt><code>id</code><dd>Identifier of the thread group.  This field is always present. 
 The identifier is an opaque string; frontends should not try to
 convert it to an integer, even though it might look like one.
 
@@ -286,7 +286,7 @@ specified, and it's actually possible to obtain the threads.
 thread of the group is running on.  This field may be absent if
 such information is not available.
 
-     <br><dt><code>executable</code><dd>The name of the executable file that corresponds to this thread group.
+     <br><dt><code>executable</code><dd>The name of the executable file that corresponds to this thread group. 
 The field is only present for thread groups of type &lsquo;<samp><span class="samp">process</span></samp>&rsquo;,
 and only if there is a corresponding executable file.
 
@@ -517,3 +517,4 @@ equivalent to &lsquo;<samp><span class="samp">yes</span></samp>&rsquo;.
      (gdb)
 </pre>
    </body></html>
+

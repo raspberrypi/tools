@@ -126,7 +126,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      ++__srcok;
 	      ++__p;
 	    }
-	  while (! *__dstok)
+	  while (! *__dstok) 
 	    {
 	      ++__dstok;
 	      ++__q;
@@ -175,12 +175,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     void
     __valarray_copy(_Array<_Tp> __e, _Array<size_t> __f,
-		    size_t __n,
+		    size_t __n, 
 		    _Array<_Tp> __a, _Array<size_t> __i)
     {
       size_t* __g (__f._M_data);
       size_t* __j (__i._M_data);
-      for (size_t __k = 0; __k < __n; ++__k, ++__j, ++__g)
+      for (size_t __k = 0; __k < __n; ++__k, ++__j, ++__g) 
 	__a._M_data[*__j] = __e._M_data[*__g];
     }
 

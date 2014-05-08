@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,15 +74,15 @@ as a macro by a subsequent &lsquo;<samp><span class="samp">#define</span></samp>
 need not have any resemblance to the old definition.
 
    <p>However, if an identifier which is currently a macro is redefined, then
-the new definition must be <dfn>effectively the same</dfn> as the old one.
+the new definition must be <dfn>effectively the same</dfn> as the old one. 
 Two macro definitions are effectively the same if:
      <ul>
-<li>Both are the same type of macro (object- or function-like).
-<li>All the tokens of the replacement list are the same.
-<li>If there are any parameters, they are the same.
+<li>Both are the same type of macro (object- or function-like). 
+<li>All the tokens of the replacement list are the same. 
+<li>If there are any parameters, they are the same. 
 <li>Whitespace appears in the same places in both.  It need not be
 exactly the same amount of whitespace, though.  Remember that comments
-count as whitespace.
+count as whitespace. 
 </ul>
 
 <p class="noindent">These definitions are effectively the same:
@@ -104,3 +104,4 @@ instance, two different headers to define a common macro.  The
 preprocessor will only complain if the definitions do not match.
 
    </body></html>
+

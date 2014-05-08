@@ -151,7 +151,7 @@ namespace __gnu_pbds
 	node_const_iterator,
 	node_iterator,
 	Cmp_Fn,
-	_Alloc>*
+	_Alloc>* 
       null_node_update_pointer;
     };
 
@@ -231,7 +231,7 @@ namespace __gnu_pbds
 	node_const_iterator,
 	node_iterator,
 	Cmp_Fn,
-	_Alloc>*
+	_Alloc>* 
       null_node_update_pointer;
     };
 

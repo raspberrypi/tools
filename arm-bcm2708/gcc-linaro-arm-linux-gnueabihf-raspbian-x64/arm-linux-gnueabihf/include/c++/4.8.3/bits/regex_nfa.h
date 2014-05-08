@@ -58,7 +58,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 #endif
   };
 
-  /// Generic shared pointer to an automaton.
+  /// Generic shared pointer to an automaton.  
   typedef std::shared_ptr<_Automaton> _AutomatonPtr;
 
   /// Operation codes that define the type of transitions within the base NFA
@@ -246,7 +246,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 #endif
   };
 
-
+  
   /// The Grep Matcher works on sets of states.  Here are sets of states.
   typedef std::set<_StateIdT> _StateSet;
 
@@ -327,7 +327,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       return this->size()-1;
     }
 
-    _StateIdT
+    _StateIdT 
     _M_insert_subexpr_end(unsigned int __i, const _Tagger& __t)
     {
       this->push_back(_StateT(_S_opcode_subexpr_end, __i, __t));
@@ -412,3 +412,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace std
 
 #include <bits/regex_nfa.tcc>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ the child process (see <a href="Attach.html#Attach">Attach</a>).  From that poin
 the child process just like any other process which you attached to.
 
    <p>On some systems, <span class="sc">gdb</span> provides support for debugging programs that
-create additional processes using the <code>fork</code> or <code>vfork</code> functions.
+create additional processes using the <code>fork</code> or <code>vfork</code> functions. 
 Currently, the only platforms with this feature are HP-UX (11.x and later
 only?) and <span class="sc">gnu</span>/Linux (kernel version 2.5.60 and later).
 
@@ -77,7 +77,7 @@ the parent process and the child process will run unimpeded.
    <p>If you want to follow the child process instead of the parent process,
 use the command <code>set&nbsp;follow-fork-mode</code><!-- /@w -->.
 
-
+     
 <a name="index-set-follow_002dfork_002dmode-187"></a>
 <dl><dt><code>set follow-fork-mode </code><var>mode</var><dd>Set the debugger response to a program call of <code>fork</code> or
 <code>vfork</code>.  A call to <code>fork</code> or <code>vfork</code> creates a new
@@ -92,13 +92,13 @@ unimpeded.
 
      </dl>
 
-     <p><a name="index-show-follow_002dfork_002dmode-188"></a><br><dt><code>show follow-fork-mode</code><dd>Display the current debugger response to a <code>fork</code> or <code>vfork</code> call.
+     <p><a name="index-show-follow_002dfork_002dmode-188"></a><br><dt><code>show follow-fork-mode</code><dd>Display the current debugger response to a <code>fork</code> or <code>vfork</code> call. 
 </dl>
 
    <p><a name="index-debugging-multiple-processes-189"></a>On Linux, if you want to debug both the parent and child processes, use the
 command <code>set&nbsp;detach-on-fork</code><!-- /@w -->.
 
-
+     
 <a name="index-set-detach_002don_002dfork-190"></a>
 <dl><dt><code>set detach-on-fork </code><var>mode</var><dd>Tells gdb whether to detach one of the processes after a fork, or
 retain debugger control over them both.
@@ -108,18 +108,18 @@ retain debugger control over them both.
 <code>follow-fork-mode</code>) will be detached and allowed to run
 independently.  This is the default.
 
-          <br><dt><code>off</code><dd>Both processes will be held under the control of <span class="sc">gdb</span>.
+          <br><dt><code>off</code><dd>Both processes will be held under the control of <span class="sc">gdb</span>. 
 One process (child or parent, depending on the value of
 <code>follow-fork-mode</code>) is debugged as usual, while the other
 is held suspended.
 
      </dl>
 
-     <p><a name="index-show-detach_002don_002dfork-191"></a><br><dt><code>show detach-on-fork</code><dd>Show whether detach-on-fork mode is on/off.
+     <p><a name="index-show-detach_002don_002dfork-191"></a><br><dt><code>show detach-on-fork</code><dd>Show whether detach-on-fork mode is on/off. 
 </dl>
 
    <p>If you choose to set &lsquo;<samp><span class="samp">detach-on-fork</span></samp>&rsquo; mode off, then <span class="sc">gdb</span>
-will retain control of all forked processes (including nested forks).
+will retain control of all forked processes (including nested forks). 
 You can list the forked processes under the control of <span class="sc">gdb</span> by
 using the <code>info&nbsp;inferiors</code><!-- /@w --> command, and switch from one fork
 to another by using the <code>inferior</code> command (see <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">Debugging Multiple Inferiors and Programs</a>).
@@ -142,11 +142,11 @@ cannot debug the child or parent until an <code>exec</code> call completes.
 call executes, the new target restarts.  To restart the parent
 process, use the <code>file</code> command with the parent executable name
 as its argument.  By default, after an <code>exec</code> call executes,
-<span class="sc">gdb</span> discards the symbols of the previous executable image.
+<span class="sc">gdb</span> discards the symbols of the previous executable image. 
 You can change this behaviour with the <code>set&nbsp;follow-exec-mode</code><!-- /@w -->
 command.
 
-
+     
 <a name="index-set-follow_002dexec_002dmode-192"></a>
 <dl><dt><code>set follow-exec-mode </code><var>mode</var><dd>
 Set debugger response to a program call of <code>exec</code>.  An
@@ -199,3 +199,4 @@ running after the <code>exec</code> call.  This is the default mode.
 a <code>fork</code>, <code>vfork</code>, or <code>exec</code> call is made.  See <a href="Set-Catchpoints.html#Set-Catchpoints">Setting Catchpoints</a>.
 
    </body></html>
+

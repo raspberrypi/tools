@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -86,7 +86,7 @@ each attribute is one of the following:
      <li>A word (which may be an identifier such as <code>unused</code>, or a reserved
 word such as <code>const</code>).
 
-     <li>A word, followed by, in parentheses, parameters for the attribute.
+     <li>A word, followed by, in parentheses, parameters for the attribute. 
 These parameters take one of the following forms:
 
           <ul>
@@ -98,7 +98,7 @@ of expressions.  For example, <code>format</code> attributes use this form.
           <li>A possibly empty comma-separated list of expressions.  For example,
 <code>format_arg</code> attributes use this form with the list being a single
 integer constant expression, and <code>alias</code> attributes use this form
-with the list being a single string constant.
+with the list being a single string constant. 
 </ul>
      </ul>
 
@@ -123,11 +123,11 @@ labelled in C90 or C99, so the ambiguity does not arise there.
  <p>An attribute specifier list may appear as part of a <code>struct</code>,
 <code>union</code> or <code>enum</code> specifier.  It may go either immediately
 after the <code>struct</code>, <code>union</code> or <code>enum</code> keyword, or after
-the closing brace.  The former syntax is preferred.
+the closing brace.  The former syntax is preferred. 
 Where attribute specifiers follow the closing brace, they are considered
 to relate to the structure, union or enumerated type defined, not to any
 enclosing declaration the type specifier appears in, and the type
-defined is not complete until after the attribute specifiers.
+defined is not complete until after the attribute specifiers. 
 <!-- Otherwise, there would be the following problems: a shift/reduce -->
 <!-- conflict between attributes binding the struct/union/enum and -->
 <!-- binding to the list of specifiers/qualifiers; and "aligned" -->
@@ -205,9 +205,9 @@ ignored.
  <p>An attribute specifier list may appear at the start of a nested
 declarator.  At present, there are some limitations in this usage: the
 attributes correctly apply to the declarator, but for most individual
-attributes the semantics this implies are not implemented.
+attributes the semantics this implies are not implemented. 
 When attribute specifiers follow the <code>*</code> of a pointer
-declarator, they may be mixed with any type qualifiers present.
+declarator, they may be mixed with any type qualifiers present. 
 The following describes the formal semantics of this syntax.  It makes the
 most sense if you are familiar with the formal specification of
 declarators in the ISO C standard.
@@ -242,7 +242,7 @@ non-returning function returning <code>void</code>&rdquo;.  As another example,
 
 <pre class="smallexample">     char *__attribute__((aligned(8))) *f;
 </pre>
- <p class="noindent">specifies the type &ldquo;pointer to 8-byte-aligned pointer to <code>char</code>&rdquo;.
+ <p class="noindent">specifies the type &ldquo;pointer to 8-byte-aligned pointer to <code>char</code>&rdquo;. 
 Note again that this does not work with most attributes; for example,
 the usage of &lsquo;<samp><span class="samp">aligned</span></samp>&rsquo; and &lsquo;<samp><span class="samp">noreturn</span></samp>&rsquo; attributes given above
 is not yet supported.
@@ -265,3 +265,4 @@ that is not a pointer-to-function type, it is treated as applying
 to the function type.
 
  </body></html>
+

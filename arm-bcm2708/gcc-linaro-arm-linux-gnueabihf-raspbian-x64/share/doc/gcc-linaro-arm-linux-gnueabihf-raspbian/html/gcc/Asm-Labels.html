@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -80,7 +80,7 @@ you can get the same effect by writing a declaration for the function
 before its definition and putting <code>asm</code> there, like this:
 
 <pre class="smallexample">     extern func () asm ("FUNC");
-
+     
      func (x, y)
           int x, y;
      /* <span class="roman">...</span> */
@@ -88,7 +88,8 @@ before its definition and putting <code>asm</code> there, like this:
  <p>It is up to you to make sure that the assembler names you choose do not
 conflict with any other assembler symbols.  Also, you must not use a
 register name; that would produce completely invalid assembler code.  GCC
-does not as yet have the ability to store static variables in registers.
+does not as yet have the ability to store static variables in registers. 
 Perhaps that will be added.
 
  </body></html>
+

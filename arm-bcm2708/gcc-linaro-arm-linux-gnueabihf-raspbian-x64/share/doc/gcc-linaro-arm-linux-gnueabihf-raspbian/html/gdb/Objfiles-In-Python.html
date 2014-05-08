@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <p><a name="index-objfiles-in-python-1997"></a><a name="index-gdb_002eObjfile-1998"></a><a name="index-Objfile-1999"></a><span class="sc">gdb</span> loads symbols for an inferior from various
 symbol-containing files (see <a href="Files.html#Files">Files</a>).  These include the primary
 executable file, any shared libraries used by the inferior, and any
-separate debug info files (see <a href="Separate-Debug-Files.html#Separate-Debug-Files">Separate Debug Files</a>).
+separate debug info files (see <a href="Separate-Debug-Files.html#Separate-Debug-Files">Separate Debug Files</a>). 
 <span class="sc">gdb</span> calls these symbol-containing files <dfn>objfiles</dfn>.
 
    <p>The following objfile-related functions are available in the
@@ -63,15 +63,15 @@ separate debug info files (see <a href="Separate-Debug-Files.html#Separate-Debug
 <blockquote><p>When auto-loading a Python script (see <a href="Python-Auto_002dloading.html#Python-Auto_002dloading">Python Auto-loading</a>), <span class="sc">gdb</span>
 sets the &ldquo;current objfile&rdquo; to the corresponding objfile.  This
 function returns the current objfile.  If there is no current objfile,
-this function returns <code>None</code>.
+this function returns <code>None</code>. 
 </p></blockquote></div>
 
    <p><a name="index-gdb_002eobjfiles-2002"></a>
 
 <div class="defun">
 &mdash; Function: <b>gdb.objfiles</b> ()<var><a name="index-gdb_002eobjfiles-2003"></a></var><br>
-<blockquote><p>Return a sequence of all the objfiles current known to <span class="sc">gdb</span>.
-See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>.
+<blockquote><p>Return a sequence of all the objfiles current known to <span class="sc">gdb</span>. 
+See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>. 
 </p></blockquote></div>
 
    <p>Each objfile is represented by an instance of the <code>gdb.Objfile</code>
@@ -79,7 +79,7 @@ class.
 
 <div class="defun">
 &mdash; Variable: <b>Objfile.filename</b><var><a name="index-Objfile_002efilename-2004"></a></var><br>
-<blockquote><p>The file name of the objfile as a string.
+<blockquote><p>The file name of the objfile as a string. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -89,13 +89,13 @@ used to look up pretty-printers.  A <code>Value</code> is passed to each
 function in order; if the function returns <code>None</code>, then the
 search continues.  Otherwise, the return value should be an object
 which is used to format the value.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>, for more
-information.
+information. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Objfile.type_printers</b><var><a name="index-Objfile_002etype_005fprinters-2006"></a></var><br>
-<blockquote><p>The <code>type_printers</code> attribute is a list of type printer objects.
-See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, for more information.
+<blockquote><p>The <code>type_printers</code> attribute is a list of type printer objects. 
+See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, for more information. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Objfile</code> object has the following methods:
@@ -106,7 +106,8 @@ See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, fo
 <code>False</code> if not.  A <code>gdb.Objfile</code> object can become invalid
 if the object file it refers to is not loaded in <span class="sc">gdb</span> any
 longer.  All other <code>gdb.Objfile</code> methods will throw an exception
-if it is invalid at the time the method is called.
+if it is invalid at the time the method is called. 
 </p></blockquote></div>
 
    </body></html>
+

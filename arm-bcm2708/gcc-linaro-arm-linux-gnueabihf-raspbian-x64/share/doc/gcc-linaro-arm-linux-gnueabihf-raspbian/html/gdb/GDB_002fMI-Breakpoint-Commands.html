@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -308,19 +308,19 @@ table.
    <p>The possible optional parameters of this command are:
 
      <dl>
-<dt>&lsquo;<samp><span class="samp">-t</span></samp>&rsquo;<dd>Insert a temporary breakpoint.
-<br><dt>&lsquo;<samp><span class="samp">-h</span></samp>&rsquo;<dd>Insert a hardware breakpoint.
+<dt>&lsquo;<samp><span class="samp">-t</span></samp>&rsquo;<dd>Insert a temporary breakpoint. 
+<br><dt>&lsquo;<samp><span class="samp">-h</span></samp>&rsquo;<dd>Insert a hardware breakpoint. 
 <br><dt>&lsquo;<samp><span class="samp">-f</span></samp>&rsquo;<dd>If <var>location</var> cannot be parsed (for example if it
 refers to unknown files or functions), create a pending
 breakpoint. Without this flag, <span class="sc">gdb</span> will report
 an error, and won't create a breakpoint, if <var>location</var>
-cannot be parsed.
-<br><dt>&lsquo;<samp><span class="samp">-d</span></samp>&rsquo;<dd>Create a disabled breakpoint.
+cannot be parsed. 
+<br><dt>&lsquo;<samp><span class="samp">-d</span></samp>&rsquo;<dd>Create a disabled breakpoint. 
 <br><dt>&lsquo;<samp><span class="samp">-a</span></samp>&rsquo;<dd>Create a tracepoint.  See <a href="Tracepoints.html#Tracepoints">Tracepoints</a>.  When this parameter
-is used together with &lsquo;<samp><span class="samp">-h</span></samp>&rsquo;, a fast tracepoint is created.
-<br><dt>&lsquo;<samp><span class="samp">-c </span><var>condition</var></samp>&rsquo;<dd>Make the breakpoint conditional on <var>condition</var>.
-<br><dt>&lsquo;<samp><span class="samp">-i </span><var>ignore-count</var></samp>&rsquo;<dd>Initialize the <var>ignore-count</var>.
-<br><dt>&lsquo;<samp><span class="samp">-p </span><var>thread-id</var></samp>&rsquo;<dd>Restrict the breakpoint to the specified <var>thread-id</var>.
+is used together with &lsquo;<samp><span class="samp">-h</span></samp>&rsquo;, a fast tracepoint is created. 
+<br><dt>&lsquo;<samp><span class="samp">-c </span><var>condition</var></samp>&rsquo;<dd>Make the breakpoint conditional on <var>condition</var>. 
+<br><dt>&lsquo;<samp><span class="samp">-i </span><var>ignore-count</var></samp>&rsquo;<dd>Initialize the <var>ignore-count</var>. 
+<br><dt>&lsquo;<samp><span class="samp">-p </span><var>thread-id</var></samp>&rsquo;<dd>Restrict the breakpoint to the specified <var>thread-id</var>. 
 </dl>
 
 <h5 class="subsubheading">Result</h5>
@@ -328,7 +328,7 @@ is used together with &lsquo;<samp><span class="samp">-h</span></samp>&rsquo;, a
 <p>See <a href="GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information">GDB/MI Breakpoint Information</a>, for details on the format of the
 resulting breakpoint.
 
-   <p>Note: this format is open to change.
+   <p>Note: this format is open to change. 
 <!-- An out-of-band breakpoint instead of part of the result? -->
 
 <h5 class="subsubheading"><span class="sc">gdb</span> Command</h5>
@@ -463,7 +463,7 @@ read from or on a write to the memory location.  With the &lsquo;<samp><span cla
 option, the watchpoint created is a <dfn>read</dfn> watchpoint, i.e., it will
 trigger only when the memory location is accessed for reading.  Without
 either of the options, the watchpoint created is a regular watchpoint,
-i.e., it will trigger when the memory location is accessed for writing.
+i.e., it will trigger when the memory location is accessed for writing. 
 See <a href="Set-Watchpoints.html#Set-Watchpoints">Setting Watchpoints</a>.
 
    <p>Note that &lsquo;<samp><span class="samp">-break-list</span></samp>&rsquo; will report a single list of watchpoints and
@@ -592,3 +592,4 @@ deleted.
 </pre>
    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
    </body></html>
+

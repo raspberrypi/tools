@@ -53,7 +53,7 @@ namespace tr1
     /**
      *   @brief This routine returns the Hermite polynomial
      *          of order n: \f$ H_n(x) \f$ by recursion on n.
-     *
+     * 
      *   The Hermite polynomial is defined by:
      *   @f[
      *     H_n(x) = (-1)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2}
@@ -95,7 +95,7 @@ namespace tr1
     /**
      *   @brief This routine returns the Hermite polynomial
      *          of order n: \f$ H_n(x) \f$.
-     *
+     * 
      *   The Hermite polynomial is defined by:
      *   @f[
      *     H_n(x) = (-1)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2}

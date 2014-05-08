@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/cstdint
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_CSTDINT
@@ -77,7 +77,7 @@ namespace tr1
 
   using ::intmax_t;
   using ::intptr_t;
-
+  
   using ::uint8_t;
   using ::uint16_t;
   using ::uint32_t;
@@ -101,3 +101,4 @@ namespace tr1
 #endif // _GLIBCXX_USE_C99_STDINT_TR1
 
 #endif // _GLIBCXX_TR1_CSTDINT
+

@@ -39,13 +39,13 @@
  */
 
 PB_DS_CLASS_T_DEC
-Cmp_Fn&
+Cmp_Fn& 
 PB_DS_CLASS_C_DEC::
 get_cmp_fn()
 { return *this; }
 
 PB_DS_CLASS_T_DEC
-const Cmp_Fn&
+const Cmp_Fn& 
 PB_DS_CLASS_C_DEC::
 get_cmp_fn() const
 { return *this; }

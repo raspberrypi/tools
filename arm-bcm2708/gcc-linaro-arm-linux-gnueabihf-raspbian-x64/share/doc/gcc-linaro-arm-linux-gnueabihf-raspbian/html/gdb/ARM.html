@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-Processors.html#Embedded-Proce
 <h4 class="subsection">21.3.1 ARM</h4>
 
 <p><a name="index-ARM-RDI-1388"></a>
-
+     
 <a name="index-target-rdi-1389"></a>
 <dl><dt><code>target rdi </code><var>dev</var><dd>ARM Angel monitor, via RDI library interface to ADP protocol.  You may
 use this target to communicate with both boards running the Angel
@@ -72,12 +72,12 @@ monitor, or with the EmbeddedICE JTAG debug device.
 argument <var>fputype</var> can be one of these:
 
           <dl>
-<dt><code>auto</code><dd>Determine the FPU type by querying the OS ABI.
+<dt><code>auto</code><dd>Determine the FPU type by querying the OS ABI. 
 <br><dt><code>softfpa</code><dd>Software FPU, with mixed-endian doubles on little-endian ARM
-processors.
-<br><dt><code>fpa</code><dd>GCC-compiled FPA co-processor.
-<br><dt><code>softvfp</code><dd>Software FPU with pure-endian doubles.
-<br><dt><code>vfp</code><dd>VFP co-processor.
+processors. 
+<br><dt><code>fpa</code><dd>GCC-compiled FPA co-processor. 
+<br><dt><code>softvfp</code><dd>Software FPU with pure-endian doubles. 
+<br><dt><code>vfp</code><dd>VFP co-processor. 
 </dl>
 
      <br><dt><code>show arm fpu</code><dd>Show the current type of the FPU.
@@ -105,14 +105,14 @@ of &lsquo;<samp><span class="samp">set arm fallback-mode</span></samp>&rsquo;.
      <br><dt><code>set debug arm</code><dd>Toggle whether to display ARM-specific debugging messages from the ARM
 target support subsystem.
 
-     <br><dt><code>show debug arm</code><dd>Show whether ARM-specific debugging messages are enabled.
+     <br><dt><code>show debug arm</code><dd>Show whether ARM-specific debugging messages are enabled. 
 </dl>
 
    <p>The following commands are available when an ARM target is debugged
 using the RDI interface:
 
      <dl>
-<dt><code>rdilogfile </code><span class="roman">[</span><var>file</var><span class="roman">]</span><dd><a name="index-rdilogfile-1394"></a><a name="index-ADP-_0028Angel-Debugger-Protocol_0029-logging-1395"></a>Set the filename for the ADP (Angel Debugger Protocol) packet log.
+<dt><code>rdilogfile </code><span class="roman">[</span><var>file</var><span class="roman">]</span><dd><a name="index-rdilogfile-1394"></a><a name="index-ADP-_0028Angel-Debugger-Protocol_0029-logging-1395"></a>Set the filename for the ADP (Angel Debugger Protocol) packet log. 
 With an argument, sets the log file to the specified <var>file</var>.  With
 no argument, show the current log file name.  The default log file is
 <samp><span class="file">rdi.log</span></samp>.
@@ -134,15 +134,15 @@ effect, it needs to be invoked prior to the <code>target rdi</code> command.
 turn on this option, since it confuses ARM and EPI JTAG interface, as
 well as the Angel monitor.
 
-     <br><dt><code>show rdiheartbeat</code><dd><a name="index-show-rdiheartbeat-1402"></a>Show the setting of RDI heartbeat packets.
+     <br><dt><code>show rdiheartbeat</code><dd><a name="index-show-rdiheartbeat-1402"></a>Show the setting of RDI heartbeat packets. 
 </dl>
 
      <dl>
 <dt><code>target sim </code><span class="roman">[</span><var>simargs</var><span class="roman">]</span><code> ...</code><dd>The <span class="sc">gdb</span> ARM simulator accepts the following optional arguments.
 
           <dl>
-<dt><code>--swi-support=</code><var>type</var><dd>Tell the simulator which SWI interfaces to support.
-<var>type</var> may be a comma separated list of the following values.
+<dt><code>--swi-support=</code><var>type</var><dd>Tell the simulator which SWI interfaces to support. 
+<var>type</var> may be a comma separated list of the following values. 
 The default value is <code>all</code>.
 
                <dl>
@@ -151,3 +151,4 @@ The default value is <code>all</code>.
      </dl>
 
    </body></html>
+

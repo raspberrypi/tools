@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,7 +66,7 @@ their subranges.
 
      <li><em>Set types</em> consist of <code>SET</code> and <code>BITSET</code> types.
 
-     <li><em>Boolean types</em> consist of <code>BOOLEAN</code>.
+     <li><em>Boolean types</em> consist of <code>BOOLEAN</code>. 
 </ul>
 
 <p class="noindent">The following operators are supported, and appear in order of
@@ -85,12 +85,12 @@ types.
 on integral, floating-point and enumerated types, or set inclusion on
 set types.  Same precedence as <code>&lt;</code>.
 
-     <br><dt><code>=</code><span class="roman">, </span><code>&lt;&gt;</code><span class="roman">, </span><code>#</code><dd>Equality and two ways of expressing inequality, valid on scalar types.
+     <br><dt><code>=</code><span class="roman">, </span><code>&lt;&gt;</code><span class="roman">, </span><code>#</code><dd>Equality and two ways of expressing inequality, valid on scalar types. 
 Same precedence as <code>&lt;</code>.  In <span class="sc">gdb</span> scripts, only <code>&lt;&gt;</code> is
 available for inequality, since <code>#</code> conflicts with the script
 comment character.
 
-     <br><dt><code>IN</code><dd>Set membership.  Defined on set types and the types of their members.
+     <br><dt><code>IN</code><dd>Set membership.  Defined on set types and the types of their members. 
 Same precedence as <code>&lt;</code>.
 
      <br><dt><code>OR</code><dd>Boolean disjunction.  Defined on boolean types.
@@ -126,14 +126,15 @@ precedence as <code>^</code>.
      <br><dt><code>()</code><dd>Procedure argument list.  Defined on <code>PROCEDURE</code> objects.  Same precedence
 as <code>^</code>.
 
-     <br><dt><code>::</code><span class="roman">, </span><code>.</code><dd><span class="sc">gdb</span> and Modula-2 scope operators.
+     <br><dt><code>::</code><span class="roman">, </span><code>.</code><dd><span class="sc">gdb</span> and Modula-2 scope operators. 
 </dl>
 
    <blockquote>
 <em>Warning:</em> Set expressions and their operations are not yet supported, so <span class="sc">gdb</span>
 treats the use of the operator <code>IN</code>, or the use of operators
 <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>=</code>, , <code>&lt;&gt;</code>, <code>#</code>,
-<code>&lt;=</code>, and <code>&gt;=</code> on sets as an error.
+<code>&lt;=</code>, and <code>&gt;=</code> on sets as an error. 
 </blockquote>
 
    </body></html>
+

@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,7 +55,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Traditional-Mode.html#Traditional-Mode"
 <h3 class="section">10.4 Traditional warnings</h3>
 
 <p>You can request warnings about features that did not exist, or worked
-differently, in traditional C with the <samp><span class="option">-Wtraditional</span></samp> option.
+differently, in traditional C with the <samp><span class="option">-Wtraditional</span></samp> option. 
 GCC does not warn about features of ISO C which you must use when you
 are using a conforming compiler, such as the &lsquo;<samp><span class="samp">#</span></samp>&rsquo; and &lsquo;<samp><span class="samp">##</span></samp>&rsquo;
 operators.
@@ -63,11 +63,11 @@ operators.
    <p>Presently <samp><span class="option">-Wtraditional</span></samp> warns about:
 
      <ul>
-<li>Macro parameters that appear within string literals in the macro body.
+<li>Macro parameters that appear within string literals in the macro body. 
 In traditional C macro replacement takes place within string literals,
 but does not in ISO C.
 
-     <li>In traditional C, some preprocessor directives did not exist.
+     <li>In traditional C, some preprocessor directives did not exist. 
 Traditional preprocessors would only consider a line to be a directive
 if the &lsquo;<samp><span class="samp">#</span></samp>&rsquo; appeared in column 1 on the line.  Therefore
 <samp><span class="option">-Wtraditional</span></samp> warns about directives that traditional C
@@ -93,7 +93,8 @@ you will not be warned if you use <code>UINT_MAX</code>.
      <p>You can usually avoid the warning, and the related warning about
 constants which are so large that they are unsigned, by writing the
 integer constant in question in hexadecimal, with no U suffix.  Take
-care, though, because this gives the wrong result in exotic cases.
+care, though, because this gives the wrong result in exotic cases. 
 </ul>
 
    </body></html>
+

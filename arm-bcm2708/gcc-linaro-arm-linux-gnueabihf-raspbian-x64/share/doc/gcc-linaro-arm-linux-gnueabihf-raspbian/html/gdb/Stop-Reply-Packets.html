@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -92,7 +92,7 @@ signal.  At most one stop reason should be present.
 
           <li>Otherwise, <span class="sc">gdb</span> should ignore this &lsquo;<samp><var>n</var><span class="samp">:</span><var>r</var></samp>&rsquo; pair
 and go on to the next; this allows us to extend the protocol in the
-future.
+future. 
 </ul>
 
      <p>The currently defined stop reasons are:
@@ -101,7 +101,7 @@ future.
 <dt>&lsquo;<samp><span class="samp">watch</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">rwatch</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">awatch</span></samp>&rsquo;<dd>The packet indicates a watchpoint hit, and <var>r</var> is the data address, in
 hex.
 
-          <p><a name="index-shared-library-events_002c-remote-reply-2700"></a><br><dt>&lsquo;<samp><span class="samp">library</span></samp>&rsquo;<dd>The packet indicates that the loaded libraries have changed.
+          <p><a name="index-shared-library-events_002c-remote-reply-2700"></a><br><dt>&lsquo;<samp><span class="samp">library</span></samp>&rsquo;<dd>The packet indicates that the loaded libraries have changed. 
 <span class="sc">gdb</span> should use &lsquo;<samp><span class="samp">qXfer:libraries:read</span></samp>&rsquo; to fetch a new
 list of loaded libraries.  <var>r</var> is ignored.
 
@@ -109,7 +109,7 @@ list of loaded libraries.  <var>r</var> is ignored.
 logged execution events, because it has reached the end (or the
 beginning when executing backward) of the log.  The value of <var>r</var>
 will be either &lsquo;<samp><span class="samp">begin</span></samp>&rsquo; or &lsquo;<samp><span class="samp">end</span></samp>&rsquo;.  See <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a>,
-for more information.
+for more information. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">W </span><var>AA</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">W </span><var>AA</var><span class="samp"> ; process:</span><var>pid</var></samp>&rsquo;<dd>The process exited, and <var>AA</var> is the exit status.  This is only
@@ -117,7 +117,7 @@ applicable to certain targets.
 
      <p>The second form of the response, including the process ID of the exited
 process, can be used only when <span class="sc">gdb</span> has reported support for
-multiprocess protocol extensions; see <a href="multiprocess-extensions.html#multiprocess-extensions">multiprocess extensions</a>.
+multiprocess protocol extensions; see <a href="multiprocess-extensions.html#multiprocess-extensions">multiprocess extensions</a>. 
 The <var>pid</var> is formatted as a big-endian hex string.
 
      <br><dt>&lsquo;<samp><span class="samp">X </span><var>AA</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">X </span><var>AA</var><span class="samp"> ; process:</span><var>pid</var></samp>&rsquo;<dd>The process terminated with signal <var>AA</var>.
@@ -133,7 +133,7 @@ for &lsquo;<samp><span class="samp">W</span></samp>&rsquo;, &lsquo;<samp><span c
 
      <br><dt>&lsquo;<samp><span class="samp">F </span><var>call-id</var><span class="samp">,</span><var>parameter</var><span class="samp">...</span></samp>&rsquo;<dd><var>call-id</var> is the identifier which says which host system call should
 be called.  This is just the name of the function.  Translation into the
-correct system call is only applicable as it's defined in <span class="sc">gdb</span>.
+correct system call is only applicable as it's defined in <span class="sc">gdb</span>. 
 See <a href="File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension">File-I/O Remote Protocol Extension</a>, for a list of implemented
 system calls.
 
@@ -149,3 +149,4 @@ or &lsquo;<samp><span class="samp">s</span></samp>&rsquo; action is expected to 
    </dl>
 
    </body></html>
+

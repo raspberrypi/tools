@@ -1,8 +1,8 @@
 /*
- *	Linux INET6 implementation
+ *	Linux INET6 implementation 
  *
  *	Authors:
- *	Pedro Roque		<roque@di.fc.ul.pt>
+ *	Pedro Roque		<roque@di.fc.ul.pt>	
  *
  *	This program is free software; you can redistribute it and/or
  *      modify it under the terms of the GNU General Public License

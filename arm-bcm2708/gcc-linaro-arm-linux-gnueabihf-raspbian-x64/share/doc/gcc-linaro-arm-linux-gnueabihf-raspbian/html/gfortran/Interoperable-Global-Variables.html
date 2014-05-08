@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,10 +70,11 @@ the <code>allocatable</code> attribute.
    <p>Here, <code>_MyProject_flags</code> is the case-sensitive name of the variable
 as seen from C programs while <code>global_flag</code> is the case-insensitive
 name as seen from Fortran.  If no binding name is specified, as for
-<var>tp</var>, the C binding name is the (lowercase) Fortran binding name.
+<var>tp</var>, the C binding name is the (lowercase) Fortran binding name. 
 If a binding name is specified, only a single variable may be after the
 double colon.  Note of warning: You cannot use a global variable to
 access <var>errno</var> of the C library as the C standard allows it to be
 a macro.  Use the <code>IERRNO</code> intrinsic (GNU extension) instead.
 
    </body></html>
+

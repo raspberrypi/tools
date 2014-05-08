@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,12 +67,12 @@ ordinarily parse a typical file name, like <samp><span class="file">foo.c</span>
 </pre>
    <p class="noindent">looks up the value of <code>x</code> in the scope of the file <samp><span class="file">foo.c</span></samp>.
 
-
+     
 <a name="index-case_002dinsensitive-symbol-names-972"></a>
 <a name="index-case-sensitivity-in-symbol-names-973"></a>
 <a name="index-set-case_002dsensitive-974"></a>
 <dl><dt><code>set case-sensitive on</code><dt><code>set case-sensitive off</code><dt><code>set case-sensitive auto</code><dd>Normally, when <span class="sc">gdb</span> looks up symbols, it matches their names
-with case sensitivity determined by the current source language.
+with case sensitivity determined by the current source language. 
 Occasionally, you may wish to control that.  The command <code>set
 case-sensitive</code> lets you do that by specifying <code>on</code> for
 case-sensitive matches or <code>off</code> for case-insensitive ones.  If
@@ -100,7 +100,7 @@ defined in that class.  You can control this behavior either by
 passing the appropriate flag to <code>ptype</code>, or using <samp><span class="command">set
 print type typedefs</span></samp>.  Specifying <code>on</code> will cause <span class="sc">gdb</span> to
 display the typedef definitions; this is the default.  Specifying
-<code>off</code> will cause <span class="sc">gdb</span> to omit the typedef definitions.
+<code>off</code> will cause <span class="sc">gdb</span> to omit the typedef definitions. 
 Note that this controls whether the typedef definition itself is
 printed, not whether typedef names are substituted when printing other
 types.
@@ -117,7 +117,7 @@ is always stored.
 at all for a register variable, and for a stack local variable prints
 the exact address of the current instantiation of the variable.
 
-     <p><a name="index-info-symbol-982"></a><a name="index-symbol-from-address-983"></a><a name="index-closest-symbol-and-offset-for-an-address-984"></a><br><dt><code>info symbol </code><var>addr</var><dd>Print the name of a symbol which is stored at the address <var>addr</var>.
+     <p><a name="index-info-symbol-982"></a><a name="index-symbol-from-address-983"></a><a name="index-closest-symbol-and-offset-for-an-address-984"></a><br><dt><code>info symbol </code><var>addr</var><dd>Print the name of a symbol which is stored at the address <var>addr</var>. 
 If no symbol is stored exactly at <var>addr</var>, <span class="sc">gdb</span> prints the
 nearest symbol and an offset from it:
 
@@ -154,7 +154,7 @@ name (a.k.a. its <dfn>tag</dfn>).  If you want to see the members of
 such a compound data type, use <code>ptype</code>.
 
      <p>If <var>arg</var> is a type name that was defined using <code>typedef</code>,
-<code>whatis</code> <dfn>unrolls</dfn> only one level of that <code>typedef</code>.
+<code>whatis</code> <dfn>unrolls</dfn> only one level of that <code>typedef</code>. 
 Unrolling means that <code>whatis</code> will show the underlying type used
 in the <code>typedef</code> declaration of <var>arg</var>.  However, if that
 underlying type is also a <code>typedef</code>, <code>whatis</code> will not
@@ -164,7 +164,7 @@ unroll it.
 </span><var>class-name</var></samp>&rsquo;, &lsquo;<samp><span class="samp">struct </span><var>struct-tag</var></samp>&rsquo;, &lsquo;<samp><span class="samp">union
 </span><var>union-tag</var></samp>&rsquo; or &lsquo;<samp><span class="samp">enum </span><var>enum-tag</var></samp>&rsquo;.
 
-     <p><var>flags</var> can be used to modify how the type is displayed.
+     <p><var>flags</var> can be used to modify how the type is displayed. 
 Available flags are:
 
           <dl>
@@ -182,11 +182,11 @@ whether the typedef definition itself is printed, not whether typedef
 names are substituted when printing other types.
 
           <br><dt><code>T</code><dd>Print typedefs defined in the class.  This is the default, but the flag
-exists in case you change the default with <samp><span class="command">set print type typedefs</span></samp>.
+exists in case you change the default with <samp><span class="command">set print type typedefs</span></samp>. 
 </dl>
 
      <p><a name="index-ptype-986"></a><br><dt><code>ptype[/</code><var>flags</var><code>] [</code><var>arg</var><code>]</code><dd><code>ptype</code> accepts the same arguments as <code>whatis</code>, but prints a
-detailed description of the type, instead of just the name of the type.
+detailed description of the type, instead of just the name of the type. 
 See <a href="Expressions.html#Expressions">Expressions</a>.
 
      <p>Contrary to <code>whatis</code>, <code>ptype</code> always unrolls any
@@ -300,7 +300,7 @@ the function containing the current point of execution:
 <li>whether the executable includes debugging information for that file, and
 if so, what format the information is in (e.g., STABS, Dwarf 2, etc.), and
 <li>whether the debugging information includes information about
-preprocessor macros.
+preprocessor macros. 
 </ul>
 
      <p><a name="index-info-sources-995"></a><br><dt><code>info sources</code><dd>Print the names of all source files in your program for which there is
@@ -310,11 +310,11 @@ have already been read, and files whose symbols will be read when needed.
      <p><a name="index-info-functions-996"></a><br><dt><code>info functions</code><dd>Print the names and data types of all defined functions.
 
      <br><dt><code>info functions </code><var>regexp</var><dd>Print the names and data types of all defined functions
-whose names contain a match for regular expression <var>regexp</var>.
+whose names contain a match for regular expression <var>regexp</var>. 
 Thus, &lsquo;<samp><span class="samp">info fun step</span></samp>&rsquo; finds all functions whose names
 include <code>step</code>; &lsquo;<samp><span class="samp">info fun ^step</span></samp>&rsquo; finds those whose names
 start with <code>step</code>.  If a function name contains characters
-that conflict with the regular expression language (e.g.
+that conflict with the regular expression language (e.g. 
 &lsquo;<samp><span class="samp">operator*()</span></samp>&rsquo;), they may be quoted with a backslash.
 
      <p><a name="index-info-variables-997"></a><br><dt><code>info variables</code><dd>Print the names and data types of all variables that are defined
@@ -347,7 +347,7 @@ is printed as follows:
 </pre>
      <p><a name="index-show-opaque_002dtype_002dresolution-1003"></a><br><dt><code>show opaque-type-resolution</code><dd>Show whether opaque types are resolved or not.
 
-     <p><a name="index-maint-print-symbols-1004"></a><a name="index-symbol-dump-1005"></a><a name="index-maint-print-psymbols-1006"></a><a name="index-partial-symbol-dump-1007"></a><br><dt><code>maint print symbols </code><var>filename</var><dt><code>maint print psymbols </code><var>filename</var><dt><code>maint print msymbols </code><var>filename</var><dd>Write a dump of debugging symbol data into the file <var>filename</var>.
+     <p><a name="index-maint-print-symbols-1004"></a><a name="index-symbol-dump-1005"></a><a name="index-maint-print-psymbols-1006"></a><a name="index-partial-symbol-dump-1007"></a><br><dt><code>maint print symbols </code><var>filename</var><dt><code>maint print psymbols </code><var>filename</var><dt><code>maint print msymbols </code><var>filename</var><dd>Write a dump of debugging symbol data into the file <var>filename</var>. 
 These commands are used to debug the <span class="sc">gdb</span> symbol-reading code.  Only
 symbols with debugging data are included.  If you use &lsquo;<samp><span class="samp">maint print
 symbols</span></samp>&rsquo;, <span class="sc">gdb</span> includes all the symbols for which it has already
@@ -358,7 +358,7 @@ use &lsquo;<samp><span class="samp">maint print psymbols</span></samp>&rsquo; in
 symbols that <span class="sc">gdb</span> only knows partially&mdash;that is, symbols defined in
 files that <span class="sc">gdb</span> has skimmed, but not yet read completely.  Finally,
 &lsquo;<samp><span class="samp">maint print msymbols</span></samp>&rsquo; dumps just the minimal symbol information
-required for each object file from which <span class="sc">gdb</span> has read some symbols.
+required for each object file from which <span class="sc">gdb</span> has read some symbols. 
 See <a href="Files.html#Files">Commands to Specify Files</a>, for a discussion of how
 <span class="sc">gdb</span> reads symbols (in the description of <code>symbol-file</code>).
 
@@ -387,7 +387,7 @@ structure in more detail.  For example:
 </pre>
      <p class="noindent">We see that there is one partial symbol table whose filename contains
 the string &lsquo;<samp><span class="samp">dwarf2read</span></samp>&rsquo;, belonging to the &lsquo;<samp><span class="samp">gdb</span></samp>&rsquo; executable;
-and we see that <span class="sc">gdb</span> has not read in any symtabs yet at all.
+and we see that <span class="sc">gdb</span> has not read in any symtabs yet at all. 
 If we set a breakpoint on a function, that will cause <span class="sc">gdb</span> to
 read the symtab for the compilation unit containing that function:
 
@@ -411,3 +411,4 @@ read the symtab for the compilation unit containing that function:
      </dl>
 
    </body></html>
+

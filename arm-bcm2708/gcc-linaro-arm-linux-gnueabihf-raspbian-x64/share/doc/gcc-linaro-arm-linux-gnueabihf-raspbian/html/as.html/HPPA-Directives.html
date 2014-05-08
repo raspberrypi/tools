@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -113,7 +113,7 @@ indicates one of four one-word arguments); &lsquo;<samp><span class="samp">rtnva
 result); or &lsquo;<samp><span class="samp">priv_lev</span></samp>&rsquo; (privilege level).  For arguments or the result,
 <var>r</var> specifies how to relocate, and must be one of &lsquo;<samp><span class="samp">no</span></samp>&rsquo; (not
 relocatable), &lsquo;<samp><span class="samp">gr</span></samp>&rsquo; (argument is in general register), &lsquo;<samp><span class="samp">fr</span></samp>&rsquo; (in
-floating point register), or &lsquo;<samp><span class="samp">fu</span></samp>&rsquo; (upper half of float register).
+floating point register), or &lsquo;<samp><span class="samp">fu</span></samp>&rsquo; (upper half of float register). 
 For &lsquo;<samp><span class="samp">priv_lev</span></samp>&rsquo;, <var>r</var> is an integer.
 
      <br><dt><code>.half </code><var>n</var><dd>Define a two-byte integer constant <var>n</var>; synonym for the portable
@@ -158,7 +158,7 @@ Allocate four bytes of storage, and initialize them with the section number of
 the section named <var>secnam</var>.  (You can define the section number with the
 HPPA <code>.space</code> directive.)
 
-     <p><a name="index-g_t_0040code_007bstring_007d-directive-on-HPPA-894"></a><br><dt><code>.string "</code><var>str</var><code>"</code><dd>Copy the characters in the string <var>str</var> to the object file.
+     <p><a name="index-g_t_0040code_007bstring_007d-directive-on-HPPA-894"></a><br><dt><code>.string "</code><var>str</var><code>"</code><dd>Copy the characters in the string <var>str</var> to the object file. 
 See <a href="Strings.html#Strings">Strings</a>, for information on escape sequences you can use in
 <code>as</code> strings.
 
@@ -205,11 +205,11 @@ flag in shared links.  Referencing a &lsquo;<samp><span class="samp">is_common</
 library from outside the library doesn't work.  Thus, &lsquo;<samp><span class="samp">is_common</span></samp>&rsquo;
 symbols must be output whenever they are needed.
 
-     <p>&lsquo;<samp><span class="samp">common</span></samp>&rsquo; and &lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo; together provide Cobol common support.
+     <p>&lsquo;<samp><span class="samp">common</span></samp>&rsquo; and &lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo; together provide Cobol common support. 
 The subspaces in this case must all be the same length.  Otherwise, this
 support is similar to the Fortran common support.
 
-     <p>&lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo; by itself provides a type of one-only support for code.
+     <p>&lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo; by itself provides a type of one-only support for code. 
 Only the first &lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo; subspace is selected.  There is a rather
 complex algorithm to compare subspaces.  Code symbols marked with the
 &lsquo;<samp><span class="samp">dup_common</span></samp>&rsquo; flag are hidden.  This support was intended for "C++
@@ -224,7 +224,8 @@ directives to mark these symbols.  The HP assembler sets &lsquo;<samp><span clas
 from &lsquo;<samp><span class="samp">common</span></samp>&rsquo;.  However, it doesn't set the &lsquo;<samp><span class="samp">dup_common</span></samp>&rsquo; from
 &lsquo;<samp><span class="samp">dup_comm</span></samp>&rsquo;.  It doesn't have &lsquo;<samp><span class="samp">comdat</span></samp>&rsquo; support.
 
-     <br><dt><code>.version "</code><var>str</var><code>"</code><dd>Write <var>str</var> as version identifier in object code.
+     <br><dt><code>.version "</code><var>str</var><code>"</code><dd>Write <var>str</var> as version identifier in object code. 
 </dl>
 
    </body></html>
+

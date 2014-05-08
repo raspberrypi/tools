@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,12 +70,12 @@ only one form can be used in any given program unit.
      <br><dt><em>Class</em>:<dd>Subroutine, function
 
      <br><dt><em>Syntax</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="80%"><code>CALL CTIME(TIME, RESULT)</code>.
+     <p><table summary=""><tr align="left"><td valign="top" width="80%"><code>CALL CTIME(TIME, RESULT)</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="80%"><code>RESULT = CTIME(TIME)</code>.
      <br></td></tr></table>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>TIME</var>    </td><td valign="top" width="70%">The type shall be of type <code>INTEGER</code>.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>TIME</var>    </td><td valign="top" width="70%">The type shall be of type <code>INTEGER</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>RESULT</var>  </td><td valign="top" width="70%">The type shall be of type <code>CHARACTER</code> and
 of default kind. It is an <code>INTENT(OUT)</code> argument. If the length
 of this variable is too short for the time and date string to fit
@@ -89,9 +89,9 @@ completely, it will be blank on procedure return.
               integer(8) :: i
               character(len=30) :: date
               i = time8()
-
+          
               ! Do something, main part of the program
-
+          
               call ctime(i,date)
               print *, 'Program was started on ', date
           end program test_ctime
@@ -100,3 +100,4 @@ completely, it will be blank on procedure return.
 </dl>
 
    </body></html>
+

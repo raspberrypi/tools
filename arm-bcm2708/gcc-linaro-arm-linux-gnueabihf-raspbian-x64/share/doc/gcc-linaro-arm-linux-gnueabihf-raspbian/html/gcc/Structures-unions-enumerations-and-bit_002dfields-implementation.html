@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ by the <samp><span class="option">-funsigned-bitfields</span></samp> option.
      <li><cite>Allowable bit-field types other than </cite><code>_Bool</code><cite>, </cite><code>signed int</code><cite>,
 and </cite><code>unsigned int</code><cite> (C99 6.7.2.1).</cite>
 
-     <p>No other types are permitted in strictly conforming mode.
+     <p>No other types are permitted in strictly conforming mode. 
 <!-- Would it be better to restrict the pedwarn for other types to C90 -->
 <!-- mode and document the other types for C99 mode? -->
 
@@ -101,7 +101,7 @@ values in the enumeration, otherwise <code>int</code>.  If
 it is the first of <code>signed char</code>, <code>short</code> and <code>int</code>
 that can represent all the values, otherwise it is the first of
 <code>unsigned char</code>, <code>unsigned short</code> and <code>unsigned int</code>
-that can represent all the values.
+that can represent all the values. 
 <!-- On a few unusual targets with 64-bit int, this doesn't agree with -->
 <!-- the code and one of the types accessed via mode attributes (which -->
 <!-- are not currently considered extended integer types) may be used. -->
@@ -115,3 +115,4 @@ determined by the ABI.
 </ul>
 
  </body></html>
+

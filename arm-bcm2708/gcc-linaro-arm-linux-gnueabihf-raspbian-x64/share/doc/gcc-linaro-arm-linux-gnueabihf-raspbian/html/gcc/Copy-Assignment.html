@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,21 +65,21 @@ objects behave unspecified when being assigned.  For example:
         name = strdup (other.name);
        }
      };
-
+     
      struct A:virtual Base{
        int val;
        A():Base("A"){}
      };
-
+     
      struct B:virtual Base{
        int bval;
        B():Base("B"){}
      };
-
+     
      struct Derived:public A, public B{
        Derived():Base("Derived"){}
      };
-
+     
      void func(Derived &amp;d1, Derived &amp;d2)
      {
        d1 = d2;
@@ -103,3 +103,4 @@ operator, the application can define whether and how the virtual base
 subobject is assigned.
 
  </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 
 <p><a name="index-PowerPC-long-branches-634"></a><a name="index-g_t_002d_002drelax-on-PowerPC-635"></a>Branches on PowerPC processors are limited to a signed 26-bit
 displacement, which may result in <samp><span class="command">ld</span></samp> giving
-&lsquo;<samp><span class="samp">relocation truncated to fit</span></samp>&rsquo; errors with very large programs.
+&lsquo;<samp><span class="samp">relocation truncated to fit</span></samp>&rsquo; errors with very large programs. 
 &lsquo;<samp><span class="samp">--relax</span></samp>&rsquo; enables the generation of trampolines that can access
 the entire 32-bit address space.  These trampolines are inserted at
 section boundaries, so may not themselves be reachable if an input
@@ -59,7 +59,7 @@ both branches to undefined symbols and inter-section branches are also
 considered potentially out of range, and trampolines inserted.
 
    <p><a name="index-PowerPC-ELF32-options-636"></a>
-
+     
 <a name="index-PowerPC-PLT-637"></a>
 <a name="index-g_t_002d_002dbss_002dplt-638"></a>
 <dl><dt><samp><span class="option">--bss-plt</span></samp><dd>Current PowerPC GCC accepts a &lsquo;<samp><span class="samp">-msecure-plt</span></samp>&rsquo; option that
@@ -95,7 +95,8 @@ symbol that encodes the stub type and destination.
 
      <p><a name="index-PowerPC-TLS-optimization-644"></a><a name="index-g_t_002d_002dno_002dtls_002doptimize-645"></a><br><dt><samp><span class="option">--no-tls-optimize</span></samp><dd>PowerPC <samp><span class="command">ld</span></samp> normally performs some optimization of code
 sequences used to access Thread-Local Storage.  Use this option to
-disable the optimization.
+disable the optimization. 
 </dl>
 
    </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ instantiated as though they were members of the using namespace.
 
      <li>The using namespace is considered an associated namespace of all
 templates in the used namespace for purposes of argument-dependent
-name lookup.
+name lookup. 
 </ul>
 
  <p>The used namespace must be nested within the using namespace so that
@@ -82,10 +82,10 @@ implementation namespaces.  For example:
        }
        using namespace debug __attribute ((__strong__));
        template &lt;&gt; struct A&lt;int&gt; { };   // <span class="roman">ok to specialize</span>
-
+     
        template &lt;class T&gt; void f (A&lt;T&gt;);
      }
-
+     
      int main()
      {
        f (std::A&lt;float&gt;());             // <span class="roman">lookup finds</span> std::f
@@ -93,3 +93,4 @@ implementation namespaces.  For example:
      }
 </pre>
  </body></html>
+

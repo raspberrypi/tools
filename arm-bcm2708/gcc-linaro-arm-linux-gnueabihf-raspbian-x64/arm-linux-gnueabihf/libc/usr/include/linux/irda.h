@@ -1,23 +1,23 @@
 /*********************************************************************
- *
+ *                
  * Filename:      irda.h
- * Version:
- * Description:
+ * Version:       
+ * Description:   
  * Status:        Experimental.
  * Author:        Dag Brattli <dagb@cs.uit.no>
  * Created at:    Mon Mar  8 14:06:12 1999
  * Modified at:   Sat Dec 25 16:06:42 1999
  * Modified by:   Dag Brattli <dagb@cs.uit.no>
- *
+ * 
  *     Copyright (c) 1999 Dag Brattli, All Rights Reserved.
- *
- *     This program is free software; you can redistribute it and/or
- *     modify it under the terms of the GNU General Public License as
- *     published by the Free Software Foundation; either version 2 of
+ *      
+ *     This program is free software; you can redistribute it and/or 
+ *     modify it under the terms of the GNU General Public License as 
+ *     published by the Free Software Foundation; either version 2 of 
  *     the License, or (at your option) any later version.
- *
+ *  
  *     Neither Dag Brattli nor University of Tromsø admit liability nor
- *     provide warranty for any of this software. This material is
+ *     provide warranty for any of this software. This material is 
  *     provided "AS-IS" and at no charge.
  *
  ********************************************************************/
@@ -173,7 +173,7 @@ struct irda_ias_set {
 #define SIOCGQOS       (SIOCDEVPRIVATE + 9)
 
 /* No reason to include <linux/if.h> just because of this one ;-) */
-#define IRNAMSIZ 16
+#define IRNAMSIZ 16 
 
 /* IrDA quality of service information (must not exceed 16 bytes) */
 struct if_irda_qos {
@@ -197,7 +197,7 @@ struct if_irda_req {
 	union {
 		char ifrn_name[IRNAMSIZ];  /* if name, e.g. "irda0" */
 	} ifr_ifrn;
-
+	
 	/* Data part */
 	union {
 		struct if_irda_line ifru_line;
@@ -210,7 +210,7 @@ struct if_irda_req {
 };
 
 #define ifr_baudrate  ifr_ifru.ifru_qos.baudrate
-#define ifr_receiving ifr_ifru.ifru_receiving
+#define ifr_receiving ifr_ifru.ifru_receiving 
 #define ifr_dongle    ifr_ifru.ifru_dongle
 #define ifr_mode      ifr_ifru.ifru_mode
 #define ifr_dtr       ifr_ifru.ifru_line.dtr
@@ -245,3 +245,7 @@ enum nl80211_attrs {
 #define IRDA_MODE_MONITOR   0x4
 
 #endif /* KERNEL_IRDA_H */
+
+
+
+

@@ -294,7 +294,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
       // 300. list::merge() specification incomplete
       if (this != &__x)
 	{
-	  _M_check_equal_allocators(__x);
+	  _M_check_equal_allocators(__x); 
 
 	  iterator __first1 = begin();
 	  iterator __last1 = end();
@@ -466,3 +466,4 @@ _GLIBCXX_END_NAMESPACE_CONTAINER
 } // namespace std
 
 #endif /* _LIST_TCC */
+

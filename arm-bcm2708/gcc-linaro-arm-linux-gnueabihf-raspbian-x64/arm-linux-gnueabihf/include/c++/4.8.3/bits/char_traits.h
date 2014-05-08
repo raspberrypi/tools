@@ -77,7 +77,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *
    *  See http://gcc.gnu.org/onlinedocs/libstdc++/manual/bk01pt05ch13s03.html
    *  for advice on how to make use of this class for @a unusual character
-   *  types. Also, check out include/ext/pod_char_traits.h.
+   *  types. Also, check out include/ext/pod_char_traits.h.  
    */
   template<typename _CharT>
     struct char_traits
@@ -531,7 +531,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       static char_type*
       copy(char_type* __s1, const char_type* __s2, size_t __n)
-      {
+      { 
 	return (static_cast<char_type*>
 		(__builtin_memcpy(__s1, __s2, __n * sizeof(char_type))));
       }
@@ -568,6 +568,6 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace
 
-#endif
+#endif 
 
 #endif // _CHAR_TRAITS_H

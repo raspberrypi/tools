@@ -322,8 +322,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 						     + (__secondChild - 1)));
 	  __holeIndex = __secondChild - 1;
 	}
-      std::__push_heap(__first, __holeIndex, __topIndex,
-		       _GLIBCXX_MOVE(__value), __comp);
+      std::__push_heap(__first, __holeIndex, __topIndex, 
+		       _GLIBCXX_MOVE(__value), __comp);      
     }
 
   template<typename _RandomAccessIterator, typename _Compare>

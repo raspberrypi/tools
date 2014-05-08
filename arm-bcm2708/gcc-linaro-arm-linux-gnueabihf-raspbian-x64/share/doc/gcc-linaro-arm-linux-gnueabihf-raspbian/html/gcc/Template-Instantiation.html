@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ instances in each translation unit that uses them, and the linker
 collapses them together.  The advantage of this model is that the linker
 only has to consider the object files themselves; there is no external
 complexity to worry about.  This disadvantage is that compilation time
-is increased because the template code is being compiled repeatedly.
+is increased because the template code is being compiled repeatedly. 
 Code written for this model tends to include definitions of all
 templates in the header file, since they must be seen to be
 instantiated.
@@ -90,7 +90,7 @@ just as transparent, but in practice it can been very difficult to build
 multiple programs in one directory and one program in multiple
 directories.  Code written for this model tends to separate definitions
 of non-inline member templates into a separate file, which should be
-compiled separately.
+compiled separately. 
 </dl>
 
  <p>When used with GNU ld version 2.8 or later on an ELF system such as
@@ -120,7 +120,7 @@ one or more points of instantiation; usually this is as simple as adding
 instantiations it needs, just try to link all of its object files
 together; the link will fail, but cause the instantiations to be
 generated as a side effect.  Be warned, however, that this may cause
-conflicts if multiple libraries try to provide the same instantiations.
+conflicts if multiple libraries try to provide the same instantiations. 
 For greater control, use explicit instantiation as described in the next
 option.
 
@@ -137,7 +137,7 @@ like
 
      <pre class="smallexample">          #include "Foo.h"
           #include "Foo.cc"
-
+          
           template class Foo&lt;int&gt;;
           template ostream&amp; operator &lt;&lt;
                           (ostream&amp;, const Foo&lt;int&gt;&amp;);
@@ -175,3 +175,4 @@ duplication.
       </ol>
 
  </body></html>
+

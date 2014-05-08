@@ -1,6 +1,6 @@
 /* Configuration file for ARM BPABI targets.
    Copyright (C) 2004-2013 Free Software Foundation, Inc.
-   Contributed by CodeSourcery, LLC
+   Contributed by CodeSourcery, LLC   
 
    This file is part of GCC.
 
@@ -21,7 +21,7 @@
 /* Use the AAPCS ABI by default.  */
 #define ARM_DEFAULT_ABI ARM_ABI_AAPCS
 
-/* Assume that AAPCS ABIs should adhere to the full BPABI.  */
+/* Assume that AAPCS ABIs should adhere to the full BPABI.  */ 
 #define TARGET_BPABI (TARGET_AAPCS_BASED)
 
 /* BPABI targets use EABI frame unwinding tables.  */

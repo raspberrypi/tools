@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -111,12 +111,12 @@ pointers to functions.  Without any PIC/PIE-related options, it
 implies <samp><span class="option">-fPIE</span></samp>.  With <samp><span class="option">-fpic</span></samp> or <samp><span class="option">-fpie</span></samp>, it
 assumes GOT entries and small data are within a 12-bit range from the
 GOT base address; with <samp><span class="option">-fPIC</span></samp> or <samp><span class="option">-fPIE</span></samp>, GOT offsets
-are computed with 32 bits.
+are computed with 32 bits. 
 With a &lsquo;<samp><span class="samp">bfin-elf</span></samp>&rsquo; target, this option implies <samp><span class="option">-msim</span></samp>.
 
      <br><dt><code>-minline-plt</code><dd><a name="index-minline_002dplt-1368"></a>
 Enable inlining of PLT entries in function calls to functions that are
-not known to bind locally.  It has no effect without <samp><span class="option">-mfdpic</span></samp>.
+not known to bind locally.  It has no effect without <samp><span class="option">-mfdpic</span></samp>. 
 It's enabled by default if optimizing for speed and compiling for
 shared libraries (i.e., <samp><span class="option">-fPIC</span></samp> or <samp><span class="option">-fpic</span></samp>), or when an
 optimization option such as <samp><span class="option">-O3</span></samp> or above is present in the
@@ -132,7 +132,7 @@ Do not assume a large TLS segment when generating thread-local code.
 Enable the use of <code>GPREL</code> relocations in the FDPIC ABI for data
 that is known to be in read-only sections.  It's enabled by default,
 except for <samp><span class="option">-fpic</span></samp> or <samp><span class="option">-fpie</span></samp>: even though it may help
-make the global offset table smaller, it trades 1 instruction for 4.
+make the global offset table smaller, it trades 1 instruction for 4. 
 With <samp><span class="option">-fPIC</span></samp> or <samp><span class="option">-fPIE</span></samp>, it trades 3 instructions for 4,
 one of which may be shared by multiple symbols, and it avoids the need
 for a GOT entry for the referenced symbol, so it's more likely to be a
@@ -270,3 +270,4 @@ Select the processor type for which to generate code.  Possible values are
  </dl>
 
  </body></html>
+

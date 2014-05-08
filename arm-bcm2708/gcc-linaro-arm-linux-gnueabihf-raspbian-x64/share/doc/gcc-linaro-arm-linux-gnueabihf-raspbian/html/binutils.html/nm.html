@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
      <!-- man end -->
 </pre>
    <!-- man begin DESCRIPTION nm -->
-   <p><span class="sc">gnu</span> <samp><span class="command">nm</span></samp> lists the symbols from object files <var>objfile</var><small class="dots">...</small>.
+   <p><span class="sc">gnu</span> <samp><span class="command">nm</span></samp> lists the symbols from object files <var>objfile</var><small class="dots">...</small>. 
 If no object files are listed as arguments, <samp><span class="command">nm</span></samp> assumes the file
 <samp><span class="file">a.out</span></samp>.
 
@@ -91,7 +91,7 @@ linking.
           <br><dt><code>C</code><dd>The symbol is common.  Common symbols are uninitialized data.  When
 linking, multiple common symbols may appear with the same name.  If the
 symbol is defined anywhere, the common symbols are treated as undefined
-references.
+references. 
 For more details on common symbols, see the discussion of
 &ndash;warn-common in <a href="../ld/Options.html#Options">Linker options</a>.
 
@@ -129,14 +129,14 @@ will make sure that in the entire process there is just one symbol with
 this name and type in use.
 
           <br><dt><code>V</code><dt><code>v</code><dd>The symbol is a weak object.  When a weak defined symbol is linked with
-a normal defined symbol, the normal defined symbol is used with no error.
+a normal defined symbol, the normal defined symbol is used with no error. 
 When a weak undefined symbol is linked and the symbol is not defined,
 the value of the weak symbol becomes zero with no error.  On some
 systems, uppercase indicates that a default value has been specified.
 
           <br><dt><code>W</code><dt><code>w</code><dd>The symbol is a weak symbol that has not been specifically tagged as a
 weak object symbol.  When a weak defined symbol is linked with a normal
-defined symbol, the normal defined symbol is used with no error.
+defined symbol, the normal defined symbol is used with no error. 
 When a weak undefined symbol is linked and the symbol is not defined,
 the value of the symbol is determined in a system-specific manner without
 error.  On some systems, uppercase indicates that a default value has been
@@ -146,10 +146,10 @@ specified.
 next values printed are the stabs other field, the stabs desc field, and
 the stab type.  Stabs symbols are used to hold debugging information.
 
-          <br><dt><code>?</code><dd>The symbol type is unknown, or object file format specific.
+          <br><dt><code>?</code><dd>The symbol type is unknown, or object file format specific. 
 </dl>
 
-     <li>The symbol name.
+     <li>The symbol name. 
 </ul>
 
 <!-- man end -->
@@ -167,7 +167,7 @@ listed.
 
      <br><dt><samp><span class="env">-B</span></samp><dd><a name="index-g_t_0040command_007bnm_007d-format-42"></a><a name="index-g_t_0040command_007bnm_007d-compatibility-43"></a>The same as <samp><span class="option">--format=bsd</span></samp> (for compatibility with the MIPS <samp><span class="command">nm</span></samp>).
 
-     <br><dt><samp><span class="env">-C</span></samp><dt><samp><span class="env">--demangle[=</span><var>style</var><span class="env">]</span></samp><dd><a name="index-demangling-in-nm-44"></a>Decode (<dfn>demangle</dfn>) low-level symbol names into user-level names.
+     <br><dt><samp><span class="env">-C</span></samp><dt><samp><span class="env">--demangle[=</span><var>style</var><span class="env">]</span></samp><dd><a name="index-demangling-in-nm-44"></a>Decode (<dfn>demangle</dfn>) low-level symbol names into user-level names. 
 Besides removing any initial underscore prepended by the system, this
 makes C++ function names readable. Different compilers have different
 mangling styles. The optional demangling style argument can be used to
@@ -181,7 +181,7 @@ only meaningful for dynamic objects, such as certain types of shared
 libraries.
 
      <br><dt><samp><span class="env">-f </span><var>format</var></samp><dt><samp><span class="env">--format=</span><var>format</var></samp><dd><a name="index-g_t_0040command_007bnm_007d-format-46"></a><a name="index-g_t_0040command_007bnm_007d-compatibility-47"></a>Use the output format <var>format</var>, which can be <code>bsd</code>,
-<code>sysv</code>, or <code>posix</code>.  The default is <code>bsd</code>.
+<code>sysv</code>, or <code>posix</code>.  The default is <code>bsd</code>. 
 Only the first character of <var>format</var> is significant; it can be
 either upper or lower case.
 
@@ -201,13 +201,13 @@ by their names.
      <br><dt><samp><span class="env">-p</span></samp><dt><samp><span class="env">--no-sort</span></samp><dd><a name="index-sorting-symbols-50"></a>Do not bother to sort the symbols in any order; print them in the order
 encountered.
 
-     <br><dt><samp><span class="env">-P</span></samp><dt><samp><span class="env">--portability</span></samp><dd>Use the POSIX.2 standard output format instead of the default format.
+     <br><dt><samp><span class="env">-P</span></samp><dt><samp><span class="env">--portability</span></samp><dd>Use the POSIX.2 standard output format instead of the default format. 
 Equivalent to &lsquo;<samp><span class="samp">-f posix</span></samp>&rsquo;.
 
      <br><dt><samp><span class="env">-r</span></samp><dt><samp><span class="env">--reverse-sort</span></samp><dd>Reverse the order of the sort (whether numeric or alphabetic); let the
 last come first.
 
-     <br><dt><samp><span class="env">-S</span></samp><dt><samp><span class="env">--print-size</span></samp><dd>Print both value and size of defined symbols for the <code>bsd</code> output style.
+     <br><dt><samp><span class="env">-S</span></samp><dt><samp><span class="env">--print-size</span></samp><dd>Print both value and size of defined symbols for the <code>bsd</code> output style. 
 This option has no effect for object formats that do not record symbol
 sizes, unless &lsquo;<samp><span class="samp">--size-sort</span></samp>&rsquo; is also used in which case a
 calculated size is displayed.
@@ -242,7 +242,7 @@ both size and value to be printed.
 
      <br><dt><samp><span class="env">--special-syms</span></samp><dd>Display symbols which have a target-specific special meaning.  These
 symbols are usually used by the target for some special processing and
-are not normally helpful when included in the normal symbol lists.
+are not normally helpful when included in the normal symbol lists. 
 For example for ARM targets this option would skip the mapping symbols
 used to mark transitions between ARM code, THUMB code and data.
 
@@ -250,10 +250,11 @@ used to mark transitions between ARM code, THUMB code and data.
 created by the linker for various purposes.  They are not shown by
 default since they are not part of the binary's original source code.
 
-     <br><dt><samp><span class="env">--target=</span><var>bfdname</var></samp><dd><a name="index-object-code-format-57"></a>Specify an object code format other than your system's default format.
+     <br><dt><samp><span class="env">--target=</span><var>bfdname</var></samp><dd><a name="index-object-code-format-57"></a>Specify an object code format other than your system's default format. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
    </dl>
 
 <!-- man end -->
    </body></html>
+

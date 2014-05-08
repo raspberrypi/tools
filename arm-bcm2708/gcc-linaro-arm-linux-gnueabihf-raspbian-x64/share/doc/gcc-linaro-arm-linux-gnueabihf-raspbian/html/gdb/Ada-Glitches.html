@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -75,7 +75,7 @@ local variables whose simple names match names in <code>Standard</code>,
 GNAT's lack of qualification here can cause confusion.  When this happens,
 you can usually resolve the confusion
 by qualifying the problematic names with package
-<code>Standard</code> explicitly.
+<code>Standard</code> explicitly. 
 </ul>
 
    <p>Older versions of the compiler sometimes generate erroneous debugging
@@ -90,7 +90,7 @@ enabled.
 <dt><code>set ada trust-PAD-over-XVS on</code><dd>Configure GDB to strictly follow the GNAT encoding when computing the
 value of Ada entities, particularly when <code>PAD</code> and <code>PAD___XVS</code>
 types are involved (see <code>ada/exp_dbug.ads</code> in the GCC sources for
-a complete description of the encoding used by the GNAT compiler).
+a complete description of the encoding used by the GNAT compiler). 
 This is the default.
 
      <br><dt><code>set ada trust-PAD-over-XVS off</code><dd>This is related to the encoding using by the GNAT compiler.  If <span class="sc">gdb</span>
@@ -103,3 +103,4 @@ recommended to leave this setting to <code>on</code> unless necessary.
    </dl>
 
    </body></html>
+

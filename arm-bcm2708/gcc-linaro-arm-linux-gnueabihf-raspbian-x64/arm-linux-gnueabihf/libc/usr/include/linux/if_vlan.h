@@ -57,7 +57,7 @@ struct vlan_ioctl_args {
 		unsigned int flag; /* Matches vlan_dev_info flags */
         } u;
 
-	short vlan_qos;
+	short vlan_qos;   
 };
 
 #endif /* !(_LINUX_IF_VLAN_H_) */

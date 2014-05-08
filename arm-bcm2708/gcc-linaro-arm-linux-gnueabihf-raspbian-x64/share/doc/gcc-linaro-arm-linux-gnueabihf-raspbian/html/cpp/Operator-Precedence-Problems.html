@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -100,9 +100,10 @@ means something very different.  Here is what it expands to:
 precedence rules have put the division outside the <code>sizeof</code> when it
 was intended to be inside.
 
-   <p>Parentheses around the entire macro definition prevent such problems.
+   <p>Parentheses around the entire macro definition prevent such problems. 
 Here, then, is the recommended way to define <code>ceil_div</code>:
 
 <pre class="smallexample">     #define ceil_div(x, y) (((x) + (y) - 1) / (y))
 </pre>
    </body></html>
+

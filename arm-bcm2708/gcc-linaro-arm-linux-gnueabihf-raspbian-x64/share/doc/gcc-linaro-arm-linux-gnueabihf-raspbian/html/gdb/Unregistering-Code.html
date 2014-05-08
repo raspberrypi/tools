@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,10 +55,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="JIT-Interface.html#JIT-Interface">JIT I
      <li>Point the <code>relevant_entry</code> field of the descriptor at the code entry.
 
      <li>Set <code>action_flag</code> to <code>JIT_UNREGISTER</code> and call
-<code>__jit_debug_register_code</code>.
+<code>__jit_debug_register_code</code>. 
 </ul>
 
    <p>If the JIT frees or recompiles code without unregistering it, then <span class="sc">gdb</span>
 and the JIT will leak the memory used for the associated symbol files.
 
    </body></html>
+

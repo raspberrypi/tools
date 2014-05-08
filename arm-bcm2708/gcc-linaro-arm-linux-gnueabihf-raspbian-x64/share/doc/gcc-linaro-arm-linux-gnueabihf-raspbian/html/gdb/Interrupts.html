@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ and does <em>not</em> represent an interrupt.  E.g., an &lsquo;<samp><span class
 (see <a href="X-packet.html#X-packet">X packet</a>), used for binary downloads, may include an unescaped
 <code>0x03</code> as part of its packet.
 
-   <p><code>BREAK</code> followed by <code>g</code> is also known as Magic SysRq g.
+   <p><code>BREAK</code> followed by <code>g</code> is also known as Magic SysRq g. 
 When Linux kernel receives this sequence from serial port,
 it stops execution and connects to gdb.
 
@@ -76,13 +76,14 @@ it stops execution and connects to gdb.
 precise meaning associated with receipt of the interrupt is
 implementation defined.  If the target supports debugging of multiple
 threads and/or processes, it should attempt to interrupt all
-currently-executing threads and processes.
+currently-executing threads and processes. 
 If the stub is successful at interrupting the
 running program, it should send one of the stop
 reply packets (see <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>) to <span class="sc">gdb</span> as a result
 of successfully stopping the program in all-stop mode, and a stop reply
-for each stopped thread in non-stop mode.
+for each stopped thread in non-stop mode. 
 Interrupts received while the
 program is stopped are discarded.
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -45,13 +45,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Altering.html#Altering">Altering</a>
 
 <h3 class="section">17.1 Assignment to Variables</h3>
 
-<p><a name="index-assignment-1014"></a><a name="index-setting-variables-1015"></a>To alter the value of a variable, evaluate an assignment expression.
+<p><a name="index-assignment-1014"></a><a name="index-setting-variables-1015"></a>To alter the value of a variable, evaluate an assignment expression. 
 See <a href="Expressions.html#Expressions">Expressions</a>.  For example,
 
 <pre class="smallexample">     print x=4
 </pre>
    <p class="noindent">stores the value 4 into the variable <code>x</code>, and then prints the
-value of the assignment expression (which is 4).
+value of the assignment expression (which is 4). 
 See <a href="Languages.html#Languages">Using <span class="sc">gdb</span> with Different Languages</a>, for more
 information on operators in supported languages.
 
@@ -112,7 +112,7 @@ the command <code>set gnutarget</code>, abbreviated <code>set g</code>:
    <p><span class="sc">gdb</span> allows more implicit conversions in assignments than C; you can
 freely store an integer value into a pointer variable or vice versa,
 and you can convert any structure to any other structure that is the
-same length or shorter.
+same length or shorter. 
 <!-- FIXME: how do structs align/pad in these conversions? -->
 <!-- /doc@cygnus.com 18dec1990 -->
 
@@ -127,3 +127,4 @@ and representation in memory), and
    <p class="noindent">stores the value 4 into that memory location.
 
    </body></html>
+

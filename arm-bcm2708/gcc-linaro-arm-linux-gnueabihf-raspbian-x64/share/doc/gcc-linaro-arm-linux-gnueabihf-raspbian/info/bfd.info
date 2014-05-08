@@ -225,7 +225,7 @@ least overlap between the information provided by the source format,
 that stored by the canonical format, and that needed by the destination
 format. A brief description of the canonical form may help you
 understand which kinds of data you can count on preserving across
-conversions.
+conversions.  
 
 _files_
      Information stored on a per-file basis includes target machine
@@ -632,7 +632,7 @@ type `bfd_error_type'.
        bfd_error_invalid_error_code
      }
      bfd_error_type;
-
+   
 2.2.1.1 `bfd_get_error'
 .......................
 
@@ -683,7 +683,7 @@ the program.
 
 
      typedef void (*bfd_error_handler_type) (const char *, ...);
-
+   
 2.2.2.1 `bfd_set_error_handler'
 ...............................
 
@@ -725,7 +725,7 @@ _bfd_error_handler and continues.
                                               const char *bfd_version,
                                               const char *bfd_file,
                                               int bfd_line);
-
+   
 2.2.3.1 `bfd_set_assert_handler'
 ................................
 
@@ -2656,7 +2656,7 @@ for an unknown class.
 
    *Synopsis*
      int bfd_decode_symclass (asymbol *symbol);
-
+   
 2.7.5.12 `bfd_is_undefined_symclass'
 ....................................
 
@@ -2666,7 +2666,7 @@ represents an undefined symbol.  Returns zero otherwise.
 
    *Synopsis*
      bfd_boolean bfd_is_undefined_symclass (int symclass);
-
+   
 2.7.5.13 `bfd_symbol_info'
 ..........................
 
@@ -2676,7 +2676,7 @@ be added by the back-ends after calling this function.
 
    *Synopsis*
      void bfd_symbol_info (asymbol *symbol, symbol_info *ret);
-
+   
 2.7.5.14 `bfd_copy_private_symbol_data'
 .......................................
 
@@ -3190,7 +3190,7 @@ information that libbfd needs to know to tie up a back end's data.
           empty (e.g., m88k bcs); this flag signals the fact.  */
        bfd_boolean pcrel_offset;
      };
-
+   
 2.10.1.3 `The HOWTO Macro'
 ..........................
 
@@ -6460,7 +6460,7 @@ attributes.
 
 
      typedef enum bfd_reloc_code_real bfd_reloc_code_real_type;
-
+   
 2.10.2.2 `bfd_reloc_type_lookup'
 ................................
 
@@ -9626,7 +9626,7 @@ The hidden information for an `asymbol' is described in a
        /* Have the line numbers been relocated yet ? */
        bfd_boolean done_lineno;
      } coff_symbol_type;
-
+   
 3.3.2.7 `bfd_coff_backend_data'
 ...............................
 

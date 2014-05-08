@@ -154,7 +154,7 @@ forward_join(node_pointer p_nd, node_pointer p_next)
     {
       p_next->m_p_prev_or_parent = p_nd->m_p_prev_or_parent;
       base_type::make_child_of(p_nd, p_next);
-      return p_next->m_p_next_sibling == 0
+      return p_next->m_p_next_sibling == 0 
 	? p_next : p_next->m_p_next_sibling;
     }
 
@@ -230,3 +230,4 @@ erase_if(Pred pred)
   PB_DS_ASSERT_VALID((*this))
   return ersd;
 }
+

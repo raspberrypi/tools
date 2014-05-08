@@ -69,4 +69,4 @@ assert_entry_array_valid(const entry_array a_entries, false_type,
   PB_DS_DEBUG_VERIFY(iterated_num_used_e == m_num_used_e);
 }
 
-#endif
+#endif 

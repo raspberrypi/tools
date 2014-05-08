@@ -55,3 +55,4 @@ inline typename PB_DS_CLASS_C_DEC::size_type
 PB_DS_CLASS_C_DEC::
 max_size() const
 { return s_entry_allocator.max_size(); }
+

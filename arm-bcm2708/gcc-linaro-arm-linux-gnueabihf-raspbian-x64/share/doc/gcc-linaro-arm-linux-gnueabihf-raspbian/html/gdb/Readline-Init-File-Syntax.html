@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,8 +46,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Readline-Init-File.html#Readline-Init-F
 <h4 class="subsection">32.3.1 Readline Init File Syntax</h4>
 
 <p>There are only a few basic constructs allowed in the
-Readline init file.  Blank lines are ignored.
-Lines beginning with a &lsquo;<samp><span class="samp">#</span></samp>&rsquo; are comments.
+Readline init file.  Blank lines are ignored. 
+Lines beginning with a &lsquo;<samp><span class="samp">#</span></samp>&rsquo; are comments. 
 Lines beginning with a &lsquo;<samp><span class="samp">$</span></samp>&rsquo; indicate conditional
 constructs (see <a href="Conditional-Init-Constructs.html#Conditional-Init-Constructs">Conditional Init Constructs</a>).  Other lines
 denote variable settings and key bindings.
@@ -55,7 +55,7 @@ denote variable settings and key bindings.
      <dl>
 <dt>Variable Settings<dd>You can modify the run-time behavior of Readline by
 altering the values of variables in Readline
-using the <code>set</code> command within the init file.
+using the <code>set</code> command within the init file. 
 The syntax is simple:
 
      <pre class="example">          set <var>variable</var> <var>value</var>
@@ -78,9 +78,9 @@ variables.
 
      <p><a name="index-variables_002c-readline-2446"></a>
           <dl>
-<dt><code>bell-style</code><dd><a name="index-bell_002dstyle-2447"></a>Controls what happens when Readline wants to ring the terminal bell.
+<dt><code>bell-style</code><dd><a name="index-bell_002dstyle-2447"></a>Controls what happens when Readline wants to ring the terminal bell. 
 If set to &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, Readline never rings the bell.  If set to
-&lsquo;<samp><span class="samp">visible</span></samp>&rsquo;, Readline uses a visible bell if one is available.
+&lsquo;<samp><span class="samp">visible</span></samp>&rsquo;, Readline uses a visible bell if one is available. 
 If set to &lsquo;<samp><span class="samp">audible</span></samp>&rsquo; (the default), Readline attempts to ring
 the terminal's bell.
 
@@ -93,14 +93,14 @@ equivalents.
 is <code>"#"</code>.
 
           <br><dt><code>completion-display-width</code><dd><a name="index-completion_002ddisplay_002dwidth-2450"></a>The number of screen columns used to display possible matches
-when performing completion.
+when performing completion. 
 The value is ignored if it is less than 0 or greater than the terminal
-screen width.
-A value of 0 will cause matches to be displayed one per line.
+screen width. 
+A value of 0 will cause matches to be displayed one per line. 
 The default value is -1.
 
           <br><dt><code>completion-ignore-case</code><dd><a name="index-completion_002dignore_002dcase-2451"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline performs filename matching and completion
-in a case-insensitive fashion.
+in a case-insensitive fashion. 
 The default value is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>completion-map-case</code><dd><a name="index-completion_002dmap_002dcase-2452"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, and <var>completion-ignore-case</var> is enabled, Readline
@@ -113,12 +113,12 @@ value greater than zero, common prefixes longer than this value are
 replaced with an ellipsis when displaying possible completions.
 
           <br><dt><code>completion-query-items</code><dd><a name="index-completion_002dquery_002ditems-2454"></a>The number of possible completions that determines when the user is
-asked whether the list of possibilities should be displayed.
+asked whether the list of possibilities should be displayed. 
 If the number of possible completions is greater than this value,
 Readline will ask the user whether or not he wishes to view
-them; otherwise, they are simply listed.
-This variable must be set to an integer value greater than or equal to 0.
-A negative value means Readline should never ask.
+them; otherwise, they are simply listed. 
+This variable must be set to an integer value greater than or equal to 0. 
+A negative value means Readline should never ask. 
 The default limit is <code>100</code>.
 
           <br><dt><code>convert-meta</code><dd><a name="index-convert_002dmeta-2455"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline will convert characters with the
@@ -126,7 +126,7 @@ eighth bit set to an <span class="sc">ascii</span> key sequence by stripping the
 bit and prefixing an &lt;ESC&gt; character, converting them to a
 meta-prefixed key sequence.  The default value is &lsquo;<samp><span class="samp">on</span></samp>&rsquo;.
 
-          <br><dt><code>disable-completion</code><dd><a name="index-disable_002dcompletion-2456"></a>If set to &lsquo;<samp><span class="samp">On</span></samp>&rsquo;, Readline will inhibit word completion.
+          <br><dt><code>disable-completion</code><dd><a name="index-disable_002dcompletion-2456"></a>If set to &lsquo;<samp><span class="samp">On</span></samp>&rsquo;, Readline will inhibit word completion. 
 Completion  characters will be inserted into the line as if they had
 been mapped to <code>self-insert</code>.  The default is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
@@ -145,7 +145,7 @@ arrow keys.  The default is &lsquo;<samp><span class="samp">off</span></samp>&rs
 
           <br><dt><code>enable-meta-key</code><dd>When set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline will try to enable any meta modifier
 key the terminal claims to support when it is called.  On many terminals,
-the meta key is used to send eight-bit characters.
+the meta key is used to send eight-bit characters. 
 The default is &lsquo;<samp><span class="samp">on</span></samp>&rsquo;.
 
           <br><dt><code>expand-tilde</code><dd><a name="index-expand_002dtilde-2459"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, tilde expansion is performed when Readline
@@ -172,11 +172,11 @@ default value is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.  The 
 synonym for this variable.
 
           <br><dt><code>isearch-terminators</code><dd><a name="index-isearch_002dterminators-2465"></a>The string of characters that should terminate an incremental search without
-subsequently executing the character as a command (see <a href="Searching.html#Searching">Searching</a>).
+subsequently executing the character as a command (see <a href="Searching.html#Searching">Searching</a>). 
 If this variable has not been given a value, the characters &lt;ESC&gt; and
 <kbd>C-J</kbd> will terminate an incremental search.
 
-          <br><dt><code>keymap</code><dd><a name="index-keymap-2466"></a>Sets Readline's idea of the current keymap for key binding commands.
+          <br><dt><code>keymap</code><dd><a name="index-keymap-2466"></a>Sets Readline's idea of the current keymap for key binding commands. 
 Acceptable <code>keymap</code> names are
 <code>emacs</code>,
 <code>emacs-standard</code>,
@@ -185,9 +185,9 @@ Acceptable <code>keymap</code> names are
 <code>vi</code>,
 <code>vi-move</code>,
 <code>vi-command</code>, and
-<code>vi-insert</code>.
+<code>vi-insert</code>. 
 <code>vi</code> is equivalent to <code>vi-command</code>; <code>emacs</code> is
-equivalent to <code>emacs-standard</code>.  The default value is <code>emacs</code>.
+equivalent to <code>emacs-standard</code>.  The default value is <code>emacs</code>. 
 The value of the <code>editing-mode</code> variable also affects the
 default keymap.
 
@@ -195,19 +195,19 @@ default keymap.
 appended.  The default is &lsquo;<samp><span class="samp">on</span></samp>&rsquo;.
 
           <br><dt><code>mark-modified-lines</code><dd><a name="index-mark_002dmodified_002dlines-2467"></a>This variable, when set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, causes Readline to display an
-asterisk (&lsquo;<samp><span class="samp">*</span></samp>&rsquo;) at the start of history lines which have been modified.
+asterisk (&lsquo;<samp><span class="samp">*</span></samp>&rsquo;) at the start of history lines which have been modified. 
 This variable is &lsquo;<samp><span class="samp">off</span></samp>&rsquo; by default.
 
           <br><dt><code>mark-symlinked-directories</code><dd><a name="index-mark_002dsymlinked_002ddirectories-2468"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, completed names which are symbolic links
 to directories have a slash appended (subject to the value of
-<code>mark-directories</code>).
+<code>mark-directories</code>). 
 The default is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>match-hidden-files</code><dd><a name="index-match_002dhidden_002dfiles-2469"></a>This variable, when set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, causes Readline to match files whose
 names begin with a &lsquo;<samp><span class="samp">.</span></samp>&rsquo; (hidden files) when performing filename
-completion.
+completion. 
 If set to &lsquo;<samp><span class="samp">off</span></samp>&rsquo;, the leading &lsquo;<samp><span class="samp">.</span></samp>&rsquo; must be
-supplied by the user in the filename to be completed.
+supplied by the user in the filename to be completed. 
 This variable is &lsquo;<samp><span class="samp">on</span></samp>&rsquo; by default.
 
           <br><dt><code>menu-complete-display-prefix</code><dd><a name="index-menu_002dcomplete_002ddisplay_002dprefix-2470"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, menu completion displays the common prefix of the
@@ -219,11 +219,11 @@ eighth bit set directly rather than as a meta-prefixed escape
 sequence.  The default is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>page-completions</code><dd><a name="index-page_002dcompletions-2472"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline uses an internal <code>more</code>-like pager
-to display a screenful of possible completions at a time.
+to display a screenful of possible completions at a time. 
 This variable is &lsquo;<samp><span class="samp">on</span></samp>&rsquo; by default.
 
           <br><dt><code>print-completions-horizontally</code><dd>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline will display completions with matches
-sorted horizontally in alphabetical order, rather than down the screen.
+sorted horizontally in alphabetical order, rather than down the screen. 
 The default is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>revert-all-at-newline</code><dd><a name="index-revert_002dall_002dat_002dnewline-2473"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, Readline will undo all changes to history lines
@@ -234,16 +234,16 @@ calls to <code>readline</code>.  The default is &lsquo;<samp><span class="samp">
           <br><dt><code>show-all-if-ambiguous</code><dd><a name="index-show_002dall_002dif_002dambiguous-2474"></a>This alters the default behavior of the completion functions.  If
 set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;,
 words which have more than one possible completion cause the
-matches to be listed immediately instead of ringing the bell.
+matches to be listed immediately instead of ringing the bell. 
 The default value is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>show-all-if-unmodified</code><dd><a name="index-show_002dall_002dif_002dunmodified-2475"></a>This alters the default behavior of the completion functions in
-a fashion similar to <var>show-all-if-ambiguous</var>.
+a fashion similar to <var>show-all-if-ambiguous</var>. 
 If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;,
 words which have more than one possible completion without any
 possible partial completion (the possible completions don't share
 a common prefix) cause the matches to be listed immediately instead
-of ringing the bell.
+of ringing the bell. 
 The default value is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>skip-completed-text</code><dd><a name="index-skip_002dcompleted_002dtext-2476"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, this alters the default completion behavior when
@@ -251,11 +251,11 @@ inserting a single match into the line.  It's only active when
 performing completion in the middle of a word.  If enabled, readline
 does not insert characters from the completion that match characters
 after point in the word being completed, so portions of the word
-following the cursor are not duplicated.
+following the cursor are not duplicated. 
 For instance, if this is enabled, attempting completion when the cursor
 is after the &lsquo;<samp><span class="samp">e</span></samp>&rsquo; in &lsquo;<samp><span class="samp">Makefile</span></samp>&rsquo; will result in &lsquo;<samp><span class="samp">Makefile</span></samp>&rsquo;
 rather than &lsquo;<samp><span class="samp">Makefilefile</span></samp>&rsquo;, assuming there is a single possible
-completion.
+completion. 
 The default value is &lsquo;<samp><span class="samp">off</span></samp>&rsquo;.
 
           <br><dt><code>visible-stats</code><dd><a name="index-visible_002dstats-2477"></a>If set to &lsquo;<samp><span class="samp">on</span></samp>&rsquo;, a character denoting a file's type
@@ -273,9 +273,9 @@ the command does.
      <p>Once you know the name of the command, simply place on a line
 in the init file the name of the key
 you wish to bind the command to, a colon, and then the name of the
-command.
+command. 
 There can be no space between the key name and the colon &ndash; that will be
-interpreted as part of the key name.
+interpreted as part of the key name. 
 The name of the key can be expressed in different ways, depending on
 what you find most comfortable.
 
@@ -359,11 +359,11 @@ set of backslash escapes is available:
 </dl>
 
      <p>When entering the text of a macro, single or double quotes must
-be used to indicate a macro definition.
-Unquoted text is assumed to be a function name.
-In the macro body, the backslash escapes described above are expanded.
+be used to indicate a macro definition. 
+Unquoted text is assumed to be a function name. 
+In the macro body, the backslash escapes described above are expanded. 
 Backslash will quote any other character in the macro text,
-including &lsquo;<samp><span class="samp">"</span></samp>&rsquo; and &lsquo;<samp><span class="samp">'</span></samp>&rsquo;.
+including &lsquo;<samp><span class="samp">"</span></samp>&rsquo; and &lsquo;<samp><span class="samp">'</span></samp>&rsquo;. 
 For example, the following binding will make &lsquo;<samp><kbd>C-x</kbd><span class="samp"> \</span></samp>&rsquo;
 insert a single &lsquo;<samp><span class="samp">\</span></samp>&rsquo; into the line:
      <pre class="example">          "\C-x\\": "\\"
@@ -371,3 +371,4 @@ insert a single &lsquo;<samp><span class="samp">\</span></samp>&rsquo; into the 
      </dl>
 
    </body></html>
+

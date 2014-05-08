@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -92,7 +92,7 @@ into ascending order by name before placing them in the output file.
 
    <p><a name="index-SORT_005fBY_005fALIGNMENT-418"></a><code>SORT_BY_ALIGNMENT</code> is very similar to <code>SORT_BY_NAME</code>. The
 difference is <code>SORT_BY_ALIGNMENT</code> will sort sections into
-descending order by alignment before placing them in the output file.
+descending order by alignment before placing them in the output file. 
 Larger alignments are placed before smaller alignments in order to
 reduce the amount of padding necessary.
 
@@ -107,16 +107,16 @@ encoded in the section name before placing them in the output file.
 can be at most 1 level of nesting for section sorting commands.
 
      <ol type=1 start=1>
-<li><code>SORT_BY_NAME</code> (<code>SORT_BY_ALIGNMENT</code> (wildcard section pattern)).
+<li><code>SORT_BY_NAME</code> (<code>SORT_BY_ALIGNMENT</code> (wildcard section pattern)). 
 It will sort the input sections by name first, then by alignment if two
-sections have the same name.
-<li><code>SORT_BY_ALIGNMENT</code> (<code>SORT_BY_NAME</code> (wildcard section pattern)).
+sections have the same name. 
+<li><code>SORT_BY_ALIGNMENT</code> (<code>SORT_BY_NAME</code> (wildcard section pattern)). 
 It will sort the input sections by alignment first, then by name if two
-sections have the same alignment.
+sections have the same alignment. 
 <li><code>SORT_BY_NAME</code> (<code>SORT_BY_NAME</code> (wildcard section pattern)) is
-treated the same as <code>SORT_BY_NAME</code> (wildcard section pattern).
+treated the same as <code>SORT_BY_NAME</code> (wildcard section pattern). 
 <li><code>SORT_BY_ALIGNMENT</code> (<code>SORT_BY_ALIGNMENT</code> (wildcard section pattern))
-is treated the same as <code>SORT_BY_ALIGNMENT</code> (wildcard section pattern).
+is treated the same as <code>SORT_BY_ALIGNMENT</code> (wildcard section pattern). 
 <li>All other nested section sorting commands are invalid.
         </ol>
 
@@ -131,7 +131,7 @@ treated as nested sorting command.
      <ol type=1 start=1>
 <li><code>SORT_BY_NAME</code> (wildcard section pattern ) with
 <samp><span class="option">--sort-sections alignment</span></samp> is equivalent to
-<code>SORT_BY_NAME</code> (<code>SORT_BY_ALIGNMENT</code> (wildcard section pattern)).
+<code>SORT_BY_NAME</code> (<code>SORT_BY_ALIGNMENT</code> (wildcard section pattern)). 
 <li><code>SORT_BY_ALIGNMENT</code> (wildcard section pattern) with
 <samp><span class="option">--sort-section name</span></samp> is equivalent to
 <code>SORT_BY_ALIGNMENT</code> (<code>SORT_BY_NAME</code> (wildcard section pattern)).
@@ -149,7 +149,7 @@ precisely how input sections are mapped to output sections.
 
    <p>This example shows how wildcard patterns might be used to partition
 files.  This linker script directs the linker to place all &lsquo;<samp><span class="samp">.text</span></samp>&rsquo;
-sections in &lsquo;<samp><span class="samp">.text</span></samp>&rsquo; and all &lsquo;<samp><span class="samp">.bss</span></samp>&rsquo; sections in &lsquo;<samp><span class="samp">.bss</span></samp>&rsquo;.
+sections in &lsquo;<samp><span class="samp">.text</span></samp>&rsquo; and all &lsquo;<samp><span class="samp">.bss</span></samp>&rsquo; sections in &lsquo;<samp><span class="samp">.bss</span></samp>&rsquo;. 
 The linker will place the &lsquo;<samp><span class="samp">.data</span></samp>&rsquo; section from all files beginning
 with an upper case character in &lsquo;<samp><span class="samp">.DATA</span></samp>&rsquo;; for all other files, the
 linker will place the &lsquo;<samp><span class="samp">.data</span></samp>&rsquo; section in &lsquo;<samp><span class="samp">.data</span></samp>&rsquo;.
@@ -161,3 +161,4 @@ linker will place the &lsquo;<samp><span class="samp">.data</span></samp>&rsquo;
      }
 </pre>
    </body></html>
+

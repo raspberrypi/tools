@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -95,16 +95,16 @@ mode.  All of them implement the function that is part of the name.
 
      <dl>
 <dt><code>void __builtin_ia32_pause (void)</code><dd>Generates the <code>pause</code> machine instruction with a compiler memory
-barrier.
+barrier. 
 </dl>
 
  <p>The following floating-point built-in functions are made available in the
 64-bit mode.
 
      <dl>
-<dt><code>__float128 __builtin_infq (void)</code><dd>Similar to <code>__builtin_inf</code>, except the return type is <code>__float128</code>.
+<dt><code>__float128 __builtin_infq (void)</code><dd>Similar to <code>__builtin_inf</code>, except the return type is <code>__float128</code>. 
 <a name="index-g_t_005f_005fbuiltin_005finfq-3412"></a>
-<br><dt><code>__float128 __builtin_huge_valq (void)</code><dd>Similar to <code>__builtin_huge_val</code>, except the return type is <code>__float128</code>.
+<br><dt><code>__float128 __builtin_huge_valq (void)</code><dd>Similar to <code>__builtin_huge_val</code>, except the return type is <code>__float128</code>. 
 <a name="index-g_t_005f_005fbuiltin_005fhuge_005fvalq-3413"></a></dl>
 
  <p>The following built-in functions are always available and can be used to
@@ -123,7 +123,7 @@ automatically executed in a very high priority constructor.
 check for CPU type using the built-in functions <code>__builtin_cpu_is</code>
 and <code>__builtin_cpu_supports</code>, or in constructors on targets that
 don't support constructor priority.
-     <pre class="smallexample">
+     <pre class="smallexample">          
           static void (*resolve_memcpy (void)) (void)
           {
             // ifunc resolvers fire before constructors, explicitly call the init
@@ -134,7 +134,7 @@ don't support constructor priority.
             else
               return default_memcpy;
           }
-
+          
           void *memcpy (void *, const void *, size_t)
                __attribute__ ((ifunc ("resolve_memcpy")));
 </pre>
@@ -181,7 +181,7 @@ and returns <code>0</code> otherwise. The following CPU names can be detected:
 
           <br><dt>&lsquo;<samp><span class="samp">bdver3</span></samp>&rsquo;<dd>AMD Family 15h Bulldozer version 3.
 
-          <br><dt>&lsquo;<samp><span class="samp">btver2</span></samp>&rsquo;<dd>AMD Family 16h CPU.
+          <br><dt>&lsquo;<samp><span class="samp">btver2</span></samp>&rsquo;<dd>AMD Family 16h CPU. 
 </dl>
 
       <p>Here is an example:
@@ -203,17 +203,17 @@ supports <var>feature</var>
 and returns <code>0</code> otherwise. The following features can be detected:
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">cmov</span></samp>&rsquo;<dd>CMOV instruction.
-<br><dt>&lsquo;<samp><span class="samp">mmx</span></samp>&rsquo;<dd>MMX instructions.
-<br><dt>&lsquo;<samp><span class="samp">popcnt</span></samp>&rsquo;<dd>POPCNT instruction.
-<br><dt>&lsquo;<samp><span class="samp">sse</span></samp>&rsquo;<dd>SSE instructions.
-<br><dt>&lsquo;<samp><span class="samp">sse2</span></samp>&rsquo;<dd>SSE2 instructions.
-<br><dt>&lsquo;<samp><span class="samp">sse3</span></samp>&rsquo;<dd>SSE3 instructions.
-<br><dt>&lsquo;<samp><span class="samp">ssse3</span></samp>&rsquo;<dd>SSSE3 instructions.
-<br><dt>&lsquo;<samp><span class="samp">sse4.1</span></samp>&rsquo;<dd>SSE4.1 instructions.
-<br><dt>&lsquo;<samp><span class="samp">sse4.2</span></samp>&rsquo;<dd>SSE4.2 instructions.
-<br><dt>&lsquo;<samp><span class="samp">avx</span></samp>&rsquo;<dd>AVX instructions.
-<br><dt>&lsquo;<samp><span class="samp">avx2</span></samp>&rsquo;<dd>AVX2 instructions.
+<dt>&lsquo;<samp><span class="samp">cmov</span></samp>&rsquo;<dd>CMOV instruction. 
+<br><dt>&lsquo;<samp><span class="samp">mmx</span></samp>&rsquo;<dd>MMX instructions. 
+<br><dt>&lsquo;<samp><span class="samp">popcnt</span></samp>&rsquo;<dd>POPCNT instruction. 
+<br><dt>&lsquo;<samp><span class="samp">sse</span></samp>&rsquo;<dd>SSE instructions. 
+<br><dt>&lsquo;<samp><span class="samp">sse2</span></samp>&rsquo;<dd>SSE2 instructions. 
+<br><dt>&lsquo;<samp><span class="samp">sse3</span></samp>&rsquo;<dd>SSE3 instructions. 
+<br><dt>&lsquo;<samp><span class="samp">ssse3</span></samp>&rsquo;<dd>SSSE3 instructions. 
+<br><dt>&lsquo;<samp><span class="samp">sse4.1</span></samp>&rsquo;<dd>SSE4.1 instructions. 
+<br><dt>&lsquo;<samp><span class="samp">sse4.2</span></samp>&rsquo;<dd>SSE4.2 instructions. 
+<br><dt>&lsquo;<samp><span class="samp">avx</span></samp>&rsquo;<dd>AVX instructions. 
+<br><dt>&lsquo;<samp><span class="samp">avx2</span></samp>&rsquo;<dd>AVX2 instructions. 
 </dl>
 
       <p>Here is an example:
@@ -228,7 +228,7 @@ and returns <code>0</code> otherwise. The following features can be detected:
 </pre>
       </blockquote></div>
 
- <p>The following built-in functions are made available by <samp><span class="option">-mmmx</span></samp>.
+ <p>The following built-in functions are made available by <samp><span class="option">-mmmx</span></samp>. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     v8qi __builtin_ia32_paddb (v8qi, v8qi)
@@ -266,7 +266,7 @@ All of them generate the machine instruction that is part of the name.
      v8qi __builtin_ia32_packsswb (v4hi, v4hi)
      v4hi __builtin_ia32_packssdw (v2si, v2si)
      v8qi __builtin_ia32_packuswb (v4hi, v4hi)
-
+     
      v4hi __builtin_ia32_psllw (v4hi, v4hi)
      v2si __builtin_ia32_pslld (v2si, v2si)
      v1di __builtin_ia32_psllq (v1di, v1di)
@@ -283,7 +283,7 @@ All of them generate the machine instruction that is part of the name.
      v1di __builtin_ia32_psrlqi (v1di, int)
      v4hi __builtin_ia32_psrawi (v4hi, int)
      v2si __builtin_ia32_psradi (v2si, int)
-
+     
 </pre>
  <p>The following built-in functions are made available either with
 <samp><span class="option">-msse</span></samp>, or with a combination of <samp><span class="option">-m3dnow</span></samp> and
@@ -305,7 +305,7 @@ instruction that is part of the name.
      void __builtin_ia32_movntq (di *, di)
      void __builtin_ia32_sfence (void)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-msse</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-msse</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     int __builtin_ia32_comieq (v4sf, v4sf)
@@ -380,19 +380,19 @@ All of them generate the machine instruction that is part of the name.
  <p>The following built-in functions are available when <samp><span class="option">-msse</span></samp> is used.
 
      <dl>
-<dt><code>v4sf __builtin_ia32_loadaps (float *)</code><dd>Generates the <code>movaps</code> machine instruction as a load from memory.
-<br><dt><code>void __builtin_ia32_storeaps (float *, v4sf)</code><dd>Generates the <code>movaps</code> machine instruction as a store to memory.
-<br><dt><code>v4sf __builtin_ia32_loadups (float *)</code><dd>Generates the <code>movups</code> machine instruction as a load from memory.
-<br><dt><code>void __builtin_ia32_storeups (float *, v4sf)</code><dd>Generates the <code>movups</code> machine instruction as a store to memory.
-<br><dt><code>v4sf __builtin_ia32_loadsss (float *)</code><dd>Generates the <code>movss</code> machine instruction as a load from memory.
-<br><dt><code>void __builtin_ia32_storess (float *, v4sf)</code><dd>Generates the <code>movss</code> machine instruction as a store to memory.
-<br><dt><code>v4sf __builtin_ia32_loadhps (v4sf, const v2sf *)</code><dd>Generates the <code>movhps</code> machine instruction as a load from memory.
+<dt><code>v4sf __builtin_ia32_loadaps (float *)</code><dd>Generates the <code>movaps</code> machine instruction as a load from memory. 
+<br><dt><code>void __builtin_ia32_storeaps (float *, v4sf)</code><dd>Generates the <code>movaps</code> machine instruction as a store to memory. 
+<br><dt><code>v4sf __builtin_ia32_loadups (float *)</code><dd>Generates the <code>movups</code> machine instruction as a load from memory. 
+<br><dt><code>void __builtin_ia32_storeups (float *, v4sf)</code><dd>Generates the <code>movups</code> machine instruction as a store to memory. 
+<br><dt><code>v4sf __builtin_ia32_loadsss (float *)</code><dd>Generates the <code>movss</code> machine instruction as a load from memory. 
+<br><dt><code>void __builtin_ia32_storess (float *, v4sf)</code><dd>Generates the <code>movss</code> machine instruction as a store to memory. 
+<br><dt><code>v4sf __builtin_ia32_loadhps (v4sf, const v2sf *)</code><dd>Generates the <code>movhps</code> machine instruction as a load from memory. 
 <br><dt><code>v4sf __builtin_ia32_loadlps (v4sf, const v2sf *)</code><dd>Generates the <code>movlps</code> machine instruction as a load from memory
-<br><dt><code>void __builtin_ia32_storehps (v2sf *, v4sf)</code><dd>Generates the <code>movhps</code> machine instruction as a store to memory.
-<br><dt><code>void __builtin_ia32_storelps (v2sf *, v4sf)</code><dd>Generates the <code>movlps</code> machine instruction as a store to memory.
+<br><dt><code>void __builtin_ia32_storehps (v2sf *, v4sf)</code><dd>Generates the <code>movhps</code> machine instruction as a store to memory. 
+<br><dt><code>void __builtin_ia32_storelps (v2sf *, v4sf)</code><dd>Generates the <code>movlps</code> machine instruction as a store to memory. 
 </dl>
 
- <p>The following built-in functions are available when <samp><span class="option">-msse2</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-msse2</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     int __builtin_ia32_comisdeq (v2df, v2df)
@@ -551,7 +551,7 @@ All of them generate the machine instruction that is part of the name.
      v4si __builtin_ia32_pmaddwd128 (v8hi, v8hi)
      v2di __builtin_ia32_movq128 (v2di)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-msse3</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-msse3</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     v2df __builtin_ia32_addsubpd (v2df, v2df)
@@ -570,10 +570,10 @@ All of them generate the machine instruction that is part of the name.
  <p>The following built-in functions are available when <samp><span class="option">-msse3</span></samp> is used.
 
      <dl>
-<dt><code>v2df __builtin_ia32_loadddup (double const *)</code><dd>Generates the <code>movddup</code> machine instruction as a load from memory.
+<dt><code>v2df __builtin_ia32_loadddup (double const *)</code><dd>Generates the <code>movddup</code> machine instruction as a load from memory. 
 </dl>
 
- <p>The following built-in functions are available when <samp><span class="option">-mssse3</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mssse3</span></samp> is used. 
 All of them generate the machine instruction that is part of the name
 with MMX registers.
 
@@ -594,7 +594,7 @@ with MMX registers.
      v2si __builtin_ia32_pabsd (v2si)
      v4hi __builtin_ia32_pabsw (v4hi)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mssse3</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mssse3</span></samp> is used. 
 All of them generate the machine instruction that is part of the name
 with SSE registers.
 
@@ -667,20 +667,20 @@ name.
 used.
 
      <dl>
-<dt><code>v4sf __builtin_ia32_vec_set_v4sf (v4sf, float, const int)</code><dd>Generates the <code>insertps</code> machine instruction.
-<br><dt><code>int __builtin_ia32_vec_ext_v16qi (v16qi, const int)</code><dd>Generates the <code>pextrb</code> machine instruction.
-<br><dt><code>v16qi __builtin_ia32_vec_set_v16qi (v16qi, int, const int)</code><dd>Generates the <code>pinsrb</code> machine instruction.
-<br><dt><code>v4si __builtin_ia32_vec_set_v4si (v4si, int, const int)</code><dd>Generates the <code>pinsrd</code> machine instruction.
-<br><dt><code>v2di __builtin_ia32_vec_set_v2di (v2di, long long, const int)</code><dd>Generates the <code>pinsrq</code> machine instruction in 64bit mode.
+<dt><code>v4sf __builtin_ia32_vec_set_v4sf (v4sf, float, const int)</code><dd>Generates the <code>insertps</code> machine instruction. 
+<br><dt><code>int __builtin_ia32_vec_ext_v16qi (v16qi, const int)</code><dd>Generates the <code>pextrb</code> machine instruction. 
+<br><dt><code>v16qi __builtin_ia32_vec_set_v16qi (v16qi, int, const int)</code><dd>Generates the <code>pinsrb</code> machine instruction. 
+<br><dt><code>v4si __builtin_ia32_vec_set_v4si (v4si, int, const int)</code><dd>Generates the <code>pinsrd</code> machine instruction. 
+<br><dt><code>v2di __builtin_ia32_vec_set_v2di (v2di, long long, const int)</code><dd>Generates the <code>pinsrq</code> machine instruction in 64bit mode. 
 </dl>
 
  <p>The following built-in functions are changed to generate new SSE4.1
 instructions when <samp><span class="option">-msse4.1</span></samp> is used.
 
      <dl>
-<dt><code>float __builtin_ia32_vec_ext_v4sf (v4sf, const int)</code><dd>Generates the <code>extractps</code> machine instruction.
-<br><dt><code>int __builtin_ia32_vec_ext_v4si (v4si, const int)</code><dd>Generates the <code>pextrd</code> machine instruction.
-<br><dt><code>long long __builtin_ia32_vec_ext_v2di (v2di, const int)</code><dd>Generates the <code>pextrq</code> machine instruction in 64bit mode.
+<dt><code>float __builtin_ia32_vec_ext_v4sf (v4sf, const int)</code><dd>Generates the <code>extractps</code> machine instruction. 
+<br><dt><code>int __builtin_ia32_vec_ext_v4si (v4si, const int)</code><dd>Generates the <code>pextrd</code> machine instruction. 
+<br><dt><code>long long __builtin_ia32_vec_ext_v2di (v2di, const int)</code><dd>Generates the <code>pextrq</code> machine instruction in 64bit mode. 
 </dl>
 
  <p>The following built-in functions are available when <samp><span class="option">-msse4.2</span></samp> is
@@ -707,20 +707,20 @@ name.
 used.
 
      <dl>
-<dt><code>unsigned int __builtin_ia32_crc32qi (unsigned int, unsigned char)</code><dd>Generates the <code>crc32b</code> machine instruction.
-<br><dt><code>unsigned int __builtin_ia32_crc32hi (unsigned int, unsigned short)</code><dd>Generates the <code>crc32w</code> machine instruction.
-<br><dt><code>unsigned int __builtin_ia32_crc32si (unsigned int, unsigned int)</code><dd>Generates the <code>crc32l</code> machine instruction.
-<br><dt><code>unsigned long long __builtin_ia32_crc32di (unsigned long long, unsigned long long)</code><dd>Generates the <code>crc32q</code> machine instruction.
+<dt><code>unsigned int __builtin_ia32_crc32qi (unsigned int, unsigned char)</code><dd>Generates the <code>crc32b</code> machine instruction. 
+<br><dt><code>unsigned int __builtin_ia32_crc32hi (unsigned int, unsigned short)</code><dd>Generates the <code>crc32w</code> machine instruction. 
+<br><dt><code>unsigned int __builtin_ia32_crc32si (unsigned int, unsigned int)</code><dd>Generates the <code>crc32l</code> machine instruction. 
+<br><dt><code>unsigned long long __builtin_ia32_crc32di (unsigned long long, unsigned long long)</code><dd>Generates the <code>crc32q</code> machine instruction. 
 </dl>
 
  <p>The following built-in functions are changed to generate new SSE4.2
 instructions when <samp><span class="option">-msse4.2</span></samp> is used.
 
      <dl>
-<dt><code>int __builtin_popcount (unsigned int)</code><dd>Generates the <code>popcntl</code> machine instruction.
+<dt><code>int __builtin_popcount (unsigned int)</code><dd>Generates the <code>popcntl</code> machine instruction. 
 <br><dt><code>int __builtin_popcountl (unsigned long)</code><dd>Generates the <code>popcntl</code> or <code>popcntq</code> machine instruction,
-depending on the size of <code>unsigned long</code>.
-<br><dt><code>int __builtin_popcountll (unsigned long long)</code><dd>Generates the <code>popcntq</code> machine instruction.
+depending on the size of <code>unsigned long</code>. 
+<br><dt><code>int __builtin_popcountll (unsigned long long)</code><dd>Generates the <code>popcntq</code> machine instruction. 
 </dl>
 
  <p>The following built-in functions are available when <samp><span class="option">-mavx</span></samp> is
@@ -1047,7 +1047,7 @@ name.
 used.
 
      <dl>
-<dt><code>v2di __builtin_ia32_pclmulqdq128 (v2di, v2di, const int)</code><dd>Generates the <code>pclmulqdq</code> machine instruction.
+<dt><code>v2di __builtin_ia32_pclmulqdq128 (v2di, v2di, const int)</code><dd>Generates the <code>pclmulqdq</code> machine instruction. 
 </dl>
 
  <p>The following built-in function is available when <samp><span class="option">-mfsgsbase</span></samp> is
@@ -1071,7 +1071,7 @@ name.
      unsigned int __builtin_ia32_rdrand32_step (unsigned int *)
      unsigned int __builtin_ia32_rdrand64_step (unsigned long long *)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-msse4a</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-msse4a</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     void __builtin_ia32_movntsd (double *, v2df)
@@ -1207,7 +1207,7 @@ All of them generate the machine instruction that is part of the name.
      v2di __builtin_ia32_vpshlq (v2di, v2di)
      v8hi __builtin_ia32_vpshlw (v8hi, v8hi)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mfma4</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mfma4</span></samp> is used. 
 All of them generate the machine instruction that is part of the name
 with MMX registers.
 
@@ -1243,7 +1243,7 @@ with MMX registers.
      v8sf __builtin_ia32_fmaddsubps256 (v8sf, v8sf, v8sf)
      v4df __builtin_ia32_fmsubaddpd256 (v4df, v4df, v4df)
      v8sf __builtin_ia32_fmsubaddps256 (v8sf, v8sf, v8sf)
-
+     
 </pre>
  <p>The following built-in functions are available when <samp><span class="option">-mlwp</span></samp> is used.
 
@@ -1260,12 +1260,12 @@ with MMX registers.
      unsigned char __builtin_ia32_lwpins32 (unsigned int, unsigned int, unsigned int)
      unsigned char __builtin_ia32_lwpins64 (unsigned __int64, unsigned int, unsigned int)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mbmi</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mbmi</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 <pre class="smallexample">     unsigned int __builtin_ia32_bextr_u32(unsigned int, unsigned int);
      unsigned long long __builtin_ia32_bextr_u64 (unsigned long long, unsigned long long);
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mbmi2</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mbmi2</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 <pre class="smallexample">     unsigned int _bzhi_u32 (unsigned int, unsigned int)
      unsigned int _pdep_u32 (unsigned int, unsigned int)
@@ -1274,18 +1274,18 @@ All of them generate the machine instruction that is part of the name.
      unsigned long long _pdep_u64 (unsigned long long, unsigned long long)
      unsigned long long _pext_u64 (unsigned long long, unsigned long long)
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mlzcnt</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mlzcnt</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 <pre class="smallexample">     unsigned short __builtin_ia32_lzcnt_16(unsigned short);
      unsigned int __builtin_ia32_lzcnt_u32(unsigned int);
      unsigned long long __builtin_ia32_lzcnt_u64 (unsigned long long);
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-mtbm</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-mtbm</span></samp> is used. 
 Both of them generate the immediate form of the bextr machine instruction.
 <pre class="smallexample">     unsigned int __builtin_ia32_bextri_u32 (unsigned int, const unsigned int);
      unsigned long long __builtin_ia32_bextri_u64 (unsigned long long, const unsigned long long);
 </pre>
- <p>The following built-in functions are available when <samp><span class="option">-m3dnow</span></samp> is used.
+ <p>The following built-in functions are available when <samp><span class="option">-m3dnow</span></samp> is used. 
 All of them generate the machine instruction that is part of the name.
 
 <pre class="smallexample">     void __builtin_ia32_femms (void)
@@ -1331,3 +1331,4 @@ low level functions. Normally the functions in
      int __builtin_ia32_xtest ()
 </pre>
  </body></html>
+

@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <p><a name="index-H8_002f300-support-576"></a>For the H8/300, <samp><span class="command">ld</span></samp> can perform these global optimizations when
 you specify the &lsquo;<samp><span class="samp">--relax</span></samp>&rsquo; command-line option.
 
-
+     
 <a name="index-relaxing-on-H8_002f300-577"></a>
 <dl><dt><em>relaxing address modes</em><dd><samp><span class="command">ld</span></samp> finds all <code>jsr</code> and <code>jmp</code> instructions whose
 targets are within eight bits, and turns them into eight-bit
@@ -59,7 +59,7 @@ respectively.
      <p><a name="index-synthesizing-on-H8_002f300-578"></a><br><dt><em>synthesizing instructions</em><dd><!-- FIXME: specifically mov.b, or any mov instructions really? -> mov.b only, at least on H8, H8H, H8S -->
 <samp><span class="command">ld</span></samp> finds all <code>mov.b</code> instructions which use the
 sixteen-bit absolute address form, but refer to the top
-page of memory, and changes them to use the eight-bit address form.
+page of memory, and changes them to use the eight-bit address form. 
 (That is: the linker turns &lsquo;<samp><span class="samp">mov.b </span><code>@</code><var>aa</var><span class="samp">:16</span></samp>&rsquo; into
 &lsquo;<samp><span class="samp">mov.b </span><code>@</code><var>aa</var><span class="samp">:8</span></samp>&rsquo; whenever the address <var>aa</var> is in the
 top page of memory).
@@ -75,17 +75,18 @@ range. Only implemented in ELF-format ld).
      <br><dt><em>bit manipulation instructions</em><dd><samp><span class="command">ld</span></samp> finds all bit manipulation instructions like <code>band, bclr,
 biand, bild, bior, bist, bixor, bld, bnot, bor, bset, bst, btst, bxor</code>
 which use 32 bit and 16 bit absolute address form, but refer to the top
-page of memory, and changes them to use the 8 bit address form.
+page of memory, and changes them to use the 8 bit address form. 
 (That is: the linker turns &lsquo;<samp><span class="samp">bset #xx:3,</span><code>@</code><var>aa</var><span class="samp">:32</span></samp>&rsquo; into
 &lsquo;<samp><span class="samp">bset #xx:3,</span><code>@</code><var>aa</var><span class="samp">:8</span></samp>&rsquo; whenever the address <var>aa</var> is in
 the top page of memory).
 
      <br><dt><em>system control instructions</em><dd><samp><span class="command">ld</span></samp> finds all <code>ldc.w, stc.w</code> instructions which use the
 32 bit absolute address form, but refer to the top page of memory, and
-changes them to use 16 bit address form.
+changes them to use 16 bit address form. 
 (That is: the linker turns &lsquo;<samp><span class="samp">ldc.w </span><code>@</code><var>aa</var><span class="samp">:32,ccr</span></samp>&rsquo; into
 &lsquo;<samp><span class="samp">ldc.w </span><code>@</code><var>aa</var><span class="samp">:16,ccr</span></samp>&rsquo; whenever the address <var>aa</var> is in
-the top page of memory).
+the top page of memory). 
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ The File-I/O protocol uses the <code>F</code> packet as the request as well
 as reply packet.  Since a File-I/O system call can only occur when
 <span class="sc">gdb</span> is waiting for a response from the continuing or stepping target,
 the File-I/O request is a reply that <span class="sc">gdb</span> has to expect as a result
-of a previous &lsquo;<samp><span class="samp">C</span></samp>&rsquo;, &lsquo;<samp><span class="samp">c</span></samp>&rsquo;, &lsquo;<samp><span class="samp">S</span></samp>&rsquo; or &lsquo;<samp><span class="samp">s</span></samp>&rsquo; packet.
+of a previous &lsquo;<samp><span class="samp">C</span></samp>&rsquo;, &lsquo;<samp><span class="samp">c</span></samp>&rsquo;, &lsquo;<samp><span class="samp">S</span></samp>&rsquo; or &lsquo;<samp><span class="samp">s</span></samp>&rsquo; packet. 
 This <code>F</code> packet contains all information needed to allow <span class="sc">gdb</span>
 to call the appropriate host system call:
 
@@ -61,7 +61,7 @@ to call the appropriate host system call:
 
      <li>All parameters to the system call.  Pointers are given as addresses
 in the target memory address space.  Pointers to strings are given as
-pointer/length pair.  Numerical values are given as they are.
+pointer/length pair.  Numerical values are given as they are. 
 Numerical control flags are given in a protocol-specific representation.
 
    </ul>
@@ -106,3 +106,4 @@ necessary information for the target to continue.  This at least contains
 the latest continue or step action.
 
    </body></html>
+

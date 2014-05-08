@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -81,12 +81,12 @@ missing, and the default section is used (&lsquo;<samp><span class="samp">%ss</s
 &lsquo;<samp><span class="samp">foo</span></samp>&rsquo;.  All other fields are missing.  The section register here
 defaults to &lsquo;<samp><span class="samp">%ds</span></samp>&rsquo;.
 
-     <br><dt>AT&amp;T: &lsquo;<samp><span class="samp">foo(,1)</span></samp>&rsquo;; Intel &lsquo;<samp><span class="samp">[foo]</span></samp>&rsquo;<dd>This uses the value pointed to by &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; as a memory operand.
+     <br><dt>AT&amp;T: &lsquo;<samp><span class="samp">foo(,1)</span></samp>&rsquo;; Intel &lsquo;<samp><span class="samp">[foo]</span></samp>&rsquo;<dd>This uses the value pointed to by &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; as a memory operand. 
 Note that <var>base</var> and <var>index</var> are both missing, but there is only
 <em>one</em> &lsquo;<samp><span class="samp">,</span></samp>&rsquo;.  This is a syntactic exception.
 
      <br><dt>AT&amp;T: &lsquo;<samp><span class="samp">%gs:foo</span></samp>&rsquo;; Intel &lsquo;<samp><span class="samp">gs:foo</span></samp>&rsquo;<dd>This selects the contents of the variable &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; with section
-register <var>section</var> being &lsquo;<samp><span class="samp">%gs</span></samp>&rsquo;.
+register <var>section</var> being &lsquo;<samp><span class="samp">%gs</span></samp>&rsquo;. 
 </dl>
 
    <p>Absolute (as opposed to PC relative) call and jump operands must be
@@ -107,10 +107,11 @@ base register.  Only constant offsets are valid. For example:
 instruction.
 
      <br><dt>AT&amp;T: &lsquo;<samp><span class="samp">symbol(%rip)</span></samp>&rsquo;, Intel: &lsquo;<samp><span class="samp">[rip + symbol]</span></samp>&rsquo;<dd>Points to the <code>symbol</code> in RIP relative way, this is shorter than
-the default absolute addressing.
+the default absolute addressing. 
 </dl>
 
    <p>Other addressing modes remain unchanged in x86-64 architecture, except
 registers used are 64-bit instead of 32-bit.
 
    </body></html>
+

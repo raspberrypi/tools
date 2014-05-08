@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,18 +88,18 @@ instruction. Pointers to this address space are 16 bits wide.
 
      <br><dt><code>__flash1</code><dt><code>__flash2</code><dt><code>__flash3</code><dt><code>__flash4</code><dt><code>__flash5</code><dd><a name="index-g_t_0040code_007b_005f_005fflash1_007d-AVR-Named-Address-Spaces-2511"></a><a name="index-g_t_0040code_007b_005f_005fflash2_007d-AVR-Named-Address-Spaces-2512"></a><a name="index-g_t_0040code_007b_005f_005fflash3_007d-AVR-Named-Address-Spaces-2513"></a><a name="index-g_t_0040code_007b_005f_005fflash4_007d-AVR-Named-Address-Spaces-2514"></a><a name="index-g_t_0040code_007b_005f_005fflash5_007d-AVR-Named-Address-Spaces-2515"></a>These are 16-bit address spaces locating data in section
 <code>.progmem</code><var>N</var><code>.data</code> where <var>N</var> refers to
-address space <code>__flash</code><var>N</var>.
+address space <code>__flash</code><var>N</var>. 
 The compiler sets the <code>RAMPZ</code> segment register appropriately
 before reading data by means of the <code>ELPM</code> instruction.
 
      <br><dt><code>__memx</code><dd><a name="index-g_t_0040code_007b_005f_005fmemx_007d-AVR-Named-Address-Spaces-2516"></a>This is a 24-bit address space that linearizes flash and RAM:
 If the high bit of the address is set, data is read from
-RAM using the lower two bytes as RAM address.
+RAM using the lower two bytes as RAM address. 
 If the high bit of the address is clear, data is read from flash
-with <code>RAMPZ</code> set according to the high byte of the address.
+with <code>RAMPZ</code> set according to the high byte of the address. 
 See <a href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions"><code>__builtin_avr_flash_segment</code></a>.
 
-     <p>Objects in this address space are located in <code>.progmemx.data</code>.
+     <p>Objects in this address space are located in <code>.progmemx.data</code>. 
 </dl>
 
  <p><b>Example</b>
@@ -110,15 +110,15 @@ See <a href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions"><code>_
             The first indirection of p reads that flash pointer
             from RAM and the second indirection reads a char from this
             flash address.  */
-
+     
          return **p;
      }
-
+     
      /* Locate array[] in flash memory */
      const __flash int array[] = { 3, 5, 7, 11, 13, 17, 19 };
-
+     
      int i = 1;
-
+     
      int main (void)
      {
         /* Return 17 by reading from flash memory */
@@ -126,22 +126,22 @@ See <a href="AVR-Built_002din-Functions.html#AVR-Built_002din-Functions"><code>_
      }
 </pre>
  <p class="noindent">For each named address space supported by avr-gcc there is an equally
-named but uppercase built-in macro defined.
+named but uppercase built-in macro defined. 
 The purpose is to facilitate testing if respective address space
 support is available or not:
 
 <pre class="smallexample">     #ifdef __FLASH
      const __flash int var = 1;
-
+     
      int read_var (void)
      {
          return var;
      }
      #else
      #include &lt;avr/pgmspace.h&gt; /* From AVR-LibC */
-
+     
      const int var PROGMEM = 1;
-
+     
      int read_var (void)
      {
          return (int) pgm_read_word (&amp;var);
@@ -150,7 +150,7 @@ support is available or not:
 </pre>
  <p class="noindent">Notice that attribute <a href="AVR-Variable-Attributes.html#AVR-Variable-Attributes"><code>progmem</code></a>
 locates data in flash but
-accesses to these data read from generic address space, i.e.
+accesses to these data read from generic address space, i.e. 
 from RAM,
 so that you need special accessors like <code>pgm_read_byte</code>
 from <a href="http://nongnu.org/avr-libc/user-manual/">AVR-LibC</a><!-- /@w -->
@@ -170,7 +170,7 @@ you must arrange your linker script to locate the
 <code>.progmem</code><var>N</var><code>.data</code> sections according to your needs.
 
      <li>Any data or pointers to the non-generic address spaces must
-be qualified as <code>const</code>, i.e. as read-only data.
+be qualified as <code>const</code>, i.e. as read-only data. 
 This still applies if the data in one of these address
 spaces like software version number or calibration lookup table are intended to
 be changed after load time by, say, a boot loader. In this case
@@ -214,9 +214,10 @@ belonging to another address space by qualifying the type with the
 
 <pre class="smallexample">     extern int __ea i;
 </pre>
- <p class="noindent">The compiler generates special code to access the variable <code>i</code>.
+ <p class="noindent">The compiler generates special code to access the variable <code>i</code>. 
 It may use runtime library
 support, or generate special machine instructions to access that address
 space.
 
  </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,29 +51,30 @@ Up:&nbsp;<a rel="up" accesskey="u" href="i860_002dDependent.html#i860_002dDepend
 <h5 class="subsubsection">9.16.2.1 SVR4 compatibility options</h5>
 
      <dl>
-<dt><code>-V</code><dd>Print assembler version.
-<br><dt><code>-Qy</code><dd>Ignored.
-<br><dt><code>-Qn</code><dd>Ignored.
+<dt><code>-V</code><dd>Print assembler version. 
+<br><dt><code>-Qy</code><dd>Ignored. 
+<br><dt><code>-Qn</code><dd>Ignored. 
 </dl>
 
 <h5 class="subsubsection">9.16.2.2 Other options</h5>
 
      <dl>
-<dt><code>-EL</code><dd>Select little endian output (this is the default).
+<dt><code>-EL</code><dd>Select little endian output (this is the default). 
 <br><dt><code>-EB</code><dd>Select big endian output. Note that the i860 always reads instructions
 as little endian data, so this option only effects data and not
-instructions.
-<br><dt><code>-mwarn-expand</code><dd>Emit a warning message if any pseudo-instruction expansions occurred.
+instructions. 
+<br><dt><code>-mwarn-expand</code><dd>Emit a warning message if any pseudo-instruction expansions occurred. 
 For example, a <code>or</code> instruction with an immediate larger than 16-bits
 will be expanded into two instructions. This is a very undesirable feature to
 rely on, so this flag can help detect any code where it happens. One
 use of it, for instance, has been to find and eliminate any place
-where <code>gcc</code> may emit these pseudo-instructions.
+where <code>gcc</code> may emit these pseudo-instructions. 
 <br><dt><code>-mxp</code><dd>Enable support for the i860XP instructions and control registers.  By default,
 this option is disabled so that only the base instruction set (i.e., i860XR)
-is supported.
+is supported. 
 <br><dt><code>-mintel-syntax</code><dd>The i860 assembler defaults to AT&amp;T/SVR4 syntax.  This option enables the
-Intel syntax.
+Intel syntax. 
 </dl>
 
    </body></html>
+

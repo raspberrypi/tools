@@ -87,7 +87,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _Val _M_val;
     };
 
-  template<class _Val, class _Key, class _HashFcn, class _ExtractKey,
+  template<class _Val, class _Key, class _HashFcn, class _ExtractKey, 
 	   class _EqualKey, class _Alloc = std::allocator<_Val> >
     class hashtable;
 
@@ -118,7 +118,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef size_t size_type;
       typedef _Val& reference;
       typedef _Val* pointer;
-
+      
       _Node* _M_cur;
       _Hashtable* _M_ht;
 
@@ -170,7 +170,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef size_t size_type;
       typedef const _Val& reference;
       typedef const _Val* pointer;
-
+      
       const _Node* _M_cur;
       const _Hashtable* _M_ht;
 
@@ -243,7 +243,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     return pos == __last ? *(__last - 1) : *pos;
   }
 
-  // Forward declaration of operator==.
+  // Forward declaration of operator==.  
   template<class _Val, class _Key, class _HF, class _Ex,
 	   class _Eq, class _All>
     class hashtable;
@@ -261,7 +261,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // allocator type are identical.  This is because, for hashtables,
   // this extra storage is negligible.  Additionally, a base class
   // wouldn't serve any other purposes; it wouldn't, for example,
-  // simplify the exception-handling code.
+  // simplify the exception-handling code.  
   template<class _Val, class _Key, class _HashFcn,
 	   class _ExtractKey, class _EqualKey, class _Alloc>
     class hashtable
@@ -317,7 +317,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _ExtractKey           _M_get_key;
       _Vector_type          _M_buckets;
       size_type             _M_num_elements;
-
+      
     public:
       typedef _Hashtable_iterator<_Val, _Key, _HashFcn, _ExtractKey,
 				  _EqualKey, _Alloc>
@@ -547,7 +547,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       {
 	const size_type __n = _M_bkt_num_key(__key);
 	size_type __result = 0;
-
+	
 	for (const _Node* __cur = _M_buckets[__n]; __cur;
 	     __cur = __cur->_M_next)
 	  if (_M_equals(_M_get_key(__cur->_M_val), __key))
@@ -563,7 +563,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       size_type
       erase(const key_type& __key);
-
+      
       void
       erase(const iterator& __it);
 
@@ -635,7 +635,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	this->get_allocator().destroy(&__n->_M_val);
 	_M_put_node(__n);
       }
-
+      
       void
       _M_erase_bucket(const size_type __n, _Node* __first, _Node* __last);
 
@@ -719,7 +719,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  // Check same length of lists
 	  for (; __cur1 && __cur2;
 	       __cur1 = __cur1->_M_next, __cur2 = __cur2->_M_next)
-	    { }
+	    { } 
 	  if (__cur1 || __cur2)
 	    return false;
 	  // Now check one's elements are in the other
@@ -763,11 +763,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       const size_type __n = _M_bkt_num(__obj);
       _Node* __first = _M_buckets[__n];
-
+      
       for (_Node* __cur = __first; __cur; __cur = __cur->_M_next)
 	if (_M_equals(_M_get_key(__cur->_M_val), _M_get_key(__obj)))
 	  return pair<iterator, bool>(iterator(__cur, this), false);
-
+      
       _Node* __tmp = _M_new_node(__obj);
       __tmp->_M_next = __first;
       _M_buckets[__n] = __tmp;
@@ -782,7 +782,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       const size_type __n = _M_bkt_num(__obj);
       _Node* __first = _M_buckets[__n];
-
+      
       for (_Node* __cur = __first; __cur; __cur = __cur->_M_next)
 	if (_M_equals(_M_get_key(__cur->_M_val), _M_get_key(__obj)))
 	  {
@@ -809,11 +809,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       size_type __n = _M_bkt_num(__obj);
       _Node* __first = _M_buckets[__n];
-
+      
       for (_Node* __cur = __first; __cur; __cur = __cur->_M_next)
 	if (_M_equals(_M_get_key(__cur->_M_val), _M_get_key(__obj)))
 	  return __cur->_M_val;
-
+      
       _Node* __tmp = _M_new_node(__obj);
       __tmp->_M_next = __first;
       _M_buckets[__n] = __tmp;
@@ -944,7 +944,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{
 	  const size_type __n = _M_bkt_num(__p->_M_val);
 	  _Node* __cur = _M_buckets[__n];
-
+	  
 	  if (__cur == __p)
 	    {
 	      _M_buckets[__n] = __cur->_M_next;
@@ -1142,7 +1142,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      {
 		_Node* __local_copy = _M_new_node(__cur->_M_val);
 		_M_buckets[__i] = __local_copy;
-
+		
 		for (_Node* __next = __cur->_M_next;
 		     __next;
 		     __cur = __next, __next = __cur->_M_next)

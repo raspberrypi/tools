@@ -138,7 +138,7 @@ struct cfg_hooks
   /* Add PHI arguments queued in PENDINT_STMT list on edge E to edge
      E->dest (only in tree-ssa loop versioning.  */
   void (*flush_pending_stmts) (edge);
-
+  
   /* True if a block contains no executable instructions.  */
   bool (*empty_block_p) (basic_block);
 
@@ -220,3 +220,4 @@ extern void cfg_layout_rtl_register_cfg_hooks (void);
 extern void gimple_register_cfg_hooks (void);
 extern struct cfg_hooks get_cfg_hooks (void);
 extern void set_cfg_hooks (struct cfg_hooks);
+

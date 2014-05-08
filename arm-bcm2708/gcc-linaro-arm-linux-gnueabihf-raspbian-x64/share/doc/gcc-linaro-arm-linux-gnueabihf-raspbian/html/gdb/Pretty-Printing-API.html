@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,7 +64,7 @@ second element is the child's value.  The value can be any Python
 object which is convertible to a <span class="sc">gdb</span> value.
 
         <p>This method is optional.  If it does not exist, <span class="sc">gdb</span> will act
-as though the value has no children.
+as though the value has no children. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -93,7 +93,7 @@ printer's <code>to_string</code> method returns a Python string of some
 kind, then <span class="sc">gdb</span> will call its internal language-specific
 string-printing function to format the string.  For the CLI this means
 adding quotation marks, possibly escaping some characters, respecting
-<code>set print elements</code>, and the like.
+<code>set print elements</code>, and the like. 
 </dl>
         </p></blockquote></div>
 
@@ -125,7 +125,7 @@ strings are convertible to <code>gdb.Value</code>; other types are not.
         <p>Finally, if this method returns <code>None</code> then no further operations
 are peformed in this method and nothing is printed.
 
-        <p>If the result is not one of these types, an exception is raised.
+        <p>If the result is not one of these types, an exception is raised. 
 </p></blockquote></div>
 
    <p><span class="sc">gdb</span> provides a function which can be used to look up the
@@ -137,7 +137,8 @@ default pretty-printer for a <code>gdb.Value</code>:
 &mdash; Function: <b>gdb.default_visualizer</b> (<var>value</var>)<var><a name="index-gdb_002edefault_005fvisualizer-1862"></a></var><br>
 <blockquote><p>This function takes a <code>gdb.Value</code> object as an argument.  If a
 pretty-printer for this value exists, then it is returned.  If no such
-printer exists, then this returns <code>None</code>.
+printer exists, then this returns <code>None</code>. 
 </p></blockquote></div>
 
    </body></html>
+

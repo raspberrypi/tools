@@ -29,8 +29,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -45,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="M68HC11_002dopcodes.html#M68HC11_002dop
 <h5 class="subsubsection">9.24.6.1 Branch Improvement</h5>
 
 <p><a name="index-pseudo_002dopcodes_002c-M68HC11-1356"></a><a name="index-M68HC11-pseudo_002dopcodes-1357"></a><a name="index-branch-improvement_002c-M68HC11-1358"></a><a name="index-M68HC11-branch-improvement-1359"></a>
-Certain pseudo opcodes are permitted for branch instructions.
+Certain pseudo opcodes are permitted for branch instructions. 
 They expand to the shortest branch instruction that reach the
 target. Generally these mnemonics are made by prepending &lsquo;<samp><span class="samp">j</span></samp>&rsquo; to
 the start of Motorola mnemonic. These pseudo opcodes are not affected
@@ -70,7 +70,7 @@ by the &lsquo;<samp><span class="samp">--short-branches</span></samp>&rsquo; or 
           +--------------------------+----------------------------------+
      XX: condition
      NX: negative of condition XX
-
+     
 </pre>
      <dl>
 <dt><code>jbsr</code><dt><code>jbra</code><dd>These are the simplest jump pseudo-operations; they always map to one
@@ -102,3 +102,4 @@ non-PC relative case:
 <!-- For copying conditions, see the file as.texinfo. -->
 <!-- man end -->
    </body></html>
+

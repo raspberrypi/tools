@@ -132,7 +132,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    if (this->pptr() > this->egptr())
 	      __ret = __string_type(this->pbase(), this->pptr());
 	    else
-	      __ret = __string_type(this->pbase(), this->egptr());
+ 	      __ret = __string_type(this->pbase(), this->egptr());
 	  }
 	else
 	  __ret = _M_string;
@@ -168,7 +168,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       virtual streamsize
       showmanyc()
-      {
+      { 
 	streamsize __ret = -1;
 	if (_M_mode & ios_base::in)
 	  {
@@ -207,10 +207,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    // that an external char_type array of length __n exists
 	    // and has been pre-allocated. If this is not the case,
 	    // things will quickly blow up.
-
+	    
 	    // Step 1: Destroy the current internal array.
 	    _M_string.clear();
-
+	    
 	    // Step 2: Use the external array.
 	    _M_sync(__s, __n, 0);
 	  }

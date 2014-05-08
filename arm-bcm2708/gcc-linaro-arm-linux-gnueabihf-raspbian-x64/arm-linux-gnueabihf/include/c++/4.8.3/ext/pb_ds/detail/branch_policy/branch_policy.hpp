@@ -89,7 +89,7 @@ namespace __gnu_pbds
       {
       protected:
 	typedef typename Node_CItr::value_type 		   it_type;
-	typedef typename std::iterator_traits<it_type>::value_type value_type;
+       	typedef typename std::iterator_traits<it_type>::value_type value_type;
 	typedef typename remove_const<value_type>::type		   rcvalue_type;
 	typedef typename _Alloc::template rebind<rcvalue_type>::other rebind_v;
 	typedef	typename rebind_v::reference 		reference;

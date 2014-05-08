@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -82,7 +82,7 @@ many other C implementations (but not in all).  On the other hand,
 variable-length arrays are more elegant.
 
  <p>There are other differences between these two methods.  Space allocated
-with <code>alloca</code> exists until the containing <em>function</em> returns.
+with <code>alloca</code> exists until the containing <em>function</em> returns. 
 The space for a variable-length array is deallocated as soon as the array
 name's scope ends.  (If you use both variable-length arrays and
 <code>alloca</code> in the same function, deallocation of a variable-length array
@@ -121,3 +121,4 @@ declaration in parameter name and data type.  ISO C99 does not support
 parameter forward declarations.
 
  </body></html>
+

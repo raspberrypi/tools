@@ -83,7 +83,7 @@ namespace __gnu_pbds
 #ifdef _GLIBCXX_DEBUG
 #define PB_DS_DEBUG_MAP_BASE_C_DEC \
     debug_map_base<Key, eq_by_less<Key, Cmp_Fn>, \
-	typename _Alloc::template rebind<Key>::other::const_reference>
+       	typename _Alloc::template rebind<Key>::other::const_reference>
 #endif
 
 #ifdef PB_DS_TREE_TRACE
@@ -182,8 +182,8 @@ namespace __gnu_pbds
         class cond_dtor
         {
 	public:
-	  cond_dtor(value_vector a_vec, iterator& r_last_it,
-		    Size_Type total_size)
+	  cond_dtor(value_vector a_vec, iterator& r_last_it, 
+		    Size_Type total_size) 
 	  : m_a_vec(a_vec), m_r_last_it(r_last_it), m_max_size(total_size),
 	    m_no_action(false)
 	  { }
@@ -198,7 +198,7 @@ namespace __gnu_pbds
 		it->~value_type();
 		++it;
 	      }
-
+	    
 	    if (m_max_size > 0)
 	      value_allocator().deallocate(m_a_vec, m_max_size);
 	  }
@@ -206,14 +206,14 @@ namespace __gnu_pbds
 	  inline void
 	  set_no_action()
 	  { m_no_action = true; }
-
+	  
 	protected:
 	  value_vector 		m_a_vec;
 	  iterator& 		m_r_last_it;
 	  const Size_Type 	m_max_size;
 	  bool 			m_no_action;
        };
-
+      
       typedef typename traits_type::node_update 	node_update;
       typedef typename traits_type::node_iterator 	node_iterator;
       typedef typename traits_type::node_const_iterator	node_const_iterator;

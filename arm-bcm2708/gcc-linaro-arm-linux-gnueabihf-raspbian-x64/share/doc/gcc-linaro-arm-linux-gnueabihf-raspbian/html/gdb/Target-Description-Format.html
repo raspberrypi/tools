@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,13 +52,13 @@ A target description annex is an <a href="http://www.w3.org/XML/">XML</a>
 document which complies with the Document Type Definition provided in
 the <span class="sc">gdb</span> sources in <samp><span class="file">gdb/features/gdb-target.dtd</span></samp>.  This
 means you can use generally available tools like <samp><span class="command">xmllint</span></samp> to
-check that your feature descriptions are well-formed and valid.
+check that your feature descriptions are well-formed and valid. 
 However, to help people unfamiliar with XML write descriptions for
 their targets, we also describe the grammar here.
 
    <p>Target descriptions can identify the architecture of the remote target
 and (for some architectures) provide information about custom register
-sets.  They can also identify the OS ABI of the remote target.
+sets.  They can also identify the OS ABI of the remote target. 
 <span class="sc">gdb</span> can use this information to autoconfigure for your
 target, or to warn you if you connect to an unsupported target.
 
@@ -127,7 +127,7 @@ An &lsquo;<samp><span class="samp">&lt;architecture&gt;</span></samp>&rsquo; ele
 <h4 class="subsection">G.2.3 OS ABI</h4>
 
 <p><a name="index-g_t_0040code_007b_003cosabi_003e_007d-2843"></a>
-This optional field was introduced in <span class="sc">gdb</span> version 7.0.
+This optional field was introduced in <span class="sc">gdb</span> version 7.0. 
 Previous versions of <span class="sc">gdb</span> ignore it.
 
    <p>An &lsquo;<samp><span class="samp">&lt;osabi&gt;</span></samp>&rsquo; element has this form:
@@ -140,7 +140,7 @@ Previous versions of <span class="sc">gdb</span> ignore it.
 <h4 class="subsection">G.2.4 Compatible Architecture</h4>
 
 <p><a name="index-g_t_0040code_007b_003ccompatible_003e_007d-2844"></a>
-This optional field was introduced in <span class="sc">gdb</span> version 7.0.
+This optional field was introduced in <span class="sc">gdb</span> version 7.0. 
 Previous versions of <span class="sc">gdb</span> ignore it.
 
    <p>A &lsquo;<samp><span class="samp">&lt;compatible&gt;</span></samp>&rsquo; element has this form:
@@ -183,11 +183,11 @@ should have its standard name.  See <a href="Standard-Target-Features.html#Stand
 
 <p>Any register's value is a collection of bits which <span class="sc">gdb</span> must
 interpret.  The default interpretation is a two's complement integer,
-but other types can be requested by name in the register description.
+but other types can be requested by name in the register description. 
 Some predefined types are provided by <span class="sc">gdb</span> (see <a href="Predefined-Target-Types.html#Predefined-Target-Types">Predefined Target Types</a>), and the description can define additional composite types.
 
    <p>Each type element must have an &lsquo;<samp><span class="samp">id</span></samp>&rsquo; attribute, which gives
-a unique (within the containing &lsquo;<samp><span class="samp">&lt;feature&gt;</span></samp>&rsquo;) name to the type.
+a unique (within the containing &lsquo;<samp><span class="samp">&lt;feature&gt;</span></samp>&rsquo;) name to the type. 
 Types must be defined before they are used.
 
    <p><a name="index-g_t_003cvector_003e-2846"></a>Some targets offer vector registers, which can be treated as arrays
@@ -288,3 +288,4 @@ in <code>info registers</code>.
    </dl>
 
    </body></html>
+

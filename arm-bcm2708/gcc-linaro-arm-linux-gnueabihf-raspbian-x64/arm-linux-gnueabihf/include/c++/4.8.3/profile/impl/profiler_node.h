@@ -79,20 +79,20 @@ namespace __gnu_profile
   {
     if (!__stack)
       return;
-
+  
     __stack_npt::const_iterator __it;
     for (__it = __stack->begin(); __it != __stack->end(); ++__it)
       std::fprintf(__f, "%p ", *__it);
   }
 
   /** @brief Hash function for summary trace using call stack as index.  */
-  class __stack_hash
+  class __stack_hash 
   {
   public:
     std::size_t
     operator()(__stack_t __s) const
     {
-      if (!__s)
+      if (!__s) 
 	return 0;
 
       std::size_t __index = 0;
@@ -134,13 +134,13 @@ namespace __gnu_profile
     virtual ~__object_info_base() { }
 
     bool
-    __is_valid() const
+    __is_valid() const 
     { return _M_valid; }
-
+    
     __stack_t
     __stack() const
     { return _M_stack; }
-
+    
     virtual void __write(FILE* __f) const = 0;
 
   protected:

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,14 +50,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Syntax.html#Syntax">Syntax</a>
 <p><a name="index-comments-123"></a>There are two ways of rendering comments to <samp><span class="command">as</span></samp>.  In both
 cases the comment is equivalent to one space.
 
-   <p>Anything from &lsquo;<samp><span class="samp">/*</span></samp>&rsquo; through the next &lsquo;<samp><span class="samp">*/</span></samp>&rsquo; is a comment.
+   <p>Anything from &lsquo;<samp><span class="samp">/*</span></samp>&rsquo; through the next &lsquo;<samp><span class="samp">*/</span></samp>&rsquo; is a comment. 
 This means you may not nest these comments.
 
 <pre class="smallexample">     /*
        The only way to include a newline ('\n') in a comment
        is to use this sort of comment.
      */
-
+     
      /* This sort of comment does not nest. */
 </pre>
    <p><a name="index-line-comment-character-124"></a>Anything from a <dfn>line comment</dfn> character up to the next newline is
@@ -90,3 +90,4 @@ the line is ignored.  (Just like a comment.)
 of <samp><span class="command">as</span></samp>.
 
    </body></html>
+

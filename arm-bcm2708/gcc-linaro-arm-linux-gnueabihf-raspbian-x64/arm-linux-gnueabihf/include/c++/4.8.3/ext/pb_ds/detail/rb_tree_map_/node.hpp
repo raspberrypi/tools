@@ -89,7 +89,7 @@ namespace __gnu_pbds
       void
       trace() const
       {
-	std::cout << PB_DS_V2F(m_value) <<(m_red? " <r> " : " <b> ")
+	std::cout << PB_DS_V2F(m_value) <<(m_red? " <r> " : " <b> ") 
 		  << "(" << m_metadata << ")";
       }
 #endif
@@ -125,7 +125,7 @@ namespace __gnu_pbds
       void
       trace() const
       { std::cout << PB_DS_V2F(m_value) <<(m_red? " <r> " : " <b> "); }
-#endif
+#endif 
 
       node_pointer 	m_p_left;
       node_pointer 	m_p_right;
@@ -136,4 +136,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

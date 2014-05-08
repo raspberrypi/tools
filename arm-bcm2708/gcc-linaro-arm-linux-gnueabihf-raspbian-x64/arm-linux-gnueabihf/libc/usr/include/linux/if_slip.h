@@ -1,10 +1,10 @@
 /*
  *	Swansea University Computer Society	NET3
- *
+ *	
  *	This file declares the constants of special use with the SLIP/CSLIP/
  *	KISS TNC driver.
  */
-
+ 
 #ifndef __LINUX_SLIP_H
 #define __LINUX_SLIP_H
 
@@ -16,9 +16,9 @@
 #define		SL_OPT_ADAPTIVE		8
 
 /*
- *	VSV = ioctl for keepalive & outfill in SLIP driver
+ *	VSV = ioctl for keepalive & outfill in SLIP driver 
  */
-
+ 
 #define SIOCSKEEPALIVE	(SIOCDEVPRIVATE)		/* Set keepalive timeout in sec */
 #define SIOCGKEEPALIVE	(SIOCDEVPRIVATE+1)		/* Get keepalive timeout */
 #define SIOCSOUTFILL	(SIOCDEVPRIVATE+2)		/* Set outfill timeout */

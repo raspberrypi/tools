@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ register, register range separated by ellipses, or comma-separated
 list of those.  Example:
 
      <pre class="smallexample">          #pragma GCC coprocessor subclass 'B' = $c2, $c4, $c6
-
+          
           asm ("cpfoo %0" : "=B" (x));
 </pre>
      <br><dt><code>GCC disinterrupt </code><var>name</var><code> , </code><var>name</var><code> ...</code><dd><a name="index-pragma_002c-disinterrupt-3467"></a>For the named functions, the compiler adds code to disable interrupts
@@ -100,3 +100,4 @@ call model when calling the named functions.  Examples:
      </dl>
 
  </body></html>
+

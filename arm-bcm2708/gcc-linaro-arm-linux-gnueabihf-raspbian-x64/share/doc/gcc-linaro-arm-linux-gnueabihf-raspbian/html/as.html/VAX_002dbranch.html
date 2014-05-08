@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Vax_002dDependent.html#Vax_002dDependen
 <p><a name="index-VAX-branch-improvement-2235"></a><a name="index-branch-improvement_002c-VAX-2236"></a><a name="index-pseudo_002dops-for-branch_002c-VAX-2237"></a>Certain pseudo opcodes are permitted.  They are for branch
 instructions.  They expand to the shortest branch instruction that
 reaches the target.  Generally these mnemonics are made by
-substituting &lsquo;<samp><span class="samp">j</span></samp>&rsquo; for &lsquo;<samp><span class="samp">b</span></samp>&rsquo; at the start of a DEC mnemonic.
+substituting &lsquo;<samp><span class="samp">j</span></samp>&rsquo; for &lsquo;<samp><span class="samp">b</span></samp>&rsquo; at the start of a DEC mnemonic. 
 This feature is included both for compatibility and to help
 compilers.  If you do not need this feature, avoid these
 opcodes.  Here are the mnemonics, and the code they can expand into.
@@ -72,10 +72,10 @@ opcodes.  Here are the mnemonics, and the code they can expand into.
      <br><dt><code>j</code><var>COND</var><dd><var>COND</var> may be any one of the conditional branches
 <code>neq</code>, <code>nequ</code>, <code>eql</code>, <code>eqlu</code>, <code>gtr</code>,
 <code>geq</code>, <code>lss</code>, <code>gtru</code>, <code>lequ</code>, <code>vc</code>, <code>vs</code>,
-<code>gequ</code>, <code>cc</code>, <code>lssu</code>, <code>cs</code>.
+<code>gequ</code>, <code>cc</code>, <code>lssu</code>, <code>cs</code>. 
 <var>COND</var> may also be one of the bit tests
 <code>bs</code>, <code>bc</code>, <code>bss</code>, <code>bcs</code>, <code>bsc</code>, <code>bcc</code>,
-<code>bssi</code>, <code>bcci</code>, <code>lbs</code>, <code>lbc</code>.
+<code>bssi</code>, <code>bcci</code>, <code>lbs</code>, <code>lbc</code>. 
 <var>NOTCOND</var> is the opposite condition to <var>COND</var>.
           <dl>
 <dt>(byte displacement)<dd><kbd>b</kbd><var>COND</var><kbd> ...</kbd>
@@ -92,7 +92,7 @@ opcodes.  Here are the mnemonics, and the code they can expand into.
                bar:
 </pre>
           </dl>
-     <br><dt><code>jaob</code><var>YYY</var><dd><var>YYY</var> may be one of <code>lss leq</code>.
+     <br><dt><code>jaob</code><var>YYY</var><dd><var>YYY</var> may be one of <code>lss leq</code>. 
 <br><dt><code>jsob</code><var>ZZZ</var><dd><var>ZZZ</var> may be one of <code>geq gtr</code>.
           <dl>
 <dt>(byte displacement)<dd><var>OPCODE</var><kbd> ...</kbd>
@@ -128,3 +128,4 @@ opcodes.  Here are the mnemonics, and the code they can expand into.
      </dl>
 
    </body></html>
+

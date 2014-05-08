@@ -266,3 +266,4 @@ rightmost_descendant(node_pointer p_nd)
     return static_cast<leaf_pointer>(p_nd);
   return static_cast<inode_pointer>(p_nd)->rightmost_descendant();
 }
+

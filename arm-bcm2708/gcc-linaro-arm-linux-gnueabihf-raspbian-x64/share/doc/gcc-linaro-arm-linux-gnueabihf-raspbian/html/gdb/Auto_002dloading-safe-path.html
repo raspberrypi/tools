@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,9 +50,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Auto_002dloading.html#Auto_002dloading"
 
 <p><a name="index-auto_002dloading-safe_002dpath-1603"></a>
 As the files of inferior can come from untrusted source (such as submitted by
-an application user) <span class="sc">gdb</span> does not always load any files automatically.
+an application user) <span class="sc">gdb</span> does not always load any files automatically. 
 <span class="sc">gdb</span> provides the &lsquo;<samp><span class="samp">set auto-load safe-path</span></samp>&rsquo; setting to list
-directories trusted for loading files not explicitly requested by user.
+directories trusted for loading files not explicitly requested by user. 
 Each directory can also be a shell wildcard pattern.
 
    <p>If the path is not set properly you will see a warning and the file will not
@@ -76,10 +76,10 @@ invoke <span class="sc">gdb</span> like this:
 
      <dl>
 <a name="set-auto_002dload-safe_002dpath"></a><a name="index-set-auto_002dload-safe_002dpath-1604"></a><dt><code>set auto-load safe-path </code><span class="roman">[</span><var>directories</var><span class="roman">]</span><dd>Set the list of directories (and their subdirectories) trusted for automatic
-loading and execution of scripts.  You can also enter a specific trusted file.
+loading and execution of scripts.  You can also enter a specific trusted file. 
 Each directory can also be a shell wildcard pattern; wildcards do not match
 directory separator - see <code>FNM_PATHNAME</code> for system function <code>fnmatch</code>
-(see <a href="../libc/Wildcard-Matching.html#Wildcard-Matching">fnmatch</a>).
+(see <a href="../libc/Wildcard-Matching.html#Wildcard-Matching">fnmatch</a>). 
 If you omit <var>directories</var>, &lsquo;<samp><span class="samp">auto-load safe-path</span></samp>&rsquo; will be reset to
 its default value as specified during <span class="sc">gdb</span> compilation.
 
@@ -92,18 +92,18 @@ scripts.
 
      <p><a name="add_002dauto_002dload_002dsafe_002dpath"></a><a name="index-add_002dauto_002dload_002dsafe_002dpath-1606"></a><br><dt><code>add-auto-load-safe-path</code><dd>Add an entry (or list of entries) the list of directories trusted for automatic
 loading and execution of scripts.  Multiple entries may be delimited by the
-host platform path separator in use.
+host platform path separator in use. 
 </dl>
 
    <p>This variable defaults to what <code>--with-auto-load-dir</code> has been configured
 to (see <a href="with_002dauto_002dload_002ddir.html#with_002dauto_002dload_002ddir">with-auto-load-dir</a>).  <samp><span class="file">$debugdir</span></samp> and <samp><span class="file">$datadir</span></samp>
-substitution applies the same as for <a href="set-auto_002dload-scripts_002ddirectory.html#set-auto_002dload-scripts_002ddirectory">set auto-load scripts-directory</a>.
+substitution applies the same as for <a href="set-auto_002dload-scripts_002ddirectory.html#set-auto_002dload-scripts_002ddirectory">set auto-load scripts-directory</a>. 
 The default <code>set auto-load safe-path</code> value can be also overriden by
 <span class="sc">gdb</span> configuration option <samp><span class="option">--with-auto-load-safe-path</span></samp>.
 
    <p>Setting this variable to <samp><span class="file">/</span></samp> disables this security protection,
 corresponding <span class="sc">gdb</span> configuration option is
-<samp><span class="option">--without-auto-load-safe-path</span></samp>.
+<samp><span class="option">--without-auto-load-safe-path</span></samp>. 
 This variable is supposed to be set to the system directories writable by the
 system superuser only.  Users can add their source directories in init files in
 their home directories (see <a href="Home-Directory-Init-File.html#Home-Directory-Init-File">Home Directory Init File</a>).  See also deprecated
@@ -114,20 +114,20 @@ init file in the current directory
 example, you could use one of the following ways:
 
      <dl>
-<dt><samp><span class="file">~/.gdbinit</span></samp>: &lsquo;<samp><span class="samp">add-auto-load-safe-path ~/src/gdb</span></samp>&rsquo;<dd>Specify this trusted directory (or a file) as additional component of the list.
+<dt><samp><span class="file">~/.gdbinit</span></samp>: &lsquo;<samp><span class="samp">add-auto-load-safe-path ~/src/gdb</span></samp>&rsquo;<dd>Specify this trusted directory (or a file) as additional component of the list. 
 You have to specify also any existing directories displayed by
 by &lsquo;<samp><span class="samp">show auto-load safe-path</span></samp>&rsquo; (such as &lsquo;<samp><span class="samp">/usr:/bin</span></samp>&rsquo; in this example).
 
      <br><dt><kbd>gdb -iex "set auto-load safe-path /usr:/bin:~/src/gdb" ...</kbd><dd>Specify this directory as in the previous case but just for a single
 <span class="sc">gdb</span> session.
 
-     <br><dt><kbd>gdb -iex "set auto-load safe-path /" ...</kbd><dd>Disable auto-loading safety for a single <span class="sc">gdb</span> session.
+     <br><dt><kbd>gdb -iex "set auto-load safe-path /" ...</kbd><dd>Disable auto-loading safety for a single <span class="sc">gdb</span> session. 
 This assumes all the files you debug during this <span class="sc">gdb</span> session will come
 from trusted sources.
 
-     <br><dt><kbd>./configure --without-auto-load-safe-path</kbd><dd>During compilation of <span class="sc">gdb</span> you may disable any auto-loading safety.
+     <br><dt><kbd>./configure --without-auto-load-safe-path</kbd><dd>During compilation of <span class="sc">gdb</span> you may disable any auto-loading safety. 
 This assumes all the files you will ever debug with this <span class="sc">gdb</span> come from
-trusted sources.
+trusted sources. 
 </dl>
 
    <p>On the other hand you can also explicitly forbid automatic files loading which
@@ -138,7 +138,7 @@ also suppresses any such warning messages:
 
      <br><dt><samp><span class="file">~/.gdbinit</span></samp>: &lsquo;<samp><span class="samp">set auto-load no</span></samp>&rsquo;<dd>Disable auto-loading globally for the user
 (see <a href="Home-Directory-Init-File.html#Home-Directory-Init-File">Home Directory Init File</a>).  While it is improbable, you could also
-use system init file instead (see <a href="System_002dwide-configuration.html#System_002dwide-configuration">System-wide configuration</a>).
+use system init file instead (see <a href="System_002dwide-configuration.html#System_002dwide-configuration">System-wide configuration</a>). 
 </dl>
 
    <p>This setting applies to the file names as entered by user.  If no entry matches
@@ -149,3 +149,4 @@ own before starting the comparison so a canonical form of directories is
 recommended to be entered.
 
    </body></html>
+

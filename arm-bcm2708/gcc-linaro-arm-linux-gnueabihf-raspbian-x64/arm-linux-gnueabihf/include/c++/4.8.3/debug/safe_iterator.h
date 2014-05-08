@@ -60,7 +60,7 @@ namespace __gnu_debug
    *  _Safe_iterators can be determined singular or non-singular via
    *  _Safe_iterator_base.
    */
-  inline bool
+  inline bool 
   __check_singular_aux(const _Safe_iterator_base* __x)
   { return __x->_M_singular(); }
 

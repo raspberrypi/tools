@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 <p><a name="index-ICHAR-734"></a><a name="index-conversion_002c-to-integer-735"></a>
      <dl>
 <dt><em>Description</em>:<dd><code>ICHAR(C)</code> returns the code for the character in the first character
-position of <code>C</code> in the system's native character set.
+position of <code>C</code> in the system's native character set. 
 The correspondence between characters and their codes is not necessarily
 the same across different GNU Fortran implementations.
 
@@ -97,11 +97,11 @@ example:
             integer value
             character(len=10) string, string2
             string = '154'
-
+          
             ! Convert a string to a numeric value
             read (string,'(I10)') value
             print *, value
-
+          
             ! Convert a value to a formatted string
             write (string2,'(I10)') value
             print *, string2
@@ -112,3 +112,4 @@ example:
    </dl>
 
    </body></html>
+

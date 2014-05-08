@@ -162,7 +162,7 @@
     }
 
     namespace tr2 { }
-
+    
     namespace decimal { }
 
     namespace chrono { }
@@ -193,7 +193,7 @@ namespace std
 
 
 // Defined if inline namespaces are used for versioning.
-# define _GLIBCXX_INLINE_VERSION 0
+# define _GLIBCXX_INLINE_VERSION 0 
 
 // Inline namespace for symbol versioning.
 #if _GLIBCXX_INLINE_VERSION
@@ -1131,7 +1131,7 @@ namespace std
 /* #undef _GLIBCXX_HAVE___CXA_THREAD_ATEXIT_IMPL */
 
 /* Define as const if the declaration of iconv() needs const. */
-#define _GLIBCXX_ICONV_CONST
+#define _GLIBCXX_ICONV_CONST 
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */

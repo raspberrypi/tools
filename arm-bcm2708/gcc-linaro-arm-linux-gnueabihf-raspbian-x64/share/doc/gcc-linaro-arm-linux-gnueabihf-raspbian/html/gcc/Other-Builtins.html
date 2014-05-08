@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -92,7 +92,7 @@ emitted.
 <code>strndup</code>, <code>toascii</code>, <code>y0f</code>, <code>y0l</code>, <code>y0</code>,
 <code>y1f</code>, <code>y1l</code>, <code>y1</code>, <code>ynf</code>, <code>ynl</code> and
 <code>yn</code>
-may be handled as built-in functions.
+may be handled as built-in functions. 
 All these functions have corresponding versions
 prefixed with <code>__builtin_</code>, which may be used even in strict C90
 mode.
@@ -190,7 +190,7 @@ the same names as the standard macros ( <code>isgreater</code>,
 <code>isgreaterequal</code>, <code>isless</code>, <code>islessequal</code>,
 <code>islessgreater</code>, and <code>isunordered</code>) , with <code>__builtin_</code>
 prefixed.  We intend for a library implementor to be able to simply
-<code>#define</code> each standard macro to its built-in equivalent.
+<code>#define</code> each standard macro to its built-in equivalent. 
 In the same fashion, GCC provides <code>fpclassify</code>, <code>isfinite</code>,
 <code>isinf_sign</code> and <code>isnormal</code> built-ins used with
 <code>__builtin_</code> prefixed.  The <code>isinf</code> and <code>isnan</code>
@@ -221,7 +221,7 @@ considered compatible if their underlying types are compatible.
 
       <p>An <code>enum</code> type is not considered to be compatible with another
 <code>enum</code> type even if both are compatible with the same integer
-type; this is what the C standard specifies.
+type; this is what the C standard specifies. 
 For example, <code>enum {foo, bar}</code> is not similar to
 <code>enum {hot, dog}</code>.
 
@@ -294,7 +294,7 @@ future revisions.
 implementing the ISO C11 macros <code>CMPLXF</code>, <code>CMPLX</code> and
 <code>CMPLXL</code>.  <var>real</var> and <var>imag</var> must have the same type, a
 real binary floating-point type, and the result has the corresponding
-complex type with real and imaginary parts <var>real</var> and <var>imag</var>.
+complex type with real and imaginary parts <var>real</var> and <var>imag</var>. 
 Unlike &lsquo;<samp><var>real</var><span class="samp"> + I * </span><var>imag</var></samp>&rsquo;, this works even when
 infinities, NaNs and negative zeros are involved.
 
@@ -348,7 +348,7 @@ optimization.
 
       <p>Previous versions of GCC did not accept this built-in in data
 initializers.  The earliest version where it is completely safe is
-3.0.1.
+3.0.1. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -374,7 +374,7 @@ expressions for <var>exp</var>, you should use constructions such as
      <pre class="smallexample">          if (__builtin_expect (ptr != NULL, 1))
             foo (*ptr);
 </pre>
-      <p class="noindent">when testing pointer or floating-point values.
+      <p class="noindent">when testing pointer or floating-point values. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -383,7 +383,7 @@ expressions for <var>exp</var>, you should use constructions such as
 this function by using a target-dependent mechanism (such as
 intentionally executing an illegal instruction) or by calling
 <code>abort</code>.  The mechanism used may vary from release to release so
-you should not rely on any particular implementation.
+you should not rely on any particular implementation. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -422,7 +422,7 @@ function that never returns but that is not declared
 <code>__attribute__((noreturn))</code>, as in this example:
 
      <pre class="smallexample">          void function_that_never_returns (void);
-
+          
           int g (int c)
           {
             if (c)
@@ -454,25 +454,25 @@ if it is nonzero means misalignment offset.  For example:
      <pre class="smallexample">          void *x = __builtin_assume_aligned (arg, 32, 8);
 </pre>
       <p class="noindent">means that the compiler can assume for <code>x</code>, set to <code>arg</code>, that
-<code>(char *) x - 8</code> is 32-byte aligned.
+<code>(char *) x - 8</code> is 32-byte aligned. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_LINE</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fLINE-3363"></a></var><br>
 <blockquote><p>This function is the equivalent to the preprocessor <code>__LINE__</code>
-macro and returns the line number of the invocation of the built-in.
+macro and returns the line number of the invocation of the built-in. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_FUNCTION</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fFUNCTION-3364"></a></var><br>
 <blockquote><p>This function is the equivalent to the preprocessor <code>__FUNCTION__</code>
-macro and returns the function name the invocation of the built-in is in.
+macro and returns the function name the invocation of the built-in is in. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_FILE</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fFILE-3365"></a></var><br>
 <blockquote><p>This function is the equivalent to the preprocessor <code>__FILE__</code>
-macro and returns the file name the invocation of the built-in is in.
+macro and returns the file name the invocation of the built-in is in. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -486,24 +486,24 @@ deterministic behavior.
       <p>If the target does not require instruction cache flushes,
 <code>__builtin___clear_cache</code> has no effect.  Otherwise either
 instructions are emitted in-line to clear the instruction cache or a
-call to the <code>__clear_cache</code> function in libgcc is made.
+call to the <code>__clear_cache</code> function in libgcc is made. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: void <b>__builtin_prefetch</b> (<var>const void *addr, ...</var>)<var><a name="index-g_t_005f_005fbuiltin_005fprefetch-3367"></a></var><br>
 <blockquote><p>This function is used to minimize cache-miss latency by moving data into
-a cache before it is accessed.
+a cache before it is accessed. 
 You can insert calls to <code>__builtin_prefetch</code> into code for which
-you know addresses of data in memory that is likely to be accessed soon.
-If the target supports them, data prefetch instructions are generated.
+you know addresses of data in memory that is likely to be accessed soon. 
+If the target supports them, data prefetch instructions are generated. 
 If the prefetch is done early enough before the access then the data will
 be in the cache by the time it is accessed.
 
-      <p>The value of <var>addr</var> is the address of the memory to prefetch.
-There are two optional arguments, <var>rw</var> and <var>locality</var>.
+      <p>The value of <var>addr</var> is the address of the memory to prefetch. 
+There are two optional arguments, <var>rw</var> and <var>locality</var>. 
 The value of <var>rw</var> is a compile-time constant one or zero; one
 means that the prefetch is preparing for a write to the memory address
-and zero, the default, means that the prefetch is preparing for a read.
+and zero, the default, means that the prefetch is preparing for a read. 
 The value <var>locality</var> must be a compile-time constant integer between
 zero and three.  A value of zero means that the data has no temporal
 locality, so it need not be left in the cache after the access.  A value
@@ -527,25 +527,25 @@ address, but evaluation faults if <code>p</code> is not a valid address.
 
       <p>If the target does not support data prefetch, the address expression
 is evaluated if it includes side effects but no other code is generated
-and GCC does not issue a warning.
+and GCC does not issue a warning. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: double <b>__builtin_huge_val</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005fhuge_005fval-3368"></a></var><br>
 <blockquote><p>Returns a positive infinity, if supported by the floating-point format,
 else <code>DBL_MAX</code>.  This function is suitable for implementing the
-ISO C macro <code>HUGE_VAL</code>.
+ISO C macro <code>HUGE_VAL</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: float <b>__builtin_huge_valf</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005fhuge_005fvalf-3369"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_huge_val</code>, except the return type is <code>float</code>.
+<blockquote><p>Similar to <code>__builtin_huge_val</code>, except the return type is <code>float</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: long double <b>__builtin_huge_vall</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005fhuge_005fvall-3370"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_huge_val</code>, except the return
-type is <code>long double</code>.
+type is <code>long double</code>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -557,40 +557,40 @@ constant values and they must appear in this order: <code>FP_NAN</code>,
 <code>FP_INFINITE</code>, <code>FP_NORMAL</code>, <code>FP_SUBNORMAL</code> and
 <code>FP_ZERO</code>.  The ellipsis is for exactly one floating-point value
 to classify.  GCC treats the last argument as type-generic, which
-means it does not do default promotion from float to double.
+means it does not do default promotion from float to double. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: double <b>__builtin_inf</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finf-3372"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_huge_val</code>, except a warning is generated
-if the target floating-point format does not support infinities.
+if the target floating-point format does not support infinities. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal32 <b>__builtin_infd32</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finfd32-3373"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal32</code>.
+<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal32</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal64 <b>__builtin_infd64</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finfd64-3374"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal64</code>.
+<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal64</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal128 <b>__builtin_infd128</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finfd128-3375"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal128</code>.
+<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>_Decimal128</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: float <b>__builtin_inff</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finff-3376"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>float</code>.
-This function is suitable for implementing the ISO C99 macro <code>INFINITY</code>.
+<blockquote><p>Similar to <code>__builtin_inf</code>, except the return type is <code>float</code>. 
+This function is suitable for implementing the ISO C99 macro <code>INFINITY</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: long double <b>__builtin_infl</b> (<var>void</var>)<var><a name="index-g_t_005f_005fbuiltin_005finfl-3377"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_inf</code>, except the return
-type is <code>long double</code>.
+type is <code>long double</code>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -599,7 +599,7 @@ type is <code>long double</code>.
 an argument of <code>-Inf</code>.  Note while the parameter list is an
 ellipsis, this function only accepts exactly one floating-point
 argument.  GCC treats this parameter as type-generic, which means it
-does not do default promotion from float to double.
+does not do default promotion from float to double. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -617,194 +617,195 @@ forced to be a quiet NaN.
 
       <p>This function, if given a string literal all of which would have been
 consumed by <code>strtol</code>, is evaluated early enough that it is considered a
-compile-time constant.
+compile-time constant. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal32 <b>__builtin_nand32</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnand32-3380"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal32</code>.
+<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal32</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal64 <b>__builtin_nand64</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnand64-3381"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal64</code>.
+<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal64</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: _Decimal128 <b>__builtin_nand128</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnand128-3382"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal128</code>.
+<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>_Decimal128</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: float <b>__builtin_nanf</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnanf-3383"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>float</code>.
+<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>float</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: long double <b>__builtin_nanl</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnanl-3384"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>long double</code>.
+<blockquote><p>Similar to <code>__builtin_nan</code>, except the return type is <code>long double</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: double <b>__builtin_nans</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnans-3385"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_nan</code>, except the significand is forced
 to be a signaling NaN.  The <code>nans</code> function is proposed by
-<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n965.htm">WG14 N965</a>.
+<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n965.htm">WG14 N965</a>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: float <b>__builtin_nansf</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnansf-3386"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nans</code>, except the return type is <code>float</code>.
+<blockquote><p>Similar to <code>__builtin_nans</code>, except the return type is <code>float</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: long double <b>__builtin_nansl</b> (<var>const char *str</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnansl-3387"></a></var><br>
-<blockquote><p>Similar to <code>__builtin_nans</code>, except the return type is <code>long double</code>.
+<blockquote><p>Similar to <code>__builtin_nans</code>, except the return type is <code>long double</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ffs</b> (<var>unsigned int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fffs-3388"></a></var><br>
 <blockquote><p>Returns one plus the index of the least significant 1-bit of <var>x</var>, or
-if <var>x</var> is zero, returns zero.
+if <var>x</var> is zero, returns zero. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clz</b> (<var>unsigned int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclz-3389"></a></var><br>
 <blockquote><p>Returns the number of leading 0-bits in <var>x</var>, starting at the most
-significant bit position.  If <var>x</var> is 0, the result is undefined.
+significant bit position.  If <var>x</var> is 0, the result is undefined. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ctz</b> (<var>unsigned int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fctz-3390"></a></var><br>
 <blockquote><p>Returns the number of trailing 0-bits in <var>x</var>, starting at the least
-significant bit position.  If <var>x</var> is 0, the result is undefined.
+significant bit position.  If <var>x</var> is 0, the result is undefined. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clrsb</b> (<var>int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclrsb-3391"></a></var><br>
 <blockquote><p>Returns the number of leading redundant sign bits in <var>x</var>, i.e. the
 number of bits following the most significant bit that are identical
-to it.  There are no special cases for 0 or other values.
+to it.  There are no special cases for 0 or other values. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_popcount</b> (<var>unsigned int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpopcount-3392"></a></var><br>
-<blockquote><p>Returns the number of 1-bits in <var>x</var>.
+<blockquote><p>Returns the number of 1-bits in <var>x</var>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_parity</b> (<var>unsigned int x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fparity-3393"></a></var><br>
 <blockquote><p>Returns the parity of <var>x</var>, i.e. the number of 1-bits in <var>x</var>
-modulo 2.
+modulo 2. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ffsl</b> (<var>unsigned long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fffsl-3394"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_ffs</code>, except the argument type is
-<code>unsigned long</code>.
+<code>unsigned long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clzl</b> (<var>unsigned long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclzl-3395"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_clz</code>, except the argument type is
-<code>unsigned long</code>.
+<code>unsigned long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ctzl</b> (<var>unsigned long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fctzl-3396"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_ctz</code>, except the argument type is
-<code>unsigned long</code>.
+<code>unsigned long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clrsbl</b> (<var>long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclrsbl-3397"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_clrsb</code>, except the argument type is
-<code>long</code>.
+<code>long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_popcountl</b> (<var>unsigned long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpopcountl-3398"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_popcount</code>, except the argument type is
-<code>unsigned long</code>.
+<code>unsigned long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_parityl</b> (<var>unsigned long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fparityl-3399"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_parity</code>, except the argument type is
-<code>unsigned long</code>.
+<code>unsigned long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ffsll</b> (<var>unsigned long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fffsll-3400"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_ffs</code>, except the argument type is
-<code>unsigned long long</code>.
+<code>unsigned long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clzll</b> (<var>unsigned long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclzll-3401"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_clz</code>, except the argument type is
-<code>unsigned long long</code>.
+<code>unsigned long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_ctzll</b> (<var>unsigned long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fctzll-3402"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_ctz</code>, except the argument type is
-<code>unsigned long long</code>.
+<code>unsigned long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_clrsbll</b> (<var>long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclrsbll-3403"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_clrsb</code>, except the argument type is
-<code>long long</code>.
+<code>long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_popcountll</b> (<var>unsigned long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpopcountll-3404"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_popcount</code>, except the argument type is
-<code>unsigned long long</code>.
+<code>unsigned long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: int <b>__builtin_parityll</b> (<var>unsigned long long</var>)<var><a name="index-g_t_005f_005fbuiltin_005fparityll-3405"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_parity</code>, except the argument type is
-<code>unsigned long long</code>.
+<code>unsigned long long</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: double <b>__builtin_powi</b> (<var>double, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpowi-3406"></a></var><br>
 <blockquote><p>Returns the first argument raised to the power of the second.  Unlike the
-<code>pow</code> function no guarantees about precision and rounding are made.
+<code>pow</code> function no guarantees about precision and rounding are made. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: float <b>__builtin_powif</b> (<var>float, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpowif-3407"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_powi</code>, except the argument and return types
-are <code>float</code>.
+are <code>float</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: long double <b>__builtin_powil</b> (<var>long double, int</var>)<var><a name="index-g_t_005f_005fbuiltin_005fpowil-3408"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_powi</code>, except the argument and return types
-are <code>long double</code>.
+are <code>long double</code>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: uint16_t <b>__builtin_bswap16</b> (<var>uint16_t x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fbswap16-3409"></a></var><br>
 <blockquote><p>Returns <var>x</var> with the order of the bytes reversed; for example,
 <code>0xaabb</code> becomes <code>0xbbaa</code>.  Byte here always means
-exactly 8 bits.
+exactly 8 bits. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: uint32_t <b>__builtin_bswap32</b> (<var>uint32_t x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fbswap32-3410"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_bswap16</code>, except the argument and return types
-are 32 bit.
+are 32 bit. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Built-in Function: uint64_t <b>__builtin_bswap64</b> (<var>uint64_t x</var>)<var><a name="index-g_t_005f_005fbuiltin_005fbswap64-3411"></a></var><br>
 <blockquote><p>Similar to <code>__builtin_bswap32</code>, except the argument and return types
-are 64 bit.
+are 64 bit. 
 </p></blockquote></div>
 
  </body></html>
+

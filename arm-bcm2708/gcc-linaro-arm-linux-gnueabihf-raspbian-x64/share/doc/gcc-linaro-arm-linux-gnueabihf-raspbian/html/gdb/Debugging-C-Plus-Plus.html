@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,22 +51,22 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C.html#C">C</a>
 Some <span class="sc">gdb</span> commands are particularly useful with C<tt>++</tt>, and some are
 designed specifically for use with C<tt>++</tt>.  Here is a summary:
 
-
+     
 <a name="index-break-in-overloaded-functions-887"></a>
 <dl><dt><span class="roman">breakpoint menus</span><dd>When you want a breakpoint in a function whose name is overloaded,
 <span class="sc">gdb</span> has the capability to display a menu of possible breakpoint
-locations to help you specify which function definition you want.
+locations to help you specify which function definition you want. 
 See <a href="Ambiguous-Expressions.html#Ambiguous-Expressions">Ambiguous Expressions</a>.
 
      <p><a name="index-overloading-in-C_0040t_007b_002b_002b_007d-888"></a><br><dt><code>rbreak </code><var>regex</var><dd>Setting breakpoints using regular expressions is helpful for setting
 breakpoints on overloaded functions that are not members of any special
-classes.
+classes. 
 See <a href="Set-Breaks.html#Set-Breaks">Setting Breakpoints</a>.
 
      <p><a name="index-C_0040t_007b_002b_002b_007d-exception-handling-889"></a><br><dt><code>catch throw</code><dt><code>catch catch</code><dd>Debug C<tt>++</tt> exception handling using these commands.  See <a href="Set-Catchpoints.html#Set-Catchpoints">Setting Catchpoints</a>.
 
      <p><a name="index-inheritance-890"></a><br><dt><code>ptype </code><var>typename</var><dd>Print inheritance relationships as well as other information for type
-<var>typename</var>.
+<var>typename</var>. 
 See <a href="Symbols.html#Symbols">Examining the Symbol Table</a>.
 
      <br><dt><code>info vtbl </code><var>expression</var><code>.</code><dd>The <code>info vtbl</code> command can be used to display the virtual
@@ -75,21 +75,21 @@ one entry per virtual table; there may be multiple virtual tables when
 multiple inheritance is in use.
 
      <p><a name="index-C_0040t_007b_002b_002b_007d-symbol-display-891"></a><br><dt><code>set print demangle</code><dt><code>show print demangle</code><dt><code>set print asm-demangle</code><dt><code>show print asm-demangle</code><dd>Control whether C<tt>++</tt> symbols display in their source form, both when
-displaying code as C<tt>++</tt> source and when displaying disassemblies.
+displaying code as C<tt>++</tt> source and when displaying disassemblies. 
 See <a href="Print-Settings.html#Print-Settings">Print Settings</a>.
 
-     <br><dt><code>set print object</code><dt><code>show print object</code><dd>Choose whether to print derived (actual) or declared types of objects.
+     <br><dt><code>set print object</code><dt><code>show print object</code><dd>Choose whether to print derived (actual) or declared types of objects. 
 See <a href="Print-Settings.html#Print-Settings">Print Settings</a>.
 
-     <br><dt><code>set print vtbl</code><dt><code>show print vtbl</code><dd>Control the format for printing virtual function tables.
-See <a href="Print-Settings.html#Print-Settings">Print Settings</a>.
+     <br><dt><code>set print vtbl</code><dt><code>show print vtbl</code><dd>Control the format for printing virtual function tables. 
+See <a href="Print-Settings.html#Print-Settings">Print Settings</a>. 
 (The <code>vtbl</code> commands do not work on programs compiled with the HP
 ANSI C<tt>++</tt> compiler (<code>aCC</code>).)
 
      <p><a name="index-set-overload_002dresolution-892"></a><a name="index-overloaded-functions_002c-overload-resolution-893"></a><br><dt><code>set overload-resolution on</code><dd>Enable overload resolution for C<tt>++</tt> expression evaluation.  The default
 is on.  For overloaded functions, <span class="sc">gdb</span> evaluates the arguments
 and searches for a function whose signature matches the argument types,
-using the standard C<tt>++</tt> conversion rules (see <a href="C-Plus-Plus-Expressions.html#C-Plus-Plus-Expressions">C<tt>++</tt> Expressions</a>, for details).
+using the standard C<tt>++</tt> conversion rules (see <a href="C-Plus-Plus-Expressions.html#C-Plus-Plus-Expressions">C<tt>++</tt> Expressions</a>, for details). 
 If it cannot find a match, it emits a message.
 
      <br><dt><code>set overload-resolution off</code><dd>Disable overload resolution for C<tt>++</tt> expression evaluation.  For
@@ -106,8 +106,9 @@ argument types.
 the same notation that is used to declare such symbols in C<tt>++</tt>: type
 <var>symbol</var><code>(</code><var>types</var><code>)</code> rather than just <var>symbol</var>.  You can
 also use the <span class="sc">gdb</span> command-line word completion facilities to list the
-available choices, or to finish the type list for you.
-See <a href="Completion.html#Completion">Command Completion</a>, for details on how to do this.
+available choices, or to finish the type list for you. 
+See <a href="Completion.html#Completion">Command Completion</a>, for details on how to do this. 
 </dl>
 
    </body></html>
+

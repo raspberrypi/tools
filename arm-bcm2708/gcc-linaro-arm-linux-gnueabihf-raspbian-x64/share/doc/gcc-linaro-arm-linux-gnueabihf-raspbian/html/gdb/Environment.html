@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,11 +55,11 @@ the shell and they are inherited by all the other programs you run.  When
 debugging, it can be useful to try running your program with a modified
 environment without having to start <span class="sc">gdb</span> over again.
 
-
+     
 <a name="index-path-120"></a>
 <dl><dt><code>path </code><var>directory</var><dd>Add <var>directory</var> to the front of the <code>PATH</code> environment variable
-(the search path for executables) that will be passed to your program.
-The value of <code>PATH</code> used by <span class="sc">gdb</span> does not change.
+(the search path for executables) that will be passed to your program. 
+The value of <code>PATH</code> used by <span class="sc">gdb</span> does not change. 
 You may specify several directory names, separated by whitespace or by a
 system-dependent separator character (&lsquo;<samp><span class="samp">:</span></samp>&rsquo; on Unix, &lsquo;<samp><span class="samp">;</span></samp>&rsquo; on
 MS-DOS and MS-Windows).  If <var>directory</var> is already in the path, it
@@ -70,7 +70,7 @@ working directory at the time <span class="sc">gdb</span> searches the path.  If
 use &lsquo;<samp><span class="samp">.</span></samp>&rsquo; instead, it refers to the directory where you executed the
 <code>path</code> command.  <span class="sc">gdb</span> replaces &lsquo;<samp><span class="samp">.</span></samp>&rsquo; in the
 <var>directory</var> argument (with the current path) before adding
-<var>directory</var> to the search path.
+<var>directory</var> to the search path. 
 <!-- 'path' is explicitly nonrepeatable, but RMS points out it is silly to -->
 <!-- document that, since repeating it would be a no-op. -->
 
@@ -87,7 +87,7 @@ changes for your program only, not for <span class="sc">gdb</span> itself.  <var
 be any string; the values of environment variables are just strings, and
 any interpretation is supplied by your program itself.  The <var>value</var>
 parameter is optional; if it is eliminated, the variable is set to a
-null value.
+null value. 
 <!-- "any string" here does not include leading, trailing -->
 <!-- blanks. Gnu asks: does anyone care? -->
 
@@ -102,7 +102,7 @@ are not actually required.)
      <p><a name="index-unset-environment-124"></a><br><dt><code>unset environment </code><var>varname</var><dd>Remove variable <var>varname</var> from the environment to be passed to your
 program.  This is different from &lsquo;<samp><span class="samp">set env </span><var>varname</var><span class="samp"> =</span></samp>&rsquo;;
 <code>unset environment</code> removes the variable from the environment,
-rather than assigning it an empty value.
+rather than assigning it an empty value. 
 </dl>
 
    <p><em>Warning:</em> On Unix systems, <span class="sc">gdb</span> runs your program using
@@ -116,3 +116,4 @@ files that are only run when you sign on, such as <samp><span class="file">.logi
 <samp><span class="file">.profile</span></samp>.
 
    </body></html>
+

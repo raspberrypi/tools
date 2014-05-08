@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,20 +57,20 @@ internal operation, so you will not think it has crashed.
 which announce that the symbol table for a source file is being read;
 see <code>symbol-file</code> in <a href="Files.html#Files">Commands to Specify Files</a>.
 
-
+     
 <a name="index-set-verbose-1612"></a>
 <dl><dt><code>set verbose on</code><dd>Enables <span class="sc">gdb</span> output of certain informational messages.
 
      <br><dt><code>set verbose off</code><dd>Disables <span class="sc">gdb</span> output of certain informational messages.
 
-     <p><a name="index-show-verbose-1613"></a><br><dt><code>show verbose</code><dd>Displays whether <code>set verbose</code> is on or off.
+     <p><a name="index-show-verbose-1613"></a><br><dt><code>show verbose</code><dd>Displays whether <code>set verbose</code> is on or off. 
 </dl>
 
    <p>By default, if <span class="sc">gdb</span> encounters bugs in the symbol table of an
 object file, it is silent; but if you are debugging a compiler, you may
 find this information useful (see <a href="Symbol-Errors.html#Symbol-Errors">Errors Reading Symbol Files</a>).
 
-
+     
 <a name="index-set-complaints-1614"></a>
 <dl><dt><code>set complaints </code><var>limit</var><dd>Permits <span class="sc">gdb</span> to output <var>limit</var> complaints about each type of
 unusual symbols before becoming silent about the problem.  Set
@@ -92,7 +92,7 @@ you try to run a program which is already running:
    <p>If you are willing to unflinchingly face the consequences of your own
 commands, you can disable this &ldquo;feature&rdquo;:
 
-
+     
 <a name="index-set-confirm-1616"></a>
 <a name="index-flinching-1617"></a>
 <a name="index-confirmation-1618"></a>
@@ -112,12 +112,13 @@ useful to enable <dfn>command tracing</dfn>.  In this mode each command will be
 printed as it is executed, prefixed with one or more &lsquo;<samp><span class="samp">+</span></samp>&rsquo; symbols, the
 quantity denoting the call depth of each command.
 
-
+     
 <a name="index-set-trace_002dcommands-1622"></a>
 <a name="index-command-scripts_002c-debugging-1623"></a>
-<dl><dt><code>set trace-commands on</code><dd>Enable command tracing.
-<br><dt><code>set trace-commands off</code><dd>Disable command tracing.
-<br><dt><code>show trace-commands</code><dd>Display the current state of command tracing.
+<dl><dt><code>set trace-commands on</code><dd>Enable command tracing. 
+<br><dt><code>set trace-commands off</code><dd>Disable command tracing. 
+<br><dt><code>show trace-commands</code><dd>Display the current state of command tracing. 
 </dl>
 
    </body></html>
+

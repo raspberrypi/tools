@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,15 +48,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 <h3 class="section">10.10 Value History</h3>
 
 <p><a name="index-value-history-621"></a><a name="index-history-of-values-printed-by-_0040value_007bGDBN_007d-622"></a>Values printed by the <code>print</code> command are saved in the <span class="sc">gdb</span>
-<dfn>value history</dfn>.  This allows you to refer to them in other expressions.
+<dfn>value history</dfn>.  This allows you to refer to them in other expressions. 
 Values are kept until the symbol table is re-read or discarded
-(for example with the <code>file</code> or <code>symbol-file</code> commands).
+(for example with the <code>file</code> or <code>symbol-file</code> commands). 
 When the symbol table changes, the value history is discarded,
 since the values may contain pointers back to the types defined in the
 symbol table.
 
    <p><a name="index-g_t_0040code_007b_0024_007d-623"></a><a name="index-g_t_0040code_007b_0024_0024_007d-624"></a><a name="index-history-number-625"></a>The values printed are given <dfn>history numbers</dfn> by which you can
-refer to them.  These are successive integers starting with one.
+refer to them.  These are successive integers starting with one. 
 <code>print</code> shows you the history number assigned to a value by
 printing &lsquo;<samp><span class="samp">$</span><var>num</var><span class="samp"> = </span></samp>&rsquo; before the value; here <var>num</var> is the
 history number.
@@ -64,7 +64,7 @@ history number.
    <p>To refer to any previous value, use &lsquo;<samp><span class="samp">$</span></samp>&rsquo; followed by the value's
 history number.  The way <code>print</code> labels its output is designed to
 remind you of this.  Just <code>$</code> refers to the most recent value in
-the history, and <code>$$</code> refers to the value before that.
+the history, and <code>$$</code> refers to the value before that. 
 <code>$$</code><var>n</var> refers to the <var>n</var>th value from the end; <code>$$2</code>
 is the value just prior to <code>$$</code>, <code>$$1</code> is equivalent to
 <code>$$</code>, and <code>$$0</code> is equivalent to <code>$</code>.
@@ -91,19 +91,20 @@ command&mdash;which you can do by just typing &lt;RET&gt;.
    <p class="noindent">then the value recorded in the value history by the <code>print</code> command
 remains 4 even though the value of <code>x</code> has changed.
 
-
+     
 <a name="index-show-values-626"></a>
-<dl><dt><code>show values</code><dd>Print the last ten values in the value history, with their item numbers.
+<dl><dt><code>show values</code><dd>Print the last ten values in the value history, with their item numbers. 
 This is like &lsquo;<samp><span class="samp">p $$9</span></samp>&rsquo; repeated ten times, except that <code>show
 values</code> does not change the history.
 
      <br><dt><code>show values </code><var>n</var><dd>Print ten history values centered on history item number <var>n</var>.
 
      <br><dt><code>show values +</code><dd>Print ten history values just after the values last printed.  If no more
-values are available, <code>show values +</code> produces no display.
+values are available, <code>show values +</code> produces no display. 
 </dl>
 
    <p>Pressing &lt;RET&gt; to repeat <code>show values </code><var>n</var> has exactly the
 same effect as &lsquo;<samp><span class="samp">show values +</span></samp>&rsquo;.
 
    </body></html>
+

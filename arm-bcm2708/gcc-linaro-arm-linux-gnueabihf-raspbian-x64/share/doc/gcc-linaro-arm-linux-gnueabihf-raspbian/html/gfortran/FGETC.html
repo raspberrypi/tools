@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 
 <p><a name="index-FGETC-637"></a><a name="index-read-character_002c-stream-mode-638"></a><a name="index-stream-mode_002c-read-character-639"></a><a name="index-file-operation_002c-read-character-640"></a>
      <dl>
-<dt><em>Description</em>:<dd>Read a single character in stream mode by bypassing normal formatted output.
+<dt><em>Description</em>:<dd>Read a single character in stream mode by bypassing normal formatted output. 
 Stream I/O should not be mixed with normal record-oriented (formatted or
 unformatted) I/O on the same unit; the results are unpredictable.
 
@@ -64,7 +64,7 @@ unformatted) I/O on the same unit; the results are unpredictable.
 only one form can be used in any given program unit.
 
      <p>Note that the <code>FGET</code> intrinsic is provided for backwards compatibility
-with <samp><span class="command">g77</span></samp>.  GNU Fortran provides the Fortran 2003 Stream facility.
+with <samp><span class="command">g77</span></samp>.  GNU Fortran provides the Fortran 2003 Stream facility. 
 Programmers should consider the use of new stream IO feature in new code
 for future portability. See also <a href="Fortran-2003-status.html#Fortran-2003-status">Fortran 2003 status</a>.
 
@@ -78,10 +78,10 @@ for future portability. See also <a href="Fortran-2003-status.html#Fortran-2003-
      <br></td></tr></table>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>UNIT</var>   </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>UNIT</var>   </td><td valign="top" width="70%">The type shall be <code>INTEGER</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>C</var>      </td><td valign="top" width="70%">The type shall be <code>CHARACTER</code> and of default
-kind.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) status flag of type <code>INTEGER</code>.
+kind. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) status flag of type <code>INTEGER</code>. 
 Returns 0 on success, -1 on end-of-file and a system specific positive
 error code otherwise.
      <br></td></tr></table>
@@ -90,7 +90,7 @@ error code otherwise.
      <pre class="smallexample">          PROGRAM test_fgetc
             INTEGER :: fd = 42, status
             CHARACTER :: c
-
+          
             OPEN(UNIT=fd, FILE="/etc/passwd", ACTION="READ", STATUS = "OLD")
             DO
               CALL fgetc(fd, c, status)
@@ -104,3 +104,4 @@ error code otherwise.
 </dl>
 
    </body></html>
+

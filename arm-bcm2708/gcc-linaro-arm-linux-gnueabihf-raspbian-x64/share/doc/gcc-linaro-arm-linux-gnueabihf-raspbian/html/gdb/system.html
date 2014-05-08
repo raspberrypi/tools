@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -53,7 +53,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="List-of-Supported-Calls.html#List-of-Su
      <br><dt>Request:<dd>&lsquo;<samp><span class="samp">Fsystem,</span><var>commandptr</var><span class="samp">/</span><var>len</var></samp>&rsquo;
 
      <br><dt>Return value:<dd>If <var>len</var> is zero, the return value indicates whether a shell is
-available.  A zero return value indicates a shell is not available.
+available.  A zero return value indicates a shell is not available. 
 For non-zero <var>len</var>, the value returned is -1 on error and the
 return status of the command otherwise.  Only the exit status of the
 command is returned, which is extracted from the host's <code>system</code>
@@ -62,7 +62,7 @@ return value by calling <code>WEXITSTATUS(retval)</code>.  In case
 
      <br><dt>Errors:<dd>
           <dl>
-<dt><code>EINTR</code><dd>The call was interrupted by the user.
+<dt><code>EINTR</code><dd>The call was interrupted by the user. 
 </dl>
 
    </dl>
@@ -83,7 +83,8 @@ by <span class="sc">gdb</span>.  The user has to allow this call explicitly with
 protocol for the remote target.  The default is zero (disabled).
 
      <br><dt><code>show remote system-call-allowed</code><dd><a name="index-show-remote-system_002dcall_002dallowed-2814"></a>Show whether the <code>system</code> calls are allowed in the File I/O
-protocol.
+protocol. 
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -68,7 +68,7 @@ hexadecimal.
 
      <br><dt><code>o</code><dd>Print as integer in octal.
 
-     <br><dt><code>t</code><dd>Print as integer in binary.  The letter &lsquo;<samp><span class="samp">t</span></samp>&rsquo; stands for &ldquo;two&rdquo;.
+     <br><dt><code>t</code><dd>Print as integer in binary.  The letter &lsquo;<samp><span class="samp">t</span></samp>&rsquo; stands for &ldquo;two&rdquo;. 
 <a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
 
      <br><dt><code>a</code><dd><a name="index-unknown-address_002c-locating-558"></a><a name="index-locate-address-559"></a>Print as an address, both absolute in hexadecimal and as an offset from
@@ -78,7 +78,7 @@ where (in what function) an unknown address is located:
      <pre class="smallexample">          (gdb) p/a 0x54320
           $3 = 0x54320 &lt;_initialize_vx+396&gt;
 </pre>
-     <p class="noindent">The command <code>info symbol 0x54320</code> yields similar results.
+     <p class="noindent">The command <code>info symbol 0x54320</code> yields similar results. 
 See <a href="Symbols.html#Symbols">info symbol</a>.
 
      <br><dt><code>c</code><dd>Regard as an integer and print it as a character constant.  This
@@ -107,7 +107,7 @@ array.
      <br><dt><code>r</code><dd><a name="index-raw-printing-562"></a>Print using the &lsquo;<samp><span class="samp">raw</span></samp>&rsquo; formatting.  By default, <span class="sc">gdb</span> will
 use a Python-based pretty-printer, if one is available (see <a href="Pretty-Printing.html#Pretty-Printing">Pretty Printing</a>).  This typically results in a higher-level display of the
 value's contents.  The &lsquo;<samp><span class="samp">r</span></samp>&rsquo; format bypasses any Python
-pretty-printer which might exist.
+pretty-printer which might exist. 
 </dl>
 
    <p>For example, to print the program counter in hex (see <a href="Registers.html#Registers">Registers</a>), type
@@ -130,3 +130,4 @@ see <a href="Memory.html#Memory">Examining Memory</a>.</p>
    <hr></div>
 
    </body></html>
+

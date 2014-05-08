@@ -212,7 +212,7 @@ remove_fixup(node_pointer p_x, node_pointer p_new_x_parent)
 	    p_w = p_new_x_parent->m_p_right;
 	  }
 
-	if (is_effectively_black(p_w->m_p_left)
+	if (is_effectively_black(p_w->m_p_left) 
 	    && is_effectively_black(p_w->m_p_right))
 	  {
 	    p_w->m_red = true;
@@ -253,7 +253,7 @@ remove_fixup(node_pointer p_x, node_pointer p_new_x_parent)
 	    p_w = p_new_x_parent->m_p_left;
 	  }
 
-	if (is_effectively_black(p_w->m_p_right)
+	if (is_effectively_black(p_w->m_p_right) 
 	    && is_effectively_black(p_w->m_p_left))
 	  {
 	    p_w->m_red = true;

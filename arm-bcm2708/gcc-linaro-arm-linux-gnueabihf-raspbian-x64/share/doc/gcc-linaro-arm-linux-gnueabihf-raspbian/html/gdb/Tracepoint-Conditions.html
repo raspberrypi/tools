@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ program reaches it, and data collection happens only if the condition
 is true.
 
    <p>Tracepoint conditions can be specified when a tracepoint is set, by
-using &lsquo;<samp><span class="samp">if</span></samp>&rsquo; in the arguments to the <code>trace</code> command.
+using &lsquo;<samp><span class="samp">if</span></samp>&rsquo; in the arguments to the <code>trace</code> command. 
 See <a href="Create-and-Delete-Tracepoints.html#Create-and-Delete-Tracepoints">Setting Tracepoints</a>.  They can
 also be set or changed at any time with the <code>condition</code> command,
 just as with breakpoints.
@@ -65,7 +65,7 @@ just as with breakpoints.
    <p>Unlike breakpoint conditions, <span class="sc">gdb</span> does not actually evaluate
 the conditional expression itself.  Instead, <span class="sc">gdb</span> encodes the
 expression into an agent expression (see <a href="Agent-Expressions.html#Agent-Expressions">Agent Expressions</a>)
-suitable for execution on the target, independently of <span class="sc">gdb</span>.
+suitable for execution on the target, independently of <span class="sc">gdb</span>. 
 Global variables become raw memory locations, locals become stack
 accesses, and so forth.
 
@@ -80,3 +80,4 @@ search through.
 <pre class="smallexample">     (gdb) <kbd>trace normal_operation if errcode &gt; 0</kbd>
 </pre>
    </body></html>
+

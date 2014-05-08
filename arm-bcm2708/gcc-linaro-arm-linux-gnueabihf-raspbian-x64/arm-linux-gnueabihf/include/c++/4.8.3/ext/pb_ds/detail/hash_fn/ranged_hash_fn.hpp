@@ -50,7 +50,7 @@ namespace __gnu_pbds
   namespace detail
   {
     /// Primary template.
-    template<typename Key, typename Hash_Fn, typename _Alloc,
+    template<typename Key, typename Hash_Fn, typename _Alloc, 
 	     typename Comb_Hash_Fn, bool Store_Hash>
     class ranged_hash_fn;
 
@@ -66,9 +66,9 @@ namespace __gnu_pbds
      * The client supplies a hash function and a ranged hash function,
      * and requests that hash values not be stored.
      **/
-    template<typename Key, typename Hash_Fn, typename _Alloc,
+    template<typename Key, typename Hash_Fn, typename _Alloc, 
 	     typename Comb_Hash_Fn>
-    class ranged_hash_fn< Key, Hash_Fn, _Alloc, Comb_Hash_Fn, false>
+    class ranged_hash_fn< Key, Hash_Fn, _Alloc, Comb_Hash_Fn, false> 
     : public Hash_Fn, public Comb_Hash_Fn
     {
     protected:
@@ -101,14 +101,14 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn)
+    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn) 
     : Hash_Fn(r_hash_fn)
     { Comb_Hash_Fn::notify_resized(size); }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn,
-		   const Comb_Hash_Fn& r_comb_hash_fn)
+    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		   const Comb_Hash_Fn& r_comb_hash_fn) 
     : Hash_Fn(r_hash_fn), Comb_Hash_Fn(r_comb_hash_fn)
     { comb_hash_fn_base::notify_resized(size); }
 
@@ -150,7 +150,7 @@ namespace __gnu_pbds
      **/
     template<typename Key, typename Hash_Fn, typename _Alloc,
 	     typename Comb_Hash_Fn>
-    class ranged_hash_fn<Key, Hash_Fn, _Alloc, Comb_Hash_Fn, true>
+    class ranged_hash_fn<Key, Hash_Fn, _Alloc, Comb_Hash_Fn, true> 
     : public Hash_Fn, public Comb_Hash_Fn
     {
     protected:
@@ -193,8 +193,8 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn,
-		   const Comb_Hash_Fn& r_comb_hash_fn)
+    ranged_hash_fn(size_type size, const Hash_Fn& r_hash_fn, 
+		   const Comb_Hash_Fn& r_comb_hash_fn) 
     : Hash_Fn(r_hash_fn), Comb_Hash_Fn(r_comb_hash_fn)
     { comb_hash_fn_base::notify_resized(size); }
 
@@ -228,7 +228,7 @@ namespace __gnu_pbds
     operator()
 #ifdef _GLIBCXX_DEBUG
       (key_const_reference r_key, size_type hash) const
-#else
+#else 
       (key_const_reference /*r_key*/, size_type hash) const
 #endif
     {
@@ -252,7 +252,7 @@ namespace __gnu_pbds
      * values not be stored.
      **/
     template<typename Key, typename _Alloc, typename Comb_Hash_Fn>
-    class ranged_hash_fn<Key, null_type, _Alloc, Comb_Hash_Fn, false>
+    class ranged_hash_fn<Key, null_type, _Alloc, Comb_Hash_Fn, false> 
     : public Comb_Hash_Fn
     {
     protected:
@@ -282,8 +282,8 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const null_type& r_null_type,
-		   const Comb_Hash_Fn& r_comb_hash_fn)
+    ranged_hash_fn(size_type size, const null_type& r_null_type, 
+		   const Comb_Hash_Fn& r_comb_hash_fn) 
     : Comb_Hash_Fn(r_comb_hash_fn)
     { }
 
@@ -309,7 +309,7 @@ namespace __gnu_pbds
      * values be stored.
      **/
     template<typename Key, typename _Alloc, typename Comb_Hash_Fn>
-    class ranged_hash_fn<Key, null_type, _Alloc, Comb_Hash_Fn, true>
+    class ranged_hash_fn<Key, null_type, _Alloc, Comb_Hash_Fn, true> 
     : public Comb_Hash_Fn
     {
     protected:
@@ -333,14 +333,14 @@ namespace __gnu_pbds
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const Comb_Hash_Fn& r_comb_hash_fn)
+    ranged_hash_fn(size_type size, const Comb_Hash_Fn& r_comb_hash_fn) 
     : Comb_Hash_Fn(r_comb_hash_fn)
     { }
 
     PB_DS_CLASS_T_DEC
     PB_DS_CLASS_C_DEC::
-    ranged_hash_fn(size_type size, const null_type& r_null_type,
-		   const Comb_Hash_Fn& r_comb_hash_fn)
+    ranged_hash_fn(size_type size, const null_type& r_null_type, 
+		   const Comb_Hash_Fn& r_comb_hash_fn) 
     : Comb_Hash_Fn(r_comb_hash_fn)
     { }
 
@@ -356,4 +356,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

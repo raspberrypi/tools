@@ -117,7 +117,7 @@ struct scc_stat {
         long rxframes;          /* Number of Frames Actually Received */
         long rxerrs;            /* CRC Errors */
         long txerrs;		/* KISS errors */
-
+        
 	unsigned int nospace;	/* "Out of buffers" */
 	unsigned int rx_over;	/* Receiver Overruns */
 	unsigned int tx_under;	/* Transmitter Underruns */
@@ -132,7 +132,7 @@ struct scc_stat {
 struct scc_modem {
 	long speed;		/* Line speed, bps */
 	char clocksrc;		/* 0 = DPLL, 1 = external, 2 = divider */
-	char nrz;		/* NRZ instead of NRZI */
+	char nrz;		/* NRZ instead of NRZI */	
 };
 
 struct scc_kiss_cmd {

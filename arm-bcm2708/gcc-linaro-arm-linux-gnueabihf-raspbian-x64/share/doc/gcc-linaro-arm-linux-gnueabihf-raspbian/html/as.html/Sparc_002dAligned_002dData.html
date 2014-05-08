@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sparc_002dDependent.html#Sparc_002dDepe
 <h4 class="subsection">9.41.2 Enforcing aligned data</h4>
 
 <p><a name="index-data-alignment-on-SPARC-1901"></a><a name="index-SPARC-data-alignment-1902"></a>SPARC GAS normally permits data to be misaligned.  For example, it
-permits the <code>.long</code> pseudo-op to be used on a byte boundary.
+permits the <code>.long</code> pseudo-op to be used on a byte boundary. 
 However, the native SunOS assemblers issue an error when they see
 misaligned data.
 
@@ -59,10 +59,11 @@ assemblers do.
 
    <p>The <code>--enforce-aligned-data</code> option is not the default because gcc
 issues misaligned data pseudo-ops when it initializes certain packed
-data structures (structures defined using the <code>packed</code> attribute).
+data structures (structures defined using the <code>packed</code> attribute). 
 You may have to assemble with GAS in order to initialize packed data
 structures in your own code.
 
    <p><a name="index-SPARC-syntax-1904"></a><a name="index-syntax_002c-SPARC-1905"></a>
 
    </body></html>
+

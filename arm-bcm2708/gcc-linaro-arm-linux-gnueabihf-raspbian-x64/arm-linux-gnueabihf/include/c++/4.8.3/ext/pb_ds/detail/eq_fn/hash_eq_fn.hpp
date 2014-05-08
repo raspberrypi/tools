@@ -66,7 +66,7 @@ namespace __gnu_pbds
       hash_eq_fn(const Eq_Fn& r_eq_fn) : Eq_Fn(r_eq_fn) { }
 
       bool
-      operator()(key_const_reference r_lhs_key,
+      operator()(key_const_reference r_lhs_key, 
 		 key_const_reference r_rhs_key) const
       { return eq_fn_base::operator()(r_lhs_key, r_rhs_key); }
 
@@ -90,13 +90,13 @@ namespace __gnu_pbds
       hash_eq_fn(const Eq_Fn& r_eq_fn) : Eq_Fn(r_eq_fn) { }
 
       bool
-      operator()(key_const_reference r_lhs_key, size_type lhs_hash,
+      operator()(key_const_reference r_lhs_key, size_type lhs_hash, 
 		 key_const_reference r_rhs_key, size_type rhs_hash) const
       {
-	_GLIBCXX_DEBUG_ASSERT(!eq_fn_base::operator()(r_lhs_key, r_rhs_key)
+	_GLIBCXX_DEBUG_ASSERT(!eq_fn_base::operator()(r_lhs_key, r_rhs_key) 
 			      || lhs_hash == rhs_hash);
 
-	return (lhs_hash == rhs_hash &&
+	return (lhs_hash == rhs_hash && 
 		eq_fn_base::operator()(r_lhs_key, r_rhs_key));
       }
 
@@ -107,4 +107,4 @@ namespace __gnu_pbds
   } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

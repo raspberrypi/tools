@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -82,7 +82,7 @@ registered.
         <p>The help text for the new command is taken from the Python
 documentation string for the command's class, if there is one.  If no
 documentation string is provided, the default value &ldquo;This command is
-not documented.&rdquo; is used.
+not documented.&rdquo; is used. 
 </p></blockquote></div>
 
    <p><a name="index-don_0027t-repeat-Python-command-1910"></a>
@@ -92,7 +92,7 @@ not documented.&rdquo; is used.
 <blockquote><p>By default, a <span class="sc">gdb</span> command is repeated when the user enters a
 blank line at the command prompt.  A command can suppress this
 behavior by invoking the <code>dont_repeat</code> method.  This is similar
-to the user command <code>dont-repeat</code>, see <a href="Define.html#Define">dont-repeat</a>.
+to the user command <code>dont-repeat</code>, see <a href="Define.html#Define">dont-repeat</a>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -111,9 +111,9 @@ that the command came from elsewhere.
 
         <p><a name="index-gdb_002estring_005fto_005fargv-1913"></a>To break <var>argument</var> up into an argv-like string use
 <code>gdb.string_to_argv</code>.  This function behaves identically to
-<span class="sc">gdb</span>'s internal argument lexer <code>buildargv</code>.
-It is recommended to use this for consistency.
-Arguments are separated by spaces and may be quoted.
+<span class="sc">gdb</span>'s internal argument lexer <code>buildargv</code>. 
+It is recommended to use this for consistency. 
+Arguments are separated by spaces and may be quoted. 
 Example:
 
      <pre class="smallexample">          print gdb.string_to_argv ("1 2\ \\\"3 '4 \"5' \"6 '7\"")
@@ -131,7 +131,7 @@ this method, that is, the &lt;TAB&gt; and &lt;M-?&gt; key bindings
 (see <a href="Completion.html#Completion">Completion</a>), and the <code>complete</code> command (see <a href="Help.html#Help">complete</a>).
 
         <p>The arguments <var>text</var> and <var>word</var> are both strings.  <var>text</var>
-holds the complete command line up to the cursor's location.
+holds the complete command line up to the cursor's location. 
 <var>word</var> holds the last word of the command line; this is computed
 using a word-breaking heuristic.
 
@@ -149,7 +149,7 @@ below, then the corresponding <span class="sc">gdb</span>-internal completion
 function is invoked, and its result is used.
 
           <li>All other results are treated as though there were no available
-completions.
+completions. 
 </ul>
         </p></blockquote></div>
 
@@ -160,14 +160,14 @@ listed under their own category but rather that of their top-level
 command.  The available classifications are represented by constants
 defined in the <code>gdb</code> module:
 
-
+     
 <a name="index-COMMAND_005fNONE-1916"></a>
 <a name="index-gdb_002eCOMMAND_005fNONE-1917"></a>
 <dl><dt><code>gdb.COMMAND_NONE</code><dd>The command does not belong to any particular class.  A command in
 this category will not be displayed in any of the help categories.
 
      <p><a name="index-COMMAND_005fRUNNING-1918"></a><a name="index-gdb_002eCOMMAND_005fRUNNING-1919"></a><br><dt><code>gdb.COMMAND_RUNNING</code><dd>The command is related to running the inferior.  For example,
-<code>start</code>, <code>step</code>, and <code>continue</code> are in this category.
+<code>start</code>, <code>step</code>, and <code>continue</code> are in this category. 
 Type <kbd>help running</kbd> at the <span class="sc">gdb</span> prompt to see a list of
 commands in this category.
 
@@ -182,7 +182,7 @@ category.  Type <kbd>help stack</kbd> at the <span class="sc">gdb</span> prompt 
 list of commands in this category.
 
      <p><a name="index-COMMAND_005fFILES-1924"></a><a name="index-gdb_002eCOMMAND_005fFILES-1925"></a><br><dt><code>gdb.COMMAND_FILES</code><dd>This class is used for file-related commands.  For example,
-<code>file</code>, <code>list</code> and <code>section</code> are in this category.
+<code>file</code>, <code>list</code> and <code>section</code> are in this category. 
 Type <kbd>help files</kbd> at the <span class="sc">gdb</span> prompt to see a list of
 commands in this category.
 
@@ -209,7 +209,7 @@ this category.
 commands in this category.
 
      <p><a name="index-COMMAND_005fUSER-1934"></a><a name="index-gdb_002eCOMMAND_005fUSER-1935"></a><br><dt><code>gdb.COMMAND_USER</code><dd>The command is a general purpose command for the user, and typically
-does not fit in one of the other categories.
+does not fit in one of the other categories. 
 Type <kbd>help user-defined</kbd> at the <span class="sc">gdb</span> prompt to see
 a list of commands in this category, as well as the list of gdb macros
 (see <a href="Sequences.html#Sequences">Sequences</a>).
@@ -221,9 +221,9 @@ obscure</kbd> at the <span class="sc">gdb</span> prompt to see a list of command
 category.
 
      <p><a name="index-COMMAND_005fMAINTENANCE-1938"></a><a name="index-gdb_002eCOMMAND_005fMAINTENANCE-1939"></a><br><dt><code>gdb.COMMAND_MAINTENANCE</code><dd>The command is only useful to <span class="sc">gdb</span> maintainers.  The
-<code>maintenance</code> and <code>flushregs</code> commands are in this category.
+<code>maintenance</code> and <code>flushregs</code> commands are in this category. 
 Type <kbd>help internals</kbd> at the <span class="sc">gdb</span> prompt to see a list of
-commands in this category.
+commands in this category. 
 </dl>
 
    <p>A new command can use a predefined completion function, either by
@@ -231,21 +231,21 @@ specifying it via an argument at initialization, or by returning it
 from the <code>complete</code> method.  These predefined completion
 constants are all defined in the <code>gdb</code> module:
 
-
+     
 <a name="index-COMPLETE_005fNONE-1940"></a>
 <a name="index-gdb_002eCOMPLETE_005fNONE-1941"></a>
 <dl><dt><code>gdb.COMPLETE_NONE</code><dd>This constant means that no completion should be done.
 
      <p><a name="index-COMPLETE_005fFILENAME-1942"></a><a name="index-gdb_002eCOMPLETE_005fFILENAME-1943"></a><br><dt><code>gdb.COMPLETE_FILENAME</code><dd>This constant means that filename completion should be performed.
 
-     <p><a name="index-COMPLETE_005fLOCATION-1944"></a><a name="index-gdb_002eCOMPLETE_005fLOCATION-1945"></a><br><dt><code>gdb.COMPLETE_LOCATION</code><dd>This constant means that location completion should be done.
+     <p><a name="index-COMPLETE_005fLOCATION-1944"></a><a name="index-gdb_002eCOMPLETE_005fLOCATION-1945"></a><br><dt><code>gdb.COMPLETE_LOCATION</code><dd>This constant means that location completion should be done. 
 See <a href="Specify-Location.html#Specify-Location">Specify Location</a>.
 
      <p><a name="index-COMPLETE_005fCOMMAND-1946"></a><a name="index-gdb_002eCOMPLETE_005fCOMMAND-1947"></a><br><dt><code>gdb.COMPLETE_COMMAND</code><dd>This constant means that completion should examine <span class="sc">gdb</span>
 command names.
 
      <p><a name="index-COMPLETE_005fSYMBOL-1948"></a><a name="index-gdb_002eCOMPLETE_005fSYMBOL-1949"></a><br><dt><code>gdb.COMPLETE_SYMBOL</code><dd>This constant means that completion should be done using symbol names
-as the source.
+as the source. 
 </dl>
 
    <p>The following code snippet shows how a trivial CLI command can be
@@ -253,13 +253,13 @@ implemented in Python:
 
 <pre class="smallexample">     class HelloWorld (gdb.Command):
        """Greet the whole world."""
-
+     
        def __init__ (self):
          super (HelloWorld, self).__init__ ("hello-world", gdb.COMMAND_USER)
-
+     
        def invoke (self, arg, from_tty):
          print "Hello, World!"
-
+     
      HelloWorld ()
 </pre>
    <p>The last line instantiates the class, and is necessary to trigger the
@@ -268,3 +268,4 @@ Python code is read into <span class="sc">gdb</span>, you may need to import the
 <code>gdb</code> module explicitly.
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -53,7 +53,7 @@ inserting <code>printf</code> calls into your program on-the-fly, without
 having to recompile it.
 
    <p>In its most basic form, the output goes to the GDB console.  However,
-you can set the variable <code>dprintf-style</code> for alternate handling.
+you can set the variable <code>dprintf-style</code> for alternate handling. 
 For instance, you can ask to format the output by calling your
 program's <code>printf</code> function.  This has the advantage that the
 characters go to the program's output device, so they can recorded in
@@ -67,10 +67,10 @@ the dprintf remain active even after disconnecting from the remote
 target.  Using the stub/agent is also more efficient, as it can do
 everything without needing to communicate with <span class="sc">gdb</span>.
 
-
+     
 <a name="index-dprintf-290"></a>
 <dl><dt><code>dprintf </code><var>location</var><code>,</code><var>template</var><code>,</code><var>expression</var><code>[,</code><var>expression</var><code>...]</code><dd>Whenever execution reaches <var>location</var>, print the values of one or
-more <var>expressions</var> under the control of the string <var>template</var>.
+more <var>expressions</var> under the control of the string <var>template</var>. 
 To print several values, separate them with commas.
 
      <br><dt><code>set dprintf-style </code><var>style</var><dd>Set the dprintf output to be handled in one of several different
@@ -89,7 +89,7 @@ the output itself.  This style is only available for agents that
 support running commands on the target.
 
      <br><dt><code>set dprintf-function </code><var>function</var><dd>Set the function to call if the dprintf style is <code>call</code>.  By
-default its value is <code>printf</code>.  You may set it to any expression.
+default its value is <code>printf</code>.  You may set it to any expression. 
 that <span class="sc">gdb</span> can evaluate to a function, as per the <code>call</code>
 command.
 
@@ -134,3 +134,4 @@ all enabled dynamic prints must be at locations within the scope of
 those locals.  If evaluation fails, <span class="sc">gdb</span> will report an error.
 
    </body></html>
+

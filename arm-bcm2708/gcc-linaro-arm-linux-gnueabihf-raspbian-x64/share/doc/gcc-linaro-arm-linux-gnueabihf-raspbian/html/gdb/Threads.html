@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,15 +66,15 @@ programs:
 a command to apply a command to a list of threads
 <li>thread-specific breakpoints
 <li>&lsquo;<samp><span class="samp">set print thread-events</span></samp>&rsquo;, which controls printing of
-messages on thread start and exit.
+messages on thread start and exit. 
 <li>&lsquo;<samp><span class="samp">set libthread-db-search-path </span><var>path</var></samp>&rsquo;, which lets
 the user specify which <code>libthread_db</code> to use if the default choice
-isn't compatible with the program.
+isn't compatible with the program. 
 </ul>
 
    <blockquote>
 <em>Warning:</em> These facilities are not yet available on every
-<span class="sc">gdb</span> configuration where the operating system supports threads.
+<span class="sc">gdb</span> configuration where the operating system supports threads. 
 If your <span class="sc">gdb</span> does not support threads, these commands have no
 effect.  For example, a system without thread support shows no output
 from &lsquo;<samp><span class="samp">info threads</span></samp>&rsquo;, and always rejects the <code>thread</code> command,
@@ -91,7 +91,7 @@ like this:
 
    <p><a name="index-focus-of-debugging-158"></a><a name="index-current-thread-159"></a>The <span class="sc">gdb</span> thread debugging facility allows you to observe all
 threads while your program runs&mdash;but whenever <span class="sc">gdb</span> takes
-control, one thread in particular is always the focus of debugging.
+control, one thread in particular is always the focus of debugging. 
 This thread is called the <dfn>current thread</dfn>.  Debugging commands show
 program information from the perspective of the current thread.
 
@@ -120,11 +120,11 @@ further qualifier.
    <p><a name="index-thread-number-162"></a><a name="index-thread-identifier-_0028GDB_0029-163"></a>For debugging purposes, <span class="sc">gdb</span> associates its own thread
 number&mdash;always a single integer&mdash;with each thread in your program.
 
-
+     
 <a name="index-info-threads-164"></a>
 <dl><dt><code>info threads </code><span class="roman">[</span><var>id</var><code>...</code><span class="roman">]</span><dd>Display a summary of all threads currently in your program.  Optional
 argument <var>id</var><small class="dots">...</small> is one or more thread ids separated by spaces, and
-means to print information only about the specified thread or threads.
+means to print information only about the specified thread or threads. 
 <span class="sc">gdb</span> displays for each thread (in this order):
 
           <ol type=1 start=1>
@@ -157,14 +157,14 @@ indicates the current thread.
 Solaris-specific command:
 
      <dl>
-<dt><code>maint info sol-threads</code><dd><a name="index-maint-info-sol_002dthreads-165"></a><a name="index-thread-info-_0028Solaris_0029-166"></a>Display info on Solaris user threads.
+<dt><code>maint info sol-threads</code><dd><a name="index-maint-info-sol_002dthreads-165"></a><a name="index-thread-info-_0028Solaris_0029-166"></a>Display info on Solaris user threads. 
 </dl>
 
-
+     
 <a name="index-thread-_0040var_007bthreadno_007d-167"></a>
 <dl><dt><code>thread </code><var>threadno</var><dd>Make thread number <var>threadno</var> the current thread.  The command
 argument <var>threadno</var> is the internal <span class="sc">gdb</span> thread number, as
-shown in the first field of the &lsquo;<samp><span class="samp">info threads</span></samp>&rsquo; display.
+shown in the first field of the &lsquo;<samp><span class="samp">info threads</span></samp>&rsquo; display. 
 <span class="sc">gdb</span> responds by displaying the system identifier of the thread
 you selected, and its current stack frame summary:
 
@@ -218,11 +218,11 @@ is the LWP id.
      <p><a name="index-set-print-thread_002devents-175"></a><a name="index-print-messages-on-thread-start-and-exit-176"></a><br><dt><code>set print thread-events</code><dt><code>set print thread-events on</code><dt><code>set print thread-events off</code><dd>The <code>set print thread-events</code> command allows you to enable or
 disable printing of messages when <span class="sc">gdb</span> notices that new threads have
 started or that threads have exited.  By default, these messages will
-be printed if detection of these events is supported by the target.
+be printed if detection of these events is supported by the target. 
 Note that these messages cannot be disabled on all targets.
 
      <p><a name="index-show-print-thread_002devents-177"></a><br><dt><code>show print thread-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that threads
-have started and exited.
+have started and exited. 
 </dl>
 
    <p>See <a href="Thread-Stops.html#Thread-Stops">Stopping and Starting Multi-thread Programs</a>, for
@@ -233,13 +233,13 @@ programs with multiple threads.
 watchpoints in programs with multiple threads.
 
    <p><a name="set-libthread_002ddb_002dsearch_002dpath"></a>
-
+     
 <a name="index-set-libthread_002ddb_002dsearch_002dpath-178"></a>
 <a name="index-search-path-for-_0040code_007blibthread_005fdb_007d-179"></a>
 <dl><dt><code>set libthread-db-search-path </code><span class="roman">[</span><var>path</var><span class="roman">]</span><dd>If this variable is set, <var>path</var> is a colon-separated list of
-directories <span class="sc">gdb</span> will use to search for <code>libthread_db</code>.
+directories <span class="sc">gdb</span> will use to search for <code>libthread_db</code>. 
 If you omit <var>path</var>, &lsquo;<samp><span class="samp">libthread-db-search-path</span></samp>&rsquo; will be reset to
-its default value (<code>$sdir:$pdir</code> on <span class="sc">gnu</span>/Linux and Solaris systems).
+its default value (<code>$sdir:$pdir</code> on <span class="sc">gnu</span>/Linux and Solaris systems). 
 Internally, the default value comes from the <code>LIBTHREAD_DB_SEARCH_PATH</code>
 macro.
 
@@ -261,10 +261,10 @@ refers to the directory from which <code>libpthread</code>
 was loaded in the inferior process.
 
      <p>For any <code>libthread_db</code> library <span class="sc">gdb</span> finds in above directories,
-<span class="sc">gdb</span> attempts to initialize it with the current inferior process.
+<span class="sc">gdb</span> attempts to initialize it with the current inferior process. 
 If this initialization fails (which could happen because of a version
 mismatch between <code>libthread_db</code> and <code>libpthread</code>), <span class="sc">gdb</span>
-will unload <code>libthread_db</code>, and continue with the next directory.
+will unload <code>libthread_db</code>, and continue with the next directory. 
 If none of <code>libthread_db</code> libraries initialize successfully,
 <span class="sc">gdb</span> will issue a warning and thread debugging will be disabled.
 
@@ -273,8 +273,9 @@ only on some platforms.
 
      <p><a name="index-show-libthread_002ddb_002dsearch_002dpath-180"></a><br><dt><code>show libthread-db-search-path</code><dd>Display current libthread_db search path.
 
-     <p><a name="index-set-debug-libthread_002ddb-181"></a><a name="index-show-debug-libthread_002ddb-182"></a><a name="index-debugging-_0040code_007blibthread_005fdb_007d-183"></a><br><dt><code>set debug libthread-db</code><dt><code>show debug libthread-db</code><dd>Turns on or off display of <code>libthread_db</code>-related events.
-Use <code>1</code> to enable, <code>0</code> to disable.
+     <p><a name="index-set-debug-libthread_002ddb-181"></a><a name="index-show-debug-libthread_002ddb-182"></a><a name="index-debugging-_0040code_007blibthread_005fdb_007d-183"></a><br><dt><code>set debug libthread-db</code><dt><code>show debug libthread-db</code><dd>Turns on or off display of <code>libthread_db</code>-related events. 
+Use <code>1</code> to enable, <code>0</code> to disable. 
 </dl>
 
    </body></html>
+

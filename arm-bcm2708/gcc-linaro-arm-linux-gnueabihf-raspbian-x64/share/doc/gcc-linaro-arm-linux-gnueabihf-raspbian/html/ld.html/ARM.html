@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ the linker does not support generating stubs for function calls to
 non-interworking aware Thumb code.
 
    <p><a name="index-thumb-entry-point-593"></a><a name="index-entry-point_002c-thumb-594"></a><a name="index-g_t_002d_002dthumb_002dentry_003d_0040var_007bentry_007d-595"></a>The &lsquo;<samp><span class="samp">--thumb-entry</span></samp>&rsquo; switch is a duplicate of the generic
-&lsquo;<samp><span class="samp">--entry</span></samp>&rsquo; switch, in that it sets the program's starting address.
+&lsquo;<samp><span class="samp">--entry</span></samp>&rsquo; switch, in that it sets the program's starting address. 
 But it also sets the bottom bit of the address, so that it can be
 branched to using a BX instruction, and the program will start
 executing in Thumb mode straight away.
@@ -70,7 +70,7 @@ element prefix for import libraries. This is the old style to generate
 import tables. By default this option is turned off.
 
    <p><a name="index-BE8-598"></a><a name="index-g_t_002d_002dbe8-599"></a>The &lsquo;<samp><span class="samp">--be8</span></samp>&rsquo; switch instructs <samp><span class="command">ld</span></samp> to generate BE8 format
-executables.  This option is only valid when linking big-endian objects.
+executables.  This option is only valid when linking big-endian objects. 
 The resulting image will contain big-endian data and little-endian code.
 
    <p><a name="index-TARGET1-600"></a><a name="index-g_t_002d_002dtarget1_002drel-601"></a><a name="index-g_t_002d_002dtarget1_002dabs-602"></a>The &lsquo;<samp><span class="samp">R_ARM_TARGET1</span></samp>&rsquo; relocation is typically used for entries in the
@@ -178,7 +178,7 @@ is not PIC.  This avoids problems on uClinux targets where
 code into a linked ARM ELF executable whenever an attempt is made to
 perform a function call to a symbol that is too far away.  The
 placement of these sequences of instructions - called stubs - is
-controlled by the command line option <samp><span class="option">--stub-group-size=N</span></samp>.
+controlled by the command line option <samp><span class="option">--stub-group-size=N</span></samp>. 
 The placement is important because a poor choice can create a need for
 duplicate stubs, increasing the code size.  The linker will try to
 group stubs together in order to reduce interruptions to the flow of
@@ -191,7 +191,7 @@ placed.  If it is negative then all stubs are placed after the first
 branch that needs them.  If it is positive then the stubs can be
 placed either before or after the branches that need them.  If the
 value of &lsquo;<samp><span class="samp">N</span></samp>&rsquo; is 1 (either +1 or -1) then the linker will choose
-exactly where to place groups of stubs, using its built in heuristics.
+exactly where to place groups of stubs, using its built in heuristics. 
 A value of &lsquo;<samp><span class="samp">N</span></samp>&rsquo; greater than 1 (or smaller than -1) tells the
 linker that a single group of stubs can service at most &lsquo;<samp><span class="samp">N</span></samp>&rsquo; bytes
 from the input sections.
@@ -204,3 +204,4 @@ only, because it relies on object files properties not present
 otherwise.
 
    </body></html>
+

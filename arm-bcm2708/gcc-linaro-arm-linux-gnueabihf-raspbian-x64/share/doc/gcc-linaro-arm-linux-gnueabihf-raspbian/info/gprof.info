@@ -1231,7 +1231,7 @@ profiling.  Note that `ct_init' accounted for four histogram hits, and
       30.77      0.13     0.04     6335     6.31     6.31  ct_init
 
 
-		     Call graph (explanation follows)
+     		     Call graph (explanation follows)
 
 
      granularity: each sample hit covers 4 byte(s) for 7.69% of 0.13 seconds
@@ -1263,7 +1263,7 @@ one call from line 396, 3071 calls from line 384, 3730 calls from line
        7.69      0.13     0.01           ct_init (trees.c:385)
 
 
-		     Call graph (explanation follows)
+     		     Call graph (explanation follows)
 
 
      granularity: each sample hit covers 4 byte(s) for 7.69% of 0.13 seconds

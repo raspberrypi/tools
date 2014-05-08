@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,23 +73,23 @@ class object, which in some cases could be too late.
 <code>Stdin</code>, <code>Stdout</code> and <code>Stderr</code> as global variables, like
 below:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      FileStream *Stdin = nil;
      FileStream *Stdout = nil;
      FileStream *Stderr = nil;
-
+     
      @implementation FileStream
-
+     
      + (void)initialize
      {
          Stdin = [[FileStream new] initWithFd:0];
          Stdout = [[FileStream new] initWithFd:1];
          Stderr = [[FileStream new] initWithFd:2];
      }
-
+     
      /* <span class="roman">Other methods here</span> */
      @end
-
+     
 </pre>
  <p>In this example, the initialization of <code>Stdin</code>, <code>Stdout</code> and
 <code>Stderr</code> in <code>+initialize</code> occurs too late.  The programmer can
@@ -103,26 +103,26 @@ just before entering <code>main</code>.
  <p>The correct solution of the above problem is to use the <code>+load</code>
 method instead of <code>+initialize</code>:
 
-<pre class="smallexample">
+<pre class="smallexample">     
      @implementation FileStream
-
+     
      + (void)load
      {
          Stdin = [[FileStream new] initWithFd:0];
          Stdout = [[FileStream new] initWithFd:1];
          Stderr = [[FileStream new] initWithFd:2];
      }
-
+     
      /* <span class="roman">Other methods here</span> */
      @end
-
+     
 </pre>
  <p>The <code>+load</code> is a method that is not overridden by categories.  If a
 class and a category of it both implement <code>+load</code>, both methods are
 invoked.  This allows some additional initializations to be performed in
 a category.
 
- <p>This mechanism is not intended to be a replacement for <code>+initialize</code>.
+ <p>This mechanism is not intended to be a replacement for <code>+initialize</code>. 
 You should be aware of its limitations when you decide to use it
 instead of <code>+initialize</code>.
 
@@ -131,3 +131,4 @@ instead of <code>+initialize</code>.
 </ul>
 
  </body></html>
+

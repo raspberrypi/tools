@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,11 +50,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="SECTIONS.html#SECTIONS">SECTIONS</a>
 <p>There are a couple of keywords which can appear as output section
 commands.
 
-
+     
 <a name="index-CREATE_005fOBJECT_005fSYMBOLS-440"></a>
 <a name="index-input-filename-symbols-441"></a>
 <a name="index-filename-symbols-442"></a>
-<dl><dt><code>CREATE_OBJECT_SYMBOLS</code><dd>The command tells the linker to create a symbol for each input file.
+<dl><dt><code>CREATE_OBJECT_SYMBOLS</code><dd>The command tells the linker to create a symbol for each input file. 
 The name of each symbol will be the name of the corresponding input
 file.  The section of each symbol will be the output section in which
 the <code>CREATE_OBJECT_SYMBOLS</code> command appears.
@@ -66,14 +66,14 @@ normally used for any other object file format.
 unusual set construct to support C++ global constructors and
 destructors.  When linking object file formats which do not support
 arbitrary sections, such as ECOFF and XCOFF, the linker will
-automatically recognize C++ global constructors and destructors by name.
+automatically recognize C++ global constructors and destructors by name. 
 For these object file formats, the <code>CONSTRUCTORS</code> command tells the
 linker to place constructor information in the output section where the
 <code>CONSTRUCTORS</code> command appears.  The <code>CONSTRUCTORS</code> command is
 ignored for other object file formats.
 
      <p>The symbol <code>__CTOR_LIST__</code><!-- /@w --> marks the start of the global
-constructors, and the symbol <code>__CTOR_END__</code><!-- /@w --> marks the end.
+constructors, and the symbol <code>__CTOR_END__</code><!-- /@w --> marks the end. 
 Similarly, <code>__DTOR_LIST__</code><!-- /@w --> and <code>__DTOR_END__</code><!-- /@w --> mark
 the start and end of the global destructors.  The
 first word in the list is the number of entries, followed by the address
@@ -120,3 +120,4 @@ scripts.
    </dl>
 
    </body></html>
+

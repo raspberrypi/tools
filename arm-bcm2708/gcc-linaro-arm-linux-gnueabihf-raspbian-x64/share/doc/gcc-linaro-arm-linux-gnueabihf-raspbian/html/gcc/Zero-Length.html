@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -63,7 +63,7 @@ object:
        int length;
        char contents[0];
      };
-
+     
      struct line *thisline = (struct line *)
        malloc (sizeof (struct line) + this_length);
      thisline-&gt;length = this_length;
@@ -88,7 +88,7 @@ of zero-length arrays, <code>sizeof</code> evaluates to zero.
      <li>A structure containing a flexible array member, or a union containing
 such a structure (possibly recursively), may not be a member of a
 structure or an element of an array.  (However, these uses are
-permitted by GCC as extensions.)
+permitted by GCC as extensions.) 
 </ul>
 
  <p>GCC versions before 3.0 allowed zero-length arrays to be statically
@@ -100,16 +100,16 @@ elements than the array holds, in that a suitable warning about &ldquo;excess
 elements in array&rdquo; is given, and the excess elements (all of them, in
 this case) are ignored.
 
- <p>Instead GCC allows static initialization of flexible array members.
+ <p>Instead GCC allows static initialization of flexible array members. 
 This is equivalent to defining a new structure containing the original
-structure followed by an array of sufficient size to contain the data.
+structure followed by an array of sufficient size to contain the data. 
 E.g. in the following, <code>f1</code> is constructed as if it were declared
 like <code>f2</code>.
 
 <pre class="smallexample">     struct f1 {
        int x; int y[];
      } f1 = { 1, { 2, 3, 4 } };
-
+     
      struct f2 {
        struct f1 f1; int data[3];
      } f2 = { { 1 }, { 2, 3, 4 } };
@@ -129,10 +129,11 @@ object.  For example:
 
 <pre class="smallexample">     struct foo { int x; int y[]; };
      struct bar { struct foo z; };
-
+     
      struct foo a = { 1, { 2, 3, 4 } };        // <span class="roman">Valid.</span>
      struct bar b = { { 1, { 2, 3, 4 } } };    // <span class="roman">Invalid.</span>
      struct bar c = { { 1, { } } };            // <span class="roman">Valid.</span>
      struct foo d[1] = { { 1 { 2, 3, 4 } } };  // <span class="roman">Invalid.</span>
 </pre>
  </body></html>
+

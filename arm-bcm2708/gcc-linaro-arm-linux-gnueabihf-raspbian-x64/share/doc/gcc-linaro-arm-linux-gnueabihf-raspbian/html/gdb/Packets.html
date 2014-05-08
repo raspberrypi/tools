@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Protocol.html#Remote-Protocol">R
 <h3 class="section">E.2 Packets</h3>
 
 <p>The following table provides a complete list of all currently defined
-<var>command</var>s and their corresponding response <var>data</var>.
+<var>command</var>s and their corresponding response <var>data</var>. 
 See <a href="File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension">File-I/O Remote Protocol Extension</a>, for details about the File
 I/O extension of the remote protocol.
 
@@ -71,7 +71,7 @@ pick any thread.
 
    <p>In addition, the remote protocol supports a multiprocess feature in
 which the <var>thread-id</var> syntax is extended to optionally include both
-process and thread ID fields, as &lsquo;<samp><span class="samp">p</span><var>pid</var><span class="samp">.</span><var>tid</var></samp>&rsquo;.
+process and thread ID fields, as &lsquo;<samp><span class="samp">p</span><var>pid</var><span class="samp">.</span><var>tid</var></samp>&rsquo;. 
 The <var>pid</var> (process) and <var>tid</var> (thread) components each have the
 format described above: a positive number with target-specific
 interpretation formatted as a big-endian hex string, literal &lsquo;<samp><span class="samp">-1</span></samp>&rsquo;
@@ -100,7 +100,7 @@ debugged.
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The remote target both supports and has enabled extended mode.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The remote target both supports and has enabled extended mode. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">?</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007b_003f_007d-packet-2643"></a>Indicate the reason the target halted.  The reply is the same as for
@@ -116,11 +116,11 @@ specifies the number of bytes in the hex encoded byte stream
 
      <p>Reply:
           <dl>
-<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The arguments were set.
-<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>An error occurred.
+<dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>The arguments were set. 
+<br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>An error occurred. 
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">b </span><var>baud</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bb_007d-packet-2645"></a>(Don't use this packet; its behavior is not well-defined.)
+     <br><dt>&lsquo;<samp><span class="samp">b </span><var>baud</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bb_007d-packet-2645"></a>(Don't use this packet; its behavior is not well-defined.) 
 Change the serial line speed to <var>baud</var>.
 
      <p>JTC: <em>When does the transport layer state change?  When it's
@@ -139,13 +139,13 @@ breakpoint at <var>addr</var>.
      <p>Don't use this packet.  Use the &lsquo;<samp><span class="samp">Z</span></samp>&rsquo; and &lsquo;<samp><span class="samp">z</span></samp>&rsquo; packets instead
 (see <a href="insert-breakpoint-or-watchpoint-packet.html#insert-breakpoint-or-watchpoint-packet">insert breakpoint or watchpoint packet</a>).
 
-     <p><a name="index-g_t_0040samp_007bbc_007d-packet-2647"></a><a name="bc"></a><br><dt>&lsquo;<samp><span class="samp">bc</span></samp>&rsquo;<dd>Backward continue.  Execute the target system in reverse.  No parameter.
+     <p><a name="index-g_t_0040samp_007bbc_007d-packet-2647"></a><a name="bc"></a><br><dt>&lsquo;<samp><span class="samp">bc</span></samp>&rsquo;<dd>Backward continue.  Execute the target system in reverse.  No parameter. 
 See <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a>, for more information.
 
      <p>Reply:
 See <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>, for the reply specifications.
 
-     <p><a name="index-g_t_0040samp_007bbs_007d-packet-2648"></a><a name="bs"></a><br><dt>&lsquo;<samp><span class="samp">bs</span></samp>&rsquo;<dd>Backward single step.  Execute one instruction in reverse.  No parameter.
+     <p><a name="index-g_t_0040samp_007bbs_007d-packet-2648"></a><a name="bs"></a><br><dt>&lsquo;<samp><span class="samp">bs</span></samp>&rsquo;<dd>Backward single step.  Execute one instruction in reverse.  No parameter. 
 See <a href="Reverse-Execution.html#Reverse-Execution">Reverse Execution</a>, for more information.
 
      <p>Reply:
@@ -187,7 +187,7 @@ big-endian hex string.
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">F </span><var>RC</var><span class="samp">,</span><var>EE</var><span class="samp">,</span><var>CF</var><span class="samp">;</span><var>XX</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bF_007d-packet-2653"></a>A reply from <span class="sc">gdb</span> to an &lsquo;<samp><span class="samp">F</span></samp>&rsquo; packet sent by the target.
+     <br><dt>&lsquo;<samp><span class="samp">F </span><var>RC</var><span class="samp">,</span><var>EE</var><span class="samp">,</span><var>CF</var><span class="samp">;</span><var>XX</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bF_007d-packet-2653"></a>A reply from <span class="sc">gdb</span> to an &lsquo;<samp><span class="samp">F</span></samp>&rsquo; packet sent by the target. 
 This is part of the File-I/O protocol extension.  See <a href="File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension">File-I/O Remote Protocol Extension</a>, for the specification.
 
      <br><dt>&lsquo;<samp><span class="samp">g</span></samp>&rsquo;<dd><a name="read-registers-packet"></a><a name="index-g_t_0040samp_007bg_007d-packet-2654"></a>Read general registers.
@@ -212,7 +212,7 @@ have been collected, and both have zero value:
           <pre class="smallexample">               -&gt; <code>g</code>
                &lt;- <code>xxxxxxxx00000000xxxxxxxx00000000</code>
 </pre>
-          <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error.
+          <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">G </span><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bG_007d-packet-2655"></a>Write general registers.  See <a href="read-registers-packet.html#read-registers-packet">read registers packet</a>, for a
@@ -262,24 +262,24 @@ step starting at that address.
 thread context has been selected (i.e. does 'k' kill only that
 thread?)</em>.
 
-     <br><dt>&lsquo;<samp><span class="samp">m </span><var>addr</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bm_007d-packet-2660"></a>Read <var>length</var> bytes of memory starting at address <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">m </span><var>addr</var><span class="samp">,</span><var>length</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bm_007d-packet-2660"></a>Read <var>length</var> bytes of memory starting at address <var>addr</var>. 
 Note that <var>addr</var> may not be aligned to any particular boundary.
 
      <p>The stub need not use any particular size or alignment when gathering
 data from memory for the response; even if <var>addr</var> is word-aligned
 and <var>length</var> is a multiple of the word size, the stub is free to
 use byte accesses, or not.  For this reason, this packet may not be
-suitable for accessing memory-mapped I/O devices.
+suitable for accessing memory-mapped I/O devices. 
 <a name="index-alignment-of-remote-memory-accesses-2661"></a><a name="index-size-of-remote-memory-accesses-2662"></a><a name="index-memory_002c-alignment-and-size-of-remote-accesses-2663"></a>
 Reply:
           <dl>
 <dt>&lsquo;<samp><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd>Memory contents; each byte is transmitted as a two-digit hexadecimal
 number.  The reply may contain fewer bytes than requested if the
-server was able to read only part of the region of memory.
+server was able to read only part of the region of memory. 
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd><var>NN</var> is errno
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">M </span><var>addr</var><span class="samp">,</span><var>length</var><span class="samp">:</span><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bM_007d-packet-2664"></a>Write <var>length</var> bytes of memory starting at address <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">M </span><var>addr</var><span class="samp">,</span><var>length</var><span class="samp">:</span><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bM_007d-packet-2664"></a>Write <var>length</var> bytes of memory starting at address <var>addr</var>. 
 <var>XX<small class="dots">...</small></var> is the data; each byte is transmitted as a two-digit
 hexadecimal number.
 
@@ -287,10 +287,10 @@ hexadecimal number.
           <dl>
 <dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>for success
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error (this includes the case where only part of the data was
-written).
+written). 
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">p </span><var>n</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bp_007d-packet-2665"></a>Read the value of register <var>n</var>; <var>n</var> is in hex.
+     <br><dt>&lsquo;<samp><span class="samp">p </span><var>n</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bp_007d-packet-2665"></a>Read the value of register <var>n</var>; <var>n</var> is in hex. 
 See <a href="read-registers-packet.html#read-registers-packet">read registers packet</a>, for a description of how the returned
 register value is encoded.
 
@@ -298,7 +298,7 @@ register value is encoded.
           <dl>
 <dt>&lsquo;<samp><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd>the register's value
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>Indicating an unrecognized <var>query</var>.
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>Indicating an unrecognized <var>query</var>. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">P </span><var>n<small class="dots">...</small></var><span class="samp">=</span><var>r<small class="dots">...</small></var></samp>&rsquo;<dd><a name="write-register-packet"></a><a name="index-g_t_0040samp_007bP_007d-packet-2666"></a>Write register <var>n<small class="dots">...</small></var> with value <var>r<small class="dots">...</small></var>.  The register
@@ -318,7 +318,7 @@ described fully in <a href="General-Query-Packets.html#General-Query-Packets">Ge
 
      <p>Don't use this packet; use the &lsquo;<samp><span class="samp">R</span></samp>&rsquo; packet instead.
 
-     <br><dt>&lsquo;<samp><span class="samp">R </span><var>XX</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bR_007d-packet-2670"></a>Restart the program being debugged.  <var>XX</var>, while needed, is ignored.
+     <br><dt>&lsquo;<samp><span class="samp">R </span><var>XX</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bR_007d-packet-2670"></a>Restart the program being debugged.  <var>XX</var>, while needed, is ignored. 
 This packet is only available in extended mode (see <a href="extended-mode.html#extended-mode">extended mode</a>).
 
      <p>The &lsquo;<samp><span class="samp">R</span></samp>&rsquo; packet has no reply.
@@ -340,7 +340,7 @@ requests a single-step, rather than a normal resumption of execution.
 See <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>, for the reply specifications.
 
      <br><dt>&lsquo;<samp><span class="samp">t </span><var>addr</var><span class="samp">:</span><var>PP</var><span class="samp">,</span><var>MM</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bt_007d-packet-2673"></a>Search backwards starting at address <var>addr</var> for a match with pattern
-<var>PP</var> and mask <var>MM</var>.  <var>PP</var> and <var>MM</var> are 4 bytes.
+<var>PP</var> and mask <var>MM</var>.  <var>PP</var> and <var>MM</var> are 4 bytes. 
 <var>addr</var> must be at least 3 digits.
 
      <br><dt>&lsquo;<samp><span class="samp">T </span><var>thread-id</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bT_007d-packet-2674"></a>Find out if the thread <var>thread-id</var> is alive.  See <a href="thread_002did-syntax.html#thread_002did-syntax">thread-id syntax</a>.
@@ -354,7 +354,7 @@ See <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>,
      <br><dt>&lsquo;<samp><span class="samp">v</span></samp>&rsquo;<dd>Packets starting with &lsquo;<samp><span class="samp">v</span></samp>&rsquo; are identified by a multi-letter name,
 up to the first &lsquo;<samp><span class="samp">;</span></samp>&rsquo; or &lsquo;<samp><span class="samp">?</span></samp>&rsquo; (or the end of the packet).
 
-     <br><dt>&lsquo;<samp><span class="samp">vAttach;</span><var>pid</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvAttach_007d-packet-2675"></a>Attach to a new process with the specified process ID <var>pid</var>.
+     <br><dt>&lsquo;<samp><span class="samp">vAttach;</span><var>pid</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvAttach_007d-packet-2675"></a>Attach to a new process with the specified process ID <var>pid</var>. 
 The process ID is a
 hexadecimal integer identifying the process.  In all-stop mode, all
 threads in the attached process are stopped; in non-stop mode, it may be
@@ -377,23 +377,23 @@ attached without being stopped if that is supported by the target.
 <br><dt>&lsquo;<samp><span class="samp">OK</span></samp>&rsquo;<dd>for success in non-stop mode (see <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>)
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">vCont[;</span><var>action</var><span class="samp">[:</span><var>thread-id</var><span class="samp">]]...</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvCont_007d-packet-2676"></a><a name="vCont-packet"></a>Resume the inferior, specifying different actions for each thread.
+     <br><dt>&lsquo;<samp><span class="samp">vCont[;</span><var>action</var><span class="samp">[:</span><var>thread-id</var><span class="samp">]]...</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvCont_007d-packet-2676"></a><a name="vCont-packet"></a>Resume the inferior, specifying different actions for each thread. 
 If an action is specified with no <var>thread-id</var>, then it is applied to any
 threads that don't have a specific action specified; if no default action is
 specified then other threads should remain stopped in all-stop mode and
-in their current state in non-stop mode.
+in their current state in non-stop mode. 
 Specifying multiple
-default actions is an error; specifying no actions is also an error.
+default actions is an error; specifying no actions is also an error. 
 Thread IDs are specified using the syntax described in <a href="thread_002did-syntax.html#thread_002did-syntax">thread-id syntax</a>.
 
      <p>Currently supported actions are:
 
           <dl>
-<dt>&lsquo;<samp><span class="samp">c</span></samp>&rsquo;<dd>Continue.
-<br><dt>&lsquo;<samp><span class="samp">C </span><var>sig</var></samp>&rsquo;<dd>Continue with signal <var>sig</var>.  The signal <var>sig</var> should be two hex digits.
-<br><dt>&lsquo;<samp><span class="samp">s</span></samp>&rsquo;<dd>Step.
-<br><dt>&lsquo;<samp><span class="samp">S </span><var>sig</var></samp>&rsquo;<dd>Step with signal <var>sig</var>.  The signal <var>sig</var> should be two hex digits.
-<br><dt>&lsquo;<samp><span class="samp">t</span></samp>&rsquo;<dd>Stop.
+<dt>&lsquo;<samp><span class="samp">c</span></samp>&rsquo;<dd>Continue. 
+<br><dt>&lsquo;<samp><span class="samp">C </span><var>sig</var></samp>&rsquo;<dd>Continue with signal <var>sig</var>.  The signal <var>sig</var> should be two hex digits. 
+<br><dt>&lsquo;<samp><span class="samp">s</span></samp>&rsquo;<dd>Step. 
+<br><dt>&lsquo;<samp><span class="samp">S </span><var>sig</var></samp>&rsquo;<dd>Step with signal <var>sig</var>.  The signal <var>sig</var> should be two hex digits. 
+<br><dt>&lsquo;<samp><span class="samp">t</span></samp>&rsquo;<dd>Stop. 
 </dl>
 
      <p>The optional argument <var>addr</var> normally associated with the
@@ -401,8 +401,8 @@ Thread IDs are specified using the syntax described in <a href="thread_002did-sy
 not supported in &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo;.
 
      <p>The &lsquo;<samp><span class="samp">t</span></samp>&rsquo; action is only relevant in non-stop mode
-(see <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>) and may be ignored by the stub otherwise.
-A stop reply should be generated for any affected thread not already stopped.
+(see <a href="Remote-Non_002dStop.html#Remote-Non_002dStop">Remote Non-Stop</a>) and may be ignored by the stub otherwise. 
+A stop reply should be generated for any affected thread not already stopped. 
 When a thread is stopped by means of a &lsquo;<samp><span class="samp">t</span></samp>&rsquo; action,
 the corresponding stop reply should indicate that the thread has stopped with
 signal &lsquo;<samp><span class="samp">0</span></samp>&rsquo;, regardless of whether the target uses some other signal
@@ -422,8 +422,8 @@ See <a href="Stop-Reply-Packets.html#Stop-Reply-Packets">Stop Reply Packets</a>,
      <p>Reply:
           <dl>
 <dt>&lsquo;<samp><span class="samp">vCont[;</span><var>action</var><span class="samp">...]</span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; packet is supported.  Each <var>action</var> is a supported
-command in the &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; packet.
-<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; packet is not supported.
+command in the &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; packet. 
+<br><dt>&lsquo;<samp><span class="samp"><!-- /@w --></span></samp>&rsquo;<dd>The &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; packet is not supported. 
 </dl>
 
      <br><dt>&lsquo;<samp><span class="samp">vFile:</span><var>operation</var><span class="samp">:</span><var>parameter</var><span class="samp">...</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvFile_007d-packet-2678"></a>Perform a file operation on the target system.  For details,
@@ -461,7 +461,7 @@ target-specific method, the results are unpredictable.
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">vFlashDone</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvFlashDone_007d-packet-2681"></a>Indicate to the stub that flash programming operation is finished.
+     <br><dt>&lsquo;<samp><span class="samp">vFlashDone</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvFlashDone_007d-packet-2681"></a>Indicate to the stub that flash programming operation is finished. 
 The stub is permitted to delay or batch the effects of a group of
 &lsquo;<samp><span class="samp">vFlashErase</span></samp>&rsquo; and &lsquo;<samp><span class="samp">vFlashWrite</span></samp>&rsquo; packets until a
 &lsquo;<samp><span class="samp">vFlashDone</span></samp>&rsquo; packet is received.  The contents of the affected
@@ -496,7 +496,7 @@ state.
 
      <br><dt>&lsquo;<samp><span class="samp">vStopped</span></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bvStopped_007d-packet-2684"></a>See <a href="Notification-Packets.html#Notification-Packets">Notification Packets</a>.
 
-     <br><dt>&lsquo;<samp><span class="samp">X </span><var>addr</var><span class="samp">,</span><var>length</var><span class="samp">:</span><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd><a name="X-packet"></a><a name="index-g_t_0040samp_007bX_007d-packet-2685"></a>Write data to memory, where the data is transmitted in binary.
+     <br><dt>&lsquo;<samp><span class="samp">X </span><var>addr</var><span class="samp">,</span><var>length</var><span class="samp">:</span><var>XX<small class="dots">...</small></var></samp>&rsquo;<dd><a name="X-packet"></a><a name="index-g_t_0040samp_007bX_007d-packet-2685"></a>Write data to memory, where the data is transmitted in binary. 
 <var>addr</var> is address, <var>length</var> is number of bytes,
 &lsquo;<samp><var>XX</var><span class="samp">...</span></samp>&rsquo; is binary data (see <a href="Binary-Data.html#Binary-Data">Binary Data</a>).
 
@@ -543,10 +543,10 @@ actual conditional expression in bytecode form.
      </dl>
 
      <p>The optional <var>cmd_list</var> parameter introduces commands that may be
-run on the target, rather than being reported back to <span class="sc">gdb</span>.
+run on the target, rather than being reported back to <span class="sc">gdb</span>. 
 The parameter starts with a numeric flag <var>persist</var>; if the flag is
 nonzero, then the breakpoint may remain active and the commands
-continue to be run even when <span class="sc">gdb</span> disconnects from the target.
+continue to be run even when <span class="sc">gdb</span> disconnects from the target. 
 Following this flag is a series of expressions concatenated with no
 separators.  Each expression has the following form:
 
@@ -587,7 +587,7 @@ movement.</em>
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">z2,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z2,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz2_007d-packet-2692"></a><a name="index-g_t_0040samp_007bZ2_007d-packet-2693"></a>Insert (&lsquo;<samp><span class="samp">Z2</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z2</span></samp>&rsquo;) a write watchpoint at <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">z2,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z2,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz2_007d-packet-2692"></a><a name="index-g_t_0040samp_007bZ2_007d-packet-2693"></a>Insert (&lsquo;<samp><span class="samp">Z2</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z2</span></samp>&rsquo;) a write watchpoint at <var>addr</var>. 
 <var>kind</var> is interpreted as the number of bytes to watch.
 
      <p>Reply:
@@ -597,7 +597,7 @@ movement.</em>
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">z3,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z3,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz3_007d-packet-2694"></a><a name="index-g_t_0040samp_007bZ3_007d-packet-2695"></a>Insert (&lsquo;<samp><span class="samp">Z3</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z3</span></samp>&rsquo;) a read watchpoint at <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">z3,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z3,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz3_007d-packet-2694"></a><a name="index-g_t_0040samp_007bZ3_007d-packet-2695"></a>Insert (&lsquo;<samp><span class="samp">Z3</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z3</span></samp>&rsquo;) a read watchpoint at <var>addr</var>. 
 <var>kind</var> is interpreted as the number of bytes to watch.
 
      <p>Reply:
@@ -607,7 +607,7 @@ movement.</em>
 <br><dt>&lsquo;<samp><span class="samp">E </span><var>NN</var></samp>&rsquo;<dd>for an error
 </dl>
 
-     <br><dt>&lsquo;<samp><span class="samp">z4,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z4,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz4_007d-packet-2696"></a><a name="index-g_t_0040samp_007bZ4_007d-packet-2697"></a>Insert (&lsquo;<samp><span class="samp">Z4</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z4</span></samp>&rsquo;) an access watchpoint at <var>addr</var>.
+     <br><dt>&lsquo;<samp><span class="samp">z4,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">Z4,</span><var>addr</var><span class="samp">,</span><var>kind</var></samp>&rsquo;<dd><a name="index-g_t_0040samp_007bz4_007d-packet-2696"></a><a name="index-g_t_0040samp_007bZ4_007d-packet-2697"></a>Insert (&lsquo;<samp><span class="samp">Z4</span></samp>&rsquo;) or remove (&lsquo;<samp><span class="samp">z4</span></samp>&rsquo;) an access watchpoint at <var>addr</var>. 
 <var>kind</var> is interpreted as the number of bytes to watch.
 
      <p>Reply:
@@ -620,3 +620,4 @@ movement.</em>
    </dl>
 
    </body></html>
+

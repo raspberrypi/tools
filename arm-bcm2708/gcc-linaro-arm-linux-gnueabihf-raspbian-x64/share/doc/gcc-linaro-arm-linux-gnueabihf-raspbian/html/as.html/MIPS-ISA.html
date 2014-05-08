@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MIPS_002dDependent.html#MIPS_002dDepend
 <p><a name="index-MIPS-ISA-override-1408"></a><a name="index-g_t_0040code_007b_002eset-mips_0040var_007bn_007d_007d-1409"></a><span class="sc">gnu</span> <code>as</code> supports an additional directive to change
 the MIPS Instruction Set Architecture level on the fly: <code>.set
 mips</code><var>n</var>.  <var>n</var> should be a number from 0 to 5, or 32, 32r2, 64
-or 64r2.
+or 64r2. 
 The values other than 0 make the assembler accept instructions
 for the corresponding ISA level, from that point on in the
 assembly.  <code>.set mips</code><var>n</var> affects not only which instructions
@@ -61,10 +61,10 @@ configuration.  You can use this feature to permit specific MIPS III
 instructions while assembling in 32 bit mode.  Use this directive with
 care!
 
-   <p><a name="index-MIPS-CPU-override-1410"></a><a name="index-g_t_0040code_007b_002eset-arch_003d_0040var_007bcpu_007d_007d-1411"></a>The <code>.set arch=</code><var>cpu</var> directive provides even finer control.
+   <p><a name="index-MIPS-CPU-override-1410"></a><a name="index-g_t_0040code_007b_002eset-arch_003d_0040var_007bcpu_007d_007d-1411"></a>The <code>.set arch=</code><var>cpu</var> directive provides even finer control. 
 It changes the effective CPU target and allows the assembler to use
 instructions specific to a particular CPU.  All CPUs supported by the
-&lsquo;<samp><span class="samp">-march</span></samp>&rsquo; command line option are also selectable by this directive.
+&lsquo;<samp><span class="samp">-march</span></samp>&rsquo; command line option are also selectable by this directive. 
 The original value is restored by <code>.set arch=default</code>.
 
    <p>The directive <code>.set mips16</code> puts the assembler into MIPS 16 mode,
@@ -80,3 +80,4 @@ in which it will assemble instructions for the microMIPS processor.  Use
    <p>Traditional MIPS assemblers do not support this directive.
 
    </body></html>
+

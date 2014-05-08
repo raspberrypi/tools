@@ -95,7 +95,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { };
 
   /**
-   *
+   *  
   */
   /// If we have found a result_type, extract it.
   template<bool _Has_result_type, typename _Functor>
@@ -119,49 +119,49 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 
   /// Retrieve the result type for a function type.
-  template<typename _Res, typename... _ArgTypes>
+  template<typename _Res, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res(_ArgTypes...)>
     {
       typedef _Res result_type;
     };
 
   /// Retrieve the result type for a function reference.
-  template<typename _Res, typename... _ArgTypes>
+  template<typename _Res, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res(&)(_ArgTypes...)>
     {
       typedef _Res result_type;
     };
 
   /// Retrieve the result type for a function pointer.
-  template<typename _Res, typename... _ArgTypes>
+  template<typename _Res, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res(*)(_ArgTypes...)>
     {
       typedef _Res result_type;
     };
 
-  /// Retrieve result type for a member function pointer.
-  template<typename _Res, typename _Class, typename... _ArgTypes>
+  /// Retrieve result type for a member function pointer. 
+  template<typename _Res, typename _Class, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res (_Class::*)(_ArgTypes...)>
     {
       typedef _Res result_type;
     };
 
-  /// Retrieve result type for a const member function pointer.
-  template<typename _Res, typename _Class, typename... _ArgTypes>
+  /// Retrieve result type for a const member function pointer. 
+  template<typename _Res, typename _Class, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res (_Class::*)(_ArgTypes...) const>
     {
       typedef _Res result_type;
     };
 
-  /// Retrieve result type for a volatile member function pointer.
-  template<typename _Res, typename _Class, typename... _ArgTypes>
+  /// Retrieve result type for a volatile member function pointer. 
+  template<typename _Res, typename _Class, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res (_Class::*)(_ArgTypes...) volatile>
     {
       typedef _Res result_type;
     };
 
-  /// Retrieve result type for a const volatile member function pointer.
-  template<typename _Res, typename _Class, typename... _ArgTypes>
+  /// Retrieve result type for a const volatile member function pointer. 
+  template<typename _Res, typename _Class, typename... _ArgTypes> 
     struct _Weak_result_type_impl<_Res (_Class::*)(_ArgTypes...)const volatile>
     {
       typedef _Res result_type;
@@ -198,9 +198,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 
   /**
-   * Determine whether we can determine a result type from @c Functor
+   * Determine whether we can determine a result type from @c Functor 
    * alone.
-   */
+   */ 
   template<typename _Functor, typename... _ArgTypes>
     class result_of<_Functor(_ArgTypes...)>
     : public _Result_of_impl<
@@ -217,7 +217,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 
   /**
-   * We need to compute the result type for this invocation the hard
+   * We need to compute the result type for this invocation the hard 
    * way.
    */
   template<typename _Functor, typename... _ArgTypes>
@@ -228,7 +228,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 
   /**
-   * It is unsafe to access ::result when there are zero arguments, so we
+   * It is unsafe to access ::result when there are zero arguments, so we 
    * return @c void instead.
    */
   template<typename _Functor>
@@ -538,16 +538,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * nothing, depending on the number of arguments provided. The
    * primary template is the basis case, which derives nothing.
    */
-  template<typename _Res, typename... _ArgTypes>
+  template<typename _Res, typename... _ArgTypes> 
     struct _Maybe_unary_or_binary_function { };
 
-  /// Derives from @c unary_function, as appropriate.
-  template<typename _Res, typename _T1>
+  /// Derives from @c unary_function, as appropriate. 
+  template<typename _Res, typename _T1> 
     struct _Maybe_unary_or_binary_function<_Res, _T1>
     : std::unary_function<_T1, _Res> { };
 
-  /// Derives from @c binary_function, as appropriate.
-  template<typename _Res, typename _T1, typename _T2>
+  /// Derives from @c binary_function, as appropriate. 
+  template<typename _Res, typename _T1, typename _T2> 
     struct _Maybe_unary_or_binary_function<_Res, _T1, _T2>
     : std::binary_function<_T1, _T2, _Res> { };
 
@@ -560,7 +560,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       template<typename _Tp>
         _Res
-        _M_call(_Tp& __object, const volatile _Class *,
+        _M_call(_Tp& __object, const volatile _Class *, 
                 _ArgTypes... __args) const
         { return (__object.*__pmf)(__args...); }
 
@@ -597,14 +597,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /// Implementation of @c mem_fn for const member function pointers.
   template<typename _Res, typename _Class, typename... _ArgTypes>
     class _Mem_fn<_Res (_Class::*)(_ArgTypes...) const>
-    : public _Maybe_unary_or_binary_function<_Res, const _Class*,
+    : public _Maybe_unary_or_binary_function<_Res, const _Class*, 
 					     _ArgTypes...>
     {
       typedef _Res (_Class::*_Functor)(_ArgTypes...) const;
 
       template<typename _Tp>
         _Res
-        _M_call(_Tp& __object, const volatile _Class *,
+        _M_call(_Tp& __object, const volatile _Class *, 
                 _ArgTypes... __args) const
         { return (__object.*__pmf)(__args...); }
 
@@ -640,14 +640,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /// Implementation of @c mem_fn for volatile member function pointers.
   template<typename _Res, typename _Class, typename... _ArgTypes>
     class _Mem_fn<_Res (_Class::*)(_ArgTypes...) volatile>
-    : public _Maybe_unary_or_binary_function<_Res, volatile _Class*,
+    : public _Maybe_unary_or_binary_function<_Res, volatile _Class*, 
 					     _ArgTypes...>
     {
       typedef _Res (_Class::*_Functor)(_ArgTypes...) volatile;
 
       template<typename _Tp>
         _Res
-        _M_call(_Tp& __object, const volatile _Class *,
+        _M_call(_Tp& __object, const volatile _Class *, 
                 _ArgTypes... __args) const
         { return (__object.*__pmf)(__args...); }
 
@@ -684,14 +684,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /// Implementation of @c mem_fn for const volatile member function pointers.
   template<typename _Res, typename _Class, typename... _ArgTypes>
     class _Mem_fn<_Res (_Class::*)(_ArgTypes...) const volatile>
-    : public _Maybe_unary_or_binary_function<_Res, const volatile _Class*,
+    : public _Maybe_unary_or_binary_function<_Res, const volatile _Class*, 
 					     _ArgTypes...>
     {
       typedef _Res (_Class::*_Functor)(_ArgTypes...) const volatile;
 
       template<typename _Tp>
         _Res
-        _M_call(_Tp& __object, const volatile _Class *,
+        _M_call(_Tp& __object, const volatile _Class *, 
                 _ArgTypes... __args) const
         { return (__object.*__pmf)(__args...); }
 
@@ -706,12 +706,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       explicit _Mem_fn(_Functor __pmf) : __pmf(__pmf) { }
 
       // Handle objects
-      _Res
+      _Res 
       operator()(const volatile _Class& __object, _ArgTypes... __args) const
       { return (__object.*__pmf)(__args...); }
 
       // Handle pointers
-      _Res
+      _Res 
       operator()(const volatile _Class* __object, _ArgTypes... __args) const
       { return (__object->*__pmf)(__args...); }
 
@@ -860,14 +860,14 @@ _GLIBCXX_END_NAMESPACE_VERSION
   /** @namespace std::tr1::placeholders
    *  @brief Sub-namespace for tr1/functional.
    */
-  namespace placeholders
-  {
+  namespace placeholders 
+  { 
   _GLIBCXX_BEGIN_NAMESPACE_VERSION
     /*  Define a large number of placeholders. There is no way to
      *  simplify this with variadic templates, because we're introducing
      *  unique names for each.
      */
-    namespace
+    namespace 
     {
       _Placeholder<1> _1;
       _Placeholder<2> _2;
@@ -898,7 +898,7 @@ _GLIBCXX_END_NAMESPACE_VERSION
       _Placeholder<27> _27;
       _Placeholder<28> _28;
       _Placeholder<29> _29;
-    }
+    } 
   _GLIBCXX_END_NAMESPACE_VERSION
   }
 
@@ -928,7 +928,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * Stores a tuple of indices. Used by bind() to extract the elements
-   * in a tuple.
+   * in a tuple. 
    */
   template<int... _Indexes>
     struct _Index_tuple { };
@@ -936,10 +936,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /// Builds an _Index_tuple<0, 1, 2, ..., _Num-1>.
   template<std::size_t _Num, typename _Tuple = _Index_tuple<> >
     struct _Build_index_tuple;
-
-  template<std::size_t _Num, int... _Indexes>
+ 
+  template<std::size_t _Num, int... _Indexes> 
     struct _Build_index_tuple<_Num, _Index_tuple<_Indexes...> >
-    : _Build_index_tuple<_Num - 1,
+    : _Build_index_tuple<_Num - 1, 
                          _Index_tuple<_Indexes..., sizeof...(_Indexes)> >
     {
     };
@@ -950,7 +950,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef _Index_tuple<_Indexes...> __type;
     };
 
-  /**
+  /** 
    * Used by _Safe_tuple_element to indicate that there is no tuple
    * element at this position.
    */
@@ -982,7 +982,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
  template<int __i, typename _Tuple>
    struct _Safe_tuple_element
-   : _Safe_tuple_element_impl<__i, _Tuple,
+   : _Safe_tuple_element_impl<__i, _Tuple, 
                               (__i >= 0 && __i < tuple_size<_Tuple>::value)>
    {
    };
@@ -1054,7 +1054,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
     private:
       // Invokes the underlying function object __arg by unpacking all
-      // of the arguments in the tuple.
+      // of the arguments in the tuple. 
       template<typename _CVArg, typename... _Args, int... _Indexes>
         typename result_of<_CVArg(_Args...)>::type
         __call(_CVArg& __arg, const tuple<_Args...>& __tuple,
@@ -1130,7 +1130,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     struct _Maybe_wrap_member_pointer
     {
       typedef _Tp type;
-
+      
       static const _Tp&
       __do_wrap(const _Tp& __x)
       { return __x; }
@@ -1145,7 +1145,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     struct _Maybe_wrap_member_pointer<_Tp _Class::*>
     {
       typedef _Mem_fn<_Tp _Class::*> type;
-
+      
       static type
       __do_wrap(_Tp _Class::* __pm)
       { return type(__pm); }
@@ -1160,7 +1160,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     : public _Weak_result_type<_Functor>
     {
       typedef _Bind __self_type;
-      typedef typename _Build_index_tuple<sizeof...(_Bound_args)>::__type
+      typedef typename _Build_index_tuple<sizeof...(_Bound_args)>::__type 
         _Bound_indexes;
 
       _Functor _M_f;
@@ -1169,7 +1169,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call unqualified
       template<typename... _Args, int... _Indexes>
         typename result_of<
-                   _Functor(typename result_of<_Mu<_Bound_args>
+                   _Functor(typename result_of<_Mu<_Bound_args> 
                             (_Bound_args, tuple<_Args...>)>::type...)
                  >::type
         __call(const tuple<_Args...>& __args, _Index_tuple<_Indexes...>)
@@ -1181,7 +1181,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as const
       template<typename... _Args, int... _Indexes>
         typename result_of<
-                   const _Functor(typename result_of<_Mu<_Bound_args>
+                   const _Functor(typename result_of<_Mu<_Bound_args> 
                                     (const _Bound_args, tuple<_Args...>)
                                   >::type...)>::type
         __call(const tuple<_Args...>& __args, _Index_tuple<_Indexes...>) const
@@ -1193,10 +1193,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as volatile
       template<typename... _Args, int... _Indexes>
         typename result_of<
-                   volatile _Functor(typename result_of<_Mu<_Bound_args>
+                   volatile _Functor(typename result_of<_Mu<_Bound_args> 
                                     (volatile _Bound_args, tuple<_Args...>)
                                   >::type...)>::type
-        __call(const tuple<_Args...>& __args,
+        __call(const tuple<_Args...>& __args, 
                _Index_tuple<_Indexes...>) volatile
         {
           return _M_f(_Mu<_Bound_args>()
@@ -1206,11 +1206,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as const volatile
       template<typename... _Args, int... _Indexes>
         typename result_of<
-                   const volatile _Functor(typename result_of<_Mu<_Bound_args>
-                                    (const volatile _Bound_args,
+                   const volatile _Functor(typename result_of<_Mu<_Bound_args> 
+                                    (const volatile _Bound_args, 
                                      tuple<_Args...>)
                                   >::type...)>::type
-        __call(const tuple<_Args...>& __args,
+        __call(const tuple<_Args...>& __args, 
                _Index_tuple<_Indexes...>) const volatile
         {
           return _M_f(_Mu<_Bound_args>()
@@ -1224,7 +1224,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call unqualified
       template<typename... _Args>
         typename result_of<
-                   _Functor(typename result_of<_Mu<_Bound_args>
+                   _Functor(typename result_of<_Mu<_Bound_args> 
                             (_Bound_args, tuple<_Args...>)>::type...)
                  >::type
         operator()(_Args&... __args)
@@ -1235,7 +1235,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as const
       template<typename... _Args>
         typename result_of<
-                   const _Functor(typename result_of<_Mu<_Bound_args>
+                   const _Functor(typename result_of<_Mu<_Bound_args> 
                             (const _Bound_args, tuple<_Args...>)>::type...)
                  >::type
         operator()(_Args&... __args) const
@@ -1247,7 +1247,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as volatile
       template<typename... _Args>
         typename result_of<
-                   volatile _Functor(typename result_of<_Mu<_Bound_args>
+                   volatile _Functor(typename result_of<_Mu<_Bound_args> 
                             (volatile _Bound_args, tuple<_Args...>)>::type...)
                  >::type
         operator()(_Args&... __args) volatile
@@ -1259,8 +1259,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as const volatile
       template<typename... _Args>
         typename result_of<
-                   const volatile _Functor(typename result_of<_Mu<_Bound_args>
-                            (const volatile _Bound_args,
+                   const volatile _Functor(typename result_of<_Mu<_Bound_args> 
+                            (const volatile _Bound_args, 
                              tuple<_Args...>)>::type...)
                  >::type
         operator()(_Args&... __args) const volatile
@@ -1277,7 +1277,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     class _Bind_result<_Result, _Functor(_Bound_args...)>
     {
       typedef _Bind_result __self_type;
-      typedef typename _Build_index_tuple<sizeof...(_Bound_args)>::__type
+      typedef typename _Build_index_tuple<sizeof...(_Bound_args)>::__type 
         _Bound_indexes;
 
       _Functor _M_f;
@@ -1304,7 +1304,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as volatile
       template<typename... _Args, int... _Indexes>
         _Result
-        __call(const tuple<_Args...>& __args,
+        __call(const tuple<_Args...>& __args, 
                _Index_tuple<_Indexes...>) volatile
         {
           return _M_f(_Mu<_Bound_args>()
@@ -1314,7 +1314,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Call as const volatile
       template<typename... _Args, int... _Indexes>
         _Result
-        __call(const tuple<_Args...>& __args,
+        __call(const tuple<_Args...>& __args, 
                _Index_tuple<_Indexes...>) const volatile
         {
           return _M_f(_Mu<_Bound_args>()
@@ -1475,7 +1475,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef typename __maybe_type::type __functor_type;
       typedef _Bind<__functor_type(_ArgTypes...)> __result_type;
       return __result_type(__maybe_type::__do_wrap(__f), __args...);
-    }
+    } 
 
   template<typename _Result, typename _Functor, typename... _ArgTypes>
     inline
@@ -1607,7 +1607,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
          && sizeof(_Functor) <= _M_max_size
          && __alignof__(_Functor) <= _M_max_align
          && (_M_max_align % __alignof__(_Functor) == 0));
-
+	
 	typedef integral_constant<bool, __stored_locally> _Local_storage;
 
 	// Retrieve a pointer to the function object
@@ -1644,14 +1644,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{
 	  __victim._M_access<_Functor>().~_Functor();
 	}
-
+	
 	// Destroying an object located on the heap.
 	static void
 	_M_destroy(_Any_data& __victim, false_type)
 	{
 	  delete __victim._M_access<_Functor*>();
 	}
-
+	
       public:
 	static bool
 	_M_manager(_Any_data& __dest, const _Any_data& __source,
@@ -1667,7 +1667,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    case __get_functor_ptr:
 	      __dest._M_access<_Functor*>() = _M_get_pointer(__source);
 	      break;
-
+	      
 	    case __clone_functor:
 	      _M_clone(__dest, __source, _Local_storage());
 	      break;
@@ -1682,7 +1682,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	static void
 	_M_init_functor(_Any_data& __functor, const _Functor& __f)
 	{ _M_init_functor(__functor, __f, _Local_storage()); }
-
+	
 	template<typename _Signature>
 	  static bool
 	  _M_not_empty_function(const function<_Signature>& __f)
@@ -1734,7 +1734,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      __dest._M_access<_Functor*>() = *_Base::_M_get_pointer(__source);
 	      return is_const<_Functor>::value;
 	      break;
-
+	      
 	    default:
 	      _Base::_M_manager(__dest, __source, __op);
 	    }
@@ -1749,7 +1749,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       };
 
     _Function_base() : _M_manager(0) { }
-
+    
     ~_Function_base()
     {
       if (_M_manager)
@@ -1807,7 +1807,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       static _Res
       _M_invoke(const _Any_data& __functor, _ArgTypes... __args)
       {
-        return
+        return 
           __callable_functor(**_Base::_M_get_pointer(__functor))(__args...);
       }
     };
@@ -1826,7 +1826,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
     };
 
-  template<typename _Class, typename _Member, typename _Res,
+  template<typename _Class, typename _Member, typename _Res, 
            typename... _ArgTypes>
     class _Function_handler<_Res(_ArgTypes...), _Member _Class::*>
     : public _Function_handler<void(_ArgTypes...), _Member _Class::*>
@@ -1863,12 +1863,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  case __get_type_info:
 	    __dest._M_access<const type_info*>() = &typeid(_Functor);
 	    break;
-#endif
+#endif	    
 	  case __get_functor_ptr:
 	    __dest._M_access<_Functor*>() =
 	      &_Base::_M_get_pointer(__source)->__value;
 	    break;
-
+	    
 	  default:
 	    _Base::_M_manager(__dest, __source, __op);
 	  }
@@ -1900,26 +1900,26 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 #endif
 
       typedef _Res _Signature_type(_ArgTypes...);
-
+      
       struct _Useless { };
-
+      
     public:
       typedef _Res result_type;
-
+      
       // [3.7.2.1] construct/copy/destroy
-
+      
       /**
        *  @brief Default construct creates an empty function call wrapper.
        *  @post @c !(bool)*this
        */
       function() : _Function_base() { }
-
+      
       /**
        *  @brief Default construct creates an empty function call wrapper.
        *  @post @c !(bool)*this
        */
       function(_M_clear_type*) : _Function_base() { }
-
+      
       /**
        *  @brief %Function copy constructor.
        *  @param x A %function object with identical call signature.
@@ -2016,7 +2016,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       // [3.7.2.2] function modifiers
-
+      
       /**
        *  @brief Swap the targets of two %function objects.
        *  @param f A %function with identical call signature.
@@ -2078,7 +2078,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  This function will not throw an %exception.
        */
       const type_info& target_type() const;
-
+      
       /**
        *  @brief Access the stored target function object.
        *
@@ -2089,7 +2089,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * This function will not throw an %exception.
        */
       template<typename _Functor>       _Functor* target();
-
+      
       /// @overload
       template<typename _Functor> const _Functor* target() const;
 #endif

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,7 +55,7 @@ command is actually opened twice: first by the VxWorks target in order
 to download the code, then by <span class="sc">gdb</span> in order to read the symbol
 table.  This can lead to problems if the current working directories on
 the two systems differ.  If both systems have NFS mounted the same
-filesystems, you can avoid these problems by using absolute paths.
+filesystems, you can avoid these problems by using absolute paths. 
 Otherwise, it is simplest to set the working directory on both systems
 to the directory in which the object file resides, and then to reference
 the file by its name, without any path.  For instance, a program
@@ -83,3 +83,4 @@ debugger's data structures that reference the target system's symbol
 table.)
 
    </body></html>
+

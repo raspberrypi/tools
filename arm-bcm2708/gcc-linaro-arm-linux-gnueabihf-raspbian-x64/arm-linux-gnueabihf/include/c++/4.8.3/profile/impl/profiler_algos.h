@@ -80,7 +80,7 @@ namespace __gnu_profile
 
   /* Simplified clone of std::for_each.  */
   template<typename _InputIterator, typename _Function>
-    _Function
+    _Function 
     __for_each(_InputIterator __first, _InputIterator __last, _Function __f)
     {
       for (; __first != __last; ++__first)

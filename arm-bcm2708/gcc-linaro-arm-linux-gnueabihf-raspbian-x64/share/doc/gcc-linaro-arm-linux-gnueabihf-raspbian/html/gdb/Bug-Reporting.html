@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,13 +46,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB-Bugs.html#GDB-Bugs">GDB Bugs</a>
 <h3 class="section">31.2 How to Report Bugs</h3>
 
 <p><a name="index-bug-reports-2434"></a><a name="index-g_t_0040value_007bGDBN_007d-bugs_002c-reporting-2435"></a>
-A number of companies and individuals offer support for <span class="sc">gnu</span> products.
+A number of companies and individuals offer support for <span class="sc">gnu</span> products. 
 If you obtained <span class="sc">gdb</span> from a support organization, we recommend you
 contact that organization first.
 
    <p>You can find contact information for many support companies and
 individuals in the file <samp><span class="file">etc/SERVICE</span></samp> in the <span class="sc">gnu</span> Emacs
-distribution.
+distribution. 
 <!-- should add a web page ref... -->
 
    <p>In any event, we also recommend that you submit bug reports for
@@ -64,7 +64,7 @@ fact or leave it out, state it!
 
    <p>Often people omit facts because they think they know what causes the
 problem and assume that some details do not matter.  Thus, you might
-assume that the name of the variable you use in an example does not matter.
+assume that the name of the variable you use in an example does not matter. 
 Well, probably it does not, but one cannot be sure.  Perhaps the bug is a
 stray memory reference which happens to fetch from the location where that
 name is stored in memory; perhaps, if the name were different, the contents
@@ -95,7 +95,7 @@ the bug in the current version of <span class="sc">gdb</span>.
      <li>The type of machine you are using, and the operating system name and
 version number.
 
-     <li>What compiler (and its version) was used to compile <span class="sc">gdb</span>&mdash;e.g.
+     <li>What compiler (and its version) was used to compile <span class="sc">gdb</span>&mdash;e.g. 
 &ldquo;gcc&ndash;2.8.1&rdquo;.
 
      <li>What compiler (and its version) was used to compile the program you are
@@ -133,7 +133,7 @@ us.  If you had not told us to expect a crash, then we would not be able
 to draw any conclusion from our observations.
 
      <p><a name="index-script-2436"></a><a name="index-recording-a-session-script-2437"></a>To collect all this information, you can use a session recording program
-such as <samp><span class="command">script</span></samp>, which is available on many Unix systems.
+such as <samp><span class="command">script</span></samp>, which is available on many Unix systems. 
 Just run your <span class="sc">gdb</span> session inside <samp><span class="command">script</span></samp> and then
 include the <samp><span class="file">typescript</span></samp> file with your bug report.
 
@@ -160,7 +160,7 @@ changes will not affect it.
 
      <p>This is often time consuming and not very useful, because the way we
 will find the bug is by running a single example under the debugger
-with breakpoints, not by pure deduction from a series of examples.
+with breakpoints, not by pure deduction from a series of examples. 
 We recommend that you save your time for something else.
 
      <p>Of course, if you can find a simpler example to report <em>instead</em>
@@ -190,7 +190,7 @@ help us to understand.
      <li>A guess about what the bug is or what it depends on.
 
      <p>Such guesses are usually wrong.  Even we cannot guess right about such
-things without first using the debugger to find the facts.
+things without first using the debugger to find the facts. 
 </ul>
 
 <!-- The readline documentation is distributed with the readline code -->
@@ -204,3 +204,4 @@ things without first using the debugger to find the facts.
 <!-- If you are including this manual as an appendix, then set the -->
 <!-- variable readline-appendix. -->
    </body></html>
+

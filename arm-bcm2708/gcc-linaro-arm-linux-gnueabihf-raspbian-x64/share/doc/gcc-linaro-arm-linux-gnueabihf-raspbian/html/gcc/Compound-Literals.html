@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -94,10 +94,10 @@ to a cast.
 
  <p>As a GNU extension, GCC allows initialization of objects with static storage
 duration by compound literals (which is not possible in ISO C99, because
-the initializer is not a constant).
+the initializer is not a constant). 
 It is handled as if the object is initialized only with the bracket
-enclosed list if the types of the compound literal and the object match.
-The initializer list of the compound literal must be constant.
+enclosed list if the types of the compound literal and the object match. 
+The initializer list of the compound literal must be constant. 
 If the object being initialized has array type of unknown size, the size is
 determined by compound literal size.
 
@@ -114,7 +114,7 @@ determined by compound literal size.
 automatic storage duration.  In C++, a compound literal designates a
 temporary object, which only lives until the end of its
 full-expression.  As a result, well-defined C code that takes the
-address of a subobject of a compound literal can be undefined in C++.
+address of a subobject of a compound literal can be undefined in C++. 
 For instance, if the array compound literal example above appeared
 inside a function, any subsequent use of &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; in C++ has
 undefined behavior because the lifetime of the array ends after the
@@ -130,3 +130,4 @@ would have static storage duration.  But it is probably safest just to
 avoid the use of array compound literals in code compiled as C++.
 
  </body></html>
+

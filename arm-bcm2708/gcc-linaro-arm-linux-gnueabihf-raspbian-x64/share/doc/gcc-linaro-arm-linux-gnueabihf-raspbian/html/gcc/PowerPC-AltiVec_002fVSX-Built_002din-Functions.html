@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,12 +65,12 @@ types.
 <pre class="smallexample">     vector unsigned char
      vector signed char
      vector bool char
-
+     
      vector unsigned short
      vector signed short
      vector bool short
      vector pixel
-
+     
      vector unsigned int
      vector signed int
      vector bool int
@@ -117,10 +117,10 @@ does not work:
 </pre>
      <p class="noindent">Since <code>vec_add</code> is a macro, the vector constant in the example
 is treated as four separate arguments.  Wrap the entire argument in
-parentheses for this to work.
+parentheses for this to work. 
 </ul>
 
- <p><em>Note:</em> Only the <code>&lt;altivec.h&gt;</code> interface is supported.
+ <p><em>Note:</em> Only the <code>&lt;altivec.h&gt;</code> interface is supported. 
 Internally, GCC uses built-in functions to achieve the functionality in
 the aforementioned header file, but they are not supported and are
 subject to change without notice.
@@ -138,11 +138,11 @@ integral values within the range required for that operation.
      vector signed short vec_abs (vector signed short);
      vector signed int vec_abs (vector signed int);
      vector float vec_abs (vector float);
-
+     
      vector signed char vec_abss (vector signed char);
      vector signed short vec_abss (vector signed short);
      vector signed int vec_abss (vector signed int);
-
+     
      vector signed char vec_add (vector bool char, vector signed char);
      vector signed char vec_add (vector signed char, vector bool char);
      vector signed char vec_add (vector signed char, vector signed char);
@@ -166,9 +166,9 @@ integral values within the range required for that operation.
      vector unsigned int vec_add (vector unsigned int, vector bool int);
      vector unsigned int vec_add (vector unsigned int, vector unsigned int);
      vector float vec_add (vector float, vector float);
-
+     
      vector float vec_vaddfp (vector float, vector float);
-
+     
      vector signed int vec_vadduwm (vector bool int, vector signed int);
      vector signed int vec_vadduwm (vector signed int, vector bool int);
      vector signed int vec_vadduwm (vector signed int, vector signed int);
@@ -176,7 +176,7 @@ integral values within the range required for that operation.
      vector unsigned int vec_vadduwm (vector unsigned int, vector bool int);
      vector unsigned int vec_vadduwm (vector unsigned int,
                                       vector unsigned int);
-
+     
      vector signed short vec_vadduhm (vector bool short,
                                       vector signed short);
      vector signed short vec_vadduhm (vector signed short,
@@ -189,7 +189,7 @@ integral values within the range required for that operation.
                                         vector bool short);
      vector unsigned short vec_vadduhm (vector unsigned short,
                                         vector unsigned short);
-
+     
      vector signed char vec_vaddubm (vector bool char, vector signed char);
      vector signed char vec_vaddubm (vector signed char, vector bool char);
      vector signed char vec_vaddubm (vector signed char, vector signed char);
@@ -199,9 +199,9 @@ integral values within the range required for that operation.
                                        vector bool char);
      vector unsigned char vec_vaddubm (vector unsigned char,
                                        vector unsigned char);
-
+     
      vector unsigned int vec_addc (vector unsigned int, vector unsigned int);
-
+     
      vector unsigned char vec_adds (vector bool char, vector unsigned char);
      vector unsigned char vec_adds (vector unsigned char, vector bool char);
      vector unsigned char vec_adds (vector unsigned char,
@@ -224,41 +224,41 @@ integral values within the range required for that operation.
      vector signed int vec_adds (vector bool int, vector signed int);
      vector signed int vec_adds (vector signed int, vector bool int);
      vector signed int vec_adds (vector signed int, vector signed int);
-
+     
      vector signed int vec_vaddsws (vector bool int, vector signed int);
      vector signed int vec_vaddsws (vector signed int, vector bool int);
      vector signed int vec_vaddsws (vector signed int, vector signed int);
-
+     
      vector unsigned int vec_vadduws (vector bool int, vector unsigned int);
      vector unsigned int vec_vadduws (vector unsigned int, vector bool int);
      vector unsigned int vec_vadduws (vector unsigned int,
                                       vector unsigned int);
-
+     
      vector signed short vec_vaddshs (vector bool short,
                                       vector signed short);
      vector signed short vec_vaddshs (vector signed short,
                                       vector bool short);
      vector signed short vec_vaddshs (vector signed short,
                                       vector signed short);
-
+     
      vector unsigned short vec_vadduhs (vector bool short,
                                         vector unsigned short);
      vector unsigned short vec_vadduhs (vector unsigned short,
                                         vector bool short);
      vector unsigned short vec_vadduhs (vector unsigned short,
                                         vector unsigned short);
-
+     
      vector signed char vec_vaddsbs (vector bool char, vector signed char);
      vector signed char vec_vaddsbs (vector signed char, vector bool char);
      vector signed char vec_vaddsbs (vector signed char, vector signed char);
-
+     
      vector unsigned char vec_vaddubs (vector bool char,
                                        vector unsigned char);
      vector unsigned char vec_vaddubs (vector unsigned char,
                                        vector bool char);
      vector unsigned char vec_vaddubs (vector unsigned char,
                                        vector unsigned char);
-
+     
      vector float vec_and (vector float, vector float);
      vector float vec_and (vector float, vector bool int);
      vector float vec_and (vector bool int, vector float);
@@ -287,7 +287,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_and (vector unsigned char, vector bool char);
      vector unsigned char vec_and (vector unsigned char,
                                    vector unsigned char);
-
+     
      vector float vec_andc (vector float, vector float);
      vector float vec_andc (vector float, vector bool int);
      vector float vec_andc (vector bool int, vector float);
@@ -316,7 +316,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_andc (vector unsigned char, vector bool char);
      vector unsigned char vec_andc (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector unsigned char vec_avg (vector unsigned char,
                                    vector unsigned char);
      vector signed char vec_avg (vector signed char, vector signed char);
@@ -325,29 +325,29 @@ integral values within the range required for that operation.
      vector signed short vec_avg (vector signed short, vector signed short);
      vector unsigned int vec_avg (vector unsigned int, vector unsigned int);
      vector signed int vec_avg (vector signed int, vector signed int);
-
+     
      vector signed int vec_vavgsw (vector signed int, vector signed int);
-
+     
      vector unsigned int vec_vavguw (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector signed short vec_vavgsh (vector signed short,
                                      vector signed short);
-
+     
      vector unsigned short vec_vavguh (vector unsigned short,
                                        vector unsigned short);
-
+     
      vector signed char vec_vavgsb (vector signed char, vector signed char);
-
+     
      vector unsigned char vec_vavgub (vector unsigned char,
                                       vector unsigned char);
-
+     
      vector float vec_copysign (vector float);
-
+     
      vector float vec_ceil (vector float);
-
+     
      vector signed int vec_cmpb (vector float, vector float);
-
+     
      vector bool char vec_cmpeq (vector signed char, vector signed char);
      vector bool char vec_cmpeq (vector unsigned char, vector unsigned char);
      vector bool short vec_cmpeq (vector signed short, vector signed short);
@@ -356,23 +356,23 @@ integral values within the range required for that operation.
      vector bool int vec_cmpeq (vector signed int, vector signed int);
      vector bool int vec_cmpeq (vector unsigned int, vector unsigned int);
      vector bool int vec_cmpeq (vector float, vector float);
-
+     
      vector bool int vec_vcmpeqfp (vector float, vector float);
-
+     
      vector bool int vec_vcmpequw (vector signed int, vector signed int);
      vector bool int vec_vcmpequw (vector unsigned int, vector unsigned int);
-
+     
      vector bool short vec_vcmpequh (vector signed short,
                                      vector signed short);
      vector bool short vec_vcmpequh (vector unsigned short,
                                      vector unsigned short);
-
+     
      vector bool char vec_vcmpequb (vector signed char, vector signed char);
      vector bool char vec_vcmpequb (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector bool int vec_cmpge (vector float, vector float);
-
+     
      vector bool char vec_cmpgt (vector unsigned char, vector unsigned char);
      vector bool char vec_cmpgt (vector signed char, vector signed char);
      vector bool short vec_cmpgt (vector unsigned short,
@@ -381,26 +381,26 @@ integral values within the range required for that operation.
      vector bool int vec_cmpgt (vector unsigned int, vector unsigned int);
      vector bool int vec_cmpgt (vector signed int, vector signed int);
      vector bool int vec_cmpgt (vector float, vector float);
-
+     
      vector bool int vec_vcmpgtfp (vector float, vector float);
-
+     
      vector bool int vec_vcmpgtsw (vector signed int, vector signed int);
-
+     
      vector bool int vec_vcmpgtuw (vector unsigned int, vector unsigned int);
-
+     
      vector bool short vec_vcmpgtsh (vector signed short,
                                      vector signed short);
-
+     
      vector bool short vec_vcmpgtuh (vector unsigned short,
                                      vector unsigned short);
-
+     
      vector bool char vec_vcmpgtsb (vector signed char, vector signed char);
-
+     
      vector bool char vec_vcmpgtub (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector bool int vec_cmple (vector float, vector float);
-
+     
      vector bool char vec_cmplt (vector unsigned char, vector unsigned char);
      vector bool char vec_cmplt (vector signed char, vector signed char);
      vector bool short vec_cmplt (vector unsigned short,
@@ -409,22 +409,22 @@ integral values within the range required for that operation.
      vector bool int vec_cmplt (vector unsigned int, vector unsigned int);
      vector bool int vec_cmplt (vector signed int, vector signed int);
      vector bool int vec_cmplt (vector float, vector float);
-
+     
      vector float vec_ctf (vector unsigned int, const int);
      vector float vec_ctf (vector signed int, const int);
-
+     
      vector float vec_vcfsx (vector signed int, const int);
-
+     
      vector float vec_vcfux (vector unsigned int, const int);
-
+     
      vector signed int vec_cts (vector float, const int);
-
+     
      vector unsigned int vec_ctu (vector float, const int);
-
+     
      void vec_dss (const int);
-
+     
      void vec_dssall (void);
-
+     
      void vec_dst (const vector unsigned char *, int, const int);
      void vec_dst (const vector signed char *, int, const int);
      void vec_dst (const vector bool char *, int, const int);
@@ -445,7 +445,7 @@ integral values within the range required for that operation.
      void vec_dst (const unsigned long *, int, const int);
      void vec_dst (const long *, int, const int);
      void vec_dst (const float *, int, const int);
-
+     
      void vec_dstst (const vector unsigned char *, int, const int);
      void vec_dstst (const vector signed char *, int, const int);
      void vec_dstst (const vector bool char *, int, const int);
@@ -466,7 +466,7 @@ integral values within the range required for that operation.
      void vec_dstst (const unsigned long *, int, const int);
      void vec_dstst (const long *, int, const int);
      void vec_dstst (const float *, int, const int);
-
+     
      void vec_dststt (const vector unsigned char *, int, const int);
      void vec_dststt (const vector signed char *, int, const int);
      void vec_dststt (const vector bool char *, int, const int);
@@ -487,7 +487,7 @@ integral values within the range required for that operation.
      void vec_dststt (const unsigned long *, int, const int);
      void vec_dststt (const long *, int, const int);
      void vec_dststt (const float *, int, const int);
-
+     
      void vec_dstt (const vector unsigned char *, int, const int);
      void vec_dstt (const vector signed char *, int, const int);
      void vec_dstt (const vector bool char *, int, const int);
@@ -508,11 +508,11 @@ integral values within the range required for that operation.
      void vec_dstt (const unsigned long *, int, const int);
      void vec_dstt (const long *, int, const int);
      void vec_dstt (const float *, int, const int);
-
+     
      vector float vec_expte (vector float);
-
+     
      vector float vec_floor (vector float);
-
+     
      vector float vec_ld (int, const vector float *);
      vector float vec_ld (int, const float *);
      vector bool int vec_ld (int, const vector bool int *);
@@ -533,7 +533,7 @@ integral values within the range required for that operation.
      vector signed char vec_ld (int, const signed char *);
      vector unsigned char vec_ld (int, const vector unsigned char *);
      vector unsigned char vec_ld (int, const unsigned char *);
-
+     
      vector signed char vec_lde (int, const signed char *);
      vector unsigned char vec_lde (int, const unsigned char *);
      vector signed short vec_lde (int, const short *);
@@ -543,19 +543,19 @@ integral values within the range required for that operation.
      vector unsigned int vec_lde (int, const unsigned int *);
      vector signed int vec_lde (int, const long *);
      vector unsigned int vec_lde (int, const unsigned long *);
-
+     
      vector float vec_lvewx (int, float *);
      vector signed int vec_lvewx (int, int *);
      vector unsigned int vec_lvewx (int, unsigned int *);
      vector signed int vec_lvewx (int, long *);
      vector unsigned int vec_lvewx (int, unsigned long *);
-
+     
      vector signed short vec_lvehx (int, short *);
      vector unsigned short vec_lvehx (int, unsigned short *);
-
+     
      vector signed char vec_lvebx (int, char *);
      vector unsigned char vec_lvebx (int, unsigned char *);
-
+     
      vector float vec_ldl (int, const vector float *);
      vector float vec_ldl (int, const float *);
      vector bool int vec_ldl (int, const vector bool int *);
@@ -576,9 +576,9 @@ integral values within the range required for that operation.
      vector signed char vec_ldl (int, const signed char *);
      vector unsigned char vec_ldl (int, const vector unsigned char *);
      vector unsigned char vec_ldl (int, const unsigned char *);
-
+     
      vector float vec_loge (vector float);
-
+     
      vector unsigned char vec_lvsl (int, const volatile unsigned char *);
      vector unsigned char vec_lvsl (int, const volatile signed char *);
      vector unsigned char vec_lvsl (int, const volatile unsigned short *);
@@ -588,7 +588,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_lvsl (int, const volatile unsigned long *);
      vector unsigned char vec_lvsl (int, const volatile long *);
      vector unsigned char vec_lvsl (int, const volatile float *);
-
+     
      vector unsigned char vec_lvsr (int, const volatile unsigned char *);
      vector unsigned char vec_lvsr (int, const volatile signed char *);
      vector unsigned char vec_lvsr (int, const volatile unsigned short *);
@@ -598,13 +598,13 @@ integral values within the range required for that operation.
      vector unsigned char vec_lvsr (int, const volatile unsigned long *);
      vector unsigned char vec_lvsr (int, const volatile long *);
      vector unsigned char vec_lvsr (int, const volatile float *);
-
+     
      vector float vec_madd (vector float, vector float, vector float);
-
+     
      vector signed short vec_madds (vector signed short,
                                     vector signed short,
                                     vector signed short);
-
+     
      vector unsigned char vec_max (vector bool char, vector unsigned char);
      vector unsigned char vec_max (vector unsigned char, vector bool char);
      vector unsigned char vec_max (vector unsigned char,
@@ -628,41 +628,41 @@ integral values within the range required for that operation.
      vector signed int vec_max (vector signed int, vector bool int);
      vector signed int vec_max (vector signed int, vector signed int);
      vector float vec_max (vector float, vector float);
-
+     
      vector float vec_vmaxfp (vector float, vector float);
-
+     
      vector signed int vec_vmaxsw (vector bool int, vector signed int);
      vector signed int vec_vmaxsw (vector signed int, vector bool int);
      vector signed int vec_vmaxsw (vector signed int, vector signed int);
-
+     
      vector unsigned int vec_vmaxuw (vector bool int, vector unsigned int);
      vector unsigned int vec_vmaxuw (vector unsigned int, vector bool int);
      vector unsigned int vec_vmaxuw (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector signed short vec_vmaxsh (vector bool short, vector signed short);
      vector signed short vec_vmaxsh (vector signed short, vector bool short);
      vector signed short vec_vmaxsh (vector signed short,
                                      vector signed short);
-
+     
      vector unsigned short vec_vmaxuh (vector bool short,
                                        vector unsigned short);
      vector unsigned short vec_vmaxuh (vector unsigned short,
                                        vector bool short);
      vector unsigned short vec_vmaxuh (vector unsigned short,
                                        vector unsigned short);
-
+     
      vector signed char vec_vmaxsb (vector bool char, vector signed char);
      vector signed char vec_vmaxsb (vector signed char, vector bool char);
      vector signed char vec_vmaxsb (vector signed char, vector signed char);
-
+     
      vector unsigned char vec_vmaxub (vector bool char,
                                       vector unsigned char);
      vector unsigned char vec_vmaxub (vector unsigned char,
                                       vector bool char);
      vector unsigned char vec_vmaxub (vector unsigned char,
                                       vector unsigned char);
-
+     
      vector bool char vec_mergeh (vector bool char, vector bool char);
      vector signed char vec_mergeh (vector signed char, vector signed char);
      vector unsigned char vec_mergeh (vector unsigned char,
@@ -678,25 +678,25 @@ integral values within the range required for that operation.
      vector signed int vec_mergeh (vector signed int, vector signed int);
      vector unsigned int vec_mergeh (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector float vec_vmrghw (vector float, vector float);
      vector bool int vec_vmrghw (vector bool int, vector bool int);
      vector signed int vec_vmrghw (vector signed int, vector signed int);
      vector unsigned int vec_vmrghw (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector bool short vec_vmrghh (vector bool short, vector bool short);
      vector signed short vec_vmrghh (vector signed short,
                                      vector signed short);
      vector unsigned short vec_vmrghh (vector unsigned short,
                                        vector unsigned short);
      vector pixel vec_vmrghh (vector pixel, vector pixel);
-
+     
      vector bool char vec_vmrghb (vector bool char, vector bool char);
      vector signed char vec_vmrghb (vector signed char, vector signed char);
      vector unsigned char vec_vmrghb (vector unsigned char,
                                       vector unsigned char);
-
+     
      vector bool char vec_mergel (vector bool char, vector bool char);
      vector signed char vec_mergel (vector signed char, vector signed char);
      vector unsigned char vec_mergel (vector unsigned char,
@@ -712,27 +712,27 @@ integral values within the range required for that operation.
      vector signed int vec_mergel (vector signed int, vector signed int);
      vector unsigned int vec_mergel (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector float vec_vmrglw (vector float, vector float);
      vector signed int vec_vmrglw (vector signed int, vector signed int);
      vector unsigned int vec_vmrglw (vector unsigned int,
                                      vector unsigned int);
      vector bool int vec_vmrglw (vector bool int, vector bool int);
-
+     
      vector bool short vec_vmrglh (vector bool short, vector bool short);
      vector signed short vec_vmrglh (vector signed short,
                                      vector signed short);
      vector unsigned short vec_vmrglh (vector unsigned short,
                                        vector unsigned short);
      vector pixel vec_vmrglh (vector pixel, vector pixel);
-
+     
      vector bool char vec_vmrglb (vector bool char, vector bool char);
      vector signed char vec_vmrglb (vector signed char, vector signed char);
      vector unsigned char vec_vmrglb (vector unsigned char,
                                       vector unsigned char);
-
+     
      vector unsigned short vec_mfvscr (void);
-
+     
      vector unsigned char vec_min (vector bool char, vector unsigned char);
      vector unsigned char vec_min (vector unsigned char, vector bool char);
      vector unsigned char vec_min (vector unsigned char,
@@ -756,41 +756,41 @@ integral values within the range required for that operation.
      vector signed int vec_min (vector signed int, vector bool int);
      vector signed int vec_min (vector signed int, vector signed int);
      vector float vec_min (vector float, vector float);
-
+     
      vector float vec_vminfp (vector float, vector float);
-
+     
      vector signed int vec_vminsw (vector bool int, vector signed int);
      vector signed int vec_vminsw (vector signed int, vector bool int);
      vector signed int vec_vminsw (vector signed int, vector signed int);
-
+     
      vector unsigned int vec_vminuw (vector bool int, vector unsigned int);
      vector unsigned int vec_vminuw (vector unsigned int, vector bool int);
      vector unsigned int vec_vminuw (vector unsigned int,
                                      vector unsigned int);
-
+     
      vector signed short vec_vminsh (vector bool short, vector signed short);
      vector signed short vec_vminsh (vector signed short, vector bool short);
      vector signed short vec_vminsh (vector signed short,
                                      vector signed short);
-
+     
      vector unsigned short vec_vminuh (vector bool short,
                                        vector unsigned short);
      vector unsigned short vec_vminuh (vector unsigned short,
                                        vector bool short);
      vector unsigned short vec_vminuh (vector unsigned short,
                                        vector unsigned short);
-
+     
      vector signed char vec_vminsb (vector bool char, vector signed char);
      vector signed char vec_vminsb (vector signed char, vector bool char);
      vector signed char vec_vminsb (vector signed char, vector signed char);
-
+     
      vector unsigned char vec_vminub (vector bool char,
                                       vector unsigned char);
      vector unsigned char vec_vminub (vector unsigned char,
                                       vector bool char);
      vector unsigned char vec_vminub (vector unsigned char,
                                       vector unsigned char);
-
+     
      vector signed short vec_mladd (vector signed short,
                                     vector signed short,
                                     vector signed short);
@@ -803,11 +803,11 @@ integral values within the range required for that operation.
      vector unsigned short vec_mladd (vector unsigned short,
                                       vector unsigned short,
                                       vector unsigned short);
-
+     
      vector signed short vec_mradds (vector signed short,
                                      vector signed short,
                                      vector signed short);
-
+     
      vector unsigned int vec_msum (vector unsigned char,
                                    vector unsigned char,
                                    vector unsigned int);
@@ -820,38 +820,38 @@ integral values within the range required for that operation.
      vector signed int vec_msum (vector signed short,
                                  vector signed short,
                                  vector signed int);
-
+     
      vector signed int vec_vmsumshm (vector signed short,
                                      vector signed short,
                                      vector signed int);
-
+     
      vector unsigned int vec_vmsumuhm (vector unsigned short,
                                        vector unsigned short,
                                        vector unsigned int);
-
+     
      vector signed int vec_vmsummbm (vector signed char,
                                      vector unsigned char,
                                      vector signed int);
-
+     
      vector unsigned int vec_vmsumubm (vector unsigned char,
                                        vector unsigned char,
                                        vector unsigned int);
-
+     
      vector unsigned int vec_msums (vector unsigned short,
                                     vector unsigned short,
                                     vector unsigned int);
      vector signed int vec_msums (vector signed short,
                                   vector signed short,
                                   vector signed int);
-
+     
      vector signed int vec_vmsumshs (vector signed short,
                                      vector signed short,
                                      vector signed int);
-
+     
      vector unsigned int vec_vmsumuhs (vector unsigned short,
                                        vector unsigned short,
                                        vector unsigned int);
-
+     
      void vec_mtvscr (vector signed int);
      void vec_mtvscr (vector unsigned int);
      void vec_mtvscr (vector bool int);
@@ -862,7 +862,7 @@ integral values within the range required for that operation.
      void vec_mtvscr (vector signed char);
      void vec_mtvscr (vector unsigned char);
      void vec_mtvscr (vector bool char);
-
+     
      vector unsigned short vec_mule (vector unsigned char,
                                      vector unsigned char);
      vector signed short vec_mule (vector signed char,
@@ -870,40 +870,40 @@ integral values within the range required for that operation.
      vector unsigned int vec_mule (vector unsigned short,
                                    vector unsigned short);
      vector signed int vec_mule (vector signed short, vector signed short);
-
+     
      vector signed int vec_vmulesh (vector signed short,
                                     vector signed short);
-
+     
      vector unsigned int vec_vmuleuh (vector unsigned short,
                                       vector unsigned short);
-
+     
      vector signed short vec_vmulesb (vector signed char,
                                       vector signed char);
-
+     
      vector unsigned short vec_vmuleub (vector unsigned char,
                                        vector unsigned char);
-
+     
      vector unsigned short vec_mulo (vector unsigned char,
                                      vector unsigned char);
      vector signed short vec_mulo (vector signed char, vector signed char);
      vector unsigned int vec_mulo (vector unsigned short,
                                    vector unsigned short);
      vector signed int vec_mulo (vector signed short, vector signed short);
-
+     
      vector signed int vec_vmulosh (vector signed short,
                                     vector signed short);
-
+     
      vector unsigned int vec_vmulouh (vector unsigned short,
                                       vector unsigned short);
-
+     
      vector signed short vec_vmulosb (vector signed char,
                                       vector signed char);
-
+     
      vector unsigned short vec_vmuloub (vector unsigned char,
                                         vector unsigned char);
-
+     
      vector float vec_nmsub (vector float, vector float, vector float);
-
+     
      vector float vec_nor (vector float, vector float);
      vector signed int vec_nor (vector signed int, vector signed int);
      vector unsigned int vec_nor (vector unsigned int, vector unsigned int);
@@ -916,7 +916,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_nor (vector unsigned char,
                                    vector unsigned char);
      vector bool char vec_nor (vector bool char, vector bool char);
-
+     
      vector float vec_or (vector float, vector float);
      vector float vec_or (vector float, vector bool int);
      vector float vec_or (vector bool int, vector float);
@@ -943,7 +943,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_or (vector unsigned char, vector bool char);
      vector unsigned char vec_or (vector unsigned char,
                                   vector unsigned char);
-
+     
      vector signed char vec_pack (vector signed short, vector signed short);
      vector unsigned char vec_pack (vector unsigned short,
                                     vector unsigned short);
@@ -952,38 +952,38 @@ integral values within the range required for that operation.
      vector unsigned short vec_pack (vector unsigned int,
                                      vector unsigned int);
      vector bool short vec_pack (vector bool int, vector bool int);
-
+     
      vector bool short vec_vpkuwum (vector bool int, vector bool int);
      vector signed short vec_vpkuwum (vector signed int, vector signed int);
      vector unsigned short vec_vpkuwum (vector unsigned int,
                                         vector unsigned int);
-
+     
      vector bool char vec_vpkuhum (vector bool short, vector bool short);
      vector signed char vec_vpkuhum (vector signed short,
                                      vector signed short);
      vector unsigned char vec_vpkuhum (vector unsigned short,
                                        vector unsigned short);
-
+     
      vector pixel vec_packpx (vector unsigned int, vector unsigned int);
-
+     
      vector unsigned char vec_packs (vector unsigned short,
                                      vector unsigned short);
      vector signed char vec_packs (vector signed short, vector signed short);
      vector unsigned short vec_packs (vector unsigned int,
                                       vector unsigned int);
      vector signed short vec_packs (vector signed int, vector signed int);
-
+     
      vector signed short vec_vpkswss (vector signed int, vector signed int);
-
+     
      vector unsigned short vec_vpkuwus (vector unsigned int,
                                         vector unsigned int);
-
+     
      vector signed char vec_vpkshss (vector signed short,
                                      vector signed short);
-
+     
      vector unsigned char vec_vpkuhus (vector unsigned short,
                                        vector unsigned short);
-
+     
      vector unsigned char vec_packsu (vector unsigned short,
                                       vector unsigned short);
      vector unsigned char vec_packsu (vector signed short,
@@ -991,13 +991,13 @@ integral values within the range required for that operation.
      vector unsigned short vec_packsu (vector unsigned int,
                                        vector unsigned int);
      vector unsigned short vec_packsu (vector signed int, vector signed int);
-
+     
      vector unsigned short vec_vpkswus (vector signed int,
                                         vector signed int);
-
+     
      vector unsigned char vec_vpkshus (vector signed short,
                                        vector signed short);
-
+     
      vector float vec_perm (vector float,
                             vector float,
                             vector unsigned char);
@@ -1031,9 +1031,9 @@ integral values within the range required for that operation.
      vector bool char vec_perm (vector bool char,
                                 vector bool char,
                                 vector unsigned char);
-
+     
      vector float vec_re (vector float);
-
+     
      vector signed char vec_rl (vector signed char,
                                 vector unsigned char);
      vector unsigned char vec_rl (vector unsigned char,
@@ -1043,27 +1043,27 @@ integral values within the range required for that operation.
                                    vector unsigned short);
      vector signed int vec_rl (vector signed int, vector unsigned int);
      vector unsigned int vec_rl (vector unsigned int, vector unsigned int);
-
+     
      vector signed int vec_vrlw (vector signed int, vector unsigned int);
      vector unsigned int vec_vrlw (vector unsigned int, vector unsigned int);
-
+     
      vector signed short vec_vrlh (vector signed short,
                                    vector unsigned short);
      vector unsigned short vec_vrlh (vector unsigned short,
                                      vector unsigned short);
-
+     
      vector signed char vec_vrlb (vector signed char, vector unsigned char);
      vector unsigned char vec_vrlb (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector float vec_round (vector float);
-
+     
      vector float vec_recip (vector float, vector float);
-
+     
      vector float vec_rsqrt (vector float);
-
+     
      vector float vec_rsqrte (vector float);
-
+     
      vector float vec_sel (vector float, vector float, vector bool int);
      vector float vec_sel (vector float, vector float, vector unsigned int);
      vector signed int vec_sel (vector signed int,
@@ -1120,7 +1120,7 @@ integral values within the range required for that operation.
      vector bool char vec_sel (vector bool char,
                                vector bool char,
                                vector unsigned char);
-
+     
      vector signed char vec_sl (vector signed char,
                                 vector unsigned char);
      vector unsigned char vec_sl (vector unsigned char,
@@ -1130,19 +1130,19 @@ integral values within the range required for that operation.
                                    vector unsigned short);
      vector signed int vec_sl (vector signed int, vector unsigned int);
      vector unsigned int vec_sl (vector unsigned int, vector unsigned int);
-
+     
      vector signed int vec_vslw (vector signed int, vector unsigned int);
      vector unsigned int vec_vslw (vector unsigned int, vector unsigned int);
-
+     
      vector signed short vec_vslh (vector signed short,
                                    vector unsigned short);
      vector unsigned short vec_vslh (vector unsigned short,
                                      vector unsigned short);
-
+     
      vector signed char vec_vslb (vector signed char, vector unsigned char);
      vector unsigned char vec_vslb (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector float vec_sld (vector float, vector float, const int);
      vector signed int vec_sld (vector signed int,
                                 vector signed int,
@@ -1174,7 +1174,7 @@ integral values within the range required for that operation.
      vector bool char vec_sld (vector bool char,
                                vector bool char,
                                const int);
-
+     
      vector signed int vec_sll (vector signed int,
                                 vector unsigned int);
      vector signed int vec_sll (vector signed int,
@@ -1223,7 +1223,7 @@ integral values within the range required for that operation.
      vector bool char vec_sll (vector bool char, vector unsigned int);
      vector bool char vec_sll (vector bool char, vector unsigned short);
      vector bool char vec_sll (vector bool char, vector unsigned char);
-
+     
      vector float vec_slo (vector float, vector signed char);
      vector float vec_slo (vector float, vector unsigned char);
      vector signed int vec_slo (vector signed int, vector signed char);
@@ -1243,7 +1243,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_slo (vector unsigned char, vector signed char);
      vector unsigned char vec_slo (vector unsigned char,
                                    vector unsigned char);
-
+     
      vector signed char vec_splat (vector signed char, const int);
      vector unsigned char vec_splat (vector unsigned char, const int);
      vector bool char vec_splat (vector bool char, const int);
@@ -1255,33 +1255,33 @@ integral values within the range required for that operation.
      vector signed int vec_splat (vector signed int, const int);
      vector unsigned int vec_splat (vector unsigned int, const int);
      vector bool int vec_splat (vector bool int, const int);
-
+     
      vector float vec_vspltw (vector float, const int);
      vector signed int vec_vspltw (vector signed int, const int);
      vector unsigned int vec_vspltw (vector unsigned int, const int);
      vector bool int vec_vspltw (vector bool int, const int);
-
+     
      vector bool short vec_vsplth (vector bool short, const int);
      vector signed short vec_vsplth (vector signed short, const int);
      vector unsigned short vec_vsplth (vector unsigned short, const int);
      vector pixel vec_vsplth (vector pixel, const int);
-
+     
      vector signed char vec_vspltb (vector signed char, const int);
      vector unsigned char vec_vspltb (vector unsigned char, const int);
      vector bool char vec_vspltb (vector bool char, const int);
-
+     
      vector signed char vec_splat_s8 (const int);
-
+     
      vector signed short vec_splat_s16 (const int);
-
+     
      vector signed int vec_splat_s32 (const int);
-
+     
      vector unsigned char vec_splat_u8 (const int);
-
+     
      vector unsigned short vec_splat_u16 (const int);
-
+     
      vector unsigned int vec_splat_u32 (const int);
-
+     
      vector signed char vec_sr (vector signed char, vector unsigned char);
      vector unsigned char vec_sr (vector unsigned char,
                                   vector unsigned char);
@@ -1291,19 +1291,19 @@ integral values within the range required for that operation.
                                    vector unsigned short);
      vector signed int vec_sr (vector signed int, vector unsigned int);
      vector unsigned int vec_sr (vector unsigned int, vector unsigned int);
-
+     
      vector signed int vec_vsrw (vector signed int, vector unsigned int);
      vector unsigned int vec_vsrw (vector unsigned int, vector unsigned int);
-
+     
      vector signed short vec_vsrh (vector signed short,
                                    vector unsigned short);
      vector unsigned short vec_vsrh (vector unsigned short,
                                      vector unsigned short);
-
+     
      vector signed char vec_vsrb (vector signed char, vector unsigned char);
      vector unsigned char vec_vsrb (vector unsigned char,
                                     vector unsigned char);
-
+     
      vector signed char vec_sra (vector signed char, vector unsigned char);
      vector unsigned char vec_sra (vector unsigned char,
                                    vector unsigned char);
@@ -1313,20 +1313,20 @@ integral values within the range required for that operation.
                                     vector unsigned short);
      vector signed int vec_sra (vector signed int, vector unsigned int);
      vector unsigned int vec_sra (vector unsigned int, vector unsigned int);
-
+     
      vector signed int vec_vsraw (vector signed int, vector unsigned int);
      vector unsigned int vec_vsraw (vector unsigned int,
                                     vector unsigned int);
-
+     
      vector signed short vec_vsrah (vector signed short,
                                     vector unsigned short);
      vector unsigned short vec_vsrah (vector unsigned short,
                                       vector unsigned short);
-
+     
      vector signed char vec_vsrab (vector signed char, vector unsigned char);
      vector unsigned char vec_vsrab (vector unsigned char,
                                      vector unsigned char);
-
+     
      vector signed int vec_srl (vector signed int, vector unsigned int);
      vector signed int vec_srl (vector signed int, vector unsigned short);
      vector signed int vec_srl (vector signed int, vector unsigned char);
@@ -1365,7 +1365,7 @@ integral values within the range required for that operation.
      vector bool char vec_srl (vector bool char, vector unsigned int);
      vector bool char vec_srl (vector bool char, vector unsigned short);
      vector bool char vec_srl (vector bool char, vector unsigned char);
-
+     
      vector float vec_sro (vector float, vector signed char);
      vector float vec_sro (vector float, vector unsigned char);
      vector signed int vec_sro (vector signed int, vector signed char);
@@ -1385,7 +1385,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_sro (vector unsigned char, vector signed char);
      vector unsigned char vec_sro (vector unsigned char,
                                    vector unsigned char);
-
+     
      void vec_st (vector float, int, vector float *);
      void vec_st (vector float, int, float *);
      void vec_st (vector signed int, int, vector signed int *);
@@ -1412,7 +1412,7 @@ integral values within the range required for that operation.
      void vec_st (vector bool char, int, vector bool char *);
      void vec_st (vector bool char, int, unsigned char *);
      void vec_st (vector bool char, int, signed char *);
-
+     
      void vec_ste (vector signed char, int, signed char *);
      void vec_ste (vector unsigned char, int, unsigned char *);
      void vec_ste (vector bool char, int, signed char *);
@@ -1428,25 +1428,25 @@ integral values within the range required for that operation.
      void vec_ste (vector unsigned int, int, unsigned int *);
      void vec_ste (vector bool int, int, int *);
      void vec_ste (vector bool int, int, unsigned int *);
-
+     
      void vec_stvewx (vector float, int, float *);
      void vec_stvewx (vector signed int, int, int *);
      void vec_stvewx (vector unsigned int, int, unsigned int *);
      void vec_stvewx (vector bool int, int, int *);
      void vec_stvewx (vector bool int, int, unsigned int *);
-
+     
      void vec_stvehx (vector signed short, int, short *);
      void vec_stvehx (vector unsigned short, int, unsigned short *);
      void vec_stvehx (vector bool short, int, short *);
      void vec_stvehx (vector bool short, int, unsigned short *);
      void vec_stvehx (vector pixel, int, short *);
      void vec_stvehx (vector pixel, int, unsigned short *);
-
+     
      void vec_stvebx (vector signed char, int, signed char *);
      void vec_stvebx (vector unsigned char, int, unsigned char *);
      void vec_stvebx (vector bool char, int, signed char *);
      void vec_stvebx (vector bool char, int, unsigned char *);
-
+     
      void vec_stl (vector float, int, vector float *);
      void vec_stl (vector float, int, float *);
      void vec_stl (vector signed int, int, vector signed int *);
@@ -1473,7 +1473,7 @@ integral values within the range required for that operation.
      void vec_stl (vector bool char, int, vector bool char *);
      void vec_stl (vector bool char, int, unsigned char *);
      void vec_stl (vector bool char, int, signed char *);
-
+     
      vector signed char vec_sub (vector bool char, vector signed char);
      vector signed char vec_sub (vector signed char, vector bool char);
      vector signed char vec_sub (vector signed char, vector signed char);
@@ -1497,9 +1497,9 @@ integral values within the range required for that operation.
      vector unsigned int vec_sub (vector unsigned int, vector bool int);
      vector unsigned int vec_sub (vector unsigned int, vector unsigned int);
      vector float vec_sub (vector float, vector float);
-
+     
      vector float vec_vsubfp (vector float, vector float);
-
+     
      vector signed int vec_vsubuwm (vector bool int, vector signed int);
      vector signed int vec_vsubuwm (vector signed int, vector bool int);
      vector signed int vec_vsubuwm (vector signed int, vector signed int);
@@ -1507,7 +1507,7 @@ integral values within the range required for that operation.
      vector unsigned int vec_vsubuwm (vector unsigned int, vector bool int);
      vector unsigned int vec_vsubuwm (vector unsigned int,
                                       vector unsigned int);
-
+     
      vector signed short vec_vsubuhm (vector bool short,
                                       vector signed short);
      vector signed short vec_vsubuhm (vector signed short,
@@ -1520,7 +1520,7 @@ integral values within the range required for that operation.
                                         vector bool short);
      vector unsigned short vec_vsubuhm (vector unsigned short,
                                         vector unsigned short);
-
+     
      vector signed char vec_vsububm (vector bool char, vector signed char);
      vector signed char vec_vsububm (vector signed char, vector bool char);
      vector signed char vec_vsububm (vector signed char, vector signed char);
@@ -1530,9 +1530,9 @@ integral values within the range required for that operation.
                                        vector bool char);
      vector unsigned char vec_vsububm (vector unsigned char,
                                        vector unsigned char);
-
+     
      vector unsigned int vec_subc (vector unsigned int, vector unsigned int);
-
+     
      vector unsigned char vec_subs (vector bool char, vector unsigned char);
      vector unsigned char vec_subs (vector unsigned char, vector bool char);
      vector unsigned char vec_subs (vector unsigned char,
@@ -1555,87 +1555,87 @@ integral values within the range required for that operation.
      vector signed int vec_subs (vector bool int, vector signed int);
      vector signed int vec_subs (vector signed int, vector bool int);
      vector signed int vec_subs (vector signed int, vector signed int);
-
+     
      vector signed int vec_vsubsws (vector bool int, vector signed int);
      vector signed int vec_vsubsws (vector signed int, vector bool int);
      vector signed int vec_vsubsws (vector signed int, vector signed int);
-
+     
      vector unsigned int vec_vsubuws (vector bool int, vector unsigned int);
      vector unsigned int vec_vsubuws (vector unsigned int, vector bool int);
      vector unsigned int vec_vsubuws (vector unsigned int,
                                       vector unsigned int);
-
+     
      vector signed short vec_vsubshs (vector bool short,
                                       vector signed short);
      vector signed short vec_vsubshs (vector signed short,
                                       vector bool short);
      vector signed short vec_vsubshs (vector signed short,
                                       vector signed short);
-
+     
      vector unsigned short vec_vsubuhs (vector bool short,
                                         vector unsigned short);
      vector unsigned short vec_vsubuhs (vector unsigned short,
                                         vector bool short);
      vector unsigned short vec_vsubuhs (vector unsigned short,
                                         vector unsigned short);
-
+     
      vector signed char vec_vsubsbs (vector bool char, vector signed char);
      vector signed char vec_vsubsbs (vector signed char, vector bool char);
      vector signed char vec_vsubsbs (vector signed char, vector signed char);
-
+     
      vector unsigned char vec_vsububs (vector bool char,
                                        vector unsigned char);
      vector unsigned char vec_vsububs (vector unsigned char,
                                        vector bool char);
      vector unsigned char vec_vsububs (vector unsigned char,
                                        vector unsigned char);
-
+     
      vector unsigned int vec_sum4s (vector unsigned char,
                                     vector unsigned int);
      vector signed int vec_sum4s (vector signed char, vector signed int);
      vector signed int vec_sum4s (vector signed short, vector signed int);
-
+     
      vector signed int vec_vsum4shs (vector signed short, vector signed int);
-
+     
      vector signed int vec_vsum4sbs (vector signed char, vector signed int);
-
+     
      vector unsigned int vec_vsum4ubs (vector unsigned char,
                                        vector unsigned int);
-
+     
      vector signed int vec_sum2s (vector signed int, vector signed int);
-
+     
      vector signed int vec_sums (vector signed int, vector signed int);
-
+     
      vector float vec_trunc (vector float);
-
+     
      vector signed short vec_unpackh (vector signed char);
      vector bool short vec_unpackh (vector bool char);
      vector signed int vec_unpackh (vector signed short);
      vector bool int vec_unpackh (vector bool short);
      vector unsigned int vec_unpackh (vector pixel);
-
+     
      vector bool int vec_vupkhsh (vector bool short);
      vector signed int vec_vupkhsh (vector signed short);
-
+     
      vector unsigned int vec_vupkhpx (vector pixel);
-
+     
      vector bool short vec_vupkhsb (vector bool char);
      vector signed short vec_vupkhsb (vector signed char);
-
+     
      vector signed short vec_unpackl (vector signed char);
      vector bool short vec_unpackl (vector bool char);
      vector unsigned int vec_unpackl (vector pixel);
      vector signed int vec_unpackl (vector signed short);
      vector bool int vec_unpackl (vector bool short);
-
+     
      vector unsigned int vec_vupklpx (vector pixel);
-
+     
      vector bool int vec_vupklsh (vector bool short);
      vector signed int vec_vupklsh (vector signed short);
-
+     
      vector bool short vec_vupklsb (vector bool char);
      vector signed short vec_vupklsb (vector signed char);
-
+     
      vector float vec_xor (vector float, vector float);
      vector float vec_xor (vector float, vector bool int);
      vector float vec_xor (vector bool int, vector float);
@@ -1664,7 +1664,7 @@ integral values within the range required for that operation.
      vector unsigned char vec_xor (vector unsigned char, vector bool char);
      vector unsigned char vec_xor (vector unsigned char,
                                    vector unsigned char);
-
+     
      int vec_all_eq (vector signed char, vector bool char);
      int vec_all_eq (vector signed char, vector signed char);
      int vec_all_eq (vector unsigned char, vector bool char);
@@ -1688,7 +1688,7 @@ integral values within the range required for that operation.
      int vec_all_eq (vector bool int, vector unsigned int);
      int vec_all_eq (vector bool int, vector signed int);
      int vec_all_eq (vector float, vector float);
-
+     
      int vec_all_ge (vector bool char, vector unsigned char);
      int vec_all_ge (vector unsigned char, vector bool char);
      int vec_all_ge (vector unsigned char, vector unsigned char);
@@ -1708,7 +1708,7 @@ integral values within the range required for that operation.
      int vec_all_ge (vector signed int, vector bool int);
      int vec_all_ge (vector signed int, vector signed int);
      int vec_all_ge (vector float, vector float);
-
+     
      int vec_all_gt (vector bool char, vector unsigned char);
      int vec_all_gt (vector unsigned char, vector bool char);
      int vec_all_gt (vector unsigned char, vector unsigned char);
@@ -1728,9 +1728,9 @@ integral values within the range required for that operation.
      int vec_all_gt (vector signed int, vector bool int);
      int vec_all_gt (vector signed int, vector signed int);
      int vec_all_gt (vector float, vector float);
-
+     
      int vec_all_in (vector float, vector float);
-
+     
      int vec_all_le (vector bool char, vector unsigned char);
      int vec_all_le (vector unsigned char, vector bool char);
      int vec_all_le (vector unsigned char, vector unsigned char);
@@ -1750,7 +1750,7 @@ integral values within the range required for that operation.
      int vec_all_le (vector signed int, vector bool int);
      int vec_all_le (vector signed int, vector signed int);
      int vec_all_le (vector float, vector float);
-
+     
      int vec_all_lt (vector bool char, vector unsigned char);
      int vec_all_lt (vector unsigned char, vector bool char);
      int vec_all_lt (vector unsigned char, vector unsigned char);
@@ -1770,9 +1770,9 @@ integral values within the range required for that operation.
      int vec_all_lt (vector signed int, vector bool int);
      int vec_all_lt (vector signed int, vector signed int);
      int vec_all_lt (vector float, vector float);
-
+     
      int vec_all_nan (vector float);
-
+     
      int vec_all_ne (vector signed char, vector bool char);
      int vec_all_ne (vector signed char, vector signed char);
      int vec_all_ne (vector unsigned char, vector bool char);
@@ -1796,17 +1796,17 @@ integral values within the range required for that operation.
      int vec_all_ne (vector bool int, vector unsigned int);
      int vec_all_ne (vector bool int, vector signed int);
      int vec_all_ne (vector float, vector float);
-
+     
      int vec_all_nge (vector float, vector float);
-
+     
      int vec_all_ngt (vector float, vector float);
-
+     
      int vec_all_nle (vector float, vector float);
-
+     
      int vec_all_nlt (vector float, vector float);
-
+     
      int vec_all_numeric (vector float);
-
+     
      int vec_any_eq (vector signed char, vector bool char);
      int vec_any_eq (vector signed char, vector signed char);
      int vec_any_eq (vector unsigned char, vector bool char);
@@ -1830,7 +1830,7 @@ integral values within the range required for that operation.
      int vec_any_eq (vector bool int, vector unsigned int);
      int vec_any_eq (vector bool int, vector signed int);
      int vec_any_eq (vector float, vector float);
-
+     
      int vec_any_ge (vector signed char, vector bool char);
      int vec_any_ge (vector unsigned char, vector bool char);
      int vec_any_ge (vector unsigned char, vector unsigned char);
@@ -1850,7 +1850,7 @@ integral values within the range required for that operation.
      int vec_any_ge (vector bool int, vector unsigned int);
      int vec_any_ge (vector bool int, vector signed int);
      int vec_any_ge (vector float, vector float);
-
+     
      int vec_any_gt (vector bool char, vector unsigned char);
      int vec_any_gt (vector unsigned char, vector bool char);
      int vec_any_gt (vector unsigned char, vector unsigned char);
@@ -1870,7 +1870,7 @@ integral values within the range required for that operation.
      int vec_any_gt (vector signed int, vector bool int);
      int vec_any_gt (vector signed int, vector signed int);
      int vec_any_gt (vector float, vector float);
-
+     
      int vec_any_le (vector bool char, vector unsigned char);
      int vec_any_le (vector unsigned char, vector bool char);
      int vec_any_le (vector unsigned char, vector unsigned char);
@@ -1890,7 +1890,7 @@ integral values within the range required for that operation.
      int vec_any_le (vector signed int, vector bool int);
      int vec_any_le (vector signed int, vector signed int);
      int vec_any_le (vector float, vector float);
-
+     
      int vec_any_lt (vector bool char, vector unsigned char);
      int vec_any_lt (vector unsigned char, vector bool char);
      int vec_any_lt (vector unsigned char, vector unsigned char);
@@ -1910,9 +1910,9 @@ integral values within the range required for that operation.
      int vec_any_lt (vector signed int, vector bool int);
      int vec_any_lt (vector signed int, vector signed int);
      int vec_any_lt (vector float, vector float);
-
+     
      int vec_any_nan (vector float);
-
+     
      int vec_any_ne (vector signed char, vector bool char);
      int vec_any_ne (vector signed char, vector signed char);
      int vec_any_ne (vector unsigned char, vector bool char);
@@ -1936,17 +1936,17 @@ integral values within the range required for that operation.
      int vec_any_ne (vector bool int, vector unsigned int);
      int vec_any_ne (vector bool int, vector signed int);
      int vec_any_ne (vector float, vector float);
-
+     
      int vec_any_nge (vector float, vector float);
-
+     
      int vec_any_ngt (vector float, vector float);
-
+     
      int vec_any_nle (vector float, vector float);
-
+     
      int vec_any_nlt (vector float, vector float);
-
+     
      int vec_any_numeric (vector float);
-
+     
      int vec_any_out (vector float, vector float);
 </pre>
  <p>If the vector/scalar (VSX) instruction set is available, the following
@@ -2033,7 +2033,7 @@ additional functions are available:
      int vec_any_nle (vector double, vector double);
      int vec_any_nlt (vector double, vector double);
      int vec_any_numeric (vector double);
-
+     
      vector double vec_vsx_ld (int, const vector double *);
      vector double vec_vsx_ld (int, const double *);
      vector float vec_vsx_ld (int, const vector float *);
@@ -2056,7 +2056,7 @@ additional functions are available:
      vector signed char vec_vsx_ld (int, const signed char *);
      vector unsigned char vec_vsx_ld (int, const vector unsigned char *);
      vector unsigned char vec_vsx_ld (int, const unsigned char *);
-
+     
      void vec_vsx_st (vector double, int, vector double *);
      void vec_vsx_st (vector double, int, double *);
      void vec_vsx_st (vector float, int, vector float *);
@@ -2093,3 +2093,4 @@ if the VSX instruction set is available.  The &lsquo;<samp><span class="samp">ve
 &lsquo;<samp><span class="samp">LXVW4X</span></samp>&rsquo;, &lsquo;<samp><span class="samp">STXVD2X</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">STXVW4X</span></samp>&rsquo; instructions.
 
  </body></html>
+

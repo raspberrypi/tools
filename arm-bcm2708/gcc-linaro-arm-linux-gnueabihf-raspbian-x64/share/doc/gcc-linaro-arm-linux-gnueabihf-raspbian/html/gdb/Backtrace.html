@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ line per frame, for many frames, starting with the currently executing
 frame (frame zero), followed by its caller (frame one), and on up the
 stack.
 
-
+     
 <a name="index-backtrace-446"></a>
 <a name="index-bt-_0040r_007b_0028_0040code_007bbacktrace_007d_0029_007d-447"></a>
 <dl><dt><code>backtrace</code><dt><code>bt</code><dd>Print a backtrace of the entire stack: one line per frame for all
@@ -66,7 +66,7 @@ character, normally <kbd>Ctrl-c</kbd>.
      <br><dt><code>backtrace -</code><var>n</var><dt><code>bt -</code><var>n</var><dd>Similar, but print only the outermost <var>n</var> frames.
 
      <br><dt><code>backtrace full</code><dt><code>bt full</code><dt><code>bt full </code><var>n</var><dt><code>bt full -</code><var>n</var><dd>Print the values of the local variables also.  <var>n</var> specifies the
-number of frames to print, as described above.
+number of frames to print, as described above. 
 </dl>
 
    <p><a name="index-where-448"></a><a name="index-info-stack-449"></a>The names <code>where</code> and <code>info stack</code> (abbreviated <code>info s</code>)
@@ -80,7 +80,7 @@ apply all backtrace</kbd>, <span class="sc">gdb</span> will display the backtrac
 the threads; this is handy when you debug a core dump of a
 multi-threaded program.
 
-   <p>Each line in the backtrace shows the frame number and the function name.
+   <p>Each line in the backtrace shows the frame number and the function name. 
 The program counter value is also shown&mdash;unless you use <code>set
 print address off</code>.  The backtrace also shows the source file name and
 line number, as well as the arguments to the function.  The program
@@ -131,7 +131,7 @@ you are interested in, or recompile without optimizations.
 
    <p><a name="index-backtrace-beyond-_0040code_007bmain_007d-function-453"></a><a name="index-program-entry-point-454"></a><a name="index-startup-code_002c-and-backtrace-455"></a>Most programs have a standard user entry point&mdash;a place where system
 libraries and startup code transition into user code.  For C this is
-<code>main</code><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.
+<code>main</code><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>. 
 When <span class="sc">gdb</span> finds the entry function in a backtrace
 it will terminate the backtrace, to avoid tracing into highly
 system-specific (and generally uninteresting) code.
@@ -147,7 +147,7 @@ default.
 
      <br><dt><code>show backtrace past-main</code><dd><a name="index-show-backtrace-457"></a>Display the current user entry point backtrace policy.
 
-     <br><dt><code>set backtrace past-entry</code><dt><code>set backtrace past-entry on</code><dd>Backtraces will continue past the internal entry point of an application.
+     <br><dt><code>set backtrace past-entry</code><dt><code>set backtrace past-entry on</code><dd>Backtraces will continue past the internal entry point of an application. 
 This entry point is encoded by the linker when the application is built,
 and is likely before the user entry point <code>main</code> (or equivalent) is called.
 
@@ -159,7 +159,7 @@ application.  This is the default.
      <br><dt><code>set backtrace limit </code><var>n</var><dt><code>set backtrace limit 0</code><dd><a name="index-backtrace-limit-458"></a>Limit the backtrace to <var>n</var> levels.  A value of zero means
 unlimited.
 
-     <br><dt><code>show backtrace limit</code><dd>Display the current limit on backtrace levels.
+     <br><dt><code>show backtrace limit</code><dd>Display the current limit on backtrace levels. 
 </dl>
 
    <p>You can control how file names are displayed.
@@ -171,12 +171,12 @@ unlimited.
 
      <br><dt><code>set filename-display absolute</code><dd>Display an absolute filename.
 
-     <br><dt><code>show filename-display</code><dd>Show the current way to display filenames.
+     <br><dt><code>show filename-display</code><dd>Show the current way to display filenames. 
 </dl>
 
    <div class="footnote">
 <hr>
-<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> 
 Note that embedded programs (the so-called &ldquo;free-standing&rdquo;
 environment) are not required to have a <code>main</code> function as the
 entry point.  They could even have multiple entry points.</p>
@@ -184,3 +184,4 @@ entry point.  They could even have multiple entry points.</p>
    <hr></div>
 
    </body></html>
+

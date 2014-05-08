@@ -39,8 +39,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 compilers, it is integrated into the compiler and communicates a stream
 of binary tokens directly to the compiler's parser.  However, it can
 also be used in the more conventional standalone mode, where it produces
-textual output.
+textual output. 
 <!-- FIXME: Document the library interface. -->
 
    <p><a name="index-output-format-109"></a>The output from the C preprocessor looks much like the input, except
@@ -73,7 +73,7 @@ e.g. a single space.  In GNU CPP, whitespace between tokens is collapsed
 to become a single space, with the exception that the first token on a
 non-directive line is preceded with sufficient spaces that it appears in
 the same column in the preprocessed output that it appeared in the
-original source file.  This is so the output is easy to read.
+original source file.  This is so the output is easy to read. 
 See <a href="Differences-from-previous-versions.html#Differences-from-previous-versions">Differences from previous versions</a>.  CPP does not insert any
 whitespace where there was none in the original source, except where
 necessary to prevent an accidental token paste.
@@ -94,12 +94,12 @@ characters; they are replaced with octal escape sequences.
 separate them.  Here is what the flags mean:
 
      <dl>
-<dt>&lsquo;<samp><span class="samp">1</span></samp>&rsquo;<dd>This indicates the start of a new file.
-<br><dt>&lsquo;<samp><span class="samp">2</span></samp>&rsquo;<dd>This indicates returning to a file (after having included another file).
+<dt>&lsquo;<samp><span class="samp">1</span></samp>&rsquo;<dd>This indicates the start of a new file. 
+<br><dt>&lsquo;<samp><span class="samp">2</span></samp>&rsquo;<dd>This indicates returning to a file (after having included another file). 
 <br><dt>&lsquo;<samp><span class="samp">3</span></samp>&rsquo;<dd>This indicates that the following text comes from a system header file,
-so certain warnings should be suppressed.
+so certain warnings should be suppressed. 
 <br><dt>&lsquo;<samp><span class="samp">4</span></samp>&rsquo;<dd>This indicates that the following text should be treated as being
-wrapped in an implicit <code>extern "C"</code> block.
+wrapped in an implicit <code>extern "C"</code> block. 
 <!-- maybe cross reference NO_IMPLICIT_EXTERN_C -->
 </dl>
 
@@ -109,7 +109,7 @@ directive, (see <a href="Line-Control.html#Line-Control">Line Control</a>), exce
 permitted, and are interpreted with the meanings described above.  If
 multiple flags are given, they must be in ascending order.
 
-   <p>Some directives may be duplicated in the output of the preprocessor.
+   <p>Some directives may be duplicated in the output of the preprocessor. 
 These are &lsquo;<samp><span class="samp">#ident</span></samp>&rsquo; (always), &lsquo;<samp><span class="samp">#pragma</span></samp>&rsquo; (only if the
 preprocessor does not handle the pragma itself), and &lsquo;<samp><span class="samp">#define</span></samp>&rsquo; and
 &lsquo;<samp><span class="samp">#undef</span></samp>&rsquo; (with certain debugging options).  If this happens, the
@@ -120,3 +120,4 @@ duplicated directive, a space will be inserted between the &lsquo;<samp><span cl
 the directive name.
 
    </body></html>
+

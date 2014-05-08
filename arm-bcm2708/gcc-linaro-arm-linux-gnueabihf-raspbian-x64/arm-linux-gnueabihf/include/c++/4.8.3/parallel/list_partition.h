@@ -89,8 +89,8 @@ namespace __gnu_parallel
    *  @param __num_parts Number of parts to split the sequence into.
    *  @param __f Functor to be applied to each element by traversing __it
    *  @param __oversampling Oversampling factor. If 0, then the
-   *  partitions will differ in at most
-   *  \sqrt{\mathrm{__end} - \mathrm{__begin}}
+   *  partitions will differ in at most 
+   *  \sqrt{\mathrm{__end} - \mathrm{__begin}} 
    *  __elements. Otherwise, the ratio between the
    *  longest and the shortest part is bounded by
    *  1/(\mathrm{__oversampling} \cdot \mathrm{num\_parts})

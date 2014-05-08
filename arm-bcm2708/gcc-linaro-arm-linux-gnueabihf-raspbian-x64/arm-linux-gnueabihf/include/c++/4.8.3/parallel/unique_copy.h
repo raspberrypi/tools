@@ -98,7 +98,7 @@ namespace __gnu_parallel
             for (_IIter __iter = __first + __begin; __iter < __first + __end;
 		 ++__iter)
               {
-		if (!__binary_pred(*__iter, *(__iter - 1)))
+        	if (!__binary_pred(*__iter, *(__iter - 1)))
                   {
                     ++__i;
                     *__out++ = *__iter;
@@ -113,7 +113,7 @@ namespace __gnu_parallel
             for (_IIter __iter = __first + __begin; __iter < __first + __end;
 		 ++__iter)
               {
-		if (!__binary_pred(*__iter, *(__iter - 1)))
+        	if (!__binary_pred(*__iter, *(__iter - 1)))
                   ++__i;
               }
           }
@@ -142,7 +142,7 @@ namespace __gnu_parallel
             for (_IIter __iter = __first + __begin; __iter < __first + __end;
 		 ++__iter)
               {
-		if (__iter == __first
+        	if (__iter == __first
 		    || !__binary_pred(*__iter, *(__iter - 1)))
                   {
                     ++__i;
@@ -161,7 +161,7 @@ namespace __gnu_parallel
             for (_IIter __iter = __first + __begin; __iter < __first + __end;
 		 ++__iter)
               {
-		if (!__binary_pred(*__iter, *(__iter - 1)))
+        	if (!__binary_pred(*__iter, *(__iter - 1)))
                   *__iter_out++ = *__iter;
               }
           }

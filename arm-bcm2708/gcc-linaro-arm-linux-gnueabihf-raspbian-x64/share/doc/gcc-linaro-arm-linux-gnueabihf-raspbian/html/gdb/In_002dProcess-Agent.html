@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,7 +55,7 @@ and more bugs that only manifest themselves at normal-mode execution, for
 example, thread races, because debugger's interference with the program's
 timing may conceal the bugs.  On the other hand, in some applications,
 it is not feasible for the debugger to interrupt the program's execution
-long enough for the developer to learn anything helpful about its behavior.
+long enough for the developer to learn anything helpful about its behavior. 
 If the program's correctness depends on its real-time behavior, delays
 introduced by a debugger might cause the program to fail, even when the
 code itself is correct.  It is useful to be able to observe the program's
@@ -79,7 +79,7 @@ data in tracepoints, and condition evaluation in breakpoints.
    <p><a name="Control-Agent"></a>You can control whether the in-process agent is used as an aid for
 debugging with the following commands:
 
-
+     
 <a name="index-set-agent-on-2420"></a>
 <dl><dt><code>set agent on</code><dd>Causes the in-process agent to perform some operations on behalf of the
 debugger.  Just which operations requested by the user will be done
@@ -92,7 +92,7 @@ conditions will be evaluated in the in-process agent.
 of the operations will be performed by <span class="sc">gdb</span>.
 
      <p><a name="index-show-agent-2422"></a><br><dt><code>show agent</code><dd>Display the current setting of execution of debugging operations by
-the in-process agent.
+the in-process agent. 
 </dl>
 
 <ul class="menu">
@@ -100,3 +100,4 @@ the in-process agent.
 </ul>
 
    </body></html>
+

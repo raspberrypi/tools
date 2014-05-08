@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -157,7 +157,7 @@ address of the <code>__tls_get_addr</code> function and the <code>lituse_tlsgd</
 marking the call to that function.
 
      <p>For proper relaxation, both the <code>tlsgd</code>, <code>literal</code> and
-<code>lituse</code> relocations must be in the same extended basic block.
+<code>lituse</code> relocations must be in the same extended basic block. 
 That is, the relocation with the lowest address must be executed
 first at runtime.
 
@@ -175,7 +175,8 @@ as the dynamic thread pointer offset or dtp-relative offset.
      <br><dt><code>!gottprel</code><dd>Used with an <code>ldq</code> instruction to load the offset of the TLS
 symbol from the thread pointer.  Also known as the tp-relative offset.
 
-     <br><dt><code>!tprelhi</code><dt><code>!tprello</code><dt><code>!tprel</code><dd>Like <code>gprel</code> relocations except they compute tp-relative offsets.
+     <br><dt><code>!tprelhi</code><dt><code>!tprello</code><dt><code>!tprel</code><dd>Like <code>gprel</code> relocations except they compute tp-relative offsets. 
 </dl>
 
    </body></html>
+

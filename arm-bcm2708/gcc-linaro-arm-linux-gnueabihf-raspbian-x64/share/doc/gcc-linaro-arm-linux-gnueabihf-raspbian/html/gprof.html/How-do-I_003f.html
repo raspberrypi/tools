@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
      <dl>
 <dt>How can I get more exact information about hot spots in my program?<dd>
-Looking at the per-line call counts only tells part of the story.
+Looking at the per-line call counts only tells part of the story. 
 Because <code>gprof</code> can only report call times and counts by function,
 the best way to get finer-grained information on where the program
 is spending its time is to re-factor large functions into sequences
@@ -63,7 +63,7 @@ non-intrusive profiler, e.g. oprofile.
 Use the <code>gcov</code> program.
 
      <br><dt>How do I find which lines in my program called a particular function?<dd>
-Use &lsquo;<samp><span class="samp">gprof -l</span></samp>&rsquo; and lookup the function in the call graph.
+Use &lsquo;<samp><span class="samp">gprof -l</span></samp>&rsquo; and lookup the function in the call graph. 
 The callers will be broken down by function and line number.
 
      <br><dt>How do I analyze a program that runs for less than a second?<dd>
@@ -73,9 +73,9 @@ Try using a shell script like this one:
             fastprog
             mv gmon.out gmon.out.$i
           done
-
+          
           gprof -s fastprog gmon.out.*
-
+          
           gprof fastprog gmon.sum
 </pre>
      <p>If your program is completely deterministic, all the call counts
@@ -85,3 +85,4 @@ each run will appear with a call count of 100).
 </dl>
 
    </body></html>
+

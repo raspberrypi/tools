@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python.html#Python">Python</a>
 <span class="sc">gdb</span> provides two commands for accessing the Python interpreter,
 and one related setting:
 
-
+     
 <a name="index-python_002dinteractive-1709"></a>
 <a name="index-pi-1710"></a>
 <dl><dt><code>python-interactive </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dt><code>pi </code><span class="roman">[</span><var>command</var><span class="roman">]</span><dd>Without an argument, the <code>python-interactive</code> command can be used
@@ -89,7 +89,7 @@ Python exception when an error occurs in a Python script.  This can be
 controlled using <code>set python print-stack</code>: if <code>full</code>, then
 full Python stack printing is enabled; if <code>none</code>, then Python stack
 and message printing is disabled; if <code>message</code>, the default, only
-the message component of the error is printed.
+the message component of the error is printed. 
 </dl>
 
    <p>It is also possible to execute a Python script from the <span class="sc">gdb</span>
@@ -101,7 +101,8 @@ to recognize the script language based on filename extension using
 the <code>script-extension</code> setting.  See <a href="Extending-GDB.html#Extending-GDB">Extending GDB</a>.
 
      <br><dt><code>python execfile ("script-name")</code><dd>This method is based on the <code>execfile</code> Python built-in function,
-and thus is always available.
+and thus is always available. 
 </dl>
 
    </body></html>
+

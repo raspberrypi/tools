@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <p><a name="index-reverse-execution-384"></a><a name="index-running-programs-backward-385"></a>
 When you are debugging a program, it is not unusual to realize that
-you have gone too far, and some event of interest has already happened.
+you have gone too far, and some event of interest has already happened. 
 If the target environment supports it, <span class="sc">gdb</span> can allow you to
 &ldquo;rewind&rdquo; the program by running it backward.
 
@@ -72,7 +72,7 @@ prior values<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.
    <p>If you are debugging in a target environment that supports
 reverse execution, <span class="sc">gdb</span> provides the following commands.
 
-
+     
 <a name="index-reverse_002dcontinue-386"></a>
 <a name="index-rc-_0040r_007b_0028_0040code_007breverse_002dcontinue_007d_0029_007d-387"></a>
 <dl><dt><code>reverse-continue </code><span class="roman">[</span><var>ignore-count</var><span class="roman">]</span><dt><code>rc </code><span class="roman">[</span><var>ignore-count</var><span class="roman">]</span><dd>Beginning at the point where your program last stopped, start executing
@@ -109,7 +109,7 @@ line of a function back to its return to its caller
 <a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a>.
 
      <p><a name="index-reverse_002dnexti-394"></a><a name="index-rni-_0040r_007b_0028_0040code_007breverse_002dnexti_007d_0029_007d-395"></a><br><dt><code>reverse-nexti </code><span class="roman">[</span><var>count</var><span class="roman">]</span><dd>Like <code>nexti</code>, <code>reverse-nexti</code> executes a single instruction
-in reverse, except that called functions are &ldquo;un-executed&rdquo; atomically.
+in reverse, except that called functions are &ldquo;un-executed&rdquo; atomically. 
 That is, if the previously executed instruction was a return from
 another function, <code>reverse-nexti</code> will continue to execute
 in reverse until the call to that function (from the current stack
@@ -120,18 +120,18 @@ current function returns, <code>reverse-finish</code> takes you to the point
 where it was called.  Instead of ending up at the end of the current
 function invocation, you end up at the beginning.
 
-     <p><a name="index-set-exec_002ddirection-397"></a><br><dt><code>set exec-direction</code><dd>Set the direction of target execution.
+     <p><a name="index-set-exec_002ddirection-397"></a><br><dt><code>set exec-direction</code><dd>Set the direction of target execution. 
 <br><dt><code>set exec-direction reverse</code><dd><a name="index-execute-forward-or-backward-in-time-398"></a><span class="sc">gdb</span> will perform all execution commands in reverse, until the
 exec-direction mode is changed to &ldquo;forward&rdquo;.  Affected commands include
 <code>step, stepi, next, nexti, continue, and finish</code>.  The <code>return</code>
-command cannot be used in reverse mode.
-<br><dt><code>set exec-direction forward</code><dd><span class="sc">gdb</span> will perform all execution commands in the normal fashion.
-This is the default.
+command cannot be used in reverse mode. 
+<br><dt><code>set exec-direction forward</code><dd><span class="sc">gdb</span> will perform all execution commands in the normal fashion. 
+This is the default. 
 </dl>
 
    <div class="footnote">
 <hr>
-<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> 
 Note that some side effects are easier to undo than others.  For instance,
 memory and registers are relatively easy, but device I/O is hard.  Some
 targets may be able undo things like device I/O, and some may not.
@@ -142,7 +142,7 @@ requires only that the target do something reasonable when
 results back to <span class="sc">gdb</span>.  Whatever the target reports back to
 <span class="sc">gdb</span>, <span class="sc">gdb</span> will report back to the user.  <span class="sc">gdb</span>
 assumes that the memory and registers that the target reports are in a
-consistant state, but <span class="sc">gdb</span> accepts whatever it is given.
+consistant state, but <span class="sc">gdb</span> accepts whatever it is given. 
 </p>
 
    <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> Unless the code is too heavily optimized.</p>
@@ -150,3 +150,4 @@ consistant state, but <span class="sc">gdb</span> accepts whatever it is given.
    <hr></div>
 
    </body></html>
+

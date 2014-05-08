@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,19 +49,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sections.html#Sections">Sections</a>
 
 <p><code>ld</code> deals with just four kinds of sections, summarized below.
 
-
+     
 <a name="index-named-sections-192"></a>
 <a name="index-sections_002c-named-193"></a>
 <dl><dt><strong>named sections</strong><dd><a name="index-text-section-194"></a><a name="index-data-section-195"></a><dt><strong>text section</strong><dt><strong>data section</strong><dd>These sections hold your program.  <samp><span class="command">as</span></samp> and <code>ld</code> treat them as
 separate but equal sections.  Anything you can say of one section is
-true of another.
+true of another. 
 <!-- @ifset aout-bout -->
 When the program is running, however, it is
 customary for the text section to be unalterable.  The
 text section is often shared among processes: it contains
 instructions, constants and the like.  The data section of a running
 program is usually alterable: for example, C variables would be stored
-in the data section.
+in the data section. 
 <!-- @end ifset -->
 
      <p><a name="index-bss-section-196"></a><br><dt><strong>bss section</strong><dd>This section contains zeroed bytes when your program begins running.  It
@@ -71,18 +71,18 @@ out containing zeroed bytes there is no need to store explicit zero
 bytes in the object file.  The bss section was invented to eliminate
 those explicit zeros from object files.
 
-     <p><a name="index-absolute-section-197"></a><br><dt><strong>absolute section</strong><dd>Address 0 of this section is always &ldquo;relocated&rdquo; to runtime address 0.
+     <p><a name="index-absolute-section-197"></a><br><dt><strong>absolute section</strong><dd>Address 0 of this section is always &ldquo;relocated&rdquo; to runtime address 0. 
 This is useful if you want to refer to an address that <code>ld</code> must
 not change when relocating.  In this sense we speak of absolute
 addresses being &ldquo;unrelocatable&rdquo;: they do not change during relocation.
 
      <p><a name="index-undefined-section-198"></a><br><dt><strong>undefined section</strong><dd>This &ldquo;section&rdquo; is a catch-all for address references to objects not in
-the preceding sections.
+the preceding sections. 
 <!-- FIXME: ref to some other doc on obj-file formats could go here. -->
 </dl>
 
-   <p><a name="index-relocation-example-199"></a>An idealized example of three relocatable sections follows.
-The example uses the traditional section names &lsquo;<samp><span class="samp">.text</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.data</span></samp>&rsquo;.
+   <p><a name="index-relocation-example-199"></a>An idealized example of three relocatable sections follows. 
+The example uses the traditional section names &lsquo;<samp><span class="samp">.text</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.data</span></samp>&rsquo;. 
 Memory addresses are on the horizontal axis.
 
 <!-- TEXI2ROFF-KILL -->
@@ -90,20 +90,21 @@ Memory addresses are on the horizontal axis.
 <pre class="smallexample">                           +-----+----+--+
      partial program # 1:  |ttttt|dddd|00|
                            +-----+----+--+
-
+     
                            text   data bss
                            seg.   seg. seg.
-
+     
                            +---+---+---+
      partial program # 2:  |TTT|DDD|000|
                            +---+---+---+
-
+     
                            +--+---+-----+--+----+---+-----+~~
      linked program:       |  |TTT|ttttt|  |dddd|DDD|00000|
                            +--+---+-----+--+----+---+-----+~~
-
+     
          addresses:        0 ...
 </pre>
    <!-- TEXI2ROFF-KILL -->
 <!-- END TEXI2ROFF-KILL -->
    </body></html>
+

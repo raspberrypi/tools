@@ -45,7 +45,7 @@ void
 PB_DS_CLASS_C_DEC::
 trace() const
 {
-  std::cerr << static_cast<unsigned long>(m_num_e) << " "
+  std::cerr << static_cast<unsigned long>(m_num_e) << " " 
 	    << static_cast<unsigned long>(m_num_used_e) << std::endl;
 
   for (size_type i = 0; i < m_num_e; ++i)
@@ -69,4 +69,4 @@ trace_list(const_entry_pointer p_l) const
     }
 }
 
-#endif
+#endif 

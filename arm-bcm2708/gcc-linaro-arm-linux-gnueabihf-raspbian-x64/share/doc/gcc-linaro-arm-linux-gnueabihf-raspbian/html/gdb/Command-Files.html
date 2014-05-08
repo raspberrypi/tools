@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,13 +56,13 @@ terminal.
    <p>You can request the execution of a command file with the <code>source</code>
 command.  Note that the <code>source</code> command is also used to evaluate
 scripts that are not Command Files.  The exact behavior can be configured
-using the <code>script-extension</code> setting.
+using the <code>script-extension</code> setting. 
 See <a href="Extending-GDB.html#Extending-GDB">Extending GDB</a>.
 
-
+     
 <a name="index-source-1692"></a>
 <a name="index-execute-commands-from-a-file-1693"></a>
-<dl><dt><code>source [-s] [-v] </code><var>filename</var><dd>Execute the command file <var>filename</var>.
+<dl><dt><code>source [-s] [-v] </code><var>filename</var><dd>Execute the command file <var>filename</var>. 
 </dl>
 
    <p>The lines in a command file are generally executed sequentially,
@@ -71,7 +71,7 @@ unless the order of execution is changed by one of the
 printed as they are executed.  An error in any command terminates
 execution of the command file and control is returned to the console.
 
-   <p><span class="sc">gdb</span> first searches for <var>filename</var> in the current directory.
+   <p><span class="sc">gdb</span> first searches for <var>filename</var> in the current directory. 
 If the file is not found there, and <var>filename</var> does not specify a
 directory, then <span class="sc">gdb</span> also looks for the file on the source search path
 (specified with the &lsquo;<samp><span class="samp">directory</span></samp>&rsquo; command);
@@ -79,15 +79,15 @@ except that <samp><span class="file">$cdir</span></samp> is not searched because
 is not relevant to scripts.
 
    <p>If <code>-s</code> is specified, then <span class="sc">gdb</span> searches for <var>filename</var>
-on the search path even if <var>filename</var> specifies a directory.
+on the search path even if <var>filename</var> specifies a directory. 
 The search is done by appending <var>filename</var> to each element of the
 search path.  So, for example, if <var>filename</var> is <samp><span class="file">mylib/myscript</span></samp>
 and the search path contains <samp><span class="file">/home/user</span></samp> then <span class="sc">gdb</span> will
-look for the script <samp><span class="file">/home/user/mylib/myscript</span></samp>.
-The search is also done if <var>filename</var> is an absolute path.
+look for the script <samp><span class="file">/home/user/mylib/myscript</span></samp>. 
+The search is also done if <var>filename</var> is an absolute path. 
 For example, if <var>filename</var> is <samp><span class="file">/tmp/myscript</span></samp> and
 the search path contains <samp><span class="file">/home/user</span></samp> then <span class="sc">gdb</span> will
-look for the script <samp><span class="file">/home/user/tmp/myscript</span></samp>.
+look for the script <samp><span class="file">/home/user/tmp/myscript</span></samp>. 
 For DOS-like systems, if <var>filename</var> contains a drive specification,
 it is stripped before concatenation.  For example, if <var>filename</var> is
 <samp><span class="file">d:myscript</span></samp> and the search path contains <samp><span class="file">c:/tmp</span></samp> then <span class="sc">gdb</span>
@@ -123,13 +123,13 @@ deal with these complexities.  Using these commands, you can write
 complex scripts that loop over data structures, execute commands
 conditionally, etc.
 
-
+     
 <a name="index-if-1694"></a>
 <a name="index-else-1695"></a>
 <dl><dt><code>if</code><dt><code>else</code><dd>This command allows to include in your script conditionally executed
 commands. The <code>if</code> command takes a single argument, which is an
 expression to evaluate.  It is followed by a series of commands that
-are executed only if the expression is true (its value is nonzero).
+are executed only if the expression is true (its value is nonzero). 
 There can then optionally be an <code>else</code> line, followed by a series
 of commands that are only executed if the expression was false.  The
 end of the list is marked by a line containing <code>end</code>.
@@ -141,7 +141,7 @@ line, terminated by an <code>end</code>.  These commands are called the
 <dfn>body</dfn> of the loop.  The commands in the body of <code>while</code> are
 executed repeatedly as long as the expression evaluates to true.
 
-     <p><a name="index-loop_005fbreak-1697"></a><br><dt><code>loop_break</code><dd>This command exits the <code>while</code> loop in whose body it is included.
+     <p><a name="index-loop_005fbreak-1697"></a><br><dt><code>loop_break</code><dd>This command exits the <code>while</code> loop in whose body it is included. 
 Execution of the script continues after that <code>while</code>s <code>end</code>
 line.
 
@@ -151,7 +151,8 @@ branches to the beginning of the <code>while</code> loop, where it evaluates
 the controlling expression.
 
      <p><a name="index-end_0040r_007b-_0028if_002felse_002fwhile-commands_0029_007d-1699"></a><br><dt><code>end</code><dd>Terminate the block of commands that are the body of <code>if</code>,
-<code>else</code>, or <code>while</code> flow-control commands.
+<code>else</code>, or <code>while</code> flow-control commands. 
 </dl>
 
    </body></html>
+

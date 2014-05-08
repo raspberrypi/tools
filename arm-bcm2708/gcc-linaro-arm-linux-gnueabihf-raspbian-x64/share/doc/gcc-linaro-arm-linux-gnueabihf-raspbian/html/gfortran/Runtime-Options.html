@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -64,12 +64,12 @@ swap between big- and little-endian; &lsquo;<samp><span class="samp">big-endian<
 representation for unformatted files; &lsquo;<samp><span class="samp">little-endian</span></samp>&rsquo;, use little-endian
 representation for unformatted files.
 
-     <p><em>This option has an effect only when used in the main program.
+     <p><em>This option has an effect only when used in the main program. 
 The </em><code>CONVERT</code><em> specifier and the GFORTRAN_CONVERT_UNIT environment
 variable override the default specified by </em><samp><span class="option">-fconvert</span></samp><em>.</em>
 
-     <br><dt><code>-frecord-marker=</code><var>length</var><dd><a name="index-g_t_0040code_007bfrecord_002dmarker_003d_007d_0040var_007blength_007d-227"></a>Specify the length of record markers for unformatted files.
-Valid values for <var>length</var> are 4 and 8.  Default is 4.
+     <br><dt><code>-frecord-marker=</code><var>length</var><dd><a name="index-g_t_0040code_007bfrecord_002dmarker_003d_007d_0040var_007blength_007d-227"></a>Specify the length of record markers for unformatted files. 
+Valid values for <var>length</var> are 4 and 8.  Default is 4. 
 <em>This is different from previous versions of </em><samp><span class="command">gfortran</span></samp>,
 which specified a default record marker length of 8 on most
 systems.  If you want to read or write files compatible
@@ -84,7 +84,8 @@ are written as negative number in formatted output and treated as
 negative in the <code>SIGN</code> intrinsic.  <samp><span class="option">-fno-sign-zero</span></samp> does not
 print the negative sign of zero values (or values rounded to zero for I/O)
 and regards zero as positive number in the <code>SIGN</code> intrinsic for
-compatibility with Fortran 77. The default is <samp><span class="option">-fsign-zero</span></samp>.
+compatibility with Fortran 77. The default is <samp><span class="option">-fsign-zero</span></samp>. 
 </dl>
 
    </body></html>
+

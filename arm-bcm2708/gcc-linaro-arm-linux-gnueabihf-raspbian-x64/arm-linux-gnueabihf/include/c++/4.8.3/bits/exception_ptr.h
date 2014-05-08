@@ -8,12 +8,12 @@
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation; either version 3, or (at your option)
 // any later version.
-//
+// 
 // GCC is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-//
+// 
 // Under Section 7 of GPL version 3, you are granted additional
 // permissions described in the GCC Runtime Library Exception, version
 // 3.1, as published by the Free Software Foundation.
@@ -42,7 +42,7 @@
 
 extern "C++" {
 
-namespace std
+namespace std 
 {
   class type_info;
 
@@ -108,11 +108,11 @@ namespace std
       exception_ptr(__safe_bool) _GLIBCXX_USE_NOEXCEPT;
 #endif
 
-      exception_ptr&
+      exception_ptr& 
       operator=(const exception_ptr&) _GLIBCXX_USE_NOEXCEPT;
 
 #if __cplusplus >= 201103L
-      exception_ptr&
+      exception_ptr& 
       operator=(exception_ptr&& __o) noexcept
       {
         exception_ptr(static_cast<exception_ptr&&>(__o)).swap(*this);
@@ -122,7 +122,7 @@ namespace std
 
       ~exception_ptr() _GLIBCXX_USE_NOEXCEPT;
 
-      void
+      void 
       swap(exception_ptr&) _GLIBCXX_USE_NOEXCEPT;
 
 #ifdef _GLIBCXX_EH_PTR_COMPAT
@@ -139,7 +139,7 @@ namespace std
       { return _M_exception_object; }
 #endif
 
-      friend bool
+      friend bool 
       operator==(const exception_ptr&, const exception_ptr&)
 	_GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));
 
@@ -148,11 +148,11 @@ namespace std
 	__attribute__ ((__pure__));
     };
 
-    bool
+    bool 
     operator==(const exception_ptr&, const exception_ptr&)
       _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));
 
-    bool
+    bool 
     operator!=(const exception_ptr&, const exception_ptr&)
       _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));
 
@@ -165,7 +165,7 @@ namespace std
 
   /// Obtain an exception_ptr pointing to a copy of the supplied object.
   template<typename _Ex>
-    exception_ptr
+    exception_ptr 
     copy_exception(_Ex __ex) _GLIBCXX_USE_NOEXCEPT
     {
       __try
@@ -184,7 +184,7 @@ namespace std
   // 1130. copy_exception name misleading
   /// Obtain an exception_ptr pointing to a copy of the supplied object.
   template<typename _Ex>
-    exception_ptr
+    exception_ptr 
     make_exception_ptr(_Ex __ex) _GLIBCXX_USE_NOEXCEPT
     { return std::copy_exception<_Ex>(__ex); }
 

@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,12 +69,12 @@ of the file in a conditional, like this:
 <pre class="smallexample">     /* File foo.  */
      #ifndef FILE_FOO_SEEN
      #define FILE_FOO_SEEN
-
+     
      <var>the entire file</var>
-
+     
      #endif /* !FILE_FOO_SEEN */
 </pre>
-   <p>This construct is commonly known as a <dfn>wrapper #ifndef</dfn>.
+   <p>This construct is commonly known as a <dfn>wrapper #ifndef</dfn>. 
 When the header is included again, the conditional will be false,
 because <code>FILE_FOO_SEEN</code> is defined.  The preprocessor will skip
 over the entire contents of the file, and the compiler will not see it
@@ -96,3 +96,4 @@ file, the macro name should contain the name of the file and some
 additional text, to avoid conflicts with other header files.
 
    </body></html>
+

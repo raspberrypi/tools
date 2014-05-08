@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ specific assembler directives:
 
      <dl>
 <dt><code>.relax</code><dd><a name="index-assembler-directive-_002erelax_002c-M68HC11-1337"></a><a name="index-M68HC11-assembler-directive-_002erelax-1338"></a>The relax directive is used by the &lsquo;<samp><span class="samp">GNU Compiler</span></samp>&rsquo; to emit a specific
-relocation to mark a group of instructions for linker relaxation.
+relocation to mark a group of instructions for linker relaxation. 
 The sequence of instructions within the group must be known to the linker
 so that relaxation can be performed.
 
@@ -62,11 +62,11 @@ so that relaxation can be performed.
 &lsquo;<samp><span class="samp">-mlong</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mshort-double</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-mlong-double</span></samp>&rsquo; options.
 
      <br><dt><code>.far </code><var>symbol</var><dd><a name="index-assembler-directive-_002efar_002c-M68HC11-1341"></a><a name="index-M68HC11-assembler-directive-_002efar-1342"></a>This directive marks the symbol as a &lsquo;<samp><span class="samp">far</span></samp>&rsquo; symbol meaning that it
-uses a &lsquo;<samp><span class="samp">call/rtc</span></samp>&rsquo; calling convention as opposed to &lsquo;<samp><span class="samp">jsr/rts</span></samp>&rsquo;.
+uses a &lsquo;<samp><span class="samp">call/rtc</span></samp>&rsquo; calling convention as opposed to &lsquo;<samp><span class="samp">jsr/rts</span></samp>&rsquo;. 
 During a final link, the linker will identify references to the &lsquo;<samp><span class="samp">far</span></samp>&rsquo;
 symbol and will verify the proper calling convention.
 
-     <br><dt><code>.interrupt </code><var>symbol</var><dd><a name="index-assembler-directive-_002einterrupt_002c-M68HC11-1343"></a><a name="index-M68HC11-assembler-directive-_002einterrupt-1344"></a>This directive marks the symbol as an interrupt entry point.
+     <br><dt><code>.interrupt </code><var>symbol</var><dd><a name="index-assembler-directive-_002einterrupt_002c-M68HC11-1343"></a><a name="index-M68HC11-assembler-directive-_002einterrupt-1344"></a>This directive marks the symbol as an interrupt entry point. 
 This information is then used by the debugger to correctly unwind the
 frame across interrupts.
 
@@ -77,3 +77,4 @@ Standard</span></samp>&rsquo; and is ignored.
    </dl>
 
    </body></html>
+

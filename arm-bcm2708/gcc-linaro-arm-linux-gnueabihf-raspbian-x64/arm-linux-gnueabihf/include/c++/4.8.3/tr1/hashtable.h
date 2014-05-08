@@ -342,12 +342,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // better to just specialize insert on __unique_keys.  There may be a
       // cleaner workaround.
       typedef typename __gnu_cxx::__conditional_type<__unique_keys,
-			    std::pair<iterator, bool>, iterator>::__type
+		       	    std::pair<iterator, bool>, iterator>::__type
 	_Insert_Return_Type;
 
       typedef typename __gnu_cxx::__conditional_type<__unique_keys,
 					  std::_Select1st<_Insert_Return_Type>,
-					  std::_Identity<_Insert_Return_Type>
+				  	  std::_Identity<_Insert_Return_Type>
 				   >::__type
 	_Insert_Conv_Type;
 

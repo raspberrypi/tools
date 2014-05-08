@@ -65,7 +65,7 @@ enum machine_type {
 #define NMAGIC 0410
 /* Code indicating demand-paged executable.  */
 #define ZMAGIC 0413
-/* This indicates a demand-paged executable with the header in the text.
+/* This indicates a demand-paged executable with the header in the text. 
    The first page is unmapped to help trap NULL pointer references */
 #define QMAGIC 0314
 
@@ -75,7 +75,7 @@ enum machine_type {
 #if !defined (N_BADMAG)
 #define N_BADMAG(x)	  (N_MAGIC(x) != OMAGIC		\
 			&& N_MAGIC(x) != NMAGIC		\
-			&& N_MAGIC(x) != ZMAGIC \
+  			&& N_MAGIC(x) != ZMAGIC \
 		        && N_MAGIC(x) != QMAGIC)
 #endif
 

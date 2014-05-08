@@ -160,7 +160,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  Pattern" (CRTP) technique, but uses a reconstructed, not
    *  explicitly passed, template pattern.
    *
-   *  Base class templates are:
+   *  Base class templates are: 
    *    - __detail::_Hashtable_base
    *    - __detail::_Map_base
    *    - __detail::_Insert
@@ -207,7 +207,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       using __key_extract = typename std::conditional<
 					     __constant_iterators::value,
-					     __detail::_Identity,
+				       	     __detail::_Identity,
 					     __detail::_Select1st>::type;
 
       using __hashtable_base = __detail::

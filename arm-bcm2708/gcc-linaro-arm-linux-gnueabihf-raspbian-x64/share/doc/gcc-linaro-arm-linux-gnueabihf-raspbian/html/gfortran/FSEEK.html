@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,11 +59,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 <dt><em>Description</em>:<dd>Moves <var>UNIT</var> to the specified <var>OFFSET</var>. If <var>WHENCE</var>
 is set to 0, the <var>OFFSET</var> is taken as an absolute value <code>SEEK_SET</code>,
 if set to 1, <var>OFFSET</var> is taken to be relative to the current position
-<code>SEEK_CUR</code>, and if set to 2 relative to the end of the file <code>SEEK_END</code>.
+<code>SEEK_CUR</code>, and if set to 2 relative to the end of the file <code>SEEK_END</code>. 
 On error, <var>STATUS</var> is set to a nonzero value. If <var>STATUS</var> the seek
 fails silently.
 
-     <p>This intrinsic routine is not fully backwards compatible with <samp><span class="command">g77</span></samp>.
+     <p>This intrinsic routine is not fully backwards compatible with <samp><span class="command">g77</span></samp>. 
 In <samp><span class="command">g77</span></samp>, the <code>FSEEK</code> takes a statement label instead of a
 <var>STATUS</var> variable. If FSEEK is used in old code, change
      <pre class="smallexample">            CALL FSEEK(UNIT, OFFSET, WHENCE, *label)
@@ -73,7 +73,7 @@ In <samp><span class="command">g77</span></samp>, the <code>FSEEK</code> takes a
             CALL FSEEK(UNIT, OFFSET, WHENCE, status)
             IF (status /= 0) GOTO label
 </pre>
-     <p>Please note that GNU Fortran provides the Fortran 2003 Stream facility.
+     <p>Please note that GNU Fortran provides the Fortran 2003 Stream facility. 
 Programmers should consider the use of new stream IO feature in new code
 for future portability. See also <a href="Fortran-2003-status.html#Fortran-2003-status">Fortran 2003 status</a>.
 
@@ -84,10 +84,10 @@ for future portability. See also <a href="Fortran-2003-status.html#Fortran-2003-
      <br><dt><em>Syntax</em>:<dd><code>CALL FSEEK(UNIT, OFFSET, WHENCE[, STATUS])</code>
 
      <br><dt><em>Arguments</em>:<dd>
-     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>UNIT</var>   </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>OFFSET</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>WHENCE</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>.
-Its value shall be either 0, 1 or 2.
+     <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>UNIT</var>   </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>OFFSET</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>WHENCE</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code>. 
+Its value shall be either 0, 1 or 2. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) shall be a scalar of type
 <code>INTEGER(4)</code>.
      <br></td></tr></table>
@@ -96,21 +96,21 @@ Its value shall be either 0, 1 or 2.
      <pre class="smallexample">          PROGRAM test_fseek
             INTEGER, PARAMETER :: SEEK_SET = 0, SEEK_CUR = 1, SEEK_END = 2
             INTEGER :: fd, offset, ierr
-
+          
             ierr   = 0
             offset = 5
             fd     = 10
-
+          
             OPEN(UNIT=fd, FILE="fseek.test")
             CALL FSEEK(fd, offset, SEEK_SET, ierr)  ! move to OFFSET
             print *, FTELL(fd), ierr
-
+          
             CALL FSEEK(fd, 0, SEEK_END, ierr)       ! move to end
             print *, FTELL(fd), ierr
-
+          
             CALL FSEEK(fd, 0, SEEK_SET, ierr)       ! move to beginning
             print *, FTELL(fd), ierr
-
+          
             CLOSE(UNIT=fd)
           END PROGRAM
 </pre>
@@ -118,3 +118,4 @@ Its value shall be either 0, 1 or 2.
 </dl>
 
    </body></html>
+

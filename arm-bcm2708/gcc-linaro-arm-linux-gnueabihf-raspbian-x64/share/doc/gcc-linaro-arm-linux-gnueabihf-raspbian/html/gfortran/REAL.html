@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,7 +71,7 @@ and its use is strongly discouraged.
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>A</var>    </td><td valign="top" width="70%">Shall be <code>INTEGER</code>, <code>REAL</code>, or
-<code>COMPLEX</code>.
+<code>COMPLEX</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>KIND</var> </td><td valign="top" width="70%">(Optional) An <code>INTEGER</code> initialization
 expression indicating the kind parameter of the result.
      <br></td></tr></table>
@@ -81,12 +81,12 @@ the following rules:
 
           <dl>
 <dt>(A)<dd><code>REAL(A)</code> is converted to a default real type if <var>A</var> is an
-integer or real variable.
+integer or real variable. 
 <br><dt>(B)<dd><code>REAL(A)</code> is converted to a real type with the kind type parameter
-of <var>A</var> if <var>A</var> is a complex variable.
+of <var>A</var> if <var>A</var> is a complex variable. 
 <br><dt>(C)<dd><code>REAL(A, KIND)</code> is converted to a real type with kind type
 parameter <var>KIND</var> if <var>A</var> is a complex, integer, or real
-variable.
+variable. 
 </dl>
 
      <br><dt><em>Example</em>:<dd>
@@ -107,3 +107,4 @@ variable.
    </dl>
 
    </body></html>
+

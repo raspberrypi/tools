@@ -93,7 +93,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     identity_element(std::multiplies<_Tp>)
     { return _Tp(1); }
   /** @}  */
-
+  
   /** As an extension to the binders, SGI provided composition functors and
    *  wrapper functions to aid in their creation.  The @c unary_compose
    *  functor is constructed from two functions/functors, @c f and @c g.
@@ -155,7 +155,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _Operation1 _M_fn1;
       _Operation2 _M_fn2;
       _Operation3 _M_fn3;
-
+      
     public:
       binary_compose(const _Operation1& __x, const _Operation2& __y,
 		     const _Operation3& __z)
@@ -261,7 +261,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef _Argument argument_type;
       typedef  _Result  result_type;
       result_type _M_val;
-
+      
       _Constant_unary_fun(const result_type& __v) : _M_val(__v) {}
 
       const result_type&
@@ -278,7 +278,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _Result _M_val;
 
       _Constant_binary_fun(const _Result& __v) : _M_val(__v) {}
-
+      
       const result_type&
       operator()(const _Arg1&, const _Arg2&) const
       { return _M_val; }
@@ -402,7 +402,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Mem_fun adaptor helper functions mem_fun1 and mem_fun1_ref,
   // provided for backward compatibility, they are no longer part of
   // the C++ standard.
-
+  
   template <class _Ret, class _Tp, class _Arg>
     inline mem_fun1_t<_Ret, _Tp, _Arg>
     mem_fun1(_Ret (_Tp::*__f)(_Arg))
@@ -427,3 +427,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace
 
 #endif
+

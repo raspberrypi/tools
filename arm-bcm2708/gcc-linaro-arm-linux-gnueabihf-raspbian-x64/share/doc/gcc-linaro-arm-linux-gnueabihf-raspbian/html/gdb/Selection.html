@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ whichever stack frame is selected at the moment.  Here are the commands for
 selecting a stack frame; all of them finish by printing a brief description
 of the stack frame just selected.
 
-
+     
 <a name="index-frame_0040r_007b_002c-selecting_007d-460"></a>
 <a name="index-f-_0040r_007b_0028_0040code_007bframe_007d_0029_007d-461"></a>
 <dl><dt><code>frame </code><var>n</var><dt><code>f </code><var>n</var><dd>Select frame number <var>n</var>.  Recall that frame zero is the innermost
@@ -82,7 +82,7 @@ that have existed longer.  <var>n</var> defaults to one.
      <p><a name="index-down-463"></a><a name="index-do-_0040r_007b_0028_0040code_007bdown_007d_0029_007d-464"></a><br><dt><code>down </code><var>n</var><dd>Move <var>n</var> frames down the stack.  For positive numbers <var>n</var>, this
 advances toward the innermost frame, to lower frame numbers, to frames
 that were created more recently.  <var>n</var> defaults to one.  You may
-abbreviate <code>down</code> as <code>do</code>.
+abbreviate <code>down</code> as <code>do</code>. 
 </dl>
 
    <p>All of these commands end by printing two lines of output describing the
@@ -98,20 +98,21 @@ frame.  The second line shows the text of that source line.
      10              read_input_file (argv[i]);
 </pre>
    <p>After such a printout, the <code>list</code> command with no arguments
-prints ten lines centered on the point of execution in the frame.
+prints ten lines centered on the point of execution in the frame. 
 You can also edit the program at the point of execution with your favorite
-editing program by typing <code>edit</code>.
+editing program by typing <code>edit</code>. 
 See <a href="List.html#List">Printing Source Lines</a>,
 for details.
 
-
+     
 <a name="index-down_002dsilently-465"></a>
 <a name="index-up_002dsilently-466"></a>
 <dl><dt><code>up-silently </code><var>n</var><dt><code>down-silently </code><var>n</var><dd>These two commands are variants of <code>up</code> and <code>down</code>,
 respectively; they differ in that they do their work silently, without
 causing display of the new frame.  They are intended primarily for use
 in <span class="sc">gdb</span> command scripts, where the output might be unnecessary and
-distracting.
+distracting. 
 </dl>
 
    </body></html>
+

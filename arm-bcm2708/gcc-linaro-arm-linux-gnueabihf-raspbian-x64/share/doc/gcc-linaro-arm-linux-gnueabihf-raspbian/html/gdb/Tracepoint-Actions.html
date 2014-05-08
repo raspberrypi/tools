@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 
 <h4 class="subsection">13.1.6 Tracepoint Action Lists</h4>
 
-
+     
 <a name="index-actions-775"></a>
 <a name="index-tracepoint-actions-776"></a>
 <dl><dt><code>actions </code><span class="roman">[</span><var>num</var><span class="roman">]</span><dd>This command will prompt for a list of actions to be taken when the
@@ -67,9 +67,9 @@ actions are allowed; any other <span class="sc">gdb</span> command is rejected.
 and follow it immediately with &lsquo;<samp><span class="samp">end</span></samp>&rsquo;.
 
      <pre class="smallexample">          (gdb) <b>collect </b><var>data</var> // collect some data
-
+          
           (gdb) <b>while-stepping 5</b> // single-step 5 times, collect data
-
+          
           (gdb) <b>end</b>              // signals the end of actions.
 </pre>
      <p>In the following example, the action list begins with <code>collect</code>
@@ -91,8 +91,8 @@ list is terminated by an <code>end</code> command.
             &gt; end
           end
 </pre>
-     <p><a name="index-collect-_0040r_007b_0028tracepoints_0029_007d-778"></a><br><dt><code>collect</code><span class="roman">[</span><code>/</code><var>mods</var><span class="roman">]</span> <var>expr1</var><code>, </code><var>expr2</var><code>, ...</code><dd>Collect values of the given expressions when the tracepoint is hit.
-This command accepts a comma-separated list of any valid expressions.
+     <p><a name="index-collect-_0040r_007b_0028tracepoints_0029_007d-778"></a><br><dt><code>collect</code><span class="roman">[</span><code>/</code><var>mods</var><span class="roman">]</span> <var>expr1</var><code>, </code><var>expr2</var><code>, ...</code><dd>Collect values of the given expressions when the tracepoint is hit. 
+This command accepts a comma-separated list of any valid expressions. 
 In addition to global, static, or local variables, the following
 special arguments are supported:
 
@@ -107,11 +107,11 @@ special arguments are supported:
 of a backtrace.
 
           <br><dt><code>$_probe_argc</code><dd>Collects the number of arguments from the static probe at which the
-tracepoint is located.
+tracepoint is located. 
 See <a href="Static-Probe-Points.html#Static-Probe-Points">Static Probe Points</a>.
 
           <br><dt><code>$_probe_arg</code><var>n</var><dd><var>n</var> is an integer between 0 and 11.  Collects the <var>n</var>th argument
-from the static probe at which the tracepoint is located.
+from the static probe at which the tracepoint is located. 
 See <a href="Static-Probe-Points.html#Static-Probe-Points">Static Probe Points</a>.
 
           <br><dt><code>$_sdata</code><dd><a name="index-g_t_0024_005fsdata_0040r_007b_002c-collect_007d-779"></a>Collect static tracepoint marker specific data.  Only available for
@@ -119,7 +119,7 @@ static tracepoints.  See <a href="Tracepoint-Actions.html#Tracepoint-Actions">Tr
 instrumentation point resembles a <code>printf</code> function call.  The
 tracing library is able to collect user specified data formatted to a
 character string using the format provided by the programmer that
-instrumented the program.  Other backends have similar mechanisms.
+instrumented the program.  Other backends have similar mechanisms. 
 Here's an example of a UST marker call:
 
           <pre class="smallexample">                const char master_name[] = "$your_name";
@@ -128,14 +128,14 @@ Here's an example of a UST marker call:
           <p>In this case, collecting <code>$_sdata</code> collects the string
 &lsquo;<samp><span class="samp">hello $yourname</span></samp>&rsquo;.  When analyzing the trace buffer, you can
 inspect &lsquo;<samp><span class="samp">$_sdata</span></samp>&rsquo; like any other variable available to
-<span class="sc">gdb</span>.
+<span class="sc">gdb</span>. 
 </dl>
 
      <p>You can give several consecutive <code>collect</code> commands, each one
 with a single argument, or one <code>collect</code> command with several
 arguments separated by commas; the effect is the same.
 
-     <p>The optional <var>mods</var> changes the usual handling of the arguments.
+     <p>The optional <var>mods</var> changes the usual handling of the arguments. 
 <code>s</code> requests that pointers to chars be handled as strings, in
 particular collecting the contents of the memory being pointed at, up
 to the first zero.  The upper bound is by default the value of the
@@ -182,3 +182,4 @@ tracepoint hit.
 </dl>
 
    </body></html>
+

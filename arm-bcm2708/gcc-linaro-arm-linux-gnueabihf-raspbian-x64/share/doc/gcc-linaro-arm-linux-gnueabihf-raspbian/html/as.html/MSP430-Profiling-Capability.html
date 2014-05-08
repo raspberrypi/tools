@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -45,11 +45,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MSP430_002dDependent.html#MSP430_002dDe
 
 <h4 class="subsection">9.29.6 Profiling Capability</h4>
 
-<p><a name="index-MSP-430-profiling-capability-1556"></a><a name="index-profiling-capability-for-MSP-430-1557"></a>It is a performance hit to use gcc's profiling approach for this tiny target.
-Even more &ndash; jtag hardware facility does not perform any profiling functions.
+<p><a name="index-MSP-430-profiling-capability-1556"></a><a name="index-profiling-capability-for-MSP-430-1557"></a>It is a performance hit to use gcc's profiling approach for this tiny target. 
+Even more &ndash; jtag hardware facility does not perform any profiling functions. 
 However we've got gdb's built-in simulator where we can do anything.
 
-   <p>We define new section &lsquo;<samp><span class="samp">.profiler</span></samp>&rsquo; which holds all profiling information.
+   <p>We define new section &lsquo;<samp><span class="samp">.profiler</span></samp>&rsquo; which holds all profiling information. 
 We define new pseudo operation &lsquo;<samp><span class="samp">.profiler</span></samp>&rsquo; which will instruct assembler to
 add new profile entry to the object file. Profile should take place at the
 present address.
@@ -82,7 +82,7 @@ present address.
 </dl>
 
      <br><dt><code>function_to_profile</code><dd>a function address
-<br><dt><code>cycle_corrector</code><dd>a value which should be added to the cycle counter, zero if omitted.
+<br><dt><code>cycle_corrector</code><dd>a value which should be added to the cycle counter, zero if omitted. 
 <br><dt><code>extra</code><dd>any extra parameter, zero if omitted.
 
    </dl>
@@ -93,15 +93,15 @@ present address.
      fxx:
      .LFrameOffset_fxx=0x08
      .profiler "scdP", fxx     ; function entry.
-			  ; we also demand stack value to be saved
+     			  ; we also demand stack value to be saved
        push r11
        push r10
        push r9
        push r8
      .profiler "cdpt",fxx,0, .LFrameOffset_fxx  ; check stack value at this point
-					  ; (this is a prologue end)
-					  ; note, that spare var filled with
-					  ; the farme size
+     					  ; (this is a prologue end)
+     					  ; note, that spare var filled with
+     					  ; the farme size
        mov r15,r8
      ...
      .profiler cdE,fxx         ; check stack
@@ -117,3 +117,4 @@ present address.
 <!-- For copying conditions, see the file as.texinfo. -->
 <!-- man end -->
    </body></html>
+

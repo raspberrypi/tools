@@ -32,8 +32,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,20 +54,20 @@ statically declared (private) functions.  (These are functions whose
 names are not listed as global, and which are not visible outside the
 file/function/block where they were defined.)  Time spent in these
 functions, calls to/from them, etc., will all be attributed to the
-function that was loaded directly before it in the executable file.
+function that was loaded directly before it in the executable file. 
 <!-- This is compatible with Unix @code{gprof}, but a bad idea. -->
 This option affects both the flat profile and the call graph.
 
      <br><dt><code>-c</code><dt><code>--static-call-graph</code><dd>The &lsquo;<samp><span class="samp">-c</span></samp>&rsquo; option causes the call graph of the program to be
 augmented by a heuristic which examines the text space of the object
-file and identifies function calls in the binary machine code.
+file and identifies function calls in the binary machine code. 
 Since normal call graph records are only generated when functions are
 entered, this option identifies children that could have been called,
 but never were.  Calls to functions that were not compiled with
 profiling enabled are also identified, but only if symbol table
-entries are present for them.
+entries are present for them. 
 Calls to dynamic library routines are typically <em>not</em> found
-by this option.
+by this option. 
 Parents or children identified via this heuristic
 are indicated in the call graph with call counts of &lsquo;<samp><span class="samp">0</span></samp>&rsquo;.
 
@@ -87,14 +87,14 @@ by older versions of the <code>gcc</code> compiler.  Newer versions of
 
      <p>If the program was compiled with basic-block counting enabled,
 this option will also identify how many times each line of
-code was executed.
+code was executed. 
 While line-by-line profiling can help isolate where in a large function
 a program is spending its time, it also significantly increases
 the running time of <code>gprof</code>, and magnifies statistical
-inaccuracies.
+inaccuracies. 
 See <a href="Sampling-Error.html#Sampling-Error">Statistical Sampling Error</a>.
 
-     <br><dt><code>-m </code><var>num</var><dt><code>--min-count=</code><var>num</var><dd>This option affects execution count output only.
+     <br><dt><code>-m </code><var>num</var><dt><code>--min-count=</code><var>num</var><dd>This option affects execution count output only. 
 Symbols that are executed less than <var>num</var> times are suppressed.
 
      <br><dt><code>-n</code><var>symspec</var><dt><code>--time=</code><var>symspec</var><dd>The &lsquo;<samp><span class="samp">-n</span></samp>&rsquo; option causes <code>gprof</code>, in its call graph analysis,
@@ -116,3 +116,4 @@ that had no time spent in them.  This is useful in conjunction with the
 </dl>
 
    </body></html>
+

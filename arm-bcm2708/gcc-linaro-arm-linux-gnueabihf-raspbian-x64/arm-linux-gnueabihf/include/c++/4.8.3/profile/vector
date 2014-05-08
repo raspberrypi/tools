@@ -66,7 +66,7 @@ namespace __profile
       typedef typename _Base::const_pointer         const_pointer;
       typedef std::reverse_iterator<iterator>       reverse_iterator;
       typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
-
+      
       _Base&
       _M_base() _GLIBCXX_NOEXCEPT { return *this; }
 
@@ -124,7 +124,7 @@ namespace __profile
 	}
 
       vector(const vector& __x)
-      : _Base(__x)
+      : _Base(__x) 
       {
         __profcxx_vector_construct(this, this->capacity());
         __profcxx_vector_construct2(this);
@@ -132,8 +132,8 @@ namespace __profile
 
       /// Construction from a release-mode vector
       vector(const _Base& __x)
-      : _Base(__x)
-      {
+      : _Base(__x) 
+      { 
         __profcxx_vector_construct(this, this->capacity());
         __profcxx_vector_construct2(this);
       }
@@ -148,7 +148,7 @@ namespace __profile
 
       vector(const _Base& __x, const _Allocator& __a)
       : _Base(__x, __a)
-      {
+      { 
         __profcxx_vector_construct(this, this->capacity());
         __profcxx_vector_construct2(this);
       }
@@ -305,7 +305,7 @@ namespace __profile
 
       reference
       front()
-      {
+      { 
         return _Base::front();
       }
 
@@ -459,18 +459,18 @@ namespace __profile
         _Base::clear();
       }
 
-      inline void _M_profile_find() const
-      {
-        __profcxx_vector_find(this, size());
+      inline void _M_profile_find() const 
+      { 
+        __profcxx_vector_find(this, size()); 
       }
 
-      inline void _M_profile_iterate(int __rewind = 0) const
-      {
-        __profcxx_vector_iterate(this);
+      inline void _M_profile_iterate(int __rewind = 0) const 
+      { 
+        __profcxx_vector_iterate(this); 
       }
 
     private:
-      void _M_profile_resize(void* obj, size_type __old_size,
+      void _M_profile_resize(void* obj, size_type __old_size, 
                              size_type __new_size)
       {
         if (__old_size < __new_size) {

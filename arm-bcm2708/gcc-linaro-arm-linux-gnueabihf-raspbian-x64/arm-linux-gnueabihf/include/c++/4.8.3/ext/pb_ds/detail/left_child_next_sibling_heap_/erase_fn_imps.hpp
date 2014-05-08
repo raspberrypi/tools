@@ -101,7 +101,7 @@ to_linked_list()
       p_counter = p_counter->m_p_next_sibling;
     }
   _GLIBCXX_DEBUG_ASSERT(count == m_size);
-#endif
+#endif 
 }
 
 PB_DS_CLASS_T_DEC
@@ -147,3 +147,4 @@ bubble_to_top(node_pointer p_nd)
       p_parent = parent(p_nd);
     }
 }
+

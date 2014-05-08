@@ -74,7 +74,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
    *  @tparam _Key  Type of key objects.
    *  @tparam  _Tp  Type of mapped objects.
    *  @tparam _Compare  Comparison function object type, defaults to less<_Key>.
-   *  @tparam _Alloc  Allocator type, defaults to
+   *  @tparam _Alloc  Allocator type, defaults to 
    *                  allocator<pair<const _Key, _Tp>.
    *
    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
@@ -127,7 +127,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
     private:
       /// This turns a red-black tree into a [multi]map.
-      typedef typename _Alloc::template rebind<value_type>::other
+      typedef typename _Alloc::template rebind<value_type>::other 
         _Pair_alloc_type;
 
       typedef _Rb_tree<key_type, value_type, _Select1st<value_type>,
@@ -301,7 +301,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 
       /// Get a copy of the memory allocation object.
       allocator_type
-      get_allocator() const _GLIBCXX_NOEXCEPT
+      get_allocator() const _GLIBCXX_NOEXCEPT 
       { return allocator_type(_M_t.get_allocator()); }
 
       // iterators
@@ -582,7 +582,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
        *  @brief Erases an element from a %multimap.
        *  @param  __position  An iterator pointing to the element to be erased.
        *  @return An iterator pointing to the element immediately following
-       *          @a position prior to the element being erased. If no such
+       *          @a position prior to the element being erased. If no such 
        *          element exists, end() is returned.
        *
        *  This function erases an element, pointed to by the given iterator,

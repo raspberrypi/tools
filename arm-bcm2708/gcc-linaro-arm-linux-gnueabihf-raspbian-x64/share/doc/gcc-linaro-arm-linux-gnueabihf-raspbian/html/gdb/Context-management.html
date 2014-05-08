@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI-General-Design.html#GDB_002f
 <h4 class="subsection">27.1.1 Context management</h4>
 
 <p>In most cases when <span class="sc">gdb</span> accesses the target, this access is
-done in context of a specific thread and frame (see <a href="Frames.html#Frames">Frames</a>).
+done in context of a specific thread and frame (see <a href="Frames.html#Frames">Frames</a>). 
 Often, even when accessing global data, the target requires that a thread
 be specified.  The CLI interface maintains the selected thread and frame,
 and supplies them to target on each command.  This is convenient,
@@ -75,7 +75,7 @@ it is reasonable to switch to the thread where breakpoint is hit.  For
 another example, if the user issues the CLI &lsquo;<samp><span class="samp">thread</span></samp>&rsquo; command via
 the frontend, it is desirable to change the frontend's selected thread to the
 one specified by user.  <span class="sc">gdb</span> communicates the suggestion to
-change current thread using the &lsquo;<samp><span class="samp">=thread-selected</span></samp>&rsquo; notification.
+change current thread using the &lsquo;<samp><span class="samp">=thread-selected</span></samp>&rsquo; notification. 
 No such notification is available for the selected frame at the moment.
 
    <p>Note that historically, MI shares the selected thread with CLI, so
@@ -96,3 +96,4 @@ right, so it is suggested to just always pass the &lsquo;<samp><span class="samp
 &lsquo;<samp><span class="samp">--frame</span></samp>&rsquo; options.
 
    </body></html>
+

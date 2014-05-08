@@ -45,7 +45,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       typedef __vstring_utility<_CharT, _Traits, _Alloc>    _Util_Base;
       typedef typename _Util_Base::_CharT_alloc_type        _CharT_alloc_type;
       typedef typename _CharT_alloc_type::size_type	    size_type;
-
+      
     private:
       // Data Members:
       typename _Util_Base::template _Alloc_hider<_CharT_alloc_type>
@@ -53,7 +53,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       size_type                                             _M_string_length;
 
       enum { _S_local_capacity = 15 };
-
+      
       union
       {
 	_CharT           _M_local_data[_S_local_capacity + 1];
@@ -79,7 +79,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // Create & Destroy
       _CharT*
       _M_create(size_type&, size_type);
-
+      
       void
       _M_dispose()
       {
@@ -95,7 +95,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       // requires special behaviour if _InIterator is an integral type
       template<typename _InIterator>
         void
-        _M_construct_aux(_InIterator __beg, _InIterator __end,
+        _M_construct_aux(_InIterator __beg, _InIterator __end, 
 			 std::__false_type)
 	{
           typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
@@ -126,7 +126,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         void
         _M_construct(_InIterator __beg, _InIterator __end,
 		     std::input_iterator_tag);
-
+      
       // For forward_iterators up to random_access_iterators, used for
       // string::iterator, _CharT*, etc.
       template<typename _FwdIterator>
@@ -154,7 +154,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       _M_capacity() const
       {
 	return _M_is_local() ? size_type(_S_local_capacity)
-	                     : _M_allocated_capacity;
+	                     : _M_allocated_capacity; 
       }
 
       bool
@@ -400,7 +400,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    _M_data()[__len++] = *__beg;
 	    ++__beg;
 	  }
-
+	
 	__try
 	  {
 	    while (__beg != __end)
@@ -540,7 +540,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      size_type __len2)
     {
       const size_type __how_much = _M_length() - __pos - __len1;
-
+      
       size_type __new_capacity = _M_length() + __len2 - __len1;
       _CharT* __r = _M_create(__new_capacity, _M_capacity());
 
@@ -551,7 +551,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       if (__how_much)
 	this->_S_copy(__r + __pos + __len2,
 		      _M_data() + __pos + __len1, __how_much);
-
+      
       _M_dispose();
       _M_data(__r);
       _M_capacity(__new_capacity);

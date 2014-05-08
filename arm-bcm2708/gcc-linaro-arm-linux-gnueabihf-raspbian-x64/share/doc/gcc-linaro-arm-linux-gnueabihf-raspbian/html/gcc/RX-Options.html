@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ values, however, so the FPU hardware is not used for doubles if the
 <samp><span class="option">-m64bit-doubles</span></samp> option is used.
 
      <p><em>Note</em> If the <samp><span class="option">-fpu</span></samp> option is enabled then
-<samp><span class="option">-funsafe-math-optimizations</span></samp> is also enabled automatically.
+<samp><span class="option">-funsafe-math-optimizations</span></samp> is also enabled automatically. 
 This is because the RX FPU instructions are themselves unsafe.
 
      <br><dt><code>-mcpu=</code><var>name</var><dd><a name="index-g_t_002dmcpu-2063"></a>Selects the type of RX CPU to be targeted.  Currently three types are
@@ -140,7 +140,7 @@ functions.  The value <var>N</var> can be between 0 and 4.  A value of 1
 means that register <code>r13</code> is reserved for the exclusive use
 of fast interrupt handlers.  A value of 2 reserves <code>r13</code> and
 <code>r12</code>.  A value of 3 reserves <code>r13</code>, <code>r12</code> and
-<code>r11</code>, and a value of 4 reserves <code>r13</code> through <code>r10</code>.
+<code>r11</code>, and a value of 4 reserves <code>r13</code> through <code>r10</code>. 
 A value of 0, the default, does not reserve any registers.
 
      <br><dt><code>-msave-acc-in-interrupts</code><dd><a name="index-msave_002dacc_002din_002dinterrupts-2074"></a>Specifies that interrupt handler functions should preserve the
@@ -192,3 +192,4 @@ corresponding registers have been restricted via the
 options.
 
  </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tracepoints.html#Tracepoints">Tracepoin
 <h3 class="section">13.3 Convenience Variables for Tracepoints</h3>
 
 <p><a name="index-tracepoint-variables-822"></a><a name="index-convenience-variables-for-tracepoints-823"></a>
-
+     
 <a name="index-g_t_0024trace_005fframe-824"></a>
 <dl><dt><code>(int) $trace_frame</code><dd>The current trace snapshot (a.k.a. <dfn>frame</dfn>) number, or -1 if no
 snapshot is selected.
@@ -59,7 +59,7 @@ snapshot is selected.
 
      <p><a name="index-g_t_0024trace_005ffile-827"></a><br><dt><code>(char []) $trace_file</code><dd>The source file for the current trace snapshot.
 
-     <p><a name="index-g_t_0024trace_005ffunc-828"></a><br><dt><code>(char []) $trace_func</code><dd>The name of the function containing <code>$tracepoint</code>.
+     <p><a name="index-g_t_0024trace_005ffunc-828"></a><br><dt><code>(char []) $trace_func</code><dd>The name of the function containing <code>$tracepoint</code>. 
 </dl>
 
    <p>Note: <code>$trace_file</code> is not suitable for use in <code>printf</code>,
@@ -71,7 +71,7 @@ data.  Note that these are not the same as trace state variables,
 which are managed by the target.
 
 <pre class="smallexample">     (gdb) <b>tfind start</b>
-
+     
      (gdb) <b>while $trace_frame != -1</b>
      &gt; output $trace_file
      &gt; printf ", line %d (tracepoint #%d)\n", $trace_line, $tracepoint
@@ -79,3 +79,4 @@ which are managed by the target.
      &gt; end
 </pre>
    </body></html>
+

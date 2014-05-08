@@ -1840,7 +1840,7 @@ digit.  Case is significant.  There is no length limit: all characters
 are significant.  Multibyte characters are supported.  Symbols are
 delimited by characters not in that set, or by the beginning of a file
 (since the source program must end with a newline, the end of a file is
-not a possible symbol delimiter).  *Note Symbols::.
+not a possible symbol delimiter).  *Note Symbols::.  
 
 
 File: as.info,  Node: Statements,  Next: Constants,  Prev: Symbol Intro,  Up: Syntax
@@ -4324,9 +4324,9 @@ With that definition, `SUM 0,5' is equivalent to this assembly input:
      subject to parameter substitution.  So for example this macro
      definition:
 
-		.macro label l
+          	.macro label l
           \l:
-		.endm
+          	.endm
 
      might not work as expected.  Invoking `label foo' might not create
      a label called `foo' but instead just insert the text `\l:' into
@@ -4338,9 +4338,9 @@ With that definition, `SUM 0,5' is equivalent to this assembly input:
      names).  So for example constructing a macro to build an opcode
      from a base name and a length specifier like this:
 
-		.macro opcode base length
+          	.macro opcode base length
                   \base.\length
-		.endm
+          	.endm
 
      and invoking it as `opcode store l' will not create a `store.l'
      instruction but instead generate some kind of error as the
@@ -4352,26 +4352,26 @@ With that definition, `SUM 0,5' is equivalent to this assembly input:
           If it is possible to use white space characters then this is
           the simplest solution.  eg:
 
-		.macro label l
+               	.macro label l
                \l :
-		.endm
+               	.endm
 
     `Use `\()''
           The string `\()' can be used to separate the end of a macro
           argument from the following text.  eg:
 
-		.macro opcode base length
+               	.macro opcode base length
                        \base\().\length
-		.endm
+               	.endm
 
     `Use the alternate macro syntax mode'
           In the alternative macro syntax mode the ampersand character
           (`&') can be used as a separator.  eg:
 
-		.altmacro
-		.macro label l
+               	.altmacro
+               	.macro label l
                l&:
-		.endm
+               	.endm
 
      Note: this problem of correctly identifying string parameters to
      pseudo ops also applies to the identifiers used in `.irp' (*note
@@ -4655,7 +4655,7 @@ File: as.info,  Node: Quad,  Next: Reloc,  Prev: PushSection,  Up: Pseudo Ops
 `.quad' expects zero or more bignums, separated by commas.  For each
 bignum, it emits an 8-byte integer.  If the bignum won't fit in 8
 bytes, it prints a warning message; and just takes the lowest order 8
-bytes of the bignum.
+bytes of the bignum.  
 
    The term "quad" comes from contexts in which a "word" is two bytes;
 hence _quad_-word for 8 bytes.
@@ -5108,10 +5108,10 @@ and expanded to 16, 32 or 64 bits respectively.  The expanded characters
 are stored in target endianness byte order.
 
    Example:
-	.string32 "BYE"
+     	.string32 "BYE"
      expands to:
-	.string   "B\0\0\0Y\0\0\0E\0\0\0"  /* On little endian targets.  */
-	.string   "\0\0\0B\0\0\0Y\0\0\0E"  /* On big endian targets.  */
+     	.string   "B\0\0\0Y\0\0\0E\0\0\0"  /* On little endian targets.  */
+     	.string   "\0\0\0B\0\0\0Y\0\0\0E"  /* On big endian targets.  */
 
 
 File: as.info,  Node: Struct,  Next: SubSection,  Prev: String,  Up: Pseudo Ops
@@ -9974,15 +9974,15 @@ always imply the use of base+displacement.
 
    Many of the usual forms of address constants / address literals are
 supported.  Thus,
-	.using	*,r3
-	L	r15,=A(some_routine)
-	LM	r6,r7,=V(some_longlong_extern)
-	A	r1,=F'12'
-	AH	r0,=H'42'
-	ME	r6,=E'3.1416'
-	MD	r6,=D'3.14159265358979'
-	O	r6,=XL4'cacad0d0'
-	.ltorg
+     	.using	*,r3
+     	L	r15,=A(some_routine)
+     	LM	r6,r7,=V(some_longlong_extern)
+     	A	r1,=F'12'
+     	AH	r0,=H'42'
+     	ME	r6,=E'3.1416'
+     	MD	r6,=D'3.14159265358979'
+     	O	r6,=XL4'cacad0d0'
+     	.ltorg
    should all behave as expected: that is, an entry in the literal pool
 will be created (or reused if it already exists), and the instruction
 operands will be the displacement into the literal pool using the
@@ -10058,23 +10058,23 @@ ESA/390 addressing model.  The most important of these are `.using' and
      the `.data' section.
 
           .data
-		.using  LITPOOL,r4
+          	.using  LITPOOL,r4
           .text
-		BASR	r3,0
-		.using	*,r3
+          	BASR	r3,0
+          	.using	*,r3
                   B       START
-		.long	LITPOOL
+          	.long	LITPOOL
           START:
-		L	r4,4(,r3)
-		L	r15,=A(some_routine)
-		LTR	r15,r15
-		BNE	LABEL
-		AH	r0,=H'42'
+          	L	r4,4(,r3)
+          	L	r15,=A(some_routine)
+          	LTR	r15,r15
+          	BNE	LABEL
+          	AH	r0,=H'42'
           LABEL:
-		ME	r6,=E'3.1416'
+          	ME	r6,=E'3.1416'
           .data
           LITPOOL:
-		.ltorg
+          	.ltorg
 
      Note that this dual-`.using' directive semantics extends and is
      not compatible with HLASM semantics.  Note that this assembler
@@ -10527,7 +10527,7 @@ and will not work with all prefixes.
 
    * The `rep', `repe', and `repne' prefixes are added to string
      instructions to make them repeat `%ecx' times (`%cx' times if the
-     current address size is 16-bits).
+     current address size is 16-bits).  
 
    * The `rex' family of prefixes is used by x86-64 to encode
      extensions to i386 instruction set.  The `rex' prefix has four
@@ -10819,11 +10819,11 @@ specified.  The choices for CPU_TYPE are:
 `i486'         `i586'         `i686'         `pentium'
 `pentiumpro'   `pentiumii'    `pentiumiii'   `pentium4'
 `prescott'     `nocona'       `core'         `core2'
-`corei7'       `l1om'         `k1om'
+`corei7'       `l1om'         `k1om'         
 `k6'           `k6_2'         `athlon'       `k8'
 `amdfam10'     `bdver1'       `bdver2'       `bdver3'
-`btver1'       `btver2'
-`generic32'    `generic64'
+`btver1'       `btver2'                      
+`generic32'    `generic64'                   
 `.mmx'         `.sse'         `.sse2'        `.sse3'
 `.ssse3'       `.sse4.1'      `.sse4.2'      `.sse4'
 `.avx'         `.vmx'         `.smx'         `.ept'
@@ -10832,17 +10832,17 @@ specified.  The choices for CPU_TYPE are:
 `.rdrnd'       `.f16c'        `.avx2'        `.bmi2'
 `.lzcnt'       `.invpcid'     `.vmfunc'      `.hle'
 `.rtm'         `.adx'         `.rdseed'      `.prfchw'
-`.smap'        `.mpx'
-`.smap'        `.sha'
+`.smap'        `.mpx'                        
+`.smap'        `.sha'                        
 `.3dnow'       `.3dnowa'      `.sse4a'       `.sse5'
 `.syscall'     `.rdtscp'      `.svme'        `.abm'
 `.lwp'         `.fma4'        `.xop'         `.cx16'
-`.padlock'
+`.padlock'                                   
 `.smap'        `.avx512f'     `.avx512cd'    `.avx512er'
 `.avx512pf'    `.3dnow'       `.3dnowa'      `.sse4a'
 `.sse5'        `.syscall'     `.rdtscp'      `.svme'
 `.abm'         `.lwp'         `.fma4'        `.xop'
-`.cx16'        `.padlock'
+`.cx16'        `.padlock'                    
 
    Apart from the warning, there are only two other effects on `as'
 operation;  Firstly, if you specify a CPU other than `i486', then shift
@@ -13295,7 +13295,7 @@ Programming" in the same work.
 * MIPS NaN Encodings::	Directives to record which NaN encoding is being used
 * MIPS Option Stack::	Directives to save and restore options
 * MIPS ASE Instruction Generation Overrides:: Directives to control
-			generation of MIPS ASE instructions
+  			generation of MIPS ASE instructions
 * MIPS Floating-Point:: Directives to override floating-point options
 * MIPS Syntax::         MIPS specific syntactical considerations
 
@@ -14849,15 +14849,15 @@ should take place at the present address.
      fxx:
      .LFrameOffset_fxx=0x08
      .profiler "scdP", fxx     ; function entry.
-			  ; we also demand stack value to be saved
+     			  ; we also demand stack value to be saved
        push r11
        push r10
        push r9
        push r8
      .profiler "cdpt",fxx,0, .LFrameOffset_fxx  ; check stack value at this point
-					  ; (this is a prologue end)
-					  ; note, that spare var filled with
-					  ; the farme size
+     					  ; (this is a prologue end)
+     					  ; note, that spare var filled with
+     					  ; the farme size
        mov r15,r8
      ...
      .profiler cdE,fxx         ; check stack
@@ -14962,11 +14962,11 @@ File: as.info,  Node: Nios II Relocations,  Next: Nios II Directives,  Prev: Nio
      The intention of the `%gprel' relocation is to have a fast small
      area of memory which only takes a 16-bit immediate to access.
 
-		.section .sdata
+          	.section .sdata
           fastint:
-		.int 123
-		.section .text
-		ldw r4, %gprel(fastint)(gp)
+          	.int 123
+          	.section .text
+          	ldw r4, %gprel(fastint)(gp)
 
 `%call(EXPRESSION)'
 `%got(EXPRESSION)'
@@ -16177,7 +16177,7 @@ operand can be skipped. If Bn and Xn are skipped, a zero will be stored
 to the operand field. The notation changes as follows:
 
      full notation        short notation
-     ------------------------------------------
+     ------------------------------------------ 
      Dn(0,Bn)             Dn(Bn)
      Dn(0,0)              Dn
      Dn(0)                Dn
@@ -16390,7 +16390,7 @@ can be used as part of the mnemonic in place of a mask operand in the
 instruction format:
 
      instruction          short form
-     ------------------------------------------
+     ------------------------------------------ 
      bcr   M1,R2          b<m>r  R2
      bc    M1,D2(X2,B2)   b<m>   D2(X2,B2)
      brc   M1,I2          j<m>   I2
@@ -16425,7 +16425,7 @@ are 12 condition code strings that can be used as part of the mnemonic
 in place of a mask operand in the instruction format:
 
      instruction                 short form
-     --------------------------------------------------------
+     -------------------------------------------------------- 
      crb    R1,R2,M3,D4(B4)      crb<m>    R1,R2,D4(B4)
      cgrb   R1,R2,M3,D4(B4)      cgrb<m>   R1,R2,D4(B4)
      crj    R1,R2,M3,I4          crj<m>    R1,R2,I4
@@ -16635,7 +16635,7 @@ available for the s390 `as'.
      instructions and makes the assembler insert the operands according
      to one of the instructions formats for `.insn' (*note s390
      Formats::).  For example, the instruction `l %r1,24(%r15)' could
-     be written as `.insn rx,0x58000000,%r1,24(%r15)'.
+     be written as `.insn rx,0x58000000,%r1,24(%r15)'.  
 
 `.short'
 `.long'
@@ -17339,11 +17339,11 @@ SH64 operands consist of either a register or immediate value.  The
 immediate value can be a constant or label reference (or portion of a
 label reference), as in this example:
 
-	movi	4,r2
-	pt	function, tr4
-	movi	(function >> 16) & 65535,r0
-	shori	function & 65535, r0
-	ld.l	r0,4,r0
+     	movi	4,r2
+     	pt	function, tr4
+     	movi	(function >> 16) & 65535,r0
+     	shori	function & 65535, r0
+     	ld.l	r0,4,r0
 
    Instruction label references can reference labels in either SHmedia
 or SHcompact.  To differentiate between the two, labels in SHmedia
@@ -17353,8 +17353,8 @@ reset (i.e. they will be even).  If you need to reference the actual
 address of a label, you can use the `datalabel' modifier, as in this
 example:
 
-	.long	function
-	.long	datalabel function
+     	.long	function
+     	.long	datalabel function
 
    In that example, the first longword may or may not have the least
 significant bit set depending on whether the label is an SHmedia label
@@ -20609,13 +20609,13 @@ File: as.info,  Node: V850-Regs,  Prev: V850-Chars,  Up: V850 Syntax
      r1
 
 `general register 2'
-     r2, hp
+     r2, hp 
 
 `general register 3'
-     r3, sp
+     r3, sp 
 
 `general register 4'
-     r4, gp
+     r4, gp 
 
 `general register 5'
      r5, tp
@@ -20690,43 +20690,43 @@ File: as.info,  Node: V850-Regs,  Prev: V850-Chars,  Up: V850 Syntax
      r28
 
 `general register 29'
-     r29
+     r29 
 
 `general register 30'
-     r30, ep
+     r30, ep 
 
 `general register 31'
-     r31, lp
+     r31, lp 
 
 `system register 0'
-     eipc
+     eipc 
 
 `system register 1'
-     eipsw
+     eipsw 
 
 `system register 2'
-     fepc
+     fepc 
 
 `system register 3'
-     fepsw
+     fepsw 
 
 `system register 4'
-     ecr
+     ecr 
 
 `system register 5'
-     psw
+     psw 
 
 `system register 16'
-     ctpc
+     ctpc 
 
 `system register 17'
-     ctpsw
+     ctpsw 
 
 `system register 18'
-     dbpc
+     dbpc 
 
 `system register 19'
-     dbpsw
+     dbpsw 
 
 `system register 20'
      ctbp

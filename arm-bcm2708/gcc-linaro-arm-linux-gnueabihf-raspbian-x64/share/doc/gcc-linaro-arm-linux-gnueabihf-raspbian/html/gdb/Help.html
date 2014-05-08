@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,14 +49,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
 You can always ask <span class="sc">gdb</span> itself for information on its commands,
 using the command <code>help</code>.
 
-
+     
 <a name="index-h-_0040r_007b_0028_0040code_007bhelp_007d_0029_007d-91"></a>
 <dl><dt><code>help</code><dt><code>h</code><dd>You can use <code>help</code> (abbreviated <code>h</code>) with no arguments to
 display a short list of named classes of commands:
 
      <pre class="smallexample">          (gdb) help
           List of classes of commands:
-
+          
           aliases -- Aliases of other commands
           breakpoints -- Making program stop at certain points
           data -- Examining data
@@ -70,7 +70,7 @@ display a short list of named classes of commands:
           tracepoints -- Tracing of program execution without
                          stopping the program
           user-defined -- User-defined commands
-
+          
           Type "help" followed by a class name for a list of
           commands in that class.
           Type "help" followed by command name for full
@@ -85,16 +85,16 @@ help display for the class <code>status</code>:
 
      <pre class="smallexample">          (gdb) help status
           Status inquiries.
-
+          
           List of commands:
-
+          
           <!-- Line break in "show" line falsifies real output, but needed -->
           <!-- to fit in smallbook page size. -->
           info -- Generic command for showing things
                   about the program being debugged
           show -- Generic command for showing things
                   about the debugger
-
+          
           Type "help" followed by command name for full
           documentation.
           Command name abbreviations are allowed if unambiguous.
@@ -132,7 +132,7 @@ command you want completed.  For example:
           info
           inspect
 </pre>
-     <p class="noindent">This is intended for use by <span class="sc">gnu</span> Emacs.
+     <p class="noindent">This is intended for use by <span class="sc">gnu</span> Emacs. 
 </dl>
 
    <p>In addition to <code>help</code>, you can use the <span class="sc">gdb</span> commands <code>info</code>
@@ -143,13 +143,13 @@ under <code>info</code> and under <code>show</code> in the Command, Variable, an
 Function Index point to all the sub-commands.  See <a href="Command-and-Variable-Index.html#Command-and-Variable-Index">Command and Variable Index</a>.
 
 <!-- @group -->
-
+     
 <a name="index-info-94"></a>
 <a name="index-i-_0040r_007b_0028_0040code_007binfo_007d_0029_007d-95"></a>
 <dl><dt><code>info</code><dd>This command (abbreviated <code>i</code>) is for describing the state of your
 program.  For example, you can show the arguments passed to a function
 with <code>info args</code>, list the registers currently in use with <code>info
-registers</code>, or list the breakpoints you have set with <code>info breakpoints</code>.
+registers</code>, or list the breakpoints you have set with <code>info breakpoints</code>. 
 You can get a complete list of the <code>info</code> sub-commands with
 <code>help&nbsp;info</code><!-- /@w -->.
 
@@ -158,7 +158,7 @@ You can get a complete list of the <code>info</code> sub-commands with
 <code>set prompt $</code>.
 
      <p><a name="index-show-97"></a><br><dt><code>show</code><dd>In contrast to <code>info</code>, <code>show</code> is for describing the state of
-<span class="sc">gdb</span> itself.
+<span class="sc">gdb</span> itself. 
 You can change most of the things you can <code>show</code>, by using the
 related command <code>set</code>; for example, you can control what number
 system is used for displays with <code>set radix</code>, or simply inquire
@@ -166,7 +166,7 @@ which is currently in use with <code>show radix</code>.
 
      <p><a name="index-info-set-98"></a>To display all the settable parameters and their current
 values, you can use <code>show</code> with no arguments; you may also use
-<code>info set</code>.  Both commands produce the same display.
+<code>info set</code>.  Both commands produce the same display. 
 <!-- FIXME: "info set" violates the rule that "info" is for state of -->
 <!-- FIXME...program.  Ck w/ GNU: "info set" to be called something else, -->
 <!-- FIXME...or change desc of rule-eg "state of prog and debugging session"? -->
@@ -176,7 +176,7 @@ values, you can use <code>show</code> with no arguments; you may also use
    <p>Here are three miscellaneous <code>show</code> subcommands, all of which are
 exceptional in lacking corresponding <code>set</code> commands:
 
-
+     
 <a name="index-show-version-99"></a>
 <a name="index-g_t_0040value_007bGDBN_007d-version-number-100"></a>
 <dl><dt><code>show version</code><dd>Show what version of <span class="sc">gdb</span> is running.  You should include this
@@ -185,7 +185,7 @@ information in <span class="sc">gdb</span> bug-reports.  If multiple versions of
 version of <span class="sc">gdb</span> you are running; as <span class="sc">gdb</span> evolves, new
 commands are introduced, and old ones may wither away.  Also, many
 system vendors ship variant versions of <span class="sc">gdb</span>, and there are
-variant versions of <span class="sc">gdb</span> in <span class="sc">gnu</span>/Linux distributions as well.
+variant versions of <span class="sc">gdb</span> in <span class="sc">gnu</span>/Linux distributions as well. 
 The version number is the same as the one announced when you start
 <span class="sc">gdb</span>.
 
@@ -197,3 +197,4 @@ if your version of <span class="sc">gdb</span> comes with one.
    </dl>
 
    </body></html>
+

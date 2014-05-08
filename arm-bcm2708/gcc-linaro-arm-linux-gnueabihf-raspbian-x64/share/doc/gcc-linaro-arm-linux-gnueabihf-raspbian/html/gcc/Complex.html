@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -95,11 +95,12 @@ provided as built-in functions by GCC.
  <p>GCC can allocate complex automatic variables in a noncontiguous
 fashion; it's even possible for the real part to be in a register while
 the imaginary part is on the stack (or vice versa).  Only the DWARF 2
-debug info format can represent this, so use of DWARF 2 is recommended.
+debug info format can represent this, so use of DWARF 2 is recommended. 
 If you are using the stabs debug info format, GCC describes a noncontiguous
-complex variable as if it were two separate variables of noncomplex type.
+complex variable as if it were two separate variables of noncomplex type. 
 If the variable's actual name is <code>foo</code>, the two fictitious
 variables are named <code>foo$real</code> and <code>foo$imag</code>.  You can
 examine and set these two fictitious variables with your debugger.
 
  </body></html>
+

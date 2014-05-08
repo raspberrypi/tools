@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,7 +66,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Intrinsic-Procedures.html#Intrinsic-Pro
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>A</var>    </td><td valign="top" width="70%">Shall be of type <code>INTEGER</code>,
-<code>REAL</code>, or <code>COMPLEX</code>.
+<code>REAL</code>, or <code>COMPLEX</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>KIND</var> </td><td valign="top" width="70%">(Optional) An <code>INTEGER</code> initialization
 expression indicating the kind parameter of the result.
      <br></td></tr></table>
@@ -76,10 +76,10 @@ the following rules:
 
           <dl>
 <dt>(A)<dd>If <var>A</var> is of type <code>INTEGER</code>, <code>INT(A) = A</code>
-<br><dt>(B)<dd>If <var>A</var> is of type <code>REAL</code> and |A| &lt; 1, <code>INT(A)</code> equals <code>0</code>.
+<br><dt>(B)<dd>If <var>A</var> is of type <code>REAL</code> and |A| &lt; 1, <code>INT(A)</code> equals <code>0</code>. 
 If |A| \geq 1, then <code>INT(A)</code> equals the largest integer that does not exceed
-the range of <var>A</var> and whose sign is the same as the sign of <var>A</var>.
-<br><dt>(C)<dd>If <var>A</var> is of type <code>COMPLEX</code>, rule B is applied to the real part of <var>A</var>.
+the range of <var>A</var> and whose sign is the same as the sign of <var>A</var>. 
+<br><dt>(C)<dd>If <var>A</var> is of type <code>COMPLEX</code>, rule B is applied to the real part of <var>A</var>. 
 </dl>
 
      <br><dt><em>Example</em>:<dd>
@@ -100,3 +100,4 @@ the range of <var>A</var> and whose sign is the same as the sign of <var>A</var>
    </dl>
 
    </body></html>
+

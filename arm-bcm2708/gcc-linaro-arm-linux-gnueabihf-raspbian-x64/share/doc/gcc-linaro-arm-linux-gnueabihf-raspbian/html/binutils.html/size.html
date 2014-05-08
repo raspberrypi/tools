@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -63,7 +63,7 @@ size&mdash;for each of the object or archive files <var>objfile</var> in its
 argument list.  By default, one line of output is generated for each
 object file or each module in an archive.
 
-   <p><var>objfile</var><small class="dots">...</small> are the object files to be examined.
+   <p><var>objfile</var><small class="dots">...</small> are the object files to be examined. 
 If none are specified, the file <code>a.out</code> will be used.
 
 <!-- man end -->
@@ -75,7 +75,7 @@ If none are specified, the file <code>a.out</code> will be used.
 <samp><span class="command">size</span></samp> resembles output from System V <samp><span class="command">size</span></samp> (using <samp><span class="option">-A</span></samp>,
 or <samp><span class="option">--format=sysv</span></samp>), or Berkeley <samp><span class="command">size</span></samp> (using <samp><span class="option">-B</span></samp>, or
 <samp><span class="option">--format=berkeley</span></samp>).  The default is the one-line format similar to
-Berkeley's.
+Berkeley's. 
 <!-- Bonus for doc-source readers: you can also say -format=strange (or -->
 <!-- anything else that starts with 's') for sysv, and -format=boring (or -->
 <!-- anything else that starts with 'b') for Berkeley. -->
@@ -96,8 +96,8 @@ Berkeley's.
           .data          81920       303104
           .bss           11592       385024
           Total         388392
-
-
+          
+          
           size  :
           section         size         addr
           .text         294880         8192
@@ -122,11 +122,12 @@ format these are included in the bss size.
 
      <br><dt><samp><span class="env">--target=</span><var>bfdname</var></samp><dd><a name="index-object-code-format-122"></a>Specify that the object-code format for <var>objfile</var> is
 <var>bfdname</var>.  This option may not be necessary; <samp><span class="command">size</span></samp> can
-automatically recognize many formats.
+automatically recognize many formats. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
-     <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Display the version number of <samp><span class="command">size</span></samp>.
+     <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Display the version number of <samp><span class="command">size</span></samp>. 
 </dl>
 
 <!-- man end -->
    </body></html>
+

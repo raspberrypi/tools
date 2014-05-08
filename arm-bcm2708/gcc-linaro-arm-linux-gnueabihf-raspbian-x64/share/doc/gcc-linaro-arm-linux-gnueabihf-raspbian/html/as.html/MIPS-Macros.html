@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ memory offsets to the full address range (32 or 64 bits) and to allow
 symbolic offsets such as &lsquo;<samp><span class="samp">my_data + 4</span></samp>&rsquo; to be used in place of
 integer constants.  For example, the architectural instruction
 <code>lbu</code> allows only a signed 16-bit offset, whereas the macro
-<code>lbu</code> allows code such as &lsquo;<samp><span class="samp">lbu $4,array+32769($5)</span></samp>&rsquo;.
+<code>lbu</code> allows code such as &lsquo;<samp><span class="samp">lbu $4,array+32769($5)</span></samp>&rsquo;. 
 The implementation of these symbolic offsets depends on several factors,
 such as whether the assembler is generating SVR4-style PIC (selected by
 <samp><span class="option">-KPIC</span></samp>, see <a href="MIPS-Options.html#MIPS-Options">Assembler options</a>), the size of symbols
@@ -104,3 +104,4 @@ see <a href="Macro.html#Macro"><code>.macro</code></a>.</p>
    <hr></div>
 
    </body></html>
+

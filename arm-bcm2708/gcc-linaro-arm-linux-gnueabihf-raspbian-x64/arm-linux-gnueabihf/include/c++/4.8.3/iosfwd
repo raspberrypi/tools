@@ -124,7 +124,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 
   /// Base class for @c char streams.
-  typedef basic_ios<char> 		ios;
+  typedef basic_ios<char> 		ios; 
 
   /// Base class for @c char buffers.
   typedef basic_streambuf<char> 	streambuf;

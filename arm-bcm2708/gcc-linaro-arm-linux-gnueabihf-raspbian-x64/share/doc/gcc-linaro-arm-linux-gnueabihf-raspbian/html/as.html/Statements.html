@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Syntax.html#Syntax">Syntax</a>
 A <dfn>statement</dfn> ends at a newline character (&lsquo;<samp><span class="samp">\n</span></samp>&rsquo;) or a
 <dfn>line separator character</dfn>.  The line separator character is target
 specific and described in the <em>Syntax</em> section of each
-target's documentation.  Not all targets support a line separator character.
+target's documentation.  Not all targets support a line separator character. 
 The newline or line separator character is considered to be part of the
 preceding statement.  Newlines and separators within character constants are an
 exception: they do not end statements.
@@ -70,13 +70,13 @@ symbol determines the syntax of the rest of the statement.  If the
 symbol begins with a dot &lsquo;<samp><span class="samp">.</span></samp>&rsquo; then the statement is an assembler
 directive: typically valid for any computer.  If the symbol begins with
 a letter the statement is an assembly language <dfn>instruction</dfn>: it
-assembles into a machine language instruction.
+assembles into a machine language instruction. 
 Different versions of <samp><span class="command">as</span></samp> for different computers
 recognize different instructions.  In fact, the same symbol may
 represent a different instruction in a different computer's assembly
 language.
 
-   <p><a name="index-g_t_0040code_007b_003a_007d-_0028label_0029-137"></a><a name="index-label-_0028_0040code_007b_003a_007d_0029-138"></a>A label is a symbol immediately followed by a colon (<code>:</code>).
+   <p><a name="index-g_t_0040code_007b_003a_007d-_0028label_0029-137"></a><a name="index-label-_0028_0040code_007b_003a_007d_0029-138"></a>A label is a symbol immediately followed by a colon (<code>:</code>). 
 Whitespace before a label or after a colon is permitted, but you may not
 have whitespace between a label's symbol and its colon. See <a href="Labels.html#Labels">Labels</a>.
 
@@ -89,3 +89,4 @@ only one label may be defined on each line.
                 instruction   operand_1, operand_2, ...
 </pre>
    </body></html>
+

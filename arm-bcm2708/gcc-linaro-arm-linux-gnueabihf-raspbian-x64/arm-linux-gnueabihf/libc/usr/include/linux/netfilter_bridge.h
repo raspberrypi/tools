@@ -1,7 +1,7 @@
 #ifndef __LINUX_BRIDGE_NETFILTER_H
 #define __LINUX_BRIDGE_NETFILTER_H
 
-/* bridge-specific defines for netfilter.
+/* bridge-specific defines for netfilter. 
  */
 
 #include <linux/netfilter.h>

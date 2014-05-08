@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ using <samp><span class="command">objcopy</span></samp>.
 <dt><code>save gdb-index </code><var>directory</var><dd><a name="index-save-gdb_002dindex-1120"></a>Create an index file for each symbol file currently known by
 <span class="sc">gdb</span>.  Each file is named after its corresponding symbol file,
 with &lsquo;<samp><span class="samp">.gdb-index</span></samp>&rsquo; appended, and is written into the given
-<var>directory</var>.
+<var>directory</var>. 
 </dl>
 
    <p>Once you have created an index file you can merge it into your symbol
@@ -76,11 +76,11 @@ file, here named <samp><span class="file">symfile</span></samp>, using <samp><sp
 </pre>
    <p><span class="sc">gdb</span> will normally ignore older versions of <samp><span class="file">.gdb_index</span></samp>
 sections that have been deprecated.  Usually they are deprecated because
-they are missing a new feature or have performance issues.
+they are missing a new feature or have performance issues. 
 To tell <span class="sc">gdb</span> to use a deprecated index section anyway
-specify <code>set use-deprecated-index-sections on</code>.
-The default is <code>off</code>.
-This can speed up startup, but may result in some functionality being lost.
+specify <code>set use-deprecated-index-sections on</code>. 
+The default is <code>off</code>. 
+This can speed up startup, but may result in some functionality being lost. 
 See <a href="Index-Section-Format.html#Index-Section-Format">Index Section Format</a>.
 
    <p><em>Warning:</em> Setting <code>use-deprecated-index-sections</code> to <code>on</code>
@@ -97,3 +97,4 @@ for DWARF debugging information, not stabs.  And, they do not
 currently work for programs using Ada.
 
    </body></html>
+

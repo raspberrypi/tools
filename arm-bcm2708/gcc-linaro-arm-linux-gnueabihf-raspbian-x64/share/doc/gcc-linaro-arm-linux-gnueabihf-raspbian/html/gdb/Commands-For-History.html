@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,10 +48,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Bindable-Readline-Commands.html#Bindabl
 <h4 class="subsection">32.4.2 Commands For Manipulating The History</h4>
 
      <dl>
-<dt><code>accept-line (Newline or Return)</code><a name="index-accept_002dline-_0028Newline-or-Return_0029-2486"></a><dd>Accept the line regardless of where the cursor is.
+<dt><code>accept-line (Newline or Return)</code><a name="index-accept_002dline-_0028Newline-or-Return_0029-2486"></a><dd>Accept the line regardless of where the cursor is. 
 If this line is
 non-empty, it may be added to the history list for future recall with
-<code>add_history()</code>.
+<code>add_history()</code>. 
 If this line is a modified history line, the history line is restored
 to its original state.
 
@@ -79,8 +79,8 @@ through the the history as necessary using a non-incremental search
 for a string supplied by the user.
 
      <br><dt><code>history-search-forward ()</code><a name="index-history_002dsearch_002dforward-_0028_0029-2495"></a><dd>Search forward through the history for the string of characters
-between the start of the current line and the point.
-This is a non-incremental search.
+between the start of the current line and the point. 
+This is a non-incremental search. 
 By default, this command is unbound.
 
      <br><dt><code>history-search-backward ()</code><a name="index-history_002dsearch_002dbackward-_0028_0029-2496"></a><dd>Search backward through the history for the string of characters
@@ -88,26 +88,27 @@ between the start of the current line and the point.  This
 is a non-incremental search.  By default, this command is unbound.
 
      <br><dt><code>yank-nth-arg (M-C-y)</code><a name="index-yank_002dnth_002darg-_0028M_002dC_002dy_0029-2497"></a><dd>Insert the first argument to the previous command (usually
-the second word on the previous line) at point.
+the second word on the previous line) at point. 
 With an argument <var>n</var>,
 insert the <var>n</var>th word from the previous command (the words
 in the previous command begin with word 0).  A negative argument
-inserts the <var>n</var>th word from the end of the previous command.
+inserts the <var>n</var>th word from the end of the previous command. 
 Once the argument <var>n</var> is computed, the argument is extracted
 as if the &lsquo;<samp><span class="samp">!</span><var>n</var></samp>&rsquo; history expansion had been specified.
 
      <br><dt><code>yank-last-arg (M-. or M-_)</code><a name="index-yank_002dlast_002darg-_0028M_002d_002e-or-M_002d_005f_0029-2498"></a><dd>Insert last argument to the previous command (the last word of the
-previous history entry).
-With a numeric argument, behave exactly like <code>yank-nth-arg</code>.
+previous history entry). 
+With a numeric argument, behave exactly like <code>yank-nth-arg</code>. 
 Successive calls to <code>yank-last-arg</code> move back through the history
 list, inserting the last word (or the word specified by the argument to
-the first call) of each line in turn.
+the first call) of each line in turn. 
 Any numeric argument supplied to these successive calls determines
 the direction to move through the history.  A negative argument switches
-the direction through the history (back or forward).
+the direction through the history (back or forward). 
 The history expansion facilities are used to extract the last argument,
 as if the &lsquo;<samp><span class="samp">!$</span></samp>&rsquo; history expansion had been specified.
 
 </dl>
 
    </body></html>
+

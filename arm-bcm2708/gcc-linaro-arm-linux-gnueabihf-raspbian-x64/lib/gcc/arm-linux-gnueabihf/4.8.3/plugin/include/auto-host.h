@@ -1627,7 +1627,7 @@
 
 /* Define as const if the declaration of iconv() needs const. */
 #ifndef USED_FOR_TARGET
-#define ICONV_CONST
+#define ICONV_CONST 
 #endif
 
 
@@ -2053,3 +2053,4 @@
 #ifndef USED_FOR_TARGET
 /* #undef vfork */
 #endif
+

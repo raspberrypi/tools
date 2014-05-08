@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,43 +66,43 @@ operator, like:
 
 <div class="defun">
 &mdash; Function: <b>gdb.selected_frame</b> ()<var><a name="index-gdb_002eselected_005fframe-2010"></a></var><br>
-<blockquote><p>Return the selected frame object.  (see <a href="Selection.html#Selection">Selecting a Frame</a>).
+<blockquote><p>Return the selected frame object.  (see <a href="Selection.html#Selection">Selecting a Frame</a>). 
 </p></blockquote></div>
 
    <p><a name="index-gdb_002enewest_005fframe-2011"></a>
 
 <div class="defun">
 &mdash; Function: <b>gdb.newest_frame</b> ()<var><a name="index-gdb_002enewest_005fframe-2012"></a></var><br>
-<blockquote><p>Return the newest frame object for the selected thread.
+<blockquote><p>Return the newest frame object for the selected thread. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>gdb.frame_stop_reason_string</b> (<var>reason</var>)<var><a name="index-gdb_002eframe_005fstop_005freason_005fstring-2013"></a></var><br>
 <blockquote><p>Return a string explaining the reason why <span class="sc">gdb</span> stopped unwinding
 frames, as expressed by the given <var>reason</var> code (an integer, see the
-<code>unwind_stop_reason</code> method further down in this section).
+<code>unwind_stop_reason</code> method further down in this section). 
 </p></blockquote></div>
 
    <p>A <code>gdb.Frame</code> object has the following methods:
 
 <div class="defun">
 &mdash; Function: <b>Frame.is_valid</b> ()<var><a name="index-Frame_002eis_005fvalid-2014"></a></var><br>
-<blockquote><p>Returns true if the <code>gdb.Frame</code> object is valid, false if not.
+<blockquote><p>Returns true if the <code>gdb.Frame</code> object is valid, false if not. 
 A frame object can become invalid if the frame it refers to doesn't
 exist anymore in the inferior.  All <code>gdb.Frame</code> methods will throw
-an exception if it is invalid at the time the method is called.
+an exception if it is invalid at the time the method is called. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.name</b> ()<var><a name="index-Frame_002ename-2015"></a></var><br>
 <blockquote><p>Returns the function name of the frame, or <code>None</code> if it can't be
-obtained.
+obtained. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.architecture</b> ()<var><a name="index-Frame_002earchitecture-2016"></a></var><br>
 <blockquote><p>Returns the <code>gdb.Architecture</code> object corresponding to the frame's
-architecture.  See <a href="Architectures-In-Python.html#Architectures-In-Python">Architectures In Python</a>.
+architecture.  See <a href="Architectures-In-Python.html#Architectures-In-Python">Architectures In Python</a>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -125,7 +125,7 @@ it calls into a signal handler.
           <br><dt><code>gdb.ARCH_FRAME</code><dd>A fake stack frame representing a cross-architecture call.
 
           <br><dt><code>gdb.SENTINEL_FRAME</code><dd>This is like <code>gdb.NORMAL_FRAME</code>, but it is only used for the
-newest frame.
+newest frame. 
 </dl>
         </p></blockquote></div>
 
@@ -175,34 +175,34 @@ versions.  Using it, you could write:
 
 <div class="defun">
 &mdash; Function: <b>Frame.pc</b> ()<var><a name="index-Frame_002epc-2019"></a></var><br>
-<blockquote><p>Returns the frame's resume address.
+<blockquote><p>Returns the frame's resume address. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.block</b> ()<var><a name="index-Frame_002eblock-2020"></a></var><br>
-<blockquote><p>Return the frame's code block.  See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>.
+<blockquote><p>Return the frame's code block.  See <a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.function</b> ()<var><a name="index-Frame_002efunction-2021"></a></var><br>
-<blockquote><p>Return the symbol for the function corresponding to this frame.
-See <a href="Symbols-In-Python.html#Symbols-In-Python">Symbols In Python</a>.
+<blockquote><p>Return the symbol for the function corresponding to this frame. 
+See <a href="Symbols-In-Python.html#Symbols-In-Python">Symbols In Python</a>. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.older</b> ()<var><a name="index-Frame_002eolder-2022"></a></var><br>
-<blockquote><p>Return the frame that called this frame.
+<blockquote><p>Return the frame that called this frame. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.newer</b> ()<var><a name="index-Frame_002enewer-2023"></a></var><br>
-<blockquote><p>Return the frame called by this frame.
+<blockquote><p>Return the frame called by this frame. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.find_sal</b> ()<var><a name="index-Frame_002efind_005fsal-2024"></a></var><br>
-<blockquote><p>Return the frame's symtab and line object.
-See <a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">Symbol Tables In Python</a>.
+<blockquote><p>Return the frame's symtab and line object. 
+See <a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">Symbol Tables In Python</a>. 
 </p></blockquote></div>
 
 <div class="defun">
@@ -212,12 +212,13 @@ argument <var>block</var> is provided, search for the variable from that
 block; otherwise start at the frame's current block (which is
 determined by the frame's current program counter).  <var>variable</var>
 must be a string or a <code>gdb.Symbol</code> object.  <var>block</var> must be a
-<code>gdb.Block</code> object.
+<code>gdb.Block</code> object. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Frame.select</b> ()<var><a name="index-Frame_002eselect-2026"></a></var><br>
-<blockquote><p>Set this frame to be the selected frame.  See <a href="Stack.html#Stack">Examining the Stack</a>.
+<blockquote><p>Set this frame to be the selected frame.  See <a href="Stack.html#Stack">Examining the Stack</a>. 
 </p></blockquote></div>
 
    </body></html>
+

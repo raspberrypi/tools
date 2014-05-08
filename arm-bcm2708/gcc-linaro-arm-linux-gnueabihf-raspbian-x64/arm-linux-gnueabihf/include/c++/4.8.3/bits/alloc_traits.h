@@ -45,13 +45,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       template<typename _Alloc2, typename _Tp2>
 	static constexpr bool
-	_S_chk(typename _Alloc2::template rebind<_Tp2>::other*)
+       	_S_chk(typename _Alloc2::template rebind<_Tp2>::other*)
 	{ return true; }
 
       template<typename, typename>
         static constexpr bool
-	_S_chk(...)
-	{ return false; }
+       	_S_chk(...)
+       	{ return false; }
 
     public:
       static const bool __value = _S_chk<_Alloc, _Tp>(nullptr);
@@ -171,7 +171,7 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_copy_assignment,
        * otherwise @c false_type
       */
       typedef __propagate_on_container_copy_assignment
-	propagate_on_container_copy_assignment;
+       	propagate_on_container_copy_assignment;
 
 _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_move_assignment,
                               false_type)
@@ -183,7 +183,7 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_move_assignment,
        * otherwise @c false_type
       */
       typedef __propagate_on_container_move_assignment
-	propagate_on_container_move_assignment;
+       	propagate_on_container_move_assignment;
 
 _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
                               false_type)
@@ -222,14 +222,14 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
 
       template<typename _Alloc2>
 	static typename
-	enable_if<__allocate_helper<_Alloc2>::value, pointer>::type
-	_S_allocate(_Alloc2& __a, size_type __n, const_void_pointer __hint)
+       	enable_if<__allocate_helper<_Alloc2>::value, pointer>::type
+       	_S_allocate(_Alloc2& __a, size_type __n, const_void_pointer __hint)
 	{ return __a.allocate(__n, __hint); }
 
       template<typename _Alloc2>
 	static typename
-	enable_if<!__allocate_helper<_Alloc2>::value, pointer>::type
-	_S_allocate(_Alloc2& __a, size_type __n, ...)
+       	enable_if<!__allocate_helper<_Alloc2>::value, pointer>::type
+       	_S_allocate(_Alloc2& __a, size_type __n, ...)
 	{ return __a.allocate(__n); }
 
       template<typename _Tp, typename... _Args>
@@ -249,15 +249,15 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
 
       template<typename _Tp, typename... _Args>
 	static typename
-	enable_if<__construct_helper<_Tp, _Args...>::value, void>::type
-	_S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+       	enable_if<__construct_helper<_Tp, _Args...>::value, void>::type
+       	_S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
 	{ __a.construct(__p, std::forward<_Args>(__args)...); }
 
       template<typename _Tp, typename... _Args>
 	static typename
 	enable_if<__and_<__not_<__construct_helper<_Tp, _Args...>>,
 			 is_constructible<_Tp, _Args...>>::value, void>::type
-	_S_construct(_Alloc&, _Tp* __p, _Args&&... __args)
+       	_S_construct(_Alloc&, _Tp* __p, _Args&&... __args)
 	{ ::new((void*)__p) _Tp(std::forward<_Args>(__args)...); }
 
       template<typename _Tp>
@@ -277,12 +277,12 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
 
       template<typename _Tp>
 	static typename enable_if<__destroy_helper<_Tp>::value, void>::type
-	_S_destroy(_Alloc& __a, _Tp* __p)
+       	_S_destroy(_Alloc& __a, _Tp* __p)
 	{ __a.destroy(__p); }
 
       template<typename _Tp>
 	static typename enable_if<!__destroy_helper<_Tp>::value, void>::type
-	_S_destroy(_Alloc&, _Tp* __p)
+       	_S_destroy(_Alloc&, _Tp* __p)
 	{ __p->~_Tp(); }
 
       template<typename _Alloc2>
@@ -301,13 +301,13 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
 
       template<typename _Alloc2>
 	static typename
-	enable_if<__maxsize_helper<_Alloc2>::value, size_type>::type
-	_S_max_size(_Alloc2& __a)
+       	enable_if<__maxsize_helper<_Alloc2>::value, size_type>::type
+       	_S_max_size(_Alloc2& __a)
 	{ return __a.max_size(); }
 
       template<typename _Alloc2>
 	static typename
-	enable_if<!__maxsize_helper<_Alloc2>::value, size_type>::type
+       	enable_if<!__maxsize_helper<_Alloc2>::value, size_type>::type
 	_S_max_size(_Alloc2&)
 	{ return __gnu_cxx::__numeric_traits<size_type>::__max; }
 
@@ -327,14 +327,14 @@ _GLIBCXX_ALLOC_TR_NESTED_TYPE(propagate_on_container_swap,
 	};
       template<typename _Alloc2>
 	static typename
-	enable_if<__select_helper<_Alloc2>::value, _Alloc2>::type
-	_S_select(_Alloc2& __a)
+       	enable_if<__select_helper<_Alloc2>::value, _Alloc2>::type
+       	_S_select(_Alloc2& __a)
 	{ return __a.select_on_container_copy_construction(); }
 
       template<typename _Alloc2>
 	static typename
-	enable_if<!__select_helper<_Alloc2>::value, _Alloc2>::type
-	_S_select(_Alloc2& __a)
+       	enable_if<!__select_helper<_Alloc2>::value, _Alloc2>::type
+       	_S_select(_Alloc2& __a)
 	{ return __a; }
 
     public:

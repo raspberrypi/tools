@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -87,7 +87,7 @@ that source file.  Search proceeds forward from the last examined
 trace snapshot.  If no argument <var>n</var> is given, it means find the
 next line other than the one currently being examined; thus saying
 <code>tfind line</code> repeatedly can appear to have the same effect as
-stepping from line to line in a <em>live</em> debugging session.
+stepping from line to line in a <em>live</em> debugging session. 
 </dl>
 
    <p>The default arguments for the <code>tfind</code> commands are specifically
@@ -97,7 +97,7 @@ snapshot, and <code>tfind -</code> with no argument selects the previous
 trace snapshot.  So, by giving one <code>tfind</code> command, and then
 simply hitting &lt;RET&gt; repeatedly you can examine all the trace
 snapshots in order.  Or, by saying <code>tfind -</code> and then hitting
-&lt;RET&gt; repeatedly you can examine the snapshots in reverse order.
+&lt;RET&gt; repeatedly you can examine the snapshots in reverse order. 
 The <code>tfind line</code> command with no argument selects the snapshot
 for the next source line executed.  The <code>tfind pc</code> command with
 no argument selects the next snapshot with the same program counter
@@ -117,7 +117,7 @@ registers from each trace frame in the buffer, we can say this:
                $trace_frame, $pc, $sp, $fp
      &gt; tfind
      &gt; end
-
+     
      Frame 0, PC = 0020DC64, SP = 0030BF3C, FP = 0030BF44
      Frame 1, PC = 0020DC6C, SP = 0030BF38, FP = 0030BF44
      Frame 2, PC = 0020DC70, SP = 0030BF34, FP = 0030BF44
@@ -138,9 +138,10 @@ the buffer:
      &gt; printf "Frame %d, X == %d\n", $trace_frame, X
      &gt; tfind line
      &gt; end
-
+     
      Frame 0, X = 1
      Frame 7, X = 2
      Frame 13, X = 255
 </pre>
    </body></html>
+

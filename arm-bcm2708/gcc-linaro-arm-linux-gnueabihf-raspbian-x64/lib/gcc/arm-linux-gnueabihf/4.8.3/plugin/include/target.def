@@ -229,7 +229,7 @@ DEFHOOK
 
 /* Return preferred text (sub)section for function DECL.
    Main purpose of this function is to separate cold, normal and hot
-   functions. STARTUP is true when function is known to be used only
+   functions. STARTUP is true when function is known to be used only 
    at startup (from static constructors or it is main()).
    EXIT is true when function is known to be used only at exit
    (from static destructors).
@@ -1327,7 +1327,7 @@ DEFHOOK
 DEFHOOK
 (generate_version_dispatcher_body,
  "",
- tree, (void *arg), NULL)
+ tree, (void *arg), NULL) 
 
 /* Target hook is used to get the dispatcher function for a set of function
    versions.  The dispatcher function is called to invoke the right function
@@ -2899,7 +2899,7 @@ DEFHOOKPOD
  @code{atomic_test_and_set} is not exactly 1, i.e. the\
  @code{bool} @code{true}.",
  unsigned char, 1)
-
+ 
 /* Leave the boolean fields at the end.  */
 
 /* True if we can create zeroed data by switching to a BSS section

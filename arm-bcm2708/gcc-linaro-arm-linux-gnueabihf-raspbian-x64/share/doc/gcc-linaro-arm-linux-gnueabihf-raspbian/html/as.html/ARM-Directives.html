@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ incrementally to the architecture being compiled for.
 
      <p><a name="index-g_t_0040code_007b_002earm_007d-directive_002c-ARM-660"></a><br><dt><code>.arm</code><dd>This performs the same action as <var>.code 32</var>.
 
-     <p><a name="arm_005fpad"></a><a name="index-g_t_0040code_007b_002epad_007d-directive_002c-ARM-661"></a><br><dt><code>.pad #</code><var>count</var><dd>Generate unwinder annotations for a stack adjustment of <var>count</var> bytes.
+     <p><a name="arm_005fpad"></a><a name="index-g_t_0040code_007b_002epad_007d-directive_002c-ARM-661"></a><br><dt><code>.pad #</code><var>count</var><dd>Generate unwinder annotations for a stack adjustment of <var>count</var> bytes. 
 A positive value indicates the function prologue allocated stack space by
 decrementing the stack pointer.
 
@@ -180,7 +180,7 @@ entry for that function.  Anything between this directive and the
 directive.
 
      <!-- IIIIIIIIIIIIIIIIIIIIIIIIII -->
-     <p><a name="index-g_t_0040code_007b_002einst_007d-directive_002c-ARM-676"></a><br><dt><code>.inst </code><var>opcode</var><code> [ , ... ]</code><dt><code>.inst.n </code><var>opcode</var><code> [ , ... ]</code><dt><code>.inst.w </code><var>opcode</var><code> [ , ... ]</code><dd>Generates the instruction corresponding to the numerical value <var>opcode</var>.
+     <p><a name="index-g_t_0040code_007b_002einst_007d-directive_002c-ARM-676"></a><br><dt><code>.inst </code><var>opcode</var><code> [ , ... ]</code><dt><code>.inst.n </code><var>opcode</var><code> [ , ... ]</code><dt><code>.inst.w </code><var>opcode</var><code> [ , ... ]</code><dd>Generates the instruction corresponding to the numerical value <var>opcode</var>. 
 <code>.inst.n</code> and <code>.inst.w</code> allow the Thumb instruction size to be
 specified explicitly, overriding the normal encoding rules.
 
@@ -191,7 +191,7 @@ specified explicitly, overriding the normal encoding rules.
 
      <p><a name="index-g_t_0040code_007b_002eltorg_007d-directive_002c-ARM-677"></a><br><dt><code>.ltorg</code><dd>This directive causes the current contents of the literal pool to be
 dumped into the current section (which is assumed to be the .text
-section) at the current location (aligned to a word boundary).
+section) at the current location (aligned to a word boundary). 
 <code>GAS</code> maintains a separate literal pool for each section and each
 sub-section.  The <code>.ltorg</code> directive will only affect the literal
 pool of the current section and sub-section.  At the end of assembly
@@ -208,8 +208,8 @@ zero.
 
      <!-- NNNNNNNNNNNNNNNNNNNNNNNNNN -->
      <!-- OOOOOOOOOOOOOOOOOOOOOOOOOO -->
-     <p><a name="index-g_t_0040code_007b_002eobject_005farch_007d-directive_002c-ARM-679"></a><br><dt><code>.object_arch </code><var>name</var><dd>Override the architecture recorded in the EABI object attribute section.
-Valid values for <var>name</var> are the same as for the <code>.arch</code> directive.
+     <p><a name="index-g_t_0040code_007b_002eobject_005farch_007d-directive_002c-ARM-679"></a><br><dt><code>.object_arch </code><var>name</var><dd>Override the architecture recorded in the EABI object attribute section. 
+Valid values for <var>name</var> are the same as for the <code>.arch</code> directive. 
 Typically this is useful when code uses runtime detection of CPU features.
 
      <!-- PPPPPPPPPPPPPPPPPPPPPPPPPP -->
@@ -217,7 +217,7 @@ Typically this is useful when code uses runtime detection of CPU features.
 output section.  These are not compatible with current ARM processors
 or ABIs.
 
-     <p><a name="index-g_t_0040code_007b_002epad_007d-directive_002c-ARM-681"></a><br><dt><code>.pad #</code><var>count</var><dd>Generate unwinder annotations for a stack adjustment of <var>count</var> bytes.
+     <p><a name="index-g_t_0040code_007b_002epad_007d-directive_002c-ARM-681"></a><br><dt><code>.pad #</code><var>count</var><dd>Generate unwinder annotations for a stack adjustment of <var>count</var> bytes. 
 A positive value indicates the function prologue allocated stack space by
 decrementing the stack pointer.
 
@@ -236,7 +236,7 @@ example:
      <pre class="smallexample">                  foo .req r0
 </pre>
      <!-- SSSSSSSSSSSSSSSSSSSSSSSSSS -->
-     <p><a name="arm_005fsave"></a><a name="index-g_t_0040code_007b_002esave_007d-directive_002c-ARM-686"></a><br><dt><code>.save </code><var>reglist</var><dd>Generate unwinder annotations to restore the registers in <var>reglist</var>.
+     <p><a name="arm_005fsave"></a><a name="index-g_t_0040code_007b_002esave_007d-directive_002c-ARM-686"></a><br><dt><code>.save </code><var>reglist</var><dd>Generate unwinder annotations to restore the registers in <var>reglist</var>. 
 The format of <var>reglist</var> is the same as the corresponding store-multiple
 instruction.
 
@@ -322,7 +322,7 @@ the stack pointer by <var>offset</var> bytes.
      <!-- VVVVVVVVVVVVVVVVVVVVVVVVVV -->
      <p><a name="index-g_t_0040code_007b_002evsave_007d-directive_002c-ARM-696"></a><br><dt><code>.vsave </code><var>vfp-reglist</var><dd>Generate unwinder annotations to restore the VFP registers in <var>vfp-reglist</var>
 using FLDMD.  Also works for VFPv3 registers
-that are to be restored using VLDM.
+that are to be restored using VLDM. 
 The format of <var>vfp-reglist</var> is the same as the corresponding store-multiple
 instruction.
 
@@ -343,3 +343,4 @@ used in favour of <code>.save</code> for saving VFP registers for ARMv6 and abov
    </dl>
 
    </body></html>
+

@@ -370,7 +370,7 @@ namespace __gnu_pbds
 
       inline iterator
       end();
-
+      
       inline const_iterator
       end() const;
 

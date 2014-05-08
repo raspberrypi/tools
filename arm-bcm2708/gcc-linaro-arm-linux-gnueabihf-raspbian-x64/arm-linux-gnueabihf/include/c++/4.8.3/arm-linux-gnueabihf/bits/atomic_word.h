@@ -37,11 +37,11 @@ typedef int _Atomic_word;
 
 // This one prevents loads from being hoisted across the barrier;
 // in other words, this is a Load-Load acquire barrier.
-// This is necessary iff TARGET_RELAXED_ORDERING is defined in tm.h.
+// This is necessary iff TARGET_RELAXED_ORDERING is defined in tm.h.  
 // #define _GLIBCXX_READ_MEM_BARRIER __asm __volatile ("":::"memory")
 
 // This one prevents stores from being sunk across the barrier; in other
 // words, a Store-Store release barrier.
 // #define _GLIBCXX_WRITE_MEM_BARRIER __asm __volatile ("":::"memory")
 
-#endif
+#endif 

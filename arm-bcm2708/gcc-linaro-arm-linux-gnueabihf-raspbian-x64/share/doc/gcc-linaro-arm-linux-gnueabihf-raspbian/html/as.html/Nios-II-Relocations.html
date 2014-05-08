@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="NiosII_002dDependent.html#NiosII_002dDe
 <h4 class="subsection">9.30.3 Nios II Machine Relocations</h4>
 
 <p><a name="index-machine-relocations_002c-Nios-II-1572"></a><a name="index-Nios-II-machine-relocations-1573"></a>
-
+     
 <a name="index-g_t_0040code_007bhiadj_007d-directive_002c-Nios-II-1574"></a>
 <dl><dt><code>%hiadj(</code><var>expression</var><code>)</code><dd>Extract the upper 16 bits of <var>expression</var> and add
 one if the 15th bit is set.
@@ -76,13 +76,14 @@ takes a 16-bit immediate to access.
 
      <pre class="smallexample">          	.section .sdata
           fastint:
-		.int 123
-		.section .text
-		ldw r4, %gprel(fastint)(gp)
+          	.int 123
+          	.section .text
+          	ldw r4, %gprel(fastint)(gp)
 </pre>
      <p><a name="index-g_t_0040code_007bcall_007d-directive_002c-Nios-II-1578"></a><a name="index-g_t_0040code_007bgot_007d-directive_002c-Nios-II-1579"></a><a name="index-g_t_0040code_007bgotoff_007d-directive_002c-Nios-II-1580"></a><a name="index-g_t_0040code_007bgotoff_005flo_007d-directive_002c-Nios-II-1581"></a><a name="index-g_t_0040code_007bgotoff_005fhiadj_007d-directive_002c-Nios-II-1582"></a><a name="index-g_t_0040code_007btls_005fgd_007d-directive_002c-Nios-II-1583"></a><a name="index-g_t_0040code_007btls_005fie_007d-directive_002c-Nios-II-1584"></a><a name="index-g_t_0040code_007btls_005fle_007d-directive_002c-Nios-II-1585"></a><a name="index-g_t_0040code_007btls_005fldm_007d-directive_002c-Nios-II-1586"></a><a name="index-g_t_0040code_007btls_005fldo_007d-directive_002c-Nios-II-1587"></a><br><dt><code>%call(</code><var>expression</var><code>)</code><dt><code>%got(</code><var>expression</var><code>)</code><dt><code>%gotoff(</code><var>expression</var><code>)</code><dt><code>%gotoff_lo(</code><var>expression</var><code>)</code><dt><code>%gotoff_hiadj(</code><var>expression</var><code>)</code><dt><code>%tls_gd(</code><var>expression</var><code>)</code><dt><code>%tls_ie(</code><var>expression</var><code>)</code><dt><code>%tls_le(</code><var>expression</var><code>)</code><dt><code>%tls_ldm(</code><var>expression</var><code>)</code><dt><code>%tls_ldo(</code><var>expression</var><code>)</code><dd>
 These relocations support the ABI for Linux Systems documented in the
-<cite>Nios II Processor Reference Handbook</cite>.
+<cite>Nios II Processor Reference Handbook</cite>. 
 </dl>
 
    </body></html>
+

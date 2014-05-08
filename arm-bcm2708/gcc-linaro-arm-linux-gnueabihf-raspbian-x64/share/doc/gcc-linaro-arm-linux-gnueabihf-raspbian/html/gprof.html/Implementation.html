@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,12 +59,12 @@ as one of its first operations.
 is responsible for recording in an in-memory call graph table
 both its parent routine (the child) and its parent's parent.  This is
 typically done by examining the stack frame to find both
-the address of the child, and the return address in the original parent.
+the address of the child, and the return address in the original parent. 
 Since this is a very machine-dependent operation, <code>mcount</code>
 itself is typically a short assembly-language stub routine
 that extracts the required
 information, and then calls <code>__mcount_internal</code>
-(a normal C function) with two arguments&mdash;<code>frompc</code> and <code>selfpc</code>.
+(a normal C function) with two arguments&mdash;<code>frompc</code> and <code>selfpc</code>. 
 <code>__mcount_internal</code> is responsible for maintaining
 the in-memory call graph, which records <code>frompc</code>, <code>selfpc</code>,
 and the number of times each of these call arcs was traversed.
@@ -83,7 +83,7 @@ link your program with &lsquo;<samp><span class="samp">gcc ... -pg</span></samp>
 profiling version of the library.
 
    <p>Profiling also involves watching your program as it runs, and keeping a
-histogram of where the program counter happens to be every now and then.
+histogram of where the program counter happens to be every now and then. 
 Typically the program counter is looked at around 100 times per second of
 run time, but the exact frequency may vary from system to system.
 
@@ -91,9 +91,9 @@ run time, but the exact frequency may vary from system to system.
 provide a <code>profil()</code> system call, which registers a memory
 array with the kernel, along with a scale
 factor that determines how the program's address space maps
-into the array.
+into the array. 
 Typical scaling values cause every 2 to 8 bytes of address space
-to map into a single array slot.
+to map into a single array slot. 
 On every tick of the system clock
 (assuming the profiled program is running), the value of the
 program counter is examined and the corresponding slot in
@@ -106,7 +106,7 @@ do not provide a <code>profil()</code> system call.  On such a system,
 arrangements are made for the kernel to periodically deliver
 a signal to the process (typically via <code>setitimer()</code>),
 which then performs the same operation of examining the
-program counter and incrementing a slot in the memory array.
+program counter and incrementing a slot in the memory array. 
 Since this method requires a signal to be delivered to
 user space every time a sample is taken, it uses considerably
 more overhead than kernel-based profiling.  Also, due to the
@@ -115,24 +115,24 @@ less accurate as well.
 
    <p>A special startup routine allocates memory for the histogram and
 either calls <code>profil()</code> or sets up
-a clock signal handler.
-This routine (<code>monstartup</code>) can be invoked in several ways.
+a clock signal handler. 
+This routine (<code>monstartup</code>) can be invoked in several ways. 
 On Linux systems, a special profiling startup file <code>gcrt0.o</code>,
 which invokes <code>monstartup</code> before <code>main</code>,
-is used instead of the default <code>crt0.o</code>.
+is used instead of the default <code>crt0.o</code>. 
 Use of this special startup file is one of the effects
-of using &lsquo;<samp><span class="samp">gcc ... -pg</span></samp>&rsquo; to link.
-On SPARC systems, no special startup files are used.
+of using &lsquo;<samp><span class="samp">gcc ... -pg</span></samp>&rsquo; to link. 
+On SPARC systems, no special startup files are used. 
 Rather, the <code>mcount</code> routine, when it is invoked for
 the first time (typically when <code>main</code> is called),
 calls <code>monstartup</code>.
 
    <p>If the compiler's &lsquo;<samp><span class="samp">-a</span></samp>&rsquo; option was used, basic-block counting
 is also enabled.  Each object file is then compiled with a static array
-of counts, initially zero.
+of counts, initially zero. 
 In the executable code, every time a new basic-block begins
 (i.e., when an <code>if</code> statement appears), an extra instruction
-is inserted to increment the corresponding count in the array.
+is inserted to increment the corresponding count in the array. 
 At compile time, a paired array was constructed that recorded
 the starting address of each basic-block.  Taken together,
 the two arrays record the starting address of every basic-block,
@@ -140,13 +140,13 @@ along with the number of times it was executed.
 
    <p>The profiling library also includes a function (<code>mcleanup</code>) which is
 typically registered using <code>atexit()</code> to be called as the
-program exits, and is responsible for writing the file <samp><span class="file">gmon.out</span></samp>.
+program exits, and is responsible for writing the file <samp><span class="file">gmon.out</span></samp>. 
 Profiling is turned off, various headers are output, and the histogram
 is written, followed by the call-graph arcs and the basic-block counts.
 
    <p>The output from <code>gprof</code> gives no indication of parts of your program that
 are limited by I/O or swapping bandwidth.  This is because samples of the
-program counter are taken at fixed intervals of the program's run time.
+program counter are taken at fixed intervals of the program's run time. 
 Therefore, the
 time measurements in <code>gprof</code> output say nothing about time that your
 program was not running.  For example, a part of the program that creates
@@ -156,3 +156,4 @@ the other hand, sampling by run time has the advantage that the amount of
 load due to other users won't directly affect the output you get.
 
    </body></html>
+

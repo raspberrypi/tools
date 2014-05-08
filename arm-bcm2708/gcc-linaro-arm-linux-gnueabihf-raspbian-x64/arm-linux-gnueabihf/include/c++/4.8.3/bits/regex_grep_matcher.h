@@ -39,7 +39,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     class match_results;
 
 _GLIBCXX_END_NAMESPACE_VERSION
-
+  
 namespace __detail
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
@@ -74,7 +74,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _FwdIterT, typename _Alloc>
     _SpecializedResults<_FwdIterT, _Alloc>::
     _SpecializedResults(const _Automaton::_SizeT __size,
-			const _SpecializedCursor<_FwdIterT>& __cursor,
+    			const _SpecializedCursor<_FwdIterT>& __cursor,
                         match_results<_FwdIterT, _Alloc>& __m)
     : _M_results(__m)
     {
@@ -92,7 +92,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     void
     _SpecializedResults<_FwdIterT, _Alloc>::
     _M_set_pos(int __i, int __j, const _PatternCursor& __pc)
-    {
+    { 
       typedef const _SpecializedCursor<_FwdIterT>& _CursorT;
       _CursorT __c = static_cast<_CursorT>(__pc);
       if (__j == 0)

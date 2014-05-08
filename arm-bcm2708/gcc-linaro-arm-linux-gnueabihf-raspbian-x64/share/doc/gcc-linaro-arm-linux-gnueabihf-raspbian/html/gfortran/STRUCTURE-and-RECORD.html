@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,7 +58,7 @@ user-defined aggregate data types.  GNU Fortran does not support
 record structures, only Fortran 90's &ldquo;derived types&rdquo;, which have
 a different syntax.
 
-   <p>In many cases, record structures can easily be converted to derived types.
+   <p>In many cases, record structures can easily be converted to derived types. 
 To convert, replace <code>STRUCTURE /</code><var>structure-name</var><code>/</code>
 by <code>TYPE</code> <var>type-name</var>.  Additionally, replace
 <code>RECORD /</code><var>structure-name</var><code>/</code> by
@@ -74,11 +74,11 @@ replace the period (<code>.</code>) by the percent sign (<code>%</code>).
        CHARACTER(LEN=200) description
        REAL price
      END STRUCTURE
-
+     
      ! Define two variables, an single record of type ``item''
      ! named ``pear'', and an array of items named ``store_catalog''
      RECORD /item/ pear, store_catalog(100)
-
+     
      ! We can directly access the fields of both variables
      pear.id = 92316
      pear.description = "juicy D'Anjou pear"
@@ -86,7 +86,7 @@ replace the period (<code>.</code>) by the percent sign (<code>%</code>).
      store_catalog(7).id = 7831
      store_catalog(7).description = "milk bottle"
      store_catalog(7).price = 1.2
-
+     
      ! We can also manipulate the whole structure
      store_catalog(12) = pear
      print *, store_catalog(12)
@@ -100,10 +100,10 @@ replace the period (<code>.</code>) by the percent sign (<code>%</code>).
        CHARACTER(LEN=200) description
        REAL price
      END TYPE
-
+     
      ! ``RECORD /name/ variable'' becomes ``TYPE(name) variable''
      TYPE(item) pear, store_catalog(100)
-
+     
      ! Instead of using a dot (.) to access fields of a record, the
      ! standard syntax uses a percent sign (%)
      pear%id = 92316
@@ -112,7 +112,7 @@ replace the period (<code>.</code>) by the percent sign (<code>%</code>).
      store_catalog(7)%id = 7831
      store_catalog(7)%description = "milk bottle"
      store_catalog(7)%price = 1.2
-
+     
      ! Assignments of a whole variable do not change
      store_catalog(12) = pear
      print *, store_catalog(12)
@@ -125,3 +125,4 @@ replace the period (<code>.</code>) by the percent sign (<code>%</code>).
 <!-- http://www.eng.umd.edu/~nsw/ench250/fortran1.htm#UNION and -->
 <!-- http://www.tacc.utexas.edu/services/userguides/pgi/pgiws_ug/pgi32u06.htm -->
    </body></html>
+

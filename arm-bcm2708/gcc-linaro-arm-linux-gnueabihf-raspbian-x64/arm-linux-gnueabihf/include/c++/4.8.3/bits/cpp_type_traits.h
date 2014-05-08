@@ -336,7 +336,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   //
   // A scalar type is an arithmetic type or a pointer type
-  //
+  // 
   template<typename _Tp>
     struct __is_scalar
     : public __traitor<__is_arithmetic<_Tp>, __is_pointer<_Tp> >

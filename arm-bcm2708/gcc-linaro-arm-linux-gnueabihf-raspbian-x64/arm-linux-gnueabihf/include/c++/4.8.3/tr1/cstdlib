@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/cstdlib
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_CSTDLIB
@@ -65,7 +65,7 @@ namespace tr1
 }
 }
 
-#endif // _GLIBCXX_USE_C99
+#endif // _GLIBCXX_USE_C99 
 
 #endif // _GLIBCXX_HOSTED
 

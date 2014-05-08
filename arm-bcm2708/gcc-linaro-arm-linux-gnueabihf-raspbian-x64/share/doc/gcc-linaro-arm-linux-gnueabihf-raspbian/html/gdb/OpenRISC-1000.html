@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,10 +51,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-Processors.html#Embedded-Proce
 <a name="index-or1k-boards-1456"></a>See OR1k Architecture document (<a href="www.opencores.org">www.opencores.org</a>) for more information
 about platform and commands.
 
-
+     
 <a name="index-target-jtag-1457"></a>
 <dl><dt><code>target jtag jtag://</code><var>host</var><code>:</code><var>port</var><dd>
-Connects to remote JTAG server.
+Connects to remote JTAG server. 
 JTAG remote server can be either an or1ksim or JTAG server,
 connected via parallel port to the board.
 
@@ -69,10 +69,10 @@ Simulator, proprietary commands can be executed.
 
      <br><dt><code>info or1k spr </code><var>group</var> <var>register</var><dt><code>info or1k spr </code><var>register</var><dt><code>info or1k spr </code><var>groupno</var> <var>registerno</var><dt><code>info or1k spr </code><var>registerno</var><dd>Shows information about specified spr register.
 
-     <p><a name="index-spr-1460"></a><br><dt><code>spr </code><var>group</var> <var>register</var> <var>value</var><dt><code>spr </code><var>register value</var><dt><code>spr </code><var>groupno</var> <var>registerno value</var><dt><code>spr </code><var>registerno value</var><dd>Writes <var>value</var> to specified spr register.
+     <p><a name="index-spr-1460"></a><br><dt><code>spr </code><var>group</var> <var>register</var> <var>value</var><dt><code>spr </code><var>register value</var><dt><code>spr </code><var>groupno</var> <var>registerno value</var><dt><code>spr </code><var>registerno value</var><dd>Writes <var>value</var> to specified spr register. 
 </dl>
 
-   <p>Some implementations of OpenRISC 1000 Architecture also have hardware trace.
+   <p>Some implementations of OpenRISC 1000 Architecture also have hardware trace. 
 It is very similar to <span class="sc">gdb</span> trace, except it does not interfere with normal
 program execution and is thus much faster.  Hardware breakpoints/watchpoint
 triggers can be set using:
@@ -88,7 +88,7 @@ triggers can be set using:
 
    <p><code>htrace</code> commands:
 <a name="index-OpenRISC-1000-htrace-1461"></a>
-
+     
 <a name="index-hwatch-1462"></a>
 <dl><dt><code>hwatch </code><var>conditional</var><dd>Set hardware watchpoint on combination of Load/Store Effective Address(es)
 or Data.  For example:
@@ -124,3 +124,4 @@ will be written there.
    </dl>
 
    </body></html>
+

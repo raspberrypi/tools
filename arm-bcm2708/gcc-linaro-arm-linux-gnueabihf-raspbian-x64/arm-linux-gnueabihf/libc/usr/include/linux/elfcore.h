@@ -90,7 +90,7 @@ struct elf_prpsinfo
 
 typedef struct elf_prstatus prstatus_t;
 typedef struct elf_prpsinfo prpsinfo_t;
-#define PRARGSZ ELF_PRARGSZ
+#define PRARGSZ ELF_PRARGSZ 
 
 
 #endif /* _LINUX_ELFCORE_H */

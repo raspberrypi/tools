@@ -136,7 +136,7 @@ splay_zig_zag_right(node_pointer p_nd, node_pointer p_parent,
   PB_DS_ASSERT_BASE_NODE_CONSISTENT(p_grandparent)
 
   _GLIBCXX_DEBUG_ASSERT(p_parent->m_p_right == p_nd &&
-			p_grandparent->m_p_left == p_parent);
+	  		p_grandparent->m_p_left == p_parent);
 
   splay_zz_start(p_nd, p_parent, p_grandparent);
 

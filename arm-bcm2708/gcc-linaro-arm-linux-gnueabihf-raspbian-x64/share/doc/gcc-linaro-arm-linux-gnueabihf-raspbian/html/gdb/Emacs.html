@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -53,7 +53,7 @@ edit) the source files for the program you are debugging with
    <p>To use this interface, use the command <kbd>M-x gdb</kbd> in Emacs.  Give the
 executable file you want to debug as an argument.  This command starts
 <span class="sc">gdb</span> as a subprocess of Emacs, with input and output through a newly
-created Emacs buffer.
+created Emacs buffer. 
 <!-- (Do not use the @code{-tui} option to run @value{GDBN} from Emacs.) -->
 
    <p>Running <span class="sc">gdb</span> under Emacs can be just like running <span class="sc">gdb</span> normally except for two
@@ -84,12 +84,12 @@ source display, and splits the screen to show both your <span class="sc">gdb</sp
 and the source.
 
      <p>Explicit <span class="sc">gdb</span> <code>list</code> or search commands still produce output as
-usual, but you probably have no reason to use them from Emacs.
+usual, but you probably have no reason to use them from Emacs. 
 </ul>
 
    <p>We call this <dfn>text command mode</dfn>.  Emacs 22.1, and later, also uses
 a graphical mode, enabled by default, which provides further buffers
-that can control the execution and describe the state of your program.
+that can control the execution and describe the state of your program. 
 See <a href="../Emacs/GDB-Graphical-Interface.html#GDB-Graphical-Interface">GDB Graphical Interface</a>.
 
    <p>If you specify an absolute file name when prompted for the <kbd>M-x
@@ -139,14 +139,14 @@ command.
 like the <span class="sc">gdb</span> <code>up</code> command.
 
      <br><dt><kbd>C-c &gt;</kbd><dd>Go down the number of frames indicated by the numeric argument, like the
-<span class="sc">gdb</span> <code>down</code> command.
+<span class="sc">gdb</span> <code>down</code> command. 
 </dl>
 
    <p>In any source file, the Emacs command <kbd>C-x &lt;SPC&gt;</kbd> (<code>gud-break</code>)
 tells <span class="sc">gdb</span> to set a breakpoint on the source line point is on.
 
    <p>In text command mode, if you type <kbd>M-x speedbar</kbd>, Emacs displays a
-separate frame which shows a backtrace when the GUD buffer is current.
+separate frame which shows a backtrace when the GUD buffer is current. 
 Move point to any frame in the stack and type &lt;RET&gt; to make it
 become the current frame and display the associated source in the
 source buffer.  Alternatively, click <kbd>Mouse-2</kbd> to make the
@@ -170,3 +170,4 @@ to correspond properly with the code.
 given in the Emacs manual (see <a href="../Emacs/Debuggers.html#Debuggers">Debuggers</a>).
 
    </body></html>
+

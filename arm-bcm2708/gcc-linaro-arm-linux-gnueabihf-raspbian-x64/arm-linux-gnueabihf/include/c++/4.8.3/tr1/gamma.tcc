@@ -430,7 +430,7 @@ namespace tr1
 
     /**
      *   @brief  Return the polygamma function @f$ \psi^{(n)}(x) @f$.
-     *
+     * 
      *   The polygamma function is related to the Hurwitz zeta function:
      *   @f[
      *     \psi^{(n)}(x) = (-1)^{n+1} m! \zeta(m+1,x)
@@ -466,3 +466,4 @@ namespace tr1
 }
 
 #endif // _GLIBCXX_TR1_GAMMA_TCC
+

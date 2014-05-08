@@ -15,7 +15,7 @@
 
 /* Flags */
 /* Warning: serial.h defines some ASYNC_ flags, they say they are "only"
-   used in serial.c, but they are also used in all other serial drivers.
+   used in serial.c, but they are also used in all other serial drivers. 
    Make sure they don't clash with these here... */
 #define GS_TX_INTEN      0x00800000
 #define GS_RX_INTEN      0x00400000

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,7 +61,7 @@ file.
      <li>Point the relevant_entry field of the descriptor at the entry.
 
      <li>Set <code>action_flag</code> to <code>JIT_REGISTER</code> and call
-<code>__jit_debug_register_code</code>.
+<code>__jit_debug_register_code</code>. 
 </ul>
 
    <p>When <span class="sc">gdb</span> is attached and the breakpoint fires, <span class="sc">gdb</span> uses the
@@ -70,3 +70,4 @@ new code.  However, the linked list must still be maintained in order to allow
 <span class="sc">gdb</span> to attach to a running process and still find the symbol files.
 
    </body></html>
+

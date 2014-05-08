@@ -65,7 +65,7 @@ namespace __gnu_profile
     void
     __destruct(std::size_t __chain, std::size_t __accesses,
 	       std::size_t __hops)
-    {
+    { 
       _M_longest_chain  = std::max(_M_longest_chain, __chain);
       _M_accesses      += __accesses;
       _M_hops          += __hops;
@@ -92,7 +92,7 @@ namespace __gnu_profile
 
 
   /** @brief A hash performance instrumentation line in the stack table.  */
-  class __hashfunc_stack_info
+  class __hashfunc_stack_info 
   : public __hashfunc_info
   {
   public:
@@ -103,7 +103,7 @@ namespace __gnu_profile
 
   /** @brief Hash performance instrumentation producer.  */
   class __trace_hash_func
-  : public __trace_base<__hashfunc_info, __hashfunc_stack_info>
+  : public __trace_base<__hashfunc_info, __hashfunc_stack_info> 
   {
   public:
     __trace_hash_func()
@@ -111,7 +111,7 @@ namespace __gnu_profile
     { __id = "hash-distr"; }
 
     ~__trace_hash_func() {}
-
+    
     // Insert a new node at construct with object, callstack and initial size.
     void
     __insert(__object_t __obj, __stack_t __stack)

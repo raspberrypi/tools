@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -73,7 +73,7 @@ that GCC is targeting, like <samp><span class="option">-mcpu</span></samp> or <s
  <p>The Darwin tools vary in their behavior when presented with an ISA
 mismatch.  The assembler, <samp><span class="file">as</span></samp>, only permits instructions to
 be used that are valid for the subtype of the file it is generating,
-so you cannot put 64-bit instructions in a &lsquo;<samp><span class="samp">ppc750</span></samp>&rsquo; object file.
+so you cannot put 64-bit instructions in a &lsquo;<samp><span class="samp">ppc750</span></samp>&rsquo; object file. 
 The linker for shared libraries, <samp><span class="file">/usr/bin/libtool</span></samp>, fails
 and prints an error if asked to create a shared library with a less
 restrictive subtype than its input files (for instance, trying to put
@@ -94,7 +94,7 @@ in <samp><span class="file">.framework</span></samp>.  The name of a framework i
 directory excluding the <samp><span class="file">.framework</span></samp>.  Headers associated with
 the framework are found in one of those two directories, with
 <samp><span class="file">Headers</span></samp> being searched first.  A subframework is a framework
-directory that is in a framework's <samp><span class="file">Frameworks</span></samp> directory.
+directory that is in a framework's <samp><span class="file">Frameworks</span></samp> directory. 
 Includes of subframework headers can only appear in a header of a
 framework that contains the subframework, or in a sibling subframework
 header.  Two subframeworks are siblings if they occur in the same
@@ -115,7 +115,7 @@ warn about constructs contained within header files found via
 <var>dir</var>.  This option is valid only for the C family of languages.
 
      <br><dt><code>-gused</code><dd><a name="index-gused-1245"></a>Emit debugging information for symbols that are used.  For stabs
-debugging format, this enables <samp><span class="option">-feliminate-unused-debug-symbols</span></samp>.
+debugging format, this enables <samp><span class="option">-feliminate-unused-debug-symbols</span></samp>. 
 This is by default ON.
 
      <br><dt><code>-gfull</code><dd><a name="index-gfull-1246"></a>Emit debugging information for all symbols and types.
@@ -137,7 +137,7 @@ applicable.  This mode also sets <samp><span class="option">-mno-altivec</span><
 <samp><span class="option">-msoft-float</span></samp>, <samp><span class="option">-fno-builtin</span></samp> and
 <samp><span class="option">-mlong-branch</span></samp> for PowerPC targets.
 
-     <br><dt><code>-mone-byte-bool</code><dd><a name="index-mone_002dbyte_002dbool-1248"></a>Override the defaults for &lsquo;<samp><span class="samp">bool</span></samp>&rsquo; so that &lsquo;<samp><span class="samp">sizeof(bool)==1</span></samp>&rsquo;.
+     <br><dt><code>-mone-byte-bool</code><dd><a name="index-mone_002dbyte_002dbool-1248"></a>Override the defaults for &lsquo;<samp><span class="samp">bool</span></samp>&rsquo; so that &lsquo;<samp><span class="samp">sizeof(bool)==1</span></samp>&rsquo;. 
 By default &lsquo;<samp><span class="samp">sizeof(bool)</span></samp>&rsquo; is &lsquo;<samp><span class="samp">4</span></samp>&rsquo; when compiling for
 Darwin/PowerPC and &lsquo;<samp><span class="samp">1</span></samp>&rsquo; when compiling for Darwin/x86, so this
 option has no effect on x86.
@@ -153,7 +153,7 @@ allow GDB to dynamically load <code>.o</code> files into already-running
 programs.  <samp><span class="option">-findirect-data</span></samp> and <samp><span class="option">-ffix-and-continue</span></samp>
 are provided for backwards compatibility.
 
-     <br><dt><code>-all_load</code><dd><a name="index-all_005fload-1252"></a>Loads all members of static archive libraries.
+     <br><dt><code>-all_load</code><dd><a name="index-all_005fload-1252"></a>Loads all members of static archive libraries. 
 See man ld(1) for more information.
 
      <br><dt><code>-arch_errors_fatal</code><dd><a name="index-arch_005ferrors_005ffatal-1253"></a>Cause the errors having to do with files that have the wrong architecture
@@ -162,7 +162,7 @@ to be fatal.
      <br><dt><code>-bind_at_load</code><dd><a name="index-bind_005fat_005fload-1254"></a>Causes the output file to be marked such that the dynamic linker will
 bind all undefined references when the file is loaded or launched.
 
-     <br><dt><code>-bundle</code><dd><a name="index-bundle-1255"></a>Produce a Mach-o bundle format file.
+     <br><dt><code>-bundle</code><dd><a name="index-bundle-1255"></a>Produce a Mach-o bundle format file. 
 See man ld(1) for more information.
 
      <br><dt><code>-bundle_loader </code><var>executable</var><dd><a name="index-bundle_005floader-1256"></a>This option specifies the <var>executable</var> that will load the build
@@ -175,7 +175,8 @@ an executable when linking, using the Darwin <samp><span class="file">libtool</s
 one controlled by the <samp><span class="option">-mcpu</span></samp> or <samp><span class="option">-march</span></samp> option.
 
      <br><dt><code>-allowable_client  </code><var>client_name</var><dt><code>-client_name</code><dt><code>-compatibility_version</code><dt><code>-current_version</code><dt><code>-dead_strip</code><dt><code>-dependency-file</code><dt><code>-dylib_file</code><dt><code>-dylinker_install_name</code><dt><code>-dynamic</code><dt><code>-exported_symbols_list</code><dt><code>-filelist</code><dt><code>-flat_namespace</code><dt><code>-force_flat_namespace</code><dt><code>-headerpad_max_install_names</code><dt><code>-image_base</code><dt><code>-init</code><dt><code>-install_name</code><dt><code>-keep_private_externs</code><dt><code>-multi_module</code><dt><code>-multiply_defined</code><dt><code>-multiply_defined_unused</code><dt><code>-noall_load</code><dt><code>-no_dead_strip_inits_and_terms</code><dt><code>-nofixprebinding</code><dt><code>-nomultidefs</code><dt><code>-noprebind</code><dt><code>-noseglinkedit</code><dt><code>-pagezero_size</code><dt><code>-prebind</code><dt><code>-prebind_all_twolevel_modules</code><dt><code>-private_bundle</code><dt><code>-read_only_relocs</code><dt><code>-sectalign</code><dt><code>-sectobjectsymbols</code><dt><code>-whyload</code><dt><code>-seg1addr</code><dt><code>-sectcreate</code><dt><code>-sectobjectsymbols</code><dt><code>-sectorder</code><dt><code>-segaddr</code><dt><code>-segs_read_only_addr</code><dt><code>-segs_read_write_addr</code><dt><code>-seg_addr_table</code><dt><code>-seg_addr_table_filename</code><dt><code>-seglinkedit</code><dt><code>-segprot</code><dt><code>-segs_read_only_addr</code><dt><code>-segs_read_write_addr</code><dt><code>-single_module</code><dt><code>-static</code><dt><code>-sub_library</code><dt><code>-sub_umbrella</code><dt><code>-twolevel_namespace</code><dt><code>-umbrella</code><dt><code>-undefined</code><dt><code>-unexported_symbols_list</code><dt><code>-weak_reference_mismatches</code><dt><code>-whatsloaded</code><dd><a name="index-allowable_005fclient-1259"></a><a name="index-client_005fname-1260"></a><a name="index-compatibility_005fversion-1261"></a><a name="index-current_005fversion-1262"></a><a name="index-dead_005fstrip-1263"></a><a name="index-dependency_002dfile-1264"></a><a name="index-dylib_005ffile-1265"></a><a name="index-dylinker_005finstall_005fname-1266"></a><a name="index-dynamic-1267"></a><a name="index-exported_005fsymbols_005flist-1268"></a><a name="index-filelist-1269"></a><a name="index-flat_005fnamespace-1270"></a><a name="index-force_005fflat_005fnamespace-1271"></a><a name="index-headerpad_005fmax_005finstall_005fnames-1272"></a><a name="index-image_005fbase-1273"></a><a name="index-init-1274"></a><a name="index-install_005fname-1275"></a><a name="index-keep_005fprivate_005fexterns-1276"></a><a name="index-multi_005fmodule-1277"></a><a name="index-multiply_005fdefined-1278"></a><a name="index-multiply_005fdefined_005funused-1279"></a><a name="index-noall_005fload-1280"></a><a name="index-no_005fdead_005fstrip_005finits_005fand_005fterms-1281"></a><a name="index-nofixprebinding-1282"></a><a name="index-nomultidefs-1283"></a><a name="index-noprebind-1284"></a><a name="index-noseglinkedit-1285"></a><a name="index-pagezero_005fsize-1286"></a><a name="index-prebind-1287"></a><a name="index-prebind_005fall_005ftwolevel_005fmodules-1288"></a><a name="index-private_005fbundle-1289"></a><a name="index-read_005fonly_005frelocs-1290"></a><a name="index-sectalign-1291"></a><a name="index-sectobjectsymbols-1292"></a><a name="index-whyload-1293"></a><a name="index-seg1addr-1294"></a><a name="index-sectcreate-1295"></a><a name="index-sectobjectsymbols-1296"></a><a name="index-sectorder-1297"></a><a name="index-segaddr-1298"></a><a name="index-segs_005fread_005fonly_005faddr-1299"></a><a name="index-segs_005fread_005fwrite_005faddr-1300"></a><a name="index-seg_005faddr_005ftable-1301"></a><a name="index-seg_005faddr_005ftable_005ffilename-1302"></a><a name="index-seglinkedit-1303"></a><a name="index-segprot-1304"></a><a name="index-segs_005fread_005fonly_005faddr-1305"></a><a name="index-segs_005fread_005fwrite_005faddr-1306"></a><a name="index-single_005fmodule-1307"></a><a name="index-static-1308"></a><a name="index-sub_005flibrary-1309"></a><a name="index-sub_005fumbrella-1310"></a><a name="index-twolevel_005fnamespace-1311"></a><a name="index-umbrella-1312"></a><a name="index-undefined-1313"></a><a name="index-unexported_005fsymbols_005flist-1314"></a><a name="index-weak_005freference_005fmismatches-1315"></a><a name="index-whatsloaded-1316"></a>These options are passed to the Darwin linker.  The Darwin linker man page
-describes them in detail.
+describes them in detail. 
 </dl>
 
  </body></html>
+

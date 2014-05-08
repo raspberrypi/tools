@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -89,9 +89,9 @@ default is <samp><span class="option">-msched-prolog</span></samp>.
 are: &lsquo;<samp><span class="samp">soft</span></samp>&rsquo;, &lsquo;<samp><span class="samp">softfp</span></samp>&rsquo; and &lsquo;<samp><span class="samp">hard</span></samp>&rsquo;.
 
      <p>Specifying &lsquo;<samp><span class="samp">soft</span></samp>&rsquo; causes GCC to generate output containing
-library calls for floating-point operations.
+library calls for floating-point operations. 
 &lsquo;<samp><span class="samp">softfp</span></samp>&rsquo; allows the generation of code using hardware floating-point
-instructions, but still uses the soft-float calling conventions.
+instructions, but still uses the soft-float calling conventions. 
 &lsquo;<samp><span class="samp">hard</span></samp>&rsquo; allows generation of floating-point instructions
 and uses FPU-specific calling conventions.
 
@@ -106,7 +106,7 @@ the default for all standard configurations.
      <br><dt><code>-mbig-endian</code><dd><a name="index-mbig_002dendian-1125"></a>Generate code for a processor running in big-endian mode; the default is
 to compile code for a little-endian processor.
 
-     <br><dt><code>-mwords-little-endian</code><dd><a name="index-mwords_002dlittle_002dendian-1126"></a>This option only applies when generating code for big-endian processors.
+     <br><dt><code>-mwords-little-endian</code><dd><a name="index-mwords_002dlittle_002dendian-1126"></a>This option only applies when generating code for big-endian processors. 
 Generate code for a little-endian word order but a big-endian byte
 order.  That is, a byte order of the form &lsquo;<samp><span class="samp">32107654</span></samp>&rsquo;.  Note: this
 option should only be used if you require compatibility with code for
@@ -134,9 +134,9 @@ Linux, and not all architectures are recognized.  If the auto-detect is
 unsuccessful the option has no effect.
 
      <br><dt><code>-mtune=</code><var>name</var><dd><a name="index-mtune-1128"></a>This option specifies the name of the target ARM processor for
-which GCC should tune the performance of the code.
+which GCC should tune the performance of the code. 
 For some ARM implementations better performance can be obtained by using
-this option.
+this option. 
 Permissible names are: &lsquo;<samp><span class="samp">arm2</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm250</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">arm3</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm6</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm60</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm600</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm610</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">arm620</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm7</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm7m</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm7d</span></samp>&rsquo;, &lsquo;<samp><span class="samp">arm7dm</span></samp>&rsquo;,
@@ -166,7 +166,7 @@ Permissible names are: &lsquo;<samp><span class="samp">arm2</span></samp>&rsquo;
 &lsquo;<samp><span class="samp">fa606te</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fa626te</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fmp626</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fa726te</span></samp>&rsquo;.
 
      <p><samp><span class="option">-mtune=generic-</span><var>arch</var></samp> specifies that GCC should tune the
-performance for a blend of processors within architecture <var>arch</var>.
+performance for a blend of processors within architecture <var>arch</var>. 
 The aim is to generate code that run well on the current most popular
 processors, balancing between optimizations that benefit some CPUs in the
 range, and avoiding performance pitfalls of other CPUs.  The effects of
@@ -188,7 +188,7 @@ those options take precedence over the appropriate part of this option.
 <samp><span class="option">-mtune</span></samp>.
 
      <p><samp><span class="option">-mcpu=generic-</span><var>arch</var></samp> is also permissible, and is
-equivalent to <samp><span class="option">-march=</span><var>arch</var><span class="option"> -mtune=generic-</span><var>arch</var></samp>.
+equivalent to <samp><span class="option">-march=</span><var>arch</var><span class="option"> -mtune=generic-</span><var>arch</var></samp>. 
 See <samp><span class="option">-mtune</span></samp> for more information.
 
      <p><samp><span class="option">-mcpu=native</span></samp> causes the compiler to auto-detect the CPU
@@ -214,7 +214,7 @@ because NEON hardware does not fully implement the IEEE 754 standard for
 floating-point arithmetic (in particular denormal values are treated as
 zero), so the use of NEON instructions may lead to a loss of precision.
 
-     <br><dt><code>-mfp16-format=</code><var>name</var><dd><a name="index-mfp16_002dformat-1131"></a>Specify the format of the <code>__fp16</code> half-precision floating-point type.
+     <br><dt><code>-mfp16-format=</code><var>name</var><dd><a name="index-mfp16_002dformat-1131"></a>Specify the format of the <code>__fp16</code> half-precision floating-point type. 
 Permissible names are &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, &lsquo;<samp><span class="samp">ieee</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">alternative</span></samp>&rsquo;;
 the default is &lsquo;<samp><span class="samp">none</span></samp>&rsquo;, in which case the <code>__fp16</code> type is not
 defined.  See <a href="Half_002dPrecision.html#Half_002dPrecision">Half-Precision</a>, for more information.
@@ -264,7 +264,7 @@ loading it in the prologue for each function.  The runtime system is
 responsible for initializing this register with an appropriate value
 before execution begins.
 
-     <br><dt><code>-mpic-register=</code><var>reg</var><dd><a name="index-mpic_002dregister-1137"></a>Specify the register to be used for PIC addressing.
+     <br><dt><code>-mpic-register=</code><var>reg</var><dd><a name="index-mpic_002dregister-1137"></a>Specify the register to be used for PIC addressing. 
 For standard PIC base case, the default will be any suitable register
 determined by compiler.  For single PIC base case, the default is
 &lsquo;<samp><span class="samp">R9</span></samp>&rsquo; if target is EABI based or stack-checking is enabled,
@@ -334,7 +334,7 @@ the original scheme, but does require new assembler, linker and
 library support.  Initial and local exec TLS models are unaffected by
 this option and always use the original scheme.
 
-     <br><dt><code>-mword-relocations</code><dd><a name="index-mword_002drelocations-1147"></a>Only generate absolute relocations on word-sized values (i.e. R_ARM_ABS32).
+     <br><dt><code>-mword-relocations</code><dd><a name="index-mword_002drelocations-1147"></a>Only generate absolute relocations on word-sized values (i.e. R_ARM_ABS32). 
 This is enabled by default on targets (uClinux, SymbianOS) where the runtime
 loader imposes this restriction, and when <samp><span class="option">-fpic</span></samp> or <samp><span class="option">-fPIC</span></samp>
 is specified.
@@ -361,9 +361,10 @@ defined.
 disabled by default since the cost of moving data from core registers
 to Neon is high.
 
-     <br><dt><code>-mrestrict-it</code><dd><a name="index-mrestrict_002dit-1152"></a>Restricts generation of IT blocks to conform to the rules of ARMv8.
+     <br><dt><code>-mrestrict-it</code><dd><a name="index-mrestrict_002dit-1152"></a>Restricts generation of IT blocks to conform to the rules of ARMv8. 
 IT blocks can only contain a single 16-bit instruction from a select
-set of instructions. This option is on by default for ARMv8 Thumb mode.
+set of instructions. This option is on by default for ARMv8 Thumb mode. 
 </dl>
 
  </body></html>
+

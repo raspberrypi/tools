@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,31 +58,31 @@ module:
 
 <div class="defun">
 &mdash; Function: <b>gdb.inferiors</b> ()<var><a name="index-gdb_002einferiors-1872"></a></var><br>
-<blockquote><p>Return a tuple containing all inferior objects.
+<blockquote><p>Return a tuple containing all inferior objects. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>gdb.selected_inferior</b> ()<var><a name="index-gdb_002eselected_005finferior-1873"></a></var><br>
-<blockquote><p>Return an object representing the current inferior.
+<blockquote><p>Return an object representing the current inferior. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Inferior</code> object has the following attributes:
 
 <div class="defun">
 &mdash; Variable: <b>Inferior.num</b><var><a name="index-Inferior_002enum-1874"></a></var><br>
-<blockquote><p>ID of inferior, as assigned by GDB.
+<blockquote><p>ID of inferior, as assigned by GDB. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Inferior.pid</b><var><a name="index-Inferior_002epid-1875"></a></var><br>
 <blockquote><p>Process ID of the inferior, as assigned by the underlying operating
-system.
+system. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Inferior.was_attached</b><var><a name="index-Inferior_002ewas_005fattached-1876"></a></var><br>
 <blockquote><p>Boolean signaling whether the inferior was created using `attach', or
-started by <span class="sc">gdb</span> itself.
+started by <span class="sc">gdb</span> itself. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Inferior</code> object has the following methods:
@@ -93,14 +93,14 @@ started by <span class="sc">gdb</span> itself.
 <code>False</code> if not.  A <code>gdb.Inferior</code> object will become invalid
 if the inferior no longer exists within <span class="sc">gdb</span>.  All other
 <code>gdb.Inferior</code> methods will throw an exception if it is invalid
-at the time the method is called.
+at the time the method is called. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Function: <b>Inferior.threads</b> ()<var><a name="index-Inferior_002ethreads-1878"></a></var><br>
 <blockquote><p>This method returns a tuple holding all the threads which are valid
 when it is called.  If there are no valid threads, the method will
-return an empty tuple.
+return an empty tuple. 
 </p></blockquote></div>
 
    <p><a name="index-Inferior_002eread_005fmemory-1879"></a>
@@ -111,7 +111,7 @@ return an empty tuple.
 <var>address</var>.  Returns a buffer object, which behaves much like an array
 or a string.  It can be modified and given to the
 <code>Inferior.write_memory</code> function.  In <code>Python</code> 3, the return
-value is a <code>memoryview</code> object.
+value is a <code>memoryview</code> object. 
 </p></blockquote></div>
 
    <p><a name="index-Inferior_002ewrite_005fmemory-1881"></a>
@@ -122,7 +122,7 @@ value is a <code>memoryview</code> object.
 <var>address</var>.  The <var>buffer</var> parameter must be a Python object
 which supports the buffer protocol, i.e., a string, an array or the
 object returned from <code>Inferior.read_memory</code>.  If given, <var>length</var>
-determines the number of bytes from <var>buffer</var> to be written.
+determines the number of bytes from <var>buffer</var> to be written. 
 </p></blockquote></div>
 
    <p><a name="index-gdb_002esearch_005fmemory-1883"></a>
@@ -135,7 +135,8 @@ the given <var>length</var> using the search pattern supplied in
 which supports the buffer protocol, i.e., a string, an array or the
 object returned from <code>gdb.read_memory</code>.  Returns a Python <code>Long</code>
 containing the address where the pattern was found, or <code>None</code> if
-the pattern could not be found.
+the pattern could not be found. 
 </p></blockquote></div>
 
    </body></html>
+

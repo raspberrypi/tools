@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -62,16 +62,16 @@ that document the exact semantics of the language extension.
      <p>New text after paragraph 4
 
      <blockquote>
-A <dfn>thread</dfn> is a flow of control within the abstract machine.
+A <dfn>thread</dfn> is a flow of control within the abstract machine. 
 It is implementation defined whether or not there may be more than
-one thread.
+one thread. 
 </blockquote>
 
      <p>New text after paragraph 7
 
      <blockquote>
 It is unspecified whether additional action must be taken to
-ensure when and whether side effects are visible to other threads.
+ensure when and whether side effects are visible to other threads. 
 </blockquote>
 
      <li><b>[lex.key]</b>
@@ -85,11 +85,11 @@ ensure when and whether side effects are visible to other threads.
      <blockquote>
 The thread that begins execution at the <code>main</code> function is called
 the <dfn>main thread</dfn>.  It is implementation defined how functions
-beginning threads other than the main thread are designated or typed.
+beginning threads other than the main thread are designated or typed. 
 A function so designated, as well as the <code>main</code> function, is called
 a <dfn>thread startup function</dfn>.  It is implementation defined what
 happens if a thread startup function returns.  It is implementation
-defined what happens to other threads when any thread calls <code>exit</code>.
+defined what happens to other threads when any thread calls <code>exit</code>. 
 </blockquote>
 
      <li><b>[basic.start.init]</b>
@@ -100,7 +100,7 @@ defined what happens to other threads when any thread calls <code>exit</code>.
 The storage for an object of thread storage duration shall be
 statically initialized before the first statement of the thread startup
 function.  An object of thread storage duration shall not require
-dynamic initialization.
+dynamic initialization. 
 </blockquote>
 
      <li><b>[basic.start.term]</b>
@@ -110,7 +110,7 @@ dynamic initialization.
      <blockquote>
 The type of an object with thread storage duration shall not have a
 non-trivial destructor, nor shall it be an array type whose elements
-(directly or indirectly) have non-trivial destructors.
+(directly or indirectly) have non-trivial destructors. 
 </blockquote>
 
      <li><b>[basic.stc]</b>
@@ -121,7 +121,7 @@ non-trivial destructor, nor shall it be an array type whose elements
 
      <blockquote>
 Thread, static, and automatic storage durations are associated with
-objects introduced by declarations [<small class="dots">...</small>].
+objects introduced by declarations [<small class="dots">...</small>]. 
 </blockquote>
 
      <p>Add <code>__thread</code> to the list of specifiers in paragraph 3.
@@ -136,7 +136,7 @@ object thread storage duration.
 
      <p>A local variable or class data member declared both <code>static</code>
 and <code>__thread</code> gives the variable or member thread storage
-duration.
+duration. 
 </blockquote>
 
      <li><b>[basic.stc.static]</b>
@@ -145,7 +145,7 @@ duration.
 
      <blockquote>
 All objects that have neither thread storage duration, dynamic
-storage duration nor are local [<small class="dots">...</small>].
+storage duration nor are local [<small class="dots">...</small>]. 
 </blockquote>
 
      <li><b>[dcl.stc]</b>
@@ -166,7 +166,7 @@ be used alone, or immediately following the <code>extern</code> or
 
      <blockquote>
 The <code>__thread</code> specifier can be applied only to the names of objects
-and to anonymous unions.
+and to anonymous unions. 
 </blockquote>
 
      <li><b>[class.mem]</b>
@@ -174,8 +174,9 @@ and to anonymous unions.
      <p>Add after paragraph 6
 
      <blockquote>
-Non-<code>static</code> members shall not be <code>__thread</code>.
+Non-<code>static</code> members shall not be <code>__thread</code>. 
 </blockquote>
      </ul>
 
  </body></html>
+

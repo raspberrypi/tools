@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -79,7 +79,7 @@ corresponds to <code>membar</code> cmask field bit 0.
      <li>&lsquo;<samp><span class="samp">#StoreStore</span></samp>&rsquo; defines that the effects of all stores appearing
 prior to the <code>membar</code> instruction must be visible to all
 processors before the effect of any stores following the
-<code>membar</code>.  Equivalent to the deprecated <code>stbar</code> instruction.
+<code>membar</code>.  Equivalent to the deprecated <code>stbar</code> instruction. 
 This corresponds to <code>membar</code> mmask field bit 3.
 
      <li>&lsquo;<samp><span class="samp">#LoadStore</span></samp>&rsquo; defines all loads appearing prior to the
@@ -89,7 +89,7 @@ processor.  This corresponds to <code>membar</code> mmask field bit 2.
 
      <li>&lsquo;<samp><span class="samp">#StoreLoad</span></samp>&rsquo; defines that the effects of all stores appearing
 prior to the <code>membar</code> instruction must be visible to all
-processors before loads following the <code>membar</code> may be performed.
+processors before loads following the <code>membar</code> may be performed. 
 This corresponds to <code>membar</code> mmask field bit 1.
 
      <li>&lsquo;<samp><span class="samp">#LoadLoad</span></samp>&rsquo; defines that all loads appearing prior to the
@@ -156,10 +156,11 @@ function code, it will treat the prefetch instruction as a nop.
 
      <p>For instructions that accept an immediate address space identifier,
 <code>as</code> provides many mnemonics corresponding to
-V9 defined as well as UltraSPARC and Niagara extended values.
-For example, &lsquo;<samp><span class="samp">#ASI_P</span></samp>&rsquo; and &lsquo;<samp><span class="samp">#ASI_BLK_INIT_QUAD_LDD_AIUS</span></samp>&rsquo;.
+V9 defined as well as UltraSPARC and Niagara extended values. 
+For example, &lsquo;<samp><span class="samp">#ASI_P</span></samp>&rsquo; and &lsquo;<samp><span class="samp">#ASI_BLK_INIT_QUAD_LDD_AIUS</span></samp>&rsquo;. 
 See the V9 and processor specific manuals for details.
 
    </ul>
 
    </body></html>
+

@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,18 +55,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 <h3 class="section">6.4 Nested Functions</h3>
 
 <p><a name="index-nested-functions-2416"></a><a name="index-downward-funargs-2417"></a><a name="index-thunks-2418"></a>
-A <dfn>nested function</dfn> is a function defined inside another function.
+A <dfn>nested function</dfn> is a function defined inside another function. 
 Nested functions are supported as an extension in GNU C, but are not
 supported by GNU C++.
 
- <p>The nested function's name is local to the block where it is defined.
+ <p>The nested function's name is local to the block where it is defined. 
 For example, here we define a nested function named <code>square</code>, and
 call it twice:
 
 <pre class="smallexample">     foo (double a, double b)
      {
        double square (double z) { return z * z; }
-
+     
        return square (a) + square (b);
      }
 </pre>
@@ -96,13 +96,13 @@ name by storing its address or passing the address to another function:
      {
        void store (int index, int value)
          { array[index] = value; }
-
+     
        intermediate (store, size);
      }
 </pre>
  <p>Here, the function <code>intermediate</code> receives the address of
 <code>store</code> as an argument.  If <code>intermediate</code> calls <code>store</code>,
-the arguments given to <code>store</code> are used to store into <code>array</code>.
+the arguments given to <code>store</code> are used to store into <code>array</code>. 
 But this technique works only so long as the containing function
 (<code>hack</code>, in this example) does not exit.
 
@@ -140,7 +140,7 @@ containing function, exiting the nested function that did the
          /* <span class="roman">...</span> */ access (array, i) /* <span class="roman">...</span> */
        /* <span class="roman">...</span> */
        return 0;
-
+     
       /* <span class="roman">Control comes here from </span><code>access</code><span class="roman">
          if it detects an error.</span>  */
       failure:
@@ -167,3 +167,4 @@ for function declarations).
      }
 </pre>
  </body></html>
+

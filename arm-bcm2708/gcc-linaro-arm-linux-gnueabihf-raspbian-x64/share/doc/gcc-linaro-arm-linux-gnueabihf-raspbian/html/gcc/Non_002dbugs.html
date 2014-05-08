@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,7 +70,7 @@ feature.  So the feature is not worthwhile.
 
      <li>Warning about using an expression whose type is signed as a shift count.
 
-     <p>Shift count operands are probably signed more often than unsigned.
+     <p>Shift count operands are probably signed more often than unsigned. 
 Warning about this would cause far more annoyance than good.
 
      <li>Warning about assigning a signed value to an unsigned variable.
@@ -81,7 +81,7 @@ more annoyance than good.
      <li>Warning when a non-void function value is ignored.
 
      <p>C contains many standard functions that return a value that most
-programs choose to ignore.  One obvious example is <code>printf</code>.
+programs choose to ignore.  One obvious example is <code>printf</code>. 
 Warning about this practice only leads the defensive programmer to
 clutter programs with dozens of casts to <code>void</code>.  Such casts are
 required so frequently that they become visual noise.  Writing those
@@ -118,13 +118,13 @@ as well.
      <p>Some computer manufacturers have published Application Binary Interface
 standards which specify that plain bit-fields should be unsigned.  It is
 a mistake, however, to say anything about this issue in an ABI.  This is
-because the handling of plain bit-fields distinguishes two dialects of C.
+because the handling of plain bit-fields distinguishes two dialects of C. 
 Both dialects are meaningful on every type of machine.  Whether a
 particular object file was compiled using signed bit-fields or unsigned
 is of no concern to other object files, even if they access the same
 bit-fields in the same data structures.
 
-     <p>A given program is written in one or the other of these two dialects.
+     <p>A given program is written in one or the other of these two dialects. 
 The program stands a chance to work on most any machine if it is
 compiled with the proper dialect.  It is unlikely to work at all if
 compiled with the wrong dialect.
@@ -183,7 +183,7 @@ for pragmatic reasons, not as a requirement.
 
      <p>GCC normally defines <code>__STDC__</code> to be 1, and in addition
 defines <code>__STRICT_ANSI__</code> if you specify the <samp><span class="option">-ansi</span></samp> option,
-or a <samp><span class="option">-std</span></samp> option for strict conformance to some version of ISO C.
+or a <samp><span class="option">-std</span></samp> option for strict conformance to some version of ISO C. 
 On some hosts, system include files use a different convention, where
 <code>__STDC__</code> is normally 0, but is 1 if the user specifies strict
 conformance to the C Standard.  GCC follows the host convention when
@@ -199,7 +199,7 @@ to determine what kind of C preprocessor that compiler uses:
 whether they should concatenate tokens in the ISO C fashion
 or in the traditional fashion.
 
-     <p>These programs work properly with GNU C++ if <code>__STDC__</code> is defined.
+     <p>These programs work properly with GNU C++ if <code>__STDC__</code> is defined. 
 They would not work otherwise.
 
      <p>In addition, many header files are written to provide prototypes in ISO
@@ -218,7 +218,7 @@ faster.
      <p>However, the rationale here is that optimization of a nonempty loop
 cannot produce an empty one. This held for carefully written C compiled
 with less powerful optimizers but is not always the case for carefully
-written C++ or with more powerful optimizers.
+written C++ or with more powerful optimizers. 
 Thus GCC will remove operations from loops whenever it can determine
 those operations are not externally visible (apart from the time taken
 to execute them, of course).  In case the loop can be proved to be finite,
@@ -231,7 +231,7 @@ following loop can be completely removed, provided
      <pre class="smallexample">          {
              int sum = 0;
              int ix;
-
+          
              for (ix = 0; ix != 10000; ix++)
                 sum += some_expression;
           }
@@ -241,12 +241,12 @@ that summation, so the accumulation can be removed.
 
      <li>Making side effects happen in the same order as in some other compiler.
 
-     <p><a name="index-side-effects_002c-order-of-evaluation-3589"></a><a name="index-order-of-evaluation_002c-side-effects-3590"></a>It is never safe to depend on the order of evaluation of side effects.
+     <p><a name="index-side-effects_002c-order-of-evaluation-3589"></a><a name="index-order-of-evaluation_002c-side-effects-3590"></a>It is never safe to depend on the order of evaluation of side effects. 
 For example, a function call like this may very well behave differently
 from one compiler to another:
 
      <pre class="smallexample">          void func (int, int);
-
+          
           int i = 2;
           func (i++, i++);
 </pre>
@@ -262,7 +262,7 @@ an error message for a certain program.
 
      <p><a name="index-pedantic_002derrors-3591"></a>ISO C requires a &ldquo;diagnostic&rdquo; message for certain kinds of invalid
 programs, but a warning is defined by GCC to count as a diagnostic.  If
-GCC produces a warning but not an error, that is correct ISO C support.
+GCC produces a warning but not an error, that is correct ISO C support. 
 If testsuites call this &ldquo;failure&rdquo;, they should be run with the GCC
 option <samp><span class="option">-pedantic-errors</span></samp>, which will turn these warnings into
 errors.
@@ -270,3 +270,4 @@ errors.
  </ul>
 
  </body></html>
+

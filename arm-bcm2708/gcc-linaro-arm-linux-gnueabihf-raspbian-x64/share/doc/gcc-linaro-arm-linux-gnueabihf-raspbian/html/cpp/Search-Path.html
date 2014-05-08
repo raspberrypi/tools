@@ -40,8 +40,8 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -80,14 +80,14 @@ this case, the option is ignored and the search order for system
 directories remains unchanged.
 
    <p>Duplicate directories are removed from the quote and bracket search
-chains before the two chains are merged to make the final search chain.
+chains before the two chains are merged to make the final search chain. 
 Thus, it is possible for a directory to occur twice in the final search
 chain if it was specified in both the quote and bracket chains.
 
    <p>You can prevent GCC from searching any of the default directories with
 the <samp><span class="option">-nostdinc</span></samp> option.  This is useful when you are compiling an
 operating system kernel or some other program that does not use the
-standard C library facilities, or the standard C library itself.
+standard C library facilities, or the standard C library itself. 
 <samp><span class="option">-I</span></samp> options are not ignored as described above when
 <samp><span class="option">-nostdinc</span></samp> is in effect.
 
@@ -102,7 +102,7 @@ brackets.  For example, if <samp><span class="file">/usr/include/sys/stat.h</spa
    <p>&lsquo;<samp><span class="samp">#line</span></samp>&rsquo; (see <a href="Line-Control.html#Line-Control">Line Control</a>) does not change GCC's idea of the
 directory containing the current file.
 
-   <p>You may put <samp><span class="option">-I-</span></samp> at any point in your list of <samp><span class="option">-I</span></samp> options.
+   <p>You may put <samp><span class="option">-I-</span></samp> at any point in your list of <samp><span class="option">-I</span></samp> options. 
 This has two effects.  First, directories appearing before the
 <samp><span class="option">-I-</span></samp> in the list are searched only for headers requested with
 quote marks.  Directories after <samp><span class="option">-I-</span></samp> are searched for all
@@ -124,3 +124,4 @@ not be the same as the directory containing the current file.
 generally less useful.  See <a href="Invocation.html#Invocation">Invocation</a>.
 
    </body></html>
+

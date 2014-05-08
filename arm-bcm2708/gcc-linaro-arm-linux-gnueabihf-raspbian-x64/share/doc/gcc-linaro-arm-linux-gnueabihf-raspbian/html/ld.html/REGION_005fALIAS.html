@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,7 +70,7 @@ sections:
 <li><code>.text</code> program code;
 <li><code>.rodata</code> read-only data;
 <li><code>.data</code> read-write initialized data;
-<li><code>.bss</code> read-write zero initialized data.
+<li><code>.bss</code> read-write zero initialized data. 
 </ul>
 
    <p>The goal is to provide a linker command file that contains a system independent
@@ -93,7 +93,7 @@ the end of the <code>.rodata</code> section.
 includes the system dependent <code>linkcmds.memory</code> file that describes the
 memory layout:
 <pre class="smallexample">     INCLUDE linkcmds.memory
-
+     
      SECTIONS
        {
          .text :
@@ -127,7 +127,7 @@ variants <code>A</code>, <code>B</code> and <code>C</code>:
             {
               RAM : ORIGIN = 0, LENGTH = 4M
             }
-
+          
           REGION_ALIAS("REGION_TEXT", RAM);
           REGION_ALIAS("REGION_RODATA", RAM);
           REGION_ALIAS("REGION_DATA", RAM);
@@ -141,7 +141,7 @@ into the <code>RAM</code>.  An image of the initialized data is loaded into the
               ROM : ORIGIN = 0, LENGTH = 3M
               RAM : ORIGIN = 0x10000000, LENGTH = 1M
             }
-
+          
           REGION_ALIAS("REGION_TEXT", ROM);
           REGION_ALIAS("REGION_RODATA", ROM);
           REGION_ALIAS("REGION_DATA", RAM);
@@ -157,7 +157,7 @@ system start into the <code>RAM</code>.
               ROM2 : ORIGIN = 0x10000000, LENGTH = 1M
               RAM : ORIGIN = 0x20000000, LENGTH = 1M
             }
-
+          
           REGION_ALIAS("REGION_TEXT", ROM);
           REGION_ALIAS("REGION_RODATA", ROM2);
           REGION_ALIAS("REGION_DATA", RAM);
@@ -169,11 +169,11 @@ system start into the <code>RAM</code>.
 <code>.data</code> section from <code>ROM</code> or <code>ROM2</code> into the <code>RAM</code> if
 necessary:
 <pre class="smallexample">     #include &lt;string.h&gt;
-
+     
      extern char data_start [];
      extern char data_size [];
      extern char data_load_start [];
-
+     
      void copy_data(void)
      {
        if (data_start != data_load_start)
@@ -183,3 +183,4 @@ necessary:
      }
 </pre>
    </body></html>
+

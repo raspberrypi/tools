@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Extensions-implemented-in-GNU-Fortran.h
 
 <p><a name="index-Namelist-332"></a>
 GNU Fortran fully supports the Fortran 95 standard for namelist I/O
-including array qualifiers, substrings and fully qualified derived types.
+including array qualifiers, substrings and fully qualified derived types. 
 The output from a namelist write is compatible with namelist read.  The
 output has all names in upper case and indentation to column 1 after the
 namelist name.  Two extensions are permitted:
@@ -74,7 +74,7 @@ namelist name.  Two extensions are permitted:
 one space, entering &lsquo;<samp><span class="samp">?</span></samp>&rsquo; sends to stdout the namelist name and the names of
 the variables in the namelist:
 <pre class="smallexample">      ?
-
+     
      &amp;mynml
       x
       x%y
@@ -84,7 +84,7 @@ the variables in the namelist:
    <p>Entering &lsquo;<samp><span class="samp">=?</span></samp>&rsquo; outputs the namelist to stdout, as if
 <code>WRITE(*,NML = mynml)</code> had been called:
 <pre class="smallexample">     =?
-
+     
      &amp;MYNML
       X(1)%Y=  0.000000    ,  1.000000    ,  0.000000    ,
       X(2)%Y=  0.000000    ,  2.000000    ,  0.000000    ,
@@ -111,3 +111,4 @@ elements will be given the values 1.00 and 2.00.
      /
 </pre>
    </body></html>
+

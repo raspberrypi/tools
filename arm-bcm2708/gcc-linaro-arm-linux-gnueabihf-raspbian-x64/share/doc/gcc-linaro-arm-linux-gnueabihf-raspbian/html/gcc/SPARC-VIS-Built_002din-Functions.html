@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,19 +66,19 @@ switch, the VIS extension is exposed as the following built-in functions:
      typedef short v2hi __attribute__ ((vector_size (4)));
      typedef unsigned char v8qi __attribute__ ((vector_size (8)));
      typedef unsigned char v4qi __attribute__ ((vector_size (4)));
-
+     
      void __builtin_vis_write_gsr (int64_t);
      int64_t __builtin_vis_read_gsr (void);
-
+     
      void * __builtin_vis_alignaddr (void *, long);
      void * __builtin_vis_alignaddrl (void *, long);
      int64_t __builtin_vis_faligndatadi (int64_t, int64_t);
      v2si __builtin_vis_faligndatav2si (v2si, v2si);
      v4hi __builtin_vis_faligndatav4hi (v4si, v4si);
      v8qi __builtin_vis_faligndatav8qi (v8qi, v8qi);
-
+     
      v4hi __builtin_vis_fexpand (v4qi);
-
+     
      v4hi __builtin_vis_fmul8x16 (v4qi, v4hi);
      v4hi __builtin_vis_fmul8x16au (v4qi, v2hi);
      v4hi __builtin_vis_fmul8x16al (v4qi, v2hi);
@@ -86,21 +86,21 @@ switch, the VIS extension is exposed as the following built-in functions:
      v4hi __builtin_vis_fmul8ulx16 (v8qi, v4hi);
      v2si __builtin_vis_fmuld8sux16 (v4qi, v2hi);
      v2si __builtin_vis_fmuld8ulx16 (v4qi, v2hi);
-
+     
      v4qi __builtin_vis_fpack16 (v4hi);
      v8qi __builtin_vis_fpack32 (v2si, v8qi);
      v2hi __builtin_vis_fpackfix (v2si);
      v8qi __builtin_vis_fpmerge (v4qi, v4qi);
-
+     
      int64_t __builtin_vis_pdist (v8qi, v8qi, int64_t);
-
+     
      long __builtin_vis_edge8 (void *, void *);
      long __builtin_vis_edge8l (void *, void *);
      long __builtin_vis_edge16 (void *, void *);
      long __builtin_vis_edge16l (void *, void *);
      long __builtin_vis_edge32 (void *, void *);
      long __builtin_vis_edge32l (void *, void *);
-
+     
      long __builtin_vis_fcmple16 (v4hi, v4hi);
      long __builtin_vis_fcmple32 (v2si, v2si);
      long __builtin_vis_fcmpne16 (v4hi, v4hi);
@@ -109,7 +109,7 @@ switch, the VIS extension is exposed as the following built-in functions:
      long __builtin_vis_fcmpgt32 (v2si, v2si);
      long __builtin_vis_fcmpeq16 (v4hi, v4hi);
      long __builtin_vis_fcmpeq32 (v2si, v2si);
-
+     
      v4hi __builtin_vis_fpadd16 (v4hi, v4hi);
      v2hi __builtin_vis_fpadd16s (v2hi, v2hi);
      v2si __builtin_vis_fpadd32 (v2si, v2si);
@@ -118,7 +118,7 @@ switch, the VIS extension is exposed as the following built-in functions:
      v2hi __builtin_vis_fpsub16s (v2hi, v2hi);
      v2si __builtin_vis_fpsub32 (v2si, v2si);
      v1si __builtin_vis_fpsub32s (v1si, v1si);
-
+     
      long __builtin_vis_array8 (long, long);
      long __builtin_vis_array16 (long, long);
      long __builtin_vis_array32 (long, long);
@@ -131,7 +131,7 @@ functions also become available:
      v2si __builtin_vis_bshufflev2si (v2si, v2si);
      v4hi __builtin_vis_bshufflev2si (v4hi, v4hi);
      v8qi __builtin_vis_bshufflev2si (v8qi, v8qi);
-
+     
      long __builtin_vis_edge8n (void *, void *);
      long __builtin_vis_edge8ln (void *, void *);
      long __builtin_vis_edge16n (void *, void *);
@@ -145,9 +145,9 @@ functions also become available:
 <pre class="smallexample">     void __builtin_vis_cmask8 (long);
      void __builtin_vis_cmask16 (long);
      void __builtin_vis_cmask32 (long);
-
+     
      v4hi __builtin_vis_fchksm16 (v4hi, v4hi);
-
+     
      v4hi __builtin_vis_fsll16 (v4hi, v4hi);
      v4hi __builtin_vis_fslas16 (v4hi, v4hi);
      v4hi __builtin_vis_fsrl16 (v4hi, v4hi);
@@ -156,14 +156,14 @@ functions also become available:
      v2si __builtin_vis_fslas16 (v2si, v2si);
      v2si __builtin_vis_fsrl16 (v2si, v2si);
      v2si __builtin_vis_fsra16 (v2si, v2si);
-
+     
      long __builtin_vis_pdistn (v8qi, v8qi);
-
+     
      v4hi __builtin_vis_fmean16 (v4hi, v4hi);
-
+     
      int64_t __builtin_vis_fpadd64 (int64_t, int64_t);
      int64_t __builtin_vis_fpsub64 (int64_t, int64_t);
-
+     
      v4hi __builtin_vis_fpadds16 (v4hi, v4hi);
      v2hi __builtin_vis_fpadds16s (v2hi, v2hi);
      v4hi __builtin_vis_fpsubs16 (v4hi, v4hi);
@@ -172,21 +172,22 @@ functions also become available:
      v1si __builtin_vis_fpadds32s (v1si, v1si);
      v2si __builtin_vis_fpsubs32 (v2si, v2si);
      v1si __builtin_vis_fpsubs32s (v1si, v1si);
-
+     
      long __builtin_vis_fucmple8 (v8qi, v8qi);
      long __builtin_vis_fucmpne8 (v8qi, v8qi);
      long __builtin_vis_fucmpgt8 (v8qi, v8qi);
      long __builtin_vis_fucmpeq8 (v8qi, v8qi);
-
+     
      float __builtin_vis_fhadds (float, float);
      double __builtin_vis_fhaddd (double, double);
      float __builtin_vis_fhsubs (float, float);
      double __builtin_vis_fhsubd (double, double);
      float __builtin_vis_fnhadds (float, float);
      double __builtin_vis_fnhaddd (double, double);
-
+     
      int64_t __builtin_vis_umulxhi (int64_t, int64_t);
      int64_t __builtin_vis_xmulx (int64_t, int64_t);
      int64_t __builtin_vis_xmulxhi (int64_t, int64_t);
 </pre>
  </body></html>
+

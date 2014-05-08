@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -88,7 +88,7 @@ executed in parallel.
 instruction whoes components both use the same execution pipeline.
 
      <br><dt><code>Instructions write to the same destination register.</code><dd>This message is produced when the assembler encounters a parallel
-instruction where both components attempt to modify the same register.
+instruction where both components attempt to modify the same register. 
 For example these code fragments will produce this message:
 &lsquo;<samp><span class="samp">mv r1, r2 || neg r1, r3</span></samp>&rsquo;
 &lsquo;<samp><span class="samp">jl r0 || mv r14, r1</span></samp>&rsquo;
@@ -103,3 +103,4 @@ For example these code fragments will produce this message:
 <!-- This is part of the GAS manual. -->
 <!-- For copying conditions, see the file as.texinfo. -->
    </body></html>
+

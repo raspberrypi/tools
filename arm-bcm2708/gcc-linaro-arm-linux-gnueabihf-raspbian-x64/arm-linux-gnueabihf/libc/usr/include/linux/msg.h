@@ -40,13 +40,13 @@ struct msgbuf {
 /* buffer for msgctl calls IPC_INFO, MSG_INFO */
 struct msginfo {
 	int msgpool;
-	int msgmap;
-	int msgmax;
-	int msgmnb;
-	int msgmni;
-	int msgssz;
-	int msgtql;
-	unsigned short  msgseg;
+	int msgmap; 
+	int msgmax; 
+	int msgmnb; 
+	int msgmni; 
+	int msgssz; 
+	int msgtql; 
+	unsigned short  msgseg; 
 };
 
 /*

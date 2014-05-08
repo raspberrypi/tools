@@ -46,14 +46,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
     public:
       typedef typename _Dom::value_type value_type;
-
+      
       _GBase (const _Dom& __e, const valarray<size_t>& __i)
       : _M_expr (__e), _M_index(__i) {}
-
+      
       value_type
       operator[] (size_t __i) const
       { return _M_expr[_M_index[__i]]; }
-
+      
       size_t
       size () const
       { return _M_index.size(); }
@@ -68,14 +68,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
     public:
       typedef _Tp value_type;
-
+      
       _GBase (_Array<_Tp> __a, const valarray<size_t>& __i)
       : _M_array (__a), _M_index(__i) {}
-
+      
       value_type
       operator[] (size_t __i) const
       { return _M_array._M_data[_M_index[__i]]; }
-
+      
       size_t
       size () const
       { return _M_index.size(); }
@@ -91,7 +91,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       typedef _GBase<_Dom> _Base;
       typedef typename _Base::value_type value_type;
-
+      
       _GClos (const _Dom& __e, const valarray<size_t>& __i)
       : _Base (__e, __i) {}
     };
@@ -102,7 +102,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       typedef _GBase<_Array<_Tp> > _Base;
       typedef typename _Base::value_type value_type;
-
+      
       _GClos (_Array<_Tp> __a, const valarray<size_t>& __i)
       : _Base (__a, __i) {}
     };
@@ -118,11 +118,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       _IBase (const _Dom& __e, const valarray<size_t>& __i)
       : _M_expr (__e), _M_index (__i) {}
-
+      
       value_type
       operator[] (size_t __i) const
       { return _M_expr[_M_index[__i]]; }
-
+      
       size_t
       size() const
       { return _M_index.size(); }
@@ -138,7 +138,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       typedef _IBase<_Dom> _Base;
       typedef typename _Base::value_type value_type;
-
+      
       _IClos (const _Dom& __e, const valarray<size_t>& __i)
       : _Base (__e, __i) {}
     };
@@ -149,11 +149,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       typedef _IBase<valarray<_Tp> > _Base;
       typedef _Tp value_type;
-
+      
       _IClos (const valarray<_Tp>& __a, const valarray<size_t>& __i)
       : _Base (__a, __i) {}
     };
-
+  
   //
   // class _Expr
   //

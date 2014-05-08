@@ -68,7 +68,7 @@ inline void
 PB_DS_CLASS_C_DEC::
 make_root(node_pointer p_nd)
 {
-  p_nd->m_metadata = p_nd->m_p_l_child == 0
+  p_nd->m_metadata = p_nd->m_p_l_child == 0 
                      ? 0 : 1 + p_nd->m_p_l_child->m_metadata;
 }
 
@@ -122,8 +122,8 @@ fix(node_pointer p_y)
 	  fix_sibling_general_marked(p_y);
 	  p_y = p_y->m_p_prev_or_parent;
         }
-      else if ((p_y->m_p_l_child == 0&&
-                p_y->m_metadata == 2) ||(p_y->m_p_l_child != 0&&
+      else if ((p_y->m_p_l_child == 0&& 
+                p_y->m_metadata == 2) ||(p_y->m_p_l_child != 0&& 
 					 p_y->m_metadata == p_y->m_p_l_child->m_metadata + 3))
         {
 	  node_pointer p_z = p_y->m_p_prev_or_parent;
@@ -277,3 +277,4 @@ update_max(node_pointer p_nd)
   if (m_p_max == 0 || Cmp_Fn::operator()(m_p_max->m_value, p_nd->m_value))
     m_p_max = p_nd;
 }
+

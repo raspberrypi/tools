@@ -61,3 +61,4 @@ inline typename PB_DS_CLASS_C_DEC::const_iterator
 PB_DS_CLASS_C_DEC::
 end() const
 { return const_iterator(m_a_entries + m_size); }
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,7 +65,7 @@ fill value (the second argument) entirely by simply using two commas after the
 required alignment; this can be useful if you want the alignment to be filled
 with no-op instructions when appropriate.
 
-   <p>The way the required alignment is specified varies from system to system.
+   <p>The way the required alignment is specified varies from system to system. 
 For the arc, hppa, i386 using ELF, i860, iq2000, m68k, or32,
 s390, sparc, tic4x, tic80 and xtensa, the first expression is the
 alignment request in bytes.  For example &lsquo;<samp><span class="samp">.align 8</span></samp>&rsquo; advances
@@ -81,9 +81,10 @@ counter until it a multiple of 8.  If the location counter is already a
 multiple of 8, no change is needed.
 
    <p>This inconsistency is due to the different behaviors of the various
-native assemblers for these systems which GAS must emulate.
+native assemblers for these systems which GAS must emulate. 
 GAS also provides <code>.balign</code> and <code>.p2align</code> directives,
 described later, which have a consistent behavior across all
 architectures (but are specific to GAS).
 
    </body></html>
+

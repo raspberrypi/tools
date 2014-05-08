@@ -565,3 +565,4 @@ struct UVC_FRAME_MJPEG(n) {				\
 } __attribute__ ((packed))
 
 #endif /* __LINUX_USB_VIDEO_H */
+

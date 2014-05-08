@@ -800,7 +800,7 @@ namespace __gnu_debug
     { return _Base::find_first_of(__c, __pos); }
 
     size_type
-    find_last_of(const basic_string& __str,
+    find_last_of(const basic_string& __str, 
 		 size_type __pos = _Base::npos) const _GLIBCXX_NOEXCEPT
     { return _Base::find_last_of(__str, __pos); }
 

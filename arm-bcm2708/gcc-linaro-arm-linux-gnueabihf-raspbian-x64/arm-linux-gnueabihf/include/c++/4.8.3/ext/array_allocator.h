@@ -68,12 +68,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       void
       deallocate(pointer, size_type)
-      {
+      { 
 	// Does nothing.
       }
 
       size_type
-      max_size() const _GLIBCXX_USE_NOEXCEPT
+      max_size() const _GLIBCXX_USE_NOEXCEPT 
       { return size_t(-1) / sizeof(_Tp); }
 
 #if __cplusplus >= 201103L
@@ -83,19 +83,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
 
       template<typename _Up>
-        void
+        void 
         destroy(_Up* __p) { __p->~_Up(); }
 #else
       // _GLIBCXX_RESOLVE_LIB_DEFECTS
       // 402. wrong new expression in [some_] allocator::construct
-      void
-      construct(pointer __p, const _Tp& __val)
+      void 
+      construct(pointer __p, const _Tp& __val) 
       { ::new((void *)__p) value_type(__val); }
 
-      void
+      void 
       destroy(pointer __p) { __p->~_Tp(); }
 #endif
-    };
+    };  
 
   /**
    *  @brief  An allocator that uses previously allocated memory.
@@ -130,10 +130,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         struct rebind
         { typedef array_allocator<_Tp1, _Array1> other; };
 
-      array_allocator(array_type* __array = 0) _GLIBCXX_USE_NOEXCEPT
+      array_allocator(array_type* __array = 0) _GLIBCXX_USE_NOEXCEPT 
       : _M_array(__array), _M_used(size_type()) { }
 
-      array_allocator(const array_allocator& __o) _GLIBCXX_USE_NOEXCEPT
+      array_allocator(const array_allocator& __o) _GLIBCXX_USE_NOEXCEPT 
       : _M_array(__o._M_array), _M_used(__o._M_used) { }
 
       template<typename _Tp1, typename _Array1>
@@ -159,10 +159,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     operator==(const array_allocator<_Tp, _Array>&,
 	       const array_allocator<_Tp, _Array>&)
     { return true; }
-
+  
   template<typename _Tp, typename _Array>
     inline bool
-    operator!=(const array_allocator<_Tp, _Array>&,
+    operator!=(const array_allocator<_Tp, _Array>&, 
 	       const array_allocator<_Tp, _Array>&)
     { return false; }
 

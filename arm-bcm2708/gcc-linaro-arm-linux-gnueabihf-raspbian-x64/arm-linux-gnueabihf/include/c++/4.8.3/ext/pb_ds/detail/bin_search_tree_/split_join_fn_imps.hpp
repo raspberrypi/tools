@@ -147,3 +147,4 @@ recursive_count(node_pointer p) const
     return 0;
   return 1 + recursive_count(p->m_p_left) + recursive_count(p->m_p_right);
 }
+

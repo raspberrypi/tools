@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,12 +52,12 @@ considered part of the source program being assembled if the argument
 (which must be an <var>absolute expression</var>) is non-zero.  The end of
 the conditional section of code must be marked by <code>.endif</code>
 (see <a href="Endif.html#Endif"><code>.endif</code></a>); optionally, you may include code for the
-alternative condition, flagged by <code>.else</code> (see <a href="Else.html#Else"><code>.else</code></a>).
+alternative condition, flagged by <code>.else</code> (see <a href="Else.html#Else"><code>.else</code></a>). 
 If you have several conditions to check, <code>.elseif</code> may be used to avoid
 nesting blocks if/else within each subsequent <code>.else</code> block.
 
    <p>The following variants of <code>.if</code> are also supported:
-
+     
 <a name="index-g_t_0040code_007bifdef_007d-directive-355"></a>
 <dl><dt><code>.ifdef </code><var>symbol</var><dd>Assembles the following section of code if the specified <var>symbol</var>
 has been defined.  Note a symbol which has been referenced but not yet defined
@@ -99,7 +99,8 @@ which has been referenced but not yet defined is considered to be undefined.
 (in other words, this is equivalent to <code>.if</code>).
 
      <p><a name="index-g_t_0040code_007bifnes_007d-directive-369"></a><br><dt><code>.ifnes </code><var>string1</var><code>,</code><var>string2</var><dd>Like <code>.ifeqs</code>, but the sense of the test is reversed: this assembles the
-following section of code if the two strings are not the same.
+following section of code if the two strings are not the same. 
 </dl>
 
    </body></html>
+

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,17 +48,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <h3 class="section">4.11 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</h3>
 
 <p><a name="index-PowerPC64-ELF64-options-646"></a>
-
+     
 <a name="index-PowerPC64-stub-grouping-647"></a>
 <a name="index-g_t_002d_002dstub_002dgroup_002dsize-648"></a>
 <dl><dt><samp><span class="option">--stub-group-size</span></samp><dd>Long branch stubs, PLT call stubs  and TOC adjusting stubs are placed
-by <samp><span class="command">ld</span></samp> in stub sections located between groups of input sections.
+by <samp><span class="command">ld</span></samp> in stub sections located between groups of input sections. 
 &lsquo;<samp><span class="samp">--stub-group-size</span></samp>&rsquo; specifies the maximum size of a group of input
 sections handled by one stub section.  Since branch offsets are signed,
 a stub section may serve two groups of input sections, one group before
 the stub section, and one group after it.  However, when using
 conditional branches that require stubs, it may be better (for branch
-prediction) that stub sections only serve one group of input sections.
+prediction) that stub sections only serve one group of input sections. 
 A negative value for &lsquo;<samp><span class="samp">N</span></samp>&rsquo; chooses this scheme, ensuring that
 branches to stubs always use a negative offset.  Two special values of
 &lsquo;<samp><span class="samp">N</span></samp>&rsquo; are recognized, &lsquo;<samp><span class="samp">1</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-1</span></samp>&rsquo;.  These both instruct
@@ -90,7 +90,7 @@ disable the optimization.
 
      <p><a name="index-PowerPC64-OPD-optimization-656"></a><a name="index-g_t_002d_002dno_002dopd_002doptimize-657"></a><br><dt><samp><span class="option">--no-opd-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally removes <code>.opd</code> section entries
 corresponding to deleted link-once functions, or functions removed by
-the action of &lsquo;<samp><span class="samp">--gc-sections</span></samp>&rsquo; or linker script <code>/DISCARD/</code>.
+the action of &lsquo;<samp><span class="samp">--gc-sections</span></samp>&rsquo; or linker script <code>/DISCARD/</code>. 
 Use this option to disable <code>.opd</code> optimization.
 
      <p><a name="index-PowerPC64-OPD-spacing-658"></a><a name="index-g_t_002d_002dnon_002doverlapping_002dopd-659"></a><br><dt><samp><span class="option">--non-overlapping-opd</span></samp><dd>Some PowerPC64 compilers have an option to generate compressed
@@ -120,7 +120,7 @@ grouping code sections such that each group uses less than 64K for its
 TOC entries, then inserts r2 adjusting stubs between inter-group
 calls.  <samp><span class="command">ld</span></samp> does not split apart input sections, so cannot
 help if a single input file has a <code>.toc</code> section that exceeds
-64K, most likely from linking multiple files with <samp><span class="command">ld -r</span></samp>.
+64K, most likely from linking multiple files with <samp><span class="command">ld -r</span></samp>. 
 Use this option to turn off this feature.
 
      <p><a name="index-PowerPC64-TOC-sorting-664"></a><a name="index-g_t_002d_002dno_002dtoc_002dsort-665"></a><br><dt><samp><span class="option">--no-toc-sort</span></samp><dd>By default, <samp><span class="command">ld</span></samp> sorts TOC sections so that those whose file
@@ -149,7 +149,8 @@ memory write barriers.  To avoid this we need some sort of read
 barrier in the call stub, or use LD_BIND_NOW=1.  By default, <code>ld</code>
 looks for calls to commonly used functions that create threads, and if
 seen, adds the necessary barriers.  Use these options to change the
-default behaviour.
+default behaviour. 
 </dl>
 
    </body></html>
+

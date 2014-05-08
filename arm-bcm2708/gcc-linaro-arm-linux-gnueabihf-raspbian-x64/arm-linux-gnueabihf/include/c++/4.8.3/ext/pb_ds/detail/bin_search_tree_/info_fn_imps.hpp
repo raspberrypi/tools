@@ -61,3 +61,4 @@ max_size() const
 {
   return (s_node_allocator.max_size());
 }
+

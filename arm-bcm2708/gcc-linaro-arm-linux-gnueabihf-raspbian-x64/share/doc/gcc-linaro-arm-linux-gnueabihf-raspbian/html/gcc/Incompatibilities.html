@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,7 +58,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Trouble.html#Trouble">Trouble</a>
 There are several noteworthy incompatibilities between GNU C and K&amp;R
 (non-ISO) versions of C.
 
-
+     
 <a name="index-string-constants-3544"></a>
 <a name="index-read_002donly-strings-3545"></a>
 <a name="index-shared-strings-3546"></a>
@@ -82,7 +82,7 @@ purposes instead of string constants.
      <li><code>-2147483648</code> is positive.
 
      <p>This is because 2147483648 cannot fit in the type <code>int</code>, so
-(following the ISO C rules) its data type is <code>unsigned long int</code>.
+(following the ISO C rules) its data type is <code>unsigned long int</code>. 
 Negating this value yields 2147483648 again.
 
      <li>GCC does not substitute macro arguments when they appear inside of
@@ -98,15 +98,15 @@ variables guaranteed to remain valid are those declared
 allocation.  Consider this function:
 
      <pre class="smallexample">          jmp_buf j;
-
+          
           foo ()
           {
             int a, b;
-
+          
             a = fun1 ();
             if (setjmp (j))
               return a;
-
+          
             a = fun2 ();
             /* <code>longjmp (j)</code><span class="roman"> may occur in </span><code>fun3</code><span class="roman">.</span> */
             return a + fun3 ();
@@ -212,7 +212,7 @@ tells GCC where to pass this address.
 
      <p>By contrast, PCC on most target machines returns structures and unions
 of any size by copying the data into an area of static storage, and then
-returning the address of that storage as if it were a pointer value.
+returning the address of that storage as if it were a pointer value. 
 The caller must copy the data from that memory area to the place where
 the value is wanted.  GCC does not use this method because it is
 slower and nonreentrant.
@@ -227,7 +227,7 @@ union returning with the option <samp><span class="option">-fpcc-struct-return</
 
      <p><a name="index-preprocessing-tokens-3565"></a><a name="index-preprocessing-numbers-3566"></a><li>GCC complains about program fragments such as &lsquo;<samp><span class="samp">0x74ae-0x4000</span></samp>&rsquo;
 which appear to be two hexadecimal constants separated by the minus
-operator.  Actually, this string is a single <dfn>preprocessing token</dfn>.
+operator.  Actually, this string is a single <dfn>preprocessing token</dfn>. 
 Each such token must correspond to one token in C.  Since this does not,
 GCC prints an error message.  Although it may appear obvious that what
 is meant is an operator and two values, the ISO C standard specifically
@@ -241,7 +241,8 @@ mode, the sequences &lsquo;<samp><span class="samp">p+</span></samp>&rsquo;, &ls
 appear in preprocessing numbers.)
 
      <p>To make the above program fragment valid, place whitespace in front of
-the minus sign.  This whitespace will end the preprocessing number.
+the minus sign.  This whitespace will end the preprocessing number. 
 </ul>
 
  </body></html>
+

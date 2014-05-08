@@ -96,7 +96,7 @@ PB_DS_CLASS_C_DEC::
 insert_imp(const_reference r_val, false_type)
 {
   key_const_reference r_key = PB_DS_V2F(r_val);
-  const size_type pos = find_ins_pos(r_key,
+  const size_type pos = find_ins_pos(r_key, 
 				     traits_base::m_store_extra_indicator);
 
   if (m_entries[pos].m_stat == valid_entry_status)
@@ -108,3 +108,4 @@ insert_imp(const_reference r_val, false_type)
   PB_DS_CHECK_KEY_DOES_NOT_EXIST(r_key)
   return std::make_pair(insert_new_imp(r_val, pos), true);
 }
+

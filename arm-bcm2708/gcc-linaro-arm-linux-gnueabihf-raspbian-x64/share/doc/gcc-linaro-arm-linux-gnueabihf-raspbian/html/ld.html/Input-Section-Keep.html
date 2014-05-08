@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,9 +48,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Input-Section.html#Input-Section">Input
 <h5 class="subsubsection">3.6.4.4 Input Section and Garbage Collection</h5>
 
 <p><a name="index-KEEP-427"></a><a name="index-garbage-collection-428"></a>When link-time garbage collection is in use (&lsquo;<samp><span class="samp">--gc-sections</span></samp>&rsquo;),
-it is often useful to mark sections that should not be eliminated.
+it is often useful to mark sections that should not be eliminated. 
 This is accomplished by surrounding an input section's wildcard entry
 with <code>KEEP()</code>, as in <code>KEEP(*(.init))</code> or
 <code>KEEP(SORT_BY_NAME(*)(.ctors))</code>.
 
    </body></html>
+

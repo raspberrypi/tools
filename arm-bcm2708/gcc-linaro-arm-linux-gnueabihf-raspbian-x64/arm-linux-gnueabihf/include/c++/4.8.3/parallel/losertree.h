@@ -511,7 +511,7 @@ namespace __gnu_parallel
 	    unsigned int __left = __init_winner(2 * __root);
 	    unsigned int __right = __init_winner(2 * __root + 1);
 	    if (_M_losers[__right]._M_sup
-		|| (!_M_losers[__left]._M_sup
+        	|| (!_M_losers[__left]._M_sup
 		    && !_M_comp(*_M_losers[__right]._M_keyp,
 				*_M_losers[__left]._M_keyp)))
 	      {
@@ -561,7 +561,7 @@ namespace __gnu_parallel
     };
 
   /** @brief Base class for unguarded _LoserTree implementation.
-   *
+   * 
    * The whole element is copied into the tree structure.
    *
    * No guarding is done, therefore not a single input sequence must
@@ -711,7 +711,7 @@ namespace __gnu_parallel
 	  {
 	    // The smaller one gets promoted, ties are broken by _M_source.
 	    if (_M_comp(_M_losers[__pos]._M_key, __key)
-		|| (!_M_comp(__key, _M_losers[__pos]._M_key)
+        	|| (!_M_comp(__key, _M_losers[__pos]._M_key)
                     && _M_losers[__pos]._M_source < __source))
 	      {
 		// The other one is smaller.

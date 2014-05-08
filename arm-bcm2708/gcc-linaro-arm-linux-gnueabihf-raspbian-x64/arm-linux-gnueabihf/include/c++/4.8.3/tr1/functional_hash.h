@@ -116,7 +116,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  return __result;
 	}
     };
-
+  
   template<>
     struct _Fnv_hash_base<8>
     {

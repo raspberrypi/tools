@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,10 +48,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Source.html#Source">Source</a>
 <h3 class="section">9.3 Editing Source Files</h3>
 
 <p><a name="index-editing-source-files-479"></a>
-<a name="index-edit-480"></a><a name="index-e-_0040r_007b_0028_0040code_007bedit_007d_0029_007d-481"></a>To edit the lines in a source file, use the <code>edit</code> command.
+<a name="index-edit-480"></a><a name="index-e-_0040r_007b_0028_0040code_007bedit_007d_0029_007d-481"></a>To edit the lines in a source file, use the <code>edit</code> command. 
 The editing program of your choice
 is invoked with the current line set to
-the active line in the program.
+the active line in the program. 
 Alternatively, there are several ways to specify what part of the file you
 want to print if you want to see other parts of the program:
 
@@ -65,7 +65,7 @@ command most commonly used:
           <dl>
 <dt><code>edit </code><var>number</var><dd>Edit the current source file with <var>number</var> as the active line number.
 
-          <br><dt><code>edit </code><var>function</var><dd>Edit the file containing <var>function</var> at the beginning of its definition.
+          <br><dt><code>edit </code><var>function</var><dd>Edit the file containing <var>function</var> at the beginning of its definition. 
 </dl>
 
    </dl>
@@ -73,7 +73,7 @@ command most commonly used:
 <h4 class="subsection">9.3.1 Choosing your Editor</h4>
 
 <p>You can customize <span class="sc">gdb</span> to use any editor you want
-<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.
+<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>. 
 By default, it is <samp><span class="file">/bin/ex</span></samp>, but you can change this
 by setting the environment variable <code>EDITOR</code> before using
 <span class="sc">gdb</span>.  For example, to configure <span class="sc">gdb</span> to use the
@@ -88,7 +88,7 @@ by setting the environment variable <code>EDITOR</code> before using
 </pre>
    <div class="footnote">
 <hr>
-<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> 
 The only restriction is that your editor (say <code>ex</code>), recognizes the
 following command-line syntax:
 <pre class="smallexample">     ex +<var>number</var> file
@@ -99,3 +99,4 @@ the file where to start editing.</p>
    <hr></div>
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ with names starting with &lsquo;<samp><span class="samp">$</span></samp>&rsquo;.
 for each machine; use <code>info registers</code> to see the names used on
 your machine.
 
-
+     
 <a name="index-info-registers-647"></a>
 <dl><dt><code>info registers</code><dd>Print the names and values of all registers except floating-point
 and vector registers (in the selected stack frame).
@@ -60,10 +60,10 @@ and vector registers (in the selected stack frame).
      <p><a name="index-info-all_002dregisters-648"></a><a name="index-floating-point-registers-649"></a><br><dt><code>info all-registers</code><dd>Print the names and values of all registers, including floating-point
 and vector registers (in the selected stack frame).
 
-     <br><dt><code>info registers </code><var>regname</var><code> ...</code><dd>Print the <dfn>relativized</dfn> value of each specified register <var>regname</var>.
+     <br><dt><code>info registers </code><var>regname</var><code> ...</code><dd>Print the <dfn>relativized</dfn> value of each specified register <var>regname</var>. 
 As discussed in detail below, register values are normally relative to
 the selected stack frame.  <var>regname</var> may be any register name valid on
-the machine you are using, with or without the initial &lsquo;<samp><span class="samp">$</span></samp>&rsquo;.
+the machine you are using, with or without the initial &lsquo;<samp><span class="samp">$</span></samp>&rsquo;. 
 </dl>
 
    <p><a name="index-stack-pointer-register-650"></a><a name="index-program-counter-register-651"></a><a name="index-process-status-register-652"></a><a name="index-frame-pointer-register-653"></a><a name="index-standard-registers-654"></a><span class="sc">gdb</span> has four &ldquo;standard&rdquo; register names that are available (in
@@ -159,3 +159,4 @@ see <a href="Returning.html#Returning">Returning from a Function</a>.</p>
    <hr></div>
 
    </body></html>
+

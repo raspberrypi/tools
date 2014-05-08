@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -67,7 +67,7 @@ relocation.  <samp><span class="option">-mno-error-reloc</span></samp> disables 
      <br><dt><code>-msafe-dma</code><dt><code>-munsafe-dma</code><dd><a name="index-msafe_002ddma-2226"></a><a name="index-munsafe_002ddma-2227"></a>
 Instructions that initiate or test completion of DMA must not be
 reordered with respect to loads and stores of the memory that is being
-accessed.
+accessed. 
 With <samp><span class="option">-munsafe-dma</span></samp> you must use the <code>volatile</code> keyword to protect
 memory accesses, but that can lead to inefficient code in places where the
 memory is known to not change.  Rather than mark the memory as volatile,
@@ -77,7 +77,7 @@ the DMA instructions as potentially affecting all memory.
      <br><dt><code>-mbranch-hints</code><dd><a name="index-mbranch_002dhints-2228"></a>
 By default, GCC generates a branch hint instruction to avoid
 pipeline stalls for always-taken or probably-taken branches.  A hint
-is not generated closer than 8 instructions away from its branch.
+is not generated closer than 8 instructions away from its branch. 
 There is little reason to disable them, except for debugging purposes,
 or to make an object a little bit smaller.
 
@@ -88,12 +88,12 @@ a full 32-bit address.
 
      <br><dt><code>-mstdmain</code><dd><a name="index-mstdmain-2231"></a>
 By default, GCC links against startup code that assumes the SPU-style
-main function interface (which has an unconventional parameter list).
+main function interface (which has an unconventional parameter list). 
 With <samp><span class="option">-mstdmain</span></samp>, GCC links your program against startup
 code that assumes a C99-style interface to <code>main</code>, including a
 local copy of <code>argv</code> strings.
 
-     <br><dt><code>-mfixed-range=</code><var>register-range</var><dd><a name="index-mfixed_002drange-2232"></a>Generate code treating the given register range as fixed registers.
+     <br><dt><code>-mfixed-range=</code><var>register-range</var><dd><a name="index-mfixed_002drange-2232"></a>Generate code treating the given register range as fixed registers. 
 A fixed register is one that the register allocator cannot use.  This is
 useful when compiling kernel code.  A register range is specified as
 two registers separated by a dash.  Multiple register ranges can be
@@ -139,10 +139,11 @@ generate the branch hint.
 256 instructions of the branch it is affecting.  By default, GCC makes
 sure it is within 125.
 
-     <br><dt><code>-msafe-hints</code><dd><a name="index-msafe_002dhints-2243"></a>Work around a hardware bug that causes the SPU to stall indefinitely.
+     <br><dt><code>-msafe-hints</code><dd><a name="index-msafe_002dhints-2243"></a>Work around a hardware bug that causes the SPU to stall indefinitely. 
 By default, GCC inserts the <code>hbrp</code> instruction to make sure
 this stall won't happen.
 
  </dl>
 
  </body></html>
+

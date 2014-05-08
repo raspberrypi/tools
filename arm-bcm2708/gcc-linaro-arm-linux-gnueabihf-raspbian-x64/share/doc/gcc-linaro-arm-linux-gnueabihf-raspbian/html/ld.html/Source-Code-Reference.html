@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -84,7 +84,7 @@ number 1000 is initially stored.
 
    <p>When a program references a symbol the compiler generates code that
 first accesses the symbol table to find the address of the symbol's
-memory block and then code to read the value from that memory block.
+memory block and then code to read the value from that memory block. 
 So:
 
 <pre class="smallexample">       foo = 1;
@@ -124,9 +124,10 @@ linker script contains these declarations:
    <p>Then the C source code to perform the copy would be:
 
 <pre class="smallexample">       extern char start_of_ROM, end_of_ROM, start_of_FLASH;
-
+     
        memcpy (&amp; start_of_FLASH, &amp; start_of_ROM, &amp; end_of_ROM - &amp; start_of_ROM);
 </pre>
    <p>Note the use of the &lsquo;<samp><span class="samp">&amp;</span></samp>&rsquo; operators.  These are correct.
 
    </body></html>
+

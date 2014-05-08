@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -83,7 +83,7 @@ retransmission):
      &lt;- <code>+</code>
 </pre>
    <p class="noindent">The &lsquo;<samp><span class="samp">+</span></samp>&rsquo;/&lsquo;<samp><span class="samp">-</span></samp>&rsquo; acknowledgments can be disabled
-once a connection is established.
+once a connection is established. 
 See <a href="Packet-Acknowledgment.html#Packet-Acknowledgment">Packet Acknowledgment</a>, for details.
 
    <p>The host (<span class="sc">gdb</span>) sends <var>command</var>s, and the target (the
@@ -108,14 +108,14 @@ would potentially conflict with the <var>sequence-id</var>).
 
    <p><a name="index-remote-protocol_002c-binary-data-2639"></a><a name="Binary-Data"></a>Binary data in most packets is encoded either as two hexadecimal
 digits per byte of binary data.  This allowed the traditional remote
-protocol to work over connections which were only seven-bit clean.
+protocol to work over connections which were only seven-bit clean. 
 Some packets designed more recently assume an eight-bit clean
 connection, and use a more efficient encoding to send and receive
 binary data.
 
    <p>The binary data representation uses <code>7d</code> (<span class="sc">ascii</span> &lsquo;<samp><span class="samp">}</span></samp>&rsquo;)
 as an escape character.  Any escaped byte is transmitted as the escape
-character followed by the original character XORed with <code>0x20</code>.
+character followed by the original character XORed with <code>0x20</code>. 
 For example, the byte <code>0x7d</code> would be transmitted as the two
 bytes <code>0x7d 0x5d</code>.  The bytes <code>0x23</code> (<span class="sc">ascii</span> &lsquo;<samp><span class="samp">#</span></samp>&rsquo;),
 <code>0x24</code> (<span class="sc">ascii</span> &lsquo;<samp><span class="samp">$</span></samp>&rsquo;), and <code>0x7d</code> (<span class="sc">ascii</span>
@@ -124,7 +124,7 @@ must also escape <code>0x2a</code> (<span class="sc">ascii</span> &lsquo;<samp><
 is not interpreted as the start of a run-length encoded sequence
 (described next).
 
-   <p>Response <var>data</var> can be run-length encoded to save space.
+   <p>Response <var>data</var> can be run-length encoded to save space. 
 Run-length encoding replaces runs of identical characters with one
 instance of the repeated character, followed by a &lsquo;<samp><span class="samp">*</span></samp>&rsquo; and a
 repeat count.  The repeat count is itself sent encoded, to avoid
@@ -158,3 +158,4 @@ can implement run control with the &lsquo;<samp><span class="samp">c</span></sam
 support the &lsquo;<samp><span class="samp">vCont</span></samp>&rsquo; command.  All other commands are optional.
 
    </body></html>
+

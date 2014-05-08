@@ -68,7 +68,7 @@ namespace __gnu_pbds
 
   /**
    *  @defgroup tags Tags
-   *  @{
+   *  @{   
    */
   /// A trivial iterator tag. Signifies that the iterators has none of
   /// std::iterators's movement abilities.

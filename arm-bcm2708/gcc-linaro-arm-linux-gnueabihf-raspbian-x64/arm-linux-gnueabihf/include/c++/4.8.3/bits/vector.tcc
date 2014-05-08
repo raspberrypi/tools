@@ -715,7 +715,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 	}
       else
 	{
-	  const size_type __len =
+	  const size_type __len = 
 	    _M_check_len(__n, "vector<bool>::_M_fill_insert");
 	  _Bit_type * __q = this->_M_allocate(__len);
 	  iterator __i = _M_copy_aligned(begin(), __position,
@@ -733,7 +733,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
     template<typename _ForwardIterator>
       void
       vector<bool, _Alloc>::
-      _M_insert_range(iterator __position, _ForwardIterator __first,
+      _M_insert_range(iterator __position, _ForwardIterator __first, 
 		      _ForwardIterator __last, std::forward_iterator_tag)
       {
 	if (__first != __last)
@@ -770,7 +770,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
     {
       if (this->_M_impl._M_finish._M_p != this->_M_impl._M_end_of_storage)
 	{
-	  std::copy_backward(__position, this->_M_impl._M_finish,
+	  std::copy_backward(__position, this->_M_impl._M_finish, 
 			     this->_M_impl._M_finish + 1);
 	  *__position = __x;
 	  ++this->_M_impl._M_finish;

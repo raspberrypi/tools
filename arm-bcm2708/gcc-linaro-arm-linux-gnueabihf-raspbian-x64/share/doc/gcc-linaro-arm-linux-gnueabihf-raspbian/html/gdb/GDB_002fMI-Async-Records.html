@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -59,7 +59,7 @@ target activity (e.g., target stopped).
 <dt><code>*running,thread-id="</code><var>thread</var><code>"</code><dd>The target is now running.  The <var>thread</var> field tells which
 specific thread is now running, and can be &lsquo;<samp><span class="samp">all</span></samp>&rsquo; if all threads
 are running.  The frontend should assume that no interaction with a
-running thread is possible after this notification is produced.
+running thread is possible after this notification is produced. 
 The frontend should not assume that this notification is output
 only once for any command.  <span class="sc">gdb</span> may emit this notification
 several times, either for different threads, because it cannot resume
@@ -70,39 +70,39 @@ be stepped though some code before letting it run freely.
 following values:
 
           <dl>
-<dt><code>breakpoint-hit</code><dd>A breakpoint was reached.
-<br><dt><code>watchpoint-trigger</code><dd>A watchpoint was triggered.
-<br><dt><code>read-watchpoint-trigger</code><dd>A read watchpoint was triggered.
-<br><dt><code>access-watchpoint-trigger</code><dd>An access watchpoint was triggered.
-<br><dt><code>function-finished</code><dd>An -exec-finish or similar CLI command was accomplished.
-<br><dt><code>location-reached</code><dd>An -exec-until or similar CLI command was accomplished.
-<br><dt><code>watchpoint-scope</code><dd>A watchpoint has gone out of scope.
+<dt><code>breakpoint-hit</code><dd>A breakpoint was reached. 
+<br><dt><code>watchpoint-trigger</code><dd>A watchpoint was triggered. 
+<br><dt><code>read-watchpoint-trigger</code><dd>A read watchpoint was triggered. 
+<br><dt><code>access-watchpoint-trigger</code><dd>An access watchpoint was triggered. 
+<br><dt><code>function-finished</code><dd>An -exec-finish or similar CLI command was accomplished. 
+<br><dt><code>location-reached</code><dd>An -exec-until or similar CLI command was accomplished. 
+<br><dt><code>watchpoint-scope</code><dd>A watchpoint has gone out of scope. 
 <br><dt><code>end-stepping-range</code><dd>An -exec-next, -exec-next-instruction, -exec-step, -exec-step-instruction or
-similar CLI command was accomplished.
-<br><dt><code>exited-signalled</code><dd>The inferior exited because of a signal.
-<br><dt><code>exited</code><dd>The inferior exited.
-<br><dt><code>exited-normally</code><dd>The inferior exited normally.
-<br><dt><code>signal-received</code><dd>A signal was received by the inferior.
-<br><dt><code>solib-event</code><dd>The inferior has stopped due to a library being loaded or unloaded.
+similar CLI command was accomplished. 
+<br><dt><code>exited-signalled</code><dd>The inferior exited because of a signal. 
+<br><dt><code>exited</code><dd>The inferior exited. 
+<br><dt><code>exited-normally</code><dd>The inferior exited normally. 
+<br><dt><code>signal-received</code><dd>A signal was received by the inferior. 
+<br><dt><code>solib-event</code><dd>The inferior has stopped due to a library being loaded or unloaded. 
 This can happen when <code>stop-on-solib-events</code> (see <a href="Files.html#Files">Files</a>) is
 set or when a <code>catch load</code> or <code>catch unload</code> catchpoint is
-in use (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>).
+in use (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>). 
 <br><dt><code>fork</code><dd>The inferior has forked.  This is reported when <code>catch fork</code>
-(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used.
+(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used. 
 <br><dt><code>vfork</code><dd>The inferior has vforked.  This is reported in when <code>catch vfork</code>
-(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used.
+(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used. 
 <br><dt><code>syscall-entry</code><dd>The inferior entered a system call.  This is reported when <code>catch
-syscall</code> (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used.
+syscall</code> (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used. 
 <br><dt><code>syscall-entry</code><dd>The inferior returned from a system call.  This is reported when
-<code>catch syscall</code> (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used.
+<code>catch syscall</code> (see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used. 
 <br><dt><code>exec</code><dd>The inferior called <code>exec</code>.  This is reported when <code>catch exec</code>
-(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used.
+(see <a href="Set-Catchpoints.html#Set-Catchpoints">Set Catchpoints</a>) has been used. 
 </dl>
 
      <p>The <var>id</var> field identifies the thread that directly caused the stop
 &ndash; for example by hitting a breakpoint.  Depending on whether all-stop
 mode is in effect (see <a href="All_002dStop-Mode.html#All_002dStop-Mode">All-Stop Mode</a>), <span class="sc">gdb</span> may either
-stop all threads, or only the thread that directly triggered the stop.
+stop all threads, or only the thread that directly triggered the stop. 
 If all threads are stopped, the <var>stopped</var> field will have the
 value of <code>"all"</code>.  Otherwise, the value of the <var>stopped</var>
 field will be a list of thread identifiers.  Presently, this list will
@@ -160,7 +160,7 @@ thread groups.
 
      <br><dt><code>=library-unloaded,...</code><dd>Reports that a library was unloaded by the program.  This notification
 has 3 fields&mdash;<var>id</var>, <var>target-name</var> and <var>host-name</var> with
-the same meaning as for the <code>=library-loaded</code> notification.
+the same meaning as for the <code>=library-loaded</code> notification. 
 The <var>thread-group</var> field, if present, specifies the id of the
 thread group in whose context the library was unloaded.  If the field is
 absent, it means the library was unloaded in the context of all present
@@ -198,7 +198,7 @@ group corresponding to the affected inferior.
 
      <br><dt><code>=cmd-param-changed,param=</code><var>param</var><code>,value=</code><var>value</var><dd>Reports that a parameter of the command <code>set </code><var>param</var> is
 changed to <var>value</var>.  In the multi-word <code>set</code> command,
-the <var>param</var> is the whole parameter list to <code>set</code> command.
+the <var>param</var> is the whole parameter list to <code>set</code> command. 
 For example, In command <code>set check type on</code>, <var>param</var>
 is <code>check type</code> and <var>value</var> is <code>on</code>.
 
@@ -206,7 +206,8 @@ is <code>check type</code> and <var>value</var> is <code>on</code>.
 written in an inferior.  The <var>id</var> is the identifier of the
 thread group corresponding to the affected inferior.  The optional
 <code>type="code"</code> part is reported if the memory written to holds
-executable code.
+executable code. 
 </dl>
 
    </body></html>
+

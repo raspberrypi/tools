@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,9 +70,9 @@ command line when the containing program was invoked.
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>NUMBER</var> </td><td valign="top" width="70%">Shall be a scalar of type <code>INTEGER</code> and of
 default kind, <var>NUMBER</var> \geq 0
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>VALUE</var>  </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>CHARACTER</code>
-and of default kind.
+and of default kind. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>LENGTH</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
-and of default kind.
+and of default kind. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>STATUS</var> </td><td valign="top" width="70%">(Optional) Shall be a scalar of type <code>INTEGER</code>
 and of default kind.
      <br></td></tr></table>
@@ -80,7 +80,7 @@ and of default kind.
      <br><dt><em>Return value</em>:<dd>After <code>GET_COMMAND_ARGUMENT</code> returns, the <var>VALUE</var> argument holds the
 <var>NUMBER</var>-th command line argument. If <var>VALUE</var> can not hold the argument, it is
 truncated to fit the length of <var>VALUE</var>. If there are less than <var>NUMBER</var>
-arguments specified at the command line, <var>VALUE</var> will be filled with blanks.
+arguments specified at the command line, <var>VALUE</var> will be filled with blanks. 
 If <var>NUMBER</var> = 0, <var>VALUE</var> is set to the name of the program (on
 systems that support this feature). The <var>LENGTH</var> argument contains the
 length of the <var>NUMBER</var>-th command line argument. If the argument retrieval
@@ -92,12 +92,12 @@ zero.
      <pre class="smallexample">          PROGRAM test_get_command_argument
             INTEGER :: i
             CHARACTER(len=32) :: arg
-
+          
             i = 0
             DO
               CALL get_command_argument(i, arg)
               IF (LEN_TRIM(arg) == 0) EXIT
-
+          
               WRITE (*,*) TRIM(arg)
               i = i+1
             END DO
@@ -107,3 +107,4 @@ zero.
 </dl>
 
    </body></html>
+

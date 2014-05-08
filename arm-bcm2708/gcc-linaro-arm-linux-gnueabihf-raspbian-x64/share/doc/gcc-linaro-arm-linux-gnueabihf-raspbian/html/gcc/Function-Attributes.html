@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,7 +74,7 @@ attributes are currently defined for functions on all targets:
 <code>warn_unused_result</code>, <code>nonnull</code>, <code>gnu_inline</code>,
 <code>externally_visible</code>, <code>hot</code>, <code>cold</code>, <code>artificial</code>,
 <code>no_sanitize_address</code>, <code>no_address_safety_analysis</code>,
-<code>error</code> and <code>warning</code>.
+<code>error</code> and <code>warning</code>. 
 Several other attributes are defined for functions on particular
 target systems.  Other attributes, including <code>section</code> are
 supported for variables declarations (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>)
@@ -144,7 +144,7 @@ one.
 the product of parameter 1 and 2 and that <code>my_realloc</code> returns memory
 of the size given by parameter 2.
 
-     <br><dt><code>always_inline</code><dd><a name="index-g_t_0040code_007balways_005finline_007d-function-attribute-2588"></a>Generally, functions are not inlined unless optimization is specified.
+     <br><dt><code>always_inline</code><dd><a name="index-g_t_0040code_007balways_005finline_007d-function-attribute-2588"></a>Generally, functions are not inlined unless optimization is specified. 
 For functions declared inline, this attribute inlines the function even
 if no optimization level is specified.
 
@@ -194,7 +194,7 @@ prologue and epilogue to use bank switching to preserve the registers
 rather than saving them on the stack.
 
      <br><dt><code>flatten</code><dd><a name="index-g_t_0040code_007bflatten_007d-function-attribute-2592"></a>Generally, inlining into a function is limited.  For a function marked with
-this attribute, every call inside this function is inlined, if possible.
+this attribute, every call inside this function is inlined, if possible. 
 Whether the function itself is considered for inlining depends on its size and
 the current inlining parameters.
 
@@ -203,7 +203,7 @@ is not eliminated through dead code elimination or other optimizations, an error
 that includes <var>message</var> is diagnosed.  This is useful
 for compile-time checking, especially together with <code>__builtin_constant_p</code>
 and inline functions where checking the inline function arguments is not
-possible through <code>extern char [(condition) ? 1 : -1];</code> tricks.
+possible through <code>extern char [(condition) ? 1 : -1];</code> tricks. 
 While it is possible to leave the function undefined and thus invoke
 a link failure, when using this attribute the problem is diagnosed
 earlier and with exact location of the call even in presence of inline
@@ -240,7 +240,7 @@ effects, which works in the current version and in some older versions,
 is as follows:
 
      <pre class="smallexample">          typedef int intfn ();
-
+          
           extern const intfn square;
 </pre>
      <p class="noindent">This approach does not work in GNU C++ from 2.6.0 on, since the language
@@ -339,9 +339,9 @@ attribute also implies &ldquo;default&rdquo; visibility.  It is an error to
 explicitly specify any other visibility.
 
      <p>Currently, the attribute is ignored for inlined functions.  If the
-attribute is applied to a symbol <em>definition</em>, an error is reported.
+attribute is applied to a symbol <em>definition</em>, an error is reported. 
 If a symbol previously declared <code>dllimport</code> is later defined, the
-attribute is ignored in subsequent references, and a warning is emitted.
+attribute is ignored in subsequent references, and a warning is emitted. 
 The attribute is also overridden by a subsequent declaration as
 <code>dllexport</code>.
 
@@ -376,7 +376,7 @@ referenced.  On Microsoft Windows targets, the attribute can be disabled
 for functions by setting the <samp><span class="option">-mnop-fun-dllimport</span></samp> flag.
 
      <br><dt><code>eightbit_data</code><dd><a name="index-eight_002dbit-data-on-the-H8_002f300_002c-H8_002f300H_002c-and-H8S-2605"></a>Use this attribute on the H8/300, H8/300H, and H8S to indicate that the specified
-variable should be placed into the eight-bit data section.
+variable should be placed into the eight-bit data section. 
 The compiler generates more efficient code for certain operations
 on data in the eight-bit data area.  Note the eight-bit data area is limited to
 256 bytes of data.
@@ -398,7 +398,7 @@ object remains visible outside the current compilation unit.
 <code>externally_visible</code> attributes are automatically added to functions
 (not variable yet due to a current <samp><span class="command">gold</span></samp> issue)
 that are accessed outside of LTO objects according to resolution file
-produced by <samp><span class="command">gold</span></samp>.
+produced by <samp><span class="command">gold</span></samp>. 
 For other linkers that cannot generate resolution file,
 explicit <code>externally_visible</code> attributes are still necessary.
 
@@ -412,7 +412,7 @@ to call and return from a function.
 
      <p>On 68HC11 the compiler generates a sequence of instructions
 to invoke a board-specific routine to switch the memory bank and call the
-real function.  The board-specific routine simulates a <code>call</code>.
+real function.  The board-specific routine simulates a <code>call</code>. 
 At the end of a function, it jumps to a board-specific routine
 instead of using <code>rts</code>.  The board-specific return routine simulates
 the <code>rtc</code>.
@@ -434,12 +434,12 @@ pops the arguments off the stack.  If the number of arguments is variable all
 arguments are pushed on the stack.
 
      <br><dt><code>thiscall</code><dd><a name="index-functions-that-pop-the-argument-stack-on-the-386-2611"></a>On the Intel 386, the <code>thiscall</code> attribute causes the compiler to
-pass the first argument (if of integral type) in the register ECX.
+pass the first argument (if of integral type) in the register ECX. 
 Subsequent and other typed arguments are passed on the stack. The called
-function pops the arguments off the stack.
+function pops the arguments off the stack. 
 If the number of arguments is variable all arguments are pushed on the
-stack.
-The <code>thiscall</code> attribute is intended for C++ non-static member functions.
+stack. 
+The <code>thiscall</code> attribute is intended for C++ non-static member functions. 
 As a GCC extension, this calling convention can be used for C functions
 and for static member methods.
 
@@ -462,13 +462,13 @@ interpreted, and should be <code>printf</code>, <code>scanf</code>, <code>strfti
 <code>strfmon</code>.  (You can also use <code>__printf__</code>,
 <code>__scanf__</code>, <code>__strftime__</code> or <code>__strfmon__</code>.)  On
 MinGW targets, <code>ms_printf</code>, <code>ms_scanf</code>, and
-<code>ms_strftime</code> are also present.
+<code>ms_strftime</code> are also present. 
 <var>archetype</var> values such as <code>printf</code> refer to the formats accepted
 by the system's C runtime library,
 while values prefixed with &lsquo;<samp><span class="samp">gnu_</span></samp>&rsquo; always refer
 to the formats accepted by the GNU C Library.  On Microsoft Windows
 targets, values prefixed with &lsquo;<samp><span class="samp">ms_</span></samp>&rsquo; refer to the formats accepted by the
-<samp><span class="file">msvcrt.dll</span></samp> library.
+<samp><span class="file">msvcrt.dll</span></samp> library. 
 The parameter <var>string-index</var>
 specifies which argument is the format string argument (starting
 from 1), while <var>first-to-check</var> is the number of the first
@@ -476,7 +476,7 @@ argument to check against the format string.  For functions
 where the arguments are not available to be checked (such as
 <code>vprintf</code>), specify the third parameter as zero.  In this case the
 compiler only checks the format string for consistency.  For
-<code>strftime</code> formats, the third parameter is required to be zero.
+<code>strftime</code> formats, the third parameter is required to be zero. 
 Since non-static C++ methods have an implicit <code>this</code> argument, the
 arguments of such methods should be counted from two, not one, when
 giving values for <var>string-index</var> and <var>first-to-check</var>.
@@ -498,7 +498,7 @@ modify the header file <samp><span class="file">stdio.h</span></samp>.  In C99 m
 <code>snprintf</code>, <code>vsnprintf</code>, <code>vscanf</code>, <code>vfscanf</code> and
 <code>vsscanf</code> are also checked.  Except in strictly conforming C
 standard modes, the X/Open function <code>strfmon</code> is also checked as
-are <code>printf_unlocked</code> and <code>fprintf_unlocked</code>.
+are <code>printf_unlocked</code> and <code>fprintf_unlocked</code>. 
 See <a href="C-Dialect-Options.html#C-Dialect-Options">Options Controlling C Dialect</a>.
 
      <p>For Objective-C dialects, <code>NSString</code> (or <code>__NSString__</code>) is
@@ -507,7 +507,7 @@ are parsed for correct syntax, however the result of checking of such format
 strings is not yet defined, and is not carried out by this version of the
 compiler.
 
-     <p>The target may also provide additional types of format checks.
+     <p>The target may also provide additional types of format checks. 
 See <a href="Target-Format-Checks.html#Target-Format-Checks">Format Checks Specific to Particular Target Machines</a>.
 
      <br><dt><code>format_arg (</code><var>string-index</var><code>)</code><dd><a name="index-g_t_0040code_007bformat_005farg_007d-function-attribute-2616"></a><a name="index-Wformat_002dnonliteral-2617"></a>The <code>format_arg</code> attribute specifies that a function takes a format
@@ -541,7 +541,7 @@ be counted from two.
      <p>The <code>format_arg</code> attribute allows you to identify your own
 functions that modify format strings, so that GCC can check the
 calls to <code>printf</code>, <code>scanf</code>, <code>strftime</code> or <code>strfmon</code>
-type function whose operands are a call to one of your own function.
+type function whose operands are a call to one of your own function. 
 The compiler always treats <code>gettext</code>, <code>dgettext</code>, and
 <code>dcgettext</code> in this manner except when strict ISO C support is
 requested by <samp><span class="option">-ansi</span></samp> or an appropriate <samp><span class="option">-std</span></samp> option, or
@@ -552,7 +552,7 @@ is used.  See <a href="C-Dialect-Options.html#C-Dialect-Options">Options Control
 <code>NSString</code> reference for compatibility with the <code>format</code> attribute
 above.
 
-     <p>The target may also allow additional types in <code>format-arg</code> attributes.
+     <p>The target may also allow additional types in <code>format-arg</code> attributes. 
 See <a href="Target-Format-Checks.html#Target-Format-Checks">Format Checks Specific to Particular Target Machines</a>.
 
      <br><dt><code>function_vector</code><dd><a name="index-calling-functions-through-the-function-vector-on-H8_002f300_002c-M16C_002c-M32C-and-SH2A-processors-2618"></a>Use this attribute on the H8/300, H8/300H, and H8S to indicate that the specified
@@ -586,7 +586,7 @@ the code size by 2 bytes for each call generated to the
 subroutine. The argument to the attribute is the vector number entry
 from the special page vector table which contains the 16 low-order
 bits of the subroutine's entry address. Each vector table has special
-page number (18 to 255) that is used in <code>jsrs</code> instructions.
+page number (18 to 255) that is used in <code>jsrs</code> instructions. 
 Jump addresses of the routines are generated by adding 0x0F0000 (in
 case of M16C targets) or 0xFF0000 (in case of M32C targets), to the
 2-byte addresses set in the vector table. Therefore you need to ensure
@@ -601,7 +601,7 @@ function <code>foo</code>.
           void foo (void)
           {
           }
-
+          
           void bar (void)
           {
               foo();
@@ -628,7 +628,7 @@ function returning pointer to void function returning void:
           {
             ...
           }
-
+          
           static void (*resolve_memcpy (void)) (void)
           {
             return my_memcpy; // we'll just always select this routine
@@ -685,7 +685,7 @@ may be called with a word-aligned stack pointer.
      <p>Permissible values for these parameters are: <code>reset</code><!-- /@w -->,
 <code>software_exception</code><!-- /@w -->, <code>page_miss</code><!-- /@w -->,
 <code>timer0</code><!-- /@w -->, <code>timer1</code><!-- /@w -->, <code>message</code><!-- /@w -->,
-<code>dma0</code><!-- /@w -->, <code>dma1</code><!-- /@w -->, <code>wand</code><!-- /@w --> and <code>swi</code><!-- /@w -->.
+<code>dma0</code><!-- /@w -->, <code>dma1</code><!-- /@w -->, <code>wand</code><!-- /@w --> and <code>swi</code><!-- /@w -->. 
 Multiple parameters indicate that multiple entries in the interrupt
 vector table should be initialized for this function, i.e. for each
 parameter <var>name</var><!-- /@w -->, a jump to the function is emitted in
@@ -701,7 +701,7 @@ modify the behavior of an interrupt handler:
 <dt><code>forwarder_section</code><dd><a name="index-g_t_0040code_007bforwarder_005fsection_007d-attribute-2621"></a>The interrupt handler may be in external memory which cannot be
 reached by a branch instruction, so generate a local memory trampoline
 to transfer control.  The single parameter identifies the section where
-the trampoline is placed.
+the trampoline is placed. 
 </dl>
 
      <p>The following examples are all valid uses of these attributes on
@@ -724,7 +724,7 @@ the main general-purpose registers.
 GCC tries to reenable interrupts for as much of the function as it can.
 
           <br><dt><code>use_debug_exception_return</code><dd><a name="index-g_t_0040code_007buse_005fdebug_005fexception_005freturn_007d-attribute-2624"></a>Return using the <code>deret</code> instruction.  Interrupt handlers that don't
-have this attribute return using <code>eret</code> instead.
+have this attribute return using <code>eret</code> instead. 
 </dl>
 
      <p>You can use any combination of these attributes, as shown below:
@@ -765,7 +765,7 @@ or <code>nmi_handler</code>, code is generated to load the stack pointer
 from the USP register in the function prologue.
 
      <br><dt><code>l1_text</code><dd><a name="index-g_t_0040code_007bl1_005ftext_007d-function-attribute-2629"></a>This attribute specifies a function to be placed into L1 Instruction
-SRAM. The function is put into a specific section named <code>.l1.text</code>.
+SRAM. The function is put into a specific section named <code>.l1.text</code>. 
 With <samp><span class="option">-mfdpic</span></samp>, function calls with a such function as the callee
 or caller uses inlined PLT.
 
@@ -782,7 +782,7 @@ into the unit.  Leaf function might still call functions from other compilation
 units and thus they are not necessarily leaf in the sense that they contain no
 function calls at all.
 
-     <p>The attribute is intended for library functions to improve dataflow analysis.
+     <p>The attribute is intended for library functions to improve dataflow analysis. 
 The compiler takes the hint that any data not escaping the current compilation unit can
 not be used or modified by the leaf function.  For example, the <code>sin</code> function
 is a leaf function, but <code>qsort</code> is not.
@@ -818,7 +818,7 @@ PowerPC, the <code>#pragma longcall</code> setting.
      <p>See <a href="RS_002f6000-and-PowerPC-Options.html#RS_002f6000-and-PowerPC-Options">RS/6000 and PowerPC Options</a>, for more information on whether long
 calls are necessary.
 
-     <br><dt><code>long_call/near/far</code><dd><a name="index-indirect-calls-on-MIPS-2634"></a>These attributes specify how a particular function is called on MIPS.
+     <br><dt><code>long_call/near/far</code><dd><a name="index-indirect-calls-on-MIPS-2634"></a>These attributes specify how a particular function is called on MIPS. 
 The attributes override the <samp><span class="option">-mlong-calls</span></samp> (see <a href="MIPS-Options.html#MIPS-Options">MIPS Options</a>)
 command-line switch.  The <code>long_call</code> and <code>far</code> attributes are
 synonyms, and cause the compiler to always call
@@ -830,15 +830,15 @@ efficient <code>jal</code> instruction.
      <br><dt><code>malloc</code><dd><a name="index-g_t_0040code_007bmalloc_007d-attribute-2635"></a>The <code>malloc</code> attribute is used to tell the compiler that a function
 may be treated as if any non-<code>NULL</code> pointer it returns cannot
 alias any other pointer valid when the function returns and that the memory
-has undefined content.
-This often improves optimization.
+has undefined content. 
+This often improves optimization. 
 Standard functions with this property include <code>malloc</code> and
 <code>calloc</code>.  <code>realloc</code>-like functions do not have this
 property as the memory pointed to does not have undefined content.
 
      <br><dt><code>mips16/nomips16</code><dd><a name="index-g_t_0040code_007bmips16_007d-attribute-2636"></a><a name="index-g_t_0040code_007bnomips16_007d-attribute-2637"></a>
 On MIPS targets, you can use the <code>mips16</code> and <code>nomips16</code>
-function attributes to locally select or turn off MIPS16 code generation.
+function attributes to locally select or turn off MIPS16 code generation. 
 A function with the <code>mips16</code> attribute is emitted as MIPS16 code,
 while MIPS16 code generation is disabled for functions with the
 <code>nomips16</code> attribute.  These attributes override the
@@ -870,7 +870,7 @@ compiler generates <code>seth/add3</code> instructions to load their addresses),
 and may not be reachable with the <code>bl</code> instruction (the compiler
 generates the much slower <code>seth/add3/jl</code> instruction sequence).
 
-     <p>On IA-64, use this attribute to set the addressability of an object.
+     <p>On IA-64, use this attribute to set the addressability of an object. 
 At present, the only supported identifier for <var>model-name</var> is
 <code>small</code>, indicating addressability via &ldquo;small&rdquo; (22-bit)
 addresses (so that their addresses can be loaded with the <code>addl</code>
@@ -927,7 +927,7 @@ body of an assembly function, while allowing the compiler to construct
 the requisite function declaration for the assembler.
 
      <br><dt><code>near</code><dd><a name="index-functions-that-do-not-handle-memory-bank-switching-on-68HC11_002f68HC12-2646"></a>On 68HC11 and 68HC12 the <code>near</code> attribute causes the compiler to
-use the normal calling convention based on <code>jsr</code> and <code>rts</code>.
+use the normal calling convention based on <code>jsr</code> and <code>rts</code>. 
 This attribute can be used to cancel the effect of the <samp><span class="option">-mlong-calls</span></samp>
 option.
 
@@ -945,7 +945,7 @@ exit sequences suitable for use in an NMI handler when this
 attribute is present.
 
      <br><dt><code>no_instrument_function</code><dd><a name="index-g_t_0040code_007bno_005finstrument_005ffunction_007d-function-attribute-2649"></a><a name="index-finstrument_002dfunctions-2650"></a>If <samp><span class="option">-finstrument-functions</span></samp> is given, profiling function calls are
-generated at entry and exit of most user-compiled functions.
+generated at entry and exit of most user-compiled functions. 
 Functions with this attribute are not so instrumented.
 
      <br><dt><code>no_split_stack</code><dd><a name="index-g_t_0040code_007bno_005fsplit_005fstack_007d-function-attribute-2651"></a><a name="index-fsplit_002dstack-2652"></a>If <samp><span class="option">-fsplit-stack</span></samp> is given, functions have a small
@@ -954,7 +954,7 @@ prologue which decides whether to split the stack.  Functions with the
 may run with only a small amount of stack space available.
 
      <br><dt><code>noinline</code><dd><a name="index-g_t_0040code_007bnoinline_007d-function-attribute-2653"></a>This function attribute prevents a function from being considered for
-inlining.
+inlining. 
 <!-- Don't enumerate the optimizations by name here; we try to be -->
 <!-- future-compatible with this mechanism. -->
 If the function does not have side-effects, there are optimizations
@@ -999,7 +999,7 @@ their own functions that never return.  You can declare them
 <code>noreturn</code> to tell the compiler this fact.  For example,
 
      <pre class="smallexample">          void fatal () __attribute__ ((noreturn));
-
+          
           void
           fatal (/* <span class="roman">...</span> */)
           {
@@ -1029,7 +1029,7 @@ not return, which works in the current version and in some older
 versions, is as follows:
 
      <pre class="smallexample">          typedef void voidfn ();
-
+          
           volatile voidfn fatal;
 </pre>
      <p class="noindent">This approach does not work in GNU C++.
@@ -1053,7 +1053,7 @@ are assumed to be an optimization level.  Strings that begin with
 <code>O</code> are assumed to be an optimization option, while other options
 are assumed to be used with a <code>-f</code> prefix.  You can also use the
 &lsquo;<samp><span class="samp">#pragma GCC optimize</span></samp>&rsquo; pragma to set the optimization options
-that affect more than one function.
+that affect more than one function. 
 See <a href="Function-Specific-Option-Pragmas.html#Function-Specific-Option-Pragmas">Function Specific Option Pragmas</a>, for details about the
 &lsquo;<samp><span class="samp">#pragma GCC optimize</span></samp>&rsquo; pragma.
 
@@ -1080,10 +1080,10 @@ guarded by save/clear/restore of the global interrupt enable flag.
           <ul>
 <li><code>naked</code> functions do not have a return instruction whereas
 <code>OS_main</code> and <code>OS_task</code> functions have a <code>RET</code> or
-<code>RETI</code> return instruction.
+<code>RETI</code> return instruction. 
 <li><code>naked</code> functions do not set up a frame for local variables
 or a frame pointer whereas <code>OS_main</code> and <code>OS_task</code> do this
-as needed.
+as needed. 
 </ul>
 
      <br><dt><code>pcs</code><dd><a name="index-g_t_0040code_007bpcs_007d-function-attribute-2662"></a>
@@ -1095,7 +1095,7 @@ the calling convention to use.
 values for the argument are <code>"aapcs"</code> and <code>"aapcs-vfp"</code>.  In
 order to use a variant other than <code>"aapcs"</code> then the compiler must
 be permitted to use the appropriate co-processor registers (i.e., the
-VFP registers must be available in order to use <code>"aapcs-vfp"</code>).
+VFP registers must be available in order to use <code>"aapcs-vfp"</code>). 
 For example,
 
      <pre class="smallexample">          /* Argument passed in r0, and result returned in r0+r1.  */
@@ -1105,7 +1105,7 @@ For example,
 the compiler rejects attempts to specify an alternative.
 
      <br><dt><code>pure</code><dd><a name="index-g_t_0040code_007bpure_007d-function-attribute-2663"></a>Many functions have no effects except the return value and their
-return value depends only on the parameters and/or global variables.
+return value depends only on the parameters and/or global variables. 
 Such a function can be subject
 to common subexpression elimination and loop optimization just as an
 arithmetic operator would be.  These functions should be declared
@@ -1116,7 +1116,7 @@ with the attribute <code>pure</code>.  For example,
      <p class="noindent">says that the hypothetical function <code>square</code> is safe to call
 fewer times than the program says.
 
-     <p>Some of common examples of pure functions are <code>strlen</code> or <code>memcmp</code>.
+     <p>Some of common examples of pure functions are <code>strlen</code> or <code>memcmp</code>. 
 Interesting non-pure functions are functions with infinite loops or those
 depending on volatile memory or other system resource, that may change between
 two consecutive calls (such as <code>feof</code> in a multithreading environment).
@@ -1170,7 +1170,7 @@ earlier than 4.8.
 
      <br><dt><code>no_sanitize_address</code><dt><code>no_address_safety_analysis</code><dd><a name="index-g_t_0040code_007bno_005fsanitize_005faddress_007d-function-attribute-2668"></a>The <code>no_sanitize_address</code> attribute on functions is used
 to inform the compiler that it should not instrument memory accesses
-in the function when compiling with the <samp><span class="option">-fsanitize=address</span></samp> option.
+in the function when compiling with the <samp><span class="option">-fsanitize=address</span></samp> option. 
 The <code>no_address_safety_analysis</code> is a deprecated alias of the
 <code>no_sanitize_address</code> attribute, new code should use
 <code>no_sanitize_address</code>.
@@ -1185,7 +1185,7 @@ arguments on the stack.
 global functions in shared libraries with lazy binding (which is the
 default).  Lazy binding sends the first call via resolving code in
 the loader, which might assume EAX, EDX and ECX can be clobbered, as
-per the standard calling conventions.  Solaris 8 is affected by this.
+per the standard calling conventions.  Solaris 8 is affected by this. 
 Systems with the GNU C Library version 2.1 or higher
 and FreeBSD are believed to be
 safe since the loaders there save EAX, EDX and ECX.  (Lazy binding can be
@@ -1200,7 +1200,7 @@ floating-point arguments on the stack.
 
      <br><dt><code>force_align_arg_pointer</code><dd><a name="index-g_t_0040code_007bforce_005falign_005farg_005fpointer_007d-attribute-2672"></a>On the Intel x86, the <code>force_align_arg_pointer</code> attribute may be
 applied to individual function definitions, generating an alternate
-prologue and epilogue that realigns the run-time stack if necessary.
+prologue and epilogue that realigns the run-time stack if necessary. 
 This supports mixing legacy codes that run with a 4-byte aligned stack
 with modern codes that keep a 16-byte stack for SSE compatibility.
 
@@ -1222,7 +1222,7 @@ from the bank is executed by issuing a RESBANK instruction.
 return more than one time.  The compiler ensures that all registers
 are dead before calling such a function and emits a warning about
 the variables that may be clobbered after the second return from the
-function.  Examples of such functions are <code>setjmp</code> and <code>vfork</code>.
+function.  Examples of such functions are <code>setjmp</code> and <code>vfork</code>. 
 The <code>longjmp</code>-like counterpart of such function, if any, might need
 to be marked with the <code>noreturn</code> attribute.
 
@@ -1236,10 +1236,10 @@ registers) are saved in the function prologue.  If the function is a leaf
 function, only volatiles used by the function are saved.  A normal function
 return is generated instead of a return from interrupt.
 
-     <br><dt><code>section ("</code><var>section-name</var><code>")</code><dd><a name="index-g_t_0040code_007bsection_007d-function-attribute-2678"></a>Normally, the compiler places the code it generates in the <code>text</code> section.
+     <br><dt><code>section ("</code><var>section-name</var><code>")</code><dd><a name="index-g_t_0040code_007bsection_007d-function-attribute-2678"></a>Normally, the compiler places the code it generates in the <code>text</code> section. 
 Sometimes, however, you need additional sections, or you need certain
 particular functions to appear in special sections.  The <code>section</code>
-attribute specifies that a function lives in a particular section.
+attribute specifies that a function lives in a particular section. 
 For example, the declaration:
 
      <pre class="smallexample">          extern void foobar (void) __attribute__ ((section ("bar")));
@@ -1247,7 +1247,7 @@ For example, the declaration:
      <p class="noindent">puts the function <code>foobar</code> in the <code>bar</code> section.
 
      <p>Some file formats do not support arbitrary sections so the <code>section</code>
-attribute is not available on all platforms.
+attribute is not available on all platforms. 
 If you need to map the entire contents of a module to a particular
 section, consider using the facilities of the linker instead.
 
@@ -1285,7 +1285,7 @@ attribute is present.
 
      <p>See also the <code>interrupt</code> function attribute.
 
-     <p>The AVR hardware globally disables interrupts when an interrupt is executed.
+     <p>The AVR hardware globally disables interrupts when an interrupt is executed. 
 Interrupt handler functions defined with the <code>signal</code> attribute
 do not re-enable interrupts.  It is save to enable interrupts in a
 <code>signal</code> handler.  This &ldquo;save&rdquo; only applies to the code
@@ -1319,7 +1319,7 @@ be compiled with different target options than specified on the
 command line.  This can be used for instance to have functions
 compiled with a different ISA (instruction set architecture) than the
 default.  You can also use the &lsquo;<samp><span class="samp">#pragma GCC target</span></samp>&rsquo; pragma to set
-more than one function to be compiled with specific target options.
+more than one function to be compiled with specific target options. 
 See <a href="Function-Specific-Option-Pragmas.html#Function-Specific-Option-Pragmas">Function Specific Option Pragmas</a>, for details about the
 &lsquo;<samp><span class="samp">#pragma GCC target</span></samp>&rsquo; pragma.
 
@@ -1403,7 +1403,7 @@ doing a floating-point division.
           <br><dt>&lsquo;<samp><span class="samp">fpmath=</span><var>FPMATH</var></samp>&rsquo;<dd><a name="index-g_t_0040code_007btarget_0028_0022fpmath_003d_0040var_007bFPMATH_007d_0022_0029_007d-attribute-2712"></a>Specify which floating-point unit to use.  The
 <code>target("fpmath=sse,387")</code> option must be specified as
 <code>target("fpmath=sse+387")</code> because the comma would separate
-different options.
+different options. 
 </dl>
 
      <p>On the PowerPC, the following options are allowed:
@@ -1439,7 +1439,7 @@ purpose register instructions implemented on the POWER6X processor and
 other processors that support the extended PowerPC V2.05 architecture.
 
           <br><dt>&lsquo;<samp><span class="samp">mulhw</span></samp>&rsquo;<dt>&lsquo;<samp><span class="samp">no-mulhw</span></samp>&rsquo;<dd><a name="index-g_t_0040code_007btarget_0028_0022mulhw_0022_0029_007d-attribute-2721"></a>Generate code that uses (does not use) the half-word multiply and
-multiply-accumulate instructions on the IBM 405, 440, 464 and 476 processors.
+multiply-accumulate instructions on the IBM 405, 440, 464 and 476 processors. 
 These instructions are generated by default when targeting those
 processors.
 
@@ -1505,7 +1505,7 @@ unless you use the <samp><span class="option">-mabi=altivec</span></samp> option
 you do not specify the <code>target("tune=</code><var>TUNE</var><code>")</code> attribute and
 you do specify the <code>target("cpu=</code><var>CPU</var><code>")</code> attribute,
 compilation tunes for the <var>CPU</var> architecture, and not the
-default tuning specified on the command line.
+default tuning specified on the command line. 
 </dl>
 
      <p>On the 386/x86_64 and PowerPC back ends, you can use either multiple
@@ -1523,7 +1523,7 @@ than 4.4 for the i386/x86_64 and 4.6 for the PowerPC back ends.  It is
 not currently implemented for other back ends.
 
      <br><dt><code>tiny_data</code><dd><a name="index-tiny-data-section-on-the-H8_002f300H-and-H8S-2737"></a>Use this attribute on the H8/300H and H8S to indicate that the specified
-variable should be placed into the tiny data section.
+variable should be placed into the tiny data section. 
 The compiler generates more efficient code for loads and stores
 on data in the tiny data section.  Note the tiny data area is limited to
 slightly under 32KB of data.
@@ -1540,7 +1540,7 @@ to be possibly unused.  GCC does not produce a warning for this
 function.
 
      <br><dt><code>used</code><dd><a name="index-g_t_0040code_007bused_007d-attribute_002e-2741"></a>This attribute, attached to a function, means that code must be emitted
-for the function even if it appears that the function is not referenced.
+for the function even if it appears that the function is not referenced. 
 This is useful, for example, when the function is referenced only in
 inline assembly.
 
@@ -1557,7 +1557,7 @@ for some system calls.
 </pre>
      <p class="noindent">Calls to <var>foo</var> are mapped to calls to <var>foo{20040821}</var>.
 
-     <br><dt><code>visibility ("</code><var>visibility_type</var><code>")</code><dd><a name="index-g_t_0040code_007bvisibility_007d-attribute-2743"></a>This attribute affects the linkage of the declaration to which it is attached.
+     <br><dt><code>visibility ("</code><var>visibility_type</var><code>")</code><dd><a name="index-g_t_0040code_007bvisibility_007d-attribute-2743"></a>This attribute affects the linkage of the declaration to which it is attached. 
 There are four supported <var>visibility_type</var> values: default,
 hidden, protected or internal visibility.
 
@@ -1571,7 +1571,7 @@ visibility settings in the ELF gABI.
           <dl>
 <!-- keep this list of visibilities in alphabetical order. -->
 
-          <dt><dfn>default</dfn><dd>Default visibility is the normal case for the object file format.
+          <dt><dfn>default</dfn><dd>Default visibility is the normal case for the object file format. 
 This value is available for the visibility attribute to override other
 options that may change the assumed visibility of entities.
 
@@ -1631,14 +1631,14 @@ class has default visibility.  Care must be taken to avoid breaking
 the One Definition Rule; for example, it is usually not useful to mark
 an inline method as hidden without marking the whole class as hidden.
 
-     <p>A C++ namespace declaration can also have the visibility attribute.
+     <p>A C++ namespace declaration can also have the visibility attribute. 
 This attribute applies only to the particular namespace body, not to
 other definitions of the same namespace; it is equivalent to using
 &lsquo;<samp><span class="samp">#pragma GCC visibility</span></samp>&rsquo; before and after the namespace
 definition (see <a href="Visibility-Pragmas.html#Visibility-Pragmas">Visibility Pragmas</a>).
 
      <p>In C++, if a template argument has limited visibility, this
-restriction is implicitly propagated to the template instantiation.
+restriction is implicitly propagated to the template instantiation. 
 Otherwise, template instantiations and specializations default to the
 visibility of their template.
 
@@ -1673,7 +1673,7 @@ also be used with non-function declarations.  Weak symbols are supported
 for ELF targets, and also for a.out targets when using the GNU assembler
 and linker.
 
-     <br><dt><code>weakref</code><dt><code>weakref ("</code><var>target</var><code>")</code><dd><a name="index-g_t_0040code_007bweakref_007d-attribute-2747"></a>The <code>weakref</code> attribute marks a declaration as a weak reference.
+     <br><dt><code>weakref</code><dt><code>weakref ("</code><var>target</var><code>")</code><dd><a name="index-g_t_0040code_007bweakref_007d-attribute-2747"></a>The <code>weakref</code> attribute marks a declaration as a weak reference. 
 Without arguments, it should be accompanied by an <code>alias</code> attribute
 naming the target symbol.  Optionally, the <var>target</var> may be given as
 an argument to <code>weakref</code> itself.  In either case, <code>weakref</code>
@@ -1734,3 +1734,4 @@ attachment of attributes to their corresponding declarations, whereas
 part of the grammar.  See <a href="Pragmas.html#Pragmas">Pragmas Accepted by GCC</a>.
 
  </body></html>
+

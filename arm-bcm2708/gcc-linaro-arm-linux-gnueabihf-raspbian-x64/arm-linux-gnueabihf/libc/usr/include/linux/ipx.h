@@ -45,7 +45,7 @@ struct ipx_interface_definition {
 #define IPX_INTERNAL		2
 	unsigned char ipx_node[IPX_NODE_LEN];
 };
-
+	
 struct ipx_config_data {
 	unsigned char	ipxcfg_auto_select_primary;
 	unsigned char	ipxcfg_auto_create_interfaces;

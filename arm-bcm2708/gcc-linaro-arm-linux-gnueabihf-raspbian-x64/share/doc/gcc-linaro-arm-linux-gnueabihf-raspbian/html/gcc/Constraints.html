@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,22 +56,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <p><a name="index-operand-constraints_002c-_0040code_007basm_007d-2814"></a><a name="index-constraints_002c-_0040code_007basm_007d-2815"></a><a name="index-g_t_0040code_007basm_007d-constraints-2816"></a>
 Here are specific details on what constraint letters you can use with
-<code>asm</code> operands.
+<code>asm</code> operands. 
 Constraints can say whether
 an operand may be in a register, and which kinds of register; whether the
 operand can be a memory reference, and which kinds of address; whether the
 operand may be an immediate constant, and which possible values it may
-have.  Constraints can also require two operands to match.
+have.  Constraints can also require two operands to match. 
 Side-effects aren't allowed in operands of inline <code>asm</code>, unless
 &lsquo;<samp><span class="samp">&lt;</span></samp>&rsquo; or &lsquo;<samp><span class="samp">&gt;</span></samp>&rsquo; constraints are used, because there is no guarantee
 that the side-effects will happen exactly once in an instruction that can update
 the addressing register.
 
 <ul class="menu">
-<li><a accesskey="1" href="Simple-Constraints.html#Simple-Constraints">Simple Constraints</a>:   Basic use of constraints.
-<li><a accesskey="2" href="Multi_002dAlternative.html#Multi_002dAlternative">Multi-Alternative</a>:    When an insn has two alternative constraint-patterns.
-<li><a accesskey="3" href="Modifiers.html#Modifiers">Modifiers</a>:            More precise control over effects of constraints.
-<li><a accesskey="4" href="Machine-Constraints.html#Machine-Constraints">Machine Constraints</a>:  Special constraints for some particular machines.
+<li><a accesskey="1" href="Simple-Constraints.html#Simple-Constraints">Simple Constraints</a>:   Basic use of constraints. 
+<li><a accesskey="2" href="Multi_002dAlternative.html#Multi_002dAlternative">Multi-Alternative</a>:    When an insn has two alternative constraint-patterns. 
+<li><a accesskey="3" href="Modifiers.html#Modifiers">Modifiers</a>:            More precise control over effects of constraints. 
+<li><a accesskey="4" href="Machine-Constraints.html#Machine-Constraints">Machine Constraints</a>:  Special constraints for some particular machines. 
 </ul>
 
  </body></html>
+

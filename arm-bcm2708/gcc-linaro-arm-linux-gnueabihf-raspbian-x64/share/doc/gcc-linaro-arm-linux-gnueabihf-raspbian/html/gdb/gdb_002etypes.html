@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -98,7 +98,7 @@ union fields.  For example:
           (gdb) python print [k for k,v in gdb.types.deep_items(struct_a)]
           {['a', 'b0', 'b1']}
 </pre>
-     <br><dt><code>get_type_recognizers ()</code><dd>Return a list of the enabled type recognizers for the current context.
+     <br><dt><code>get_type_recognizers ()</code><dd>Return a list of the enabled type recognizers for the current context. 
 This is called by <span class="sc">gdb</span> during the type-printing process
 (see <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>).
 
@@ -107,7 +107,7 @@ This is called by <span class="sc">gdb</span> during the type-printing process
 string.  Otherwise, return <code>None</code>.  This is called by
 <span class="sc">gdb</span> during the type-printing process (see <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>).
 
-     <br><dt><code>register_type_printer (locus, printer)</code><dd>This is a convenience function to register a type printer.
+     <br><dt><code>register_type_printer (locus, printer)</code><dd>This is a convenience function to register a type printer. 
 <var>printer</var> is the type printer to register.  It must implement the
 type printer protocol.  <var>locus</var> is either a <code>gdb.Objfile</code>, in
 which case the printer is registered with that objfile; a
@@ -116,15 +116,16 @@ that progspace; or <code>None</code>, in which case the printer is
 registered globally.
 
      <br><dt><code>TypePrinter</code><dd>This is a base class that implements the type printer protocol.  Type
-printers are encouraged, but not required, to derive from this class.
+printers are encouraged, but not required, to derive from this class. 
 It defines a constructor:
 
      <div class="defun">
 &mdash; Method on TypePrinter: <b>__init__</b> (<var>self, name</var>)<var><a name="index-g_t_005f_005finit_005f_005f-on-TypePrinter-2178"></a></var><br>
 <blockquote> <p>Initialize the type printer with the given name.  The new printer
-starts in the enabled state.
+starts in the enabled state. 
 </p></blockquote></div>
 
    </dl>
 
    </body></html>
+

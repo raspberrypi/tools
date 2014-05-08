@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="M68K_002dopcodes.html#M68K_002dopcodes"
 
 <h5 class="subsubsection">9.23.6.1 Branch Improvement</h5>
 
-<p><a name="index-pseudo_002dopcodes_002c-M680x0-1290"></a><a name="index-M680x0-pseudo_002dopcodes-1291"></a><a name="index-branch-improvement_002c-M680x0-1292"></a><a name="index-M680x0-branch-improvement-1293"></a>Certain pseudo opcodes are permitted for branch instructions.
+<p><a name="index-pseudo_002dopcodes_002c-M680x0-1290"></a><a name="index-M680x0-pseudo_002dopcodes-1291"></a><a name="index-branch-improvement_002c-M680x0-1292"></a><a name="index-M680x0-branch-improvement-1293"></a>Certain pseudo opcodes are permitted for branch instructions. 
 They expand to the shortest branch instruction that reach the
 target.  Generally these mnemonics are made by substituting &lsquo;<samp><span class="samp">j</span></samp>&rsquo; for
 &lsquo;<samp><span class="samp">b</span></samp>&rsquo; at the start of a Motorola mnemonic.
@@ -64,10 +64,10 @@ cases that are more fully described after the table:
      *     jXX |bXXs    bXXw    bXXl            bNXs;jmp
      *    dbXX | N/A    dbXXw   dbXX;bras;bral  dbXX;bras;jmp
           fjXX | N/A    fbXXw   fbXXl            N/A
-
+     
      XX: condition
      NX: negative of condition XX
-
+     
 </pre>
    <div align="center"><code>*</code>&mdash;see full description below</div>
 <div align="center"><code>**</code>&mdash;this expansion mode is disallowed by &lsquo;<samp><span class="samp">--pcrel</span></samp>&rsquo;</div>
@@ -76,7 +76,7 @@ cases that are more fully described after the table:
 <dt><code>jbsr</code><dt><code>jra</code><dd>These are the simplest jump pseudo-operations; they always map to one
 particular machine instruction, depending on the displacement to the
 branch target.  This instruction will be a byte or word branch is that
-is sufficient.  Otherwise, a long branch will be emitted if available.
+is sufficient.  Otherwise, a long branch will be emitted if available. 
 If no long branches are available and the &lsquo;<samp><span class="samp">--pcrel</span></samp>&rsquo; option is not
 given, an absolute long jump will be emitted instead.  If no long
 branches are available, the &lsquo;<samp><span class="samp">--pcrel</span></samp>&rsquo; option is given, and a word
@@ -141,3 +141,4 @@ branch instructions allow both word and long displacements.
    </dl>
 
    </body></html>
+

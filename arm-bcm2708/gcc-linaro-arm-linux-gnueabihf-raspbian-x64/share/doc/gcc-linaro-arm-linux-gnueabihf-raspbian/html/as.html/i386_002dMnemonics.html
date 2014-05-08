@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,7 +61,7 @@ assembler which assumes that a missing mnemonic suffix implies long
 operand size.  (This incompatibility does not affect compiler output
 since compilers always explicitly specify the mnemonic suffix.)
 
-   <p>Almost all instructions have the same names in AT&amp;T and Intel format.
+   <p>Almost all instructions have the same names in AT&amp;T and Intel format. 
 There are a few exceptions.  The sign extend and zero extend
 instructions need two sizes to specify them.  They need a size to
 sign/zero extend <em>from</em> and a size to zero extend <em>to</em>.  This
@@ -112,14 +112,15 @@ convention.
 <h4 class="subsection">9.15.5 AT&amp;T Mnemonic versus Intel Mnemonic</h4>
 
 <p><a name="index-i386-mnemonic-compatibility-1003"></a><a name="index-mnemonic-compatibility_002c-i386-1004"></a>
-<code>as</code> supports assembly using Intel mnemonic.
+<code>as</code> supports assembly using Intel mnemonic. 
 <code>.intel_mnemonic</code> selects Intel mnemonic with Intel syntax, and
 <code>.att_mnemonic</code> switches back to the usual AT&amp;T mnemonic with AT&amp;T
-syntax for compatibility with the output of <code>gcc</code>.
+syntax for compatibility with the output of <code>gcc</code>. 
 Several x87 instructions, &lsquo;<samp><span class="samp">fadd</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fdiv</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fdivp</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">fdivr</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fdivrp</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fmul</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fsub</span></samp>&rsquo;, &lsquo;<samp><span class="samp">fsubp</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">fsubr</span></samp>&rsquo; and &lsquo;<samp><span class="samp">fsubrp</span></samp>&rsquo;,  are implemented in AT&amp;T System V/386
-assembler with different mnemonics from those in Intel IA32 specification.
+assembler with different mnemonics from those in Intel IA32 specification. 
 <code>gcc</code> generates those instructions with AT&amp;T mnemonic.
 
    </body></html>
+

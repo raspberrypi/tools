@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,10 +65,10 @@ outgoing, local, and incoming.
 the alias &lsquo;<samp><span class="samp">%fp</span></samp>&rsquo;.
 
      <li>The stack pointer register &lsquo;<samp><span class="samp">%o6</span></samp>&rsquo; can be referenced using
-the alias &lsquo;<samp><span class="samp">%sp</span></samp>&rsquo;.
+the alias &lsquo;<samp><span class="samp">%sp</span></samp>&rsquo;. 
 </ul>
 
-   <p>Floating point registers are simply referred to as &lsquo;<samp><span class="samp">%f</span><var>n</var></samp>&rsquo;.
+   <p>Floating point registers are simply referred to as &lsquo;<samp><span class="samp">%f</span><var>n</var></samp>&rsquo;. 
 When assembling for pre-V9, only 32 floating point registers
 are available.  For V9 and later there are 64, but there are
 restrictions when referencing the upper 32 registers.  They
@@ -76,7 +76,7 @@ can only be accessed as double or quad, and thus only even
 or quad numbered accesses are allowed.  For example, &lsquo;<samp><span class="samp">%f34</span></samp>&rsquo;
 is a legal floating point register, but &lsquo;<samp><span class="samp">%f35</span></samp>&rsquo; is not.
 
-   <p>Certain V9 instructions allow access to ancillary state registers.
+   <p>Certain V9 instructions allow access to ancillary state registers. 
 Most simply they can be referred to as &lsquo;<samp><span class="samp">%asr</span><var>n</var></samp>&rsquo; where
 <var>n</var> can be from 16 to 31.  However, there are some aliases
 defined to reference ASR registers defined for various UltraSPARC
@@ -89,13 +89,13 @@ processors:
 &lsquo;<samp><span class="samp">%sys_tick</span></samp>&rsquo;, exists but is deprecated and should not be used
 by new software.
 
-     <li>The system tick compare register is referred to as &lsquo;<samp><span class="samp">%stick_cmpr</span></samp>&rsquo;.
+     <li>The system tick compare register is referred to as &lsquo;<samp><span class="samp">%stick_cmpr</span></samp>&rsquo;. 
 An alias, &lsquo;<samp><span class="samp">%sys_tick_cmpr</span></samp>&rsquo;, exists but is deprecated and should
 not be used by new software.
 
      <li>The software interrupt register is referred to as &lsquo;<samp><span class="samp">%softint</span></samp>&rsquo;.
 
-     <li>The set software interrupt register is referred to as &lsquo;<samp><span class="samp">%set_softint</span></samp>&rsquo;.
+     <li>The set software interrupt register is referred to as &lsquo;<samp><span class="samp">%set_softint</span></samp>&rsquo;. 
 The mnemonic &lsquo;<samp><span class="samp">%softint_set</span></samp>&rsquo; is provided as an alias.
 
      <li>The clear software interrupt register is referred to as
@@ -109,7 +109,7 @@ as an alias.
 
      <li>The graphics status register is referred to as &lsquo;<samp><span class="samp">%gsr</span></samp>&rsquo;.
 
-     <li>The V9 dispatch control register is referred to as &lsquo;<samp><span class="samp">%dcr</span></samp>&rsquo;.
+     <li>The V9 dispatch control register is referred to as &lsquo;<samp><span class="samp">%dcr</span></samp>&rsquo;. 
 </ul>
 
    <p>Various V9 branch and conditional move instructions allow
@@ -177,7 +177,7 @@ exist:
 
      <li>The V8 processor state register is referred to as &lsquo;<samp><span class="samp">%psr</span></samp>&rsquo;.
 
-     <li>The V9 global register level register is referred to as &lsquo;<samp><span class="samp">%gl</span></samp>&rsquo;.
+     <li>The V9 global register level register is referred to as &lsquo;<samp><span class="samp">%gl</span></samp>&rsquo;. 
 </ul>
 
    <p>Several special register names exist for hypervisor mode code:
@@ -199,7 +199,8 @@ to as &lsquo;<samp><span class="samp">%hver</span></samp>&rsquo;.
 
      <li>The hyperprivileged system tick compare register is referred
 to as &lsquo;<samp><span class="samp">%hstick_cmpr</span></samp>&rsquo;.  Note that there is no &lsquo;<samp><span class="samp">%hstick</span></samp>&rsquo;
-register, the normal &lsquo;<samp><span class="samp">%stick</span></samp>&rsquo; is used.
+register, the normal &lsquo;<samp><span class="samp">%stick</span></samp>&rsquo; is used. 
 </ul>
 
    </body></html>
+

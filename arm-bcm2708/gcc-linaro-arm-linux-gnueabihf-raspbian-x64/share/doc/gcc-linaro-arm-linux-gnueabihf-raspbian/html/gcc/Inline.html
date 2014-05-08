@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -106,9 +106,9 @@ had not used the <code>inline</code> keyword, except for its speed.
 
  <p><a name="index-inline-functions_002c-omission-of-2796"></a><a name="index-fkeep_002dinline_002dfunctions-2797"></a>When a function is both inline and <code>static</code>, if all calls to the
 function are integrated into the caller, and the function's address is
-never used, then the function's own assembler code is never referenced.
+never used, then the function's own assembler code is never referenced. 
 In this case, GCC does not actually output assembler code for the
-function, unless you specify the option <samp><span class="option">-fkeep-inline-functions</span></samp>.
+function, unless you specify the option <samp><span class="option">-fkeep-inline-functions</span></samp>. 
 Some calls cannot be integrated for various reasons (in particular,
 calls that precede the function's definition cannot be integrated, and
 neither can recursive calls within the definition).  If there is a
@@ -140,7 +140,7 @@ the &lsquo;<samp><span class="samp">always_inline</span></samp>&rsquo; attribute
  <p><a name="index-non_002dstatic-inline-function-2804"></a>When an inline function is not <code>static</code>, then the compiler must assume
 that there may be calls from other source files; since a global symbol can
 be defined only once in any program, the function must not be defined in
-the other source files, so the calls therein cannot be integrated.
+the other source files, so the calls therein cannot be integrated. 
 Therefore, a non-<code>static</code> inline function is always compiled on its
 own in the usual fashion.
 
@@ -153,9 +153,10 @@ if you had only declared the function, and had not defined it.
  <p>This combination of <code>inline</code> and <code>extern</code> has almost the
 effect of a macro.  The way to use it is to put a function definition in
 a header file with these keywords, and put another copy of the
-definition (lacking <code>inline</code> and <code>extern</code>) in a library file.
+definition (lacking <code>inline</code> and <code>extern</code>) in a library file. 
 The definition in the header file causes most calls to the function
 to be inlined.  If any uses of the function remain, they refer to
 the single copy in the library.
 
  </body></html>
+

@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MMIX_002dSyntax.html#MMIX_002dSyntax">M
 <a name="MMIX_002dloc"></a>The <code>LOC</code> directive sets the current location to the value of the
 operand field, which may include changing sections.  If the operand is a
 constant, the section is set to either <code>.data</code> if the value is
-<code>0x2000000000000000</code> or larger, else it is set to <code>.text</code>.
+<code>0x2000000000000000</code> or larger, else it is set to <code>.text</code>. 
 Within a section, the current location may only be changed to
 monotonically higher addresses.  A LOC expression must be a previously
 defined symbol or a &ldquo;pure&rdquo; constant.
@@ -104,7 +104,7 @@ optionally gives it a symbolic name.  Some examples:
 register.  If a value isn't provided, it defaults to zero.  Unless the
 option &lsquo;<samp><span class="samp">--no-merge-gregs</span></samp>&rsquo; is specified, non-zero registers allocated
 with this directive may be eliminated by <code>as</code>; another
-register with the same value used in its place.
+register with the same value used in its place. 
 Any of the instructions
 &lsquo;<samp><span class="samp">CSWAP</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">GO</span></samp>&rsquo;,
@@ -167,7 +167,7 @@ can be omitted.  Sufficient global registers will then be allocated by the
 linker.
 
      <br><dt><code>BYTE</code><dd><a name="index-assembler-directive-BYTE_002c-MMIX-1498"></a><a name="index-pseudo_002dop-BYTE_002c-MMIX-1499"></a><a name="index-MMIX-assembler-directive-BYTE-1500"></a><a name="index-MMIX-pseudo_002dop-BYTE-1501"></a>
-<a name="MMIX_002dbyte"></a>The &lsquo;<samp><span class="samp">BYTE</span></samp>&rsquo; directive takes a series of operands separated by a comma.
+<a name="MMIX_002dbyte"></a>The &lsquo;<samp><span class="samp">BYTE</span></samp>&rsquo; directive takes a series of operands separated by a comma. 
 If an operand is a string (see <a href="Strings.html#Strings">Strings</a>), each character of that string
 is emitted as a byte.  Other operands must be constant expressions without
 forward references, in the range 0<small class="dots">...</small>255.  If you need operands having
@@ -205,7 +205,8 @@ special contents (without specified semantics).  Example:
 </pre>
      <p>The single operand to &lsquo;<samp><span class="samp">BSPEC</span></samp>&rsquo; must be number in the range
 0<small class="dots">...</small>255.  The &lsquo;<samp><span class="samp">BSPEC</span></samp>&rsquo; number 80 is used by the GNU binutils
-implementation.
+implementation. 
 </dl>
 
    </body></html>
+

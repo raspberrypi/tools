@@ -32,8 +32,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Call-Graph.html#Call-Graph">Call Graph<
 
 <h4 class="subsection">5.2.2 Lines for a Function's Callers</h4>
 
-<p>A function's entry has a line for each function it was called by.
+<p>A function's entry has a line for each function it was called by. 
 These lines' fields correspond to the fields of the primary line, but
 their meanings are different because of the difference in context.
 
@@ -82,19 +82,20 @@ all its callers.
 followed by the caller's index number.
 
      <p>Not all functions have entries in the call graph; some
-options to <code>gprof</code> request the omission of certain functions.
+options to <code>gprof</code> request the omission of certain functions. 
 When a caller has no entry of its own, it still has caller-lines
 in the entries of the functions it calls.
 
      <p>If the caller is part of a recursion cycle, the cycle number is
-printed between the name and the index number.
+printed between the name and the index number. 
 </dl>
 
    <p>If the identity of the callers of a function cannot be determined, a
 dummy caller-line is printed which has &lsquo;<samp><span class="samp">&lt;spontaneous&gt;</span></samp>&rsquo; as the
 &ldquo;caller's name&rdquo; and all other fields blank.  This can happen for
-signal handlers.
+signal handlers. 
 <!-- What if some calls have determinable callers' names but not all? -->
 <!-- FIXME - still relevant? -->
 
    </body></html>
+

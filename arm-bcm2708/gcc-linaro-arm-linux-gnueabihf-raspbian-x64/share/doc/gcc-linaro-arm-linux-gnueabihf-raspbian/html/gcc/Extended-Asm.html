@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -70,7 +70,7 @@ each operand.
 </pre>
  <p class="noindent">Here <code>angle</code> is the C expression for the input operand while
 <code>result</code> is that of the output operand.  Each has &lsquo;<samp><span class="samp">"f"</span></samp>&rsquo; as its
-operand constraint, saying that a floating-point register is required.
+operand constraint, saying that a floating-point register is required. 
 The &lsquo;<samp><span class="samp">=</span></samp>&rsquo; in &lsquo;<samp><span class="samp">=f</span></samp>&rsquo; indicates that the operand is an output; all
 output operands' constraints must use &lsquo;<samp><span class="samp">=</span></samp>&rsquo;.  The constraints use the
 same language used in the machine description (see <a href="Constraints.html#Constraints">Constraints</a>).
@@ -104,7 +104,7 @@ other C identifiers.  You may use any name you like, even those of
 existing C symbols, but you must ensure that no two operands within the same
 assembler construct use the same symbolic name.
 
- <p>Output operand expressions must be lvalues; the compiler can check this.
+ <p>Output operand expressions must be lvalues; the compiler can check this. 
 The input operands need not be lvalues.  The compiler cannot check
 whether the operands have data types that are reasonable for the
 instruction being executed.  It does not parse the assembler instruction
@@ -163,7 +163,7 @@ the operand number for a matching constraint.  For example:
  <p>Sometimes you need to make an <code>asm</code> operand be a specific register,
 but there's no matching constraint letter for that register <em>by
 itself</em>.  To force the operand into that register, use a local variable
-for the operand and specify the register in the variable declaration.
+for the operand and specify the register in the variable declaration. 
 See <a href="Explicit-Reg-Vars.html#Explicit-Reg-Vars">Explicit Reg Vars</a>.  Then for the <code>asm</code> operand, use any
 register constraint letter that matches the register:
 
@@ -174,9 +174,9 @@ register constraint letter that matches the register:
 </pre>
  <p><a name="Example-of-asm-with-clobbered-asm-reg"></a>In the above example, beware that a register that is call-clobbered by
 the target ABI will be overwritten by any function call in the
-assignment, including library calls for arithmetic operators.
+assignment, including library calls for arithmetic operators. 
 Also a register may be clobbered when generating some operations,
-like variable shift, memory copy or memory move on x86.
+like variable shift, memory copy or memory move on x86. 
 Assuming it is a call-clobbered register, this may happen to <code>r0</code>
 above by the assignment to <code>p2</code>.  If you have to use such a
 register, use temporary variables for expressions between the register
@@ -203,7 +203,7 @@ input or output operand.  For example, you may not have an operand
 describing a register class with one member if you mention that register
 in the clobber list.  Variables declared to live in specific registers
 (see <a href="Explicit-Reg-Vars.html#Explicit-Reg-Vars">Explicit Reg Vars</a>), and used as asm input or output operands must
-have no part mentioned in the clobber description.
+have no part mentioned in the clobber description. 
 There is no way for you to specify that an input
 operand is modified without also specifying it as an output
 operand.  Note that if all the output operands you specify are for this
@@ -227,7 +227,7 @@ effect.  But it is valid no matter what the machine.
  <p>If your assembler instructions access memory in an unpredictable
 fashion, add &lsquo;<samp><span class="samp">memory</span></samp>&rsquo; to the list of clobbered registers.  This
 causes GCC to not keep memory values cached in registers across the
-assembler instruction and not optimize stores or loads to that memory.
+assembler instruction and not optimize stores or loads to that memory. 
 You also should add the <code>volatile</code> keyword if the memory
 affected is not listed in the inputs or outputs of the <code>asm</code>, as
 the &lsquo;<samp><span class="samp">memory</span></samp>&rsquo; clobber does not count as a side-effect of the
@@ -256,7 +256,7 @@ code for the system.  A combination that works in most places is a newline
 to break the line, plus a tab character to move to the instruction field
 (written as &lsquo;<samp><span class="samp">\n\t</span></samp>&rsquo;).  Sometimes semicolons can be used, if the
 assembler allows semicolons as a line-breaking character.  Note that some
-assembler dialects use semicolons to start a comment.
+assembler dialects use semicolons to start a comment. 
 The input operands are guaranteed not to use any of the clobbered
 registers, and neither do the output operands' addresses, so you can
 read and write the clobbered registers as many times as you like.  Here
@@ -270,7 +270,7 @@ subroutine <code>_foo</code> accepts arguments in registers 9 and 10:
 </pre>
  <p>Unless an output operand has the &lsquo;<samp><span class="samp">&amp;</span></samp>&rsquo; constraint modifier, GCC
 may allocate it in the same register as an unrelated input operand, on
-the assumption the inputs are consumed before the outputs are produced.
+the assumption the inputs are consumed before the outputs are produced. 
 This assumption may be false if the assembler code actually consists of
 more than one instruction.  In such a case, use &lsquo;<samp><span class="samp">&amp;</span></samp>&rsquo; for each output
 operand that may not overlap an input.  See <a href="Modifiers.html#Modifiers">Modifiers</a>.
@@ -355,7 +355,7 @@ you don't want moved, for example:
 </pre>
  <p>Similarly, you can't expect a
 sequence of volatile <code>asm</code> instructions to remain perfectly
-consecutive.  If you want consecutive output, use a single <code>asm</code>.
+consecutive.  If you want consecutive output, use a single <code>asm</code>. 
 Also, GCC performs some optimizations across a volatile <code>asm</code>
 instruction; GCC does not &ldquo;forget everything&rdquo; when it encounters
 a volatile <code>asm</code> instruction the way some other compilers do.
@@ -378,7 +378,7 @@ instructions.
 
  <p><a name="Extended-asm-with-goto"></a>As of GCC version 4.5, <code>asm goto</code> may be used to have the assembly
 jump to one or more C labels.  In this form, a fifth section after the
-clobber list contains a list of all C labels to which the assembly may jump.
+clobber list contains a list of all C labels to which the assembly may jump. 
 Each label operand is implicitly self-named.  The <code>asm</code> is also assumed
 to fall through to the next statement.
 
@@ -413,7 +413,7 @@ for variable <code>y</code>, which is later read by the <code>return</code> stat
                  ".popsection"
                  : : : "r1" : label1, label2, label3, label4);
        __builtin_unreachable ();
-
+     
       label1:
        f1();
        return;
@@ -448,8 +448,8 @@ does not in fact fall through.
 </pre>
  <p class="noindent">In this example (which in fact inspired the <code>asm goto</code> feature)
 we want on rare occasions to call the <code>trace</code> function; on other
-occasions we'd like to keep the overhead to the absolute minimum.
-The normal code path consists of a single <code>nop</code> instruction.
+occasions we'd like to keep the overhead to the absolute minimum. 
+The normal code path consists of a single <code>nop</code> instruction. 
 However, we record the address of this <code>nop</code> together with the
 address of a label that calls the <code>trace</code> function.  This allows
 the <code>nop</code> instruction to be patched at run time to be an
@@ -476,7 +476,7 @@ this is the &lsquo;<samp><span class="samp">;</span></samp>&rsquo; character.
 code is generated, but it is possible to confuse the compiler if you use
 pseudo instructions or assembler macros that expand into multiple real
 instructions or if you use assembler directives that expand to more
-space in the object file than is needed for a single instruction.
+space in the object file than is needed for a single instruction. 
 If this happens then the assembler produces a diagnostic saying that
 a label is unreachable.
 
@@ -496,7 +496,7 @@ explicitly clobbered, unless it is constrained to match an
 output operand.
 
      <li>For any input register that is implicitly popped by an <code>asm</code>, it is
-necessary to know how to adjust the stack to compensate for the pop.
+necessary to know how to adjust the stack to compensate for the pop. 
 If any non-popped input is closer to the top of the reg-stack than
 the implicitly popped register, it would not be possible to know what the
 stack looked like&mdash;it's not clear how the rest of the stack &ldquo;slides
@@ -533,9 +533,9 @@ this in the constraints.
 appears in after an <code>asm</code>.  <code>=f</code> is not allowed: the operand
 constraints must select a class with a single register.
 
-     <li>Output operands may not be &ldquo;inserted&rdquo; between existing stack registers.
+     <li>Output operands may not be &ldquo;inserted&rdquo; between existing stack registers. 
 Since no 387 opcode uses a read/write operand, all output operands
-are dead before the <code>asm</code>, and are pushed by the <code>asm</code>.
+are dead before the <code>asm</code>, and are pushed by the <code>asm</code>. 
 It makes no sense to push anywhere but the top of the reg-stack.
 
      <p>Output operands must start at the top of the reg-stack: output
@@ -566,3 +566,4 @@ for the compiler to know that <code>fyl2xp1</code> pops both inputs.
 <!-- when the INTERNALS flag is clear.  Passages that require the internals -->
 <!-- manual's context are conditionalized to appear only in the internals manual. -->
  </body></html>
+

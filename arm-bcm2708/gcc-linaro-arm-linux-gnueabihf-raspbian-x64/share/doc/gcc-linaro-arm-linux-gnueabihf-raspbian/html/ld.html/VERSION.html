@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -72,34 +72,34 @@ library.
 examples.
 
 <pre class="smallexample">     VERS_1.1 {
-	 global:
-		 foo1;
-	 local:
-		 old*;
-		 original*;
-		 new*;
+     	 global:
+     		 foo1;
+     	 local:
+     		 old*;
+     		 original*;
+     		 new*;
      };
-
+     
      VERS_1.2 {
-		 foo2;
+     		 foo2;
      } VERS_1.1;
-
+     
      VERS_2.0 {
-		 bar1; bar2;
-	 extern "C++" {
-		 ns::*;
-		 "f(int, double)";
-	 };
+     		 bar1; bar2;
+     	 extern "C++" {
+     		 ns::*;
+     		 "f(int, double)";
+     	 };
      } VERS_1.2;
 </pre>
    <p>This example version script defines three version nodes.  The first
-version node defined is &lsquo;<samp><span class="samp">VERS_1.1</span></samp>&rsquo;; it has no other dependencies.
+version node defined is &lsquo;<samp><span class="samp">VERS_1.1</span></samp>&rsquo;; it has no other dependencies. 
 The script binds the symbol &lsquo;<samp><span class="samp">foo1</span></samp>&rsquo; to &lsquo;<samp><span class="samp">VERS_1.1</span></samp>&rsquo;.  It reduces
 a number of symbols to local scope so that they are not visible outside
 of the shared library; this is done using wildcard patterns, so that any
 symbol whose name begins with &lsquo;<samp><span class="samp">old</span></samp>&rsquo;, &lsquo;<samp><span class="samp">original</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">new</span></samp>&rsquo;
 is matched.  The wildcard patterns available are the same as those used
-in the shell when matching filenames (also known as &ldquo;globbing&rdquo;).
+in the shell when matching filenames (also known as &ldquo;globbing&rdquo;). 
 However, if you specify the symbol name inside double quotes, then the
 name is treated as literal, rather than as a glob pattern.
 
@@ -123,7 +123,7 @@ ought to have a fixed set of symbols.
 
    <p>The names of the version nodes have no specific meaning other than what
 they might suggest to the person reading them.  The &lsquo;<samp><span class="samp">2.0</span></samp>&rsquo; version
-could just as well have appeared in between &lsquo;<samp><span class="samp">1.1</span></samp>&rsquo; and &lsquo;<samp><span class="samp">1.2</span></samp>&rsquo;.
+could just as well have appeared in between &lsquo;<samp><span class="samp">1.1</span></samp>&rsquo; and &lsquo;<samp><span class="samp">1.2</span></samp>&rsquo;. 
 However, this would be a confusing way to write a version script.
 
    <p>Node name can be omitted, provided it is the only version node
@@ -162,7 +162,7 @@ maintainer.  You can do this by putting something like:
 <pre class="smallexample">     __asm__(".symver original_foo,foo@VERS_1.1");
 </pre>
    <p class="noindent">in the C source file.  This renames the function &lsquo;<samp><span class="samp">original_foo</span></samp>&rsquo; to
-be an alias for &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; bound to the version node &lsquo;<samp><span class="samp">VERS_1.1</span></samp>&rsquo;.
+be an alias for &lsquo;<samp><span class="samp">foo</span></samp>&rsquo; bound to the version node &lsquo;<samp><span class="samp">VERS_1.1</span></samp>&rsquo;. 
 The &lsquo;<samp><span class="samp">local:</span></samp>&rsquo; directive can be used to prevent the symbol
 &lsquo;<samp><span class="samp">original_foo</span></samp>&rsquo; from being exported. A &lsquo;<samp><span class="samp">.symver</span></samp>&rsquo; directive
 takes precedence over a version script.
@@ -202,7 +202,7 @@ specifically bind to an external version of the function in question.
 
 <pre class="smallexample">     VERSION extern "lang" { version-script-commands }
 </pre>
-   <p>The supported &lsquo;<samp><span class="samp">lang</span></samp>&rsquo;s are &lsquo;<samp><span class="samp">C</span></samp>&rsquo;, &lsquo;<samp><span class="samp">C++</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">Java</span></samp>&rsquo;.
+   <p>The supported &lsquo;<samp><span class="samp">lang</span></samp>&rsquo;s are &lsquo;<samp><span class="samp">C</span></samp>&rsquo;, &lsquo;<samp><span class="samp">C++</span></samp>&rsquo;, and &lsquo;<samp><span class="samp">Java</span></samp>&rsquo;. 
 The linker will iterate over the list of symbols at the link time and
 demangle them according to &lsquo;<samp><span class="samp">lang</span></samp>&rsquo; before matching them to the
 patterns specified in &lsquo;<samp><span class="samp">version-script-commands</span></samp>&rsquo;.  The default
@@ -219,3 +219,4 @@ should check that all of your version directives are behaving as you
 expect when you upgrade.
 
    </body></html>
+

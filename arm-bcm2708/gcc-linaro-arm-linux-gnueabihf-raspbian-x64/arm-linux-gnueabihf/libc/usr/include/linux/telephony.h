@@ -62,12 +62,12 @@
 *
 * The capabilities ioctls can inform you of the capabilities of each phone
 * device installed in your system.  The PHONECTL_CAPABILITIES ioctl
-* returns an integer value indicating the number of capabilities the
-* device has.  The PHONECTL_CAPABILITIES_LIST will fill an array of
+* returns an integer value indicating the number of capabilities the   
+* device has.  The PHONECTL_CAPABILITIES_LIST will fill an array of 
 * capability structs with all of its capabilities.  The
 * PHONECTL_CAPABILITIES_CHECK takes a single capability struct and returns
 * a TRUE if the device has that capability, otherwise it returns false.
-*
+* 
 ******************************************************************************/
 typedef enum {
 	vendor = 0,
@@ -105,7 +105,7 @@ typedef struct {
         int namelen;
         char name[80];
 } PHONE_CID;
-
+ 
 #define PHONE_RING			_IO  ('q', 0x83)
 #define PHONE_HOOKSTATE			_IO  ('q', 0x84)
 #define PHONE_MAXRINGS			_IOW ('q', 0x85, char)
@@ -157,19 +157,19 @@ typedef struct {
 #define PSTN_PULSE_DIAL		3
 
 /******************************************************************************
-*
-* The wink duration is tunable with this ioctl.  The default wink duration
+* 
+* The wink duration is tunable with this ioctl.  The default wink duration  
 * is 320ms.  You do not need to use this ioctl if you do not require a
 * different wink duration.
-*
+* 
 ******************************************************************************/
 #define PHONE_WINK_DURATION		_IOW ('q', 0xA6, int)
 #define PHONE_WINK			_IOW ('q', 0xAA, int)
 
 /******************************************************************************
-*
+* 
 *  Codec Definitions
-*
+* 
 ******************************************************************************/
 typedef enum {
 	G723_63 = 1,
@@ -197,7 +197,7 @@ struct phone_codec_data
 #define PHONE_PSTN_LINETEST             _IO ('q', 0xA8)
 
 /******************************************************************************
-*
+* 
 * This controls the VAD/CNG functionality of G.723.1.  The driver will
 * always pass full size frames, any unused bytes will be padded with zeros,
 * and frames passed to the driver should also be padded with zeros.  The
@@ -209,7 +209,7 @@ struct phone_codec_data
 * 01		1		G.723.1 5.3		10
 * 10		2		VAD/CNG			 2
 * 11		3		Repeat last CNG		 2 bits
-*
+* 
 ******************************************************************************/
 #define PHONE_VAD			_IOW ('q', 0xA9, int)
 
@@ -259,3 +259,4 @@ union telephony_exception {
 
 
 #endif		/* TELEPHONY_H */
+

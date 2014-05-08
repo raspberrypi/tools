@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -60,7 +60,7 @@ requested an alarm).
    <p><a name="index-fatal-signals-334"></a>Some signals, including <code>SIGALRM</code>, are a normal part of the
 functioning of your program.  Others, such as <code>SIGSEGV</code>, indicate
 errors; these signals are <dfn>fatal</dfn> (they kill your program immediately) if the
-program has not specified in advance some other way to handle the signal.
+program has not specified in advance some other way to handle the signal. 
 <code>SIGINT</code> does not indicate an error in your program, but it is normally
 fatal so it can carry out the purpose of the interrupt: to kill the program.
 
@@ -71,10 +71,10 @@ signal.
    <p><a name="index-handling-signals-335"></a>Normally, <span class="sc">gdb</span> is set up to let the non-erroneous signals like
 <code>SIGALRM</code> be silently passed to your program
 (so as not to interfere with their role in the program's functioning)
-but to stop your program immediately whenever an error signal happens.
+but to stop your program immediately whenever an error signal happens. 
 You can change these settings with the <code>handle</code> command.
 
-
+     
 <a name="index-info-signals-336"></a>
 <a name="index-info-handle-337"></a>
 <dl><dt><code>info signals</code><dt><code>info handle</code><dd>Print a table of all the kinds of signals and how <span class="sc">gdb</span> has been told to
@@ -93,11 +93,11 @@ can be the number of a signal or its name (with or without the
 &lsquo;<samp><span class="samp">SIG</span></samp>&rsquo; at the beginning); a list of signal numbers of the form
 &lsquo;<samp><var>low</var><span class="samp">-</span><var>high</var></samp>&rsquo;; or the word &lsquo;<samp><span class="samp">all</span></samp>&rsquo;, meaning all the
 known signals.  Optional arguments <var>keywords</var>, described below,
-say what change to make.
+say what change to make. 
 </dl>
 
 <!-- @group -->
-   <p>The keywords allowed by the <code>handle</code> command can be abbreviated.
+   <p>The keywords allowed by the <code>handle</code> command can be abbreviated. 
 Their full names are:
 
      <dl>
@@ -116,8 +116,8 @@ implies the <code>nostop</code> keyword as well.
 can handle the signal, or else it may terminate if the signal is fatal
 and not handled.  <code>pass</code> and <code>noignore</code> are synonyms.
 
-     <br><dt><code>nopass</code><dt><code>ignore</code><dd><span class="sc">gdb</span> should not allow your program to see this signal.
-<code>nopass</code> and <code>ignore</code> are synonyms.
+     <br><dt><code>nopass</code><dt><code>ignore</code><dd><span class="sc">gdb</span> should not allow your program to see this signal. 
+<code>nopass</code> and <code>ignore</code> are synonyms. 
 </dl>
    <!-- @end group -->
 
@@ -186,3 +186,4 @@ referenced address that raised a segmentation fault.
    <p>Depending on target support, <code>$_siginfo</code> may also be writable.
 
    </body></html>
+

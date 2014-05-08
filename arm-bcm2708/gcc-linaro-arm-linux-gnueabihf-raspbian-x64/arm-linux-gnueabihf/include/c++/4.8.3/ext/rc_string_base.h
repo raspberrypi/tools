@@ -122,7 +122,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 	typedef typename _Alloc::template rebind<_Rep>::other _Rep_alloc_type;
 
-	_CharT*
+ 	_CharT*
 	_M_refdata() throw()
 	{ return reinterpret_cast<_CharT*>(this + 1); }
 

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -76,10 +76,10 @@ been passed.  This expands to a number in the range 0<small class="dots">...</sm
        end
      end
 </pre>
-
+     
 <a name="index-define-1673"></a>
 <dl><dt><code>define </code><var>commandname</var><dd>Define a command named <var>commandname</var>.  If there is already a command
-by that name, you are asked to confirm that you want to redefine it.
+by that name, you are asked to confirm that you want to redefine it. 
 <var>commandname</var> may be a bare command name consisting of letters,
 numbers, dashes, and underscores.  It may also start with any predefined
 prefix command.  For example, &lsquo;<samp><span class="samp">define target my-target</span></samp>&rsquo; creates
@@ -92,7 +92,7 @@ commands is marked by a line containing <code>end</code>.
      <p><a name="index-document-1674"></a><a name="index-end_0040r_007b-_0028user_002ddefined-commands_0029_007d-1675"></a><br><dt><code>document </code><var>commandname</var><dd>Document the user-defined command <var>commandname</var>, so that it can be
 accessed by <code>help</code>.  The command <var>commandname</var> must already be
 defined.  This command reads lines of documentation just as <code>define</code>
-reads the lines of the command definition, ending with <code>end</code>.
+reads the lines of the command definition, ending with <code>end</code>. 
 After the <code>document</code> command is finished, <code>help</code> on command
 <var>commandname</var> displays the documentation you have written.
 
@@ -110,13 +110,13 @@ included (if any).
 
      <p><a name="index-show-user-1679"></a><br><dt><code>show user</code><dt><code>show user </code><var>commandname</var><dd>Display the <span class="sc">gdb</span> commands used to define <var>commandname</var> (but
 not its documentation).  If no <var>commandname</var> is given, display the
-definitions for all user-defined commands.
+definitions for all user-defined commands. 
 This does not work for user-defined python commands.
 
      <p><a name="index-infinite-recursion-in-user_002ddefined-commands-1680"></a><a name="index-show-max_002duser_002dcall_002ddepth-1681"></a><a name="index-set-max_002duser_002dcall_002ddepth-1682"></a><br><dt><code>show max-user-call-depth</code><dt><code>set max-user-call-depth</code><dd>The value of <code>max-user-call-depth</code> controls how many recursion
 levels are allowed in user-defined commands before <span class="sc">gdb</span> suspects an
-infinite recursion and aborts the command.
-This does not apply to user-defined python commands.
+infinite recursion and aborts the command. 
+This does not apply to user-defined python commands. 
 </dl>
 
    <p>In addition to the above commands, user-defined commands frequently
@@ -132,3 +132,4 @@ commands that normally print messages to say what they are doing omit the
 messages when used in a user-defined command.
 
    </body></html>
+

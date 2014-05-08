@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,15 +50,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pretty-Printing.html#Pretty-Printing">P
 registered for the value.  If there is then <span class="sc">gdb</span> invokes the
 pretty-printer to print the value.  Otherwise the value is printed normally.
 
-   <p>Pretty-printers are normally named.  This makes them easy to manage.
+   <p>Pretty-printers are normally named.  This makes them easy to manage. 
 The &lsquo;<samp><span class="samp">info pretty-printer</span></samp>&rsquo; command will list all the installed
-pretty-printers with their names.
+pretty-printers with their names. 
 If a pretty-printer can handle multiple data types, then its
-<dfn>subprinters</dfn> are the printers for the individual data types.
-Each such subprinter has its own name.
+<dfn>subprinters</dfn> are the printers for the individual data types. 
+Each such subprinter has its own name. 
 The format of the name is <var>printer-name</var>;<var>subprinter-name</var>.
 
-   <p>Pretty-printers are installed by <dfn>registering</dfn> them with <span class="sc">gdb</span>.
+   <p>Pretty-printers are installed by <dfn>registering</dfn> them with <span class="sc">gdb</span>. 
 Typically they are automatically loaded and registered when the corresponding
 debug information is loaded, thus making them available without having to
 do anything special.
@@ -70,12 +70,12 @@ do anything special.
 all inferiors.
 
      <li>Pretty-printers registered with a program space are available only
-when debugging that program.
+when debugging that program. 
 See <a href="Progspaces-In-Python.html#Progspaces-In-Python">Progspaces In Python</a>, for more details on program spaces in Python.
 
      <li>Pretty-printers registered with an objfile are loaded and unloaded
-with the corresponding objfile (e.g., shared library).
-See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>, for more details on objfiles in Python.
+with the corresponding objfile (e.g., shared library). 
+See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>, for more details on objfiles in Python. 
 </ul>
 
    <p>See <a href="Selecting-Pretty_002dPrinters.html#Selecting-Pretty_002dPrinters">Selecting Pretty-Printers</a>, for further information on how
@@ -85,3 +85,4 @@ pretty-printers are selected,
 for new types.
 
    </body></html>
+

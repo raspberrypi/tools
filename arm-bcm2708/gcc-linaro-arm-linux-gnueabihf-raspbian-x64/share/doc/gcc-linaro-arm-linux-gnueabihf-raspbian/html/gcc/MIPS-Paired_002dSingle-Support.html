@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,7 +56,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Builtins.html#Target-Builtins">T
 <h4 class="subsection">6.56.11 MIPS Paired-Single Support</h4>
 
 <p>The MIPS64 architecture includes a number of instructions that
-operate on pairs of single-precision floating-point values.
+operate on pairs of single-precision floating-point values. 
 Each pair is packed into a 64-bit floating-point register,
 with one element being designated the &ldquo;upper half&rdquo; and
 the other being designated the &ldquo;lower half&rdquo;.
@@ -71,7 +71,7 @@ called <code>v2sf</code>.  It can be defined in C as follows:
 
 <pre class="smallexample">     typedef float v2sf __attribute__ ((vector_size (8)));
 </pre>
- <p><code>v2sf</code> values are initialized in the same way as aggregates.
+ <p><code>v2sf</code> values are initialized in the same way as aggregates. 
 For example:
 
 <pre class="smallexample">     v2sf a = {1.5, 9.1};
@@ -80,10 +80,11 @@ For example:
      b = (v2sf) {e, f};
 </pre>
  <p><em>Note:</em> The CPU's endianness determines which value is stored in
-the upper half of a register and which value is stored in the lower half.
+the upper half of a register and which value is stored in the lower half. 
 On little-endian targets, the first value is the lower one and the second
-value is the upper one.  The opposite order applies to big-endian targets.
+value is the upper one.  The opposite order applies to big-endian targets. 
 For example, the code above sets the lower half of <code>a</code> to
 <code>1.5</code> on little-endian targets and <code>9.1</code> on big-endian targets.
 
  </body></html>
+

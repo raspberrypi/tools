@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -77,8 +77,8 @@ expression being the last expression evaluated.
 assigned.  Defined on scalar types.
 
      <br><dt><var>op</var><code>=</code><dd>Used in an expression of the form <var>a</var><code>&nbsp;</code><var>op</var><code>=&nbsp;</code><var>b</var><!-- /@w -->,
-and translated to <var>a</var><code>&nbsp;=&nbsp;</code><var>a&nbsp;op&nbsp;b</var><!-- /@w -->.
-<var>op</var><code>=</code><!-- /@w --> and <code>=</code> have the same precedence.
+and translated to <var>a</var><code>&nbsp;=&nbsp;</code><var>a&nbsp;op&nbsp;b</var><!-- /@w -->. 
+<var>op</var><code>=</code><!-- /@w --> and <code>=</code> have the same precedence. 
 <var>op</var> is any one of the operators <code>|</code>, <code>^</code>, <code>&amp;</code>,
 <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>.
 
@@ -99,7 +99,7 @@ integral type.
      <br><dt><code>==</code><span class="roman">, </span><code>!=</code><dd>Equality and inequality.  Defined on scalar types.  The value of these
 expressions is 0 for false and non-zero for true.
 
-     <br><dt><code>&lt;</code><span class="roman">, </span><code>&gt;</code><span class="roman">, </span><code>&lt;=</code><span class="roman">, </span><code>&gt;=</code><dd>Less than, greater than, less than or equal, greater than or equal.
+     <br><dt><code>&lt;</code><span class="roman">, </span><code>&gt;</code><span class="roman">, </span><code>&lt;=</code><span class="roman">, </span><code>&gt;=</code><dd>Less than, greater than, less than or equal, greater than or equal. 
 Defined on scalar types.  The value of these expressions is 0 for false
 and non-zero for true.
 
@@ -141,7 +141,7 @@ precedence as <code>++</code>.
 
      <br><dt><code>.</code><span class="roman">, </span><code>-&gt;</code><dd>Structure member, and pointer-to-structure member.  For convenience,
 <span class="sc">gdb</span> regards the two as equivalent, choosing whether to dereference a
-pointer based on the stored type information.
+pointer based on the stored type information. 
 Defined on <code>struct</code> and <code>union</code> data.
 
      <br><dt><code>.*</code><span class="roman">, </span><code>-&gt;*</code><dd>Dereferences of pointers to members.
@@ -156,7 +156,7 @@ and <code>class</code> types.
 
      <br><dt><code>::</code><dd>Doubled colons also represent the <span class="sc">gdb</span> scope operator
 (see <a href="Expressions.html#Expressions">Expressions</a>).  Same precedence as <code>::</code>,
-above.
+above. 
 </dl>
 
    <p>If an operator is redefined in the user code, <span class="sc">gdb</span> usually
@@ -164,3 +164,4 @@ attempts to invoke the redefined version instead of using the operator's
 predefined meaning.
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,37 +49,38 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python.html#Python">Python</a>
 
 <p><a name="index-python-api-1714"></a><a name="index-programming-in-python-1715"></a>
 <a name="index-python-stdout-1716"></a><a name="index-python-pagination-1717"></a>At startup, <span class="sc">gdb</span> overrides Python's <code>sys.stdout</code> and
-<code>sys.stderr</code> to print using <span class="sc">gdb</span>'s output-paging streams.
+<code>sys.stderr</code> to print using <span class="sc">gdb</span>'s output-paging streams. 
 A Python program which outputs to one of these streams may have its
 output interrupted by the user (see <a href="Screen-Size.html#Screen-Size">Screen Size</a>).  In this
 situation, a Python <code>KeyboardInterrupt</code> exception is thrown.
 
 <ul class="menu">
-<li><a accesskey="1" href="Basic-Python.html#Basic-Python">Basic Python</a>:                 Basic Python Functions.
-<li><a accesskey="2" href="Exception-Handling.html#Exception-Handling">Exception Handling</a>:           How Python exceptions are translated.
-<li><a accesskey="3" href="Values-From-Inferior.html#Values-From-Inferior">Values From Inferior</a>:         Python representation of values.
-<li><a accesskey="4" href="Types-In-Python.html#Types-In-Python">Types In Python</a>:              Python representation of types.
-<li><a accesskey="5" href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>:          Pretty-printing values.
-<li><a accesskey="6" href="Selecting-Pretty_002dPrinters.html#Selecting-Pretty_002dPrinters">Selecting Pretty-Printers</a>:    How GDB chooses a pretty-printer.
-<li><a accesskey="7" href="Writing-a-Pretty_002dPrinter.html#Writing-a-Pretty_002dPrinter">Writing a Pretty-Printer</a>:     Writing a Pretty-Printer.
-<li><a accesskey="8" href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>: 		Pretty-printing types.
+<li><a accesskey="1" href="Basic-Python.html#Basic-Python">Basic Python</a>:                 Basic Python Functions. 
+<li><a accesskey="2" href="Exception-Handling.html#Exception-Handling">Exception Handling</a>:           How Python exceptions are translated. 
+<li><a accesskey="3" href="Values-From-Inferior.html#Values-From-Inferior">Values From Inferior</a>:         Python representation of values. 
+<li><a accesskey="4" href="Types-In-Python.html#Types-In-Python">Types In Python</a>:              Python representation of types. 
+<li><a accesskey="5" href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>:          Pretty-printing values. 
+<li><a accesskey="6" href="Selecting-Pretty_002dPrinters.html#Selecting-Pretty_002dPrinters">Selecting Pretty-Printers</a>:    How GDB chooses a pretty-printer. 
+<li><a accesskey="7" href="Writing-a-Pretty_002dPrinter.html#Writing-a-Pretty_002dPrinter">Writing a Pretty-Printer</a>:     Writing a Pretty-Printer. 
+<li><a accesskey="8" href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>: 		Pretty-printing types. 
 <li><a accesskey="9" href="Inferiors-In-Python.html#Inferiors-In-Python">Inferiors In Python</a>:          Python representation of inferiors (processes)
-<li><a href="Events-In-Python.html#Events-In-Python">Events In Python</a>:             Listening for events from <span class="sc">gdb</span>.
-<li><a href="Threads-In-Python.html#Threads-In-Python">Threads In Python</a>:            Accessing inferior threads from Python.
-<li><a href="Commands-In-Python.html#Commands-In-Python">Commands In Python</a>:           Implementing new commands in Python.
-<li><a href="Parameters-In-Python.html#Parameters-In-Python">Parameters In Python</a>:         Adding new <span class="sc">gdb</span> parameters.
-<li><a href="Functions-In-Python.html#Functions-In-Python">Functions In Python</a>:          Writing new convenience functions.
-<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">Progspaces In Python</a>:         Program spaces.
-<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>:           Object files.
-<li><a href="Frames-In-Python.html#Frames-In-Python">Frames In Python</a>:             Accessing inferior stack frames from Python.
-<li><a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>:             Accessing frame blocks from Python.
-<li><a href="Symbols-In-Python.html#Symbols-In-Python">Symbols In Python</a>:            Python representation of symbols.
-<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">Symbol Tables In Python</a>:      Python representation of symbol tables.
-<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">Breakpoints In Python</a>:        Manipulating breakpoints using Python.
+<li><a href="Events-In-Python.html#Events-In-Python">Events In Python</a>:             Listening for events from <span class="sc">gdb</span>. 
+<li><a href="Threads-In-Python.html#Threads-In-Python">Threads In Python</a>:            Accessing inferior threads from Python. 
+<li><a href="Commands-In-Python.html#Commands-In-Python">Commands In Python</a>:           Implementing new commands in Python. 
+<li><a href="Parameters-In-Python.html#Parameters-In-Python">Parameters In Python</a>:         Adding new <span class="sc">gdb</span> parameters. 
+<li><a href="Functions-In-Python.html#Functions-In-Python">Functions In Python</a>:          Writing new convenience functions. 
+<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">Progspaces In Python</a>:         Program spaces. 
+<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>:           Object files. 
+<li><a href="Frames-In-Python.html#Frames-In-Python">Frames In Python</a>:             Accessing inferior stack frames from Python. 
+<li><a href="Blocks-In-Python.html#Blocks-In-Python">Blocks In Python</a>:             Accessing frame blocks from Python. 
+<li><a href="Symbols-In-Python.html#Symbols-In-Python">Symbols In Python</a>:            Python representation of symbols. 
+<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">Symbol Tables In Python</a>:      Python representation of symbol tables. 
+<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">Breakpoints In Python</a>:        Manipulating breakpoints using Python. 
 <li><a href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">Finish Breakpoints in Python</a>:  Setting Breakpoints on function return
-                                using Python.
-<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">Lazy Strings In Python</a>:       Python representation of lazy strings.
-<li><a href="Architectures-In-Python.html#Architectures-In-Python">Architectures In Python</a>:      Python representation of architectures.
+                                using Python. 
+<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">Lazy Strings In Python</a>:       Python representation of lazy strings. 
+<li><a href="Architectures-In-Python.html#Architectures-In-Python">Architectures In Python</a>:      Python representation of architectures. 
 </ul>
 
    </body></html>
+

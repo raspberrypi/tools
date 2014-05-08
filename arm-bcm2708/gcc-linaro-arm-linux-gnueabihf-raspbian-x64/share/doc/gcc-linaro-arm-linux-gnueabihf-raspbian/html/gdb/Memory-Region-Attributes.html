@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -65,12 +65,12 @@ all memory.
    <p>When a memory region is defined, it is given a number to identify it;
 to enable, disable, or remove a memory region, you specify that number.
 
-
+     
 <a name="index-mem-676"></a>
 <dl><dt><code>mem </code><var>lower</var> <var>upper</var> <var>attributes</var><code>...</code><dd>Define a memory region bounded by <var>lower</var> and <var>upper</var> with
 attributes <var>attributes</var><small class="dots">...</small>, and add it to the list of regions
 monitored by <span class="sc">gdb</span>.  Note that <var>upper</var> == 0 is a special
-case: it is treated as the target's maximum memory address.
+case: it is treated as the target's maximum memory address. 
 (0xffff on 16 bit targets, 0xffffffff on 32 bit targets, etc.)
 
      <br><dt><code>mem auto</code><dd>Discard any user changes to the memory regions and use target-supplied
@@ -79,8 +79,8 @@ regions, if available, or no regions if the target does not support.
      <p><a name="index-delete-mem-677"></a><br><dt><code>delete mem </code><var>nums</var><code>...</code><dd>Remove memory regions <var>nums</var><small class="dots">...</small> from the list of regions
 monitored by <span class="sc">gdb</span>.
 
-     <p><a name="index-disable-mem-678"></a><br><dt><code>disable mem </code><var>nums</var><code>...</code><dd>Disable monitoring of memory regions <var>nums</var><small class="dots">...</small>.
-A disabled memory region is not forgotten.
+     <p><a name="index-disable-mem-678"></a><br><dt><code>disable mem </code><var>nums</var><code>...</code><dd>Disable monitoring of memory regions <var>nums</var><small class="dots">...</small>. 
+A disabled memory region is not forgotten. 
 It may be enabled again later.
 
      <p><a name="index-enable-mem-679"></a><br><dt><code>enable mem </code><var>nums</var><code>...</code><dd>Enable monitoring of memory regions <var>nums</var><small class="dots">...</small>.
@@ -89,14 +89,14 @@ It may be enabled again later.
 for each region:
 
           <dl>
-<dt><em>Memory Region Number</em><br><dt><em>Enabled or Disabled.</em><dd>Enabled memory regions are marked with &lsquo;<samp><span class="samp">y</span></samp>&rsquo;.
+<dt><em>Memory Region Number</em><br><dt><em>Enabled or Disabled.</em><dd>Enabled memory regions are marked with &lsquo;<samp><span class="samp">y</span></samp>&rsquo;. 
 Disabled memory regions are marked with &lsquo;<samp><span class="samp">n</span></samp>&rsquo;.
 
           <br><dt><em>Lo Address</em><dd>The address defining the inclusive lower bound of the memory region.
 
           <br><dt><em>Hi Address</em><dd>The address defining the exclusive upper bound of the memory region.
 
-          <br><dt><em>Attributes</em><dd>The list of attributes set for this memory region.
+          <br><dt><em>Attributes</em><dd>The list of attributes set for this memory region. 
 </dl>
      </dl>
 
@@ -112,9 +112,9 @@ memory accesses, they do nothing to prevent the target system, I/O DMA,
 etc. from accessing memory.
 
      <dl>
-<dt><code>ro</code><dd>Memory is read only.
-<br><dt><code>wo</code><dd>Memory is write only.
-<br><dt><code>rw</code><dd>Memory is read/write.  This is the default.
+<dt><code>ro</code><dd>Memory is read only. 
+<br><dt><code>wo</code><dd>Memory is write only. 
+<br><dt><code>rw</code><dd>Memory is read/write.  This is the default. 
 </dl>
 
 <h5 class="subsubsection">10.17.1.2 Memory Access Size</h5>
@@ -125,10 +125,10 @@ require specific sized accesses.  If no access size attribute is
 specified, <span class="sc">gdb</span> may use accesses of any size.
 
      <dl>
-<dt><code>8</code><dd>Use 8 bit memory accesses.
-<br><dt><code>16</code><dd>Use 16 bit memory accesses.
-<br><dt><code>32</code><dd>Use 32 bit memory accesses.
-<br><dt><code>64</code><dd>Use 64 bit memory accesses.
+<dt><code>8</code><dd>Use 8 bit memory accesses. 
+<br><dt><code>16</code><dd>Use 16 bit memory accesses. 
+<br><dt><code>32</code><dd>Use 32 bit memory accesses. 
+<br><dt><code>64</code><dd>Use 64 bit memory accesses. 
 </dl>
 
 <!-- @subsubsection Hardware/Software Breakpoints -->
@@ -149,8 +149,8 @@ does not know about volatile variables or memory mapped device
 registers.
 
      <dl>
-<dt><code>cache</code><dd>Enable <span class="sc">gdb</span> to cache target memory.
-<br><dt><code>nocache</code><dd>Disable <span class="sc">gdb</span> from caching target memory.  This is the default.
+<dt><code>cache</code><dd>Enable <span class="sc">gdb</span> to cache target memory. 
+<br><dt><code>nocache</code><dd>Disable <span class="sc">gdb</span> from caching target memory.  This is the default. 
 </dl>
 
 <h4 class="subsection">10.17.2 Memory Access Checking</h4>
@@ -160,15 +160,15 @@ not explicitly described.  This can be useful if accessing such
 regions has undesired effects for a specific target, or to provide
 better error checking.  The following commands control this behaviour.
 
-
+     
 <a name="index-set-mem-inaccessible_002dby_002ddefault-681"></a>
 <dl><dt><code>set mem inaccessible-by-default [on|off]</code><dd>If <code>on</code> is specified, make  <span class="sc">gdb</span> treat memory not
 explicitly described by the memory ranges as non-existent and refuse accesses
 to such memory.  The checks are only performed if there's at least one
 memory range defined.  If <code>off</code> is specified, make <span class="sc">gdb</span>
-treat the memory not explicitly described by the memory ranges as RAM.
-The default value is <code>on</code>.
-<a name="index-show-mem-inaccessible_002dby_002ddefault-682"></a><br><dt><code>show mem inaccessible-by-default</code><dd>Show the current handling of accesses to unknown memory.
+treat the memory not explicitly described by the memory ranges as RAM. 
+The default value is <code>on</code>. 
+<a name="index-show-mem-inaccessible_002dby_002ddefault-682"></a><br><dt><code>show mem inaccessible-by-default</code><dd>Show the current handling of accesses to unknown memory. 
 </dl>
 
 <!-- @subsubsection Memory Write Verification -->
@@ -179,3 +179,4 @@ The default value is <code>on</code>.
 <!-- @item noverify (default) -->
 <!-- @end table -->
    </body></html>
+

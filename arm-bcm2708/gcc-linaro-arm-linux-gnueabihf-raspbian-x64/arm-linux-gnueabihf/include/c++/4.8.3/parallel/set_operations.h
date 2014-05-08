@@ -83,20 +83,20 @@ namespace __gnu_parallel
           {
             if (_M_comp(*__a, *__c))
               {
-		*__r = *__a;
-		++__a;
-		++__r;
+        	*__r = *__a;
+        	++__a;
+        	++__r;
               }
             else if (_M_comp(*__c, *__a))
               {
-		*__r = *__c;
-		++__c;
-		++__r;
+        	*__r = *__c;
+        	++__c;
+        	++__r;
               }
             else
               {
-		++__a;
-		++__c;
+        	++__a;
+        	++__c;
               }
           }
 	return std::copy(__c, __d, std::copy(__a, __b, __r));
@@ -111,18 +111,18 @@ namespace __gnu_parallel
           {
             if (_M_comp(*__a, *__c))
               {
-		++__a;
-		++__counter;
+        	++__a;
+        	++__counter;
               }
             else if (_M_comp(*__c, *__a))
               {
-		++__c;
-		++__counter;
+        	++__c;
+        	++__counter;
               }
             else
               {
-		++__a;
-		++__c;
+        	++__a;
+        	++__c;
               }
           }
 
@@ -160,16 +160,16 @@ namespace __gnu_parallel
           {
             if (_M_comp(*__a, *__c))
               {
-		*__r = *__a;
-		++__a;
-		++__r;
+        	*__r = *__a;
+        	++__a;
+        	++__r;
               }
             else if (_M_comp(*__c, *__a))
               { ++__c; }
             else
               {
-		++__a;
-		++__c;
+        	++__a;
+        	++__c;
               }
           }
 	return std::copy(__a, __b, __r);
@@ -185,8 +185,8 @@ namespace __gnu_parallel
           {
             if (_M_comp(*__a, *__c))
               {
-		++__a;
-		++__counter;
+        	++__a;
+        	++__counter;
               }
             else if (_M_comp(*__c, *__a))
               { ++__c; }
@@ -232,10 +232,10 @@ namespace __gnu_parallel
               { ++__c; }
             else
               {
-		*__r = *__a;
-		++__a;
-		++__c;
-		++__r;
+        	*__r = *__a;
+        	++__a;
+        	++__c;
+        	++__r;
               }
           }
 
@@ -255,9 +255,9 @@ namespace __gnu_parallel
               { ++__c; }
             else
               {
-		++__a;
-		++__c;
-		++__counter;
+        	++__a;
+        	++__c;
+        	++__counter;
               }
           }
 
@@ -291,19 +291,19 @@ namespace __gnu_parallel
           {
             if (_M_comp(*__a, *__c))
               {
-		*__r = *__a;
-		++__a;
+        	*__r = *__a;
+        	++__a;
               }
             else if (_M_comp(*__c, *__a))
               {
-		*__r = *__c;
-		++__c;
+        	*__r = *__c;
+        	++__c;
               }
             else
               {
-		*__r = *__a;
-		++__a;
-		++__c;
+        	*__r = *__a;
+        	++__a;
+        	++__c;
               }
             ++__r;
           }
@@ -323,8 +323,8 @@ namespace __gnu_parallel
               { ++__c; }
             else
               {
-		++__a;
-		++__c;
+        	++__a;
+        	++__c;
               }
             ++__counter;
           }
@@ -458,7 +458,7 @@ namespace __gnu_parallel
           else
             {
               for (_ThreadIndex __i = 0; __i < __iam; ++__i)
-		__r += __lengths[ __i ];
+        	__r += __lengths[ __i ];
 
               // Reset begins for copy pass.
               __op._M_invoke(__block_begin.first, __block_end.first,
@@ -487,8 +487,8 @@ namespace __gnu_parallel
            typename _Compare>
     inline _OutputIterator
     __parallel_set_intersection(_IIter __begin1, _IIter __end1,
-				_IIter __begin2, _IIter __end2,
-				_OutputIterator __result, _Compare __comp)
+                        	_IIter __begin2, _IIter __end2,
+                        	_OutputIterator __result, _Compare __comp)
     {
       return __parallel_set_operation(__begin1, __end1, __begin2, __end2,
 				      __result,
@@ -515,9 +515,9 @@ namespace __gnu_parallel
            typename _Compare>
     inline _OutputIterator
     __parallel_set_symmetric_difference(_IIter __begin1, _IIter __end1,
-					_IIter __begin2, _IIter __end2,
-					_OutputIterator __result,
-					_Compare __comp)
+                                	_IIter __begin2, _IIter __end2,
+                                	_OutputIterator __result,
+                                	_Compare __comp)
     {
       return __parallel_set_operation(__begin1, __end1, __begin2, __end2,
 				      __result,

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -104,7 +104,7 @@ taken as a subsection number (see <a href="Sub_002dSections.html#Sub_002dSection
 combination of the following characters:
      <dl>
 <dt><code>a</code><dd>section is allocatable
-<br><dt><code>e</code><dd>section is excluded from executable and shared library.
+<br><dt><code>e</code><dd>section is excluded from executable and shared library. 
 <br><dt><code>w</code><dd>section is writable
 <br><dt><code>x</code><dd>section is executable
 <br><dt><code>M</code><dd>section is mergeable
@@ -166,7 +166,7 @@ the Merge flag should come first, like this:
 <code>G</code> symbol and the <var>GroupName</var> or <var>linkage</var> fields should not be
 present.  Instead, <code>?</code> says to consider the section that's current before
 this directive.  If that section used <code>G</code>, then the new section will use
-<code>G</code> with those same <var>GroupName</var> and <var>linkage</var> fields implicitly.
+<code>G</code> with those same <var>GroupName</var> and <var>linkage</var> fields implicitly. 
 If not, then the <code>?</code> symbol has no effect.
 
    <p>If no flags are specified, the default flags depend upon the section name.  If
@@ -185,7 +185,7 @@ separated flags:
 <dt><code>#alloc</code><dd>section is allocatable
 <br><dt><code>#write</code><dd>section is writable
 <br><dt><code>#execinstr</code><dd>section is executable
-<br><dt><code>#exclude</code><dd>section is excluded from executable and shared library.
+<br><dt><code>#exclude</code><dd>section is excluded from executable and shared library. 
 <br><dt><code>#tls</code><dd>section is used for thread local storage
 </dl>
 
@@ -195,3 +195,4 @@ some examples of how this directive and the other section stack directives
 work.
 
    </body></html>
+

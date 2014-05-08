@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -91,13 +91,14 @@ platform.
 systems, &lsquo;<samp><span class="samp">;</span></samp>&rsquo; on MS-Windows and MS-DOS) to separate directories, similarly
 to the <samp><span class="env">PATH</span></samp> environment variable.
 
-     <p><a name="show-auto_002dload-scripts_002ddirectory"></a><a name="index-show-auto_002dload-scripts_002ddirectory-2173"></a><br><dt><code>show auto-load scripts-directory</code><dd>Show <span class="sc">gdb</span> auto-loaded scripts location.
+     <p><a name="show-auto_002dload-scripts_002ddirectory"></a><a name="index-show-auto_002dload-scripts_002ddirectory-2173"></a><br><dt><code>show auto-load scripts-directory</code><dd>Show <span class="sc">gdb</span> auto-loaded scripts location. 
 </dl>
 
-   <p><span class="sc">gdb</span> does not track which files it has already auto-loaded this way.
+   <p><span class="sc">gdb</span> does not track which files it has already auto-loaded this way. 
 <span class="sc">gdb</span> will load the associated script every time the corresponding
-<var>objfile</var> is opened.
+<var>objfile</var> is opened. 
 So your <samp><span class="file">-gdb.py</span></samp> file should be careful to avoid errors if it
 is evaluated more than once.
 
    </body></html>
+

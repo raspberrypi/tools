@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -98,12 +98,12 @@ every breakpoint trigger, even those with false conditions.
 &lsquo;<samp><span class="samp">if</span></samp>&rsquo; in the arguments to the <code>break</code> command.  See <a href="Set-Breaks.html#Set-Breaks">Setting Breakpoints</a>.  They can also be changed at any time
 with the <code>condition</code> command.
 
-   <p>You can also use the <code>if</code> keyword with the <code>watch</code> command.
+   <p>You can also use the <code>if</code> keyword with the <code>watch</code> command. 
 The <code>catch</code> command does not recognize the <code>if</code> keyword;
 <code>condition</code> is the only way to impose a further condition on a
 catchpoint.
 
-
+     
 <a name="index-condition-281"></a>
 <dl><dt><code>condition </code><var>bnum</var> <var>expression</var><dd>Specify <var>expression</var> as the break condition for breakpoint,
 watchpoint, or catchpoint number <var>bnum</var>.  After you set a condition,
@@ -123,7 +123,7 @@ command (or a command that sets a breakpoint with a condition, like
 <code>break if ...</code>) is given, however.  See <a href="Expressions.html#Expressions">Expressions</a>.
 
      <br><dt><code>condition </code><var>bnum</var><dd>Remove the condition from breakpoint number <var>bnum</var>.  It becomes
-an ordinary unconditional breakpoint.
+an ordinary unconditional breakpoint. 
 </dl>
 
    <p><a name="index-ignore-count-_0028of-breakpoint_0029-282"></a>A special case of a breakpoint condition is to stop only when the
@@ -137,9 +137,9 @@ the ignore count by one and continues.  As a result, if the ignore count
 value is <var>n</var>, the breakpoint does not stop the next <var>n</var> times
 your program reaches it.
 
-
+     
 <a name="index-ignore-283"></a>
-<dl><dt><code>ignore </code><var>bnum</var> <var>count</var><dd>Set the ignore count of breakpoint number <var>bnum</var> to <var>count</var>.
+<dl><dt><code>ignore </code><var>bnum</var> <var>count</var><dd>Set the ignore count of breakpoint number <var>bnum</var> to <var>count</var>. 
 The next <var>count</var> times the breakpoint is reached, your program's
 execution does not stop; other than to decrement the ignore count, <span class="sc">gdb</span>
 takes no action.
@@ -157,9 +157,10 @@ condition is not checked.  Once the ignore count reaches zero,
 
      <p>You could achieve the effect of the ignore count with a condition such
 as &lsquo;<samp><span class="samp">$foo--&nbsp;&lt;=&nbsp;0</span></samp>&rsquo;<!-- /@w --> using a debugger convenience variable that
-is decremented each time.  See <a href="Convenience-Vars.html#Convenience-Vars">Convenience Variables</a>.
+is decremented each time.  See <a href="Convenience-Vars.html#Convenience-Vars">Convenience Variables</a>. 
 </dl>
 
    <p>Ignore counts apply to breakpoints, watchpoints, and catchpoints.
 
    </body></html>
+

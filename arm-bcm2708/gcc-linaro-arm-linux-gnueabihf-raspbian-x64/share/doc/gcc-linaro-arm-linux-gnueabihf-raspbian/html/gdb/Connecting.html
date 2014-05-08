@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Debugging.html#Remote-Debugging"
 <h3 class="section">20.1 Connecting to a Remote Target</h3>
 
 <p>On the <span class="sc">gdb</span> host machine, you will need an unstripped copy of
-your program, since <span class="sc">gdb</span> needs symbol and debugging information.
+your program, since <span class="sc">gdb</span> needs symbol and debugging information. 
 Start up <span class="sc">gdb</span> as usual, using the name of the local copy of your
 program as the first argument.
 
@@ -54,7 +54,7 @@ program as the first argument.
 over an <acronym>IP</acronym> network using <acronym>TCP</acronym> or <acronym>UDP</acronym>.  In
 each case, <span class="sc">gdb</span> uses the same protocol for debugging your
 program; only the medium carrying the debugging packets varies.  The
-<code>target remote</code> command establishes a connection to the target.
+<code>target remote</code> command establishes a connection to the target. 
 Its arguments indicate which medium to use:
 
      <dl>
@@ -68,7 +68,7 @@ to use a serial line connected to the device named <samp><span class="file">/dev
 (see <a href="Remote-Configuration.html#Remote-Configuration">set remotebaud</a>) before the
 <code>target</code> command.
 
-     <br><dt><code>target remote </code><var>host</var><code>:</code><var>port</var><dt><code>target remote tcp:</code><var>host</var><code>:</code><var>port</var><dd><a name="index-g_t_0040acronym_007bTCP_007d-port_002c-_0040code_007btarget-remote_007d-1159"></a>Debug using a <acronym>TCP</acronym> connection to <var>port</var> on <var>host</var>.
+     <br><dt><code>target remote </code><var>host</var><code>:</code><var>port</var><dt><code>target remote tcp:</code><var>host</var><code>:</code><var>port</var><dd><a name="index-g_t_0040acronym_007bTCP_007d-port_002c-_0040code_007btarget-remote_007d-1159"></a>Debug using a <acronym>TCP</acronym> connection to <var>port</var> on <var>host</var>. 
 The <var>host</var> may be either a host name or a numeric <acronym>IP</acronym>
 address; <var>port</var> must be a decimal number.  The <var>host</var> could be
 the target machine itself, if it is directly connected to the net, or
@@ -127,15 +127,15 @@ interrupt character once again, <span class="sc">gdb</span> displays this prompt
 <pre class="smallexample">     Interrupted while waiting for the program.
      Give up (and stop debugging it)?  (y or n)
 </pre>
-   <p>If you type <kbd>y</kbd>, <span class="sc">gdb</span> abandons the remote debugging session.
+   <p>If you type <kbd>y</kbd>, <span class="sc">gdb</span> abandons the remote debugging session. 
 (If you decide you want to try again later, you can use &lsquo;<samp><span class="samp">target
 remote</span></samp>&rsquo; again to connect once more.)  If you type <kbd>n</kbd>, <span class="sc">gdb</span>
 goes back to waiting.
 
-
+     
 <a name="index-detach-_0028remote_0029-1164"></a>
 <dl><dt><code>detach</code><dd>When you have finished debugging the remote program, you can use the
-<code>detach</code> command to release it from <span class="sc">gdb</span> control.
+<code>detach</code> command to release it from <span class="sc">gdb</span> control. 
 Detaching from the target normally resumes its execution, but the results
 will depend on your particular remote stub.  After the <code>detach</code>
 command, <span class="sc">gdb</span> is free to connect to another target.
@@ -150,7 +150,8 @@ another target.
 remote monitor.  Since <span class="sc">gdb</span> doesn't care about the commands it
 sends like this, this command is the way to extend <span class="sc">gdb</span>&mdash;you
 can add new commands that only the external monitor will understand
-and implement.
+and implement. 
 </dl>
 
    </body></html>
+

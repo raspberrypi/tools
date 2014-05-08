@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,43 +54,44 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Bindable-Readline-Commands.html#Bindabl
 
      <br><dt><code>unix-line-discard (C-u)</code><a name="index-unix_002dline_002ddiscard-_0028C_002du_0029-2512"></a><dd>Kill backward from the cursor to the beginning of the current line.
 
-     <br><dt><code>kill-whole-line ()</code><a name="index-kill_002dwhole_002dline-_0028_0029-2513"></a><dd>Kill all characters on the current line, no matter where point is.
+     <br><dt><code>kill-whole-line ()</code><a name="index-kill_002dwhole_002dline-_0028_0029-2513"></a><dd>Kill all characters on the current line, no matter where point is. 
 By default, this is unbound.
 
      <br><dt><code>kill-word (M-d)</code><a name="index-kill_002dword-_0028M_002dd_0029-2514"></a><dd>Kill from point to the end of the current word, or if between
-words, to the end of the next word.
+words, to the end of the next word. 
 Word boundaries are the same as <code>forward-word</code>.
 
-     <br><dt><code>backward-kill-word (M-&lt;DEL&gt;)</code><a name="index-backward_002dkill_002dword-_0028M_002d_0040key_007bDEL_007d_0029-2515"></a><dd>Kill the word behind point.
+     <br><dt><code>backward-kill-word (M-&lt;DEL&gt;)</code><a name="index-backward_002dkill_002dword-_0028M_002d_0040key_007bDEL_007d_0029-2515"></a><dd>Kill the word behind point. 
 Word boundaries are the same as <code>backward-word</code>.
 
-     <br><dt><code>unix-word-rubout (C-w)</code><a name="index-unix_002dword_002drubout-_0028C_002dw_0029-2516"></a><dd>Kill the word behind point, using white space as a word boundary.
+     <br><dt><code>unix-word-rubout (C-w)</code><a name="index-unix_002dword_002drubout-_0028C_002dw_0029-2516"></a><dd>Kill the word behind point, using white space as a word boundary. 
 The killed text is saved on the kill-ring.
 
      <br><dt><code>unix-filename-rubout ()</code><a name="index-unix_002dfilename_002drubout-_0028_0029-2517"></a><dd>Kill the word behind point, using white space and the slash character
-as the word boundaries.
+as the word boundaries. 
 The killed text is saved on the kill-ring.
 
      <br><dt><code>delete-horizontal-space ()</code><a name="index-delete_002dhorizontal_002dspace-_0028_0029-2518"></a><dd>Delete all spaces and tabs around point.  By default, this is unbound.
 
-     <br><dt><code>kill-region ()</code><a name="index-kill_002dregion-_0028_0029-2519"></a><dd>Kill the text in the current region.
+     <br><dt><code>kill-region ()</code><a name="index-kill_002dregion-_0028_0029-2519"></a><dd>Kill the text in the current region. 
 By default, this command is unbound.
 
      <br><dt><code>copy-region-as-kill ()</code><a name="index-copy_002dregion_002das_002dkill-_0028_0029-2520"></a><dd>Copy the text in the region to the kill buffer, so it can be yanked
 right away.  By default, this command is unbound.
 
-     <br><dt><code>copy-backward-word ()</code><a name="index-copy_002dbackward_002dword-_0028_0029-2521"></a><dd>Copy the word before point to the kill buffer.
-The word boundaries are the same as <code>backward-word</code>.
+     <br><dt><code>copy-backward-word ()</code><a name="index-copy_002dbackward_002dword-_0028_0029-2521"></a><dd>Copy the word before point to the kill buffer. 
+The word boundaries are the same as <code>backward-word</code>. 
 By default, this command is unbound.
 
-     <br><dt><code>copy-forward-word ()</code><a name="index-copy_002dforward_002dword-_0028_0029-2522"></a><dd>Copy the word following point to the kill buffer.
-The word boundaries are the same as <code>forward-word</code>.
+     <br><dt><code>copy-forward-word ()</code><a name="index-copy_002dforward_002dword-_0028_0029-2522"></a><dd>Copy the word following point to the kill buffer. 
+The word boundaries are the same as <code>forward-word</code>. 
 By default, this command is unbound.
 
      <br><dt><code>yank (C-y)</code><a name="index-yank-_0028C_002dy_0029-2523"></a><dd>Yank the top of the kill ring into the buffer at point.
 
      <br><dt><code>yank-pop (M-y)</code><a name="index-yank_002dpop-_0028M_002dy_0029-2524"></a><dd>Rotate the kill-ring, and yank the new top.  You can only do this if
-the prior command is <code>yank</code> or <code>yank-pop</code>.
+the prior command is <code>yank</code> or <code>yank-pop</code>. 
 </dl>
 
    </body></html>
+

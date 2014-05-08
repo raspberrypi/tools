@@ -935,7 +935,7 @@ DEFTREECODE (STATEMENT_LIST, "statement_list", tcc_exceptional, 0)
    Given X = ASSERT_EXPR <Y, EXPR>, the optimizers can infer
    two things:
 
-	1- X is a copy of Y.
+   	1- X is a copy of Y.
 	2- EXPR is a conditional expression and is known to be true.
 
    Valid and to be expected forms of conditional expressions are
@@ -1013,11 +1013,11 @@ DEFTREECODE (OMP_TASK, "omp_task", tcc_statement, 2)
    Operand 0: OMP_FOR_BODY: Loop body.
    Operand 1: OMP_FOR_CLAUSES: List of clauses.
    Operand 2: OMP_FOR_INIT: Initialization code of the form
-				VAR = N1.
+                             	VAR = N1.
    Operand 3: OMP_FOR_COND: Loop conditional expression of the form
-				VAR { <, >, <=, >= } N2.
+                             	VAR { <, >, <=, >= } N2.
    Operand 4: OMP_FOR_INCR: Loop index increment of the form
-				VAR { +=, -= } INCR.
+			     	VAR { +=, -= } INCR.
    Operand 5: OMP_FOR_PRE_BODY: Filled by the gimplifier with things
 	from INIT, COND, and INCR that are technically part of the
 	OMP_FOR structured block, but are evaluated before the loop
@@ -1105,8 +1105,8 @@ DEFTREECODE (REDUC_PLUS_EXPR, "reduc_plus_expr", tcc_unary, 1)
    The first two arguments are of type t1.
    The third argument and the result are of type t2, such that t2 is at least
    twice the size of t1. DOT_PROD_EXPR(arg1,arg2,arg3) is equivalent to:
-	tmp = WIDEN_MULT_EXPR(arg1, arg2);
-	arg3 = PLUS_EXPR (tmp, arg3);
+   	tmp = WIDEN_MULT_EXPR(arg1, arg2);
+   	arg3 = PLUS_EXPR (tmp, arg3);
    or:
 	tmp = WIDEN_MULT_EXPR(arg1, arg2);
         arg3 = WIDEN_SUM_EXPR (tmp, arg3);		 */

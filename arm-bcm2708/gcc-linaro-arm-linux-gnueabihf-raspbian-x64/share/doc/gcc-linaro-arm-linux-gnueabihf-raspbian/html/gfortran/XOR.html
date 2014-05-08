@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -69,7 +69,7 @@ the use of the <a href="IEOR.html#IEOR">IEOR</a> intrinsic and for logical argum
 
      <br><dt><em>Arguments</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>I</var> </td><td valign="top" width="70%">The type shall be either  a scalar <code>INTEGER</code>
-type or a scalar <code>LOGICAL</code> type.
+type or a scalar <code>LOGICAL</code> type. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>J</var> </td><td valign="top" width="70%">The type shall be the same as the type of <var>I</var>.
      <br></td></tr></table>
 
@@ -83,7 +83,7 @@ return has the larger kind.
             LOGICAL :: T = .TRUE., F = .FALSE.
             INTEGER :: a, b
             DATA a / Z'F' /, b / Z'3' /
-
+          
             WRITE (*,*) XOR(T, T), XOR(T, F), XOR(F, T), XOR(F, F)
             WRITE (*,*) XOR(a, b)
           END PROGRAM
@@ -92,3 +92,4 @@ return has the larger kind.
 </dl>
 
    </body></html>
+

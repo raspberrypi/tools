@@ -31,7 +31,7 @@
 #define SIOCGETSGCNT	(SIOCPROTOPRIVATE+1)
 #define SIOCGETRPF	(SIOCPROTOPRIVATE+2)
 
-#define MAXVIFS		32
+#define MAXVIFS		32	
 typedef unsigned long vifbitmap_t;	/* User mode code depends on this lot */
 typedef unsigned short vifi_t;
 #define ALL_VIFS	((vifi_t)(-1))
@@ -39,7 +39,7 @@ typedef unsigned short vifi_t;
 /*
  *	Same idea as select
  */
-
+ 
 #define VIFM_SET(n,m)	((m)|=(1<<(n)))
 #define VIFM_CLR(n,m)	((m)&=~(1<<(n)))
 #define VIFM_ISSET(n,m)	((m)&(1<<(n)))
@@ -51,7 +51,7 @@ typedef unsigned short vifi_t;
  *	Passed by mrouted for an MRT_ADD_VIF - again we use the
  *	mrouted 3.6 structures for compatibility
  */
-
+ 
 struct vifctl {
 	vifi_t	vifc_vifi;		/* Index of VIF */
 	unsigned char vifc_flags;	/* VIFF_ flags */
@@ -73,7 +73,7 @@ struct vifctl {
 /*
  *	Cache manipulation structures for mrouted and PIMd
  */
-
+ 
 struct mfcctl {
 	struct in_addr mfcc_origin;		/* Origin of mcast	*/
 	struct in_addr mfcc_mcastgrp;		/* Group in question	*/
@@ -85,10 +85,10 @@ struct mfcctl {
 	int	     mfcc_expire;
 };
 
-/*
+/* 
  *	Group count retrieval for mrouted
  */
-
+ 
 struct sioc_sg_req {
 	struct in_addr src;
 	struct in_addr grp;
@@ -113,7 +113,7 @@ struct sioc_vif_req {
  *	This is the format the mroute daemon expects to see IGMP control
  *	data. Magically happens to be like an IP packet as per the original
  */
-
+ 
 struct igmpmsg {
 	__u32 unused1,unused2;
 	unsigned char im_msgtype;		/* What is this */

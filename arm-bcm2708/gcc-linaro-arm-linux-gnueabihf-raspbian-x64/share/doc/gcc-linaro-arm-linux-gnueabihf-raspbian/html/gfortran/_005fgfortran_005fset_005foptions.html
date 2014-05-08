@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,7 +74,7 @@ used.
 
      <br><dt><em>option flag list</em>:<dd>
      <p><table summary=""><tr align="left"><td valign="top" width="15%"><var>option</var>[0] </td><td valign="top" width="70%">Allowed standard; can give run-time errors
-if e.g. an input-output edit descriptor is invalid in a given standard.
+if e.g. an input-output edit descriptor is invalid in a given standard. 
 Possible values are (bitwise or-ed) <code>GFC_STD_F77</code> (1),
 <code>GFC_STD_F95_OBS</code> (2), <code>GFC_STD_F95_DEL</code> (4), <code>GFC_STD_F95</code>
 (8), <code>GFC_STD_F2003</code> (16), <code>GFC_STD_GNU</code> (32),
@@ -82,21 +82,21 @@ Possible values are (bitwise or-ed) <code>GFC_STD_F77</code> (1),
 <code>GFC_STD_F2008_OBS</code> (256) and GFC_STD_F2008_TS (512). Default:
 <code>GFC_STD_F95_OBS | GFC_STD_F95_DEL | GFC_STD_F95 | GFC_STD_F2003
 | GFC_STD_F2008 | GFC_STD_F2008_TS | GFC_STD_F2008_OBS | GFC_STD_F77
-| GFC_STD_GNU | GFC_STD_LEGACY</code>.
+| GFC_STD_GNU | GFC_STD_LEGACY</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[1] </td><td valign="top" width="70%">Standard-warning flag; prints a warning to
-standard error.  Default: <code>GFC_STD_F95_DEL | GFC_STD_LEGACY</code>.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[2] </td><td valign="top" width="70%">If non zero, enable pedantic checking.
-Default: off.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[3] </td><td valign="top" width="70%">Unused.
+standard error.  Default: <code>GFC_STD_F95_DEL | GFC_STD_LEGACY</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[2] </td><td valign="top" width="70%">If non zero, enable pedantic checking. 
+Default: off. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[3] </td><td valign="top" width="70%">Unused. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[4] </td><td valign="top" width="70%">If non zero, enable backtracing on run-time
-errors.  Default: off.
+errors.  Default: off. 
 Note: Installs a signal handler and requires command-line
-initialization using <code>_gfortran_set_args</code>.
-<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[5] </td><td valign="top" width="70%">If non zero, supports signed zeros.
-Default: enabled.
+initialization using <code>_gfortran_set_args</code>. 
+<br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[5] </td><td valign="top" width="70%">If non zero, supports signed zeros. 
+Default: enabled. 
 <br></td></tr><tr align="left"><td valign="top" width="15%"><var>option</var>[6] </td><td valign="top" width="70%">Enables run-time checking.  Possible values
 are (bitwise or-ed): GFC_RTCHECK_BOUNDS (1), GFC_RTCHECK_ARRAY_TEMPS (2),
-GFC_RTCHECK_RECURSION (4), GFC_RTCHECK_DO (16), GFC_RTCHECK_POINTER (32).
+GFC_RTCHECK_RECURSION (4), GFC_RTCHECK_DO (16), GFC_RTCHECK_POINTER (32). 
 Default: disabled.
      <br></td></tr></table>
 
@@ -108,3 +108,4 @@ Default: disabled.
      </dl>
 
    </body></html>
+

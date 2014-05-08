@@ -29,3 +29,5 @@ TODO
  - locales debconf template is a bit difficult for newbie users.
    Using localedata/locales/*, it can be readable.  For example,
    "ja_JP" -> "Japanese", "Japan".
+
+

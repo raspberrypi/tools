@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Installing-GDB.html#Installing-GDB">Ins
 <h3 class="section">C.1 Requirements for Building <span class="sc">gdb</span></h3>
 
 <p><a name="index-building-_0040value_007bGDBN_007d_002c-requirements-for-2558"></a>
-Building <span class="sc">gdb</span> requires various tools and packages to be available.
+Building <span class="sc">gdb</span> requires various tools and packages to be available. 
 Other packages will be used only if they are found.
 
 <h3 class="heading">Tools/Packages Necessary for Building <span class="sc">gdb</span></h3>
@@ -62,7 +62,7 @@ working C90 compiler, e.g. GCC.
      <dl>
 <dt>Expat<dd><a name="Expat"></a><span class="sc">gdb</span> can use the Expat XML parsing library.  This library may be
 included with your operating system distribution; if it is not, you
-can get the latest version from <a href="http://expat.sourceforge.net">http://expat.sourceforge.net</a>.
+can get the latest version from <a href="http://expat.sourceforge.net">http://expat.sourceforge.net</a>. 
 The <samp><span class="file">configure</span></samp> script will search for this library in several
 standard locations; if it is installed in an unusual path, you can
 use the <samp><span class="option">--with-libexpat-prefix</span></samp> option to specify its location.
@@ -94,7 +94,7 @@ on a GNU system, then this is provided by the GNU C Library.  Some
 other systems also provide a working <code>iconv</code>.
 
      <p>If <span class="sc">gdb</span> is using the <code>iconv</code> program which is installed
-in a non-standard place, you will need to tell <span class="sc">gdb</span> where to find it.
+in a non-standard place, you will need to tell <span class="sc">gdb</span> where to find it. 
 This is done with <samp><span class="option">--with-iconv-bin</span></samp> which specifies the
 directory that contains the <code>iconv</code> program.
 
@@ -109,7 +109,8 @@ if the operating system does not provide a suitable <code>iconv</code>
 implementation, then the just-built library will automatically be used
 by <span class="sc">gdb</span>.  One easy way to set this up is to download GNU
 Libiconv, unpack it, and then rename the directory holding the
-Libiconv source code to &lsquo;<samp><span class="samp">libiconv</span></samp>&rsquo;.
+Libiconv source code to &lsquo;<samp><span class="samp">libiconv</span></samp>&rsquo;. 
 </dl>
 
    </body></html>
+

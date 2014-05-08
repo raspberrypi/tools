@@ -268,7 +268,7 @@ namespace __gnu_pbds
       get_r_child() const
       {
 	if (base_type::m_p_value == base_type::m_p_end_value)
-	  return this_type(base_type::m_p_end_value, base_type::m_p_end_value,
+	  return this_type(base_type::m_p_end_value, base_type::m_p_end_value,  
 			   base_type::m_p_end_value);
 
 	const_metadata_pointer p_end_metadata =
@@ -288,4 +288,4 @@ namespace __gnu_pbds
 } // namespace detail
 } // namespace __gnu_pbds
 
-#endif
+#endif 

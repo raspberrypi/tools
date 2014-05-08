@@ -37,8 +37,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -74,21 +74,21 @@ fsync:
            integer(c_int) :: fsync
          end function fsync
        end interface
-
+     
        ! Variable declaration
        integer :: ret
-
+     
        ! Opening unit 10
        open (10,file="foo")
-
+     
        ! ...
        ! Perform I/O on unit 10
        ! ...
-
+     
        ! Flush and sync
        flush(10)
        ret = fsync(fnum(10))
-
+     
        ! Handle possible error
        if (ret /= 0) stop "Error calling FSYNC"
 </pre>
@@ -126,3 +126,4 @@ also force cache validation and flushing dirty data and metadata.
 <!-- Maybe this chapter should be merged with the 'Standards' section, -->
 <!-- whenever that is written :-) -->
    </body></html>
+

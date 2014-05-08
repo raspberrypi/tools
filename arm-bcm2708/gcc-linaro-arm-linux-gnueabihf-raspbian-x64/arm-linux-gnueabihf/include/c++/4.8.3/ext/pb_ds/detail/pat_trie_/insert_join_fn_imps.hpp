@@ -100,7 +100,7 @@ join_prep(PB_DS_CLASS_C_DEC& other, branch_bag& r_bag)
 PB_DS_CLASS_T_DEC
 void
 PB_DS_CLASS_C_DEC::
-rec_join_prep(node_const_pointer p_l, node_const_pointer p_r,
+rec_join_prep(node_const_pointer p_l, node_const_pointer p_r, 
 	      branch_bag& r_bag)
 {
   if (p_l->m_type == leaf_node)
@@ -196,7 +196,7 @@ rec_join_prep(inode_const_pointer p_l, inode_const_pointer p_r,
 PB_DS_CLASS_T_DEC
 typename PB_DS_CLASS_C_DEC::node_pointer
 PB_DS_CLASS_C_DEC::
-rec_join(node_pointer p_l, node_pointer p_r, size_type checked_ind,
+rec_join(node_pointer p_l, node_pointer p_r, size_type checked_ind, 
 	 branch_bag& r_bag)
 {
   _GLIBCXX_DEBUG_ASSERT(p_r != 0);
@@ -291,7 +291,7 @@ rec_join(inode_pointer p_l, leaf_pointer p_r, size_type checked_ind, branch_bag&
       node_pointer p_ret = insert_branch(p_l, p_r, r_bag);
       PB_DS_ASSERT_NODE_VALID(p_ret)
       _GLIBCXX_DEBUG_ASSERT(PB_DS_RECURSIVE_COUNT_LEAFS(p_ret) ==
-			    lhs_leafs + rhs_leafs);
+       			    lhs_leafs + rhs_leafs);
       return p_ret;
     }
 
@@ -314,7 +314,7 @@ rec_join(inode_pointer p_l, leaf_pointer p_r, size_type checked_ind, branch_bag&
 PB_DS_CLASS_T_DEC
 typename PB_DS_CLASS_C_DEC::node_pointer
 PB_DS_CLASS_C_DEC::
-rec_join(inode_pointer p_l, inode_pointer p_r,
+rec_join(inode_pointer p_l, inode_pointer p_r, 
 	 branch_bag& r_bag)
 {
   _GLIBCXX_DEBUG_ASSERT(p_l != 0);

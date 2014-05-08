@@ -67,3 +67,4 @@ inline typename PB_DS_CLASS_C_DEC::point_const_iterator
 PB_DS_CLASS_C_DEC::
 find_end() const
 { return 0; }
+

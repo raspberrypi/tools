@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -62,15 +62,15 @@ ignores <kbd>C-c</kbd>.
 this section.  Working with DLLs that have no debugging symbols is
 described in <a href="Non_002ddebug-DLL-Symbols.html#Non_002ddebug-DLL-Symbols">Non-debug DLL Symbols</a>.
 
-
+     
 <a name="index-info-w32-1321"></a>
 <dl><dt><code>info w32</code><dd>This is a prefix of MS Windows-specific commands which print
 information about the target system and important OS structures.
 
      <br><dt><code>info w32 selector</code><dd>This command displays information returned by
-the Win32 API <code>GetThreadSelectorEntry</code> function.
+the Win32 API <code>GetThreadSelectorEntry</code> function. 
 It takes an optional argument that is evaluated to
-a long value to give the information about this given selector.
+a long value to give the information about this given selector. 
 Without argument, this command displays information
 about the six segment registers.
 
@@ -95,7 +95,7 @@ Cygwin DLL itself; the default value is <code>off</code> to avoid annoying
 inside the Cygwin DLL itself.
 
      <p><a name="index-set-new_002dconsole-1328"></a><br><dt><code>set new-console </code><var>mode</var><dd>If <var>mode</var> is <code>on</code> the debuggee will
-be started in a new console on next start.
+be started in a new console on next start. 
 If <var>mode</var> is <code>off</code>, the debuggee will
 be started in the same console as the debugger.
 
@@ -103,7 +103,7 @@ be started in the same console as the debugger.
 when the debuggee is started.
 
      <p><a name="index-set-new_002dgroup-1330"></a><br><dt><code>set new-group </code><var>mode</var><dd>This boolean value controls whether the debuggee should
-start a new group or stay in the same group as the debugger.
+start a new group or stay in the same group as the debugger. 
 This affects the way the Windows OS handles
 &lsquo;<samp><span class="samp">Ctrl-C</span></samp>&rsquo;.
 
@@ -136,3 +136,4 @@ via a shell or directly (default value is on).
 </ul>
 
    </body></html>
+

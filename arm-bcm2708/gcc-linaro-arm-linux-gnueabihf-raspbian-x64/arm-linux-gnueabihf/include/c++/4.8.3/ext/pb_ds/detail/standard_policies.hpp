@@ -101,7 +101,7 @@ namespace __gnu_pbds
 
     public:
 	/// Dispatched type.
-      typedef hash_standard_resize_policy<size_policy_type, trigger,
+      typedef hash_standard_resize_policy<size_policy_type, trigger, 
 					  false, size_type> 	type;
     };
 
@@ -134,8 +134,8 @@ namespace __gnu_pbds
     template<typename Key>
       struct default_trie_access_traits;
 
-#define __dtrie_alloc std::allocator<char>
-#define __dtrie_string std::basic_string<Char, Char_Traits, __dtrie_alloc>
+#define __dtrie_alloc std::allocator<char>  
+#define __dtrie_string std::basic_string<Char, Char_Traits, __dtrie_alloc> 
 
     /// Partial specialization, default_trie_access_traits.
     template<typename Char, typename Char_Traits>

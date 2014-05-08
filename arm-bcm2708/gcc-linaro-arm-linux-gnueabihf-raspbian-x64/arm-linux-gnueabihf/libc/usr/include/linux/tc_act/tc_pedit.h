@@ -13,7 +13,7 @@ enum {
 	__TCA_PEDIT_MAX
 };
 #define TCA_PEDIT_MAX (__TCA_PEDIT_MAX - 1)
-
+                                                                                
 struct tc_pedit_key {
 	__u32           mask;  /* AND */
 	__u32           val;   /*XOR */
@@ -22,7 +22,7 @@ struct tc_pedit_key {
 	__u32           offmask;
 	__u32           shift;
 };
-
+                                                                                
 struct tc_pedit_sel {
 	tc_gen;
 	unsigned char           nkeys;

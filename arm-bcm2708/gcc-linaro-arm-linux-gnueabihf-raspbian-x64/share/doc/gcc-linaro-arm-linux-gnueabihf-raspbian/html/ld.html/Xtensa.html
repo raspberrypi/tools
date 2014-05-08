@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -83,7 +83,7 @@ instruction to a <code>CALL</code><var>n</var> instruction, remove the <code>L32
 instruction, and remove the literal referenced by the <code>L32R</code>
 instruction if it is not used for anything else.  Removing the
 <code>L32R</code> instruction always reduces code size but can potentially
-hurt performance by changing the alignment of subsequent branch targets.
+hurt performance by changing the alignment of subsequent branch targets. 
 By default, the linker will always preserve alignments, either by
 switching some instructions between 24-bit encodings and the equivalent
 density instructions or by inserting a no-op in place of the <code>L32R</code>
@@ -101,7 +101,8 @@ control the linker:
 more than performance.  With this option, the linker will not insert
 no-ops or widen density instructions to preserve branch target
 alignment.  There may still be some cases where no-ops are required to
-preserve the correctness of the code.
+preserve the correctness of the code. 
 </dl>
 
    </body></html>
+

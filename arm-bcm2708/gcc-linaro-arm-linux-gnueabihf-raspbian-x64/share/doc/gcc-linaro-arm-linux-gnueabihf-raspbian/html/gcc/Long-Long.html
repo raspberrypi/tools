@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -56,14 +56,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <p><a name="index-g_t_0040code_007blong-long_007d-data-types-2442"></a><a name="index-double_002dword-arithmetic-2443"></a><a name="index-multiprecision-arithmetic-2444"></a><a name="index-g_t_0040code_007bLL_007d-integer-suffix-2445"></a><a name="index-g_t_0040code_007bULL_007d-integer-suffix-2446"></a>
 ISO C99 supports data types for integers that are at least 64 bits wide,
-and as an extension GCC supports them in C90 mode and in C++.
+and as an extension GCC supports them in C90 mode and in C++. 
 Simply write <code>long long int</code> for a signed integer, or
 <code>unsigned long long int</code> for an unsigned integer.  To make an
 integer constant of type <code>long long int</code>, add the suffix &lsquo;<samp><span class="samp">LL</span></samp>&rsquo;
 to the integer.  To make an integer constant of type <code>unsigned long
 long int</code>, add the suffix &lsquo;<samp><span class="samp">ULL</span></samp>&rsquo; to the integer.
 
- <p>You can use these types in arithmetic like any other integer types.
+ <p>You can use these types in arithmetic like any other integer types. 
 Addition, subtraction, and bitwise boolean operations on these types
 are open-coded on all types of machines.  Multiplication is open-coded
 if the machine supports a fullword-to-doubleword widening multiply
@@ -75,8 +75,9 @@ special library routines that come with GCC.
 arguments without function prototypes.  If a function
 expects type <code>int</code> for its argument, and you pass a value of type
 <code>long long int</code>, confusion results because the caller and the
-subroutine disagree about the number of bytes for the argument.
+subroutine disagree about the number of bytes for the argument. 
 Likewise, if the function expects <code>long long int</code> and you pass
 <code>int</code>.  The best way to avoid such problems is to use prototypes.
 
  </body></html>
+

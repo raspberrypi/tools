@@ -41,7 +41,7 @@ extern HOST_WIDE_INT thumb_compute_initial_elimination_offset (unsigned int,
 							       unsigned int);
 extern unsigned int arm_dbx_register_number (unsigned int);
 extern void arm_output_fn_unwind (FILE *, bool);
-
+  
 
 #ifdef RTX_CODE
 extern bool arm_vector_mode_supported_p (enum machine_mode);

@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -54,7 +54,7 @@ program with the &lsquo;<samp><span class="samp">-p</span></samp>&rsquo; option.
 
    <p>When you run an ELF program on a native ELF system, the system loader
 reads the program headers in order to figure out how to load the
-program.  This will only work if the program headers are set correctly.
+program.  This will only work if the program headers are set correctly. 
 This manual does not describe the details of how the system loader
 interprets program headers; for more information, see the ELF ABI.
 
@@ -104,7 +104,7 @@ default segment and tell the linker to not put the section in any
 segment at all.
 
    <p><a name="index-FILEHDR-497"></a><a name="index-PHDRS-498"></a>You may use the <code>FILEHDR</code> and <code>PHDRS</code> keywords after
-the program header type to further describe the contents of the segment.
+the program header type to further describe the contents of the segment. 
 The <code>FILEHDR</code> keyword means that the segment should include the ELF
 file header.  The <code>PHDRS</code> keyword means that the segment should
 include the ELF program headers themselves.  If applied to a loadable
@@ -133,7 +133,7 @@ ABI.
      <br><dt><code>PT_PHDR</code> (6)<dd>Indicates a segment where the program headers may be found.
 
      <br><dt><var>expression</var><dd>An expression giving the numeric type of the program header.  This may
-be used for types not defined above.
+be used for types not defined above. 
 </dl>
 
    <p>You can specify that a segment should be loaded at a particular address
@@ -158,7 +158,7 @@ headers used on a native ELF system.
        data PT_LOAD ;
        dynamic PT_DYNAMIC ;
      }
-
+     
      SECTIONS
      {
        . = SIZEOF_HEADERS;
@@ -173,3 +173,4 @@ headers used on a native ELF system.
      }
 </pre>
    </body></html>
+

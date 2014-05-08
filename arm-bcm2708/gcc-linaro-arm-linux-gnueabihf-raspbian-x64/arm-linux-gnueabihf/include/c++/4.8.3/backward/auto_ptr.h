@@ -48,7 +48,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     struct auto_ptr_ref
     {
       _Tp1* _M_ptr;
-
+      
       explicit
       auto_ptr_ref(_Tp1* __p): _M_ptr(__p) { }
     } _GLIBCXX_DEPRECATED;
@@ -88,11 +88,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
     private:
       _Tp* _M_ptr;
-
+      
     public:
       /// The pointed-to type.
       typedef _Tp element_type;
-
+      
       /**
        *  @brief  An %auto_ptr is usually constructed from a raw pointer.
        *  @param  __p  A pointer (defaults to NULL).
@@ -168,7 +168,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  prohibited.  [17.4.3.6]/2
        */
       ~auto_ptr() { delete _M_ptr; }
-
+      
       /**
        *  @brief  Smart pointer dereferencing.
        *
@@ -178,12 +178,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  what happens when you dereference one of those...)
        */
       element_type&
-      operator*() const throw()
+      operator*() const throw() 
       {
 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
-	return *_M_ptr;
+	return *_M_ptr; 
       }
-
+      
       /**
        *  @brief  Smart pointer dereferencing.
        *
@@ -191,12 +191,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  automatically cause to be dereferenced.
        */
       element_type*
-      operator->() const throw()
+      operator->() const throw() 
       {
 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
-	return _M_ptr;
+	return _M_ptr; 
       }
-
+      
       /**
        *  @brief  Bypassing the smart pointer.
        *  @return  The raw pointer being managed.
@@ -209,7 +209,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       element_type*
       get() const throw() { return _M_ptr; }
-
+      
       /**
        *  @brief  Bypassing the smart pointer.
        *  @return  The raw pointer being managed.
@@ -228,7 +228,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	_M_ptr = 0;
 	return __tmp;
       }
-
+      
       /**
        *  @brief  Forcibly deletes the managed object.
        *  @param  __p  A pointer (defaults to NULL).
@@ -245,8 +245,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    _M_ptr = __p;
 	  }
       }
-
-      /**
+      
+      /** 
        *  @brief  Automatic conversions
        *
        *  These operations convert an %auto_ptr into and from an auto_ptr_ref
@@ -259,7 +259,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       auto_ptr(auto_ptr_ref<element_type> __ref) throw()
       : _M_ptr(__ref._M_ptr) { }
-
+      
       auto_ptr&
       operator=(auto_ptr_ref<element_type> __ref) throw()
       {
@@ -270,7 +270,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  }
 	return *this;
       }
-
+      
       template<typename _Tp1>
         operator auto_ptr_ref<_Tp1>() throw()
         { return auto_ptr_ref<_Tp1>(this->release()); }

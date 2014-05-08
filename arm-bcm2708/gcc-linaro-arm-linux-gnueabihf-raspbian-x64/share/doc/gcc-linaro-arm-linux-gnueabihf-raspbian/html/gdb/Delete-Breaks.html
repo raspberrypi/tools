@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -61,14 +61,14 @@ their breakpoint numbers.
 automatically ignores breakpoints on the first instruction to be executed
 when you continue execution without changing the execution address.
 
-
+     
 <a name="index-clear-271"></a>
 <dl><dt><code>clear</code><dd>Delete any breakpoints at the next instruction to be executed in the
 selected stack frame (see <a href="Selection.html#Selection">Selecting a Frame</a>).  When
 the innermost frame is selected, this is a good way to delete a
 breakpoint where your program just stopped.
 
-     <br><dt><code>clear </code><var>location</var><dd>Delete any breakpoints set at the specified <var>location</var>.
+     <br><dt><code>clear </code><var>location</var><dd>Delete any breakpoints set at the specified <var>location</var>. 
 See <a href="Specify-Location.html#Specify-Location">Specify Location</a>, for the various forms of <var>location</var>; the
 most useful ones are listed below:
 
@@ -76,13 +76,14 @@ most useful ones are listed below:
 <dt><code>clear </code><var>function</var><dt><code>clear </code><var>filename</var><code>:</code><var>function</var><dd>Delete any breakpoints set at entry to the named <var>function</var>.
 
           <br><dt><code>clear </code><var>linenum</var><dt><code>clear </code><var>filename</var><code>:</code><var>linenum</var><dd>Delete any breakpoints set at or within the code of the specified
-<var>linenum</var> of the specified <var>filename</var>.
+<var>linenum</var> of the specified <var>filename</var>. 
 </dl>
 
      <p><a name="index-delete-breakpoints-272"></a><a name="index-delete-273"></a><a name="index-d-_0040r_007b_0028_0040code_007bdelete_007d_0029_007d-274"></a><br><dt><code>delete </code><span class="roman">[</span><code>breakpoints</code><span class="roman">]</span> <span class="roman">[</span><var>range</var><code>...</code><span class="roman">]</span><dd>Delete the breakpoints, watchpoints, or catchpoints of the breakpoint
 ranges specified as arguments.  If no argument is specified, delete all
 breakpoints (<span class="sc">gdb</span> asks confirmation, unless you have <code>set
-confirm off</code>).  You can abbreviate this command as <code>d</code>.
+confirm off</code>).  You can abbreviate this command as <code>d</code>. 
 </dl>
 
    </body></html>
+

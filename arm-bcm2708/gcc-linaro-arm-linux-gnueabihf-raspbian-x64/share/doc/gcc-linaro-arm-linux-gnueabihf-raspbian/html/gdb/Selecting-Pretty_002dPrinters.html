@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,8 +51,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <p>The Python list <code>gdb.pretty_printers</code> contains an array of
 functions or callable objects that have been registered via addition
 as a pretty-printer.  Printers in this list are called <code>global</code>
-printers, they're available when debugging all inferiors.
-Each <code>gdb.Progspace</code> contains a <code>pretty_printers</code> attribute.
+printers, they're available when debugging all inferiors. 
+Each <code>gdb.Progspace</code> contains a <code>pretty_printers</code> attribute. 
 Each <code>gdb.Objfile</code> also contains a <code>pretty_printers</code>
 attribute.
 
@@ -65,10 +65,10 @@ cannot create a pretty-printer for the value, it should return
    <p><span class="sc">gdb</span> first checks the <code>pretty_printers</code> attribute of each
 <code>gdb.Objfile</code> in the current program space and iteratively calls
 each enabled lookup routine in the list for that <code>gdb.Objfile</code>
-until it receives a pretty-printer object.
+until it receives a pretty-printer object. 
 If no pretty-printer is found in the objfile lists, <span class="sc">gdb</span> then
 searches the pretty-printer list of the current program space,
-calling each enabled function until an object is returned.
+calling each enabled function until an object is returned. 
 After these lists have been exhausted, it tries the global
 <code>gdb.pretty_printers</code> list, again calling each enabled function until an
 object is returned.
@@ -78,7 +78,7 @@ given list, functions are always invoked from the head of the list,
 and iterated over sequentially until the end of the list, or a printer
 object is returned.
 
-   <p>For various reasons a pretty-printer may not work.
+   <p>For various reasons a pretty-printer may not work. 
 For example, the underlying data structure may have changed and
 the pretty-printer is out of date.
 
@@ -94,3 +94,4 @@ is present and its value is <code>False</code>, the printer is disabled, otherwi
 the printer is enabled.
 
    </body></html>
+

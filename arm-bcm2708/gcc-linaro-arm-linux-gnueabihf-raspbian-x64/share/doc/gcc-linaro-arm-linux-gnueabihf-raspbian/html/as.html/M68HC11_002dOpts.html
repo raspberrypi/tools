@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="M68HC11_002dDependent.html#M68HC11_002d
 <p><a name="index-options_002c-M68HC11-1303"></a><a name="index-M68HC11-options-1304"></a>The Motorola 68HC11 and 68HC12 version of <code>as</code> have a few machine
 dependent options.
 
-
+     
 <a name="index-g_t_0040samp_007b_002dm68hc11_007d-1305"></a>
 <dl><dt><code>-m68hc11</code><dd>This option switches the assembler into the M68HC11 mode. In this mode,
 the assembler only accepts 68HC11 operands and mnemonics. It produces
@@ -75,23 +75,23 @@ co-processor featured on some S12X-family chips.
      <p><a name="index-g_t_0040samp_007b_002d_002dxgate_002dramoffset_007d-1310"></a><br><dt><code>--xgate-ramoffset</code><dd>This option instructs the linker to offset RAM addresses from S12X address
 space into XGATE address space.
 
-     <p><a name="index-g_t_0040samp_007b_002dmshort_007d-1311"></a><br><dt><code>-mshort</code><dd>This option controls the ABI and indicates to use a 16-bit integer ABI.
-It has no effect on the assembled instructions.
+     <p><a name="index-g_t_0040samp_007b_002dmshort_007d-1311"></a><br><dt><code>-mshort</code><dd>This option controls the ABI and indicates to use a 16-bit integer ABI. 
+It has no effect on the assembled instructions. 
 This is the default.
 
      <p><a name="index-g_t_0040samp_007b_002dmlong_007d-1312"></a><br><dt><code>-mlong</code><dd>This option controls the ABI and indicates to use a 32-bit integer ABI.
 
-     <p><a name="index-g_t_0040samp_007b_002dmshort_002ddouble_007d-1313"></a><br><dt><code>-mshort-double</code><dd>This option controls the ABI and indicates to use a 32-bit float ABI.
+     <p><a name="index-g_t_0040samp_007b_002dmshort_002ddouble_007d-1313"></a><br><dt><code>-mshort-double</code><dd>This option controls the ABI and indicates to use a 32-bit float ABI. 
 This is the default.
 
      <p><a name="index-g_t_0040samp_007b_002dmlong_002ddouble_007d-1314"></a><br><dt><code>-mlong-double</code><dd>This option controls the ABI and indicates to use a 64-bit float ABI.
 
      <p><a name="index-g_t_0040samp_007b_002d_002dstrict_002ddirect_002dmode_007d-1315"></a><br><dt><code>--strict-direct-mode</code><dd>You can use the &lsquo;<samp><span class="samp">--strict-direct-mode</span></samp>&rsquo; option to disable
 the automatic translation of direct page mode addressing into
-extended mode when the instruction does not support direct mode.
+extended mode when the instruction does not support direct mode. 
 For example, the &lsquo;<samp><span class="samp">clr</span></samp>&rsquo; instruction does not support direct page
 mode addressing. When it is used with the direct page mode,
-<code>as</code> will ignore it and generate an absolute addressing.
+<code>as</code> will ignore it and generate an absolute addressing. 
 This option prevents <code>as</code> from doing this, and the wrong
 usage of the direct page mode will raise an error.
 
@@ -101,7 +101,7 @@ out of range. By default <code>as</code> transforms the relative
 branch (&lsquo;<samp><span class="samp">bsr</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bgt</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bge</span></samp>&rsquo;, &lsquo;<samp><span class="samp">beq</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bne</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">ble</span></samp>&rsquo;, &lsquo;<samp><span class="samp">blt</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bhi</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bcc</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bls</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">bcs</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bmi</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bvs</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bvs</span></samp>&rsquo;, &lsquo;<samp><span class="samp">bra</span></samp>&rsquo;) into
-an absolute branch when the offset is out of the -128 .. 127 range.
+an absolute branch when the offset is out of the -128 .. 127 range. 
 In that case, the &lsquo;<samp><span class="samp">bsr</span></samp>&rsquo; instruction is translated into a
 &lsquo;<samp><span class="samp">jsr</span></samp>&rsquo;, the &lsquo;<samp><span class="samp">bra</span></samp>&rsquo; instruction is translated into a
 &lsquo;<samp><span class="samp">jmp</span></samp>&rsquo; and the conditional branches instructions are inverted and
@@ -126,7 +126,8 @@ in alphabetical order. Once the list is printed <code>as</code>
 exits.
 
      <p><a name="index-g_t_0040samp_007b_002d_002dgenerate_002dexample_007d-1320"></a><br><dt><code>--generate-example</code><dd>The &lsquo;<samp><span class="samp">--generate-example</span></samp>&rsquo; option is similar to &lsquo;<samp><span class="samp">--print-opcodes</span></samp>&rsquo;
-but it generates an example for each instruction instead.
+but it generates an example for each instruction instead. 
 </dl>
 
    </body></html>
+

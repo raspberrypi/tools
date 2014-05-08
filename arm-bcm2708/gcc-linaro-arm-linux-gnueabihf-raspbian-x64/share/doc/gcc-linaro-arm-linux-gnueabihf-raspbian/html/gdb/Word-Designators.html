@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="History-Interaction.html#History-Intera
 
 <h4 class="subsection">33.1.2 Word Designators</h4>
 
-<p>Word designators are used to select desired words from the event.
+<p>Word designators are used to select desired words from the event. 
 A &lsquo;<samp><span class="samp">:</span></samp>&rsquo; separates the event specification from the word designator.  It
 may be omitted if the word designator begins with a &lsquo;<samp><span class="samp">^</span></samp>&rsquo;, &lsquo;<samp><span class="samp">$</span></samp>&rsquo;,
 &lsquo;<samp><span class="samp">*</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-</span></samp>&rsquo;, or &lsquo;<samp><span class="samp">%</span></samp>&rsquo;.  Words are numbered from the beginning
@@ -64,7 +64,7 @@ command is repeated in toto.
 shortened to <code>!$</code>.
 
      <br><dt><code>!fi:2</code><dd>designates the second argument of the most recent command starting with
-the letters <code>fi</code>.
+the letters <code>fi</code>. 
 </dl>
 
    <p>Here are the word designators:
@@ -82,7 +82,7 @@ the letters <code>fi</code>.
 
      <br><dt><var>x</var><code>-</code><var>y</var><dd>A range of words; &lsquo;<samp><span class="samp">-</span><var>y</var></samp>&rsquo; abbreviates &lsquo;<samp><span class="samp">0-</span><var>y</var></samp>&rsquo;.
 
-     <br><dt><code>*</code><dd>All of the words, except the <code>0</code>th.  This is a synonym for &lsquo;<samp><span class="samp">1-$</span></samp>&rsquo;.
+     <br><dt><code>*</code><dd>All of the words, except the <code>0</code>th.  This is a synonym for &lsquo;<samp><span class="samp">1-$</span></samp>&rsquo;. 
 It is not an error to use &lsquo;<samp><span class="samp">*</span></samp>&rsquo; if there is just one word in the event;
 the empty string is returned in that case.
 
@@ -96,3 +96,4 @@ the empty string is returned in that case.
 previous command is used as the event.
 
    </body></html>
+

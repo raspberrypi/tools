@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -94,7 +94,7 @@ are supported and they are represented below:
      <dl>
 <dt><dfn>Constant Offset Indexed Addressing Mode</dfn><dd>&lsquo;<samp><var>number</var><span class="samp">,</span><var>reg</var></samp>&rsquo;
 
-     <p>The <var>number</var> may be omitted in which case 0 is assumed.
+     <p>The <var>number</var> may be omitted in which case 0 is assumed. 
 The register can be either &lsquo;<samp><span class="samp">X</span></samp>&rsquo;, &lsquo;<samp><span class="samp">Y</span></samp>&rsquo;, &lsquo;<samp><span class="samp">SP</span></samp>&rsquo; or
 &lsquo;<samp><span class="samp">PC</span></samp>&rsquo;.  The assembler will use the smaller post-byte definition
 according to the constant value (5-bit constant offset, 9-bit constant
@@ -111,12 +111,12 @@ will be resolved at link time.
 &lsquo;<samp><var>number</var><span class="samp">,</span><var>reg</var><span class="samp">-</span></samp>&rsquo;
 &lsquo;<samp><var>number</var><span class="samp">,</span><var>reg</var><span class="samp">+</span></samp>&rsquo;
 
-     <p>The number must be in the range &lsquo;<samp><span class="samp">-8</span></samp>&rsquo;..&lsquo;<samp><span class="samp">+8</span></samp>&rsquo; and must not be 0.
+     <p>The number must be in the range &lsquo;<samp><span class="samp">-8</span></samp>&rsquo;..&lsquo;<samp><span class="samp">+8</span></samp>&rsquo; and must not be 0. 
 The register can be either &lsquo;<samp><span class="samp">X</span></samp>&rsquo;, &lsquo;<samp><span class="samp">Y</span></samp>&rsquo;, &lsquo;<samp><span class="samp">SP</span></samp>&rsquo; or &lsquo;<samp><span class="samp">PC</span></samp>&rsquo;.
 
      <br><dt><dfn>Accumulator Offset</dfn><dd>&lsquo;<samp><var>acc</var><span class="samp">,</span><var>reg</var></samp>&rsquo;
 
-     <p>The accumulator register can be either &lsquo;<samp><span class="samp">A</span></samp>&rsquo;, &lsquo;<samp><span class="samp">B</span></samp>&rsquo; or &lsquo;<samp><span class="samp">D</span></samp>&rsquo;.
+     <p>The accumulator register can be either &lsquo;<samp><span class="samp">A</span></samp>&rsquo;, &lsquo;<samp><span class="samp">B</span></samp>&rsquo; or &lsquo;<samp><span class="samp">D</span></samp>&rsquo;. 
 The register can be either &lsquo;<samp><span class="samp">X</span></samp>&rsquo;, &lsquo;<samp><span class="samp">Y</span></samp>&rsquo;, &lsquo;<samp><span class="samp">SP</span></samp>&rsquo; or &lsquo;<samp><span class="samp">PC</span></samp>&rsquo;.
 
      <br><dt><dfn>Accumulator D offset indexed-indirect</dfn><dd>&lsquo;<samp><span class="samp">[D,</span><var>reg</var><span class="samp">]</span></samp>&rsquo;
@@ -135,3 +135,4 @@ The register can be either &lsquo;<samp><span class="samp">X</span></samp>&rsquo
      sty [d,sp]
 </pre>
    </body></html>
+

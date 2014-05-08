@@ -179,7 +179,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
         static _Rep&
         _S_empty_rep()
-        {
+        { 
 	  // NB: Mild hack to avoid strict-aliasing warnings.  Note that
 	  // _S_empty_rep_storage is never modified and the punning should
 	  // be reasonably safe in this case.
@@ -365,7 +365,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	if (__n == 1)
 	  traits_type::assign(*__d, *__s);
 	else
-	  traits_type::move(__d, __s, __n);
+	  traits_type::move(__d, __s, __n);	  
       }
 
       static void
@@ -374,7 +374,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	if (__n == 1)
 	  traits_type::assign(*__d, __c);
 	else
-	  traits_type::assign(__d, __n, __c);
+	  traits_type::assign(__d, __n, __c);	  
       }
 
       // _S_copy_chars is a separate template to permit specialization
@@ -543,7 +543,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  @param  __str  Source string.
        */
       basic_string&
-      operator=(const basic_string& __str)
+      operator=(const basic_string& __str) 
       { return this->assign(__str); }
 
       /**
@@ -551,7 +551,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  @param  __s  Source null-terminated string.
        */
       basic_string&
-      operator=(const _CharT* __s)
+      operator=(const _CharT* __s) 
       { return this->assign(__s); }
 
       /**
@@ -562,9 +562,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  (*this)[0] == @a c.
        */
       basic_string&
-      operator=(_CharT __c)
-      {
-	this->assign(1, __c);
+      operator=(_CharT __c) 
+      { 
+	this->assign(1, __c); 
 	return *this;
       }
 
@@ -804,7 +804,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { _M_mutate(0, this->size(), 0); }
 
       /**
-       *  Returns true if the %string is empty.  Equivalent to
+       *  Returns true if the %string is empty.  Equivalent to 
        *  <code>*this == ""</code>.
        */
       bool
@@ -948,7 +948,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       basic_string&
       operator+=(_CharT __c)
-      {
+      { 
 	this->push_back(__c);
 	return *this;
       }
@@ -1050,7 +1050,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       void
       push_back(_CharT __c)
-      {
+      { 
 	const size_type __len = 1 + this->size();
 	if (__len > this->capacity() || _M_rep()->_M_is_shared())
 	  this->reserve(__len);
@@ -1360,7 +1360,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       */
       basic_string&
       erase(size_type __pos = 0, size_type __n = npos)
-      {
+      { 
 	_M_mutate(_M_check(__pos, "basic_string::erase"),
 		  _M_limit(__pos, __n), size_type(0));
 	return *this;
@@ -1396,7 +1396,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       */
       iterator
       erase(iterator __first, iterator __last);
-
+ 
 #if __cplusplus >= 201103L
       /**
        *  @brief  Remove the last character.
@@ -1673,7 +1673,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	return this->replace(__i1 - _M_ibegin(), __i2 - __i1,
 			     __k1.base(), __k2 - __k1);
       }
-
+      
 #if __cplusplus >= 201103L
       /**
        *  @brief  Replace range of characters with initializer_list.
@@ -2804,7 +2804,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     basic_istream<wchar_t>&
     getline(basic_istream<wchar_t>& __in, basic_string<wchar_t>& __str,
 	    wchar_t __delim);
-#endif
+#endif  
 
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace
@@ -2897,7 +2897,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   inline string
   to_string(float __val)
   {
-    const int __n =
+    const int __n = 
       __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
     return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
 					   "%f", __val);
@@ -2906,7 +2906,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   inline string
   to_string(double __val)
   {
-    const int __n =
+    const int __n = 
       __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
     return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
 					   "%f", __val);
@@ -2915,19 +2915,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   inline string
   to_string(long double __val)
   {
-    const int __n =
+    const int __n = 
       __gnu_cxx::__numeric_traits<long double>::__max_exponent10 + 20;
     return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
 					   "%Lf", __val);
   }
 
 #ifdef _GLIBCXX_USE_WCHAR_T
-  inline int
+  inline int 
   stoi(const wstring& __str, size_t* __idx = 0, int __base = 10)
   { return __gnu_cxx::__stoa<long, int>(&std::wcstol, "stoi", __str.c_str(),
 					__idx, __base); }
 
-  inline long
+  inline long 
   stol(const wstring& __str, size_t* __idx = 0, int __base = 10)
   { return __gnu_cxx::__stoa(&std::wcstol, "stol", __str.c_str(),
 			     __idx, __base); }

@@ -4,7 +4,7 @@
 *		Drivers and is completely hardware-independent.
 *
 * Author: 	Nenad Corbic <ncorbic@sangoma.com>
-*		Gideon Hack
+*		Gideon Hack 	
 * Additions:	Arnaldo Melo
 *
 * Copyright:	(c) 1995-2000 Sangoma Technologies Inc.
@@ -29,13 +29,13 @@
 *				Added 'authenticator' to 'wan_ppp_conf_t'
 * Nov 06, 1997	Jaspreet Singh	Changed Router Driver version to 1.1 from 1.0
 * Oct 20, 1997	Jaspreet Singh	Added 'cir','bc','be' and 'mc' to 'wanif_conf_t'
-*				Added 'enable_IPX' and 'network_number' to
+*				Added 'enable_IPX' and 'network_number' to 
 *				'wan_device_t'.  Also added defines for
 *				UDP PACKET TYPE, Interrupt test, critical values
 *				for RACE conditions.
-* Oct 05, 1997	Jaspreet Singh	Added 'dlci_num' and 'dlci[100]' to
+* Oct 05, 1997	Jaspreet Singh	Added 'dlci_num' and 'dlci[100]' to 
 *				'wan_fr_conf_t' to configure a list of dlci(s)
-*				for a NODE
+*				for a NODE 
 * Jul 07, 1997	Jaspreet Singh	Added 'ttl' to 'wandev_conf_t' & 'wan_device_t'
 * May 29, 1997 	Jaspreet Singh	Added 'tx_int_enabled' to 'wan_device_t'
 * May 21, 1997	Jaspreet Singh	Added 'udp_port' to 'wan_device_t'
@@ -135,7 +135,7 @@ typedef struct wan_x25_conf
 	unsigned ccitt_compat;	/* compatibility mode: 1988/1984/1980 */
 	unsigned x25_conf_opt;   /* User defined x25 config optoins */
 	unsigned char LAPB_hdlc_only; /* Run in HDLC only mode */
-	unsigned char logging;   /* Control connection logging */
+	unsigned char logging;   /* Control connection logging */  
 	unsigned char oob_on_modem; /* Whether to send modem status to the user app */
 } wan_x25_conf_t;
 
@@ -208,7 +208,7 @@ typedef struct wandev_conf
         char S514_CPU_no[1];	/* S514 PCI adapter CPU number ('A' or 'B') */
         unsigned PCI_slot_no;	/* S514 PCI adapter slot number */
 	char auto_pci_cfg;	/* S515 PCI automatic slot detection */
-	char comm_port;		/* Communication Port (PRI=0, SEC=1) */
+	char comm_port;		/* Communication Port (PRI=0, SEC=1) */ 
 	unsigned bps;		/* data transfer rate */
 	unsigned mtu;		/* maximum transmit unit size */
         unsigned udp_port;      /* UDP port for management */
@@ -399,7 +399,7 @@ typedef struct wanif_conf
 	unsigned hold_timeout;		/* sec, before re-connecting */
 	unsigned cir;			/* Committed Information Rate fwd,bwd*/
 	unsigned bc;			/* Committed Burst Size fwd, bwd */
-	unsigned be;			/* Excess Burst Size fwd, bwd */
+	unsigned be;			/* Excess Burst Size fwd, bwd */ 
 	unsigned char enable_IPX;	/* Enable or Disable IPX */
 	unsigned char inarp;		/* Send Inverse ARP requests Y/N */
 	unsigned inarp_interval;	/* sec, between InARP requests */
@@ -439,9 +439,9 @@ typedef struct wanif_conf
 	unsigned char async_mode;
 	unsigned tx_bits_per_char;
 	unsigned rx_bits_per_char;
-	unsigned stop_bits;
+	unsigned stop_bits;  
 	unsigned char parity;
-	unsigned break_timer;
+ 	unsigned break_timer;
         unsigned inter_char_timer;
 	unsigned rx_complete_length;
 	unsigned xon_char;

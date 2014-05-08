@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <p><a name="index-blocks-in-python-2027"></a><a name="index-gdb_002eBlock-2028"></a>
 Within each frame, <span class="sc">gdb</span> maintains information on each block
 stored in that frame.  These blocks are organized hierarchically, and
-are represented individually in Python as a <code>gdb.Block</code>.
+are represented individually in Python as a <code>gdb.Block</code>. 
 Please see <a href="Frames-In-Python.html#Frames-In-Python">Frames In Python</a>, for a more in-depth discussion on
 frames.  Furthermore, see <a href="Stack.html#Stack">Examining the Stack</a>, for more
 detailed technical information on <span class="sc">gdb</span>'s book-keeping of the
@@ -72,7 +72,7 @@ module:
 &mdash; Function: <b>gdb.block_for_pc</b> (<var>pc</var>)<var><a name="index-gdb_002eblock_005ffor_005fpc-2030"></a></var><br>
 <blockquote><p>Return the <code>gdb.Block</code> containing the given <var>pc</var> value.  If the
 block cannot be found for the <var>pc</var> value specified, the function
-will return <code>None</code>.
+will return <code>None</code>. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Block</code> object has the following methods:
@@ -84,57 +84,58 @@ will return <code>None</code>.
 refers to doesn't exist anymore in the inferior.  All other
 <code>gdb.Block</code> methods will throw an exception if it is invalid at
 the time the method is called.  The block's validity is also checked
-during iteration over symbols of the block.
+during iteration over symbols of the block. 
 </p></blockquote></div>
 
    <p>A <code>gdb.Block</code> object has the following attributes:
 
 <div class="defun">
 &mdash; Variable: <b>Block.start</b><var><a name="index-Block_002estart-2032"></a></var><br>
-<blockquote><p>The start address of the block.  This attribute is not writable.
+<blockquote><p>The start address of the block.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.end</b><var><a name="index-Block_002eend-2033"></a></var><br>
-<blockquote><p>The end address of the block.  This attribute is not writable.
+<blockquote><p>The end address of the block.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.function</b><var><a name="index-Block_002efunction-2034"></a></var><br>
 <blockquote><p>The name of the block represented as a <code>gdb.Symbol</code>.  If the
 block is not named, then this attribute holds <code>None</code>.  This
-attribute is not writable.
+attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.superblock</b><var><a name="index-Block_002esuperblock-2035"></a></var><br>
 <blockquote><p>The block containing this block.  If this parent block does not exist,
-this attribute holds <code>None</code>.  This attribute is not writable.
+this attribute holds <code>None</code>.  This attribute is not writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.global_block</b><var><a name="index-Block_002eglobal_005fblock-2036"></a></var><br>
 <blockquote><p>The global block associated with this block.  This attribute is not
-writable.
+writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.static_block</b><var><a name="index-Block_002estatic_005fblock-2037"></a></var><br>
 <blockquote><p>The static block associated with this block.  This attribute is not
-writable.
+writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.is_global</b><var><a name="index-Block_002eis_005fglobal-2038"></a></var><br>
 <blockquote><p><code>True</code> if the <code>gdb.Block</code> object is a global block,
 <code>False</code> if not.  This attribute is not
-writable.
+writable. 
 </p></blockquote></div>
 
 <div class="defun">
 &mdash; Variable: <b>Block.is_static</b><var><a name="index-Block_002eis_005fstatic-2039"></a></var><br>
 <blockquote><p><code>True</code> if the <code>gdb.Block</code> object is a static block,
-<code>False</code> if not.  This attribute is not writable.
+<code>False</code> if not.  This attribute is not writable. 
 </p></blockquote></div>
 
    </body></html>
+

@@ -4269,24 +4269,24 @@ library.
 few examples.
 
      VERS_1.1 {
-	 global:
-		 foo1;
-	 local:
-		 old*;
-		 original*;
-		 new*;
+     	 global:
+     		 foo1;
+     	 local:
+     		 old*;
+     		 original*;
+     		 new*;
      };
 
      VERS_1.2 {
-		 foo2;
+     		 foo2;
      } VERS_1.1;
 
      VERS_2.0 {
-		 bar1; bar2;
-	 extern "C++" {
-		 ns::*;
-		 "f(int, double)";
-	 };
+     		 bar1; bar2;
+     	 extern "C++" {
+     		 ns::*;
+     		 "f(int, double)";
+     	 };
      } VERS_1.2;
 
    This example version script defines three version nodes.  The first
@@ -6037,10 +6037,10 @@ _direct linking to a dll_
      libraries (using cygwin nomenclature):
 
           bin/
-		cygxxx.dll
+          	cygxxx.dll
           lib/
-		libxxx.dll.a   (in case of dll's)
-		libxxx.a       (in case of static archive)
+          	libxxx.dll.a   (in case of dll's)
+          	libxxx.a       (in case of static archive)
 
      Linking directly to a dll without using the import library can be
      done two ways:
@@ -6068,9 +6068,9 @@ _direct linking to a dll_
      the following is perfectly legal
 
           bin/
-		cygxxx-5.dll
+          	cygxxx-5.dll
           lib/
-		libxxx.dll.a -> ../bin/cygxxx-5.dll
+          	libxxx.dll.a -> ../bin/cygxxx-5.dll
 
      Linking directly to a dll without using an import lib will work
      even when auto-import features are exercised, and even when
@@ -6365,7 +6365,7 @@ least overlap between the information provided by the source format,
 that stored by the canonical format, and that needed by the destination
 format. A brief description of the canonical form may help you
 understand which kinds of data you can count on preserving across
-conversions.
+conversions.  
 
 _files_
      Information stored on a per-file basis includes target machine

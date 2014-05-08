@@ -485,5 +485,5 @@ extern tree add_builtin_function_ext_scope (const char *name, tree type,
 					    const char *library_name,
 					    tree attrs);
 extern tree add_builtin_type (const char *name, tree type);
-
+ 
 #endif /* GCC_LANG_HOOKS_H */

@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,7 +50,7 @@ describe the linker script language.
 
    <p>The linker combines input files into a single output file.  The output
 file and each input file are in a special data format known as an
-<dfn>object file format</dfn>.  Each file is called an <dfn>object file</dfn>.
+<dfn>object file format</dfn>.  Each file is called an <dfn>object file</dfn>. 
 The output file is often called an <dfn>executable</dfn>, but for our
 purposes we will also call it an object file.  Each object file has,
 among other things, a list of <dfn>sections</dfn>.  We sometimes refer to a
@@ -60,7 +60,7 @@ in the output file is an <dfn>output section</dfn>.
    <p>Each section in an object file has a name and a size.  Most sections
 also have an associated block of data, known as the <dfn>section
 contents</dfn>.  A section may be marked as <dfn>loadable</dfn>, which means that
-the contents should be loaded into memory when the output file is run.
+the contents should be loaded into memory when the output file is run. 
 A section with no contents may be <dfn>allocatable</dfn>, which means that an
 area in memory should be set aside, but nothing in particular should be
 loaded there (in some cases this memory must be zeroed out).  A section
@@ -94,3 +94,4 @@ program, or by using the <code>objdump</code> program with the &lsquo;<samp><spa
 option.
 
    </body></html>
+

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Breakpoints.html#Breakpoints">Breakpoin
 
 <p><a name="index-setting-watchpoints-247"></a>You can use a watchpoint to stop execution whenever the value of an
 expression changes, without having to predict a particular place where
-this may happen.  (This is sometimes called a <dfn>data breakpoint</dfn>.)
+this may happen.  (This is sometimes called a <dfn>data breakpoint</dfn>.) 
 The expression may be as simple as the value of a single variable, or
 as complex as many variables combined by operators.  Examples include:
 
@@ -62,12 +62,12 @@ address (assuming an <code>int</code> occupies 4 bytes).
 
      <li>An arbitrarily complex expression, such as &lsquo;<samp><span class="samp">a*b + c/d</span></samp>&rsquo;.  The
 expression can use any operators valid in the program's native
-language (see <a href="Languages.html#Languages">Languages</a>).
+language (see <a href="Languages.html#Languages">Languages</a>). 
 </ul>
 
    <p>You can set a watchpoint on an expression even if the expression can
 not be evaluated yet.  For instance, you can set a watchpoint on
-&lsquo;<samp><span class="samp">*global_ptr</span></samp>&rsquo; before &lsquo;<samp><span class="samp">global_ptr</span></samp>&rsquo; is initialized.
+&lsquo;<samp><span class="samp">*global_ptr</span></samp>&rsquo; before &lsquo;<samp><span class="samp">global_ptr</span></samp>&rsquo; is initialized. 
 <span class="sc">gdb</span> will stop when your program sets &lsquo;<samp><span class="samp">global_ptr</span></samp>&rsquo; and
 the expression produces a valid value.  If the expression becomes
 valid in some other way than changing a variable (e.g. if the memory
@@ -86,7 +86,7 @@ culprit.)
 x86-based targets, <span class="sc">gdb</span> includes support for hardware
 watchpoints, which do not slow down the running of your program.
 
-
+     
 <a name="index-watch-250"></a>
 <dl><dt><code>watch </code><span class="roman">[</span><code>-l</code><span class="roman">|</span><code>-location</code><span class="roman">]</span> <var>expr</var> <span class="roman">[</span><code>thread </code><var>threadnum</var><span class="roman">]</span> <span class="roman">[</span><code>mask </code><var>maskvalue</var><span class="roman">]</span><dd>Set a watchpoint for an expression.  <span class="sc">gdb</span> will break when the
 expression <var>expr</var> is written into by the program and its value
@@ -116,10 +116,10 @@ of masked watchpoints, if the current architecture supports this
 feature (e.g., PowerPC Embedded architecture, see <a href="PowerPC-Embedded.html#PowerPC-Embedded">PowerPC Embedded</a>.)  A <dfn>masked watchpoint</dfn> specifies a mask in addition
 to an address to watch.  The mask specifies that some bits of an address
 (the bits which are reset in the mask) should be ignored when matching
-the address accessed by the inferior against the watchpoint address.
+the address accessed by the inferior against the watchpoint address. 
 Thus, a masked watchpoint watches many addresses simultaneously&mdash;those
 addresses whose unmasked bits are identical to the unmasked bits in the
-watchpoint address.  The <code>mask</code> argument implies <code>-location</code>.
+watchpoint address.  The <code>mask</code> argument implies <code>-location</code>. 
 Examples:
 
      <pre class="smallexample">          (gdb) watch foo mask 0xffff00ff
@@ -132,7 +132,7 @@ by the program.
 or written into by the program.
 
      <p><a name="index-info-watchpoints-_0040r_007b_005b_007d_0040var_007bn_007d_0040dots_007b_007d_0040r_007b_005d_007d-253"></a><br><dt><code>info watchpoints </code><span class="roman">[</span><var>n</var><code>...</code><span class="roman">]</span><dd>This command prints a list of watchpoints, using the same format as
-<code>info break</code> (see <a href="Set-Breaks.html#Set-Breaks">Set Breaks</a>).
+<code>info break</code> (see <a href="Set-Breaks.html#Set-Breaks">Set Breaks</a>). 
 </dl>
 
    <p>If you watch for a change in a numerically entered address you need to
@@ -163,7 +163,7 @@ mechanism of watching expression values.)
      <dl>
 <dt><code>set can-use-hw-watchpoints</code><dd><a name="index-set-can_002duse_002dhw_002dwatchpoints-255"></a>Set whether or not to use hardware watchpoints.
 
-     <br><dt><code>show can-use-hw-watchpoints</code><dd><a name="index-show-can_002duse_002dhw_002dwatchpoints-256"></a>Show the current mode of using hardware watchpoints.
+     <br><dt><code>show can-use-hw-watchpoints</code><dd><a name="index-show-can_002duse_002dhw_002dwatchpoints-256"></a>Show the current mode of using hardware watchpoints. 
 </dl>
 
    <p>For remote targets, you can restrict the number of hardware
@@ -195,7 +195,7 @@ wide).  As a work-around, it might be possible to break the large region
 into a series of smaller ones and watch them with separate watchpoints.
 
    <p>If you set too many hardware watchpoints, <span class="sc">gdb</span> might be unable
-to insert all of them when you resume the execution of your program.
+to insert all of them when you resume the execution of your program. 
 Since the precise number of active watchpoints is unknown until such
 time as the program is about to be resumed, <span class="sc">gdb</span> might not be
 able to warn you about this when you set the watchpoints, and the
@@ -206,7 +206,7 @@ warning will be printed only when the program is resumed:
    <p class="noindent">If this happens, delete or disable some of the watchpoints.
 
    <p>Watching complex expressions that reference many variables can also
-exhaust the resources available for hardware-assisted watchpoints.
+exhaust the resources available for hardware-assisted watchpoints. 
 That's because <span class="sc">gdb</span> needs to watch every variable in the
 expression with separately allocated resources.
 
@@ -236,9 +236,10 @@ change due to the current thread's activity (and if you are also
 confident that no other thread can become current), then you can use
 software watchpoints as usual.  However, <span class="sc">gdb</span> may not notice
 when a non-current thread's activity changes the expression.  (Hardware
-watchpoints, in contrast, watch an expression in all threads.)
+watchpoints, in contrast, watch an expression in all threads.) 
 </blockquote>
 
    <p>See <a href="set-remote-hardware_002dwatchpoint_002dlimit.html#set-remote-hardware_002dwatchpoint_002dlimit">set remote hardware-watchpoint-limit</a>.
 
    </body></html>
+

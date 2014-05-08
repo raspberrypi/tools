@@ -103,3 +103,4 @@ inline void
 PB_DS_CLASS_C_DEC::
 init_entry_metadata(entry_pointer, type_to_type<null_type>)
 { }
+

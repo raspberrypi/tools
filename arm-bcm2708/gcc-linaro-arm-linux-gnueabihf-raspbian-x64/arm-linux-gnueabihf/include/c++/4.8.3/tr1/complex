@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/complex
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_COMPLEX
@@ -133,7 +133,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     asin(const std::complex<_Tp>& __z)
     { return __complex_asin(__z); }
 #endif
-
+  
   template<typename _Tp>
     std::complex<_Tp>
     __complex_atan(const std::complex<_Tp>& __z)
@@ -373,7 +373,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     inline std::complex<_Tp>
     conj(const std::complex<_Tp>& __z)
-    { return std::conj(__z); }
+    { return std::conj(__z); }  
 
   template<typename _Tp>
     inline std::complex<typename __gnu_cxx::__promote<_Tp>::__type>

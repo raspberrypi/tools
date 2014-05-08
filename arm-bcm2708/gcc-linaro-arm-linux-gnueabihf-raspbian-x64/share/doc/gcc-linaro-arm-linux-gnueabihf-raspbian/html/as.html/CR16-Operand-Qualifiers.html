@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -84,26 +84,27 @@ The National Semiconductor CR16 target of <code>as</code> has a few machine depe
 
    <p>For example:
 <pre class="example">     1   <code>movw $_myfun@c,r1</code>
-
+     
          This loads the address of _myfun, shifted right by 1, into r1.
-
+     
      2   <code>movd $_myfun@c,(r2,r1)</code>
-
+     
          This loads the address of _myfun, shifted right by 1, into register-pair r2-r1.
-
+     
      3   <code>_myfun_ptr:</code>
          <code>.long _myfun@c</code>
          <code>loadd _myfun_ptr, (r1,r0)</code>
          <code>jal (r1,r0)</code>
-
+     
          This .long directive, the address of _myfunc, shifted right by 1 at link time.
-
+     
      4   <code>loadd  _data1@GOT(r12), (r1,r0)</code>
-
+     
          This loads the address of _data1, into global offset table (ie GOT) and its offset value from GOT loads into register-pair r2-r1.
-
+     
      5   <code>loadd  _myfunc@cGOT(r12), (r1,r0)</code>
-
+     
          This loads the address of _myfun, shifted right by 1, into global offset table (ie GOT) and its offset value from GOT loads into register-pair r1-r0.
 </pre>
    </body></html>
+

@@ -42,7 +42,7 @@ namespace __gnu_profile
   public:
     __list2slist_info()
     : _M_rewind(false), _M_operations(0) { }
-
+  
     __list2slist_info(__stack_t __stack)
     : __object_info_base(__stack), _M_rewind(false), _M_operations(0) { }
 
@@ -51,13 +51,13 @@ namespace __gnu_profile
     __list2slist_info(const __list2slist_info& __o)
     : __object_info_base(__o), _M_rewind(__o._M_rewind),
       _M_operations(__o._M_operations) { }
-
+  
     // XXX: the magnitude should be multiplied with a constant factor F,
     // where F is 1 when the malloc size class of list nodes is different
     // from the malloc size class of slist nodes.  When they fall into the same
     // class, the only slist benefit is from having to set fewer links, so
     // the factor F should be much smaller, closer to 0 than to 1.
-    // This could be implemented by passing the size classes in the config
+    // This could be implemented by passing the size classes in the config 
     // file.  For now, we always assume F to be 1.
 
     float
@@ -68,7 +68,7 @@ namespace __gnu_profile
       else
 	return 0;
     }
-
+    
     void
     __merge(const __list2slist_info&) { }
 
@@ -104,12 +104,12 @@ namespace __gnu_profile
   : public __list2slist_info
   {
   public:
-    __list2slist_stack_info(const __list2slist_info& __o)
+    __list2slist_stack_info(const __list2slist_info& __o) 
     : __list2slist_info(__o) { }
   };
 
   class __trace_list_to_slist
-  : public __trace_base<__list2slist_info, __list2slist_stack_info>
+  : public __trace_base<__list2slist_info, __list2slist_stack_info> 
   {
   public:
     ~__trace_list_to_slist() { }
@@ -137,7 +137,7 @@ namespace __gnu_profile
     void
     __insert(const __object_t __obj, __stack_t __stack)
     { __add_object(__obj, __list2slist_info(__stack)); }
-
+  
     void
     __destruct(const void* __obj)
     {
@@ -169,7 +169,7 @@ namespace __gnu_profile
   }
 
   inline void
-  __trace_list_to_slist_rewind(const void* __obj)
+  __trace_list_to_slist_rewind(const void* __obj) 
   {
     if (!__profcxx_init())
       return;
@@ -178,7 +178,7 @@ namespace __gnu_profile
   }
 
   inline void
-  __trace_list_to_slist_operation(const void* __obj)
+  __trace_list_to_slist_operation(const void* __obj) 
   {
     if (!__profcxx_init())
       return;

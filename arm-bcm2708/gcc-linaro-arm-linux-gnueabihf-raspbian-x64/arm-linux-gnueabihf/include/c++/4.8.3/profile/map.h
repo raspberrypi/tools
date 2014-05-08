@@ -136,7 +136,7 @@ namespace __profile
       using _Base::get_allocator;
 
       // iterators:
-      iterator
+      iterator 
       begin() _GLIBCXX_NOEXCEPT
       { return _Base::begin(); }
 
@@ -154,9 +154,9 @@ namespace __profile
 
       reverse_iterator
       rbegin() _GLIBCXX_NOEXCEPT
-      {
+      { 
         __profcxx_map_to_unordered_map_invalidate(this);
-        return reverse_iterator(end());
+        return reverse_iterator(end()); 
       }
 
       const_reverse_iterator
@@ -294,10 +294,10 @@ namespace __profile
 #if __cplusplus >= 201103L
       void
       insert(std::initializer_list<value_type> __list)
-      {
+      { 
         size_type size_before = size();
-        _Base::insert(__list);
-        __profcxx_map_to_unordered_map_insert(this, size_before,
+        _Base::insert(__list); 
+        __profcxx_map_to_unordered_map_insert(this, size_before, 
 					      size() - size_before);
       }
 #endif
@@ -326,7 +326,7 @@ namespace __profile
 	  size_type size_before = size();
 	  iterator __i
 	    = iterator(_Base::insert(__position, std::forward<_Pair>(__x)));
-	  __profcxx_map_to_unordered_map_insert(this, size_before,
+	  __profcxx_map_to_unordered_map_insert(this, size_before, 
 						size() - size_before);
 	  return __i;
       }
@@ -343,7 +343,7 @@ namespace __profile
         {
           size_type size_before = size();
 	  _Base::insert(__first, __last);
-          __profcxx_map_to_unordered_map_insert(this, size_before,
+          __profcxx_map_to_unordered_map_insert(this, size_before, 
                                                 size() - size_before);
 	}
 
@@ -427,30 +427,30 @@ namespace __profile
 
       iterator
       lower_bound(const key_type& __x)
-      {
+      { 
         __profcxx_map_to_unordered_map_invalidate(this);
-        return iterator(_Base::lower_bound(__x));
+        return iterator(_Base::lower_bound(__x)); 
       }
 
       const_iterator
       lower_bound(const key_type& __x) const
-      {
+      { 
         __profcxx_map_to_unordered_map_invalidate(this);
-        return const_iterator(_Base::lower_bound(__x));
+        return const_iterator(_Base::lower_bound(__x)); 
       }
 
       iterator
       upper_bound(const key_type& __x)
-      {
+      { 
         __profcxx_map_to_unordered_map_invalidate(this);
-        return iterator(_Base::upper_bound(__x));
+        return iterator(_Base::upper_bound(__x)); 
       }
 
       const_iterator
       upper_bound(const key_type& __x) const
-      {
+      { 
         __profcxx_map_to_unordered_map_invalidate(this);
-        return const_iterator(_Base::upper_bound(__x));
+        return const_iterator(_Base::upper_bound(__x)); 
       }
 
       std::pair<iterator,iterator>
@@ -474,7 +474,7 @@ namespace __profile
 			      const_iterator(__res.second));
       }
 
-      _Base&
+      _Base& 
       _M_base() _GLIBCXX_NOEXCEPT       { return *this; }
 
       const _Base&
@@ -487,10 +487,10 @@ namespace __profile
     inline bool
     operator==(const map<_Key, _Tp, _Compare, _Allocator>& __lhs,
 	       const map<_Key, _Tp, _Compare, _Allocator>& __rhs)
-    {
+    { 
       __profcxx_map_to_unordered_map_invalidate(&__lhs);
       __profcxx_map_to_unordered_map_invalidate(&__rhs);
-      return __lhs._M_base() == __rhs._M_base();
+      return __lhs._M_base() == __rhs._M_base(); 
     }
 
   template<typename _Key, typename _Tp,
@@ -498,10 +498,10 @@ namespace __profile
     inline bool
     operator!=(const map<_Key, _Tp, _Compare, _Allocator>& __lhs,
 	       const map<_Key, _Tp, _Compare, _Allocator>& __rhs)
-    {
+    { 
       __profcxx_map_to_unordered_map_invalidate(&__lhs);
       __profcxx_map_to_unordered_map_invalidate(&__rhs);
-      return __lhs._M_base() != __rhs._M_base();
+      return __lhs._M_base() != __rhs._M_base(); 
     }
 
   template<typename _Key, typename _Tp,
@@ -512,7 +512,7 @@ namespace __profile
     {
       __profcxx_map_to_unordered_map_invalidate(&__lhs);
       __profcxx_map_to_unordered_map_invalidate(&__rhs);
-      return __lhs._M_base() < __rhs._M_base();
+      return __lhs._M_base() < __rhs._M_base(); 
     }
 
   template<typename _Key, typename _Tp,

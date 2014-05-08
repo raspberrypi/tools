@@ -445,7 +445,7 @@ typedef enum expr_list_kind {
   ELK_INIT,		/* initializer */
   ELK_MEM_INIT,		/* member initializer */
   ELK_FUNC_CAST		/* functional cast */
-} expr_list_kind;
+} expr_list_kind; 
 
 /* Possible cases of implicit bad rhs conversions. */
 typedef enum impl_conv_rhs {
@@ -629,7 +629,7 @@ typedef enum cp_trait_kind
 struct GTY (()) tree_trait_expr {
   struct tree_common common;
   tree type1;
-  tree type2;
+  tree type2;  
   enum cp_trait_kind kind;
 };
 
@@ -784,7 +784,7 @@ union GTY((desc ("cp_tree_node_structure (&%h)"),
   struct tree_default_arg GTY ((tag ("TS_CP_DEFAULT_ARG"))) default_arg;
   struct tree_deferred_noexcept GTY ((tag ("TS_CP_DEFERRED_NOEXCEPT"))) deferred_noexcept;
   struct lang_identifier GTY ((tag ("TS_CP_IDENTIFIER"))) identifier;
-  struct tree_static_assert GTY ((tag ("TS_CP_STATIC_ASSERT")))
+  struct tree_static_assert GTY ((tag ("TS_CP_STATIC_ASSERT"))) 
     static_assertion;
   struct tree_argument_pack_select GTY ((tag ("TS_CP_ARGUMENT_PACK_SELECT")))
     argument_pack_select;
@@ -2629,7 +2629,7 @@ extern void decl_shadowed_for_var_insert (tree, tree);
    TREE_PURPOSE is the TEMPLATE_DECL of which this entity is a
    specialization or abstract instance.  The TREE_VALUE is the
    template arguments used to specialize the template.
-
+   
    Consider:
 
       template <typename T> struct S { friend void f(T) {} };
@@ -2816,7 +2816,7 @@ extern void decl_shadowed_for_var_insert (tree, tree);
 
       template <typename T> struct S {};
       template <typename T> struct S<T*> {};
-
+      
    the CLASSTPYE_TI_TEMPLATE for S<int*> will be S, not the S<T*>.  */
 #define CLASSTYPE_TI_TEMPLATE(NODE) TI_TEMPLATE (CLASSTYPE_TEMPLATE_INFO (NODE))
 #define CLASSTYPE_TI_ARGS(NODE)     TI_ARGS (CLASSTYPE_TEMPLATE_INFO (NODE))
@@ -2934,7 +2934,7 @@ extern void decl_shadowed_for_var_insert (tree, tree);
    select.  */
 #define ARGUMENT_PACK_SELECT_INDEX(NODE)				\
   (((struct tree_argument_pack_select *)ARGUMENT_PACK_SELECT_CHECK (NODE))->index)
-
+  
 /* In an ARGUMENT_PACK_SELECT, the actual underlying argument that the
    ARGUMENT_PACK_SELECT represents. */
 #define ARGUMENT_PACK_SELECT_ARG(NODE)					\
@@ -3220,7 +3220,7 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
 /* [basic.fundamental]
 
    Integral and floating types are collectively called arithmetic
-   types.
+   types.  
 
    As a GNU extension, we also accept complex types.
 
@@ -3238,7 +3238,7 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
    Arithmetic types, enumeration types, pointer types,
    pointer-to-member types, and std::nullptr_t are collectively called
    scalar types.
-
+   
    Keep these checks in ascending code order.  */
 #define SCALAR_TYPE_P(TYPE)			\
   (TYPE_PTRDATAMEM_P (TYPE)			\
@@ -3258,7 +3258,7 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
 
    Scoped enumeration types are different from normal (unscoped)
    enumeration types in several ways:
-
+   
      - The enumerators of a scoped enumeration type are only available
        within the scope of the enumeration type and not in the
        enclosing scope. For example, the Red color can be referred to
@@ -3793,18 +3793,18 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
         template <> int min<int> (int, int),
 
      3=explicit instantiation, e.g.:
-
+  
         template int min<int> (int, int);
 
    Note that NODE will be marked as a specialization even if the
    template it is instantiating is not a primary template.  For
    example, given:
 
-     template <typename T> struct O {
+     template <typename T> struct O { 
        void f();
-       struct I {};
+       struct I {}; 
      };
-
+    
    both O<int>::f and O<int>::I will be marked as instantiations.
 
    If DECL_USE_TEMPLATE is nonzero, then DECL_TEMPLATE_INFO will also
@@ -4940,7 +4940,7 @@ extern bool pragma_java_exceptions;
 /* in call.c */
 extern bool check_dtor_name			(tree, tree);
 
-extern tree build_conditional_expr		(tree, tree, tree,
+extern tree build_conditional_expr		(tree, tree, tree, 
                                                  tsubst_flags_t);
 extern tree build_addr_func			(tree, tsubst_flags_t);
 extern void set_flags_from_callee		(tree);
@@ -4952,7 +4952,7 @@ extern bool sufficient_parms_p			(const_tree);
 extern tree type_decays_to			(tree);
 extern tree build_user_type_conversion		(tree, tree, int,
 						 tsubst_flags_t);
-extern tree build_new_function_call		(tree, vec<tree, va_gc> **, bool,
+extern tree build_new_function_call		(tree, vec<tree, va_gc> **, bool, 
 						 tsubst_flags_t);
 extern tree build_operator_new_call		(tree, vec<tree, va_gc> **, tree *,
 						 tree *, tree, tree *,
@@ -5095,7 +5095,7 @@ extern tree cp_convert				(tree, tree, tsubst_flags_t);
 extern tree cp_convert_and_check                (tree, tree, tsubst_flags_t);
 extern tree cp_fold_convert			(tree, tree);
 extern tree convert_to_void			(tree, impl_conv_void,
-						 tsubst_flags_t);
+                                 		 tsubst_flags_t);
 extern tree convert_force			(tree, tree, int,
 						 tsubst_flags_t);
 extern tree build_expr_type_conversion		(int, tree, bool);
@@ -5409,7 +5409,7 @@ extern void append_type_to_template_for_access_check (tree, tree, tree,
 						      location_t);
 extern tree splice_late_return_type		(tree, tree);
 extern bool is_auto				(const_tree);
-extern tree process_template_parm		(tree, location_t, tree,
+extern tree process_template_parm		(tree, location_t, tree, 
 						 bool, bool);
 extern tree end_template_parm_list		(tree);
 extern void end_template_decl			(void);
@@ -5918,7 +5918,7 @@ extern tree unlowered_expr_type                 (const_tree);
 extern tree decay_conversion			(tree, tsubst_flags_t);
 extern tree build_class_member_access_expr      (tree, tree, tree, bool,
 						 tsubst_flags_t);
-extern tree finish_class_member_access_expr     (tree, tree, bool,
+extern tree finish_class_member_access_expr     (tree, tree, bool, 
 						 tsubst_flags_t);
 extern tree build_x_indirect_ref		(location_t, tree,
 						 ref_operator, tsubst_flags_t);
@@ -5945,10 +5945,10 @@ extern tree build_x_unary_op			(location_t,
                                                  tsubst_flags_t);
 extern tree cp_build_addr_expr			(tree, tsubst_flags_t);
 extern tree cp_build_addr_expr_strict		(tree, tsubst_flags_t);
-extern tree cp_build_unary_op                   (enum tree_code, tree, int,
+extern tree cp_build_unary_op                   (enum tree_code, tree, int, 
                                                  tsubst_flags_t);
 extern tree unary_complex_lvalue		(enum tree_code, tree);
-extern tree build_x_conditional_expr		(location_t, tree, tree, tree,
+extern tree build_x_conditional_expr		(location_t, tree, tree, tree, 
                                                  tsubst_flags_t);
 extern tree build_x_compound_expr_from_list	(tree, expr_list_kind,
 						 tsubst_flags_t);
@@ -5989,7 +5989,7 @@ extern void expand_ptrmemfunc_cst		(tree, tree *, tree *);
 extern tree type_after_usual_arithmetic_conversions (tree, tree);
 extern tree common_pointer_type                 (tree, tree);
 extern tree composite_pointer_type		(tree, tree, tree, tree,
-						 composite_pointer_operation,
+						 composite_pointer_operation, 
 						 tsubst_flags_t);
 extern tree merge_types				(tree, tree);
 extern tree strip_array_domain			(tree);

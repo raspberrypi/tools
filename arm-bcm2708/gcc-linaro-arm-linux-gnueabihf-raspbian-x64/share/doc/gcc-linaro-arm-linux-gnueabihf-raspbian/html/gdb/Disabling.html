@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -66,21 +66,21 @@ different states of enablement:
 
      <ul>
 <li>Enabled.  The breakpoint stops your program.  A breakpoint set
-with the <code>break</code> command starts out in this state.
-<li>Disabled.  The breakpoint has no effect on your program.
+with the <code>break</code> command starts out in this state. 
+<li>Disabled.  The breakpoint has no effect on your program. 
 <li>Enabled once.  The breakpoint stops your program, but then becomes
-disabled.
+disabled. 
 <li>Enabled for a count.  The breakpoint stops your program for the next
-N times, then becomes disabled.
+N times, then becomes disabled. 
 <li>Enabled for deletion.  The breakpoint stops your program, but
 immediately after it does so it is deleted permanently.  A breakpoint
-set with the <code>tbreak</code> command starts out in this state.
+set with the <code>tbreak</code> command starts out in this state. 
 </ul>
 
    <p>You can use the following commands to enable or disable breakpoints,
 watchpoints, and catchpoints:
 
-
+     
 <a name="index-disable-276"></a>
 <a name="index-dis-_0040r_007b_0028_0040code_007bdisable_007d_0029_007d-277"></a>
 <dl><dt><code>disable </code><span class="roman">[</span><code>breakpoints</code><span class="roman">]</span> <span class="roman">[</span><var>range</var><code>...</code><span class="roman">]</span><dd>Disable the specified breakpoints&mdash;or all breakpoints, if none are
@@ -103,8 +103,8 @@ count (see <a href="Conditions.html#Conditions">Break Conditions</a>), that will
 decremented to 0 before <var>count</var> is affected.
 
      <br><dt><code>enable </code><span class="roman">[</span><code>breakpoints</code><span class="roman">]</span><code> delete </code><var>range</var><code>...</code><dd>Enable the specified breakpoints to work once, then die.  <span class="sc">gdb</span>
-deletes any of these breakpoints as soon as your program stops there.
-Breakpoints set by the <code>tbreak</code> command start out in this state.
+deletes any of these breakpoints as soon as your program stops there. 
+Breakpoints set by the <code>tbreak</code> command start out in this state. 
 </dl>
 
 <!-- FIXME: I think the following ``Except for [...] @code{tbreak}'' is -->
@@ -116,3 +116,4 @@ breakpoint of its own, but it does not change the state of your other
 breakpoints; see <a href="Continuing-and-Stepping.html#Continuing-and-Stepping">Continuing and Stepping</a>.)
 
    </body></html>
+

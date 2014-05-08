@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 <h2 class="chapter">12 C Preprocessor Macros</h2>
 
 <p>Some languages, such as C and C<tt>++</tt>, provide a way to define and invoke
-&ldquo;preprocessor macros&rdquo; which expand into strings of tokens.
+&ldquo;preprocessor macros&rdquo; which expand into strings of tokens. 
 <span class="sc">gdb</span> can evaluate expressions containing macro invocations, show
 the result of macro expansion, and show a macro's definition, including
 where it was defined.
@@ -69,7 +69,7 @@ see <a href="List.html#List">List</a>.
 macro invocations present in the expression.  <span class="sc">gdb</span> also provides
 the following commands for working with macros explicitly.
 
-
+     
 <a name="index-macro-expand-726"></a>
 <a name="index-macro-expansion_002c-showing-the-results-of-preprocessor-727"></a>
 <a name="index-preprocessor-macro-expansion_002c-showing-the-results-of-728"></a>
@@ -111,12 +111,12 @@ expression evaluated in <span class="sc">gdb</span>, until it is removed with th
 all definitions for <var>macro</var> present in the program being debugged,
 as well as any previous user-supplied definition.
 
-     <p><a name="index-macro-undef-741"></a><br><dt><code>macro undef </code><var>macro</var><dd>Remove any user-supplied definition for the macro named <var>macro</var>.
+     <p><a name="index-macro-undef-741"></a><br><dt><code>macro undef </code><var>macro</var><dd>Remove any user-supplied definition for the macro named <var>macro</var>. 
 This command only affects definitions provided with the <code>macro
 define</code> command, described above; it cannot remove definitions present
 in the program being debugged.
 
-     <p><a name="index-macro-list-742"></a><br><dt><code>macro list</code><dd>List all the macros defined using the <code>macro define</code> command.
+     <p><a name="index-macro-list-742"></a><br><dt><code>macro list</code><dd>List all the macros defined using the <code>macro define</code> command. 
 </dl>
 
    <p><a name="index-macros_002c-example-of-debugging-with-743"></a>Here is a transcript showing the above commands in action.  First, we
@@ -125,10 +125,10 @@ show our source files:
 <pre class="smallexample">     $ cat sample.c
      #include &lt;stdio.h&gt;
      #include "sample.h"
-
+     
      #define M 42
      #define ADD(x) (M + x)
-
+     
      main ()
      {
      #define N 28
@@ -198,7 +198,7 @@ force at the source line of the current stack frame:
      Breakpoint 1 at 0x8048370: file sample.c, line 10.
      (gdb) run
      Starting program: /home/jimb/gdb/macros/play/sample
-
+     
      Breakpoint 1, main () at sample.c:10
      10        printf ("Hello, world!\n");
      (gdb)
@@ -256,3 +256,4 @@ version of DWARF.</p>
    <hr></div>
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,19 +46,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invocation.html#Invocation">Invocation<
 <h3 class="section">2.4 Logging Output</h3>
 
 <p><a name="index-logging-_0040value_007bGDBN_007d-output-69"></a><a name="index-save-_0040value_007bGDBN_007d-output-to-a-file-70"></a>
-You may want to save the output of <span class="sc">gdb</span> commands to a file.
+You may want to save the output of <span class="sc">gdb</span> commands to a file. 
 There are several commands to control <span class="sc">gdb</span>'s logging.
 
-
+     
 <a name="index-set-logging-71"></a>
-<dl><dt><code>set logging on</code><dd>Enable logging.
-<br><dt><code>set logging off</code><dd>Disable logging.
-<a name="index-logging-file-name-72"></a><br><dt><code>set logging file </code><var>file</var><dd>Change the name of the current logfile.  The default logfile is <samp><span class="file">gdb.txt</span></samp>.
+<dl><dt><code>set logging on</code><dd>Enable logging. 
+<br><dt><code>set logging off</code><dd>Disable logging. 
+<a name="index-logging-file-name-72"></a><br><dt><code>set logging file </code><var>file</var><dd>Change the name of the current logfile.  The default logfile is <samp><span class="file">gdb.txt</span></samp>. 
 <br><dt><code>set logging overwrite [on|off]</code><dd>By default, <span class="sc">gdb</span> will append to the logfile.  Set <code>overwrite</code> if
-you want <code>set logging on</code> to overwrite the logfile instead.
-<br><dt><code>set logging redirect [on|off]</code><dd>By default, <span class="sc">gdb</span> output will go to both the terminal and the logfile.
-Set <code>redirect</code> if you want output to go only to the log file.
-<a name="index-show-logging-73"></a><br><dt><code>show logging</code><dd>Show the current values of the logging settings.
+you want <code>set logging on</code> to overwrite the logfile instead. 
+<br><dt><code>set logging redirect [on|off]</code><dd>By default, <span class="sc">gdb</span> output will go to both the terminal and the logfile. 
+Set <code>redirect</code> if you want output to go only to the log file. 
+<a name="index-show-logging-73"></a><br><dt><code>show logging</code><dd>Show the current values of the logging settings. 
 </dl>
 
    </body></html>
+

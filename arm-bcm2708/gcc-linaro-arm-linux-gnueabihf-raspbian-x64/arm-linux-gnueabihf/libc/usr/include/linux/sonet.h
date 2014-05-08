@@ -1,7 +1,7 @@
 /* sonet.h - SONET/SHD physical layer control */
-
+ 
 /* Written 1995-2000 by Werner Almesberger, EPFL LRC/ICA */
-
+ 
 
 #ifndef LINUX_SONET_H
 #define LINUX_SONET_H

@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -50,19 +50,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Readline-Interaction.html#Readline-Inte
 <p><a name="index-killing-text-2442"></a><a name="index-yanking-text-2443"></a>
 <dfn>Killing</dfn> text means to delete the text from the line, but to save
 it away for later use, usually by <dfn>yanking</dfn> (re-inserting)
-it back into the line.
+it back into the line. 
 (`Cut' and `paste' are more recent jargon for `kill' and `yank'.)
 
    <p>If the description for a command says that it `kills' text, then you can
 be sure that you can get the text back in a different (or the same)
 place later.
 
-   <p>When you use a kill command, the text is saved in a <dfn>kill-ring</dfn>.
+   <p>When you use a kill command, the text is saved in a <dfn>kill-ring</dfn>. 
 Any number of consecutive kills save all of the killed text together, so
 that when you yank it back, you get it all.  The kill
 ring is not line specific; the text that you killed on a previously
 typed line is available to be yanked back later, when you are typing
-another line.
+another line. 
 <a name="index-kill-ring-2444"></a>
 Here is the list of commands for killing text.
 
@@ -70,11 +70,11 @@ Here is the list of commands for killing text.
 <dt><kbd>C-k</kbd><dd>Kill the text from the current cursor position to the end of the line.
 
      <br><dt><kbd>M-d</kbd><dd>Kill from the cursor to the end of the current word, or, if between
-words, to the end of the next word.
+words, to the end of the next word. 
 Word boundaries are the same as those used by <kbd>M-f</kbd>.
 
      <br><dt><kbd>M-&lt;DEL&gt;</kbd><dd>Kill from the cursor the start of the current word, or, if between
-words, to the start of the previous word.
+words, to the start of the previous word. 
 Word boundaries are the same as those used by <kbd>M-b</kbd>.
 
      <br><dt><kbd>C-w</kbd><dd>Kill from the cursor to the previous whitespace.  This is different than
@@ -89,7 +89,8 @@ means to copy the most-recently-killed text from the kill buffer.
 <dt><kbd>C-y</kbd><dd>Yank the most recently killed text back into the buffer at the cursor.
 
      <br><dt><kbd>M-y</kbd><dd>Rotate the kill-ring, and yank the new top.  You can only do this if
-the prior command is <kbd>C-y</kbd> or <kbd>M-y</kbd>.
+the prior command is <kbd>C-y</kbd> or <kbd>M-y</kbd>. 
 </dl>
 
    </body></html>
+

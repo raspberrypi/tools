@@ -28,8 +28,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -49,7 +49,7 @@ Loadable Module.
 
    <blockquote>
 <em>Warning:</em> <samp><span class="command">nlmconv</span></samp> is not always built as part of the binary
-utilities, since it is only useful for NLM targets.
+utilities, since it is only useful for NLM targets. 
 </blockquote>
 
 <!-- man title nlmconv converts object code into an NLM. -->
@@ -69,26 +69,26 @@ reading <var>headerfile</var> for NLM header information.  For instructions
 on writing the NLM command file language used in header files, see the
 &lsquo;<samp><span class="samp">linkers</span></samp>&rsquo; section, &lsquo;<samp><span class="samp">NLMLINK</span></samp>&rsquo; in particular, of the <cite>NLM
 Development and Tools Overview</cite>, which is part of the NLM Software
-Developer's Kit (&ldquo;NLM SDK&rdquo;), available from Novell, Inc.
+Developer's Kit (&ldquo;NLM SDK&rdquo;), available from Novell, Inc. 
 <samp><span class="command">nlmconv</span></samp> uses the <span class="sc">gnu</span> Binary File Descriptor library to read
 <var>infile</var>;
 see <a href="../ld/BFD.html#BFD">BFD</a>, for more information.
 
    <p><samp><span class="command">nlmconv</span></samp> can perform a link step.  In other words, you can list
 more than one object file for input if you list them in the definitions
-file (rather than simply specifying one input file on the command line).
+file (rather than simply specifying one input file on the command line). 
 In this case, <samp><span class="command">nlmconv</span></samp> calls the linker for you.
 
 <!-- man end -->
 <!-- man begin OPTIONS nlmconv -->
      <dl>
 <dt><samp><span class="env">-I </span><var>bfdname</var></samp><dt><samp><span class="env">--input-target=</span><var>bfdname</var></samp><dd>Object format of the input file.  <samp><span class="command">nlmconv</span></samp> can usually determine
-the format of a given file (so no default is necessary).
+the format of a given file (so no default is necessary). 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
      <br><dt><samp><span class="env">-O </span><var>bfdname</var></samp><dt><samp><span class="env">--output-target=</span><var>bfdname</var></samp><dd>Object format of the output file.  <samp><span class="command">nlmconv</span></samp> infers the output
 format based on the input format, e.g. for a &lsquo;<samp><span class="samp">i386</span></samp>&rsquo; input file the
-output format is &lsquo;<samp><span class="samp">nlm32-i386</span></samp>&rsquo;.
+output format is &lsquo;<samp><span class="samp">nlm32-i386</span></samp>&rsquo;. 
 See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
 
      <br><dt><samp><span class="env">-T </span><var>headerfile</var></samp><dt><samp><span class="env">--header-file=</span><var>headerfile</var></samp><dd>Reads <var>headerfile</var> for NLM header information.  For instructions on
@@ -104,8 +104,9 @@ relative pathname.
 
      <br><dt><samp><span class="env">-h</span></samp><dt><samp><span class="env">--help</span></samp><dd>Prints a usage summary.
 
-     <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Prints the version number for <samp><span class="command">nlmconv</span></samp>.
+     <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Prints the version number for <samp><span class="command">nlmconv</span></samp>. 
 </dl>
 
 <!-- man end -->
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,7 +46,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="chapter">1 A Sample <span class="sc">gdb</span> Session</h2>
 
-<p>You can use this manual at your leisure to read all about <span class="sc">gdb</span>.
+<p>You can use this manual at your leisure to read all about <span class="sc">gdb</span>. 
 However, a handful of commands are enough to get started using the
 debugger.  This chapter illustrates those commands.
 
@@ -65,15 +65,15 @@ procedure fails to define a new synonym <code>baz</code>:
 <pre class="smallexample">     $ <b>cd gnu/m4</b>
      $ <b>./m4</b>
      <b>define(foo,0000)</b>
-
+     
      <b>foo</b>
      0000
      <b>define(bar,defn(`foo'))</b>
-
+     
      <b>bar</b>
      0000
      <b>changequote(&lt;QUOTE&gt;,&lt;UNQUOTE&gt;)</b>
-
+     
      <b>define(baz,defn(&lt;QUOTE&gt;foo&lt;UNQUOTE&gt;))</b>
      <b>baz</b>
      <b>Ctrl-d</b>
@@ -89,18 +89,18 @@ procedure fails to define a new synonym <code>baz</code>:
       the conditions.
      There is absolutely no warranty for <span class="sc">gdb</span>; type "show warranty"
       for details.
-
+     
      <span class="sc">gdb</span> 7.6.1-2013.10, Copyright 1999 Free Software Foundation, Inc...
      (gdb)
 </pre>
    <p class="noindent"><span class="sc">gdb</span> reads only enough symbol data to know where to find the
-rest when needed; as a result, the first prompt comes up very quickly.
+rest when needed; as a result, the first prompt comes up very quickly. 
 We now tell <span class="sc">gdb</span> to use a narrower display width than usual, so
 that examples fit in this manual.
 
 <pre class="smallexample">     (gdb) <b>set width 70</b>
 </pre>
-   <p class="noindent">We need to see how the <code>m4</code> built-in <code>changequote</code> works.
+   <p class="noindent">We need to see how the <code>m4</code> built-in <code>changequote</code> works. 
 Having looked at the source, we know the relevant subroutine is
 <code>m4_changequote</code>, so we set a breakpoint there with the <span class="sc">gdb</span>
 <code>break</code> command.
@@ -115,7 +115,7 @@ subroutine, the program runs as usual:
 <pre class="smallexample">     (gdb) <b>run</b>
      Starting program: /work/Editorial/gdb/gnu/m4/m4
      <b>define(foo,0000)</b>
-
+     
      <b>foo</b>
      0000
 </pre>
@@ -124,7 +124,7 @@ suspends execution of <code>m4</code>, displaying information about the
 context where it stops.
 
 <pre class="smallexample">     <b>changequote(&lt;QUOTE&gt;,&lt;UNQUOTE&gt;)</b>
-
+     
      Breakpoint 1, m4_changequote (argc=3, argv=0x33c70)
          at builtin.c:879
      879         if (bad_argc(TOKEN_DATA_TEXT(argv[0]),argc,1,3))
@@ -137,7 +137,7 @@ the next line of the current function.
       : nil,
 </pre>
    <p class="noindent"><code>set_quotes</code> looks like a promising subroutine.  We can go into it
-by using the command <code>s</code> (<code>step</code>) instead of <code>next</code>.
+by using the command <code>s</code> (<code>step</code>) instead of <code>next</code>. 
 <code>step</code> goes to the next line to be executed in <em>any</em>
 subroutine, so it steps into <code>set_quotes</code>.
 
@@ -189,7 +189,7 @@ and right quotes we specified.  We use the command <code>p</code>
      (gdb) <b>p rquote</b>
      $2 = 0x35d50 "&lt;UNQUOTE&gt;"
 </pre>
-   <p class="noindent"><code>lquote</code> and <code>rquote</code> are indeed the new left and right quotes.
+   <p class="noindent"><code>lquote</code> and <code>rquote</code> are indeed the new left and right quotes. 
 To look at some context, we can display ten lines of source
 surrounding the current line with the <code>l</code> (<code>list</code>) command.
 
@@ -238,9 +238,9 @@ example that caused trouble initially:
 
 <pre class="smallexample">     (gdb) <b>c</b>
      Continuing.
-
+     
      <b>define(baz,defn(&lt;QUOTE&gt;foo&lt;UNQUOTE&gt;))</b>
-
+     
      baz
      0000
 </pre>
@@ -258,3 +258,4 @@ session with the <span class="sc">gdb</span> <code>quit</code> command.
 <pre class="smallexample">     (gdb) <b>quit</b>
 </pre>
    </body></html>
+

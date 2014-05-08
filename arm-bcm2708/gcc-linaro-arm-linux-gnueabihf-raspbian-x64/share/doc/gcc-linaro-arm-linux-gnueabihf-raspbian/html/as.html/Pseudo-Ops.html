@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -46,12 +46,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="chapter">7 Assembler Directives</h2>
 
-<p><a name="index-directives_002c-machine-independent-269"></a><a name="index-pseudo_002dops_002c-machine-independent-270"></a><a name="index-machine-independent-directives-271"></a>All assembler directives have names that begin with a period (&lsquo;<samp><span class="samp">.</span></samp>&rsquo;).
+<p><a name="index-directives_002c-machine-independent-269"></a><a name="index-pseudo_002dops_002c-machine-independent-270"></a><a name="index-machine-independent-directives-271"></a>All assembler directives have names that begin with a period (&lsquo;<samp><span class="samp">.</span></samp>&rsquo;). 
 The rest of the name is letters, usually in lower case.
 
    <p>This chapter discusses directives that are available regardless of the
-target machine configuration for the <span class="sc">gnu</span> assembler.
-Some machine configurations provide additional directives.
+target machine configuration for the <span class="sc">gnu</span> assembler. 
+Some machine configurations provide additional directives. 
 See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencies</a>.
 
 <ul class="menu">
@@ -61,13 +61,13 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 
 <li><a accesskey="3" href="Align.html#Align">Align</a>:                        <code>.align </code><var>abs-expr</var><code> , </code><var>abs-expr</var>
 <li><a accesskey="4" href="Altmacro.html#Altmacro">Altmacro</a>:                     <code>.altmacro</code>
-<li><a accesskey="5" href="Ascii.html#Ascii">Ascii</a>:                        <code>.ascii "</code><var>string</var><code>"</code>...
-<li><a accesskey="6" href="Asciz.html#Asciz">Asciz</a>:                        <code>.asciz "</code><var>string</var><code>"</code>...
+<li><a accesskey="5" href="Ascii.html#Ascii">Ascii</a>:                        <code>.ascii "</code><var>string</var><code>"</code>... 
+<li><a accesskey="6" href="Asciz.html#Asciz">Asciz</a>:                        <code>.asciz "</code><var>string</var><code>"</code>... 
 <li><a accesskey="7" href="Balign.html#Balign">Balign</a>:                       <code>.balign </code><var>abs-expr</var><code> , </code><var>abs-expr</var>
 <li><a accesskey="8" href="Bundle-directives.html#Bundle-directives">Bundle directives</a>:            <code>.bundle_align_mode </code><var>abs-expr</var>, <code>.bundle_lock</code>, <code>.bundle_unlock</code>
 <li><a accesskey="9" href="Byte.html#Byte">Byte</a>:                         <code>.byte </code><var>expressions</var>
-<li><a href="CFI-directives.html#CFI-directives">CFI directives</a>: 		<code>.cfi_startproc [simple]</code>, <code>.cfi_endproc</code>, etc.
-<li><a href="Comm.html#Comm">Comm</a>:                         <code>.comm </code><var>symbol</var><code> , </code><var>length</var>
+<li><a href="CFI-directives.html#CFI-directives">CFI directives</a>: 		<code>.cfi_startproc [simple]</code>, <code>.cfi_endproc</code>, etc. 
+<li><a href="Comm.html#Comm">Comm</a>:                         <code>.comm </code><var>symbol</var><code> , </code><var>length</var> 
 <li><a href="Data.html#Data">Data</a>:                         <code>.data </code><var>subsection</var>
 
 <li><a href="Def.html#Def">Def</a>:                          <code>.def </code><var>name</var>
@@ -112,8 +112,8 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 
 <li><a href="Internal.html#Internal">Internal</a>:                     <code>.internal </code><var>names</var>
 
-<li><a href="Irp.html#Irp">Irp</a>: 				<code>.irp </code><var>symbol</var><code>,</code><var>values</var>...
-<li><a href="Irpc.html#Irpc">Irpc</a>: 			<code>.irpc </code><var>symbol</var><code>,</code><var>values</var>...
+<li><a href="Irp.html#Irp">Irp</a>: 				<code>.irp </code><var>symbol</var><code>,</code><var>values</var>... 
+<li><a href="Irpc.html#Irpc">Irpc</a>: 			<code>.irpc </code><var>symbol</var><code>,</code><var>values</var>... 
 <li><a href="Lcomm.html#Lcomm">Lcomm</a>:                        <code>.lcomm </code><var>symbol</var><code> , </code><var>length</var>
 <li><a href="Lflags.html#Lflags">Lflags</a>:                       <code>.lflags</code>
 
@@ -129,7 +129,7 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 
 <li><a href="Long.html#Long">Long</a>:                         <code>.long </code><var>expressions</var>
 
-<li><a href="Macro.html#Macro">Macro</a>: 			<code>.macro </code><var>name</var> <var>args</var>...
+<li><a href="Macro.html#Macro">Macro</a>: 			<code>.macro </code><var>name</var> <var>args</var>... 
 <li><a href="MRI.html#MRI">MRI</a>: 				<code>.mri </code><var>val</var>
 <li><a href="Noaltmacro.html#Noaltmacro">Noaltmacro</a>:                   <code>.noaltmacro</code>
 <li><a href="Nolist.html#Nolist">Nolist</a>:                       <code>.nolist</code>
@@ -202,3 +202,4 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 </ul>
 
    </body></html>
+

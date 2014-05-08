@@ -31,7 +31,7 @@
 
    If you update this table, you must update the "tune" attribute in
    arm.md.
-
+   
    Some tools assume no whitespace up to the first "," in each entry.  */
 
 /* V2/V2A Architecture Processors */

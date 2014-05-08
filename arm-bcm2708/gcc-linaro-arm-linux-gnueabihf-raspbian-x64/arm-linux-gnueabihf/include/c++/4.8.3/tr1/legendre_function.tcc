@@ -60,13 +60,13 @@ namespace tr1
     /**
      *   @brief  Return the Legendre polynomial by recursion on order
      *           @f$ l @f$.
-     *
+     * 
      *   The Legendre function of @f$ l @f$ and @f$ x @f$,
      *   @f$ P_l(x) @f$, is defined by:
      *   @f[
      *     P_l(x) = \frac{1}{2^l l!}\frac{d^l}{dx^l}(x^2 - 1)^{l}
      *   @f]
-     *
+     * 
      *   @param  l  The order of the Legendre polynomial.  @f$l >= 0@f$.
      *   @param  x  The argument of the Legendre polynomial.  @f$|x| <= 1@f$.
      */
@@ -113,13 +113,13 @@ namespace tr1
     /**
      *   @brief  Return the associated Legendre function by recursion
      *           on @f$ l @f$.
-     *
+     * 
      *   The associated Legendre function is derived from the Legendre function
      *   @f$ P_l(x) @f$ by the Rodrigues formula:
      *   @f[
      *     P_l^m(x) = (1 - x^2)^{m/2}\frac{d^m}{dx^m}P_l(x)
      *   @f]
-     *
+     * 
      *   @param  l  The order of the associated Legendre function.
      *              @f$ l >= 0 @f$.
      *   @param  m  The order of the associated Legendre function.
@@ -182,7 +182,7 @@ namespace tr1
 
     /**
      *   @brief  Return the spherical associated Legendre function.
-     *
+     * 
      *   The spherical associated Legendre function of @f$ l @f$, @f$ m @f$,
      *   and @f$ \theta @f$ is defined as @f$ Y_l^m(\theta,0) @f$ where
      *   @f[
@@ -192,13 +192,13 @@ namespace tr1
      *   @f]
      *   is the spherical harmonic function and @f$ P_l^m(x) @f$ is the
      *   associated Legendre function.
-     *
+     * 
      *   This function differs from the associated Legendre function by
      *   argument (@f$x = \cos(\theta)@f$) and by a normalization factor
      *   but this factor is rather large for large @f$ l @f$ and @f$ m @f$
      *   and so this function is stable for larger differences of @f$ l @f$
      *   and @f$ m @f$.
-     *
+     * 
      *   @param  l  The order of the spherical associated Legendre function.
      *              @f$ l >= 0 @f$.
      *   @param  m  The order of the spherical associated Legendre function.

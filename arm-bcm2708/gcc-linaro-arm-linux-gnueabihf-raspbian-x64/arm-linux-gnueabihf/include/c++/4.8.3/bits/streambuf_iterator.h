@@ -38,7 +38,7 @@
 namespace std _GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
-
+     
   /**
    * @addtogroup iterators
    * @{
@@ -75,7 +75,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	     ostreambuf_iterator<_CharT2>);
 
       template<bool _IsMove, typename _CharT2>
-	friend typename __gnu_cxx::__enable_if<__is_char<_CharT2>::__value,
+	friend typename __gnu_cxx::__enable_if<__is_char<_CharT2>::__value, 
 					       _CharT2*>::__type
 	__copy_move_a2(istreambuf_iterator<_CharT2>,
 		       istreambuf_iterator<_CharT2>, _CharT2*);
@@ -289,7 +289,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Overloads for streambuf iterators.
   template<typename _CharT>
     typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value,
-				    ostreambuf_iterator<_CharT> >::__type
+    	                 	    ostreambuf_iterator<_CharT> >::__type
     copy(istreambuf_iterator<_CharT> __first,
 	 istreambuf_iterator<_CharT> __last,
 	 ostreambuf_iterator<_CharT> __result)
@@ -305,8 +305,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   template<bool _IsMove, typename _CharT>
-    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value,
-				    ostreambuf_iterator<_CharT> >::__type
+    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, 
+    				    ostreambuf_iterator<_CharT> >::__type
     __copy_move_a2(_CharT* __first, _CharT* __last,
 		   ostreambuf_iterator<_CharT> __result)
     {
@@ -329,8 +329,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   template<bool _IsMove, typename _CharT>
-    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value,
-				    _CharT*>::__type
+    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, 
+    				    _CharT*>::__type
     __copy_move_a2(istreambuf_iterator<_CharT> __first,
 		   istreambuf_iterator<_CharT> __last, _CharT* __result)
     {
@@ -365,7 +365,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _CharT>
     typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value,
-				    istreambuf_iterator<_CharT> >::__type
+		  		    istreambuf_iterator<_CharT> >::__type
     find(istreambuf_iterator<_CharT> __first,
 	 istreambuf_iterator<_CharT> __last, const _CharT& __val)
     {

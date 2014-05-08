@@ -101,7 +101,7 @@ PB_DS_CLASS_C_DEC::
 insert_imp(const_reference r_val, true_type)
 {
   key_const_reference r_key = PB_DS_V2F(r_val);
-  comp_hash pos_hash_pair = find_ins_pos(r_key,
+  comp_hash pos_hash_pair = find_ins_pos(r_key, 
 					 traits_base::m_store_extra_indicator);
 
   _GLIBCXX_DEBUG_ASSERT(pos_hash_pair.first < m_num_e);
@@ -115,3 +115,4 @@ insert_imp(const_reference r_val, true_type)
   PB_DS_CHECK_KEY_DOES_NOT_EXIST(r_key)
   return std::make_pair(insert_new_imp(r_val, pos_hash_pair), true);
 }
+

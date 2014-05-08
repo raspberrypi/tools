@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -47,10 +47,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 
 <h3 class="section">7.72 <code>.linkonce [</code><var>type</var><code>]</code></h3>
 
-<p><a name="index-COMDAT-387"></a><a name="index-g_t_0040code_007blinkonce_007d-directive-388"></a><a name="index-common-sections-389"></a>Mark the current section so that the linker only includes a single copy of it.
+<p><a name="index-COMDAT-387"></a><a name="index-g_t_0040code_007blinkonce_007d-directive-388"></a><a name="index-common-sections-389"></a>Mark the current section so that the linker only includes a single copy of it. 
 This may be used to include the same section in several different object files,
-but ensure that the linker will only include it once in the final output file.
-The <code>.linkonce</code> pseudo-op must be used for each instance of the section.
+but ensure that the linker will only include it once in the final output file. 
+The <code>.linkonce</code> pseudo-op must be used for each instance of the section. 
 Duplicate sections are detected based on the section name, so it should be
 unique.
 
@@ -71,7 +71,8 @@ following strings.  For example:
 
      <br><dt><code>same_size</code><dd>Warn if any of the duplicates have different sizes.
 
-     <br><dt><code>same_contents</code><dd>Warn if any of the duplicates do not have exactly the same contents.
+     <br><dt><code>same_contents</code><dd>Warn if any of the duplicates do not have exactly the same contents. 
 </dl>
 
    </body></html>
+

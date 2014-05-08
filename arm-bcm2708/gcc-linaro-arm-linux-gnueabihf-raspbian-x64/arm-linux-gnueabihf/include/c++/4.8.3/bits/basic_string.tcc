@@ -282,7 +282,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       if (__n)
 	{
-	  _M_check_length(size_type(0), __n, "basic_string::append");
+	  _M_check_length(size_type(0), __n, "basic_string::append");	  
 	  const size_type __len = __n + this->size();
 	  if (__len > this->capacity() || _M_rep()->_M_is_shared())
 	    this->reserve(__len);
@@ -334,7 +334,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  _M_rep()->_M_set_length_and_sharable(__len);
 	}
       return *this;
-    }
+    }    
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_string<_CharT, _Traits, _Alloc>&
@@ -349,7 +349,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  if (__len > this->capacity() || _M_rep()->_M_is_shared())
 	    this->reserve(__len);
 	  _M_copy(_M_data() + this->size(), __str._M_data() + __pos, __n);
-	  _M_rep()->_M_set_length_and_sharable(__len);
+	  _M_rep()->_M_set_length_and_sharable(__len);	  
 	}
       return *this;
     }
@@ -686,7 +686,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	_M_copy(_M_data() + __pos1, __s, __n2);
       return *this;
     }
-
+   
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_string<_CharT, _Traits, _Alloc>
     operator+(const _CharT* __lhs,
@@ -1014,7 +1014,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      // Avoid reallocation for common case.
 	      __str.erase();
 	      _CharT __buf[128];
-	      __size_type __len = 0;
+	      __size_type __len = 0;	      
 	      const streamsize __w = __in.width();
 	      const __size_type __n = __w > 0 ? static_cast<__size_type>(__w)
 		                              : __str.max_size();
@@ -1100,7 +1100,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 		__err |= __ios_base::eofbit;
 	      else if (_Traits::eq_int_type(__c, __idelim))
 		{
-		  ++__extracted;
+		  ++__extracted;		  
 		  __in.rdbuf()->sbumpc();
 		}
 	      else

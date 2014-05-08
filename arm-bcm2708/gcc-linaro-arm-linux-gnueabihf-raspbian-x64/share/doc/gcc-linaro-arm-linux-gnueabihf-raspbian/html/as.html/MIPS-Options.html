@@ -30,8 +30,8 @@ section entitled ``GNU Free Documentation License''.
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -48,9 +48,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MIPS_002dDependent.html#MIPS_002dDepend
 <p>The MIPS configurations of <span class="sc">gnu</span> <code>as</code> support these
 special options:
 
-
+     
 <a name="index-g_t_0040code_007b_002dG_007d-option-_0028MIPS_0029-1383"></a>
-<dl><dt><code>-G </code><var>num</var><dd>Set the &ldquo;small data&rdquo; limit to <var>n</var> bytes.  The default limit is 8 bytes.
+<dl><dt><code>-G </code><var>num</var><dd>Set the &ldquo;small data&rdquo; limit to <var>n</var> bytes.  The default limit is 8 bytes. 
 See <a href="MIPS-Small-Data.html#MIPS-Small-Data">Controlling the use of small data accesses</a>.
 
      <p><a name="index-g_t_0040code_007b_002dEB_007d-option-_0028MIPS_0029-1384"></a><a name="index-g_t_0040code_007b_002dEL_007d-option-_0028MIPS_0029-1385"></a><a name="index-MIPS-big_002dendian-output-1386"></a><a name="index-MIPS-little_002dendian-output-1387"></a><a name="index-big_002dendian-output_002c-MIPS-1388"></a><a name="index-little_002dendian-output_002c-MIPS-1389"></a><br><dt><code>-EB</code><dt><code>-EL</code><dd>Any MIPS configuration of <code>as</code> can select big-endian or
@@ -65,16 +65,16 @@ assembler to mark the output file as PIC.
      <br><dt><code>-mvxworks-pic</code><dd><a name="index-g_t_0040option_007b_002dmvxworks_002dpic_007d-option_002c-MIPS-1392"></a>Generate VxWorks PIC.  This option tells the assembler to generate
 VxWorks-style position-independent macro expansions.
 
-     <p><a name="index-MIPS-architecture-options-1393"></a><br><dt><code>-mips1</code><dt><code>-mips2</code><dt><code>-mips3</code><dt><code>-mips4</code><dt><code>-mips5</code><dt><code>-mips32</code><dt><code>-mips32r2</code><dt><code>-mips64</code><dt><code>-mips64r2</code><dd>Generate code for a particular MIPS Instruction Set Architecture level.
+     <p><a name="index-MIPS-architecture-options-1393"></a><br><dt><code>-mips1</code><dt><code>-mips2</code><dt><code>-mips3</code><dt><code>-mips4</code><dt><code>-mips5</code><dt><code>-mips32</code><dt><code>-mips32r2</code><dt><code>-mips64</code><dt><code>-mips64r2</code><dd>Generate code for a particular MIPS Instruction Set Architecture level. 
 &lsquo;<samp><span class="samp">-mips1</span></samp>&rsquo; corresponds to the R2000 and R3000 processors,
 &lsquo;<samp><span class="samp">-mips2</span></samp>&rsquo; to the R6000 processor, &lsquo;<samp><span class="samp">-mips3</span></samp>&rsquo; to the
-R4000 processor, and &lsquo;<samp><span class="samp">-mips4</span></samp>&rsquo; to the R8000 and R10000 processors.
+R4000 processor, and &lsquo;<samp><span class="samp">-mips4</span></samp>&rsquo; to the R8000 and R10000 processors. 
 &lsquo;<samp><span class="samp">-mips5</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips32</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips32r2</span></samp>&rsquo;, &lsquo;<samp><span class="samp">-mips64</span></samp>&rsquo;, and
 &lsquo;<samp><span class="samp">-mips64r2</span></samp>&rsquo; correspond to generic MIPS V, MIPS32, MIPS32 Release 2,
 MIPS64, and MIPS64 Release 2 ISA processors, respectively.  You can also
 switch instruction sets during the assembly; see <a href="MIPS-ISA.html#MIPS-ISA">Directives to override the ISA level</a>.
 
-     <br><dt><code>-mgp32</code><dt><code>-mfp32</code><dd>Some macros have different expansions for 32-bit and 64-bit registers.
+     <br><dt><code>-mgp32</code><dt><code>-mfp32</code><dd>Some macros have different expansions for 32-bit and 64-bit registers. 
 The register sizes are normally inferred from the ISA and ABI, but these
 flags force a certain group of registers to be treated as 32 bits wide at
 all times.  &lsquo;<samp><span class="samp">-mgp32</span></samp>&rsquo; controls the size of general-purpose registers
@@ -108,36 +108,36 @@ at the start of the assembly file.
      <br><dt><code>-msmartmips</code><dt><code>-mno-smartmips</code><dd>Enables the SmartMIPS extensions to the MIPS32 instruction set, which
 provides a number of new instructions which target smartcard and
 cryptographic applications.  This is equivalent to putting
-<code>.set smartmips</code> at the start of the assembly file.
+<code>.set smartmips</code> at the start of the assembly file. 
 &lsquo;<samp><span class="samp">-mno-smartmips</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mips3d</code><dt><code>-no-mips3d</code><dd>Generate code for the MIPS-3D Application Specific Extension.
-This tells the assembler to accept MIPS-3D instructions.
+     <br><dt><code>-mips3d</code><dt><code>-no-mips3d</code><dd>Generate code for the MIPS-3D Application Specific Extension. 
+This tells the assembler to accept MIPS-3D instructions. 
 &lsquo;<samp><span class="samp">-no-mips3d</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdmx</code><dt><code>-no-mdmx</code><dd>Generate code for the MDMX Application Specific Extension.
-This tells the assembler to accept MDMX instructions.
+     <br><dt><code>-mdmx</code><dt><code>-no-mdmx</code><dd>Generate code for the MDMX Application Specific Extension. 
+This tells the assembler to accept MDMX instructions. 
 &lsquo;<samp><span class="samp">-no-mdmx</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdsp</code><dt><code>-mno-dsp</code><dd>Generate code for the DSP Release 1 Application Specific Extension.
-This tells the assembler to accept DSP Release 1 instructions.
+     <br><dt><code>-mdsp</code><dt><code>-mno-dsp</code><dd>Generate code for the DSP Release 1 Application Specific Extension. 
+This tells the assembler to accept DSP Release 1 instructions. 
 &lsquo;<samp><span class="samp">-mno-dsp</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mdspr2</code><dt><code>-mno-dspr2</code><dd>Generate code for the DSP Release 2 Application Specific Extension.
-This option implies -mdsp.
-This tells the assembler to accept DSP Release 2 instructions.
+     <br><dt><code>-mdspr2</code><dt><code>-mno-dspr2</code><dd>Generate code for the DSP Release 2 Application Specific Extension. 
+This option implies -mdsp. 
+This tells the assembler to accept DSP Release 2 instructions. 
 &lsquo;<samp><span class="samp">-mno-dspr2</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mmt</code><dt><code>-mno-mt</code><dd>Generate code for the MT Application Specific Extension.
-This tells the assembler to accept MT instructions.
+     <br><dt><code>-mmt</code><dt><code>-mno-mt</code><dd>Generate code for the MT Application Specific Extension. 
+This tells the assembler to accept MT instructions. 
 &lsquo;<samp><span class="samp">-mno-mt</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mmcu</code><dt><code>-mno-mcu</code><dd>Generate code for the MCU Application Specific Extension.
-This tells the assembler to accept MCU instructions.
+     <br><dt><code>-mmcu</code><dt><code>-mno-mcu</code><dd>Generate code for the MCU Application Specific Extension. 
+This tells the assembler to accept MCU instructions. 
 &lsquo;<samp><span class="samp">-mno-mcu</span></samp>&rsquo; turns off this option.
 
-     <br><dt><code>-mvirt</code><dt><code>-mno-virt</code><dd>Generate code for the Virtualization Application Specific Extension.
-This tells the assembler to accept Virtualization instructions.
+     <br><dt><code>-mvirt</code><dt><code>-mno-virt</code><dd>Generate code for the Virtualization Application Specific Extension. 
+This tells the assembler to accept Virtualization instructions. 
 &lsquo;<samp><span class="samp">-mno-virt</span></samp>&rsquo; turns off this option.
 
      <br><dt><code>-minsn32</code><dt><code>-mno-insn32</code><dd>Only use 32-bit instruction encodings when generating code for the
@@ -180,7 +180,7 @@ option.
 
      <br><dt><code>-m4650</code><dt><code>-no-m4650</code><dd>Generate code for the MIPS R4650 chip.  This tells the assembler to accept
 the &lsquo;<samp><span class="samp">mad</span></samp>&rsquo; and &lsquo;<samp><span class="samp">madu</span></samp>&rsquo; instruction, and to not schedule &lsquo;<samp><span class="samp">nop</span></samp>&rsquo;
-instructions around accesses to the &lsquo;<samp><span class="samp">HI</span></samp>&rsquo; and &lsquo;<samp><span class="samp">LO</span></samp>&rsquo; registers.
+instructions around accesses to the &lsquo;<samp><span class="samp">HI</span></samp>&rsquo; and &lsquo;<samp><span class="samp">LO</span></samp>&rsquo; registers. 
 &lsquo;<samp><span class="samp">-no-m4650</span></samp>&rsquo; turns off this option.
 
      <br><dt><code>-m3900</code><dt><code>-no-m3900</code><dt><code>-m4100</code><dt><code>-no-m4100</code><dd>For each option &lsquo;<samp><span class="samp">-m</span><var>nnnn</var></samp>&rsquo;, generate code for the MIPS
@@ -359,7 +359,8 @@ which can go into a shared library.  The &lsquo;<samp><span class="samp">-mno-sh
 tells gas to generate code which uses the calling convention, but can
 not go into a shared library.  The resulting code is slightly more
 efficient.  This option only affects the handling of the
-&lsquo;<samp><span class="samp">.cpload</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.cpsetup</span></samp>&rsquo; pseudo-ops.
+&lsquo;<samp><span class="samp">.cpload</span></samp>&rsquo; and &lsquo;<samp><span class="samp">.cpsetup</span></samp>&rsquo; pseudo-ops. 
 </dl>
 
    </body></html>
+

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,11 +55,11 @@ mode, the <code>info line</code> command causes the arrow to point to the
 line specified.  Also, <code>info line</code> prints addresses in symbolic form as
 well as hex.
 
-
+     
 <a name="index-info-line-508"></a>
 <dl><dt><code>info line </code><var>linespec</var><dd>Print the starting and ending addresses of the compiled code for
 source line <var>linespec</var>.  You can specify source lines in any of
-the ways documented in <a href="Specify-Location.html#Specify-Location">Specify Location</a>.
+the ways documented in <a href="Specify-Location.html#Specify-Location">Specify Location</a>. 
 </dl>
 
    <p>For example, we can use <code>info line</code> to discover the location of
@@ -81,7 +81,7 @@ is changed to the starting address of the line, so that &lsquo;<samp><span class
 sufficient to begin examining the machine code (see <a href="Memory.html#Memory">Examining Memory</a>).  Also, this address is saved as the value of the
 convenience variable <code>$_</code> (see <a href="Convenience-Vars.html#Convenience-Vars">Convenience Variables</a>).
 
-
+     
 <a name="index-disassemble-513"></a>
 <a name="index-assembly-instructions-514"></a>
 <a name="index-instructions_002c-assembly-515"></a>
@@ -90,7 +90,7 @@ convenience variable <code>$_</code> (see <a href="Convenience-Vars.html#Conveni
 <dl><dt><code>disassemble</code><dt><code>disassemble /m</code><dt><code>disassemble /r</code><dd>This specialized command dumps a range of memory as machine
 instructions.  It can also print mixed source+disassembly by specifying
 the <code>/m</code> modifier and print the raw instructions in hex as well as
-in symbolic form by specifying the <code>/r</code>.
+in symbolic form by specifying the <code>/r</code>. 
 The default memory range is the function surrounding the
 program counter of the selected frame.  A single argument to this
 command is a program counter value; <span class="sc">gdb</span> dumps the function
@@ -101,7 +101,7 @@ arguments specify a range of addresses to dump, in one of two forms:
           <dl>
 <dt><var>start</var><code>,</code><var>end</var><dd>the addresses from <var>start</var> (inclusive) to <var>end</var> (exclusive)
 <br><dt><var>start</var><code>,+</code><var>length</var><dd>the addresses from <var>start</var> (inclusive) to
-<var>start</var><code>+</code><var>length</var> (exclusive).
+<var>start</var><code>+</code><var>length</var> (exclusive). 
 </dl>
 
      <p class="noindent">When 2 arguments are specified, the name of the function is also
@@ -111,7 +111,7 @@ printed (since there could be several functions in the given range).
 &lsquo;<samp><span class="samp">0x32c4</span></samp>&rsquo;, &lsquo;<samp><span class="samp">&amp;main+10</span></samp>&rsquo; or &lsquo;<samp><span class="samp">$pc - 8</span></samp>&rsquo;.
 
      <p>If the range of memory being disassembled contains current program counter,
-the instruction at that location is shown with a <code>=&gt;</code> marker.
+the instruction at that location is shown with a <code>=&gt;</code> marker. 
 </dl>
 
    <p>The following example shows the disassembly of a range of addresses of
@@ -140,17 +140,17 @@ program is stopped just after function prologue:
         0x08048333 &lt;+3&gt;:    sub    $0x8,%esp
         0x08048336 &lt;+6&gt;:    and    $0xfffffff0,%esp
         0x08048339 &lt;+9&gt;:    sub    $0x10,%esp
-
+     
      6         printf ("Hello.\n");
      =&gt; 0x0804833c &lt;+12&gt;:   movl   $0x8048440,(%esp)
         0x08048343 &lt;+19&gt;:   call   0x8048284 &lt;puts@plt&gt;
-
+     
      7         return 0;
      8       }
         0x08048348 &lt;+24&gt;:   mov    $0x0,%eax
         0x0804834d &lt;+29&gt;:   leave
         0x0804834e &lt;+30&gt;:   ret
-
+     
      End of assembler dump.
 </pre>
    <p>Here is another example showing raw instructions in hex for AMD x86-64,
@@ -163,7 +163,7 @@ program is stopped just after function prologue:
         0x0000000000400289:  2e 32 00       xor    %cs:(%rax),%al
      End of assembler dump.
 </pre>
-   <p>Addresses cannot be specified as a linespec (see <a href="Specify-Location.html#Specify-Location">Specify Location</a>).
+   <p>Addresses cannot be specified as a linespec (see <a href="Specify-Location.html#Specify-Location">Specify Location</a>). 
 So, for example, if you want to disassemble function <code>bar</code>
 in file <samp><span class="file">foo.c</span></samp>, you must type &lsquo;<samp><span class="samp">disassemble 'foo.c'::bar</span></samp>&rsquo;
 and not &lsquo;<samp><span class="samp">disassemble foo.c:bar</span></samp>&rsquo;.
@@ -177,7 +177,7 @@ libraries might show a seemingly bogus location&mdash;it's actually a
 location of the relocation table.  On some architectures, <span class="sc">gdb</span>
 might be able to resolve these to actual function names.
 
-
+     
 <a name="index-set-disassembly_002dflavor-518"></a>
 <a name="index-Intel-disassembly-flavor-519"></a>
 <a name="index-AT_0026T-disassembly-flavor-520"></a>
@@ -185,14 +185,14 @@ might be able to resolve these to actual function names.
 program via the <code>disassemble</code> or <code>x/i</code> commands.
 
      <p>Currently this command is only defined for the Intel x86 family.  You
-can set <var>instruction-set</var> to either <code>intel</code> or <code>att</code>.
+can set <var>instruction-set</var> to either <code>intel</code> or <code>att</code>. 
 The default is <code>att</code>, the AT&amp;T flavor used by default by Unix
 assemblers for x86-based targets.
 
-     <p><a name="index-show-disassembly_002dflavor-521"></a><br><dt><code>show disassembly-flavor</code><dd>Show the current setting of the disassembly flavor.
+     <p><a name="index-show-disassembly_002dflavor-521"></a><br><dt><code>show disassembly-flavor</code><dd>Show the current setting of the disassembly flavor. 
 </dl>
 
-
+     
 <a name="index-set-disassemble_002dnext_002dline-522"></a>
 <a name="index-show-disassemble_002dnext_002dline-523"></a>
 <dl><dt><code>set disassemble-next-line</code><dt><code>show disassemble-next-line</code><dd>Control whether or not <span class="sc">gdb</span> will disassemble the next source
@@ -209,7 +209,8 @@ if the source line cannot be displayed.  This setting causes
 <span class="sc">gdb</span> to display some feedback when you step through a function
 with no line info or whose source file is unavailable.  The default is
 OFF, which means never display the disassembly of the next line or
-instruction.
+instruction. 
 </dl>
 
    </body></html>
+

@@ -111,7 +111,7 @@ namespace __gnu_pbds
 
     PB_DS_SYNTH_E_ACCESS_TRAITS_T_DEC
     PB_DS_SYNTH_E_ACCESS_TRAITS_C_DEC::
-    synth_access_traits(const _ATraits& r_traits)
+    synth_access_traits(const _ATraits& r_traits) 
     : _ATraits(r_traits)
     { }
 

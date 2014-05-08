@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -71,7 +71,7 @@ be the next free address in that region; <a href="MEMORY.html#MEMORY">MEMORY</a>
 
      <li>If no memory regions were specified, or none match the section then
 the output address will be based on the current value of the location
-counter.
+counter. 
 </ul>
 
 <p class="noindent">For example:
@@ -88,7 +88,7 @@ counter.  The second will set it to the current value of the location
 counter aligned to the strictest alignment of any of the &lsquo;<samp><span class="samp">.text</span></samp>&rsquo;
 input sections.
 
-   <p>The <var>address</var> may be an arbitrary expression; <a href="Expressions.html#Expressions">Expressions</a>.
+   <p>The <var>address</var> may be an arbitrary expression; <a href="Expressions.html#Expressions">Expressions</a>. 
 For example, if you want to align the section on a 0x10 byte boundary,
 so that the lowest four bits of the section address are zero, you could
 do something like this:
@@ -102,3 +102,4 @@ location counter, provided that the section is non-empty.  (Empty
 sections are ignored).
 
    </body></html>
+

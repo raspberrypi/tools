@@ -1275,7 +1275,7 @@ enum reg_class
    but prevents the compiler from extending the lifetime of these
    registers.  */
 #define TARGET_SMALL_REGISTER_CLASSES_FOR_MODE_P \
-  arm_small_register_classes_for_mode_p
+  arm_small_register_classes_for_mode_p 
 
 /* Must leave BASE_REGS reloads alone */
 #define THUMB_SECONDARY_INPUT_RELOAD_CLASS(CLASS, MODE, X)		\
@@ -1368,7 +1368,7 @@ do {									      \
 
 /* Return the maximum number of consecutive registers
    needed to represent mode MODE in a register of class CLASS.
-   ARM regs are UNITS_PER_WORD bits.
+   ARM regs are UNITS_PER_WORD bits.  
    FIXME: Is this true for iWMMX?  */
 #define CLASS_MAX_NREGS(CLASS, MODE)  \
   (ARM_NUM_REGS (MODE))
@@ -1527,14 +1527,14 @@ typedef struct GTY(()) machine_function
 machine_function;
 #endif
 
-/* As in the machine_function, a global set of call-via labels, for code
+/* As in the machine_function, a global set of call-via labels, for code 
    that is in text_section.  */
 extern GTY(()) rtx thumb_call_via_label[14];
 
 /* The number of potential ways of assigning to a co-processor.  */
 #define ARM_NUM_COPROC_SLOTS 1
 
-/* Enumeration of procedure calling standard variants.  We don't really
+/* Enumeration of procedure calling standard variants.  We don't really 
    support all of these yet.  */
 enum arm_pcs
 {
@@ -2314,7 +2314,7 @@ extern int making_const_table;
     : (arm_arch7					\
       ? (strlen (arm_arch_name) >=3			\
 	? (arm_arch_name[strlen (arm_arch_name) - 3])	\
-	: 0)						\
+      	: 0)						\
       : 0))
 
 /* Bit-field indicating what size LDREX/STREX loads/stores are available.
@@ -2329,7 +2329,7 @@ extern int making_const_table;
    32-bit support, bit 3 indicates 64-bit support.  */
 #define TARGET_ARM_FP			\
   (TARGET_VFP_SINGLE ? 4		\
-		     : (TARGET_VFP_DOUBLE ? (TARGET_FP16 ? 14 : 12) : 0))
+  		     : (TARGET_VFP_DOUBLE ? (TARGET_FP16 ? 14 : 12) : 0))
 
 
 /* Set as a bit mask indicating the available widths of floating point

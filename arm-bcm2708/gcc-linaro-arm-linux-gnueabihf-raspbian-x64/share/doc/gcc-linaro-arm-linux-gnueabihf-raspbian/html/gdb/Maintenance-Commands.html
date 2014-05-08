@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -53,10 +53,10 @@ that are not documented elsewhere in this manual.  These commands are
 provided here for reference.  (For commands that turn on debugging
 messages, see <a href="Debugging-Output.html#Debugging-Output">Debugging Output</a>.)
 
-
+     
 <a name="index-maint-agent-2564"></a>
 <a name="index-maint-agent_002deval-2565"></a>
-<dl><dt><code>maint agent </code><span class="roman">[</span><code>-at </code><var>location</var><span class="roman">,</span><span class="roman">]</span> <var>expression</var><dt><code>maint agent-eval </code><span class="roman">[</span><code>-at </code><var>location</var><span class="roman">,</span><span class="roman">]</span> <var>expression</var><dd>Translate the given <var>expression</var> into remote agent bytecodes.
+<dl><dt><code>maint agent </code><span class="roman">[</span><code>-at </code><var>location</var><span class="roman">,</span><span class="roman">]</span> <var>expression</var><dt><code>maint agent-eval </code><span class="roman">[</span><code>-at </code><var>location</var><span class="roman">,</span><span class="roman">]</span> <var>expression</var><dd>Translate the given <var>expression</var> into remote agent bytecodes. 
 This command is useful for debugging the Agent Expression mechanism
 (see <a href="Agent-Expressions.html#Agent-Expressions">Agent Expressions</a>).  The &lsquo;<samp><span class="samp">agent</span></samp>&rsquo; version produces an
 expression useful for data collection, such as by tracepoints, while
@@ -65,12 +65,12 @@ to a result.  For instance, a collection expression for <code>globa +
 globb</code> will include bytecodes to record four bytes of memory at each
 of the addresses of <code>globa</code> and <code>globb</code>, while discarding
 the result of the addition, while an evaluation expression will do the
-addition and return the sum.
-If <code>-at</code> is given, generate remote agent bytecode for <var>location</var>.
+addition and return the sum. 
+If <code>-at</code> is given, generate remote agent bytecode for <var>location</var>. 
 If not, generate remote agent bytecode for current frame PC address.
 
      <p><a name="index-maint-agent_002dprintf-2566"></a><br><dt><code>maint agent-printf </code><var>format</var><code>,</code><var>expr</var><code>,...</code><dd>Translate the given format string and list of argument expressions
-into remote agent bytecodes and display them as a disassembled list.
+into remote agent bytecodes and display them as a disassembled list. 
 This command is useful for debugging the agent version of dynamic
 printf (see <a href="Dynamic-Printf.html#Dynamic-Printf">Dynamic Printf</a>.
 
@@ -116,7 +116,7 @@ even if such is supported by the target architecture.
 
           <p><a name="index-non_002dstop-mode_002c-and-_0040samp_007bset-displaced_002dstepping_007d-2573"></a><br><dt><code>set displaced-stepping auto</code><dd>This is the default mode.  <span class="sc">gdb</span> will use displaced stepping
 only if non-stop mode is active (see <a href="Non_002dStop-Mode.html#Non_002dStop-Mode">Non-Stop Mode</a>) and the target
-architecture supports displaced stepping.
+architecture supports displaced stepping. 
 </dl>
 
      <p><a name="index-maint-check_002dsymtabs-2574"></a><br><dt><code>maint check-symtabs</code><dd>Check the consistency of psymtabs and symtabs.
@@ -133,7 +133,7 @@ argument <var>replacement</var> says which newer command should be used in
 favor of the deprecated one; if it is given, <span class="sc">gdb</span> will mention
 the replacement as part of the warning.
 
-     <p><a name="index-maint-dump_002dme-2581"></a><br><dt><code>maint dump-me</code><dd><a name="index-g_t_0040code_007bSIGQUIT_007d-signal_002c-dump-core-of-_0040value_007bGDBN_007d-2582"></a>Cause a fatal signal in the debugger and force it to dump its core.
+     <p><a name="index-maint-dump_002dme-2581"></a><br><dt><code>maint dump-me</code><dd><a name="index-g_t_0040code_007bSIGQUIT_007d-signal_002c-dump-core-of-_0040value_007bGDBN_007d-2582"></a>Cause a fatal signal in the debugger and force it to dump its core. 
 This is supported only on systems which support aborting a program
 with the <code>SIGQUIT</code> signal.
 
@@ -169,7 +169,7 @@ described in the table below.
 quit.  The default is to ask the user what to do.
 
           <br><dt>&lsquo;<samp><span class="samp">corefile</span></samp>&rsquo;<dd>You can specify that <span class="sc">gdb</span> should always (yes) or never (no)
-create a core file.  The default is to ask the user what to do.
+create a core file.  The default is to ask the user what to do. 
 </dl>
 
      <p><a name="index-maint-packet-2591"></a><br><dt><code>maint packet </code><var>text</var><dd>If <span class="sc">gdb</span> is talking to an inferior via the serial protocol,
@@ -238,11 +238,11 @@ information.
 command prints its name, address in memory, and all of its psymtabs
 and symtabs.
 
-     <p><a name="index-maint-print-section_002dscripts-2604"></a><a name="index-info-for-known-_002edebug_005fgdb_005fscripts_002dloaded-scripts-2605"></a><br><dt><code>maint print section-scripts [</code><var>regexp</var><code>]</code><dd>Print a dump of scripts specified in the <code>.debug_gdb_section</code> section.
+     <p><a name="index-maint-print-section_002dscripts-2604"></a><a name="index-info-for-known-_002edebug_005fgdb_005fscripts_002dloaded-scripts-2605"></a><br><dt><code>maint print section-scripts [</code><var>regexp</var><code>]</code><dd>Print a dump of scripts specified in the <code>.debug_gdb_section</code> section. 
 If <var>regexp</var> is specified, only print scripts loaded by object files
-matching <var>regexp</var>.
+matching <var>regexp</var>. 
 For each script, this command prints its name as specified in the objfile,
-and the full path if known.
+and the full path if known. 
 See <a href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section">dotdebug_gdb_scripts section</a>.
 
      <p><a name="index-maint-print-statistics-2606"></a><a name="index-bcache-statistics-2607"></a><br><dt><code>maint print statistics</code><dd>This command prints, for each object file in the program, various data
@@ -259,7 +259,7 @@ lengths.
 
      <p><a name="index-maint-print-target_002dstack-2608"></a><a name="index-target-stack-description-2609"></a><br><dt><code>maint print target-stack</code><dd>A <dfn>target</dfn> is an interface between the debugger and a particular
 kind of file or process.  Targets can be stacked in <dfn>strata</dfn>,
-so that more than one target can potentially respond to a request.
+so that more than one target can potentially respond to a request. 
 In particular, memory accesses will walk down the stack of targets
 until they find a target that is interested in handling that particular
 address.
@@ -296,7 +296,7 @@ always see the disassembly form.
 
      <p><a name="index-DWARF-2-compilation-units-cache-2616"></a>In object files with inter-compilation-unit references, such as those
 produced by the GCC option &lsquo;<samp><span class="samp">-feliminate-dwarf2-dups</span></samp>&rsquo;, the DWARF 2
-reader needs to frequently refer to previously read compilation units.
+reader needs to frequently refer to previously read compilation units. 
 This setting controls how long a compilation unit will remain in the
 cache if it is not referenced.  A higher limit means that cached
 compilation units will be stored in memory longer, and more total
@@ -332,16 +332,16 @@ took, following the command's own output.  This can also be requested
 by invoking <span class="sc">gdb</span> with the <samp><span class="option">--statistics</span></samp> command-line
 switch (see <a href="Mode-Options.html#Mode-Options">Mode Options</a>).
 
-     <p><a name="index-maint-time-2627"></a><a name="index-time-of-command-execution-2628"></a><br><dt><code>maint time</code><dd>Control whether to display the execution time of <span class="sc">gdb</span> for each command.
+     <p><a name="index-maint-time-2627"></a><a name="index-time-of-command-execution-2628"></a><br><dt><code>maint time</code><dd>Control whether to display the execution time of <span class="sc">gdb</span> for each command. 
 If set to a nonzero value, <span class="sc">gdb</span> will display how much time it
-took to execute each command, following the command's own output.
-Both CPU time and wallclock time are printed.
+took to execute each command, following the command's own output. 
+Both CPU time and wallclock time are printed. 
 Printing both is useful when trying to determine whether the cost is
-CPU or, e.g., disk/network, latency.
+CPU or, e.g., disk/network, latency. 
 Note that the CPU time printed is for <span class="sc">gdb</span> only, it does not include
 the execution time of the inferior because there's no mechanism currently
 to compute how much time was spent by <span class="sc">gdb</span> and how much time was
-spent by the program been debugged.
+spent by the program been debugged. 
 This can also be requested by invoking <span class="sc">gdb</span> with the
 <samp><span class="option">--statistics</span></samp> command-line switch (see <a href="Mode-Options.html#Mode-Options">Mode Options</a>).
 
@@ -366,7 +366,8 @@ executable or shared library containing the symbol is printed as well.
 target operation to finish.  If this time expires, <span class="sc">gdb</span>
 reports and error and the command is aborted.
 
-     <br><dt><code>show watchdog</code><dd>Show the current setting of the target wait timeout.
+     <br><dt><code>show watchdog</code><dd>Show the current setting of the target wait timeout. 
 </dl>
 
    </body></html>
+

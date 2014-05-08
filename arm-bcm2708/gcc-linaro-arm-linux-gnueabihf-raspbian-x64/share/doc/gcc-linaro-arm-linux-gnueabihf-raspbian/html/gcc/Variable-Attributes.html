@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,10 +58,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 The keyword <code>__attribute__</code> allows you to specify special
 attributes of variables or structure fields.  This keyword is followed
 by an attribute specification inside double parentheses.  Some
-attributes are currently defined generically for variables.
+attributes are currently defined generically for variables. 
 Other attributes are defined for variables on particular target
 systems.  Other attributes are available for functions
-(see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>) and for types (see <a href="Type-Attributes.html#Type-Attributes">Type Attributes</a>).
+(see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>) and for types (see <a href="Type-Attributes.html#Type-Attributes">Type Attributes</a>). 
 Other front ends might define more attributes
 (see <a href="C_002b_002b-Extensions.html#C_002b_002b-Extensions">Extensions to the C++ Language</a>).
 
@@ -73,7 +73,7 @@ you may use <code>__aligned__</code> instead of <code>aligned</code>.
  <p>See <a href="Attribute-Syntax.html#Attribute-Syntax">Attribute Syntax</a>, for details of the exact syntax for using
 attributes.
 
-
+     
 <a name="index-g_t_0040code_007baligned_007d-attribute-2762"></a>
 <dl><dt><code>aligned (</code><var>alignment</var><code>)</code><dd>This attribute specifies a minimum alignment for the variable or
 structure field, measured in bytes.  For example, the declaration:
@@ -97,9 +97,9 @@ which forces the union to be double-word aligned.
 (in bytes) that you wish the compiler to use for a given variable or
 structure field.  Alternatively, you can leave out the alignment factor
 and just ask the compiler to align a variable or field to the
-default alignment for the target architecture you are compiling for.
+default alignment for the target architecture you are compiling for. 
 The default alignment is sufficient for all scalar types, but may not be
-enough for all vector types on a target that supports vector operations.
+enough for all vector types on a target that supports vector operations. 
 The default alignment is fixed for a particular target ABI.
 
      <p>GCC also provides a target specific macro <code>__BIGGEST_ALIGNMENT__</code>,
@@ -144,7 +144,7 @@ of the function (if any) is ignored.
      <p>If <samp><span class="option">-fexceptions</span></samp> is enabled, then <var>cleanup_function</var>
 is run during the stack unwinding that happens during the
 processing of the exception.  Note that the <code>cleanup</code> attribute
-does not allow the exception to be caught, only to perform an action.
+does not allow the exception to be caught, only to perform an action. 
 It is undefined what happens if <var>cleanup_function</var> does not
 return normally.
 
@@ -214,15 +214,15 @@ section.  For example, this small program uses several specific section names:
           struct duart b __attribute__ ((section ("DUART_B"))) = { 0 };
           char stack[10000] __attribute__ ((section ("STACK"))) = { 0 };
           int init_data __attribute__ ((section ("INITDATA")));
-
+          
           main()
           {
             /* <span class="roman">Initialize stack pointer</span> */
             init_sp (stack + sizeof (stack));
-
+          
             /* <span class="roman">Initialize initialized data</span> */
             memcpy (&amp;init_data, &amp;data, &amp;edata - &amp;data);
-
+          
             /* <span class="roman">Turn on the serial ports</span> */
             init_duart (&amp;a);
             init_duart (&amp;b);
@@ -243,7 +243,7 @@ definitions.  You can force a variable to be initialized with the
 <samp><span class="option">-fno-common</span></samp> flag or the <code>nocommon</code> attribute.
 
      <p>Some file formats do not support arbitrary sections so the <code>section</code>
-attribute is not available on all platforms.
+attribute is not available on all platforms. 
 If you need to map the entire contents of a module to a particular
 section, consider using the facilities of the linker instead.
 
@@ -254,7 +254,7 @@ by putting it in a named section <code>shared</code> and marking the section
 shareable:
 
      <pre class="smallexample">          int foo __attribute__((section ("shared"), shared)) = 0;
-
+          
           int
           main()
           {
@@ -272,7 +272,7 @@ linkers work.  See <code>section</code> attribute for more information.
      <br><dt><code>tls_model ("</code><var>tls_model</var><code>")</code><dd><a name="index-g_t_0040code_007btls_005fmodel_007d-attribute-2773"></a>The <code>tls_model</code> attribute sets thread-local storage model
 (see <a href="Thread_002dLocal.html#Thread_002dLocal">Thread-Local</a>) of a particular <code>__thread</code> variable,
 overriding <samp><span class="option">-ftls-model=</span></samp> command-line switch on a per-variable
-basis.
+basis. 
 The <var>tls_model</var> argument should be one of <code>global-dynamic</code>,
 <code>local-dynamic</code>, <code>initial-exec</code> or <code>local-exec</code>.
 
@@ -357,10 +357,10 @@ of the data but not how this data is accessed.
 (inline) assembler must be used.
      <pre class="smallexample">          /* Use custom macros from <a href="http://nongnu.org/avr-libc/user-manual/">AVR-LibC</a><!-- /@w --> */
           #include &lt;avr/pgmspace.h&gt;
-
+          
           /* Locate var in flash memory */
           const int var[2] PROGMEM = { 1, 2 };
-
+          
           int read_var (int i)
           {
               /* Access var[] by accessor macro from avr/pgmspace.h */
@@ -371,7 +371,7 @@ of the data but not how this data is accessed.
 normally resides in the data memory (RAM).
 
      <p>See also the <a href="AVR-Named-Address-Spaces.html#AVR-Named-Address-Spaces">AVR Named Address Spaces</a> section for
-an alternate way to locate and access data in flash memory.
+an alternate way to locate and access data in flash memory. 
 </dl>
 
 <h4 class="subsection">6.36.2 Blackfin Variable Attributes</h4>
@@ -379,15 +379,15 @@ an alternate way to locate and access data in flash memory.
 <p>Three attributes are currently defined for the Blackfin.
 
      <dl>
-<dt><code>l1_data</code><dt><code>l1_data_A</code><dt><code>l1_data_B</code><dd><a name="index-g_t_0040code_007bl1_005fdata_007d-variable-attribute-2775"></a><a name="index-g_t_0040code_007bl1_005fdata_005fA_007d-variable-attribute-2776"></a><a name="index-g_t_0040code_007bl1_005fdata_005fB_007d-variable-attribute-2777"></a>Use these attributes on the Blackfin to place the variable into L1 Data SRAM.
+<dt><code>l1_data</code><dt><code>l1_data_A</code><dt><code>l1_data_B</code><dd><a name="index-g_t_0040code_007bl1_005fdata_007d-variable-attribute-2775"></a><a name="index-g_t_0040code_007bl1_005fdata_005fA_007d-variable-attribute-2776"></a><a name="index-g_t_0040code_007bl1_005fdata_005fB_007d-variable-attribute-2777"></a>Use these attributes on the Blackfin to place the variable into L1 Data SRAM. 
 Variables with <code>l1_data</code> attribute are put into the specific section
 named <code>.l1.data</code>. Those with <code>l1_data_A</code> attribute are put into
 the specific section named <code>.l1.data.A</code>. Those with <code>l1_data_B</code>
 attribute are put into the specific section named <code>.l1.data.B</code>.
 
-     <br><dt><code>l2</code><dd><a name="index-g_t_0040code_007bl2_007d-variable-attribute-2778"></a>Use this attribute on the Blackfin to place the variable into L2 SRAM.
+     <br><dt><code>l2</code><dd><a name="index-g_t_0040code_007bl2_007d-variable-attribute-2778"></a>Use this attribute on the Blackfin to place the variable into L2 SRAM. 
 Variables with <code>l2</code> attribute are put into the specific section
-named <code>.l2.data</code>.
+named <code>.l2.data</code>. 
 </dl>
 
 <h4 class="subsection">6.36.3 M32R/D Variable Attributes</h4>
@@ -395,7 +395,7 @@ named <code>.l2.data</code>.
 <p>One attribute is currently defined for the M32R/D.
 
      <dl>
-<dt><code>model (</code><var>model-name</var><code>)</code><dd><a name="index-variable-addressability-on-the-M32R_002fD-2779"></a>Use this attribute on the M32R/D to set the addressability of an object.
+<dt><code>model (</code><var>model-name</var><code>)</code><dd><a name="index-variable-addressability-on-the-M32R_002fD-2779"></a>Use this attribute on the M32R/D to set the addressability of an object. 
 The identifier <var>model-name</var> is one of <code>small</code>, <code>medium</code>,
 or <code>large</code>, representing each of the code models.
 
@@ -404,7 +404,7 @@ addresses can be loaded with the <code>ld24</code> instruction).
 
      <p>Medium and large model objects may live anywhere in the 32-bit address space
 (the compiler generates <code>seth/add3</code> instructions to load their
-addresses).
+addresses). 
 </dl>
 
  <p><a name="MeP-Variable-Attributes"></a>
@@ -413,7 +413,7 @@ addresses).
 
 <p>The MeP target has a number of addressing modes and busses.  The
 <code>near</code> space spans the standard memory space's first 16 megabytes
-(24 bits).  The <code>far</code> space spans the entire 32-bit memory space.
+(24 bits).  The <code>far</code> space spans the entire 32-bit memory space. 
 The <code>based</code> space is a 128-byte region in the memory space that
 is addressed relative to the <code>$tp</code> register.  The <code>tiny</code>
 space is a 65536-byte region relative to the <code>$gp</code> register.  In
@@ -473,7 +473,7 @@ either format.
 compilers to match the native Microsoft compiler.
 
      <p>The Microsoft structure layout algorithm is fairly simple with the exception
-of the bit-field packing.
+of the bit-field packing. 
 The padding and alignment of members of structures and whether a bit-field
 can straddle a storage-unit boundary are determine by these rules:
 
@@ -487,7 +487,7 @@ for all data except structures, unions, and arrays is either the size of the
 object or the current packing size (specified with either the
 <code>aligned</code> attribute or the <code>pack</code> pragma),
 whichever is less.  For structures, unions, and arrays,
-the alignment requirement is the largest alignment requirement of its members.
+the alignment requirement is the largest alignment requirement of its members. 
 Every object is allocated an offset so that:
 
           <pre class="smallexample">               offset % alignment_requirement == 0
@@ -528,7 +528,7 @@ alignment of the zero-length bit-field is greater than the member that follows i
                   short : 0;
                   char bar;
                 } t2;
-
+               
                struct
                 {
                   char foo : 4;
@@ -536,7 +536,7 @@ alignment of the zero-length bit-field is greater than the member that follows i
                   double bar;
                 } t3;
 </pre>
-          <p class="noindent">For <code>t2</code>, <code>bar</code> is placed at offset 2, rather than offset 1.
+          <p class="noindent">For <code>t2</code>, <code>bar</code> is placed at offset 2, rather than offset 1. 
 Accordingly, the size of <code>t2</code> is 4.  For <code>t3</code>, the zero-length
 bit-field does not affect the alignment of <code>bar</code> or, as a result, the size
 of the structure.
@@ -607,3 +607,4 @@ placed in either the <code>.bss_below100</code> section or the
  </dl>
 
  </body></html>
+

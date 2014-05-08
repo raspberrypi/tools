@@ -31,8 +31,8 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ exactly like using &lsquo;<samp><span class="samp">--oformat </span><var>bfdname
 line option takes precedence.
 
      <p>You can use <code>OUTPUT_FORMAT</code> with three arguments to use different
-formats based on the &lsquo;<samp><span class="samp">-EB</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-EL</span></samp>&rsquo; command line options.
+formats based on the &lsquo;<samp><span class="samp">-EB</span></samp>&rsquo; and &lsquo;<samp><span class="samp">-EL</span></samp>&rsquo; command line options. 
 This permits the linker script to set the output format based on the
 desired endianness.
 
@@ -76,11 +76,12 @@ option, the output file will be created in the &lsquo;<samp><span class="samp">e
 format.
 
      <br><dt><code>TARGET(</code><var>bfdname</var><code>)</code><dd><a name="index-TARGET_0028_0040var_007bbfdname_007d_0029-378"></a><a name="index-input-file-format-in-linker-script-379"></a>The <code>TARGET</code> command names the BFD format to use when reading input
-files.  It affects subsequent <code>INPUT</code> and <code>GROUP</code> commands.
+files.  It affects subsequent <code>INPUT</code> and <code>GROUP</code> commands. 
 This command is like using &lsquo;<samp><span class="samp">-b </span><var>bfdname</var></samp>&rsquo; on the command line
 (see <a href="Options.html#Options">Command Line Options</a>).  If the <code>TARGET</code> command
 is used but <code>OUTPUT_FORMAT</code> is not, then the last <code>TARGET</code>
-command is also used to set the format for the output file.  See <a href="BFD.html#BFD">BFD</a>.
+command is also used to set the format for the output file.  See <a href="BFD.html#BFD">BFD</a>. 
 </dl>
 
    </body></html>
+

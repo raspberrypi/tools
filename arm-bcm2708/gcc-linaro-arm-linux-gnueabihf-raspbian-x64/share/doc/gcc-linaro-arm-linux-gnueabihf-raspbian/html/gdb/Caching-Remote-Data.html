@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -55,13 +55,13 @@ bundling memory reads and writes into large chunks.  Unfortunately, simply
 caching everything would lead to incorrect results, since <span class="sc">gdb</span>
 does not necessarily know anything about volatile values, memory-mapped I/O
 addresses, etc.  Furthermore, in non-stop mode (see <a href="Non_002dStop-Mode.html#Non_002dStop-Mode">Non-Stop Mode</a>)
-memory can be changed <em>while</em> a gdb command is executing.
+memory can be changed <em>while</em> a gdb command is executing. 
 Therefore, by default, <span class="sc">gdb</span> only caches data
-known to be on the stack<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.
+known to be on the stack<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>. 
 Other regions of memory can be explicitly marked as
 cacheable; see see <a href="Memory-Region-Attributes.html#Memory-Region-Attributes">Memory Region Attributes</a>.
 
-
+     
 <a name="index-set-remotecache-707"></a>
 <dl><dt><code>set remotecache on</code><dt><code>set remotecache off</code><dd>This option no longer does anything; it exists for compatibility
 with old scripts.
@@ -84,7 +84,7 @@ printed in hex.
 
      <br><dt><code>set dcache size </code><var>size</var><dd><a name="index-dcache-size-712"></a><a name="index-set-dcache-size-713"></a>Set maximum number of entries in dcache (dcache depth above).
 
-     <br><dt><code>set dcache line-size </code><var>line-size</var><dd><a name="index-dcache-line_002dsize-714"></a><a name="index-set-dcache-line_002dsize-715"></a>Set number of bytes each dcache entry caches (dcache width above).
+     <br><dt><code>set dcache line-size </code><var>line-size</var><dd><a name="index-dcache-line_002dsize-714"></a><a name="index-set-dcache-line_002dsize-715"></a>Set number of bytes each dcache entry caches (dcache width above). 
 Must be a power of 2.
 
      <br><dt><code>show dcache size</code><dd><a name="index-show-dcache-size-716"></a>Show maximum number of dcache entries.  See also <a href="Caching-Remote-Data.html#Caching-Remote-Data">info dcache</a>.
@@ -103,3 +103,4 @@ stack reads provides a significant speed up of remote backtraces.</p>
    <hr></div>
 
    </body></html>
+

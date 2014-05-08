@@ -129,7 +129,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * Destroy a range of objects using the supplied allocator.  For
-   * nondefault allocators we do not optimize away invocation of
+   * nondefault allocators we do not optimize away invocation of 
    * destroy() even if _Tp has a trivial destructor.
    */
 
@@ -155,3 +155,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace std
 
 #endif /* _STL_CONSTRUCT_H */
+

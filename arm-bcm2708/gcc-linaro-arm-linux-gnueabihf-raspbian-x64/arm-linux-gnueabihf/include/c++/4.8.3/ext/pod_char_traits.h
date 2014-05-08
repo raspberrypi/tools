@@ -141,7 +141,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       static char_type*
       move(char_type* __s1, const char_type* __s2, size_t __n)
-      {
+      { 
 	return static_cast<char_type*>
 	  (__builtin_memmove(__s1, __s2, __n * sizeof(char_type)));
       }
@@ -173,7 +173,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { return __c1 == __c2; }
 
       static int_type
-      eof()
+      eof() 
       {
 	int_type __r = { -1 };
 	return __r;

@@ -30,8 +30,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,7 +51,7 @@ otherwise an error occurs.  These checks prevent type mismatch
 errors from ever causing any run-time problems.  For example,
 
 <pre class="smallexample">     int klass::my_method(char *b) { return  b ? 1 : 2; }
-
+     
      (gdb) print obj.my_method (0)
      $1 = 2
 <br>but<br>
@@ -68,7 +68,7 @@ When type checking is disabled, <span class="sc">gdb</span> successfully evaluat
 expressions like the second example above.
 
    <p>Even if type checking is off, there may be other reasons
-related to type that prevent <span class="sc">gdb</span> from evaluating an expression.
+related to type that prevent <span class="sc">gdb</span> from evaluating an expression. 
 For instance, <span class="sc">gdb</span> does not know how to add an <code>int</code> and
 a <code>struct foo</code>.  These particular type errors have nothing to do
 with the language in use and usually arise from expressions which make
@@ -83,9 +83,10 @@ evaluating an expression while type checking is on, <span class="sc">gdb</span> 
 message and aborts evaluation of the expression.
 
      <br><dt><code>show check type</code><dd>Show the current setting of type checking and whether <span class="sc">gdb</span>
-is enforcing strict type checking rules.
+is enforcing strict type checking rules. 
 </dl>
 
    <p><a name="index-range-checking-861"></a><a name="index-checks_002c-range-862"></a>
 
    </body></html>
+

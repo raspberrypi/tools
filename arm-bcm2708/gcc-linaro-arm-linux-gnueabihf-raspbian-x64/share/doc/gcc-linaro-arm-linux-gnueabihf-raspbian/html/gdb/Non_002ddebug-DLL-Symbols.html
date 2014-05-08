@@ -29,8 +29,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -85,14 +85,14 @@ some confusion. If in doubt, try the <code>info functions</code> and
 
 <pre class="smallexample">     (gdb) info function CreateFileA
      All functions matching regular expression "CreateFileA":
-
+     
      Non-debugging symbols:
      0x77e885f4  CreateFileA
      0x77e885f4  KERNEL32!CreateFileA
 </pre>
    <pre class="smallexample">     (gdb) info function !
      All functions matching regular expression "!":
-
+     
      Non-debugging symbols:
      0x6100114c  cygwin1!__assert
      0x61004034  cygwin1!_dll_crt0@0
@@ -147,3 +147,4 @@ break point within a shared DLL like <samp><span class="file">kernel32.dll</span
 safe.
 
    </body></html>
+

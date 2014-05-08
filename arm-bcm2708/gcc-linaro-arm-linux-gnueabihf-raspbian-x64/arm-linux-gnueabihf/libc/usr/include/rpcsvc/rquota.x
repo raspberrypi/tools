@@ -27,7 +27,7 @@ struct rquota {
 	unsigned int rq_curfiles;	/* current # allocated files */
 	unsigned int rq_btimeleft;	/* time left for excessive disk use */
 	unsigned int rq_ftimeleft;	/* time left for excessive files */
-};
+};	
 
 enum gqr_status {
 	Q_OK = 1,		/* quota returned */
@@ -53,7 +53,7 @@ program RQUOTAPROG {
 		RQUOTAPROC_GETQUOTA(getquota_args) = 1;
 
 		/*
-		 * Get active quotas only
+	 	 * Get active quotas only
 		 */
 		getquota_rslt
 		RQUOTAPROC_GETACTIVEQUOTA(getquota_args) = 2;

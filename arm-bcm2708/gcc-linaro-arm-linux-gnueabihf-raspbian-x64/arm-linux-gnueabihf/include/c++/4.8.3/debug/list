@@ -136,7 +136,7 @@ namespace __debug
 	__glibcxx_check_self_move_assign(__x);
 	clear();
 	swap(__x);
-	return *this;
+      	return *this;
       }
 
       list&

@@ -55,3 +55,4 @@ inline typename PB_DS_CLASS_C_DEC::size_type
 PB_DS_CLASS_C_DEC::
 operator()(size_type hash) const
 { return mask_based_base::range_hash(hash); }
+

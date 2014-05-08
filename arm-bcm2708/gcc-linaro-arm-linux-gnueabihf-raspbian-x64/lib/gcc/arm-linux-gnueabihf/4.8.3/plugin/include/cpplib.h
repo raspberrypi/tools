@@ -227,7 +227,7 @@ struct GTY(()) cpp_token {
   {
     /* An identifier.  */
     struct cpp_identifier GTY ((tag ("CPP_TOKEN_FLD_NODE"))) node;
-
+	 
     /* Inherit padding from this token.  */
     cpp_token * GTY ((tag ("CPP_TOKEN_FLD_SOURCE"))) source;
 
@@ -400,7 +400,7 @@ struct cpp_options
   /* Nonzero means we're looking at already preprocessed code, so don't
      bother trying to do macro expansion and whatnot.  */
   unsigned char preprocessed;
-
+  
   /* Nonzero means we are going to emit debugging logs during
      preprocessing.  */
   unsigned char debug;
@@ -575,7 +575,7 @@ struct cpp_dir
   /* Is this a user-supplied directory? */
   bool user_supplied_p;
 
-  /* The canonicalized NAME as determined by lrealpath.  This field
+  /* The canonicalized NAME as determined by lrealpath.  This field 
      is only used by hosts that lack reliable inode numbers.  */
   char *canonical_name;
 
@@ -790,7 +790,7 @@ extern cppchar_t cpp_host_to_exec_charset (cpp_reader *, cppchar_t);
 /* Used to register macros and assertions, perhaps from the command line.
    The text is the same as the command line argument.  */
 extern void cpp_define (cpp_reader *, const char *);
-extern void cpp_define_formatted (cpp_reader *pfile,
+extern void cpp_define_formatted (cpp_reader *pfile, 
 				  const char *fmt, ...) ATTRIBUTE_PRINTF_2;
 extern void cpp_assert (cpp_reader *, const char *);
 extern void cpp_undef (cpp_reader *, const char *);

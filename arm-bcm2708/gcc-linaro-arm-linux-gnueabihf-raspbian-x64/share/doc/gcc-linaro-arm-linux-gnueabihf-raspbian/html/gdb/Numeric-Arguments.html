@@ -31,8 +31,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -51,18 +51,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Bindable-Readline-Commands.html#Bindabl
 <dt><code>digit-argument (</code><kbd>M-0</kbd><code>, </code><kbd>M-1</kbd><code>, ... </code><kbd>M--</kbd><code>)</code><a name="index-digit_002dargument-_0028_0040kbd_007bM_002d0_007d_002c-_0040kbd_007bM_002d1_007d_002c-_0040dots_007b_007d-_0040kbd_007bM_002d_002d_007d_0029-2525"></a><dd>Add this digit to the argument already accumulating, or start a new
 argument.  <kbd>M--</kbd> starts a negative argument.
 
-     <br><dt><code>universal-argument ()</code><a name="index-universal_002dargument-_0028_0029-2526"></a><dd>This is another way to specify an argument.
+     <br><dt><code>universal-argument ()</code><a name="index-universal_002dargument-_0028_0029-2526"></a><dd>This is another way to specify an argument. 
 If this command is followed by one or more digits, optionally with a
-leading minus sign, those digits define the argument.
+leading minus sign, those digits define the argument. 
 If the command is followed by digits, executing <code>universal-argument</code>
-again ends the numeric argument, but is otherwise ignored.
+again ends the numeric argument, but is otherwise ignored. 
 As a special case, if this command is immediately followed by a
 character that is neither a digit or minus sign, the argument count
-for the next command is multiplied by four.
+for the next command is multiplied by four. 
 The argument count is initially one, so executing this function the
 first time makes the argument count four, a second time makes the
-argument count sixteen, and so on.
-By default, this is not bound to a key.
+argument count sixteen, and so on. 
+By default, this is not bound to a key. 
 </dl>
 
    </body></html>
+

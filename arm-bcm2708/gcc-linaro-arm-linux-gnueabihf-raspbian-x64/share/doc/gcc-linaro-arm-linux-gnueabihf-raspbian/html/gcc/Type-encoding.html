@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -58,7 +58,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Objective_002dC.html#Objective_002dC">O
 the compiler and by the runtime, but you generally do not need to know
 about them to use Objective-C.
 
- <p>The Objective-C compiler generates type encodings for all the types.
+ <p>The Objective-C compiler generates type encodings for all the types. 
 These type encodings are used at runtime to find out information about
 selectors and methods and about objects and classes.
 
@@ -105,11 +105,11 @@ selectors and methods and about objects and classes.
 </td><td valign="top" width="75%"><code>*</code>
 <br></td></tr><tr align="left"><td valign="top" width="25%"><code>enum</code>
 </td><td valign="top" width="75%">an <code>enum</code> is encoded exactly as the integer type that the compiler uses for it, which depends on the enumeration
-values.  Often the compiler users <code>unsigned int</code>, which is then encoded as <code>I</code>.
+values.  Often the compiler users <code>unsigned int</code>, which is then encoded as <code>I</code>. 
 <br></td></tr><tr align="left"><td valign="top" width="25%">unknown type
 </td><td valign="top" width="75%"><code>?</code>
 <br></td></tr><tr align="left"><td valign="top" width="25%">Complex types
-</td><td valign="top" width="75%"><code>j</code> followed by the inner type.  For example <code>_Complex double</code> is encoded as "jd".
+</td><td valign="top" width="75%"><code>j</code> followed by the inner type.  For example <code>_Complex double</code> is encoded as "jd". 
 <br></td></tr><tr align="left"><td valign="top" width="25%">bit-fields
 </td><td valign="top" width="75%"><code>b</code> followed by the starting position of the bit-field, the type of the bit-field and the size of the bit-field (the bit-fields encoding was changed from the NeXT's compiler encoding, see below)
  <br></td></tr></table>
@@ -133,7 +133,7 @@ bit closest to the beginning of the structure.
 
 <!-- @sp 1 -->
  <p><table summary=""><tr align="left"><td valign="top" width="20%">pointers
-</td><td valign="top" width="80%">&lsquo;<samp><span class="samp">^</span></samp>&rsquo; followed by the pointed type.
+</td><td valign="top" width="80%">&lsquo;<samp><span class="samp">^</span></samp>&rsquo; followed by the pointed type. 
 <br></td></tr><tr align="left"><td valign="top" width="20%">arrays
 </td><td valign="top" width="80%">&lsquo;<samp><span class="samp">[</span></samp>&rsquo; followed by the number of elements in the array followed by the type of the elements followed by &lsquo;<samp><span class="samp">]</span></samp>&rsquo;
 <br></td></tr><tr align="left"><td valign="top" width="20%">structures
@@ -255,3 +255,4 @@ as <code>*</code>, and the <code>const</code> is lost.
 </ul>
 
  </body></html>
+

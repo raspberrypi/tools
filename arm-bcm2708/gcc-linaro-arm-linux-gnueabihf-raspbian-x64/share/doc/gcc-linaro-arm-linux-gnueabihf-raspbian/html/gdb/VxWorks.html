@@ -29,8 +29,8 @@ developing GNU and promoting software freedom.''-->
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -44,7 +44,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-OS.html#Embedded-OS">Embedded 
 <h4 class="subsection">21.2.1 Using <span class="sc">gdb</span> with VxWorks</h4>
 
 <p><a name="index-VxWorks-1380"></a>
-
+     
 <a name="index-target-vxworks-1381"></a>
 <dl><dt><code>target vxworks </code><var>machinename</var><dd>A VxWorks system, attached via TCP/IP.  The argument <var>machinename</var>
 is the target system's machine name or IP address.
@@ -63,11 +63,11 @@ installed with the name <code>vxgdb</code>, to distinguish it from a
 <span class="sc">gdb</span> for debugging programs on the host itself.)
 
      <dl>
-<dt><code>VxWorks-timeout </code><var>args</var><dd><a name="index-vxworks_002dtimeout-1382"></a>All VxWorks-based targets now support the option <code>vxworks-timeout</code>.
+<dt><code>VxWorks-timeout </code><var>args</var><dd><a name="index-vxworks_002dtimeout-1382"></a>All VxWorks-based targets now support the option <code>vxworks-timeout</code>. 
 This option is set by the user, and  <var>args</var> represents the number of
 seconds <span class="sc">gdb</span> waits for responses to rpc's.  You might use this if
 your VxWorks target is a slow software simulator or is on the far side
-of a thin network line.
+of a thin network line. 
 </dl>
 
    <p>The following information on connecting to VxWorks was current when
@@ -81,7 +81,7 @@ VxWorks configuration file <samp><span class="file">configAll.h</span></samp> an
 kernel.  The resulting kernel contains <samp><span class="file">rdb.a</span></samp>, and spawns the
 source debugging task <code>tRdbTask</code> when VxWorks is booted.  For more
 information on configuring and remaking VxWorks, see the manufacturer's
-manual.
+manual. 
 <!-- VxWorks, see the @cite{VxWorks Programmer's Guide}. -->
 
    <p>Once you have included <samp><span class="file">rdb.a</span></samp> in your VxWorks system image and set
@@ -100,3 +100,4 @@ run <span class="sc">gdb</span>.  From your Unix host, run <code>gdb</code> (or
 </ul>
 
    </body></html>
+

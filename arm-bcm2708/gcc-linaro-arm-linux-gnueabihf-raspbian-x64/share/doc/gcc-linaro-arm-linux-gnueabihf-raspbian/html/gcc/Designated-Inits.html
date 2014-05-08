@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -117,7 +117,7 @@ syntax) when initializing a union, to specify which element of the union
 should be used.  For example,
 
 <pre class="smallexample">     union foo { int i; double d; };
-
+     
      union foo f = { .d = 4 };
 </pre>
  <p class="noindent">converts 4 to a <code>double</code> to store it in the union using
@@ -137,7 +137,7 @@ array or structure.  For example,
 <pre class="smallexample">     int a[6] = { 0, v1, v2, 0, v4, 0 };
 </pre>
  <p>Labeling the elements of an array initializer is especially useful
-when the indices are characters or belong to an <code>enum</code> type.
+when the indices are characters or belong to an <code>enum</code> type. 
 For example:
 
 <pre class="smallexample">     int whitespace[256]
@@ -154,7 +154,8 @@ example, with the &lsquo;<samp><span class="samp">struct point</span></samp>&rsq
 </pre>
  <p class="noindent">If the same field is initialized multiple times, it has the value from
 the last initialization.  If any such overridden initialization has
-side-effect, it is unspecified whether the side-effect happens or not.
+side-effect, it is unspecified whether the side-effect happens or not. 
 Currently, GCC discards them and issues a warning.
 
  </body></html>
+

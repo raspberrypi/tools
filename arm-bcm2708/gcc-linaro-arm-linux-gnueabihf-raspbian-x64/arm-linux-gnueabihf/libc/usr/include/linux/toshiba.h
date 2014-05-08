@@ -1,4 +1,4 @@
-/* toshiba.h -- Linux driver for accessing the SMM on Toshiba laptops
+/* toshiba.h -- Linux driver for accessing the SMM on Toshiba laptops 
  *
  * Copyright (c) 1996-2000  Jonathan A. Buzzard (jonathan@buzzard.org.uk)
  *

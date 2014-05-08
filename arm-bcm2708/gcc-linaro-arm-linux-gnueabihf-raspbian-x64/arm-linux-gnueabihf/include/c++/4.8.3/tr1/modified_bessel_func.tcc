@@ -177,7 +177,7 @@ namespace tr1
               __p /= __i - __mu;
               __q /= __i + __mu;
               const _Tp __del = __c * __ff;
-              __sum += __del;
+              __sum += __del; 
               const _Tp __del1 = __c * (__p - __i * __ff);
               __sum1 += __del1;
               if (std::abs(__del) < __eps * std::abs(__sum))
@@ -240,7 +240,7 @@ namespace tr1
         }
       __Knu = __Kmu;
       __Kpnu = __nu * __xi * __Kmu - __Knu1;
-
+  
       return;
     }
 

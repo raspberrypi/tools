@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 <p><a name="index-additional-floating-types-2453"></a><a name="index-g_t_0040code_007b_005f_005ffloat80_007d-data-type-2454"></a><a name="index-g_t_0040code_007b_005f_005ffloat128_007d-data-type-2455"></a><a name="index-g_t_0040code_007bw_007d-floating-point-suffix-2456"></a><a name="index-g_t_0040code_007bq_007d-floating-point-suffix-2457"></a><a name="index-g_t_0040code_007bW_007d-floating-point-suffix-2458"></a><a name="index-g_t_0040code_007bQ_007d-floating-point-suffix-2459"></a>
 As an extension, GNU C supports additional floating
 types, <code>__float80</code> and <code>__float128</code> to support 80-bit
-(<code>XFmode</code>) and 128-bit (<code>TFmode</code>) floating types.
+(<code>XFmode</code>) and 128-bit (<code>TFmode</code>) floating types. 
 Support for additional types includes the arithmetic operators:
 add, subtract, multiply, divide; unary arithmetic operators;
 relational operators; equality operators; and conversions to and from
@@ -71,7 +71,8 @@ type and <code>TCmode</code> for <code>__float128</code> type:
      typedef _Complex float __attribute__((mode(XC))) _Complex80;
 </pre>
  <p>Not all targets support additional floating-point types.  <code>__float80</code>
-and <code>__float128</code> types are supported on i386, x86_64 and IA-64 targets.
+and <code>__float128</code> types are supported on i386, x86_64 and IA-64 targets. 
 The <code>__float128</code> type is supported on hppa HP-UX targets.
 
  </body></html>
+

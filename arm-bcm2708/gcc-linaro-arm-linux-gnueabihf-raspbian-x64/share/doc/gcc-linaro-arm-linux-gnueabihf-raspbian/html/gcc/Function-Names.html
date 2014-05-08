@@ -38,8 +38,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
   span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; }
-  span.sansserif { font-family:sans-serif; font-weight:normal; }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -90,7 +90,7 @@ example, this program:
 <pre class="smallexample">     extern "C" {
      extern int printf (char *, ...);
      }
-
+     
      class a {
       public:
        void sub (int i)
@@ -99,7 +99,7 @@ example, this program:
            printf ("__PRETTY_FUNCTION__ = %s\n", __PRETTY_FUNCTION__);
          }
      };
-
+     
      int
      main (void)
      {
@@ -122,3 +122,4 @@ literals.  GCC 3.4 and later treat them as variables, like
 <code>__PRETTY_FUNCTION__</code> have always been variables.
 
  </body></html>
+
