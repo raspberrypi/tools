@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 
 		if (retcode == 0)
 		{
-			printf("Successfull\n");
+			printf("Successful\n");
 			if(fp==fp2)
 			{
 				printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
