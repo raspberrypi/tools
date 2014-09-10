@@ -4,6 +4,12 @@
 
 #include <unistd.h>
 
+#include <string.h>
+
+/* Defines the LibUSB maximum transfer size as 507904 bytes
+   Transfers above this size seem to give errors */
+#define LIBUSB_MAX_TRANSFER 507904
+
 int Initialize_Device(libusb_context ** ctx, libusb_device_handle ** usb_device)
 {
 	int ret = 0;
@@ -30,10 +36,19 @@ int ep_write(unsigned char *buf, int len, libusb_device_handle * usb_device)
 	    libusb_control_transfer(usb_device, LIBUSB_REQUEST_TYPE_VENDOR, 0,
 				    len & 0xffff, len >> 16, NULL, 0, 1000);
 	int a_len;
+	int total_len = 0;
+	int transfer_len;
 
-	libusb_bulk_transfer(usb_device, 0x01, buf, len, &a_len, 1000);
+	len &= 0x7fffffff; // Ignore MSB of length, because it is used to signal whether the file being sent is an ELF file
+	do {
+		transfer_len = len < LIBUSB_MAX_TRANSFER ? len : LIBUSB_MAX_TRANSFER;
+		libusb_bulk_transfer(usb_device, 0x01, buf, transfer_len, &a_len, 1000);
+		total_len += a_len;
+		buf += a_len;
+		len -= a_len;
+	} while (len);
 
-	return a_len;
+	return total_len;
 }
 
 int ep_read(unsigned char *buf, int len, libusb_device_handle * usb_device)
@@ -58,7 +73,7 @@ int main(int argc, char *argv[])
 	FILE *fp1, *fp2;
 	char def1[] = "usbbootcode.bin";
 	char def2[] = "msd.bin";
-	char *str1, *str2;
+	char *str1, *str2, *str;
 	struct MESSAGE_S {
 		int length;
 		unsigned char signature[20];
@@ -124,6 +139,7 @@ int main(int argc, char *argv[])
 			       desc.iSerialNumber,
 			       desc.iSerialNumber == 0 ? str1 : str2);
 			fp = desc.iSerialNumber == 0 ? fp1 : fp2;
+			str = desc.iSerialNumber == 0 ? str1 : str2;
 		}
 
 		fseek(fp, 0, SEEK_END);
@@ -149,7 +165,15 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 
-		size = ep_write(txbuf, message.length, usb_device);
+		// Set MSB of length as 1 if the file being sent is an ELF file
+		if (strcmp(&str[strlen(str)-4], ".elf") == 0)
+		{
+			size = ep_write(txbuf, message.length | (1 << 31), usb_device);
+		}
+		else
+		{
+			size = ep_write(txbuf, message.length, usb_device);
+		}
 		if (size != message.length)
 		{
 			printf("Failed to read correct length, returned %d\n",
@@ -168,7 +192,14 @@ int main(int argc, char *argv[])
 			printf("Successful\n");
 			if(fp==fp2)
 			{
-				printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
+				if (strncmp(str, "msd", 3) == 0)
+				{
+					printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
+				}
+				else
+				{
+					printf("Raspberry Pi has successfully received the final binary/ELF file\n");
+				}
 				exit(0);
 			}
 		}
