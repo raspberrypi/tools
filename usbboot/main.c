@@ -1,6 +1,7 @@
 #include "libusb-1.0/libusb.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <unistd.h>
 
@@ -56,35 +57,26 @@ int main(int argc, char *argv[])
 	int size;
 	int retcode;
 	FILE *fp1, *fp2;
-	char def1[] = "usbbootcode.bin";
-	char def2[] = "msd.bin";
-	char *str1, *str2;
+	char def1[] = "/usr/share/rpiboot/usbbootcode.bin";
+	char def2[] = "/usr/share/rpiboot/msd.bin";
+	char *dir;
+
 	struct MESSAGE_S {
 		int length;
 		unsigned char signature[20];
 	} message;
 
-	if (argc < 3)
-	{
-		str1 = def1;
-		str2 = def2;
-	} else
-	{
-		str1 = argv[1];
-		str2 = argv[2];
-	}
-
-	fp1 = fopen(str1, "rb");
+	fp1 = fopen(def1, "rb");
 	if (fp1 == NULL)
 	{
-		printf("Cannot open file %s\n", str1);
+		printf("Cannot open file %s\n", def1);
 		exit(-1);
 	}
 
-	fp2 = fopen(str2, "rb");
+	fp2 = fopen(def2, "rb");
 	if (fp2 == NULL)
 	{
-		printf("Cannot open file %s\n", str2);
+		printf("Cannot open file %s\n", def2);
 		exit(-1);
 	}
 
@@ -122,7 +114,7 @@ int main(int argc, char *argv[])
 							 (usb_device), &desc);
 			printf("Found serial = %d: writing file %s\n",
 			       desc.iSerialNumber,
-			       desc.iSerialNumber == 0 ? str1 : str2);
+			       desc.iSerialNumber == 0 ? def1 : def2);
 			fp = desc.iSerialNumber == 0 ? fp1 : fp2;
 		}
 
