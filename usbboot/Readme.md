@@ -15,7 +15,7 @@ on the settings in config.txt).
 
 With usbbootcode.bin it re-enumerates as a device (but this time with a serial number of 1 to distinguish
 the second stage from the primary boot) and waits for a message packet from the host.  After
-The message packet it receives the data (the length is in the message packet), and it then checks the
+the message packet it receives the data (the length is in the message packet), and it then checks the
 length of the downloaded information (should be an .elf file either msd.elf or buildroot.elf), if the
 length is greater than the size of the elf file, it assumes the rest of the data is a FAT16 image of a
 filesystem as created using the Raspberry Pi buildroot target raspberrypi_usb_test
@@ -31,28 +31,29 @@ $ sudo apt-get install libusb-1.0-0-dev
 $ make
 $ sudo make install
 $ sudo rpiboot
-
+```
 
 ## Buildroot building
 
-# Checkout the upstream buildroot from git
+1. Checkout the upstream buildroot from git
 
-```
-git clone git://git.buildroot.net/buildroot
-```
+    ```
+    git clone git://git.buildroot.net/buildroot
+    ```
 
-# Patch with Pi patches (requires raspberrypi/tools from above
+1. Patch with Pi patches (requires `raspberrypi/tools` from above)
 
-```
-cd buildroot
-patch -p1 < ../tools/usbboot/buildroot.patch
-make raspberrypi_defconfig
-make
-```
+    ```
+    cd buildroot
+    patch -p1 < ../tools/usbboot/buildroot.patch
+    make raspberrypi_defconfig
+    make
+    ```
 
-Note: you'll need superuser password to finish the build and create the image
+    Note: you'll need superuser password to finish the build and create the image
 
-## Running
+1. Running
 
-sudo rpiboot tools/usbboot/usbbootcode.bin tools/usbboot/start_imgfs.elf buildroot/output/images/fatimage
- 
+    ```
+    sudo rpiboot tools/usbboot/usbbootcode.bin tools/usbboot/start_imgfs.elf buildroot/output/images/fatimage
+    ```
