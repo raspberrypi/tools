@@ -18,7 +18,7 @@ the second stage from the primary boot) and waits for a message packet from the 
 The message packet it receives the data (the length is in the message packet), and it then checks the
 length of the downloaded information (should be an .elf file either msd.elf or buildroot.elf), if the
 length is greater than the size of the elf file, it assumes the rest of the data is a FAT16 image of a
-filesystem as created using the Raspberry Pi buildroot target raspberrypi_usb_test
+filesystem as created using the Raspberry Pi buildroot target raspberrypi_defconfig
 
 ## Building
 
