@@ -22,7 +22,7 @@ filesystem as created using the Raspberry Pi buildroot target raspberrypi_usb_te
 
 ## Building
 
-Check out this on your Pi or an Ubuntu linux machine
+Clone this on your Pi or an Ubuntu linux machine
 
 ```
 $ git clone --depth=1 https://github.com/raspberrypi/tools
@@ -31,17 +31,15 @@ $ sudo apt-get install libusb-1.0-0-dev
 $ make
 $ sudo make install
 $ sudo rpiboot
+```
 
-
-## Buildroot building
-
-# Checkout the upstream buildroot from git
+Checkout the upstream buildroot from git
 
 ```
 git clone git://git.buildroot.net/buildroot
 ```
 
-# Patch with Pi patches (requires raspberrypi/tools from above
+Patch with Pi patches (requires raspberrypi/tools from above)
 
 ```
 cd buildroot
@@ -52,7 +50,8 @@ make
 
 Note: you'll need superuser password to finish the build and create the image
 
-## Running
+Running
 
+```
 sudo rpiboot tools/usbboot/usbbootcode.bin tools/usbboot/start_imgfs.elf buildroot/output/images/fatimage
- 
+```
