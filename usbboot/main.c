@@ -5,6 +5,30 @@
 
 #include <unistd.h>
 
+int verbose = 0;
+
+void usage(int error)
+{
+	FILE * dest = error ? stderr : stdout;
+
+	fprintf(dest, "Usage: rpiboot\n");
+	fprintf(dest, "   or: rpiboot -b fatimage\n");
+	fprintf(dest, "Boot a Raspberry Pi Model A or Compute Module through USB\n");
+	fprintf(dest, "\n");
+	fprintf(dest, "rpiboot			: Boot the device into Mass Storage Device mode\n");
+	fprintf(dest, "rpiboot -b fatimage	: Boot the device into a buildroot linux image\n");
+	fprintf(dest, "\n");
+	fprintf(dest, "Further options:\n");
+	fprintf(dest, "      -x executable      : Autoexecute function\n");
+	fprintf(dest, "           This option is used to trigger the execution of a\n");
+	fprintf(dest, "           script after finishing the USB boot process\n");
+	fprintf(dest, "      -l                 : Sit in a loop permanently\n");
+	fprintf(dest, "      -v                 : Verbose output");
+	fprintf(dest, "      -h                 : This help\n");
+	exit(-1);
+}
+
+
 int Initialize_Device(libusb_context ** ctx, libusb_device_handle ** usb_device)
 {
 	int ret = 0;
@@ -33,7 +57,8 @@ int ep_write(unsigned char *buf, int len, libusb_device_handle * usb_device)
 	int a_len;
 
 	ret = libusb_bulk_transfer(usb_device, 0x01, buf, len, &a_len, 100000);
-	printf("libusb_bulk_transfer returned %d\n", ret);
+	if(verbose)
+		printf("libusb_bulk_transfer returned %d\n", ret);
 
 	return a_len;
 }
@@ -57,27 +82,57 @@ int main(int argc, char *argv[])
 	unsigned char *txbuf;
 	int size;
 	int retcode;
-	FILE *fp1, *fp2;
+	int last_serial = -1;
+	FILE *fp1, *fp2, *fp;
 	char def1[] = "/usr/share/rpiboot/usbbootcode.bin";
 	char def2[] = "/usr/share/rpiboot/msd.elf";
+	char def3[] = "/usr/share/rpiboot/buildroot.elf";
 
-	char *stage1, *stage2;
-	char *dir;
+	char *stage1   = def1, *stage2     = def2;
+	char *fatimage = NULL, *executable = NULL;
+	int loop       = 0;
 
 	struct MESSAGE_S {
 		int length;
 		unsigned char signature[20];
 	} message;
 
-	if(argc > 2)
+	// Skip the command name
+	argv++; argc--;
+	while(*argv)
 	{
-		stage1 = argv[1];
-		stage2 = argv[2];
-	}
-	else
-	{
-		stage1 = def1;
-		stage2 = def2;
+		if(strcmp(*argv, "-b") == 0)
+		{
+			argv++; argc--;
+			if(argc < 1)
+				usage(1);
+			stage1 = def1;
+			stage2 = def3;
+			fatimage = *argv;
+		}
+		else if(strcmp(*argv, "-h") == 0 || strcmp(*argv, "--help") == 0)
+		{
+			usage(0);
+		}
+		else if(strcmp(*argv, "-x") == 0)
+		{
+			argv++; argc--;
+			executable = *argv;
+		}
+		else if(strcmp(*argv, "-l") == 0)
+		{
+			loop = 1;
+		}
+		else if(strcmp(*argv, "-v") == 0)
+		{
+			verbose = 1;
+		}
+		else
+		{
+			usage(1);
+		}
+		
+		argv++; argc--;
 	}
 
 	fp1 = fopen(stage1, "rb");
@@ -108,9 +163,9 @@ int main(int argc, char *argv[])
 
 	libusb_set_debug(ctx, 0);
 
-	while (1)
+	do
 	{
-		FILE *fp, *fp_img = NULL;
+		FILE *fp_img = NULL;
 		struct libusb_device_descriptor desc;
 
 		printf("Waiting for BCM2835 ...\n");
@@ -119,17 +174,26 @@ int main(int argc, char *argv[])
 		do
 		{
 			result = Initialize_Device(&ctx, &usb_device);
-			if (result)
+			if(result == 0)
 			{
-				sleep(1);
+				libusb_get_device_descriptor(libusb_get_device
+								 (usb_device), &desc);
+				// Make sure we've re-enumerated since the last time
+				if(desc.iSerialNumber == last_serial)
+				{
+					result = -1;
+					libusb_close(usb_device);
+				}			
 			}
 
+			if (result)
+			{
+				usleep(100);
+			}
 		}
 		while (result);
 
-		ret =
-		    libusb_get_device_descriptor(libusb_get_device
-							 (usb_device), &desc);
+		last_serial = desc.iSerialNumber;
 		printf("Found serial = %d: writing file %s\n",
 		       desc.iSerialNumber,
 		       desc.iSerialNumber == 0 ? stage1 : stage2);
@@ -139,20 +203,18 @@ int main(int argc, char *argv[])
 		message.length = ftell(fp);
 		fseek(fp, 0, SEEK_SET);
 
-		printf("Writing %d bytes of program data\n", message.length);
-
-		if(desc.iSerialNumber == 1 && argc == 4)
+		if(desc.iSerialNumber == 1 && fatimage != NULL)
 		{
 			// Been given a filesystem image
-			fp_img = fopen(argv[3], "rb");
+			fp_img = fopen(fatimage, "rb");
 			if(fp_img == NULL)
 			{
-				printf("Failed to open image %s\n", argv[3]);
+				printf("Failed to open image %s\n", fatimage);
 				exit(-1);
 			}
 			fseek(fp_img, 0, SEEK_END);
 			message.length += ftell(fp_img);
-			printf("Adding %d bytes of binary to end of elf\n", ftell(fp_img));
+			if(verbose) printf("Adding %d bytes of binary to end of elf\n", ftell(fp_img));
 			fseek(fp_img, 0, SEEK_SET);
 		}
 
@@ -178,7 +240,7 @@ int main(int argc, char *argv[])
 			       size);
 			exit(-1);
 		}
-
+		if(verbose) printf("Writing %d bytes\n", message.length);
 		size = ep_write(txbuf, message.length, usb_device);
 		if (size != message.length)
 		{
@@ -187,27 +249,25 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 
-		sleep(1);
-
 		size =
 		    ep_read((unsigned char *)&retcode, sizeof(retcode),
 			    usb_device);
 
 		if (retcode == 0)
 		{
-			printf("Successful\n");
-			if(fp==fp2)
+			if(verbose) printf("Successful\n");
+
+			if(fp == fp2 && executable)
 			{
-				printf("Raspberry Pi is now a mass storage device, use lsblk to find it\n");
-				exit(0);
+				system(executable);
 			}
 		}
 		else
 			printf("Failed : 0x%x", retcode);
 
-		sleep(1);
 		libusb_close(usb_device);
 	}
+	while(fp == fp1 || loop);
 
 	libusb_exit(ctx);
 

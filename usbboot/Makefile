@@ -6,6 +6,7 @@ install: rpiboot
 	mkdir -p /usr/share/rpiboot
 	cp usbbootcode.bin /usr/share/rpiboot
 	cp msd.elf /usr/share/rpiboot
+	cp buildroot.elf /usr/share/rpiboot
 
 clean: 
 	rm rpiboot
