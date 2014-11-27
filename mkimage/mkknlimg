@@ -1,0 +1,156 @@
+#!/usr/bin/env perl
+
+use strict;
+use integer;
+
+my $trailer_magic = 'RPTL';
+
+my $tmpfile1 = "/tmp/mkknlimg_$$.1";
+my $tmpfile2 = "/tmp/mkknlimg_$$.2";
+
+if (@ARGV != 2)
+{
+	print ("Usage: mkknlimg <vmlinux|zImage|bzImage> <outfile>\n");
+	exit(1);
+}
+
+my $kernel_file = $ARGV[0];
+my $out_file = $ARGV[1];
+
+my @wanted_config_lines =
+(
+	'CONFIG_BCM2708_DT'
+);
+
+my $res = try_extract($kernel_file, $tmpfile1);
+
+$res = try_decompress('\037\213\010', 'xy',    'gunzip',
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+$res = try_decompress('\3757zXZ\000', 'abcde', 'unxz',
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+$res = try_decompress('BZh',          'xy',    'bunzip2',
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+$res = try_decompress('\135\0\0\0',   'xxx',   'unlzma',
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+$res = try_decompress('\211\114\132', 'xy',    'lzop -d',
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+exit(1) if (!$res);
+
+my @atoms;
+
+print("Version: $res->{''}\n");
+print("DT: $res->{'CONFIG_BCM2708_DT'}\n");
+
+push @atoms, [ 'RPTL', pack('V', 0) ];
+push @atoms, [ 'KVer', $res->{''} ];
+push @atoms, [ 'DTOK', pack('V', config_set($res, 'CONFIG_BCM2708_DT')) ];
+
+my $trailer = pack_trailer(\@atoms);
+$atoms[0]->[1] = pack('V', length($trailer));
+
+$trailer = pack_trailer(\@atoms);
+
+die "* Failed to open '$kernel_file'\n" if (!open(my $ifh, '<', $kernel_file));
+die "* Failed to create '$out_file'\n" if (!open(my $ofh, '>', $out_file));
+
+my $copybuf;
+my $total_len = 0;
+while (1)
+{
+    my $bytes = sysread($ifh, $copybuf, 64*1024);
+    last if (!$bytes);
+    syswrite($ofh, $copybuf, $bytes);
+    $total_len += $bytes;
+}
+
+# Pad to word-alignment
+syswrite($ofh, "\x000\x000\x000", (-$total_len & 0x3));
+syswrite($ofh, $trailer);
+close($ifh);
+close($ofh);
+
+exit(0);
+
+END {
+    unlink($tmpfile1) if ($tmpfile1);
+    unlink($tmpfile2) if ($tmpfile2);
+}
+
+sub try_extract
+{
+	my ($knl, $tmp) = @_;
+
+	my $config_pattern = '^('.join('|', @wanted_config_lines).')=(.*)$';
+
+	my $cf1 = 'IKCFG_ST\037\213\010';
+	my $cf2 = '0123456789';
+	my $res;
+
+	my $pos = `tr "$cf1\n$cf2" "\n$cf2=" < "$knl" | grep -abo "^$cf2"`;
+	if ($pos)
+	{
+		$pos =~ s/:.*[\r\n]*$//;
+		$pos += 8;
+		my $err = (system("tail -c+$pos \"$knl\" | zcat > $tmp 2> /dev/null") >> 8);
+		return undef if (($err != 0) && ($err != 2));
+
+		my $ver = `strings "$knl" | grep -a "^Linux version"`;
+		chomp($ver);
+		return undef if (!$ver);
+
+		$res = { ''=>$ver };
+
+		if (open(my $fh, '<', $tmp))
+		{
+			while (my $line = <$fh>)
+			{
+				chomp($line);
+				if ($line =~ /$config_pattern/)
+				{
+					$res->{$1} = $2;
+				}
+			}
+
+			close($fh);
+		}
+	}
+
+	return $res;
+}
+
+
+sub try_decompress
+{
+	my ($magic, $subst, $zcat, $knl, $tmp1, $tmp2) = @_;
+
+	my $pos = `tr "$magic\n$subst" "\n$subst=" < "$knl" | grep -abo "^$subst"`;
+	if ($pos)
+	{
+		$pos =~ s/:.*[\r\n]*$//;
+		my $cmd = "tail -c+$pos \"$knl\" | $zcat > $tmp2 2> /dev/null";
+		my $err = (system($cmd) >> 8);
+		return undef if (($err != 0) && ($err != 2));
+
+		return try_extract($tmp2, $tmp1);
+	}
+
+	return undef;
+}
+
+sub pack_trailer
+{
+	my ($atoms) = @_;
+	my $trailer = pack('VV', 0, 0);
+	for (my $i = $#$atoms; $i>=0; $i--)
+	{
+		my $atom = $atoms->[$i];
+		$trailer .= pack('a*x!4Va4', $atom->[1], length($atom->[1]), $atom->[0]);
+	}
+	return $trailer;
+}
+
+sub config_set
+{
+    my ($configs, $wanted) = @_;
+    return ($configs->{$wanted} eq 'y');
+}
