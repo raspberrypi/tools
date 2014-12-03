@@ -8,11 +8,23 @@ my $trailer_magic = 'RPTL';
 my $tmpfile1 = "/tmp/mkknlimg_$$.1";
 my $tmpfile2 = "/tmp/mkknlimg_$$.2";
 
-if (@ARGV != 2)
+my $dtok = 0;
+
+while ($ARGV[0] =~ /^-/)
 {
-	print ("Usage: mkknlimg <vmlinux|zImage|bzImage> <outfile>\n");
-	exit(1);
+    my $arg = shift(@ARGV);
+    if ($arg eq '--dtok')
+    {
+	$dtok = 1;
+    }
+    else
+    {
+	print ("* unknown option '$arg'\n");
+	usage();
+    }
 }
+
+usage() if (@ARGV != 2);
 
 my $kernel_file = $ARGV[0];
 my $out_file = $ARGV[1];
@@ -20,6 +32,13 @@ my $out_file = $ARGV[1];
 my @wanted_config_lines =
 (
 	'CONFIG_BCM2708_DT'
+);
+
+my @wanted_strings =
+(
+	'brcm,bcm2708',
+	'brcm,bcm2708-pinctrl',
+	'of_find_property'
 );
 
 my $res = try_extract($kernel_file, $tmpfile1);
@@ -39,11 +58,24 @@ exit(1) if (!$res);
 my @atoms;
 
 print("Version: $res->{''}\n");
-print("DT: $res->{'CONFIG_BCM2708_DT'}\n");
 
-push @atoms, [ 'RPTL', pack('V', 0) ];
+if (!$dtok)
+{
+    if (!config_bool($res, 'brcm,bcm2708'))
+    {
+	print ("* this doesn't look like a Raspberry Pi kernel\n");
+	exit(1);
+    }
+
+    $dtok ||= config_bool($res, 'CONFIG_BCM2708_DT');
+    $dtok ||= config_bool($res, 'brcm,bcm2708-pinctrl');
+}
+
+printf("DT: %s\n", $dtok ? "y" : "n");
+
+push @atoms, [ $trailer_magic, pack('V', 0) ];
 push @atoms, [ 'KVer', $res->{''} ];
-push @atoms, [ 'DTOK', pack('V', config_set($res, 'CONFIG_BCM2708_DT')) ];
+push @atoms, [ 'DTOK', pack('V', $dtok) ];
 
 my $trailer = pack_trailer(\@atoms);
 $atoms[0]->[1] = pack('V', length($trailer));
@@ -57,10 +89,10 @@ my $copybuf;
 my $total_len = 0;
 while (1)
 {
-    my $bytes = sysread($ifh, $copybuf, 64*1024);
-    last if (!$bytes);
-    syswrite($ofh, $copybuf, $bytes);
-    $total_len += $bytes;
+	my $bytes = sysread($ifh, $copybuf, 64*1024);
+	last if (!$bytes);
+	syswrite($ofh, $copybuf, $bytes);
+	$total_len += $bytes;
 }
 
 # Pad to word-alignment
@@ -72,46 +104,59 @@ close($ofh);
 exit(0);
 
 END {
-    unlink($tmpfile1) if ($tmpfile1);
-    unlink($tmpfile2) if ($tmpfile2);
+	unlink($tmpfile1) if ($tmpfile1);
+	unlink($tmpfile2) if ($tmpfile2);
+}
+
+
+sub usage
+{
+	print ("Usage: mkknlimg [--dtok] <vmlinux|zImage|bzImage> <outfile>\n");
+	exit(1);
 }
 
 sub try_extract
 {
 	my ($knl, $tmp) = @_;
 
-	my $config_pattern = '^('.join('|', @wanted_config_lines).')=(.*)$';
+	my $ver = `strings "$knl" | grep -a "^Linux version"`;
 
+	return undef if (!$ver);
+
+	chomp($ver);
+
+	my $res = { ''=>$ver };
+	my $string_pattern = '^('.join('|', @wanted_strings).')$';
+
+	my @matches = `strings \"$knl\" | grep -E \"$string_pattern\"`;
+	foreach my $match (@matches)
+	{
+	    chomp($match);
+	    $res->{$match} = 1;
+	}
+
+	my $config_pattern = '^('.join('|', @wanted_config_lines).')=(.*)$';
 	my $cf1 = 'IKCFG_ST\037\213\010';
 	my $cf2 = '0123456789';
-	my $res;
 
 	my $pos = `tr "$cf1\n$cf2" "\n$cf2=" < "$knl" | grep -abo "^$cf2"`;
 	if ($pos)
 	{
-		$pos =~ s/:.*[\r\n]*$//;
+		$pos =~ s/:.*[\r\n]*$//s;
 		$pos += 8;
 		my $err = (system("tail -c+$pos \"$knl\" | zcat > $tmp 2> /dev/null") >> 8);
-		return undef if (($err != 0) && ($err != 2));
-
-		my $ver = `strings "$knl" | grep -a "^Linux version"`;
-		chomp($ver);
-		return undef if (!$ver);
-
-		$res = { ''=>$ver };
-
-		if (open(my $fh, '<', $tmp))
+		if (($err == 0) || ($err == 2))
 		{
-			while (my $line = <$fh>)
+			if (open(my $fh, '<', $tmp))
 			{
-				chomp($line);
-				if ($line =~ /$config_pattern/)
+				while (my $line = <$fh>)
 				{
-					$res->{$1} = $2;
+					chomp($line);
+					$res->{$1} = $2 if ($line =~ /$config_pattern/);
 				}
-			}
 
-			close($fh);
+				close($fh);
+			}
 		}
 	}
 
@@ -126,7 +171,7 @@ sub try_decompress
 	my $pos = `tr "$magic\n$subst" "\n$subst=" < "$knl" | grep -abo "^$subst"`;
 	if ($pos)
 	{
-		$pos =~ s/:.*[\r\n]*$//;
+		$pos =~ s/:.*[\r\n]*$//s;
 		my $cmd = "tail -c+$pos \"$knl\" | $zcat > $tmp2 2> /dev/null";
 		my $err = (system($cmd) >> 8);
 		return undef if (($err != 0) && ($err != 2));
@@ -149,8 +194,8 @@ sub pack_trailer
 	return $trailer;
 }
 
-sub config_set
+sub config_bool
 {
-    my ($configs, $wanted) = @_;
-    return ($configs->{$wanted} eq 'y');
+	my ($configs, $wanted) = @_;
+	return (($configs->{$wanted} eq 'y') || ($configs->{$wanted} eq '1'));
 }
