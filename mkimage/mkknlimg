@@ -45,7 +45,7 @@ my $res = try_extract($kernel_file, $tmpfile1);
 
 $res = try_decompress('\037\213\010', 'xy',    'gunzip',
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
-$res = try_decompress('\3757zXZ\000', 'abcde', 'unxz',
+$res = try_decompress('\3757zXZ\000', 'abcde', 'unxz --single-stream',
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
 $res = try_decompress('BZh',          'xy',    'bunzip2',
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
@@ -168,7 +168,7 @@ sub try_decompress
 {
 	my ($magic, $subst, $zcat, $knl, $tmp1, $tmp2) = @_;
 
-	my $pos = `tr "$magic\n$subst" "\n$subst=" < "$knl" | grep -abo "^$subst"`;
+	my $pos = `tr "$magic\n$subst" "\n$subst=" < "$knl" | grep -abo "^$subst" |tail -n 1`;
 	if ($pos)
 	{
 		$pos =~ s/:.*[\r\n]*$//s;
