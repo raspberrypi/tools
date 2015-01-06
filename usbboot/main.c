@@ -96,6 +96,14 @@ int main(int argc, char *argv[])
 		int length;
 		unsigned char signature[20];
 	} message;
+	
+	//exit if not run as sudo
+	int user = getuid();
+	if(user != 0)
+	{
+		printf("Must be run with sudo...\n");
+		exit(-1);
+	}
 
 	// Skip the command name
 	argv++; argc--;
