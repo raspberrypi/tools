@@ -62,6 +62,7 @@ if ($res)
 {
     print("Version: $res->{''}\n");
 
+    $append_trailer = $dtok;
     if (!$dtok)
     {
 	if (config_bool($res, 'bcm2708_fb'))
