@@ -29,6 +29,12 @@ usage() if (@ARGV != 2);
 my $kernel_file = $ARGV[0];
 my $out_file = $ARGV[1];
 
+if (! -r $kernel_file)
+{
+    print ("* File '$kernel_file' not found\n");
+    usage();
+}
+
 my @wanted_config_lines =
 (
 	'CONFIG_BCM2708_DT'
@@ -43,7 +49,6 @@ my @wanted_strings =
 );
 
 my $res = try_extract($kernel_file, $tmpfile1);
-
 $res = try_decompress('\037\213\010', 'xy',    'gunzip', 0,
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
 $res = try_decompress('\3757zXZ\000', 'abcde', 'unxz --single-stream', -1,
@@ -54,9 +59,13 @@ $res = try_decompress('\135\0\0\0',   'xxx',   'unlzma', 0,
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
 $res = try_decompress('\211\114\132', 'xy',    'lzop -d', 0,
 		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
+$res = try_decompress('\002\041\114\030', 'xy',    'lz4 -d', 1,
+		      $kernel_file, $tmpfile1, $tmpfile2) if (!$res);
 
 my $append_trailer;
 my $trailer;
+
+$append_trailer = $dtok;
 
 if ($res)
 {
@@ -78,7 +87,7 @@ if ($res)
 	}
     }
 }
-else
+elsif (!$dtok)
 {
     print ("* Is this a valid kernel? In pass-through mode.\n");
 }
@@ -99,17 +108,31 @@ if ($append_trailer)
     $trailer = pack_trailer(\@atoms);
 }
 
-die "* Failed to open '$kernel_file'\n" if (!open(my $ifh, '<', $kernel_file));
-die "* Failed to create '$out_file'\n" if (!open(my $ofh, '>', $out_file));
-
-my $copybuf;
+my $ofh;
 my $total_len = 0;
-while (1)
+
+if ($out_file eq $kernel_file)
 {
+    die "* Failed to open '$out_file' for append\n"
+	if (!open($ofh, '>>', $out_file));
+    $total_len = tell($ofh);
+}
+else
+{
+    die "* Failed to open '$kernel_file'\n"
+	if (!open(my $ifh, '<', $kernel_file));
+    die "* Failed to create '$out_file'\n"
+	if (!open($ofh, '>', $out_file));
+
+    my $copybuf;
+    while (1)
+    {
 	my $bytes = sysread($ifh, $copybuf, 64*1024);
 	last if (!$bytes);
 	syswrite($ofh, $copybuf, $bytes);
 	$total_len += $bytes;
+    }
+    close($ifh);
 }
 
 if ($trailer)
@@ -119,7 +142,6 @@ if ($trailer)
     syswrite($ofh, $trailer);
 }
 
-close($ifh);
 close($ofh);
 
 exit($trailer ? 0 : 1);
