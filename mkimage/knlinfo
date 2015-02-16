@@ -1,4 +1,11 @@
 #!/usr/bin/env perl
+# ----------------------------------------------------------------------
+# knlinfo by Phil Elwell for Raspberry Pi
+#
+# (c) 2014,2015 Raspberry Pi (Trading) Limited <info@raspberrypi.org>
+#
+# Licensed under the terms of the GNU General Public License.
+# ----------------------------------------------------------------------
 
 use strict;
 use integer;

@@ -1,4 +1,13 @@
 #!/usr/bin/env perl
+# ----------------------------------------------------------------------
+# mkknlimg by Phil Elwell for Raspberry Pi
+# based on extract-ikconfig Dick Streefland
+#
+# (c) 2009,2010 Dick Streefland <dick@streefland.net>
+# (c) 2014,2015 Raspberry Pi (Trading) Limited <info@raspberrypi.org>
+#
+# Licensed under the terms of the GNU General Public License.
+# ----------------------------------------------------------------------
 
 use strict;
 use integer;
