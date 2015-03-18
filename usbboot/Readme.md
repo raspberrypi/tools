@@ -53,5 +53,5 @@ Note: you'll need superuser password to finish the build and create the image
 Running
 
 ```
-sudo rpiboot tools/usbboot/usbbootcode.bin tools/usbboot/buildroot.elf buildroot/output/images/fatimage
+sudo rpiboot -b buildroot/output/images/fatimage
 ```
