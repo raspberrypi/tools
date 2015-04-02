@@ -240,7 +240,7 @@ int main(int argc, char *argv[])
 			}
 			fseek(fp_img, 0, SEEK_END);
 			message.length += ftell(fp_img);
-			if(verbose) printf("Adding %d bytes of binary to end of elf\n", ftell(fp_img));
+			if(verbose) printf("Adding %ld bytes of binary to end of elf\n", ftell(fp_img));
 			fseek(fp_img, 0, SEEK_SET);
 		}
 
