@@ -84,26 +84,44 @@ int main(int argc, char *argv[])
 	int retcode;
 	int last_serial = -1;
 	FILE *fp1, *fp2, *fp;
-	char def1[] = "/usr/share/rpiboot/usbbootcode.bin";
-	char def2[] = "/usr/share/rpiboot/msd.elf";
-	char def3[] = "/usr/share/rpiboot/buildroot.elf";
 
-	char *stage1   = def1, *stage2     = def2;
+	char def1_inst[] = "/usr/share/rpiboot/usbbootcode.bin";
+	char def2_inst[] = "/usr/share/rpiboot/msd.elf";
+	char def3_inst[] = "/usr/share/rpiboot/buildroot.elf";
+
+	char def1_loc[] = "./usbbootcode.bin";
+	char def2_loc[] = "./msd.elf";
+	char def3_loc[] = "./buildroot.elf";
+
+	char *def1, *def2, *def3;
+
+	char *stage1   = NULL, *stage2     = NULL;
 	char *fatimage = NULL, *executable = NULL;
 	int loop       = 0;
+
+// if local file version exists use it else use installed
+	if( access( def1_loc, F_OK ) != -1 ) { def1 = def1_loc; } else { def1 = def1_inst; }
+	if( access( def2_loc, F_OK ) != -1 ) { def2 = def2_loc; } else { def2 = def2_inst; }
+	if( access( def3_loc, F_OK ) != -1 ) { def3 = def3_loc; } else { def3 = def3_inst; }
+
+	stage1   = def1;
+	stage2   = def2;
 
 	struct MESSAGE_S {
 		int length;
 		unsigned char signature[20];
 	} message;
 	
+#if defined (__CYGWIN__)
+  //printf("Running under Cygwin\n");
+#else
 	//exit if not run as sudo
-	int user = getuid();
-	if(user != 0)
+	if(getuid() != 0)
 	{
 		printf("Must be run with sudo...\n");
 		exit(-1);
 	}
+#endif
 
 	// Skip the command name
 	argv++; argc--;
