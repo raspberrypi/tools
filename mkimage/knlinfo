@@ -22,7 +22,7 @@ my %atom_formats =
 
 if (@ARGV != 1)
 {
-	print ("Usage: knlinfo <vmlinux|zImage|bzImage>\n");
+	print ("Usage: knlinfo <kernel image>\n");
 	exit(1);
 }
 
