@@ -16,8 +16,10 @@ my $trailer_magic = 'RPTL';
 
 my %atom_formats =
 (
+    'DDTK' => \&format_bool,
     'DTOK' => \&format_bool,
     'KVer' => \&format_string,
+    '283x' => \&format_bool,
 );
 
 if (@ARGV != 1)
@@ -145,7 +147,7 @@ sub format_atom
 sub format_bool
 {
     my ($data) = @_;
-    return unpack('V', $data) ? 'true' : 'false';
+    return unpack('V', $data) ? 'y' : 'n';
 }
 
 sub format_int
