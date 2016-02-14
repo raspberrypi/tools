@@ -1,0 +1,3723 @@
+This is libc.info, produced by makeinfo version 5.2 from libc.texinfo.
+
+This file documents the GNU C Library.
+
+   This is 'The GNU C Library Reference Manual', for version
+2.19-2014.08-1-git (EGLIBC).
+
+   Copyright (C) 1993-2014 Free Software Foundation, Inc.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Free Software Needs Free Documentation" and
+"GNU Lesser General Public License", the Front-Cover texts being "A GNU
+Manual", and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License".
+
+   (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual.  Buying copies from the FSF supports it in
+developing GNU and promoting software freedom."
+INFO-DIR-SECTION Software libraries
+START-INFO-DIR-ENTRY
+* Libc: (libc).                 C library.
+END-INFO-DIR-ENTRY
+
+INFO-DIR-SECTION GNU C library functions and macros
+START-INFO-DIR-ENTRY
+* a64l: (libc)Encode Binary Data.
+* abort: (libc)Aborting a Program.
+* abs: (libc)Absolute Value.
+* accept: (libc)Accepting Connections.
+* access: (libc)Testing File Access.
+* acosf: (libc)Inverse Trig Functions.
+* acoshf: (libc)Hyperbolic Functions.
+* acosh: (libc)Hyperbolic Functions.
+* acoshl: (libc)Hyperbolic Functions.
+* acos: (libc)Inverse Trig Functions.
+* acosl: (libc)Inverse Trig Functions.
+* addmntent: (libc)mtab.
+* addseverity: (libc)Adding Severity Classes.
+* adjtime: (libc)High-Resolution Calendar.
+* adjtimex: (libc)High-Resolution Calendar.
+* aio_cancel64: (libc)Cancel AIO Operations.
+* aio_cancel: (libc)Cancel AIO Operations.
+* aio_error64: (libc)Status of AIO Operations.
+* aio_error: (libc)Status of AIO Operations.
+* aio_fsync64: (libc)Synchronizing AIO Operations.
+* aio_fsync: (libc)Synchronizing AIO Operations.
+* aio_init: (libc)Configuration of AIO.
+* aio_read64: (libc)Asynchronous Reads/Writes.
+* aio_read: (libc)Asynchronous Reads/Writes.
+* aio_return64: (libc)Status of AIO Operations.
+* aio_return: (libc)Status of AIO Operations.
+* aio_suspend64: (libc)Synchronizing AIO Operations.
+* aio_suspend: (libc)Synchronizing AIO Operations.
+* aio_write64: (libc)Asynchronous Reads/Writes.
+* aio_write: (libc)Asynchronous Reads/Writes.
+* alarm: (libc)Setting an Alarm.
+* aligned_alloc: (libc)Aligned Memory Blocks.
+* alloca: (libc)Variable Size Automatic.
+* alphasort64: (libc)Scanning Directory Content.
+* alphasort: (libc)Scanning Directory Content.
+* ALTWERASE: (libc)Local Modes.
+* ARG_MAX: (libc)General Limits.
+* argp_error: (libc)Argp Helper Functions.
+* ARGP_ERR_UNKNOWN: (libc)Argp Parser Functions.
+* argp_failure: (libc)Argp Helper Functions.
+* argp_help: (libc)Argp Help.
+* argp_parse: (libc)Argp.
+* argp_state_help: (libc)Argp Helper Functions.
+* argp_usage: (libc)Argp Helper Functions.
+* argz_add: (libc)Argz Functions.
+* argz_add_sep: (libc)Argz Functions.
+* argz_append: (libc)Argz Functions.
+* argz_count: (libc)Argz Functions.
+* argz_create: (libc)Argz Functions.
+* argz_create_sep: (libc)Argz Functions.
+* argz_delete: (libc)Argz Functions.
+* argz_extract: (libc)Argz Functions.
+* argz_insert: (libc)Argz Functions.
+* argz_next: (libc)Argz Functions.
+* argz_replace: (libc)Argz Functions.
+* argz_stringify: (libc)Argz Functions.
+* asctime: (libc)Formatting Calendar Time.
+* asctime_r: (libc)Formatting Calendar Time.
+* asinf: (libc)Inverse Trig Functions.
+* asinhf: (libc)Hyperbolic Functions.
+* asinh: (libc)Hyperbolic Functions.
+* asinhl: (libc)Hyperbolic Functions.
+* asin: (libc)Inverse Trig Functions.
+* asinl: (libc)Inverse Trig Functions.
+* asprintf: (libc)Dynamic Output.
+* assert: (libc)Consistency Checking.
+* assert_perror: (libc)Consistency Checking.
+* atan2f: (libc)Inverse Trig Functions.
+* atan2: (libc)Inverse Trig Functions.
+* atan2l: (libc)Inverse Trig Functions.
+* atanf: (libc)Inverse Trig Functions.
+* atanhf: (libc)Hyperbolic Functions.
+* atanh: (libc)Hyperbolic Functions.
+* atanhl: (libc)Hyperbolic Functions.
+* atan: (libc)Inverse Trig Functions.
+* atanl: (libc)Inverse Trig Functions.
+* atexit: (libc)Cleanups on Exit.
+* atof: (libc)Parsing of Floats.
+* atoi: (libc)Parsing of Integers.
+* atol: (libc)Parsing of Integers.
+* atoll: (libc)Parsing of Integers.
+* backtrace: (libc)Backtraces.
+* backtrace_symbols_fd: (libc)Backtraces.
+* backtrace_symbols: (libc)Backtraces.
+* basename: (libc)Finding Tokens in a String.
+* basename: (libc)Finding Tokens in a String.
+* BC_BASE_MAX: (libc)Utility Limits.
+* BC_DIM_MAX: (libc)Utility Limits.
+* bcmp: (libc)String/Array Comparison.
+* bcopy: (libc)Copying and Concatenation.
+* BC_SCALE_MAX: (libc)Utility Limits.
+* BC_STRING_MAX: (libc)Utility Limits.
+* bind: (libc)Setting Address.
+* bind_textdomain_codeset: (libc)Charset conversion in gettext.
+* bindtextdomain: (libc)Locating gettext catalog.
+* BRKINT: (libc)Input Modes.
+* brk: (libc)Resizing the Data Segment.
+* bsearch: (libc)Array Search Function.
+* btowc: (libc)Converting a Character.
+* BUFSIZ: (libc)Controlling Buffering.
+* bzero: (libc)Copying and Concatenation.
+* cabsf: (libc)Absolute Value.
+* cabs: (libc)Absolute Value.
+* cabsl: (libc)Absolute Value.
+* cacosf: (libc)Inverse Trig Functions.
+* cacoshf: (libc)Hyperbolic Functions.
+* cacosh: (libc)Hyperbolic Functions.
+* cacoshl: (libc)Hyperbolic Functions.
+* cacos: (libc)Inverse Trig Functions.
+* cacosl: (libc)Inverse Trig Functions.
+* calloc: (libc)Allocating Cleared Space.
+* canonicalize_file_name: (libc)Symbolic Links.
+* cargf: (libc)Operations on Complex.
+* carg: (libc)Operations on Complex.
+* cargl: (libc)Operations on Complex.
+* casinf: (libc)Inverse Trig Functions.
+* casinhf: (libc)Hyperbolic Functions.
+* casinh: (libc)Hyperbolic Functions.
+* casinhl: (libc)Hyperbolic Functions.
+* casin: (libc)Inverse Trig Functions.
+* casinl: (libc)Inverse Trig Functions.
+* catanf: (libc)Inverse Trig Functions.
+* catanhf: (libc)Hyperbolic Functions.
+* catanh: (libc)Hyperbolic Functions.
+* catanhl: (libc)Hyperbolic Functions.
+* catan: (libc)Inverse Trig Functions.
+* catanl: (libc)Inverse Trig Functions.
+* catclose: (libc)The catgets Functions.
+* catgets: (libc)The catgets Functions.
+* catopen: (libc)The catgets Functions.
+* cbc_crypt: (libc)DES Encryption.
+* cbrtf: (libc)Exponents and Logarithms.
+* cbrt: (libc)Exponents and Logarithms.
+* cbrtl: (libc)Exponents and Logarithms.
+* ccosf: (libc)Trig Functions.
+* ccoshf: (libc)Hyperbolic Functions.
+* ccosh: (libc)Hyperbolic Functions.
+* ccoshl: (libc)Hyperbolic Functions.
+* ccos: (libc)Trig Functions.
+* ccosl: (libc)Trig Functions.
+* CCTS_OFLOW: (libc)Control Modes.
+* ceilf: (libc)Rounding Functions.
+* ceil: (libc)Rounding Functions.
+* ceill: (libc)Rounding Functions.
+* cexpf: (libc)Exponents and Logarithms.
+* cexp: (libc)Exponents and Logarithms.
+* cexpl: (libc)Exponents and Logarithms.
+* cfgetispeed: (libc)Line Speed.
+* cfgetospeed: (libc)Line Speed.
+* cfmakeraw: (libc)Noncanonical Input.
+* cfree: (libc)Freeing after Malloc.
+* cfsetispeed: (libc)Line Speed.
+* cfsetospeed: (libc)Line Speed.
+* cfsetspeed: (libc)Line Speed.
+* chdir: (libc)Working Directory.
+* CHILD_MAX: (libc)General Limits.
+* chmod: (libc)Setting Permissions.
+* chown: (libc)File Owner.
+* CIGNORE: (libc)Control Modes.
+* cimagf: (libc)Operations on Complex.
+* cimag: (libc)Operations on Complex.
+* cimagl: (libc)Operations on Complex.
+* clearenv: (libc)Environment Access.
+* clearerr: (libc)Error Recovery.
+* clearerr_unlocked: (libc)Error Recovery.
+* CLK_TCK: (libc)Processor Time.
+* CLOCAL: (libc)Control Modes.
+* clock: (libc)CPU Time.
+* CLOCKS_PER_SEC: (libc)CPU Time.
+* clog10f: (libc)Exponents and Logarithms.
+* clog10: (libc)Exponents and Logarithms.
+* clog10l: (libc)Exponents and Logarithms.
+* clogf: (libc)Exponents and Logarithms.
+* clog: (libc)Exponents and Logarithms.
+* clogl: (libc)Exponents and Logarithms.
+* closedir: (libc)Reading/Closing Directory.
+* close: (libc)Opening and Closing Files.
+* closelog: (libc)closelog.
+* COLL_WEIGHTS_MAX: (libc)Utility Limits.
+* _Complex_I: (libc)Complex Numbers.
+* confstr: (libc)String Parameters.
+* conjf: (libc)Operations on Complex.
+* conj: (libc)Operations on Complex.
+* conjl: (libc)Operations on Complex.
+* connect: (libc)Connecting.
+* copysignf: (libc)FP Bit Twiddling.
+* copysign: (libc)FP Bit Twiddling.
+* copysignl: (libc)FP Bit Twiddling.
+* cosf: (libc)Trig Functions.
+* coshf: (libc)Hyperbolic Functions.
+* cosh: (libc)Hyperbolic Functions.
+* coshl: (libc)Hyperbolic Functions.
+* cos: (libc)Trig Functions.
+* cosl: (libc)Trig Functions.
+* cpowf: (libc)Exponents and Logarithms.
+* cpow: (libc)Exponents and Logarithms.
+* cpowl: (libc)Exponents and Logarithms.
+* cprojf: (libc)Operations on Complex.
+* cproj: (libc)Operations on Complex.
+* cprojl: (libc)Operations on Complex.
+* CPU_CLR: (libc)CPU Affinity.
+* CPU_ISSET: (libc)CPU Affinity.
+* CPU_SET: (libc)CPU Affinity.
+* CPU_SETSIZE: (libc)CPU Affinity.
+* CPU_ZERO: (libc)CPU Affinity.
+* CREAD: (libc)Control Modes.
+* crealf: (libc)Operations on Complex.
+* creal: (libc)Operations on Complex.
+* creall: (libc)Operations on Complex.
+* creat64: (libc)Opening and Closing Files.
+* creat: (libc)Opening and Closing Files.
+* CRTS_IFLOW: (libc)Control Modes.
+* crypt: (libc)crypt.
+* crypt_r: (libc)crypt.
+* CS5: (libc)Control Modes.
+* CS6: (libc)Control Modes.
+* CS7: (libc)Control Modes.
+* CS8: (libc)Control Modes.
+* csinf: (libc)Trig Functions.
+* csinhf: (libc)Hyperbolic Functions.
+* csinh: (libc)Hyperbolic Functions.
+* csinhl: (libc)Hyperbolic Functions.
+* csin: (libc)Trig Functions.
+* csinl: (libc)Trig Functions.
+* CSIZE: (libc)Control Modes.
+* csqrtf: (libc)Exponents and Logarithms.
+* csqrt: (libc)Exponents and Logarithms.
+* csqrtl: (libc)Exponents and Logarithms.
+* CSTOPB: (libc)Control Modes.
+* ctanf: (libc)Trig Functions.
+* ctanhf: (libc)Hyperbolic Functions.
+* ctanh: (libc)Hyperbolic Functions.
+* ctanhl: (libc)Hyperbolic Functions.
+* ctan: (libc)Trig Functions.
+* ctanl: (libc)Trig Functions.
+* ctermid: (libc)Identifying the Terminal.
+* ctime: (libc)Formatting Calendar Time.
+* ctime_r: (libc)Formatting Calendar Time.
+* cuserid: (libc)Who Logged In.
+* dcgettext: (libc)Translation with gettext.
+* dcngettext: (libc)Advanced gettext functions.
+* DES_FAILED: (libc)DES Encryption.
+* des_setparity: (libc)DES Encryption.
+* dgettext: (libc)Translation with gettext.
+* difftime: (libc)Elapsed Time.
+* dirfd: (libc)Opening a Directory.
+* dirname: (libc)Finding Tokens in a String.
+* div: (libc)Integer Division.
+* dngettext: (libc)Advanced gettext functions.
+* drand48: (libc)SVID Random.
+* drand48_r: (libc)SVID Random.
+* dremf: (libc)Remainder Functions.
+* drem: (libc)Remainder Functions.
+* dreml: (libc)Remainder Functions.
+* DTTOIF: (libc)Directory Entries.
+* dup2: (libc)Duplicating Descriptors.
+* dup: (libc)Duplicating Descriptors.
+* E2BIG: (libc)Error Codes.
+* EACCES: (libc)Error Codes.
+* EADDRINUSE: (libc)Error Codes.
+* EADDRNOTAVAIL: (libc)Error Codes.
+* EADV: (libc)Error Codes.
+* EAFNOSUPPORT: (libc)Error Codes.
+* EAGAIN: (libc)Error Codes.
+* EALREADY: (libc)Error Codes.
+* EAUTH: (libc)Error Codes.
+* EBACKGROUND: (libc)Error Codes.
+* EBADE: (libc)Error Codes.
+* EBADFD: (libc)Error Codes.
+* EBADF: (libc)Error Codes.
+* EBADMSG: (libc)Error Codes.
+* EBADR: (libc)Error Codes.
+* EBADRPC: (libc)Error Codes.
+* EBADRQC: (libc)Error Codes.
+* EBADSLT: (libc)Error Codes.
+* EBFONT: (libc)Error Codes.
+* EBUSY: (libc)Error Codes.
+* ECANCELED: (libc)Error Codes.
+* ecb_crypt: (libc)DES Encryption.
+* ECHILD: (libc)Error Codes.
+* ECHOCTL: (libc)Local Modes.
+* ECHOE: (libc)Local Modes.
+* ECHOKE: (libc)Local Modes.
+* ECHOK: (libc)Local Modes.
+* ECHO: (libc)Local Modes.
+* ECHONL: (libc)Local Modes.
+* ECHOPRT: (libc)Local Modes.
+* ECHRNG: (libc)Error Codes.
+* ECOMM: (libc)Error Codes.
+* ECONNABORTED: (libc)Error Codes.
+* ECONNREFUSED: (libc)Error Codes.
+* ECONNRESET: (libc)Error Codes.
+* ecvt: (libc)System V Number Conversion.
+* ecvt_r: (libc)System V Number Conversion.
+* EDEADLK: (libc)Error Codes.
+* EDEADLOCK: (libc)Error Codes.
+* EDESTADDRREQ: (libc)Error Codes.
+* EDIED: (libc)Error Codes.
+* ED: (libc)Error Codes.
+* EDOM: (libc)Error Codes.
+* EDOTDOT: (libc)Error Codes.
+* EDQUOT: (libc)Error Codes.
+* EEXIST: (libc)Error Codes.
+* EFAULT: (libc)Error Codes.
+* EFBIG: (libc)Error Codes.
+* EFTYPE: (libc)Error Codes.
+* EGRATUITOUS: (libc)Error Codes.
+* EGREGIOUS: (libc)Error Codes.
+* EHOSTDOWN: (libc)Error Codes.
+* EHOSTUNREACH: (libc)Error Codes.
+* EHWPOISON: (libc)Error Codes.
+* EIDRM: (libc)Error Codes.
+* EIEIO: (libc)Error Codes.
+* EILSEQ: (libc)Error Codes.
+* EINPROGRESS: (libc)Error Codes.
+* EINTR: (libc)Error Codes.
+* EINVAL: (libc)Error Codes.
+* EIO: (libc)Error Codes.
+* EISCONN: (libc)Error Codes.
+* EISDIR: (libc)Error Codes.
+* EISNAM: (libc)Error Codes.
+* EKEYEXPIRED: (libc)Error Codes.
+* EKEYREJECTED: (libc)Error Codes.
+* EKEYREVOKED: (libc)Error Codes.
+* EL2HLT: (libc)Error Codes.
+* EL2NSYNC: (libc)Error Codes.
+* EL3HLT: (libc)Error Codes.
+* EL3RST: (libc)Error Codes.
+* ELIBACC: (libc)Error Codes.
+* ELIBBAD: (libc)Error Codes.
+* ELIBEXEC: (libc)Error Codes.
+* ELIBMAX: (libc)Error Codes.
+* ELIBSCN: (libc)Error Codes.
+* ELNRNG: (libc)Error Codes.
+* ELOOP: (libc)Error Codes.
+* EMEDIUMTYPE: (libc)Error Codes.
+* EMFILE: (libc)Error Codes.
+* EMLINK: (libc)Error Codes.
+* EMSGSIZE: (libc)Error Codes.
+* EMULTIHOP: (libc)Error Codes.
+* ENAMETOOLONG: (libc)Error Codes.
+* ENAVAIL: (libc)Error Codes.
+* encrypt: (libc)DES Encryption.
+* encrypt_r: (libc)DES Encryption.
+* endfsent: (libc)fstab.
+* endgrent: (libc)Scanning All Groups.
+* endhostent: (libc)Host Names.
+* endmntent: (libc)mtab.
+* endnetent: (libc)Networks Database.
+* endnetgrent: (libc)Lookup Netgroup.
+* endprotoent: (libc)Protocols Database.
+* endpwent: (libc)Scanning All Users.
+* endservent: (libc)Services Database.
+* endutent: (libc)Manipulating the Database.
+* endutxent: (libc)XPG Functions.
+* ENEEDAUTH: (libc)Error Codes.
+* ENETDOWN: (libc)Error Codes.
+* ENETRESET: (libc)Error Codes.
+* ENETUNREACH: (libc)Error Codes.
+* ENFILE: (libc)Error Codes.
+* ENOANO: (libc)Error Codes.
+* ENOBUFS: (libc)Error Codes.
+* ENOCSI: (libc)Error Codes.
+* ENODATA: (libc)Error Codes.
+* ENODEV: (libc)Error Codes.
+* ENOENT: (libc)Error Codes.
+* ENOEXEC: (libc)Error Codes.
+* ENOKEY: (libc)Error Codes.
+* ENOLCK: (libc)Error Codes.
+* ENOLINK: (libc)Error Codes.
+* ENOMEDIUM: (libc)Error Codes.
+* ENOMEM: (libc)Error Codes.
+* ENOMSG: (libc)Error Codes.
+* ENONET: (libc)Error Codes.
+* ENOPKG: (libc)Error Codes.
+* ENOPROTOOPT: (libc)Error Codes.
+* ENOSPC: (libc)Error Codes.
+* ENOSR: (libc)Error Codes.
+* ENOSTR: (libc)Error Codes.
+* ENOSYS: (libc)Error Codes.
+* ENOTBLK: (libc)Error Codes.
+* ENOTCONN: (libc)Error Codes.
+* ENOTDIR: (libc)Error Codes.
+* ENOTEMPTY: (libc)Error Codes.
+* ENOTNAM: (libc)Error Codes.
+* ENOTRECOVERABLE: (libc)Error Codes.
+* ENOTSOCK: (libc)Error Codes.
+* ENOTSUP: (libc)Error Codes.
+* ENOTTY: (libc)Error Codes.
+* ENOTUNIQ: (libc)Error Codes.
+* envz_add: (libc)Envz Functions.
+* envz_entry: (libc)Envz Functions.
+* envz_get: (libc)Envz Functions.
+* envz_merge: (libc)Envz Functions.
+* envz_strip: (libc)Envz Functions.
+* ENXIO: (libc)Error Codes.
+* EOF: (libc)EOF and Errors.
+* EOPNOTSUPP: (libc)Error Codes.
+* EOVERFLOW: (libc)Error Codes.
+* EOWNERDEAD: (libc)Error Codes.
+* EPERM: (libc)Error Codes.
+* EPFNOSUPPORT: (libc)Error Codes.
+* EPIPE: (libc)Error Codes.
+* EPROCLIM: (libc)Error Codes.
+* EPROCUNAVAIL: (libc)Error Codes.
+* EPROGMISMATCH: (libc)Error Codes.
+* EPROGUNAVAIL: (libc)Error Codes.
+* EPROTO: (libc)Error Codes.
+* EPROTONOSUPPORT: (libc)Error Codes.
+* EPROTOTYPE: (libc)Error Codes.
+* EQUIV_CLASS_MAX: (libc)Utility Limits.
+* erand48: (libc)SVID Random.
+* erand48_r: (libc)SVID Random.
+* ERANGE: (libc)Error Codes.
+* EREMCHG: (libc)Error Codes.
+* EREMOTEIO: (libc)Error Codes.
+* EREMOTE: (libc)Error Codes.
+* ERESTART: (libc)Error Codes.
+* erfcf: (libc)Special Functions.
+* erfc: (libc)Special Functions.
+* erfcl: (libc)Special Functions.
+* erff: (libc)Special Functions.
+* ERFKILL: (libc)Error Codes.
+* erf: (libc)Special Functions.
+* erfl: (libc)Special Functions.
+* EROFS: (libc)Error Codes.
+* ERPCMISMATCH: (libc)Error Codes.
+* err: (libc)Error Messages.
+* errno: (libc)Checking for Errors.
+* error_at_line: (libc)Error Messages.
+* error: (libc)Error Messages.
+* errx: (libc)Error Messages.
+* ESHUTDOWN: (libc)Error Codes.
+* ESOCKTNOSUPPORT: (libc)Error Codes.
+* ESPIPE: (libc)Error Codes.
+* ESRCH: (libc)Error Codes.
+* ESRMNT: (libc)Error Codes.
+* ESTALE: (libc)Error Codes.
+* ESTRPIPE: (libc)Error Codes.
+* ETIMEDOUT: (libc)Error Codes.
+* ETIME: (libc)Error Codes.
+* ETOOMANYREFS: (libc)Error Codes.
+* ETXTBSY: (libc)Error Codes.
+* EUCLEAN: (libc)Error Codes.
+* EUNATCH: (libc)Error Codes.
+* EUSERS: (libc)Error Codes.
+* EWOULDBLOCK: (libc)Error Codes.
+* EXDEV: (libc)Error Codes.
+* execle: (libc)Executing a File.
+* execl: (libc)Executing a File.
+* execlp: (libc)Executing a File.
+* execve: (libc)Executing a File.
+* execv: (libc)Executing a File.
+* execvp: (libc)Executing a File.
+* EXFULL: (libc)Error Codes.
+* EXIT_FAILURE: (libc)Exit Status.
+* exit: (libc)Normal Termination.
+* _exit: (libc)Termination Internals.
+* _Exit: (libc)Termination Internals.
+* EXIT_SUCCESS: (libc)Exit Status.
+* exp10f: (libc)Exponents and Logarithms.
+* exp10: (libc)Exponents and Logarithms.
+* exp10l: (libc)Exponents and Logarithms.
+* exp2f: (libc)Exponents and Logarithms.
+* exp2: (libc)Exponents and Logarithms.
+* exp2l: (libc)Exponents and Logarithms.
+* expf: (libc)Exponents and Logarithms.
+* exp: (libc)Exponents and Logarithms.
+* expl: (libc)Exponents and Logarithms.
+* expm1f: (libc)Exponents and Logarithms.
+* expm1: (libc)Exponents and Logarithms.
+* expm1l: (libc)Exponents and Logarithms.
+* EXPR_NEST_MAX: (libc)Utility Limits.
+* fabsf: (libc)Absolute Value.
+* fabs: (libc)Absolute Value.
+* fabsl: (libc)Absolute Value.
+* __fbufsize: (libc)Controlling Buffering.
+* fchdir: (libc)Working Directory.
+* fchmod: (libc)Setting Permissions.
+* fchown: (libc)File Owner.
+* fcloseall: (libc)Closing Streams.
+* fclose: (libc)Closing Streams.
+* fcntl: (libc)Control Operations.
+* fcvt: (libc)System V Number Conversion.
+* fcvt_r: (libc)System V Number Conversion.
+* fdatasync: (libc)Synchronizing I/O.
+* FD_CLOEXEC: (libc)Descriptor Flags.
+* FD_CLR: (libc)Waiting for I/O.
+* fdimf: (libc)Misc FP Arithmetic.
+* fdim: (libc)Misc FP Arithmetic.
+* fdiml: (libc)Misc FP Arithmetic.
+* FD_ISSET: (libc)Waiting for I/O.
+* fdopendir: (libc)Opening a Directory.
+* fdopen: (libc)Descriptors and Streams.
+* FD_SET: (libc)Waiting for I/O.
+* FD_SETSIZE: (libc)Waiting for I/O.
+* F_DUPFD: (libc)Duplicating Descriptors.
+* FD_ZERO: (libc)Waiting for I/O.
+* feclearexcept: (libc)Status bit operations.
+* fedisableexcept: (libc)Control Functions.
+* feenableexcept: (libc)Control Functions.
+* fegetenv: (libc)Control Functions.
+* fegetexceptflag: (libc)Status bit operations.
+* fegetexcept: (libc)Control Functions.
+* fegetround: (libc)Rounding.
+* feholdexcept: (libc)Control Functions.
+* feof: (libc)EOF and Errors.
+* feof_unlocked: (libc)EOF and Errors.
+* feraiseexcept: (libc)Status bit operations.
+* ferror: (libc)EOF and Errors.
+* ferror_unlocked: (libc)EOF and Errors.
+* fesetenv: (libc)Control Functions.
+* fesetexceptflag: (libc)Status bit operations.
+* fesetround: (libc)Rounding.
+* fetestexcept: (libc)Status bit operations.
+* feupdateenv: (libc)Control Functions.
+* fflush: (libc)Flushing Buffers.
+* fflush_unlocked: (libc)Flushing Buffers.
+* fgetc: (libc)Character Input.
+* fgetc_unlocked: (libc)Character Input.
+* F_GETFD: (libc)Descriptor Flags.
+* F_GETFL: (libc)Getting File Status Flags.
+* fgetgrent: (libc)Scanning All Groups.
+* fgetgrent_r: (libc)Scanning All Groups.
+* F_GETLK: (libc)File Locks.
+* F_GETOWN: (libc)Interrupt Input.
+* fgetpos64: (libc)Portable Positioning.
+* fgetpos: (libc)Portable Positioning.
+* fgetpwent: (libc)Scanning All Users.
+* fgetpwent_r: (libc)Scanning All Users.
+* fgets: (libc)Line Input.
+* fgets_unlocked: (libc)Line Input.
+* fgetwc: (libc)Character Input.
+* fgetwc_unlocked: (libc)Character Input.
+* fgetws: (libc)Line Input.
+* fgetws_unlocked: (libc)Line Input.
+* FILENAME_MAX: (libc)Limits for Files.
+* fileno: (libc)Descriptors and Streams.
+* fileno_unlocked: (libc)Descriptors and Streams.
+* finitef: (libc)Floating Point Classes.
+* finite: (libc)Floating Point Classes.
+* finitel: (libc)Floating Point Classes.
+* __flbf: (libc)Controlling Buffering.
+* flockfile: (libc)Streams and Threads.
+* floorf: (libc)Rounding Functions.
+* floor: (libc)Rounding Functions.
+* floorl: (libc)Rounding Functions.
+* _flushlbf: (libc)Flushing Buffers.
+* FLUSHO: (libc)Local Modes.
+* fmaf: (libc)Misc FP Arithmetic.
+* fma: (libc)Misc FP Arithmetic.
+* fmal: (libc)Misc FP Arithmetic.
+* fmaxf: (libc)Misc FP Arithmetic.
+* fmax: (libc)Misc FP Arithmetic.
+* fmaxl: (libc)Misc FP Arithmetic.
+* fmemopen: (libc)String Streams.
+* fminf: (libc)Misc FP Arithmetic.
+* fmin: (libc)Misc FP Arithmetic.
+* fminl: (libc)Misc FP Arithmetic.
+* fmodf: (libc)Remainder Functions.
+* fmod: (libc)Remainder Functions.
+* fmodl: (libc)Remainder Functions.
+* fmtmsg: (libc)Printing Formatted Messages.
+* fnmatch: (libc)Wildcard Matching.
+* F_OK: (libc)Testing File Access.
+* fopen64: (libc)Opening Streams.
+* fopencookie: (libc)Streams and Cookies.
+* fopen: (libc)Opening Streams.
+* FOPEN_MAX: (libc)Opening Streams.
+* fork: (libc)Creating a Process.
+* forkpty: (libc)Pseudo-Terminal Pairs.
+* fpathconf: (libc)Pathconf.
+* fpclassify: (libc)Floating Point Classes.
+* __fpending: (libc)Controlling Buffering.
+* FP_ILOGB0: (libc)Exponents and Logarithms.
+* FP_ILOGBNAN: (libc)Exponents and Logarithms.
+* fprintf: (libc)Formatted Output Functions.
+* __fpurge: (libc)Flushing Buffers.
+* fputc: (libc)Simple Output.
+* fputc_unlocked: (libc)Simple Output.
+* fputs: (libc)Simple Output.
+* fputs_unlocked: (libc)Simple Output.
+* fputwc: (libc)Simple Output.
+* fputwc_unlocked: (libc)Simple Output.
+* fputws: (libc)Simple Output.
+* fputws_unlocked: (libc)Simple Output.
+* __freadable: (libc)Opening Streams.
+* __freading: (libc)Opening Streams.
+* fread: (libc)Block Input/Output.
+* fread_unlocked: (libc)Block Input/Output.
+* free: (libc)Freeing after Malloc.
+* freopen64: (libc)Opening Streams.
+* freopen: (libc)Opening Streams.
+* frexpf: (libc)Normalization Functions.
+* frexp: (libc)Normalization Functions.
+* frexpl: (libc)Normalization Functions.
+* fscanf: (libc)Formatted Input Functions.
+* fseek: (libc)File Positioning.
+* fseeko64: (libc)File Positioning.
+* fseeko: (libc)File Positioning.
+* F_SETFD: (libc)Descriptor Flags.
+* F_SETFL: (libc)Getting File Status Flags.
+* F_SETLK: (libc)File Locks.
+* F_SETLKW: (libc)File Locks.
+* __fsetlocking: (libc)Streams and Threads.
+* F_SETOWN: (libc)Interrupt Input.
+* fsetpos64: (libc)Portable Positioning.
+* fsetpos: (libc)Portable Positioning.
+* fstat64: (libc)Reading Attributes.
+* fstat: (libc)Reading Attributes.
+* fsync: (libc)Synchronizing I/O.
+* ftell: (libc)File Positioning.
+* ftello64: (libc)File Positioning.
+* ftello: (libc)File Positioning.
+* ftruncate64: (libc)File Size.
+* ftruncate: (libc)File Size.
+* ftrylockfile: (libc)Streams and Threads.
+* ftw64: (libc)Working with Directory Trees.
+* ftw: (libc)Working with Directory Trees.
+* funlockfile: (libc)Streams and Threads.
+* futimes: (libc)File Times.
+* fwide: (libc)Streams and I18N.
+* fwprintf: (libc)Formatted Output Functions.
+* __fwritable: (libc)Opening Streams.
+* fwrite: (libc)Block Input/Output.
+* fwrite_unlocked: (libc)Block Input/Output.
+* __fwriting: (libc)Opening Streams.
+* fwscanf: (libc)Formatted Input Functions.
+* gammaf: (libc)Special Functions.
+* gamma: (libc)Special Functions.
+* gammal: (libc)Special Functions.
+* __gconv_end_fct: (libc)glibc iconv Implementation.
+* __gconv_fct: (libc)glibc iconv Implementation.
+* __gconv_init_fct: (libc)glibc iconv Implementation.
+* gcvt: (libc)System V Number Conversion.
+* getauxval: (libc)Auxiliary Vector.
+* get_avphys_pages: (libc)Query Memory Parameters.
+* getchar: (libc)Character Input.
+* getchar_unlocked: (libc)Character Input.
+* getc: (libc)Character Input.
+* getcontext: (libc)System V contexts.
+* getc_unlocked: (libc)Character Input.
+* get_current_dir_name: (libc)Working Directory.
+* getcwd: (libc)Working Directory.
+* getdate: (libc)General Time String Parsing.
+* getdate_r: (libc)General Time String Parsing.
+* getdelim: (libc)Line Input.
+* getdomainnname: (libc)Host Identification.
+* getegid: (libc)Reading Persona.
+* getenv: (libc)Environment Access.
+* geteuid: (libc)Reading Persona.
+* getfsent: (libc)fstab.
+* getfsfile: (libc)fstab.
+* getfsspec: (libc)fstab.
+* getgid: (libc)Reading Persona.
+* getgrent: (libc)Scanning All Groups.
+* getgrent_r: (libc)Scanning All Groups.
+* getgrgid: (libc)Lookup Group.
+* getgrgid_r: (libc)Lookup Group.
+* getgrnam: (libc)Lookup Group.
+* getgrnam_r: (libc)Lookup Group.
+* getgrouplist: (libc)Setting Groups.
+* getgroups: (libc)Reading Persona.
+* gethostbyaddr: (libc)Host Names.
+* gethostbyaddr_r: (libc)Host Names.
+* gethostbyname2: (libc)Host Names.
+* gethostbyname2_r: (libc)Host Names.
+* gethostbyname: (libc)Host Names.
+* gethostbyname_r: (libc)Host Names.
+* gethostent: (libc)Host Names.
+* gethostid: (libc)Host Identification.
+* gethostname: (libc)Host Identification.
+* getitimer: (libc)Setting an Alarm.
+* getline: (libc)Line Input.
+* getloadavg: (libc)Processor Resources.
+* getlogin: (libc)Who Logged In.
+* getmntent: (libc)mtab.
+* getmntent_r: (libc)mtab.
+* getnetbyaddr: (libc)Networks Database.
+* getnetbyname: (libc)Networks Database.
+* getnetent: (libc)Networks Database.
+* getnetgrent: (libc)Lookup Netgroup.
+* getnetgrent_r: (libc)Lookup Netgroup.
+* get_nprocs_conf: (libc)Processor Resources.
+* get_nprocs: (libc)Processor Resources.
+* getopt: (libc)Using Getopt.
+* getopt_long: (libc)Getopt Long Options.
+* getopt_long_only: (libc)Getopt Long Options.
+* getpagesize: (libc)Query Memory Parameters.
+* getpass: (libc)getpass.
+* getpeername: (libc)Who is Connected.
+* getpgid: (libc)Process Group Functions.
+* getpgrp: (libc)Process Group Functions.
+* get_phys_pages: (libc)Query Memory Parameters.
+* getpid: (libc)Process Identification.
+* getppid: (libc)Process Identification.
+* getpriority: (libc)Traditional Scheduling Functions.
+* getprotobyname: (libc)Protocols Database.
+* getprotobynumber: (libc)Protocols Database.
+* getprotoent: (libc)Protocols Database.
+* getpt: (libc)Allocation.
+* getpwent: (libc)Scanning All Users.
+* getpwent_r: (libc)Scanning All Users.
+* getpwnam: (libc)Lookup User.
+* getpwnam_r: (libc)Lookup User.
+* getpwuid: (libc)Lookup User.
+* getpwuid_r: (libc)Lookup User.
+* getrlimit64: (libc)Limits on Resources.
+* getrlimit: (libc)Limits on Resources.
+* getrusage: (libc)Resource Usage.
+* getservbyname: (libc)Services Database.
+* getservbyport: (libc)Services Database.
+* getservent: (libc)Services Database.
+* getsid: (libc)Process Group Functions.
+* gets: (libc)Line Input.
+* getsockname: (libc)Reading Address.
+* getsockopt: (libc)Socket Option Functions.
+* getsubopt: (libc)Suboptions.
+* gettext: (libc)Translation with gettext.
+* gettimeofday: (libc)High-Resolution Calendar.
+* getuid: (libc)Reading Persona.
+* getumask: (libc)Setting Permissions.
+* getutent: (libc)Manipulating the Database.
+* getutent_r: (libc)Manipulating the Database.
+* getutid: (libc)Manipulating the Database.
+* getutid_r: (libc)Manipulating the Database.
+* getutline: (libc)Manipulating the Database.
+* getutline_r: (libc)Manipulating the Database.
+* getutmp: (libc)XPG Functions.
+* getutmpx: (libc)XPG Functions.
+* getutxent: (libc)XPG Functions.
+* getutxid: (libc)XPG Functions.
+* getutxline: (libc)XPG Functions.
+* getwchar: (libc)Character Input.
+* getwchar_unlocked: (libc)Character Input.
+* getwc: (libc)Character Input.
+* getwc_unlocked: (libc)Character Input.
+* getwd: (libc)Working Directory.
+* getw: (libc)Character Input.
+* glob64: (libc)Calling Glob.
+* globfree64: (libc)More Flags for Globbing.
+* globfree: (libc)More Flags for Globbing.
+* glob: (libc)Calling Glob.
+* gmtime: (libc)Broken-down Time.
+* gmtime_r: (libc)Broken-down Time.
+* grantpt: (libc)Allocation.
+* gsignal: (libc)Signaling Yourself.
+* gtty: (libc)BSD Terminal Modes.
+* hasmntopt: (libc)mtab.
+* hcreate: (libc)Hash Search Function.
+* hcreate_r: (libc)Hash Search Function.
+* hdestroy: (libc)Hash Search Function.
+* hdestroy_r: (libc)Hash Search Function.
+* hsearch: (libc)Hash Search Function.
+* hsearch_r: (libc)Hash Search Function.
+* htonl: (libc)Byte Order.
+* htons: (libc)Byte Order.
+* HUGE_VALF: (libc)Math Error Reporting.
+* HUGE_VAL: (libc)Math Error Reporting.
+* HUGE_VALL: (libc)Math Error Reporting.
+* HUPCL: (libc)Control Modes.
+* hypotf: (libc)Exponents and Logarithms.
+* hypot: (libc)Exponents and Logarithms.
+* hypotl: (libc)Exponents and Logarithms.
+* ICANON: (libc)Local Modes.
+* iconv_close: (libc)Generic Conversion Interface.
+* iconv: (libc)Generic Conversion Interface.
+* iconv_open: (libc)Generic Conversion Interface.
+* ICRNL: (libc)Input Modes.
+* IEXTEN: (libc)Local Modes.
+* if_freenameindex: (libc)Interface Naming.
+* if_indextoname: (libc)Interface Naming.
+* if_nameindex: (libc)Interface Naming.
+* if_nametoindex: (libc)Interface Naming.
+* IFNAMSIZ: (libc)Interface Naming.
+* IFTODT: (libc)Directory Entries.
+* IGNBRK: (libc)Input Modes.
+* IGNCR: (libc)Input Modes.
+* IGNPAR: (libc)Input Modes.
+* I: (libc)Complex Numbers.
+* ilogbf: (libc)Exponents and Logarithms.
+* ilogb: (libc)Exponents and Logarithms.
+* ilogbl: (libc)Exponents and Logarithms.
+* _Imaginary_I: (libc)Complex Numbers.
+* imaxabs: (libc)Absolute Value.
+* IMAXBEL: (libc)Input Modes.
+* imaxdiv: (libc)Integer Division.
+* in6addr_any: (libc)Host Address Data Type.
+* in6addr_loopback: (libc)Host Address Data Type.
+* INADDR_ANY: (libc)Host Address Data Type.
+* INADDR_BROADCAST: (libc)Host Address Data Type.
+* INADDR_LOOPBACK: (libc)Host Address Data Type.
+* INADDR_NONE: (libc)Host Address Data Type.
+* index: (libc)Search Functions.
+* inet_addr: (libc)Host Address Functions.
+* inet_aton: (libc)Host Address Functions.
+* inet_lnaof: (libc)Host Address Functions.
+* inet_makeaddr: (libc)Host Address Functions.
+* inet_netof: (libc)Host Address Functions.
+* inet_network: (libc)Host Address Functions.
+* inet_ntoa: (libc)Host Address Functions.
+* inet_ntop: (libc)Host Address Functions.
+* inet_pton: (libc)Host Address Functions.
+* INFINITY: (libc)Infinity and NaN.
+* initgroups: (libc)Setting Groups.
+* initstate: (libc)BSD Random.
+* initstate_r: (libc)BSD Random.
+* INLCR: (libc)Input Modes.
+* innetgr: (libc)Netgroup Membership.
+* INPCK: (libc)Input Modes.
+* ioctl: (libc)IOCTLs.
+* _IOFBF: (libc)Controlling Buffering.
+* _IOLBF: (libc)Controlling Buffering.
+* _IONBF: (libc)Controlling Buffering.
+* IPPORT_RESERVED: (libc)Ports.
+* IPPORT_USERRESERVED: (libc)Ports.
+* isalnum: (libc)Classification of Characters.
+* isalpha: (libc)Classification of Characters.
+* isascii: (libc)Classification of Characters.
+* isatty: (libc)Is It a Terminal.
+* isblank: (libc)Classification of Characters.
+* iscntrl: (libc)Classification of Characters.
+* isdigit: (libc)Classification of Characters.
+* isfinite: (libc)Floating Point Classes.
+* isgraph: (libc)Classification of Characters.
+* isgreaterequal: (libc)FP Comparison Functions.
+* isgreater: (libc)FP Comparison Functions.
+* ISIG: (libc)Local Modes.
+* isinff: (libc)Floating Point Classes.
+* isinf: (libc)Floating Point Classes.
+* isinfl: (libc)Floating Point Classes.
+* islessequal: (libc)FP Comparison Functions.
+* islessgreater: (libc)FP Comparison Functions.
+* isless: (libc)FP Comparison Functions.
+* islower: (libc)Classification of Characters.
+* isnanf: (libc)Floating Point Classes.
+* isnan: (libc)Floating Point Classes.
+* isnan: (libc)Floating Point Classes.
+* isnanl: (libc)Floating Point Classes.
+* isnormal: (libc)Floating Point Classes.
+* isprint: (libc)Classification of Characters.
+* ispunct: (libc)Classification of Characters.
+* issignaling: (libc)Floating Point Classes.
+* isspace: (libc)Classification of Characters.
+* ISTRIP: (libc)Input Modes.
+* isunordered: (libc)FP Comparison Functions.
+* isupper: (libc)Classification of Characters.
+* iswalnum: (libc)Classification of Wide Characters.
+* iswalpha: (libc)Classification of Wide Characters.
+* iswblank: (libc)Classification of Wide Characters.
+* iswcntrl: (libc)Classification of Wide Characters.
+* iswctype: (libc)Classification of Wide Characters.
+* iswdigit: (libc)Classification of Wide Characters.
+* iswgraph: (libc)Classification of Wide Characters.
+* iswlower: (libc)Classification of Wide Characters.
+* iswprint: (libc)Classification of Wide Characters.
+* iswpunct: (libc)Classification of Wide Characters.
+* iswspace: (libc)Classification of Wide Characters.
+* iswupper: (libc)Classification of Wide Characters.
+* iswxdigit: (libc)Classification of Wide Characters.
+* isxdigit: (libc)Classification of Characters.
+* IXANY: (libc)Input Modes.
+* IXOFF: (libc)Input Modes.
+* IXON: (libc)Input Modes.
+* j0f: (libc)Special Functions.
+* j0: (libc)Special Functions.
+* j0l: (libc)Special Functions.
+* j1f: (libc)Special Functions.
+* j1: (libc)Special Functions.
+* j1l: (libc)Special Functions.
+* jnf: (libc)Special Functions.
+* jn: (libc)Special Functions.
+* jnl: (libc)Special Functions.
+* jrand48: (libc)SVID Random.
+* jrand48_r: (libc)SVID Random.
+* kill: (libc)Signaling Another Process.
+* killpg: (libc)Signaling Another Process.
+* l64a: (libc)Encode Binary Data.
+* labs: (libc)Absolute Value.
+* lcong48: (libc)SVID Random.
+* lcong48_r: (libc)SVID Random.
+* L_ctermid: (libc)Identifying the Terminal.
+* L_cuserid: (libc)Who Logged In.
+* ldexpf: (libc)Normalization Functions.
+* ldexp: (libc)Normalization Functions.
+* ldexpl: (libc)Normalization Functions.
+* ldiv: (libc)Integer Division.
+* lfind: (libc)Array Search Function.
+* lgammaf: (libc)Special Functions.
+* lgammaf_r: (libc)Special Functions.
+* lgamma: (libc)Special Functions.
+* lgammal: (libc)Special Functions.
+* lgammal_r: (libc)Special Functions.
+* lgamma_r: (libc)Special Functions.
+* LINE_MAX: (libc)Utility Limits.
+* link: (libc)Hard Links.
+* LINK_MAX: (libc)Limits for Files.
+* lio_listio64: (libc)Asynchronous Reads/Writes.
+* lio_listio: (libc)Asynchronous Reads/Writes.
+* listen: (libc)Listening.
+* llabs: (libc)Absolute Value.
+* lldiv: (libc)Integer Division.
+* llrintf: (libc)Rounding Functions.
+* llrint: (libc)Rounding Functions.
+* llrintl: (libc)Rounding Functions.
+* llroundf: (libc)Rounding Functions.
+* llround: (libc)Rounding Functions.
+* llroundl: (libc)Rounding Functions.
+* localeconv: (libc)The Lame Way to Locale Data.
+* localtime: (libc)Broken-down Time.
+* localtime_r: (libc)Broken-down Time.
+* log10f: (libc)Exponents and Logarithms.
+* log10: (libc)Exponents and Logarithms.
+* log10l: (libc)Exponents and Logarithms.
+* log1pf: (libc)Exponents and Logarithms.
+* log1p: (libc)Exponents and Logarithms.
+* log1pl: (libc)Exponents and Logarithms.
+* log2f: (libc)Exponents and Logarithms.
+* log2: (libc)Exponents and Logarithms.
+* log2l: (libc)Exponents and Logarithms.
+* logbf: (libc)Exponents and Logarithms.
+* logb: (libc)Exponents and Logarithms.
+* logbl: (libc)Exponents and Logarithms.
+* logf: (libc)Exponents and Logarithms.
+* login: (libc)Logging In and Out.
+* login_tty: (libc)Logging In and Out.
+* log: (libc)Exponents and Logarithms.
+* logl: (libc)Exponents and Logarithms.
+* logout: (libc)Logging In and Out.
+* logwtmp: (libc)Logging In and Out.
+* longjmp: (libc)Non-Local Details.
+* lrand48: (libc)SVID Random.
+* lrand48_r: (libc)SVID Random.
+* lrintf: (libc)Rounding Functions.
+* lrint: (libc)Rounding Functions.
+* lrintl: (libc)Rounding Functions.
+* lroundf: (libc)Rounding Functions.
+* lround: (libc)Rounding Functions.
+* lroundl: (libc)Rounding Functions.
+* lsearch: (libc)Array Search Function.
+* lseek64: (libc)File Position Primitive.
+* lseek: (libc)File Position Primitive.
+* lstat64: (libc)Reading Attributes.
+* lstat: (libc)Reading Attributes.
+* L_tmpnam: (libc)Temporary Files.
+* lutimes: (libc)File Times.
+* madvise: (libc)Memory-mapped I/O.
+* makecontext: (libc)System V contexts.
+* mallinfo: (libc)Statistics of Malloc.
+* malloc: (libc)Basic Allocation.
+* mallopt: (libc)Malloc Tunable Parameters.
+* MAX_CANON: (libc)Limits for Files.
+* MAX_INPUT: (libc)Limits for Files.
+* MAXNAMLEN: (libc)Limits for Files.
+* MAXSYMLINKS: (libc)Symbolic Links.
+* MB_CUR_MAX: (libc)Selecting the Conversion.
+* mblen: (libc)Non-reentrant Character Conversion.
+* MB_LEN_MAX: (libc)Selecting the Conversion.
+* mbrlen: (libc)Converting a Character.
+* mbrtowc: (libc)Converting a Character.
+* mbsinit: (libc)Keeping the state.
+* mbsnrtowcs: (libc)Converting Strings.
+* mbsrtowcs: (libc)Converting Strings.
+* mbstowcs: (libc)Non-reentrant String Conversion.
+* mbtowc: (libc)Non-reentrant Character Conversion.
+* mcheck: (libc)Heap Consistency Checking.
+* MDMBUF: (libc)Control Modes.
+* memalign: (libc)Aligned Memory Blocks.
+* memccpy: (libc)Copying and Concatenation.
+* memchr: (libc)Search Functions.
+* memcmp: (libc)String/Array Comparison.
+* memcpy: (libc)Copying and Concatenation.
+* memfrob: (libc)Trivial Encryption.
+* memmem: (libc)Search Functions.
+* memmove: (libc)Copying and Concatenation.
+* mempcpy: (libc)Copying and Concatenation.
+* memrchr: (libc)Search Functions.
+* memset: (libc)Copying and Concatenation.
+* mkdir: (libc)Creating Directories.
+* mkdtemp: (libc)Temporary Files.
+* mkfifo: (libc)FIFO Special Files.
+* mknod: (libc)Making Special Files.
+* mkstemp: (libc)Temporary Files.
+* mktemp: (libc)Temporary Files.
+* mktime: (libc)Broken-down Time.
+* mlockall: (libc)Page Lock Functions.
+* mlock: (libc)Page Lock Functions.
+* mmap64: (libc)Memory-mapped I/O.
+* mmap: (libc)Memory-mapped I/O.
+* modff: (libc)Rounding Functions.
+* modf: (libc)Rounding Functions.
+* modfl: (libc)Rounding Functions.
+* mount: (libc)Mount-Unmount-Remount.
+* mprobe: (libc)Heap Consistency Checking.
+* mrand48: (libc)SVID Random.
+* mrand48_r: (libc)SVID Random.
+* mremap: (libc)Memory-mapped I/O.
+* MSG_DONTROUTE: (libc)Socket Data Options.
+* MSG_OOB: (libc)Socket Data Options.
+* MSG_PEEK: (libc)Socket Data Options.
+* msync: (libc)Memory-mapped I/O.
+* mtrace: (libc)Tracing malloc.
+* munlockall: (libc)Page Lock Functions.
+* munlock: (libc)Page Lock Functions.
+* munmap: (libc)Memory-mapped I/O.
+* muntrace: (libc)Tracing malloc.
+* NAME_MAX: (libc)Limits for Files.
+* nanf: (libc)FP Bit Twiddling.
+* nan: (libc)FP Bit Twiddling.
+* NAN: (libc)Infinity and NaN.
+* nanl: (libc)FP Bit Twiddling.
+* nanosleep: (libc)Sleeping.
+* NCCS: (libc)Mode Data Types.
+* nearbyintf: (libc)Rounding Functions.
+* nearbyint: (libc)Rounding Functions.
+* nearbyintl: (libc)Rounding Functions.
+* nextafterf: (libc)FP Bit Twiddling.
+* nextafter: (libc)FP Bit Twiddling.
+* nextafterl: (libc)FP Bit Twiddling.
+* nexttowardf: (libc)FP Bit Twiddling.
+* nexttoward: (libc)FP Bit Twiddling.
+* nexttowardl: (libc)FP Bit Twiddling.
+* nftw64: (libc)Working with Directory Trees.
+* nftw: (libc)Working with Directory Trees.
+* ngettext: (libc)Advanced gettext functions.
+* NGROUPS_MAX: (libc)General Limits.
+* nice: (libc)Traditional Scheduling Functions.
+* nl_langinfo: (libc)The Elegant and Fast Way.
+* NOFLSH: (libc)Local Modes.
+* NOKERNINFO: (libc)Local Modes.
+* nrand48: (libc)SVID Random.
+* nrand48_r: (libc)SVID Random.
+* NSIG: (libc)Standard Signals.
+* ntohl: (libc)Byte Order.
+* ntohs: (libc)Byte Order.
+* ntp_adjtime: (libc)High Accuracy Clock.
+* ntp_gettime: (libc)High Accuracy Clock.
+* NULL: (libc)Null Pointer Constant.
+* O_ACCMODE: (libc)Access Modes.
+* O_APPEND: (libc)Operating Modes.
+* O_ASYNC: (libc)Operating Modes.
+* obstack_1grow_fast: (libc)Extra Fast Growing.
+* obstack_1grow: (libc)Growing Objects.
+* obstack_alignment_mask: (libc)Obstacks Data Alignment.
+* obstack_alloc: (libc)Allocation in an Obstack.
+* obstack_base: (libc)Status of an Obstack.
+* obstack_blank_fast: (libc)Extra Fast Growing.
+* obstack_blank: (libc)Growing Objects.
+* obstack_chunk_size: (libc)Obstack Chunks.
+* obstack_copy0: (libc)Allocation in an Obstack.
+* obstack_copy: (libc)Allocation in an Obstack.
+* obstack_finish: (libc)Growing Objects.
+* obstack_free: (libc)Freeing Obstack Objects.
+* obstack_grow0: (libc)Growing Objects.
+* obstack_grow: (libc)Growing Objects.
+* obstack_init: (libc)Preparing for Obstacks.
+* obstack_int_grow_fast: (libc)Extra Fast Growing.
+* obstack_int_grow: (libc)Growing Objects.
+* obstack_next_free: (libc)Status of an Obstack.
+* obstack_object_size: (libc)Growing Objects.
+* obstack_object_size: (libc)Status of an Obstack.
+* obstack_printf: (libc)Dynamic Output.
+* obstack_ptr_grow_fast: (libc)Extra Fast Growing.
+* obstack_ptr_grow: (libc)Growing Objects.
+* obstack_room: (libc)Extra Fast Growing.
+* obstack_vprintf: (libc)Variable Arguments Output.
+* O_CREAT: (libc)Open-time Flags.
+* O_EXCL: (libc)Open-time Flags.
+* O_EXEC: (libc)Access Modes.
+* O_EXLOCK: (libc)Open-time Flags.
+* offsetof: (libc)Structure Measurement.
+* O_FSYNC: (libc)Operating Modes.
+* O_IGNORE_CTTY: (libc)Open-time Flags.
+* O_NDELAY: (libc)Operating Modes.
+* on_exit: (libc)Cleanups on Exit.
+* ONLCR: (libc)Output Modes.
+* O_NOATIME: (libc)Operating Modes.
+* O_NOCTTY: (libc)Open-time Flags.
+* ONOEOT: (libc)Output Modes.
+* O_NOLINK: (libc)Open-time Flags.
+* O_NONBLOCK: (libc)Open-time Flags.
+* O_NONBLOCK: (libc)Operating Modes.
+* O_NOTRANS: (libc)Open-time Flags.
+* open64: (libc)Opening and Closing Files.
+* opendir: (libc)Opening a Directory.
+* open: (libc)Opening and Closing Files.
+* openlog: (libc)openlog.
+* OPEN_MAX: (libc)General Limits.
+* open_memstream: (libc)String Streams.
+* openpty: (libc)Pseudo-Terminal Pairs.
+* OPOST: (libc)Output Modes.
+* O_RDONLY: (libc)Access Modes.
+* O_RDWR: (libc)Access Modes.
+* O_READ: (libc)Access Modes.
+* O_SHLOCK: (libc)Open-time Flags.
+* O_SYNC: (libc)Operating Modes.
+* O_TRUNC: (libc)Open-time Flags.
+* O_WRITE: (libc)Access Modes.
+* O_WRONLY: (libc)Access Modes.
+* OXTABS: (libc)Output Modes.
+* PA_FLAG_MASK: (libc)Parsing a Template String.
+* PARENB: (libc)Control Modes.
+* PARMRK: (libc)Input Modes.
+* PARODD: (libc)Control Modes.
+* parse_printf_format: (libc)Parsing a Template String.
+* pathconf: (libc)Pathconf.
+* PATH_MAX: (libc)Limits for Files.
+* _PATH_UTMP: (libc)Manipulating the Database.
+* _PATH_WTMP: (libc)Manipulating the Database.
+* pause: (libc)Using Pause.
+* pclose: (libc)Pipe to a Subprocess.
+* PENDIN: (libc)Local Modes.
+* perror: (libc)Error Messages.
+* PF_FILE: (libc)Local Namespace Details.
+* PF_INET6: (libc)Internet Namespace.
+* PF_INET: (libc)Internet Namespace.
+* PF_LOCAL: (libc)Local Namespace Details.
+* PF_UNIX: (libc)Local Namespace Details.
+* PIPE_BUF: (libc)Limits for Files.
+* pipe: (libc)Creating a Pipe.
+* popen: (libc)Pipe to a Subprocess.
+* _POSIX2_C_DEV: (libc)System Options.
+* _POSIX2_C_VERSION: (libc)Version Supported.
+* _POSIX2_FORT_DEV: (libc)System Options.
+* _POSIX2_FORT_RUN: (libc)System Options.
+* _POSIX2_LOCALEDEF: (libc)System Options.
+* _POSIX2_SW_DEV: (libc)System Options.
+* _POSIX_CHOWN_RESTRICTED: (libc)Options for Files.
+* _POSIX_JOB_CONTROL: (libc)System Options.
+* posix_memalign: (libc)Aligned Memory Blocks.
+* _POSIX_NO_TRUNC: (libc)Options for Files.
+* _POSIX_SAVED_IDS: (libc)System Options.
+* _POSIX_VDISABLE: (libc)Options for Files.
+* _POSIX_VERSION: (libc)Version Supported.
+* pow10f: (libc)Exponents and Logarithms.
+* pow10: (libc)Exponents and Logarithms.
+* pow10l: (libc)Exponents and Logarithms.
+* powf: (libc)Exponents and Logarithms.
+* pow: (libc)Exponents and Logarithms.
+* powl: (libc)Exponents and Logarithms.
+* __ppc_get_timebase_freq: (libc)PowerPC.
+* __ppc_get_timebase: (libc)PowerPC.
+* __ppc_mdoio: (libc)PowerPC.
+* __ppc_mdoom: (libc)PowerPC.
+* __ppc_set_ppr_low: (libc)PowerPC.
+* __ppc_set_ppr_med: (libc)PowerPC.
+* __ppc_set_ppr_med_low: (libc)PowerPC.
+* __ppc_yield: (libc)PowerPC.
+* pread64: (libc)I/O Primitives.
+* pread: (libc)I/O Primitives.
+* printf: (libc)Formatted Output Functions.
+* printf_size_info: (libc)Predefined Printf Handlers.
+* printf_size: (libc)Predefined Printf Handlers.
+* psignal: (libc)Signal Messages.
+* pthread_getattr_default_np: (libc)Default Thread Attributes.
+* pthread_getspecific: (libc)Thread-specific Data.
+* pthread_key_create: (libc)Thread-specific Data.
+* pthread_key_delete: (libc)Thread-specific Data.
+* pthread_setattr_default_np: (libc)Default Thread Attributes.
+* pthread_setspecific: (libc)Thread-specific Data.
+* P_tmpdir: (libc)Temporary Files.
+* ptsname: (libc)Allocation.
+* ptsname_r: (libc)Allocation.
+* putchar: (libc)Simple Output.
+* putchar_unlocked: (libc)Simple Output.
+* putc: (libc)Simple Output.
+* putc_unlocked: (libc)Simple Output.
+* putenv: (libc)Environment Access.
+* putpwent: (libc)Writing a User Entry.
+* puts: (libc)Simple Output.
+* pututline: (libc)Manipulating the Database.
+* pututxline: (libc)XPG Functions.
+* putwchar: (libc)Simple Output.
+* putwchar_unlocked: (libc)Simple Output.
+* putwc: (libc)Simple Output.
+* putwc_unlocked: (libc)Simple Output.
+* putw: (libc)Simple Output.
+* pwrite64: (libc)I/O Primitives.
+* pwrite: (libc)I/O Primitives.
+* qecvt: (libc)System V Number Conversion.
+* qecvt_r: (libc)System V Number Conversion.
+* qfcvt: (libc)System V Number Conversion.
+* qfcvt_r: (libc)System V Number Conversion.
+* qgcvt: (libc)System V Number Conversion.
+* qsort: (libc)Array Sort Function.
+* raise: (libc)Signaling Yourself.
+* rand: (libc)ISO Random.
+* RAND_MAX: (libc)ISO Random.
+* random: (libc)BSD Random.
+* random_r: (libc)BSD Random.
+* rand_r: (libc)ISO Random.
+* rawmemchr: (libc)Search Functions.
+* readdir64: (libc)Reading/Closing Directory.
+* readdir64_r: (libc)Reading/Closing Directory.
+* readdir: (libc)Reading/Closing Directory.
+* readdir_r: (libc)Reading/Closing Directory.
+* read: (libc)I/O Primitives.
+* readlink: (libc)Symbolic Links.
+* readv: (libc)Scatter-Gather.
+* realloc: (libc)Changing Block Size.
+* realpath: (libc)Symbolic Links.
+* recvfrom: (libc)Receiving Datagrams.
+* recv: (libc)Receiving Data.
+* recvmsg: (libc)Receiving Datagrams.
+* RE_DUP_MAX: (libc)General Limits.
+* regcomp: (libc)POSIX Regexp Compilation.
+* regerror: (libc)Regexp Cleanup.
+* regexec: (libc)Matching POSIX Regexps.
+* regfree: (libc)Regexp Cleanup.
+* register_printf_function: (libc)Registering New Conversions.
+* remainderf: (libc)Remainder Functions.
+* remainder: (libc)Remainder Functions.
+* remainderl: (libc)Remainder Functions.
+* remove: (libc)Deleting Files.
+* rename: (libc)Renaming Files.
+* rewinddir: (libc)Random Access Directory.
+* rewind: (libc)File Positioning.
+* rindex: (libc)Search Functions.
+* rintf: (libc)Rounding Functions.
+* rint: (libc)Rounding Functions.
+* rintl: (libc)Rounding Functions.
+* RLIM_INFINITY: (libc)Limits on Resources.
+* rmdir: (libc)Deleting Files.
+* R_OK: (libc)Testing File Access.
+* roundf: (libc)Rounding Functions.
+* round: (libc)Rounding Functions.
+* roundl: (libc)Rounding Functions.
+* rpmatch: (libc)Yes-or-No Questions.
+* SA_NOCLDSTOP: (libc)Flags for Sigaction.
+* SA_ONSTACK: (libc)Flags for Sigaction.
+* SA_RESTART: (libc)Flags for Sigaction.
+* sbrk: (libc)Resizing the Data Segment.
+* scalbf: (libc)Normalization Functions.
+* scalb: (libc)Normalization Functions.
+* scalbl: (libc)Normalization Functions.
+* scalblnf: (libc)Normalization Functions.
+* scalbln: (libc)Normalization Functions.
+* scalblnl: (libc)Normalization Functions.
+* scalbnf: (libc)Normalization Functions.
+* scalbn: (libc)Normalization Functions.
+* scalbnl: (libc)Normalization Functions.
+* scandir64: (libc)Scanning Directory Content.
+* scandir: (libc)Scanning Directory Content.
+* scanf: (libc)Formatted Input Functions.
+* sched_getaffinity: (libc)CPU Affinity.
+* sched_getparam: (libc)Basic Scheduling Functions.
+* sched_get_priority_max: (libc)Basic Scheduling Functions.
+* sched_get_priority_min: (libc)Basic Scheduling Functions.
+* sched_getscheduler: (libc)Basic Scheduling Functions.
+* sched_rr_get_interval: (libc)Basic Scheduling Functions.
+* sched_setaffinity: (libc)CPU Affinity.
+* sched_setparam: (libc)Basic Scheduling Functions.
+* sched_setscheduler: (libc)Basic Scheduling Functions.
+* sched_yield: (libc)Basic Scheduling Functions.
+* secure_getenv: (libc)Environment Access.
+* seed48: (libc)SVID Random.
+* seed48_r: (libc)SVID Random.
+* SEEK_CUR: (libc)File Positioning.
+* seekdir: (libc)Random Access Directory.
+* SEEK_END: (libc)File Positioning.
+* SEEK_SET: (libc)File Positioning.
+* select: (libc)Waiting for I/O.
+* send: (libc)Sending Data.
+* sendmsg: (libc)Receiving Datagrams.
+* sendto: (libc)Sending Datagrams.
+* setbuffer: (libc)Controlling Buffering.
+* setbuf: (libc)Controlling Buffering.
+* setcontext: (libc)System V contexts.
+* setdomainname: (libc)Host Identification.
+* setegid: (libc)Setting Groups.
+* setenv: (libc)Environment Access.
+* seteuid: (libc)Setting User ID.
+* setfsent: (libc)fstab.
+* setgid: (libc)Setting Groups.
+* setgrent: (libc)Scanning All Groups.
+* setgroups: (libc)Setting Groups.
+* sethostent: (libc)Host Names.
+* sethostid: (libc)Host Identification.
+* sethostname: (libc)Host Identification.
+* setitimer: (libc)Setting an Alarm.
+* setjmp: (libc)Non-Local Details.
+* setkey: (libc)DES Encryption.
+* setkey_r: (libc)DES Encryption.
+* setlinebuf: (libc)Controlling Buffering.
+* setlocale: (libc)Setting the Locale.
+* setlogmask: (libc)setlogmask.
+* setmntent: (libc)mtab.
+* setnetent: (libc)Networks Database.
+* setnetgrent: (libc)Lookup Netgroup.
+* setpgid: (libc)Process Group Functions.
+* setpgrp: (libc)Process Group Functions.
+* setpriority: (libc)Traditional Scheduling Functions.
+* setprotoent: (libc)Protocols Database.
+* setpwent: (libc)Scanning All Users.
+* setregid: (libc)Setting Groups.
+* setreuid: (libc)Setting User ID.
+* setrlimit64: (libc)Limits on Resources.
+* setrlimit: (libc)Limits on Resources.
+* setservent: (libc)Services Database.
+* setsid: (libc)Process Group Functions.
+* setsockopt: (libc)Socket Option Functions.
+* setstate: (libc)BSD Random.
+* setstate_r: (libc)BSD Random.
+* settimeofday: (libc)High-Resolution Calendar.
+* setuid: (libc)Setting User ID.
+* setutent: (libc)Manipulating the Database.
+* setutxent: (libc)XPG Functions.
+* setvbuf: (libc)Controlling Buffering.
+* shm_open: (libc)Memory-mapped I/O.
+* shm_unlink: (libc)Memory-mapped I/O.
+* shutdown: (libc)Closing a Socket.
+* S_IFMT: (libc)Testing File Type.
+* SIGABRT: (libc)Program Error Signals.
+* sigaction: (libc)Advanced Signal Handling.
+* sigaddset: (libc)Signal Sets.
+* SIGALRM: (libc)Alarm Signals.
+* sigaltstack: (libc)Signal Stack.
+* sigblock: (libc)Blocking in BSD.
+* SIGBUS: (libc)Program Error Signals.
+* SIGCHLD: (libc)Job Control Signals.
+* SIGCLD: (libc)Job Control Signals.
+* SIGCONT: (libc)Job Control Signals.
+* sigdelset: (libc)Signal Sets.
+* sigemptyset: (libc)Signal Sets.
+* SIGEMT: (libc)Program Error Signals.
+* SIG_ERR: (libc)Basic Signal Handling.
+* sigfillset: (libc)Signal Sets.
+* SIGFPE: (libc)Program Error Signals.
+* SIGHUP: (libc)Termination Signals.
+* SIGILL: (libc)Program Error Signals.
+* SIGINFO: (libc)Miscellaneous Signals.
+* siginterrupt: (libc)BSD Handler.
+* SIGINT: (libc)Termination Signals.
+* SIGIO: (libc)Asynchronous I/O Signals.
+* SIGIOT: (libc)Program Error Signals.
+* sigismember: (libc)Signal Sets.
+* SIGKILL: (libc)Termination Signals.
+* siglongjmp: (libc)Non-Local Exits and Signals.
+* SIGLOST: (libc)Operation Error Signals.
+* sigmask: (libc)Blocking in BSD.
+* signal: (libc)Basic Signal Handling.
+* signbit: (libc)FP Bit Twiddling.
+* significandf: (libc)Normalization Functions.
+* significand: (libc)Normalization Functions.
+* significandl: (libc)Normalization Functions.
+* sigpause: (libc)Blocking in BSD.
+* sigpending: (libc)Checking for Pending Signals.
+* SIGPIPE: (libc)Operation Error Signals.
+* SIGPOLL: (libc)Asynchronous I/O Signals.
+* sigprocmask: (libc)Process Signal Mask.
+* SIGPROF: (libc)Alarm Signals.
+* SIGQUIT: (libc)Termination Signals.
+* SIGSEGV: (libc)Program Error Signals.
+* sigsetjmp: (libc)Non-Local Exits and Signals.
+* sigsetmask: (libc)Blocking in BSD.
+* sigstack: (libc)Signal Stack.
+* SIGSTOP: (libc)Job Control Signals.
+* sigsuspend: (libc)Sigsuspend.
+* SIGSYS: (libc)Program Error Signals.
+* SIGTERM: (libc)Termination Signals.
+* SIGTRAP: (libc)Program Error Signals.
+* SIGTSTP: (libc)Job Control Signals.
+* SIGTTIN: (libc)Job Control Signals.
+* SIGTTOU: (libc)Job Control Signals.
+* SIGURG: (libc)Asynchronous I/O Signals.
+* SIGUSR1: (libc)Miscellaneous Signals.
+* SIGUSR2: (libc)Miscellaneous Signals.
+* sigvec: (libc)BSD Handler.
+* SIGVTALRM: (libc)Alarm Signals.
+* SIGWINCH: (libc)Miscellaneous Signals.
+* SIGXCPU: (libc)Operation Error Signals.
+* SIGXFSZ: (libc)Operation Error Signals.
+* sincosf: (libc)Trig Functions.
+* sincos: (libc)Trig Functions.
+* sincosl: (libc)Trig Functions.
+* sinf: (libc)Trig Functions.
+* sinhf: (libc)Hyperbolic Functions.
+* sinh: (libc)Hyperbolic Functions.
+* sinhl: (libc)Hyperbolic Functions.
+* sin: (libc)Trig Functions.
+* sinl: (libc)Trig Functions.
+* S_ISBLK: (libc)Testing File Type.
+* S_ISCHR: (libc)Testing File Type.
+* S_ISDIR: (libc)Testing File Type.
+* S_ISFIFO: (libc)Testing File Type.
+* S_ISLNK: (libc)Testing File Type.
+* S_ISREG: (libc)Testing File Type.
+* S_ISSOCK: (libc)Testing File Type.
+* sleep: (libc)Sleeping.
+* snprintf: (libc)Formatted Output Functions.
+* SOCK_DGRAM: (libc)Communication Styles.
+* socket: (libc)Creating a Socket.
+* socketpair: (libc)Socket Pairs.
+* SOCK_RAW: (libc)Communication Styles.
+* SOCK_RDM: (libc)Communication Styles.
+* SOCK_SEQPACKET: (libc)Communication Styles.
+* SOCK_STREAM: (libc)Communication Styles.
+* SOL_SOCKET: (libc)Socket-Level Options.
+* sprintf: (libc)Formatted Output Functions.
+* sqrtf: (libc)Exponents and Logarithms.
+* sqrt: (libc)Exponents and Logarithms.
+* sqrtl: (libc)Exponents and Logarithms.
+* srand48: (libc)SVID Random.
+* srand48_r: (libc)SVID Random.
+* srand: (libc)ISO Random.
+* srandom: (libc)BSD Random.
+* srandom_r: (libc)BSD Random.
+* sscanf: (libc)Formatted Input Functions.
+* ssignal: (libc)Basic Signal Handling.
+* SSIZE_MAX: (libc)General Limits.
+* stat64: (libc)Reading Attributes.
+* stat: (libc)Reading Attributes.
+* stime: (libc)Simple Calendar Time.
+* stpcpy: (libc)Copying and Concatenation.
+* stpncpy: (libc)Copying and Concatenation.
+* strcasecmp: (libc)String/Array Comparison.
+* strcasestr: (libc)Search Functions.
+* strcat: (libc)Copying and Concatenation.
+* strchr: (libc)Search Functions.
+* strchrnul: (libc)Search Functions.
+* strcmp: (libc)String/Array Comparison.
+* strcoll: (libc)Collation Functions.
+* strcpy: (libc)Copying and Concatenation.
+* strcspn: (libc)Search Functions.
+* strdupa: (libc)Copying and Concatenation.
+* strdup: (libc)Copying and Concatenation.
+* STREAM_MAX: (libc)General Limits.
+* strerror: (libc)Error Messages.
+* strerror_r: (libc)Error Messages.
+* strfmon: (libc)Formatting Numbers.
+* strfry: (libc)strfry.
+* strftime: (libc)Formatting Calendar Time.
+* strlen: (libc)String Length.
+* strncasecmp: (libc)String/Array Comparison.
+* strncat: (libc)Copying and Concatenation.
+* strncmp: (libc)String/Array Comparison.
+* strncpy: (libc)Copying and Concatenation.
+* strndupa: (libc)Copying and Concatenation.
+* strndup: (libc)Copying and Concatenation.
+* strnlen: (libc)String Length.
+* strpbrk: (libc)Search Functions.
+* strptime: (libc)Low-Level Time String Parsing.
+* strrchr: (libc)Search Functions.
+* strsep: (libc)Finding Tokens in a String.
+* strsignal: (libc)Signal Messages.
+* strspn: (libc)Search Functions.
+* strstr: (libc)Search Functions.
+* strtod: (libc)Parsing of Floats.
+* strtof: (libc)Parsing of Floats.
+* strtoimax: (libc)Parsing of Integers.
+* strtok: (libc)Finding Tokens in a String.
+* strtok_r: (libc)Finding Tokens in a String.
+* strtold: (libc)Parsing of Floats.
+* strtol: (libc)Parsing of Integers.
+* strtoll: (libc)Parsing of Integers.
+* strtoq: (libc)Parsing of Integers.
+* strtoul: (libc)Parsing of Integers.
+* strtoull: (libc)Parsing of Integers.
+* strtoumax: (libc)Parsing of Integers.
+* strtouq: (libc)Parsing of Integers.
+* strverscmp: (libc)String/Array Comparison.
+* strxfrm: (libc)Collation Functions.
+* stty: (libc)BSD Terminal Modes.
+* S_TYPEISMQ: (libc)Testing File Type.
+* S_TYPEISSEM: (libc)Testing File Type.
+* S_TYPEISSHM: (libc)Testing File Type.
+* SUN_LEN: (libc)Local Namespace Details.
+* SV_INTERRUPT: (libc)BSD Handler.
+* SV_ONSTACK: (libc)BSD Handler.
+* SV_RESETHAND: (libc)BSD Handler.
+* swapcontext: (libc)System V contexts.
+* swprintf: (libc)Formatted Output Functions.
+* swscanf: (libc)Formatted Input Functions.
+* symlink: (libc)Symbolic Links.
+* sync: (libc)Synchronizing I/O.
+* syscall: (libc)System Calls.
+* sysconf: (libc)Sysconf Definition.
+* sysctl: (libc)System Parameters.
+* syslog: (libc)syslog; vsyslog.
+* system: (libc)Running a Command.
+* sysv_signal: (libc)Basic Signal Handling.
+* tanf: (libc)Trig Functions.
+* tanhf: (libc)Hyperbolic Functions.
+* tanh: (libc)Hyperbolic Functions.
+* tanhl: (libc)Hyperbolic Functions.
+* tan: (libc)Trig Functions.
+* tanl: (libc)Trig Functions.
+* tcdrain: (libc)Line Control.
+* tcflow: (libc)Line Control.
+* tcflush: (libc)Line Control.
+* tcgetattr: (libc)Mode Functions.
+* tcgetpgrp: (libc)Terminal Access Functions.
+* tcgetsid: (libc)Terminal Access Functions.
+* tcsendbreak: (libc)Line Control.
+* tcsetattr: (libc)Mode Functions.
+* tcsetpgrp: (libc)Terminal Access Functions.
+* tdelete: (libc)Tree Search Function.
+* tdestroy: (libc)Tree Search Function.
+* telldir: (libc)Random Access Directory.
+* tempnam: (libc)Temporary Files.
+* textdomain: (libc)Locating gettext catalog.
+* tfind: (libc)Tree Search Function.
+* tgammaf: (libc)Special Functions.
+* tgamma: (libc)Special Functions.
+* tgammal: (libc)Special Functions.
+* timegm: (libc)Broken-down Time.
+* time: (libc)Simple Calendar Time.
+* timelocal: (libc)Broken-down Time.
+* times: (libc)Processor Time.
+* tmpfile64: (libc)Temporary Files.
+* tmpfile: (libc)Temporary Files.
+* TMP_MAX: (libc)Temporary Files.
+* tmpnam: (libc)Temporary Files.
+* tmpnam_r: (libc)Temporary Files.
+* toascii: (libc)Case Conversion.
+* _tolower: (libc)Case Conversion.
+* tolower: (libc)Case Conversion.
+* TOSTOP: (libc)Local Modes.
+* _toupper: (libc)Case Conversion.
+* toupper: (libc)Case Conversion.
+* towctrans: (libc)Wide Character Case Conversion.
+* towlower: (libc)Wide Character Case Conversion.
+* towupper: (libc)Wide Character Case Conversion.
+* truncate64: (libc)File Size.
+* truncate: (libc)File Size.
+* truncf: (libc)Rounding Functions.
+* trunc: (libc)Rounding Functions.
+* truncl: (libc)Rounding Functions.
+* tsearch: (libc)Tree Search Function.
+* ttyname: (libc)Is It a Terminal.
+* ttyname_r: (libc)Is It a Terminal.
+* twalk: (libc)Tree Search Function.
+* TZNAME_MAX: (libc)General Limits.
+* tzset: (libc)Time Zone Functions.
+* ulimit: (libc)Limits on Resources.
+* umask: (libc)Setting Permissions.
+* umount2: (libc)Mount-Unmount-Remount.
+* umount: (libc)Mount-Unmount-Remount.
+* uname: (libc)Platform Type.
+* ungetc: (libc)How Unread.
+* ungetwc: (libc)How Unread.
+* unlink: (libc)Deleting Files.
+* unlockpt: (libc)Allocation.
+* unsetenv: (libc)Environment Access.
+* updwtmp: (libc)Manipulating the Database.
+* utime: (libc)File Times.
+* utimes: (libc)File Times.
+* utmpname: (libc)Manipulating the Database.
+* utmpxname: (libc)XPG Functions.
+* va_arg: (libc)Argument Macros.
+* __va_copy: (libc)Argument Macros.
+* va_copy: (libc)Argument Macros.
+* va_end: (libc)Argument Macros.
+* valloc: (libc)Aligned Memory Blocks.
+* vasprintf: (libc)Variable Arguments Output.
+* va_start: (libc)Argument Macros.
+* VDISCARD: (libc)Other Special.
+* VDSUSP: (libc)Signal Characters.
+* VEOF: (libc)Editing Characters.
+* VEOL2: (libc)Editing Characters.
+* VEOL: (libc)Editing Characters.
+* VERASE: (libc)Editing Characters.
+* verr: (libc)Error Messages.
+* verrx: (libc)Error Messages.
+* versionsort64: (libc)Scanning Directory Content.
+* versionsort: (libc)Scanning Directory Content.
+* vfork: (libc)Creating a Process.
+* vfprintf: (libc)Variable Arguments Output.
+* vfscanf: (libc)Variable Arguments Input.
+* vfwprintf: (libc)Variable Arguments Output.
+* vfwscanf: (libc)Variable Arguments Input.
+* VINTR: (libc)Signal Characters.
+* VKILL: (libc)Editing Characters.
+* vlimit: (libc)Limits on Resources.
+* VLNEXT: (libc)Other Special.
+* VMIN: (libc)Noncanonical Input.
+* vprintf: (libc)Variable Arguments Output.
+* VQUIT: (libc)Signal Characters.
+* VREPRINT: (libc)Editing Characters.
+* vscanf: (libc)Variable Arguments Input.
+* vsnprintf: (libc)Variable Arguments Output.
+* vsprintf: (libc)Variable Arguments Output.
+* vsscanf: (libc)Variable Arguments Input.
+* VSTART: (libc)Start/Stop Characters.
+* VSTATUS: (libc)Other Special.
+* VSTOP: (libc)Start/Stop Characters.
+* VSUSP: (libc)Signal Characters.
+* vswprintf: (libc)Variable Arguments Output.
+* vswscanf: (libc)Variable Arguments Input.
+* vsyslog: (libc)syslog; vsyslog.
+* VTIME: (libc)Noncanonical Input.
+* vtimes: (libc)Resource Usage.
+* vwarn: (libc)Error Messages.
+* vwarnx: (libc)Error Messages.
+* VWERASE: (libc)Editing Characters.
+* vwprintf: (libc)Variable Arguments Output.
+* vwscanf: (libc)Variable Arguments Input.
+* wait3: (libc)BSD Wait Functions.
+* wait4: (libc)Process Completion.
+* wait: (libc)Process Completion.
+* waitpid: (libc)Process Completion.
+* warn: (libc)Error Messages.
+* warnx: (libc)Error Messages.
+* WCHAR_MAX: (libc)Extended Char Intro.
+* WCHAR_MIN: (libc)Extended Char Intro.
+* WCOREDUMP: (libc)Process Completion Status.
+* wcpcpy: (libc)Copying and Concatenation.
+* wcpncpy: (libc)Copying and Concatenation.
+* wcrtomb: (libc)Converting a Character.
+* wcscasecmp: (libc)String/Array Comparison.
+* wcscat: (libc)Copying and Concatenation.
+* wcschr: (libc)Search Functions.
+* wcschrnul: (libc)Search Functions.
+* wcscmp: (libc)String/Array Comparison.
+* wcscoll: (libc)Collation Functions.
+* wcscpy: (libc)Copying and Concatenation.
+* wcscspn: (libc)Search Functions.
+* wcsdup: (libc)Copying and Concatenation.
+* wcsftime: (libc)Formatting Calendar Time.
+* wcslen: (libc)String Length.
+* wcsncasecmp: (libc)String/Array Comparison.
+* wcsncat: (libc)Copying and Concatenation.
+* wcsncmp: (libc)String/Array Comparison.
+* wcsncpy: (libc)Copying and Concatenation.
+* wcsnlen: (libc)String Length.
+* wcsnrtombs: (libc)Converting Strings.
+* wcspbrk: (libc)Search Functions.
+* wcsrchr: (libc)Search Functions.
+* wcsrtombs: (libc)Converting Strings.
+* wcsspn: (libc)Search Functions.
+* wcsstr: (libc)Search Functions.
+* wcstod: (libc)Parsing of Floats.
+* wcstof: (libc)Parsing of Floats.
+* wcstoimax: (libc)Parsing of Integers.
+* wcstok: (libc)Finding Tokens in a String.
+* wcstold: (libc)Parsing of Floats.
+* wcstol: (libc)Parsing of Integers.
+* wcstoll: (libc)Parsing of Integers.
+* wcstombs: (libc)Non-reentrant String Conversion.
+* wcstoq: (libc)Parsing of Integers.
+* wcstoul: (libc)Parsing of Integers.
+* wcstoull: (libc)Parsing of Integers.
+* wcstoumax: (libc)Parsing of Integers.
+* wcstouq: (libc)Parsing of Integers.
+* wcswcs: (libc)Search Functions.
+* wcsxfrm: (libc)Collation Functions.
+* wctob: (libc)Converting a Character.
+* wctomb: (libc)Non-reentrant Character Conversion.
+* wctrans: (libc)Wide Character Case Conversion.
+* wctype: (libc)Classification of Wide Characters.
+* WEOF: (libc)EOF and Errors.
+* WEOF: (libc)Extended Char Intro.
+* WEXITSTATUS: (libc)Process Completion Status.
+* WIFEXITED: (libc)Process Completion Status.
+* WIFSIGNALED: (libc)Process Completion Status.
+* WIFSTOPPED: (libc)Process Completion Status.
+* wmemchr: (libc)Search Functions.
+* wmemcmp: (libc)String/Array Comparison.
+* wmemcpy: (libc)Copying and Concatenation.
+* wmemmove: (libc)Copying and Concatenation.
+* wmempcpy: (libc)Copying and Concatenation.
+* wmemset: (libc)Copying and Concatenation.
+* W_OK: (libc)Testing File Access.
+* wordexp: (libc)Calling Wordexp.
+* wordfree: (libc)Calling Wordexp.
+* wprintf: (libc)Formatted Output Functions.
+* write: (libc)I/O Primitives.
+* writev: (libc)Scatter-Gather.
+* wscanf: (libc)Formatted Input Functions.
+* WSTOPSIG: (libc)Process Completion Status.
+* WTERMSIG: (libc)Process Completion Status.
+* X_OK: (libc)Testing File Access.
+* y0f: (libc)Special Functions.
+* y0: (libc)Special Functions.
+* y0l: (libc)Special Functions.
+* y1f: (libc)Special Functions.
+* y1: (libc)Special Functions.
+* y1l: (libc)Special Functions.
+* ynf: (libc)Special Functions.
+* yn: (libc)Special Functions.
+* ynl: (libc)Special Functions.
+END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: Installation,  Next: Maintenance,  Prev: Library Summary,  Up: Top
+
+Appendix C Installing the GNU C Library
+***************************************
+
+Before you do anything else, you should read the FAQ at
+<http://sourceware.org/glibc/wiki/FAQ>.  It answers common questions and
+describes problems you may experience with compilation and installation.
+
+   Features can be added to the GNU C Library via "add-on" bundles.
+These are separate tar files, which you unpack into the top level of the
+source tree.  Then you give 'configure' the '--enable-add-ons' option to
+activate them, and they will be compiled into the library.
+
+   You will need recent versions of several GNU tools: definitely GCC
+and GNU Make, and possibly others.  *Note Tools for Compilation::,
+below.
+
+* Menu:
+
+* Configuring and compiling::   How to compile and test GNU libc.
+* Running make install::        How to install it once you've got it
+ compiled.
+* Tools for Compilation::       You'll need these first.
+* Linux::                       Specific advice for GNU/Linux systems.
+* Reporting Bugs::              So they'll get fixed.
+
+
+File: libc.info,  Node: Configuring and compiling,  Next: Running make install,  Up: Installation
+
+C.1 Configuring and compiling the GNU C Library
+===============================================
+
+The GNU C Library cannot be compiled in the source directory.  You must
+build it in a separate build directory.  For example, if you have
+unpacked the GNU C Library sources in '/src/gnu/glibc-VERSION', create a
+directory '/src/gnu/glibc-build' to put the object files in.  This
+allows removing the whole build directory in case an error occurs, which
+is the safest way to get a fresh start and should always be done.
+
+   From your object directory, run the shell script 'configure' located
+at the top level of the source tree.  In the scenario above, you'd type
+
+     $ ../glibc-VERSION/configure ARGS...
+
+   Please note that even though you're building in a separate build
+directory, the compilation may need to create or modify files and
+directories in the source directory.
+
+'configure' takes many options, but the only one that is usually
+mandatory is '--prefix'.  This option tells 'configure' where you want
+the GNU C Library installed.  This defaults to '/usr/local', but the
+normal setting to install as the standard system library is
+'--prefix=/usr' for GNU/Linux systems and '--prefix=' (an empty prefix)
+for GNU/Hurd systems.
+
+   It may also be useful to set the CC and CFLAGS variables in the
+environment when running 'configure'.  CC selects the C compiler that
+will be used, and CFLAGS sets optimization options for the compiler.
+
+   The following list describes all of the available options for
+'configure':
+
+'--prefix=DIRECTORY'
+     Install machine-independent data files in subdirectories of
+     'DIRECTORY'.  The default is to install in '/usr/local'.
+
+'--exec-prefix=DIRECTORY'
+     Install the library and other machine-dependent files in
+     subdirectories of 'DIRECTORY'.  The default is to the '--prefix'
+     directory if that option is specified, or '/usr/local' otherwise.
+
+'--with-headers=DIRECTORY'
+     Look for kernel header files in DIRECTORY, not '/usr/include'.  The
+     GNU C Library needs information from the kernel's header files
+     describing the interface to the kernel.  The GNU C Library will
+     normally look in '/usr/include' for them, but if you specify this
+     option, it will look in DIRECTORY instead.
+
+     This option is primarily of use on a system where the headers in
+     '/usr/include' come from an older version of the GNU C Library.
+     Conflicts can occasionally happen in this case.  You can also use
+     this option if you want to compile the GNU C Library with a newer
+     set of kernel headers than the ones found in '/usr/include'.
+
+'--enable-add-ons[=LIST]'
+     Specify add-on packages to include in the build.  If this option is
+     specified with no list, it enables all the add-on packages it finds
+     in the main source directory; this is the default behavior.  You
+     may specify an explicit list of add-ons to use in LIST, separated
+     by spaces or commas (if you use spaces, remember to quote them from
+     the shell).  Each add-on in LIST can be an absolute directory name
+     or can be a directory name relative to the main source directory,
+     or relative to the build directory (that is, the current working
+     directory).  For example,
+     '--enable-add-ons=nptl,../glibc-libidn-VERSION'.
+
+'--enable-kernel=VERSION'
+     This option is currently only useful on GNU/Linux systems.  The
+     VERSION parameter should have the form X.Y.Z and describes the
+     smallest version of the Linux kernel the generated library is
+     expected to support.  The higher the VERSION number is, the less
+     compatibility code is added, and the faster the code gets.
+
+'--with-binutils=DIRECTORY'
+     Use the binutils (assembler and linker) in 'DIRECTORY', not the
+     ones the C compiler would default to.  You can use this option if
+     the default binutils on your system cannot deal with all the
+     constructs in the GNU C Library.  In that case, 'configure' will
+     detect the problem and suppress these constructs, so that the
+     library will still be usable, but functionality may be lost--for
+     example, you can't build a shared libc with old binutils.
+
+'--without-fp'
+     Use this option if your computer lacks hardware floating-point
+     support and your operating system does not emulate an FPU.
+
+'--disable-shared'
+     Don't build shared libraries even if it is possible.  Not all
+     systems support shared libraries; you need ELF support and
+     (currently) the GNU linker.
+
+'--disable-profile'
+     Don't build libraries with profiling information.  You may want to
+     use this option if you don't plan to do profiling.
+
+'--enable-static-nss'
+     Compile static versions of the NSS (Name Service Switch) libraries.
+     This is not recommended because it defeats the purpose of NSS; a
+     program linked statically with the NSS libraries cannot be
+     dynamically reconfigured to use a different name database.
+
+'--without-tls'
+     By default the C library is built with support for thread-local
+     storage if the used tools support it.  By using '--without-tls'
+     this can be prevented though there generally is no reason since it
+     creates compatibility problems.
+
+'--enable-hardcoded-path-in-tests'
+     By default, dynamic tests are linked to run with the installed C
+     library.  This option hardcodes the newly built C library path in
+     dynamic tests so that they can be invoked directly.
+
+'--enable-lock-elision=yes'
+     Enable lock elision for pthread mutexes by default.
+
+'--enable-pt_chown'
+     The file 'pt_chown' is a helper binary for 'grantpt' (*note
+     Pseudo-Terminals: Allocation.) that is installed setuid root to fix
+     up pseudo-terminal ownership.  It is not built by default because
+     systems using the Linux kernel are commonly built with the 'devpts'
+     filesystem enabled and mounted at '/dev/pts', which manages
+     pseudo-terminal ownership automatically.  By using
+     '--enable-pt_chown', you may build 'pt_chown' and install it setuid
+     and owned by 'root'.  The use of 'pt_chown' introduces additional
+     security risks to the system and you should enable it only if you
+     understand and accept those risks.
+
+'--build=BUILD-SYSTEM'
+'--host=HOST-SYSTEM'
+     These options are for cross-compiling.  If you specify both options
+     and BUILD-SYSTEM is different from HOST-SYSTEM, 'configure' will
+     prepare to cross-compile the GNU C Library from BUILD-SYSTEM to be
+     used on HOST-SYSTEM.  You'll probably need the '--with-headers'
+     option too, and you may have to override CONFIGURE's selection of
+     the compiler and/or binutils.
+
+     If you only specify '--host', 'configure' will prepare for a native
+     compile but use what you specify instead of guessing what your
+     system is.  This is most useful to change the CPU submodel.  For
+     example, if 'configure' guesses your machine as 'i686-pc-linux-gnu'
+     but you want to compile a library for 586es, give
+     '--host=i586-pc-linux-gnu' or just '--host=i586-linux' and add the
+     appropriate compiler flags ('-mcpu=i586' will do the trick) to
+     CFLAGS.
+
+     If you specify just '--build', 'configure' will get confused.
+
+'--with-pkgversion=VERSION'
+     Specify a description, possibly including a build number or build
+     date, of the binaries being built, to be included in '--version'
+     output from programs installed with the GNU C Library.  For
+     example, '--with-pkgversion='FooBar GNU/Linux glibc build 123''.
+     The default value is 'GNU libc'.
+
+'--with-bugurl=URL'
+     Specify the URL that users should visit if they wish to report a
+     bug, to be included in '--help' output from programs installed with
+     the GNU C Library.  The default value refers to the main
+     bug-reporting information for the GNU C Library.
+
+   To build the library and related programs, type 'make'.  This will
+produce a lot of output, some of which may look like errors from 'make'
+but isn't.  Look for error messages from 'make' containing '***'.  Those
+indicate that something is seriously wrong.
+
+   The compilation process can take a long time, depending on the
+configuration and the speed of your machine.  Some complex modules may
+take a very long time to compile, as much as several minutes on slower
+machines.  Do not panic if the compiler appears to hang.
+
+   If you want to run a parallel make, simply pass the '-j' option with
+an appropriate numeric parameter to 'make'.  You need a recent GNU
+'make' version, though.
+
+   To build and run test programs which exercise some of the library
+facilities, type 'make check'.  If it does not complete successfully, do
+not use the built library, and report a bug after verifying that the
+problem is not already known.  *Note Reporting Bugs::, for instructions
+on reporting bugs.  Note that some of the tests assume they are not
+being run by 'root'.  We recommend you compile and test the GNU C
+Library as an unprivileged user.
+
+   Before reporting bugs make sure there is no problem with your system.
+The tests (and later installation) use some pre-existing files of the
+system such as '/etc/passwd', '/etc/nsswitch.conf' and others.  These
+files must all contain correct and sensible content.
+
+   To format the 'GNU C Library Reference Manual' for printing, type
+'make dvi'.  You need a working TeX installation to do this.  The
+distribution builds the on-line formatted version of the manual, as Info
+files, as part of the build process.  You can build them manually with
+'make info'.
+
+   The library has a number of special-purpose configuration parameters
+which you can find in 'Makeconfig'.  These can be overwritten with the
+file 'configparms'.  To change them, create a 'configparms' in your
+build directory and add values as appropriate for your system.  The file
+is included and parsed by 'make' and has to follow the conventions for
+makefiles.
+
+   It is easy to configure the GNU C Library for cross-compilation by
+setting a few variables in 'configparms'.  Set 'CC' to the
+cross-compiler for the target you configured the library for; it is
+important to use this same 'CC' value when running 'configure', like
+this: 'CC=TARGET-gcc configure TARGET'.  Set 'BUILD_CC' to the compiler
+to use for programs run on the build system as part of compiling the
+library.  You may need to set 'AR' to cross-compiling versions of 'ar'
+if the native tools are not configured to work with object files for the
+target you configured for.  When cross-compiling the GNU C Library, it
+may be tested using 'make check
+test-wrapper="SRCDIR/scripts/cross-test-ssh.sh HOSTNAME"', where SRCDIR
+is the absolute directory name for the main source directory and
+HOSTNAME is the host name of a system that can run the newly built
+binaries of the GNU C Library.  The source and build directories must be
+visible at the same locations on both the build system and HOSTNAME.
+
+   In general, when testing the GNU C Library, 'test-wrapper' may be set
+to the name and arguments of any program to run newly built binaries.
+This program must preserve the arguments to the binary being run, its
+working directory, all environment variables set as part of testing and
+the standard input, output and error file descriptors.  If 'TEST-WRAPPER
+env' will not work to run a program with environment variables set, then
+'test-wrapper-env' must be set to a program that runs a newly built
+program with environment variable assignments in effect, those
+assignments being specified as 'VAR=VALUE' before the name of the
+program to be run.
+
+
+File: libc.info,  Node: Running make install,  Next: Tools for Compilation,  Prev: Configuring and compiling,  Up: Installation
+
+C.2 Installing the C Library
+============================
+
+To install the library and its header files, and the Info files of the
+manual, type 'env LANGUAGE=C LC_ALL=C make install'.  This will build
+things, if necessary, before installing them; however, you should still
+compile everything first.  If you are installing the GNU C Library as
+your primary C library, we recommend that you shut the system down to
+single-user mode first, and reboot afterward.  This minimizes the risk
+of breaking things when the library changes out from underneath.
+
+   'make install' will do the entire job of upgrading from a previous
+installation of the GNU C Library version 2.x.  There may sometimes be
+headers left behind from the previous installation, but those are
+generally harmless.  If you want to avoid leaving headers behind you can
+do things in the following order.
+
+   You must first build the library ('make'), optionally check it ('make
+check'), switch the include directories and then install ('make
+install').  The steps must be done in this order.  Not moving the
+directory before install will result in an unusable mixture of header
+files from both libraries, but configuring, building, and checking the
+library requires the ability to compile and run programs against the old
+library.  The new '/usr/include', after switching the include
+directories and before installing the library should contain the Linux
+headers, but nothing else.  If you do this, you will need to restore any
+headers from libraries other than the GNU C Library yourself after
+installing the library.
+
+   You can install the GNU C Library somewhere other than where you
+configured it to go by setting the 'install_root' variable on the
+command line for 'make install'.  The value of this variable is
+prepended to all the paths for installation.  This is useful when
+setting up a chroot environment or preparing a binary distribution.  The
+directory should be specified with an absolute file name.
+
+   The GNU C Library includes a daemon called 'nscd', which you may or
+may not want to run.  'nscd' caches name service lookups; it can
+dramatically improve performance with NIS+, and may help with DNS as
+well.
+
+   One auxiliary program, '/usr/libexec/pt_chown', is installed setuid
+'root' if the '--enable-pt_chown' configuration option is used.  This
+program is invoked by the 'grantpt' function; it sets the permissions on
+a pseudoterminal so it can be used by the calling process.  If you are
+using a Linux kernel with the 'devpts' filesystem enabled and mounted at
+'/dev/pts', you don't need this program.
+
+   After installation you might want to configure the timezone and
+locale installation of your system.  The GNU C Library comes with a
+locale database which gets configured with 'localedef'.  For example, to
+set up a German locale with name 'de_DE', simply issue the command
+'localedef -i de_DE -f ISO-8859-1 de_DE'.  To configure all locales that
+are supported by the GNU C Library, you can issue from your build
+directory the command 'make localedata/install-locales'.
+
+   To configure the locally used timezone, set the 'TZ' environment
+variable.  The script 'tzselect' helps you to select the right value.
+As an example, for Germany, 'tzselect' would tell you to use
+'TZ='Europe/Berlin''.  For a system wide installation (the given paths
+are for an installation with '--prefix=/usr'), link the timezone file
+which is in '/usr/share/zoneinfo' to the file '/etc/localtime'.  For
+Germany, you might execute 'ln -s /usr/share/zoneinfo/Europe/Berlin
+/etc/localtime'.
+
+
+File: libc.info,  Node: Tools for Compilation,  Next: Linux,  Prev: Running make install,  Up: Installation
+
+C.3 Recommended Tools for Compilation
+=====================================
+
+We recommend installing the following GNU tools before attempting to
+build the GNU C Library:
+
+   * GNU 'make' 3.79 or newer
+
+     You need the latest version of GNU 'make'.  Modifying the GNU C
+     Library to work with other 'make' programs would be so difficult
+     that we recommend you port GNU 'make' instead.  *Really.*  We
+     recommend GNU 'make' version 3.79.  All earlier versions have
+     severe bugs or lack features.
+
+   * GCC 4.4 or newer, GCC 4.6 recommended
+
+     GCC 4.4 or higher is required; as of this writing, GCC 4.6 is the
+     compiler we advise to use to build the GNU C Library.
+
+     You can use whatever compiler you like to compile programs that use
+     the GNU C Library.
+
+     Check the FAQ for any special compiler issues on particular
+     platforms.
+
+   * GNU 'binutils' 2.20 or later
+
+     You must use GNU 'binutils' (as and ld) to build the GNU C Library.
+     No other assembler or linker has the necessary functionality at the
+     moment.
+
+   * GNU 'texinfo' 4.5 or later
+
+     To correctly translate and install the Texinfo documentation you
+     need this version of the 'texinfo' package.  Earlier versions do
+     not understand all the tags used in the document, and the
+     installation mechanism for the info files is not present or works
+     differently.
+
+   * GNU 'awk' 3.1.2, or higher
+
+     'awk' is used in several places to generate files.  Some 'gawk'
+     extensions are used, including the 'asorti' function, which was
+     introduced in version 3.1.2 of 'gawk'.
+
+   * Perl 5
+
+     Perl is not required, but it is used if present to test the
+     installation.  We may decide to use it elsewhere in the future.
+
+   * GNU 'sed' 3.02 or newer
+
+     'Sed' is used in several places to generate files.  Most scripts
+     work with any version of 'sed'.  The known exception is the script
+     'po2test.sed' in the 'intl' subdirectory which is used to generate
+     'msgs.h' for the test suite.  This script works correctly only with
+     GNU 'sed' 3.02.  If you like to run the test suite, you should
+     definitely upgrade 'sed'.
+
+If you change any of the 'configure.ac' files you will also need
+
+   * GNU 'autoconf' 2.53 or higher
+
+and if you change any of the message translation files you will need
+
+   * GNU 'gettext' 0.10.36 or later
+
+You may also need these packages if you upgrade your source tree using
+patches, although we try to avoid this.
+
+
+File: libc.info,  Node: Linux,  Next: Reporting Bugs,  Prev: Tools for Compilation,  Up: Installation
+
+C.4 Specific advice for GNU/Linux systems
+=========================================
+
+If you are installing the GNU C Library on GNU/Linux systems, you need
+to have the header files from a 2.6.19.1 or newer kernel around for
+reference.  These headers must be installed using 'make
+headers_install'; the headers present in the kernel source directory are
+not suitable for direct use by the GNU C Library.  You do not need to
+use that kernel, just have its headers installed where the GNU C Library
+can access them, referred to here as INSTALL-DIRECTORY.  The easiest way
+to do this is to unpack it in a directory such as
+'/usr/src/linux-VERSION'.  In that directory, run 'make headers_install
+INSTALL_HDR_PATH=INSTALL-DIRECTORY'.  Finally, configure the GNU C
+Library with the option '--with-headers=INSTALL-DIRECTORY/include'.  Use
+the most recent kernel you can get your hands on.  (If you are
+cross-compiling the GNU C Library, you need to specify
+'ARCH=ARCHITECTURE' in the 'make headers_install' command, where
+ARCHITECTURE is the architecture name used by the Linux kernel, such as
+'x86' or 'powerpc'.)
+
+   After installing the GNU C Library, you may need to remove or rename
+directories such as '/usr/include/linux' and '/usr/include/asm', and
+replace them with copies of directories such as 'linux' and 'asm' from
+'INSTALL-DIRECTORY/include'.  All directories present in
+'INSTALL-DIRECTORY/include' should be copied, except that the GNU C
+Library provides its own version of '/usr/include/scsi'; the files
+provided by the kernel should be copied without replacing those provided
+by the GNU C Library.  The 'linux', 'asm' and 'asm-generic' directories
+are required to compile programs using the GNU C Library; the other
+directories describe interfaces to the kernel but are not required if
+not compiling programs using those interfaces.  You do not need to copy
+kernel headers if you did not specify an alternate kernel header source
+using '--with-headers'.
+
+   The Filesystem Hierarchy Standard for GNU/Linux systems expects some
+components of the GNU C Library installation to be in '/lib' and some in
+'/usr/lib'.  This is handled automatically if you configure the GNU C
+Library with '--prefix=/usr'.  If you set some other prefix or allow it
+to default to '/usr/local', then all the components are installed there.
+
+
+File: libc.info,  Node: Reporting Bugs,  Prev: Linux,  Up: Installation
+
+C.5 Reporting Bugs
+==================
+
+There are probably bugs in the GNU C Library.  There are certainly
+errors and omissions in this manual.  If you report them, they will get
+fixed.  If you don't, no one will ever know about them and they will
+remain unfixed for all eternity, if not longer.
+
+   It is a good idea to verify that the problem has not already been
+reported.  Bugs are documented in two places: The file 'BUGS' describes
+a number of well known bugs and the central GNU C Library bug tracking
+system has a WWW interface at <http://sourceware.org/bugzilla/>.  The
+WWW interface gives you access to open and closed reports.  A closed
+report normally includes a patch or a hint on solving the problem.
+
+   To report a bug, first you must find it.  With any luck, this will be
+the hard part.  Once you've found a bug, make sure it's really a bug.  A
+good way to do this is to see if the GNU C Library behaves the same way
+some other C library does.  If so, probably you are wrong and the
+libraries are right (but not necessarily).  If not, one of the libraries
+is probably wrong.  It might not be the GNU C Library.  Many historical
+Unix C libraries permit things that we don't, such as closing a file
+twice.
+
+   If you think you have found some way in which the GNU C Library does
+not conform to the ISO and POSIX standards (*note Standards and
+Portability::), that is definitely a bug.  Report it!
+
+   Once you're sure you've found a bug, try to narrow it down to the
+smallest test case that reproduces the problem.  In the case of a C
+library, you really only need to narrow it down to one library function
+call, if possible.  This should not be too difficult.
+
+   The final step when you have a simple test case is to report the bug.
+Do this at <http://www.eglibc.org/issues/>.
+
+   If you are not sure how a function should behave, and this manual
+doesn't tell you, that's a bug in the manual.  Report that too!  If the
+function's behavior disagrees with the manual, then either the library
+or the manual has a bug, so report the disagreement.  If you find any
+errors or omissions in this manual, please report them to the bug
+database.  If you refer to specific sections of the manual, please
+include the section names for easier identification.
+
+
+File: libc.info,  Node: Maintenance,  Next: Platform,  Prev: Installation,  Up: Top
+
+Appendix D Library Maintenance
+******************************
+
+* Menu:
+
+* Source Layout::         How to add new functions or header files
+                             to the GNU C Library.
+* Porting::               How to port the GNU C Library to
+                             a new machine or operating system.
+
+
+File: libc.info,  Node: Source Layout,  Next: Porting,  Up: Maintenance
+
+D.1 Adding New Functions
+========================
+
+The process of building the library is driven by the makefiles, which
+make heavy use of special features of GNU 'make'.  The makefiles are
+very complex, and you probably don't want to try to understand them.
+But what they do is fairly straightforward, and only requires that you
+define a few variables in the right places.
+
+   The library sources are divided into subdirectories, grouped by
+topic.
+
+   The 'string' subdirectory has all the string-manipulation functions,
+'math' has all the mathematical functions, etc.
+
+   Each subdirectory contains a simple makefile, called 'Makefile',
+which defines a few 'make' variables and then includes the global
+makefile 'Rules' with a line like:
+
+     include ../Rules
+
+The basic variables that a subdirectory makefile defines are:
+
+'subdir'
+     The name of the subdirectory, for example 'stdio'.  This variable
+     *must* be defined.
+
+'headers'
+     The names of the header files in this section of the library, such
+     as 'stdio.h'.
+
+'routines'
+'aux'
+     The names of the modules (source files) in this section of the
+     library.  These should be simple names, such as 'strlen' (rather
+     than complete file names, such as 'strlen.c').  Use 'routines' for
+     modules that define functions in the library, and 'aux' for
+     auxiliary modules containing things like data definitions.  But the
+     values of 'routines' and 'aux' are just concatenated, so there
+     really is no practical difference.
+
+'tests'
+     The names of test programs for this section of the library.  These
+     should be simple names, such as 'tester' (rather than complete file
+     names, such as 'tester.c').  'make tests' will build and run all
+     the test programs.  If a test program needs input, put the test
+     data in a file called 'TEST-PROGRAM.input'; it will be given to the
+     test program on its standard input.  If a test program wants to be
+     run with arguments, put the arguments (all on a single line) in a
+     file called 'TEST-PROGRAM.args'.  Test programs should exit with
+     zero status when the test passes, and nonzero status when the test
+     indicates a bug in the library or error in building.
+
+'others'
+     The names of "other" programs associated with this section of the
+     library.  These are programs which are not tests per se, but are
+     other small programs included with the library.  They are built by
+     'make others'.
+
+'install-lib'
+'install-data'
+'install'
+     Files to be installed by 'make install'.  Files listed in
+     'install-lib' are installed in the directory specified by 'libdir'
+     in 'configparms' or 'Makeconfig' (*note Installation::).  Files
+     listed in 'install-data' are installed in the directory specified
+     by 'datadir' in 'configparms' or 'Makeconfig'.  Files listed in
+     'install' are installed in the directory specified by 'bindir' in
+     'configparms' or 'Makeconfig'.
+
+'distribute'
+     Other files from this subdirectory which should be put into a
+     distribution tar file.  You need not list here the makefile itself
+     or the source and header files listed in the other standard
+     variables.  Only define 'distribute' if there are files used in an
+     unusual way that should go into the distribution.
+
+'generated'
+     Files which are generated by 'Makefile' in this subdirectory.
+     These files will be removed by 'make clean', and they will never go
+     into a distribution.
+
+'extra-objs'
+     Extra object files which are built by 'Makefile' in this
+     subdirectory.  This should be a list of file names like 'foo.o';
+     the files will actually be found in whatever directory object files
+     are being built in.  These files will be removed by 'make clean'.
+     This variable is used for secondary object files needed to build
+     'others' or 'tests'.
+
+* Menu:
+
+* Platform: Adding Platform-specific.             Adding platform-specific
+                                         features.
+
+
+File: libc.info,  Node: Adding Platform-specific,  Up: Source Layout
+
+D.1.1 Platform-specific types, macros and functions
+---------------------------------------------------
+
+It's sometimes necessary to provide nonstandard, platform-specific
+features to developers.  The C library is traditionally the lowest
+library layer, so it makes sense for it to provide these low-level
+features.  However, including these features in the C library may be a
+disadvantage if another package provides them as well as there will be
+two conflicting versions of them.  Also, the features won't be available
+to projects that do not use the GNU C Library but use other GNU tools,
+like GCC.
+
+   The current guidelines are:
+   * If the header file provides features that only make sense on a
+     particular machine architecture and have nothing to do with an
+     operating system, then the features should ultimately be provided
+     as GCC built-in functions.  Until then, the GNU C Library may
+     provide them in the header file.  When the GCC built-in functions
+     become available, those provided in the header file should be made
+     conditionally available prior to the GCC version in which the
+     built-in function was made available.
+
+   * If the header file provides features that are specific to an
+     operating system, both GCC and the GNU C Library could provide it,
+     but the GNU C Library is preferred as it already has a lot of
+     information about the operating system.
+
+   * If the header file provides features that are specific to an
+     operating system but used by the GNU C Library, then the GNU C
+     Library should provide them.
+
+   The general solution for providing low-level features is to export
+them as follows:
+
+   * A nonstandard, low-level header file that defines macros and inline
+     functions should be called 'sys/platform/NAME.h'.
+
+   * Each header file's name should include the platform name, to avoid
+     users thinking there is anything in common between different the
+     header files for different platforms.  For example, a
+     'sys/platform/ARCH.h' name such as 'sys/platform/ppc.h' is better
+     than 'sys/platform.h'.
+
+   * A platform-specific header file provided by the GNU C Library
+     should coordinate with GCC such that compiler built-in versions of
+     the functions and macros are preferred if available.  This means
+     that user programs will only ever need to include
+     'sys/platform/ARCH.h', keeping the same names of types, macros, and
+     functions for convenience and portability.
+
+   * Each included symbol must have the prefix '__ARCH_', such as
+     '__ppc_get_timebase'.
+
+   The easiest way to provide a header file is to add it to the
+'sysdep_headers' variable.  For example, the combination of
+Linux-specific header files on PowerPC could be provided like this:
+
+     sysdep_headers += sys/platform/ppc.h
+
+   Then ensure that you have added a 'sys/platform/ppc.h' header file in
+the machine-specific directory, e.g.,
+'sysdeps/powerpc/sys/platform/ppc.h'.
+
+
+File: libc.info,  Node: Porting,  Prev: Source Layout,  Up: Maintenance
+
+D.2 Porting the GNU C Library
+=============================
+
+The GNU C Library is written to be easily portable to a variety of
+machines and operating systems.  Machine- and operating system-dependent
+functions are well separated to make it easy to add implementations for
+new machines or operating systems.  This section describes the layout of
+the library source tree and explains the mechanisms used to select
+machine-dependent code to use.
+
+   All the machine-dependent and operating system-dependent files in the
+library are in the subdirectory 'sysdeps' under the top-level library
+source directory.  This directory contains a hierarchy of subdirectories
+(*note Hierarchy Conventions::).
+
+   Each subdirectory of 'sysdeps' contains source files for a particular
+machine or operating system, or for a class of machine or operating
+system (for example, systems by a particular vendor, or all machines
+that use IEEE 754 floating-point format).  A configuration specifies an
+ordered list of these subdirectories.  Each subdirectory implicitly
+appends its parent directory to the list.  For example, specifying the
+list 'unix/bsd/vax' is equivalent to specifying the list 'unix/bsd/vax
+unix/bsd unix'.  A subdirectory can also specify that it implies other
+subdirectories which are not directly above it in the directory
+hierarchy.  If the file 'Implies' exists in a subdirectory, it lists
+other subdirectories of 'sysdeps' which are appended to the list,
+appearing after the subdirectory containing the 'Implies' file.  Lines
+in an 'Implies' file that begin with a '#' character are ignored as
+comments.  For example, 'unix/bsd/Implies' contains:
+     # BSD has Internet-related things.
+     unix/inet
+and 'unix/Implies' contains:
+     posix
+
+So the final list is 'unix/bsd/vax unix/bsd unix/inet unix posix'.
+
+   'sysdeps' has a "special" subdirectory called 'generic'.  It is
+always implicitly appended to the list of subdirectories, so you needn't
+put it in an 'Implies' file, and you should not create any
+subdirectories under it intended to be new specific categories.
+'generic' serves two purposes.  First, the makefiles do not bother to
+look for a system-dependent version of a file that's not in 'generic'.
+This means that any system-dependent source file must have an analogue
+in 'generic', even if the routines defined by that file are not
+implemented on other platforms.  Second, the 'generic' version of a
+system-dependent file is used if the makefiles do not find a version
+specific to the system you're compiling for.
+
+   If it is possible to implement the routines in a 'generic' file in
+machine-independent C, using only other machine-independent functions in
+the C library, then you should do so.  Otherwise, make them stubs.  A
+"stub" function is a function which cannot be implemented on a
+particular machine or operating system.  Stub functions always return an
+error, and set 'errno' to 'ENOSYS' (Function not implemented).  *Note
+Error Reporting::.  If you define a stub function, you must place the
+statement 'stub_warning(FUNCTION)', where FUNCTION is the name of your
+function, after its definition.  This causes the function to be listed
+in the installed '<gnu/stubs.h>', and makes GNU ld warn when the
+function is used.
+
+   Some rare functions are only useful on specific systems and aren't
+defined at all on others; these do not appear anywhere in the
+system-independent source code or makefiles (including the 'generic'
+directory), only in the system-dependent 'Makefile' in the specific
+system's subdirectory.
+
+   If you come across a file that is in one of the main source
+directories ('string', 'stdio', etc.), and you want to write a machine-
+or operating system-dependent version of it, move the file into
+'sysdeps/generic' and write your new implementation in the appropriate
+system-specific subdirectory.  Note that if a file is to be
+system-dependent, it *must not* appear in one of the main source
+directories.
+
+   There are a few special files that may exist in each subdirectory of
+'sysdeps':
+
+'Makefile'
+
+     A makefile for this machine or operating system, or class of
+     machine or operating system.  This file is included by the library
+     makefile 'Makerules', which is used by the top-level makefile and
+     the subdirectory makefiles.  It can change the variables set in the
+     including makefile or add new rules.  It can use GNU 'make'
+     conditional directives based on the variable 'subdir' (see above)
+     to select different sets of variables and rules for different
+     sections of the library.  It can also set the 'make' variable
+     'sysdep-routines', to specify extra modules to be included in the
+     library.  You should use 'sysdep-routines' rather than adding
+     modules to 'routines' because the latter is used in determining
+     what to distribute for each subdirectory of the main source tree.
+
+     Each makefile in a subdirectory in the ordered list of
+     subdirectories to be searched is included in order.  Since several
+     system-dependent makefiles may be included, each should append to
+     'sysdep-routines' rather than simply setting it:
+
+          sysdep-routines := $(sysdep-routines) foo bar
+
+'Subdirs'
+
+     This file contains the names of new whole subdirectories under the
+     top-level library source tree that should be included for this
+     system.  These subdirectories are treated just like the
+     system-independent subdirectories in the library source tree, such
+     as 'stdio' and 'math'.
+
+     Use this when there are completely new sets of functions and header
+     files that should go into the library for the system this
+     subdirectory of 'sysdeps' implements.  For example,
+     'sysdeps/unix/inet/Subdirs' contains 'inet'; the 'inet' directory
+     contains various network-oriented operations which only make sense
+     to put in the library on systems that support the Internet.
+
+'configure'
+
+     This file is a shell script fragment to be run at configuration
+     time.  The top-level 'configure' script uses the shell '.' command
+     to read the 'configure' file in each system-dependent directory
+     chosen, in order.  The 'configure' files are often generated from
+     'configure.ac' files using Autoconf.
+
+     A system-dependent 'configure' script will usually add things to
+     the shell variables 'DEFS' and 'config_vars'; see the top-level
+     'configure' script for details.  The script can check for '--with-PACKAGE'
+     options that were passed to the top-level 'configure'.  For an
+     option '--with-PACKAGE=VALUE' 'configure' sets the shell variable 'with_PACKAGE'
+     (with any dashes in PACKAGE converted to underscores) to VALUE; if
+     the option is just '--with-PACKAGE' (no argument), then it sets 'with_PACKAGE'
+     to 'yes'.
+
+'configure.ac'
+
+     This file is an Autoconf input fragment to be processed into the
+     file 'configure' in this subdirectory.  *Note
+     (autoconf.info)Introduction::, for a description of Autoconf.  You
+     should write either 'configure' or 'configure.ac', but not both.
+     The first line of 'configure.ac' should invoke the 'm4' macro
+     'GLIBC_PROVIDES'.  This macro does several 'AC_PROVIDE' calls for
+     Autoconf macros which are used by the top-level 'configure' script;
+     without this, those macros might be invoked again unnecessarily by
+     Autoconf.
+
+   That is the general system for how system-dependencies are isolated.
+
+* Menu:
+
+* Hierarchy Conventions::       The layout of the 'sysdeps' hierarchy.
+* Porting to Unix::             Porting the library to an average
+                                   Unix-like system.
+
+
+File: libc.info,  Node: Hierarchy Conventions,  Next: Porting to Unix,  Up: Porting
+
+D.2.1 Layout of the 'sysdeps' Directory Hierarchy
+-------------------------------------------------
+
+A GNU configuration name has three parts: the CPU type, the
+manufacturer's name, and the operating system.  'configure' uses these
+to pick the list of system-dependent directories to look for.  If the
+'--nfp' option is _not_ passed to 'configure', the directory
+'MACHINE/fpu' is also used.  The operating system often has a "base
+operating system"; for example, if the operating system is 'Linux', the
+base operating system is 'unix/sysv'.  The algorithm used to pick the
+list of directories is simple: 'configure' makes a list of the base
+operating system, manufacturer, CPU type, and operating system, in that
+order.  It then concatenates all these together with slashes in between,
+to produce a directory name; for example, the configuration 'i686-linux-gnu'
+results in 'unix/sysv/linux/i386/i686'.  'configure' then tries removing
+each element of the list in turn, so 'unix/sysv/linux' and 'unix/sysv'
+are also tried, among others.  Since the precise version number of the
+operating system is often not important, and it would be very
+inconvenient, for example, to have identical 'irix6.2' and 'irix6.3'
+directories, 'configure' tries successively less specific operating
+system names by removing trailing suffixes starting with a period.
+
+   As an example, here is the complete list of directories that would be
+tried for the configuration 'i686-linux-gnu' (with the 'crypt' and
+'linuxthreads' add-on):
+
+     sysdeps/i386/elf
+     crypt/sysdeps/unix
+     linuxthreads/sysdeps/unix/sysv/linux
+     linuxthreads/sysdeps/pthread
+     linuxthreads/sysdeps/unix/sysv
+     linuxthreads/sysdeps/unix
+     linuxthreads/sysdeps/i386/i686
+     linuxthreads/sysdeps/i386
+     linuxthreads/sysdeps/pthread/no-cmpxchg
+     sysdeps/unix/sysv/linux/i386
+     sysdeps/unix/sysv/linux
+     sysdeps/gnu
+     sysdeps/unix/common
+     sysdeps/unix/mman
+     sysdeps/unix/inet
+     sysdeps/unix/sysv/i386/i686
+     sysdeps/unix/sysv/i386
+     sysdeps/unix/sysv
+     sysdeps/unix/i386
+     sysdeps/unix
+     sysdeps/posix
+     sysdeps/i386/i686
+     sysdeps/i386/i486
+     sysdeps/libm-i387/i686
+     sysdeps/i386/fpu
+     sysdeps/libm-i387
+     sysdeps/i386
+     sysdeps/wordsize-32
+     sysdeps/ieee754
+     sysdeps/libm-ieee754
+     sysdeps/generic
+
+   Different machine architectures are conventionally subdirectories at
+the top level of the 'sysdeps' directory tree.  For example, 'sysdeps/sparc'
+and 'sysdeps/m68k'.  These contain files specific to those machine
+architectures, but not specific to any particular operating system.
+There might be subdirectories for specializations of those
+architectures, such as 'sysdeps/m68k/68020'.  Code which is specific to
+the floating-point coprocessor used with a particular machine should go
+in 'sysdeps/MACHINE/fpu'.
+
+   There are a few directories at the top level of the 'sysdeps'
+hierarchy that are not for particular machine architectures.
+
+'generic'
+     As described above (*note Porting::), this is the subdirectory that
+     every configuration implicitly uses after all others.
+
+'ieee754'
+     This directory is for code using the IEEE 754 floating-point
+     format, where the C type 'float' is IEEE 754 single-precision
+     format, and 'double' is IEEE 754 double-precision format.  Usually
+     this directory is referred to in the 'Implies' file in a machine
+     architecture-specific directory, such as 'm68k/Implies'.
+
+'libm-ieee754'
+     This directory contains an implementation of a mathematical library
+     usable on platforms which use IEEE 754 conformant floating-point
+     arithmetic.
+
+'libm-i387'
+     This is a special case.  Ideally the code should be in
+     'sysdeps/i386/fpu' but for various reasons it is kept aside.
+
+'posix'
+     This directory contains implementations of things in the library in
+     terms of POSIX.1 functions.  This includes some of the POSIX.1
+     functions themselves.  Of course, POSIX.1 cannot be completely
+     implemented in terms of itself, so a configuration using just
+     'posix' cannot be complete.
+
+'unix'
+     This is the directory for Unix-like things.  *Note Porting to
+     Unix::.  'unix' implies 'posix'.  There are some special-purpose
+     subdirectories of 'unix':
+
+     'unix/common'
+          This directory is for things common to both BSD and System V
+          release 4.  Both 'unix/bsd' and 'unix/sysv/sysv4' imply
+          'unix/common'.
+
+     'unix/inet'
+          This directory is for 'socket' and related functions on Unix
+          systems.  'unix/inet/Subdirs' enables the 'inet' top-level
+          subdirectory.  'unix/common' implies 'unix/inet'.
+
+'mach'
+     This is the directory for things based on the Mach microkernel from
+     CMU (including GNU/Hurd systems).  Other basic operating systems
+     (VMS, for example) would have their own directories at the top
+     level of the 'sysdeps' hierarchy, parallel to 'unix' and 'mach'.
+
+
+File: libc.info,  Node: Porting to Unix,  Prev: Hierarchy Conventions,  Up: Porting
+
+D.2.2 Porting the GNU C Library to Unix Systems
+-----------------------------------------------
+
+Most Unix systems are fundamentally very similar.  There are variations
+between different machines, and variations in what facilities are
+provided by the kernel.  But the interface to the operating system
+facilities is, for the most part, pretty uniform and simple.
+
+   The code for Unix systems is in the directory 'unix', at the top
+level of the 'sysdeps' hierarchy.  This directory contains
+subdirectories (and subdirectory trees) for various Unix variants.
+
+   The functions which are system calls in most Unix systems are
+implemented in assembly code, which is generated automatically from
+specifications in files named 'syscalls.list'.  There are several such
+files, one in 'sysdeps/unix' and others in its subdirectories.  Some
+special system calls are implemented in files that are named with a
+suffix of '.S'; for example, '_exit.S'.  Files ending in '.S' are run
+through the C preprocessor before being fed to the assembler.
+
+   These files all use a set of macros that should be defined in
+'sysdep.h'.  The 'sysdep.h' file in 'sysdeps/unix' partially defines
+them; a 'sysdep.h' file in another directory must finish defining them
+for the particular machine and operating system variant.  See
+'sysdeps/unix/sysdep.h' and the machine-specific 'sysdep.h'
+implementations to see what these macros are and what they should do.
+
+   The system-specific makefile for the 'unix' directory
+('sysdeps/unix/Makefile') gives rules to generate several files from the
+Unix system you are building the library on (which is assumed to be the
+target system you are building the library _for_).  All the generated
+files are put in the directory where the object files are kept; they
+should not affect the source tree itself.  The files generated are
+'ioctls.h', 'errnos.h', 'sys/param.h', and 'errlist.c' (for the 'stdio'
+section of the library).
+
+
+File: libc.info,  Node: Platform,  Next: Contributors,  Prev: Maintenance,  Up: Top
+
+Appendix E Platform-specific facilities
+***************************************
+
+The GNU C Library can provide machine-specific functionality.
+
+* Menu:
+
+* PowerPC::           Facilities Specific to the PowerPC Architecture
+
+
+File: libc.info,  Node: PowerPC,  Up: Platform
+
+E.1 PowerPC-specific Facilities
+===============================
+
+Facilities specific to PowerPC that are not specific to a particular
+operating system are declared in 'sys/platform/ppc.h'.
+
+ -- Function: uint64_t __ppc_get_timebase (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Read the current value of the Time Base Register.
+
+     The "Time Base Register" is a 64-bit register that stores a
+     monotonically incremented value updated at a system-dependent
+     frequency that may be different from the processor frequency.  More
+     information is available in 'Power ISA 2.06b - Book II - Section
+     5.2'.
+
+     '__ppc_get_timebase' uses the processor's time base facility
+     directly without requiring assistance from the operating system, so
+     it is very efficient.
+
+ -- Function: uint64_t __ppc_get_timebase_freq (void)
+     Preliminary: | MT-Unsafe init | AS-Unsafe corrupt:init | AC-Unsafe
+     corrupt:init | *Note POSIX Safety Concepts::.
+
+     Read the current frequency at which the Time Base Register is
+     updated.
+
+     This frequency is not related to the processor clock or the bus
+     clock.  It is also possible that this frequency is not constant.
+     More information is available in 'Power ISA 2.06b - Book II -
+     Section 5.2'.
+
+   The following functions provide hints about the usage of resources
+that are shared with other processors.  They can be used, for example,
+if a program waiting on a lock intends to divert the shared resources to
+be used by other processors.  More information is available in 'Power
+ISA 2.06b - Book II - Section 3.2'.
+
+ -- Function: void __ppc_yield (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Provide a hint that performance will probably be improved if shared
+     resources dedicated to the executing processor are released for use
+     by other processors.
+
+ -- Function: void __ppc_mdoio (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Provide a hint that performance will probably be improved if shared
+     resources dedicated to the executing processor are released until
+     all outstanding storage accesses to caching-inhibited storage have
+     been completed.
+
+ -- Function: void __ppc_mdoom (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Provide a hint that performance will probably be improved if shared
+     resources dedicated to the executing processor are released until
+     all outstanding storage accesses to cacheable storage for which the
+     data is not in the cache have been completed.
+
+ -- Function: void __ppc_set_ppr_med (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Set the Program Priority Register to medium value (default).
+
+     The "Program Priority Register" (PPR) is a 64-bit register that
+     controls the program's priority.  By adjusting the PPR value the
+     programmer may improve system throughput by causing the system
+     resources to be used more efficiently, especially in contention
+     situations.  The three unprivileged states available are covered by
+     the functions '__ppc_set_ppr_med' (medium - default),
+     '__ppc_set_ppc_low' (low) and '__ppc_set_ppc_med_low' (medium low).
+     More information available in 'Power ISA 2.06b - Book II - Section
+     3.1'.
+
+ -- Function: void __ppc_set_ppr_low (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Set the Program Priority Register to low value.
+
+ -- Function: void __ppc_set_ppr_med_low (void)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Set the Program Priority Register to medium low value.
+
+
+File: libc.info,  Node: Contributors,  Next: Free Manuals,  Prev: Platform,  Up: Top
+
+Appendix F Contributors to the GNU C Library
+********************************************
+
+The GNU C Library project would like to thank its many contributors.
+Without them the project would not have been nearly as successful as it
+has been.  Any omissions in this list are accidental.  Feel free to file
+a bug in bugzilla if you have been left out or some of your
+contributions are not listed.  Please keep this list in alphabetical
+order.
+
+   * Ryan S. Arnold for his improvements for Linux on PowerPC and his
+     direction as FSF Project Steward for the GNU C Library.
+
+   * Miles Bader for writing the 'argp' argument-parsing package, and
+     the 'argz'/'envz' interfaces.
+
+   * Jeff Bailey for his maintainership of the HPPA architecture.
+
+   * Petr Baudis for bug fixes and testing.
+
+   * Stephen R. van den Berg for contributing a highly-optimized
+     'strstr' function.
+
+   * Ondrej Bilka for contributing optimized string routines for x64 and
+     various fixes.
+
+   * Eric Blake for adding O(n) implementations of 'memmem', 'strstr'
+     and 'strcasestr'.
+
+   * Philip Blundell for the ports to Linux/ARM
+     ('arm-ANYTHING-linuxaout') and ARM standalone
+     ('arm-ANYTHING-none'), as well as for parts of the IPv6 support
+     code.
+
+   * Per Bothner for the implementation of the 'libio' library which is
+     used to implement 'stdio' functions.
+
+   * Mark Brown for his direction as part of the GNU C Library steering
+     committee.
+
+   * Thomas Bushnell for his contributions to Hurd.
+
+   * Liubov Dmitrieva for optimzed string and math functions on x86-64
+     and x86.
+
+   * Ulrich Drepper for his many contributions in almost all parts of
+     the GNU C Library, including:
+        * internationalization support, including the 'locale' and
+          'localedef' utilities.
+        * Linux i386/ELF support
+        * the 'hsearch' and 'drand48' families of functions, reentrant
+          '...'_r'' versions of the 'random' family; System V shared
+          memory and IPC support code
+        * several highly-optimized string functions for iX86 processors
+        * many math functions
+        * the character conversion functions ('iconv')
+        * the 'ftw' and 'nftw' functions
+        * the floating-point printing function used by 'printf' and
+          friends and the floating-point reading function used by
+          'scanf', 'strtod' and friends
+        * the 'catgets' support and the entire suite of multi-byte and
+          wide-character support functions ('wctype.h', 'wchar.h',
+          etc.).
+        * versioning of objects on the symbol level
+
+   * Paul Eggert for the 'mktime' function and for his direction as part
+     of the GNU C Library steering committee.
+
+   * Steve Ellcey for various fixes.
+
+   * Tulio Magno Quites Machado Filho for adding a new class of
+     installed headers for low-level platform-specific functionality and
+     one such for PowerPC.
+
+   * Mike Frysinger for his maintaining of the IA64 architecture and for
+     testing and bug fixing.
+
+   * Michael Glad for the DES encryption function 'crypt' and related
+     functions.
+
+   * Wolfram Gloger for contributing the memory allocation functions
+     functions 'malloc', 'realloc' and 'free' and related code.
+
+   * Torbjo"rn Granlund for fast implementations of many of the string
+     functions ('memcpy', 'strlen', etc.).
+
+   * Michael J. Haertel for writing the merge sort function 'qsort' and
+     malloc checking functions like 'mcheck'.
+
+   * Bruno Haible for his improvements to the 'iconv' and locale
+     implementations.
+
+   * Richard Henderson for the port to Linux on Alpha
+     ('alpha-ANYTHING-linux').
+
+   * David Holsgrove for the port to Linux on MicroBlaze.
+
+   * Daniel Jacobowitz for various fixes and enhancements.
+
+   * Andreas Jaeger for the port to Linux on x86-64
+     ('x86_64-ANYTHING-linux' and his work on Linux for MIPS
+     ('mips-ANYTHING-linux'), implementing the 'ldconfig' program,
+     providing a test suite for the math library and for his direction
+     as part of the GNU C Library steering committee.
+
+   * Aurelien Jarno for various fixes.
+
+   * Jakub Jelinek for implementing a number of checking functions and
+     for his direction as part of the GNU C Library steering committee.
+
+   * Geoffrey Keating for the port to Linux on PowerPC
+     ('powerpc-ANYTHING-linux').
+
+   * Brendan Kehoe for contributing the port to the MIPS DECStation
+     running Ultrix 4 ('mips-dec-ultrix4') and the port to the DEC Alpha
+     running OSF/1 ('alpha-dec-osf1').
+
+   * Mark Kettenis for implementing the 'utmpx' interface and an utmp
+     daemon, and for a Hesiod NSS module.
+
+   * Andi Kleen for implementing pthreads lock elision with TSX.
+
+   * Kazumoto Kojima for the port of the Mach and Hurd code to the MIPS
+     architecture ('mips-ANYTHING-gnu') and for his work on the SH
+     architecture.
+
+   * Andreas Krebbel for his work on Linux for s390 and s390x.
+
+   * Thorsten Kukuk for providing an implementation for NIS (YP) and
+     NIS+, securelevel 0, 1 and 2 and for the implementation for a
+     caching daemon for NSS ('nscd').
+
+   * Jeff Law for various fixes.
+
+   * Doug Lea for contributing the memory allocation functions functions
+     'malloc', 'realloc' and 'free' and related code.
+
+   * Chris Leonard for various fixes and enhancements to localedata.
+
+   * Hongjiu Lu for providing the support for a Linux 32-bit runtime
+     environment under x86-64 (x32), for porting to Linux on IA64, for
+     improved string functions, a framework for testing IFUNC
+     implementations, and many bug fixes.
+
+   * Luis Machado for optimized functions on PowerPC.
+
+   * David J. MacKenzie for his contribution to the 'getopt' function
+     and writing the 'tar.h' header.
+
+   * Greg McGary for adding runtime support for bounds checking.
+
+   * Roland McGrath for writing most of the GNU C Library originally,
+     for his work on the Hurd port, his direction as part of the GNU C
+     Library steering committee and as FSF Project Steward for the GNU C
+     Library, and for many bug fixes and reviewing of contributions.
+
+   * Allan McRae for various fixes.
+
+   * Jason Merrill for the port to the Sequent Symmetry running Dynix
+     version 3 ('i386-sequent-bsd').
+
+   * Chris Metcalf for the port to Linux/Tile ('tilegx-ANYTHING-linux'
+     and 'tilepro-ANYTHING-linux').
+
+   * David Miller for contributing the port to Linux/Sparc
+     ('sparc*-ANYTHING-linux').
+
+   * Alan Modra for his improvements for Linux on PowerPC.
+
+   * David Mosberger-Tang for contributing the port to Linux/Alpha
+     ('alpha-ANYTHING-linux').
+
+   * Stephen Moshier for implementing some 128-bit long double format
+     math functions.
+
+   * Stephen Munroe for his port to Linux on PowerPC64
+     ('powerpc64-ANYTHING-linux') and for adding optimized
+     implementations for PowerPC.
+
+   * Joseph S. Myers for numerous bug fixes for the libm functions, for
+     his maintainership of the ARM and MIPS architectures, improving
+     cross-compilation and cross-testing of the GNU C Library, expanded
+     coverage of conformtest, merging the ports/ subdirectory into the
+     GNU C Library main repository and his direction as FSF Project
+     Steward for the GNU C Library.
+
+   * Will Newton for contributing some optimized string functions and
+     pointer encryption support for ARM and various fixes.
+
+   * Carlos O'Donell for his maintainership of the HPPA architecture,
+     for maintaining the GNU C Library web pages and wiki, for his
+     direction as FSF Project Steward for the GNU C Library and various
+     bug fixes.
+
+   * Alexandre Oliva for adding TLS descriptors for LD and GD on x86 and
+     x86-64, for the am33 port, for completing the MIPS n64/n32/o32
+     multilib port, for thread-safety, async-signal safety and
+     async-cancellation safety documentation in the manual, for his
+     direction as FSF Project Maintainer and for various fixes.
+
+   * Paul Pluzhnikov for various fixes.
+
+   * Marek Polacek for various fixes.
+
+   * Siddhesh Poyarekar for various fixes and an implementation of a
+     framework for performance benchmarking of functions.
+
+   * Tom Quinn for contributing the startup code to support SunOS shared
+     libraries and the port to SGI machines running Irix 4
+     ('mips-sgi-irix4').
+
+   * Pravin Satpute for writing sorting rules for some Indian languages.
+
+   * Douglas C. Schmidt for writing the quick sort function used as a
+     fallback by 'qsort'.
+
+   * Will Schmidt for optimized string functions on PowerPC.
+
+   * Andreas Schwab for the port to Linux/m68k ('m68k-ANYTHING-linux')
+     and for his direction as part of the GNU C Library steering
+     committee.
+
+   * Martin Schwidefsky for porting to Linux on s390
+     ('s390-ANYTHING-linux') and s390x ('s390x-ANYTHING-linux').
+
+   * Thomas Schwinge for his contribution to Hurd and the SH
+     architecture.
+
+   * Carlos Eduardo Seo for optimized functions on PowerPC.
+
+   * Marcus Shawcroft for contributing the AArch64 port.
+
+   * Franz Sirl for various fixes.
+
+   * Jes Sorensen for porting to Linux on IA64 ('ia64-ANYTHING-linux').
+
+   * Richard Stallman for his contribution to the 'getopt' function.
+
+   * Alfred M. Szmidt for various fixes.
+
+   * Ian Lance Taylor for contributing the port to the MIPS DECStation
+     running Ultrix 4 ('mips-dec-ultrix4').
+
+   * Samuel Thibault for improving the Hurd port.
+
+   * Tim Waugh for the implementation of the POSIX.2 'wordexp' function
+     family.
+
+   * Eric Youngdale for implementing versioning of objects on the symbol
+     level.
+
+   * Adhemerval Zanella for optimized functions on PowerPC.
+
+   Some code in the GNU C Library comes from other projects and might be
+under a different license:
+
+   * The timezone support code is derived from the public-domain
+     timezone package by Arthur David Olson and his many contributors.
+
+   * Some of the support code for Mach is taken from Mach 3.0 by CMU;
+     the file if_ppp.h is also copyright by CMU, but under a different
+     license; see the file 'LICENSES' for the text of the licenses.
+
+   * The random number generation functions 'random', 'srandom',
+     'setstate' and 'initstate', which are also the basis for the 'rand'
+     and 'srand' functions, were written by Earl T. Cohen for the
+     University of California at Berkeley and are copyrighted by the
+     Regents of the University of California.  They have undergone minor
+     changes to fit into the GNU C Library and to fit the ISO C
+     standard, but the functional code is Berkeley's.
+
+   * The Internet-related code (most of the 'inet' subdirectory) and
+     several other miscellaneous functions and header files have been
+     included from 4.4 BSD with little or no modification.  The copying
+     permission notice for this code can be found in the file 'LICENSES'
+     in the source distribution.
+
+   * The 'getaddrinfo' and 'getnameinfo' functions and supporting code
+     were written by Craig Metz; see the file 'LICENSES' for details on
+     their licensing.
+
+   * The DNS resolver code is taken directly from BIND 4.9.5, which
+     includes copyrighted code from UC Berkeley and from Digital
+     Equipment Corporation.  See the file 'LICENSES' for the text of the
+     DEC license.
+
+   * The code to support Sun RPC is taken verbatim from Sun's RPCSRC-4.0
+     distribution; see the file 'LICENSES' for the text of the license.
+
+   * The math functions are taken from 'fdlibm-5.1' by Sun Microsystems,
+     as modified by J.T. Conklin, Ian Lance Taylor, Ulrich Drepper,
+     Andreas Schwab, and Roland McGrath.
+
+   * Many of the IEEE 64-bit double precision math functions (in the
+     'sysdeps/ieee754/dbl-64' subdirectory) come from the IBM Accurate
+     Mathematical Library, contributed by IBM.
+
+   * Many of the IA64 math functions are taken from a collection of
+     "Highly Optimized Mathematical Functions for Itanium" that Intel
+     makes available under a free license; see the file 'LICENSES' for
+     details.
+
+
+File: libc.info,  Node: Free Manuals,  Next: Copying,  Prev: Contributors,  Up: Top
+
+Appendix G Free Software Needs Free Documentation
+*************************************************
+
+The biggest deficiency in the free software community today is not in
+the software--it is the lack of good free documentation that we can
+include with the free software.  Many of our most important programs do
+not come with free reference manuals and free introductory texts.
+Documentation is an essential part of any software package; when an
+important free software package does not come with a free manual and a
+free tutorial, that is a major gap.  We have many such gaps today.
+
+   Consider Perl, for instance.  The tutorial manuals that people
+normally use are non-free.  How did this come about?  Because the
+authors of those manuals published them with restrictive terms--no
+copying, no modification, source files not available--which exclude them
+from the free software world.
+
+   That wasn't the first time this sort of thing happened, and it was
+far from the last.  Many times we have heard a GNU user eagerly describe
+a manual that he is writing, his intended contribution to the community,
+only to learn that he had ruined everything by signing a publication
+contract to make it non-free.
+
+   Free documentation, like free software, is a matter of freedom, not
+price.  The problem with the non-free manual is not that publishers
+charge a price for printed copies--that in itself is fine.  (The Free
+Software Foundation sells printed copies of manuals, too.)  The problem
+is the restrictions on the use of the manual.  Free manuals are
+available in source code form, and give you permission to copy and
+modify.  Non-free manuals do not allow this.
+
+   The criteria of freedom for a free manual are roughly the same as for
+free software.  Redistribution (including the normal kinds of commercial
+redistribution) must be permitted, so that the manual can accompany
+every copy of the program, both on-line and on paper.
+
+   Permission for modification of the technical content is crucial too.
+When people modify the software, adding or changing features, if they
+are conscientious they will change the manual too--so they can provide
+accurate and clear documentation for the modified program.  A manual
+that leaves you no choice but to write a new manual to document a
+changed version of the program is not really available to our community.
+
+   Some kinds of limits on the way modification is handled are
+acceptable.  For example, requirements to preserve the original author's
+copyright notice, the distribution terms, or the list of authors, are
+ok.  It is also no problem to require modified versions to include
+notice that they were modified.  Even entire sections that may not be
+deleted or changed are acceptable, as long as they deal with
+nontechnical topics (like this one).  These kinds of restrictions are
+acceptable because they don't obstruct the community's normal use of the
+manual.
+
+   However, it must be possible to modify all the _technical_ content of
+the manual, and then distribute the result in all the usual media,
+through all the usual channels.  Otherwise, the restrictions obstruct
+the use of the manual, it is not free, and we need another manual to
+replace it.
+
+   Please spread the word about this issue.  Our community continues to
+lose manuals to proprietary publishing.  If we spread the word that free
+software needs free reference manuals and free tutorials, perhaps the
+next person who wants to contribute by writing documentation will
+realize, before it is too late, that only free manuals contribute to the
+free software community.
+
+   If you are writing documentation, please insist on publishing it
+under the GNU Free Documentation License or another free documentation
+license.  Remember that this decision requires your approval--you don't
+have to let the publisher decide.  Some commercial publishers will use a
+free license if you insist, but they will not propose the option; it is
+up to you to raise the issue and say firmly that this is what you want.
+If the publisher you are dealing with refuses, please try other
+publishers.  If you're not sure whether a proposed license is free,
+write to <licensing@gnu.org>.
+
+   You can encourage commercial publishers to sell more free, copylefted
+manuals and tutorials by buying them, and particularly by buying copies
+from the publishers that paid for their writing or for major
+improvements.  Meanwhile, try to avoid buying non-free documentation at
+all.  Check the distribution terms of a manual before you buy it, and
+insist that whoever seeks your business must respect your freedom.
+Check the history of the book, and try reward the publishers that have
+paid or pay the authors to work on it.
+
+   The Free Software Foundation maintains a list of free documentation
+published by other publishers, at
+<http://www.fsf.org/doc/other-free-books.html>.
+
+
+File: libc.info,  Node: Copying,  Next: Documentation License,  Prev: Free Manuals,  Up: Top
+
+Appendix H GNU Lesser General Public License
+********************************************
+
+                      Version 2.1, February 1999
+
+     Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+
+     Everyone is permitted to copy and distribute verbatim copies
+     of this license document, but changing it is not allowed.
+
+     [This is the first released version of the Lesser GPL.  It also counts
+     as the successor of the GNU Library Public License, version 2, hence the
+     version number 2.1.]
+
+Preamble
+--------
+
+The licenses for most software are designed to take away your freedom to
+share and change it.  By contrast, the GNU General Public Licenses are
+intended to guarantee your freedom to share and change free software--to
+make sure the software is free for all its users.
+
+   This license, the Lesser General Public License, applies to some
+specially designated software--typically libraries--of the Free Software
+Foundation and other authors who decide to use it.  You can use it too,
+but we suggest you first think carefully about whether this license or
+the ordinary General Public License is the better strategy to use in any
+particular case, based on the explanations below.
+
+   When we speak of free software, we are referring to freedom of use,
+not price.  Our General Public Licenses are designed to make sure that
+you have the freedom to distribute copies of free software (and charge
+for this service if you wish); that you receive source code or can get
+it if you want it; that you can change the software and use pieces of it
+in new free programs; and that you are informed that you can do these
+things.
+
+   To protect your rights, we need to make restrictions that forbid
+distributors to deny you these rights or to ask you to surrender these
+rights.  These restrictions translate to certain responsibilities for
+you if you distribute copies of the library or if you modify it.
+
+   For example, if you distribute copies of the library, whether gratis
+or for a fee, you must give the recipients all the rights that we gave
+you.  You must make sure that they, too, receive or can get the source
+code.  If you link other code with the library, you must provide
+complete object files to the recipients, so that they can relink them
+with the library after making changes to the library and recompiling it.
+And you must show them these terms so they know their rights.
+
+   We protect your rights with a two-step method: (1) we copyright the
+library, and (2) we offer you this license, which gives you legal
+permission to copy, distribute and/or modify the library.
+
+   To protect each distributor, we want to make it very clear that there
+is no warranty for the free library.  Also, if the library is modified
+by someone else and passed on, the recipients should know that what they
+have is not the original version, so that the original author's
+reputation will not be affected by problems that might be introduced by
+others.
+
+   Finally, software patents pose a constant threat to the existence of
+any free program.  We wish to make sure that a company cannot
+effectively restrict the users of a free program by obtaining a
+restrictive license from a patent holder.  Therefore, we insist that any
+patent license obtained for a version of the library must be consistent
+with the full freedom of use specified in this license.
+
+   Most GNU software, including some libraries, is covered by the
+ordinary GNU General Public License.  This license, the GNU Lesser
+General Public License, applies to certain designated libraries, and is
+quite different from the ordinary General Public License.  We use this
+license for certain libraries in order to permit linking those libraries
+into non-free programs.
+
+   When a program is linked with a library, whether statically or using
+a shared library, the combination of the two is legally speaking a
+combined work, a derivative of the original library.  The ordinary
+General Public License therefore permits such linking only if the entire
+combination fits its criteria of freedom.  The Lesser General Public
+License permits more lax criteria for linking other code with the
+library.
+
+   We call this license the "Lesser" General Public License because it
+does _Less_ to protect the user's freedom than the ordinary General
+Public License.  It also provides other free software developers Less of
+an advantage over competing non-free programs.  These disadvantages are
+the reason we use the ordinary General Public License for many
+libraries.  However, the Lesser license provides advantages in certain
+special circumstances.
+
+   For example, on rare occasions, there may be a special need to
+encourage the widest possible use of a certain library, so that it
+becomes a de-facto standard.  To achieve this, non-free programs must be
+allowed to use the library.  A more frequent case is that a free library
+does the same job as widely used non-free libraries.  In this case,
+there is little to gain by limiting the free library to free software
+only, so we use the Lesser General Public License.
+
+   In other cases, permission to use a particular library in non-free
+programs enables a greater number of people to use a large body of free
+software.  For example, permission to use the GNU C Library in non-free
+programs enables many more people to use the whole GNU operating system,
+as well as its variant, the GNU/Linux operating system.
+
+   Although the Lesser General Public License is Less protective of the
+users' freedom, it does ensure that the user of a program that is linked
+with the Library has the freedom and the wherewithal to run that program
+using a modified version of the Library.
+
+   The precise terms and conditions for copying, distribution and
+modification follow.  Pay close attention to the difference between a
+"work based on the library" and a "work that uses the library".  The
+former contains code derived from the library, whereas the latter must
+be combined with the library in order to run.
+
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+---------------------------------------------------------------
+
+  0. This License Agreement applies to any software library or other
+     program which contains a notice placed by the copyright holder or
+     other authorized party saying it may be distributed under the terms
+     of this Lesser General Public License (also called "this License").
+     Each licensee is addressed as "you".
+
+     A "library" means a collection of software functions and/or data
+     prepared so as to be conveniently linked with application programs
+     (which use some of those functions and data) to form executables.
+
+     The "Library", below, refers to any such software library or work
+     which has been distributed under these terms.  A "work based on the
+     Library" means either the Library or any derivative work under
+     copyright law: that is to say, a work containing the Library or a
+     portion of it, either verbatim or with modifications and/or
+     translated straightforwardly into another language.  (Hereinafter,
+     translation is included without limitation in the term
+     "modification".)
+
+     "Source code" for a work means the preferred form of the work for
+     making modifications to it.  For a library, complete source code
+     means all the source code for all modules it contains, plus any
+     associated interface definition files, plus the scripts used to
+     control compilation and installation of the library.
+
+     Activities other than copying, distribution and modification are
+     not covered by this License; they are outside its scope.  The act
+     of running a program using the Library is not restricted, and
+     output from such a program is covered only if its contents
+     constitute a work based on the Library (independent of the use of
+     the Library in a tool for writing it).  Whether that is true
+     depends on what the Library does and what the program that uses the
+     Library does.
+
+  1. You may copy and distribute verbatim copies of the Library's
+     complete source code as you receive it, in any medium, provided
+     that you conspicuously and appropriately publish on each copy an
+     appropriate copyright notice and disclaimer of warranty; keep
+     intact all the notices that refer to this License and to the
+     absence of any warranty; and distribute a copy of this License
+     along with the Library.
+
+     You may charge a fee for the physical act of transferring a copy,
+     and you may at your option offer warranty protection in exchange
+     for a fee.
+
+  2. You may modify your copy or copies of the Library or any portion of
+     it, thus forming a work based on the Library, and copy and
+     distribute such modifications or work under the terms of Section 1
+     above, provided that you also meet all of these conditions:
+
+       a. The modified work must itself be a software library.
+
+       b. You must cause the files modified to carry prominent notices
+          stating that you changed the files and the date of any change.
+
+       c. You must cause the whole of the work to be licensed at no
+          charge to all third parties under the terms of this License.
+
+       d. If a facility in the modified Library refers to a function or
+          a table of data to be supplied by an application program that
+          uses the facility, other than as an argument passed when the
+          facility is invoked, then you must make a good faith effort to
+          ensure that, in the event an application does not supply such
+          function or table, the facility still operates, and performs
+          whatever part of its purpose remains meaningful.
+
+          (For example, a function in a library to compute square roots
+          has a purpose that is entirely well-defined independent of the
+          application.  Therefore, Subsection 2d requires that any
+          application-supplied function or table used by this function
+          must be optional: if the application does not supply it, the
+          square root function must still compute square roots.)
+
+     These requirements apply to the modified work as a whole.  If
+     identifiable sections of that work are not derived from the
+     Library, and can be reasonably considered independent and separate
+     works in themselves, then this License, and its terms, do not apply
+     to those sections when you distribute them as separate works.  But
+     when you distribute the same sections as part of a whole which is a
+     work based on the Library, the distribution of the whole must be on
+     the terms of this License, whose permissions for other licensees
+     extend to the entire whole, and thus to each and every part
+     regardless of who wrote it.
+
+     Thus, it is not the intent of this section to claim rights or
+     contest your rights to work written entirely by you; rather, the
+     intent is to exercise the right to control the distribution of
+     derivative or collective works based on the Library.
+
+     In addition, mere aggregation of another work not based on the
+     Library with the Library (or with a work based on the Library) on a
+     volume of a storage or distribution medium does not bring the other
+     work under the scope of this License.
+
+  3. You may opt to apply the terms of the ordinary GNU General Public
+     License instead of this License to a given copy of the Library.  To
+     do this, you must alter all the notices that refer to this License,
+     so that they refer to the ordinary GNU General Public License,
+     version 2, instead of to this License.  (If a newer version than
+     version 2 of the ordinary GNU General Public License has appeared,
+     then you can specify that version instead if you wish.)  Do not
+     make any other change in these notices.
+
+     Once this change is made in a given copy, it is irreversible for
+     that copy, so the ordinary GNU General Public License applies to
+     all subsequent copies and derivative works made from that copy.
+
+     This option is useful when you wish to copy part of the code of the
+     Library into a program that is not a library.
+
+  4. You may copy and distribute the Library (or a portion or derivative
+     of it, under Section 2) in object code or executable form under the
+     terms of Sections 1 and 2 above provided that you accompany it with
+     the complete corresponding machine-readable source code, which must
+     be distributed under the terms of Sections 1 and 2 above on a
+     medium customarily used for software interchange.
+
+     If distribution of object code is made by offering access to copy
+     from a designated place, then offering equivalent access to copy
+     the source code from the same place satisfies the requirement to
+     distribute the source code, even though third parties are not
+     compelled to copy the source along with the object code.
+
+  5. A program that contains no derivative of any portion of the
+     Library, but is designed to work with the Library by being compiled
+     or linked with it, is called a "work that uses the Library".  Such
+     a work, in isolation, is not a derivative work of the Library, and
+     therefore falls outside the scope of this License.
+
+     However, linking a "work that uses the Library" with the Library
+     creates an executable that is a derivative of the Library (because
+     it contains portions of the Library), rather than a "work that uses
+     the library".  The executable is therefore covered by this License.
+     Section 6 states terms for distribution of such executables.
+
+     When a "work that uses the Library" uses material from a header
+     file that is part of the Library, the object code for the work may
+     be a derivative work of the Library even though the source code is
+     not.  Whether this is true is especially significant if the work
+     can be linked without the Library, or if the work is itself a
+     library.  The threshold for this to be true is not precisely
+     defined by law.
+
+     If such an object file uses only numerical parameters, data
+     structure layouts and accessors, and small macros and small inline
+     functions (ten lines or less in length), then the use of the object
+     file is unrestricted, regardless of whether it is legally a
+     derivative work.  (Executables containing this object code plus
+     portions of the Library will still fall under Section 6.)
+
+     Otherwise, if the work is a derivative of the Library, you may
+     distribute the object code for the work under the terms of Section
+     6.  Any executables containing that work also fall under Section 6,
+     whether or not they are linked directly with the Library itself.
+
+  6. As an exception to the Sections above, you may also combine or link
+     a "work that uses the Library" with the Library to produce a work
+     containing portions of the Library, and distribute that work under
+     terms of your choice, provided that the terms permit modification
+     of the work for the customer's own use and reverse engineering for
+     debugging such modifications.
+
+     You must give prominent notice with each copy of the work that the
+     Library is used in it and that the Library and its use are covered
+     by this License.  You must supply a copy of this License.  If the
+     work during execution displays copyright notices, you must include
+     the copyright notice for the Library among them, as well as a
+     reference directing the user to the copy of this License.  Also,
+     you must do one of these things:
+
+       a. Accompany the work with the complete corresponding
+          machine-readable source code for the Library including
+          whatever changes were used in the work (which must be
+          distributed under Sections 1 and 2 above); and, if the work is
+          an executable linked with the Library, with the complete
+          machine-readable "work that uses the Library", as object code
+          and/or source code, so that the user can modify the Library
+          and then relink to produce a modified executable containing
+          the modified Library.  (It is understood that the user who
+          changes the contents of definitions files in the Library will
+          not necessarily be able to recompile the application to use
+          the modified definitions.)
+
+       b. Use a suitable shared library mechanism for linking with the
+          Library.  A suitable mechanism is one that (1) uses at run
+          time a copy of the library already present on the user's
+          computer system, rather than copying library functions into
+          the executable, and (2) will operate properly with a modified
+          version of the library, if the user installs one, as long as
+          the modified version is interface-compatible with the version
+          that the work was made with.
+
+       c. Accompany the work with a written offer, valid for at least
+          three years, to give the same user the materials specified in
+          Subsection 6a, above, for a charge no more than the cost of
+          performing this distribution.
+
+       d. If distribution of the work is made by offering access to copy
+          from a designated place, offer equivalent access to copy the
+          above specified materials from the same place.
+
+       e. Verify that the user has already received a copy of these
+          materials or that you have already sent this user a copy.
+
+     For an executable, the required form of the "work that uses the
+     Library" must include any data and utility programs needed for
+     reproducing the executable from it.  However, as a special
+     exception, the materials to be distributed need not include
+     anything that is normally distributed (in either source or binary
+     form) with the major components (compiler, kernel, and so on) of
+     the operating system on which the executable runs, unless that
+     component itself accompanies the executable.
+
+     It may happen that this requirement contradicts the license
+     restrictions of other proprietary libraries that do not normally
+     accompany the operating system.  Such a contradiction means you
+     cannot use both them and the Library together in an executable that
+     you distribute.
+
+  7. You may place library facilities that are a work based on the
+     Library side-by-side in a single library together with other
+     library facilities not covered by this License, and distribute such
+     a combined library, provided that the separate distribution of the
+     work based on the Library and of the other library facilities is
+     otherwise permitted, and provided that you do these two things:
+
+       a. Accompany the combined library with a copy of the same work
+          based on the Library, uncombined with any other library
+          facilities.  This must be distributed under the terms of the
+          Sections above.
+
+       b. Give prominent notice with the combined library of the fact
+          that part of it is a work based on the Library, and explaining
+          where to find the accompanying uncombined form of the same
+          work.
+
+  8. You may not copy, modify, sublicense, link with, or distribute the
+     Library except as expressly provided under this License.  Any
+     attempt otherwise to copy, modify, sublicense, link with, or
+     distribute the Library is void, and will automatically terminate
+     your rights under this License.  However, parties who have received
+     copies, or rights, from you under this License will not have their
+     licenses terminated so long as such parties remain in full
+     compliance.
+
+  9. You are not required to accept this License, since you have not
+     signed it.  However, nothing else grants you permission to modify
+     or distribute the Library or its derivative works.  These actions
+     are prohibited by law if you do not accept this License.
+     Therefore, by modifying or distributing the Library (or any work
+     based on the Library), you indicate your acceptance of this License
+     to do so, and all its terms and conditions for copying,
+     distributing or modifying the Library or works based on it.
+
+  10. Each time you redistribute the Library (or any work based on the
+     Library), the recipient automatically receives a license from the
+     original licensor to copy, distribute, link with or modify the
+     Library subject to these terms and conditions.  You may not impose
+     any further restrictions on the recipients' exercise of the rights
+     granted herein.  You are not responsible for enforcing compliance
+     by third parties with this License.
+
+  11. If, as a consequence of a court judgment or allegation of patent
+     infringement or for any other reason (not limited to patent
+     issues), conditions are imposed on you (whether by court order,
+     agreement or otherwise) that contradict the conditions of this
+     License, they do not excuse you from the conditions of this
+     License.  If you cannot distribute so as to satisfy simultaneously
+     your obligations under this License and any other pertinent
+     obligations, then as a consequence you may not distribute the
+     Library at all.  For example, if a patent license would not permit
+     royalty-free redistribution of the Library by all those who receive
+     copies directly or indirectly through you, then the only way you
+     could satisfy both it and this License would be to refrain entirely
+     from distribution of the Library.
+
+     If any portion of this section is held invalid or unenforceable
+     under any particular circumstance, the balance of the section is
+     intended to apply, and the section as a whole is intended to apply
+     in other circumstances.
+
+     It is not the purpose of this section to induce you to infringe any
+     patents or other property right claims or to contest validity of
+     any such claims; this section has the sole purpose of protecting
+     the integrity of the free software distribution system which is
+     implemented by public license practices.  Many people have made
+     generous contributions to the wide range of software distributed
+     through that system in reliance on consistent application of that
+     system; it is up to the author/donor to decide if he or she is
+     willing to distribute software through any other system and a
+     licensee cannot impose that choice.
+
+     This section is intended to make thoroughly clear what is believed
+     to be a consequence of the rest of this License.
+
+  12. If the distribution and/or use of the Library is restricted in
+     certain countries either by patents or by copyrighted interfaces,
+     the original copyright holder who places the Library under this
+     License may add an explicit geographical distribution limitation
+     excluding those countries, so that distribution is permitted only
+     in or among countries not thus excluded.  In such case, this
+     License incorporates the limitation as if written in the body of
+     this License.
+
+  13. The Free Software Foundation may publish revised and/or new
+     versions of the Lesser General Public License from time to time.
+     Such new versions will be similar in spirit to the present version,
+     but may differ in detail to address new problems or concerns.
+
+     Each version is given a distinguishing version number.  If the
+     Library specifies a version number of this License which applies to
+     it and "any later version", you have the option of following the
+     terms and conditions either of that version or of any later version
+     published by the Free Software Foundation.  If the Library does not
+     specify a license version number, you may choose any version ever
+     published by the Free Software Foundation.
+
+  14. If you wish to incorporate parts of the Library into other free
+     programs whose distribution conditions are incompatible with these,
+     write to the author to ask for permission.  For software which is
+     copyrighted by the Free Software Foundation, write to the Free
+     Software Foundation; we sometimes make exceptions for this.  Our
+     decision will be guided by the two goals of preserving the free
+     status of all derivatives of our free software and of promoting the
+     sharing and reuse of software generally.
+
+                              NO WARRANTY
+
+  15. BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO
+     WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE
+     LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS
+     AND/OR OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY
+     OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT
+     LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+     FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND
+     PERFORMANCE OF THE LIBRARY IS WITH YOU. SHOULD THE LIBRARY PROVE
+     DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR
+     OR CORRECTION.
+
+  16. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+     WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY
+     MODIFY AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE
+     LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL,
+     INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR
+     INABILITY TO USE THE LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF
+     DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU
+     OR THIRD PARTIES OR A FAILURE OF THE LIBRARY TO OPERATE WITH ANY
+     OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN
+     ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+END OF TERMS AND CONDITIONS
+---------------------------
+
+How to Apply These Terms to Your New Libraries
+----------------------------------------------
+
+If you develop a new library, and you want it to be of the greatest
+possible use to the public, we recommend making it free software that
+everyone can redistribute and change.  You can do so by permitting
+redistribution under these terms (or, alternatively, under the terms of
+the ordinary General Public License).
+
+   To apply these terms, attach the following notices to the library.
+It is safest to attach them to the start of each source file to most
+effectively convey the exclusion of warranty; and each file should have
+at least the "copyright" line and a pointer to where the full notice is
+found.
+
+     ONE LINE TO GIVE THE LIBRARY'S NAME AND AN IDEA OF WHAT IT DOES.
+     Copyright (C) YEAR  NAME OF AUTHOR
+
+     This library is free software; you can redistribute it and/or modify it
+     under the terms of the GNU Lesser General Public License as published by
+     the Free Software Foundation; either version 2.1 of the License, or (at
+     your option) any later version.
+
+     This library is distributed in the hope that it will be useful, but
+     WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+     Lesser General Public License for more details.
+
+     You should have received a copy of the GNU Lesser General Public
+     License along with this library; if not, write to the Free Software
+     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
+     USA.
+
+   Also add information on how to contact you by electronic and paper
+mail.
+
+   You should also get your employer (if you work as a programmer) or
+your school, if any, to sign a "copyright disclaimer" for the library,
+if necessary.  Here is a sample; alter the names:
+
+     Yoyodyne, Inc., hereby disclaims all copyright interest in the library
+     `Frob' (a library for tweaking knobs) written by James Random Hacker.
+
+     SIGNATURE OF TY COON, 1 April 1990
+     Ty Coon, President of Vice
+
+   That's all there is to it!
+

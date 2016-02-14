@@ -1,0 +1,139 @@
+# Copyright (C) 2014 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# Connect to HOSTNAME using rsh or ssh(1).
+#
+
+proc lava_json { hostname infile outfile } {
+    global board_info
+
+    # FIXME: for some reason the clock in Tcl returns the wrong year.
+    set date [clock clicks]
+#    set DATE [clock format $date -format "%Y-%m-%d"]
+    set DATE [exec date "+%Y-%m-%d"]
+
+    if {![board_info $hostname exists image]} {
+	set IMAGE "ERROR: YOU NEED AN IMAGE FILE"
+    } else {
+	set IMAGE [board_info $hostname image]
+    }
+    if {![board_info $hostname exists testdef]} {
+	set TESTDEF "ERROR: YOU NEED AN TESTDEF "
+    } else {
+	set TESTDEF [board_info $hostname testdef]
+    }
+    if {![board_info $hostname exists repo]} {
+	set REPO "ERROR: YOU NEED AN GIT REPO"
+    } else {
+	set REPO [board_info $hostname repo]
+    }
+    if {![board_info $hostname exists gateway]} {
+	set GATEWAY "ERROR: YOU NEED A GATEWAY"
+    } else {
+	set GATEWAY [board_info $hostname gateway]
+    }
+    if {![board_info $hostname exists pubkey]} {
+	set PUBKEY "ERROR: YOU NEED A PUBKEY"
+    } else {
+	set PUBKEY [board_info $hostname pubkey]
+    }
+    if {![board_info $hostname exists server]} {
+	set SERVER "ERROR: YOU NEED A LAVA SERVER URL"
+    } else {
+	set SERVER [board_info $hostname server]
+    }
+    if {![board_info $hostname exists stream]} {
+	set STREAM "ERROR: YOU NEED A PATH FOR THE STREAM"
+    } else {
+	set STREAM [board_info $hostname stream]
+    }
+    if {![board_info $hostname exists device]} {
+	set DEVICE "ERROR: YOU NEED A DEVICE TYPE"
+    } else {
+	set DEVICE [board_info $hostname device]
+    }
+    if {![board_info $hostname exists health]} {
+	set HEALTH "ERROR: YOU NEED A HEALTH CHECK FLAG"
+    } else {
+	set HEALTH [board_info $hostname health]
+    }
+    if {![board_info $hostname exists job]} {
+	set JOB "ERROR: YOU NEED A JOB NAME"
+    } else {
+	set JOB [board_info $hostname job]
+    }
+    
+    set infd [open $infile r]
+    set outfd [open $outfile w]
+    while { [gets $infd cur_line]>=0 } {
+	if {![string match "*#*" $cur_line]} {
+	    if {![string match "*@*@*" $cur_line]} {
+		puts $outfd $cur_line
+	    } else {
+		set start [string first "@" $cur_line]
+		set end [string last "@" $cur_line]
+		set keyword [string range $cur_line $start $end]
+		switch $keyword {
+		    "@IMAGE@" {
+			set new_line [string replace $cur_line $start $end $IMAGE]
+		    }
+		    "@DATE@" {
+			set new_line [string replace $cur_line $start $end $DATE]
+		    }
+		    "@REPO@" {
+			set new_line [string replace $cur_line $start $end $REPO]
+		    }
+		    "@GATEWAY@" {
+			set new_line [string replace $cur_line $start $end $GATEWAY]
+		    }
+		    "@PUBKEY@" {
+			set new_line [string replace $cur_line $start $end $PUBKEY]
+		    }
+		    "@TESTDEF@" {
+			set new_line [string replace $cur_line $start $end $TESTDEF]
+		    }
+		    "@SERVER@" {
+			set new_line [string replace $cur_line $start $end $SERVER]
+		    }
+		    "@STREAM@" {
+			set new_line [string replace $cur_line $start $end $STREAM]
+		    }
+		    "@DEVICE@" {
+			set new_line [string replace $cur_line $start $end $DEVICE]
+		    }
+		    "@HEALTH@" {
+			set new_line [string replace $cur_line $start $end $HEALTH]
+		    }
+		    "@JOB@" {
+			set new_line [string replace $cur_line $start $end $JOB]
+		    }
+		    default {
+			set new_line $cur_line
+		    }
+		}
+		puts $outfd $new_line
+	    }
+	}
+    }
+    close $infd
+    close $outfd
+    unset infd
+    unset outfd
+
+}
+

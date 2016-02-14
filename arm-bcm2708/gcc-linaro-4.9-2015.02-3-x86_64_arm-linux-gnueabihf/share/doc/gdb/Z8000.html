@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Free Software" and "Free Software Needs
+Free Documentation", with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.
+
+(a) The FSF's Back-Cover Text is: "You are free to copy and modify
+this GNU Manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom." -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Debugging with GDB: Z8000</title>
+
+<meta name="description" content="Debugging with GDB: Z8000">
+<meta name="keywords" content="Debugging with GDB: Z8000">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Embedded-Processors.html#Embedded-Processors" rel="up" title="Embedded Processors">
+<link href="AVR.html#AVR" rel="next" title="AVR">
+<link href="Sparclite.html#Sparclite" rel="prev" title="Sparclite">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Z8000"></a>
+<div class="header">
+<p>
+Next: <a href="AVR.html#AVR" accesskey="n" rel="next">AVR</a>, Previous: <a href="Sparclite.html#Sparclite" accesskey="p" rel="prev">Sparclite</a>, Up: <a href="Embedded-Processors.html#Embedded-Processors" accesskey="u" rel="up">Embedded Processors</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Zilog-Z8000"></a>
+<h4 class="subsection">21.3.10 Zilog Z8000</h4>
+
+<a name="index-Z8000"></a>
+<a name="index-simulator_002c-Z8000"></a>
+<a name="index-Zilog-Z8000-simulator"></a>
+
+<p>When configured for debugging Zilog Z8000 targets, <small>GDB</small> includes
+a Z8000 simulator.
+</p>
+<p>For the Z8000 family, &lsquo;<samp>target sim</samp>&rsquo; simulates either the Z8002 (the
+unsegmented variant of the Z8000 architecture) or the Z8001 (the
+segmented variant).  The simulator recognizes which architecture is
+appropriate by inspecting the object code.
+</p>
+<dl compact="compact">
+<dt><code>target sim <var>args</var></code></dt>
+<dd><a name="index-sim"></a>
+<a name="index-target-sim_002c-with-Z8000"></a>
+<p>Debug programs on a simulated CPU.  If the simulator supports setup
+options, specify them via <var>args</var>.
+</p></dd>
+</dl>
+
+<p>After specifying this target, you can debug programs for the simulated
+CPU in the same style as programs for your host computer; use the
+<code>file</code> command to load a new program image, the <code>run</code> command
+to run your program, and so on.
+</p>
+<p>As well as making available all the usual machine registers
+(see <a href="Registers.html#Registers">Registers</a>), the Z8000 simulator provides three
+additional items of information as specially named registers:
+</p>
+<dl compact="compact">
+<dt><code>cycles</code></dt>
+<dd><p>Counts clock-ticks in the simulator.
+</p>
+</dd>
+<dt><code>insts</code></dt>
+<dd><p>Counts instructions run in the simulator.
+</p>
+</dd>
+<dt><code>time</code></dt>
+<dd><p>Execution time in 60ths of a second.
+</p>
+</dd>
+</dl>
+
+<p>You can refer to these values in <small>GDB</small> expressions with the usual
+conventions; for example, &lsquo;<samp>b&nbsp;fputc&nbsp;if&nbsp;$cycles&gt;5000</samp>&rsquo;<!-- /@w --> sets a
+conditional breakpoint that suspends only after at least 5000
+simulated clock ticks.
+</p>
+
+
+
+</body>
+</html>

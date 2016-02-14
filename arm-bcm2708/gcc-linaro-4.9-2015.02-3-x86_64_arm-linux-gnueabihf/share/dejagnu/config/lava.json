@@ -1,0 +1,55 @@
+# This file is not valid JSON syntax, it's a template. As such, it has embedded comments
+# for fields that get substituted later. Any line that starts with a # gets ignored,
+# and anything that is enclosed by @@ is a substitution variable. The rough limit is
+# only one substitution per line.
+{
+    "actions": [
+        {
+            "command": "deploy_linaro_image",
+            "metadata": {
+                "js-builddate": "@DATE@",
+                "js-buildsecs": "1395431537",
+                "js-buildtime": "13-52"
+            },
+            "parameters": {
+                # "image": "http://community.validation.linaro.org/images/kvm/debian-7-4-base.img.gz"
+                "image": "@IMAGE@"
+            }
+        },
+        {
+            "command": "lava_test_shell",
+            "parameters": {
+                "testdef_repos": [
+                    {
+                        # "git-repo": "http://git.linaro.org/lava-team/hacking-session.git",
+                        "git-repo": "@REPO@",
+                        "parameters": {
+                            # "GATEWAY": "10.0.0.1",
+                            "GATEWAY": "@GATEWAY@",
+                            "PUB_KEY": "@PUBKEY@"
+                        },
+                        # "testdef": "hacking-session-debian.yaml"
+                        "testdef": "@TESTDEF@"
+                    }
+                ],
+                "timeout": 18000
+            }
+        },
+        {
+            "command": "submit_results",
+            "parameters": {
+                # "server": "http://validation.linaro.org:80/RPC2/",
+                "server": "@SERVER@",
+                # "stream": "/anonymous/akbennett/"
+                "stream": "@STREAM@"
+            }
+        }
+    ],
+    # "device_type": "kvm",
+    "device_type": "@DEVICE@",
+    # "health_check": false,
+    "health_check": @HEALTH@,
+    # "job_name": "kvm-debian-7.4-with-hack-session",
+    "job_name": "@JOB@",
+    "timeout": 18000
+}

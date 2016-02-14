@@ -1,0 +1,143 @@
+#!/bin/sh
+#
+# Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+# 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This script was written by Rob Savoye. The script finds the proper
+# expect shell and then starts DejaGnu.
+
+# Get the execution path to this script and the current directory.
+
+mypath=${0-.}
+if expr ${mypath} : '.*/.*' > /dev/null
+then
+    :
+else
+    IFS="${IFS= 	}"; save_ifs="$IFS"; IFS="${IFS}:"
+    for dir in $PATH
+    do
+	test -z "$dir" && dir=.
+	if test -x $dir/$mypath
+	then
+	    mypath=$dir/$mypath
+	    break
+	fi
+    done
+    IFS="$save_ifs"
+fi
+execpath=`echo ${mypath} | sed  -e 's@/[^/]*$@@'`
+
+# Get the name by which runtest was invoked and extract the config
+# triplet.
+
+runtest=`echo ${mypath} | sed -e 's@^.*/@@'`
+target=`echo $runtest | sed -e 's/-runtest$//'`
+if [ "$target" != runtest ] ; then
+    target="--target ${target}"
+else
+    target=""
+fi
+
+# Find the right expect binary to use. If a variable EXPECT exists, it
+# takes precedence over all other tests. Otherwise look for a freshly
+# built one, and then use one in the path.
+
+if [ x"$EXPECT" != x ] ; then
+  expectbin=$EXPECT
+else
+  if [ -x "$execpath/expect" ] ; then
+    expectbin=$execpath/expect
+  else
+      expectbin=expect
+    fi
+fi
+
+# Just to be safe ..
+
+if [ -z "$expectbin" ]; then
+  echo "ERROR: No expect shell found"
+  exit 1
+fi
+
+# This wrapper script will set up run-time library search PATHs.
+
+if [ -x "$expectbin-bld.sh" ]; then
+  expectbin="${CONFIG_SHELL-/bin/sh} $expectbin-bld.sh"
+fi
+
+# Extract a few options from the option list.
+
+verbose=0
+debug=""
+for a in "$@" ; do
+  case $a in
+      -v|--v|-verb*|--verb*)    verbose=`expr $verbose + 1`;;
+      -D0|--D0)       debug="-D 0" ;;
+      -D1|--D1)       debug="-D 1" ;;
+  esac
+done
+
+if expr $verbose \> 0 > /dev/null ; then
+  echo Expect binary is $expectbin
+fi
+
+# Find runtest.exp. First we look in its installed location,
+# otherwise start if from the source tree.
+#
+# runtest.exp is found in @datadir@ (set by configure), but $execpath
+# is @bindir@.  We're assuming that:
+#
+#   @datadir@ == @bindir@/../share
+#   or
+#   @datadir@ == @bindir@/../../share
+#
+# .. which is a very weak assumption
+
+for i in `echo ${execpath} | sed  -e 's@/[^/]*$@/share/dejagnu@'` `echo ${execpath} | sed  -e 's@/[^/]*/[^/]*$@/share/dejagnu@'` $execpath /usr/share/dejagnu /usr/local/share/dejagnu ; do
+    if expr $verbose \> 1 > /dev/null ; then
+	echo Looking for $i/runtest.exp.
+    fi
+    if [ -f $i/runtest.exp ] ; then
+	runpath=$i
+	if expr $verbose \> 0 > /dev/null ; then
+	    echo Using $i/runtest.exp as main test driver
+	fi
+	break
+    fi
+done
+
+# Check for an environment variable.
+
+if [ x"$DEJAGNULIBS" != x ] ; then
+    runpath=$DEJAGNULIBS
+    if expr $verbose \> 0 > /dev/null ; then
+	echo Using $DEJAGNULIBS/runtest.exp as main test driver
+    fi
+fi
+if [ x"$runpath" = x ] ; then
+    echo "ERROR: runtest.exp does not exist"
+    exit 1
+fi
+
+if ! type $expectbin >/dev/null 2>/dev/null ; then
+    echo "ERROR: unable to find expect on the PATH"
+    exit 1
+fi
+
+exec $expectbin $debug -- $runpath/runtest.exp $target ${1+"$@"}

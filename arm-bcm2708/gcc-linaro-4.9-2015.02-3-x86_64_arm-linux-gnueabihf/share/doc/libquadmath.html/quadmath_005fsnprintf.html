@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2010-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GCC libquadmath: quadmath_snprintf</title>
+
+<meta name="description" content="GCC libquadmath: quadmath_snprintf">
+<meta name="keywords" content="GCC libquadmath: quadmath_snprintf">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="I_002fO-Library-Routines.html#I_002fO-Library-Routines" rel="up" title="I/O Library Routines">
+<link href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License" rel="next" title="GNU Free Documentation License">
+<link href="strtoflt128.html#strtoflt128" rel="prev" title="strtoflt128">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="quadmath_005fsnprintf"></a>
+<div class="header">
+<p>
+Previous: <a href="strtoflt128.html#strtoflt128" accesskey="p" rel="prev">strtoflt128</a>, Up: <a href="I_002fO-Library-Routines.html#I_002fO-Library-Routines" accesskey="u" rel="up">I/O Library Routines</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<a name="quadmath_005fsnprintf-_002d_002d_002d-Convert-to-string"></a>
+<h3 class="section">3.2 <code>quadmath_snprintf</code> &mdash; Convert to string</h3>
+
+<p>The function <code>quadmath_snprintf</code> converts a <code>__float128</code> floating-point
+number into a string.  It is a specialized alternative to <code>snprintf</code>, where
+the format string is restricted to a single conversion specifier with <code>Q</code>
+modifier and conversion specifier <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>, <code>g</code>,
+<code>G</code>, <code>a</code> or <code>A</code>, with no extra characters before or after the
+conversion specifier.  The <code>%m$</code> or <code>*m$</code> style must not be used in
+the format.
+</p>
+<dl compact="compact">
+<dt>Syntax</dt>
+<dd><p><code>int quadmath_snprintf (char *s, size_t size, const char *format, ...)</code>
+</p>
+</dd>
+<dt><em>Arguments</em>:</dt>
+<dd><table>
+<tr><td width="15%"><var>s</var></td><td width="70%">output string</td></tr>
+<tr><td width="15%"><var>size</var></td><td width="70%">byte size of the string, including tailing NUL</td></tr>
+<tr><td width="15%"><var>format</var></td><td width="70%">conversion specifier string</td></tr>
+</table>
+
+</dd>
+<dt>Note</dt>
+<dd><p>On some targets when supported by the C library hooks are installed
+for <code>printf</code> family of functions, so that <code>printf (&quot;%Qe&quot;, 1.2Q);</code>
+etc. works too.
+</p>
+</dd>
+<dt>Example</dt>
+<dd><div class="smallexample">
+<pre class="smallexample">#include &lt;quadmath.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main ()
+{
+  __float128 r;
+  int prec = 20;
+  int width = 46;
+  char buf[128];
+
+  r = 2.0q;
+  r = sqrtq (r);
+  int n = quadmath_snprintf (buf, sizeof buf, &quot;%+-#*.20Qe&quot;, width, r);
+  if ((size_t) n &lt; sizeof buf)
+    printf (&quot;%s\n&quot;, buf);
+    /* Prints: +1.41421356237309504880e+00 */
+  quadmath_snprintf (buf, sizeof buf, &quot;%Qa&quot;, r);
+  if ((size_t) n &lt; sizeof buf)
+    printf (&quot;%s\n&quot;, buf);
+    /* Prints: 0x1.6a09e667f3bcc908b2fb1366ea96p+0 */
+  n = quadmath_snprintf (NULL, 0, &quot;%+-#46.*Qe&quot;, prec, r);
+  if (n &gt; -1)
+    {
+      char *str = malloc (n + 1);
+      if (str)
+        {
+          quadmath_snprintf (str, n + 1, &quot;%+-#46.*Qe&quot;, prec, r);
+          printf (&quot;%s\n&quot;, str);
+          /* Prints: +1.41421356237309504880e+00 */
+        }
+      free (str);
+    }
+  return 0;
+}
+</pre></div>
+
+</dd>
+</dl>
+
+
+
+
+
+
+</body>
+</html>

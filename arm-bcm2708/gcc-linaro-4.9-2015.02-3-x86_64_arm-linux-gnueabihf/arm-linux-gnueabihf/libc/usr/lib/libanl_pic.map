@@ -1,0 +1,6 @@
+GLIBC_2.4 {
+  global:
+    gai_cancel; gai_error; gai_suspend; getaddrinfo_a;
+  local:
+    *;
+};

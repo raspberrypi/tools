@@ -1,0 +1,31 @@
+# Copyright (C) 2013 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This is a list of toolchains that are supported on this board.
+
+load_generic_config "unix"
+load_lib ssh.exp
+
+set_board_info ssh_prog /usr/bin/ssh
+set_board_info scp_prog /usr/bin/scp
+set_board_info ldflags   "-static"
+set_board_info protocol "ssh"
+set_board_info gcc,timeout 100000
+set_board_info username tcwg
+
+set timeout 10000

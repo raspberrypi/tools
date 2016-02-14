@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Compiler Collection (GCC) Internals: libgcj Tests</title>
+
+<meta name="description" content="GNU Compiler Collection (GCC) Internals: libgcj Tests">
+<meta name="keywords" content="GNU Compiler Collection (GCC) Internals: libgcj Tests">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Testsuites.html#Testsuites" rel="up" title="Testsuites">
+<link href="LTO-Testing.html#LTO-Testing" rel="next" title="LTO Testing">
+<link href="C-Tests.html#C-Tests" rel="prev" title="C Tests">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="libgcj-Tests"></a>
+<div class="header">
+<p>
+Next: <a href="LTO-Testing.html#LTO-Testing" accesskey="n" rel="next">LTO Testing</a>, Previous: <a href="C-Tests.html#C-Tests" accesskey="p" rel="prev">C Tests</a>, Up: <a href="Testsuites.html#Testsuites" accesskey="u" rel="up">Testsuites</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="The-Java-library-testsuites_002e"></a>
+<h3 class="section">7.5 The Java library testsuites.</h3>
+
+<p>Runtime tests are executed via &lsquo;<samp>make check</samp>&rsquo; in the
+<samp><var>target</var>/libjava/testsuite</samp> directory in the build
+tree.  Additional runtime tests can be checked into this testsuite.
+</p>
+<p>Regression testing of the core packages in libgcj is also covered by the
+Mauve testsuite.  The <a href="http://sourceware.org/mauve/">Mauve Project</a>
+develops tests for the Java Class Libraries.  These tests are run as part
+of libgcj testing by placing the Mauve tree within the libjava testsuite
+sources at <samp>libjava/testsuite/libjava.mauve/mauve</samp>, or by specifying
+the location of that tree when invoking &lsquo;<samp>make</samp>&rsquo;, as in
+&lsquo;<samp>make MAUVEDIR=~/mauve check</samp>&rsquo;.
+</p>
+<p>To detect regressions, a mechanism in <samp>mauve.exp</samp> compares the
+failures for a test run against the list of expected failures in
+<samp>libjava/testsuite/libjava.mauve/xfails</samp> from the source hierarchy.
+Update this file when adding new failing tests to Mauve, or when fixing
+bugs in libgcj that had caused Mauve test failures.
+</p>
+<p>We encourage developers to contribute test cases to Mauve.
+</p>
+
+
+
+</body>
+</html>

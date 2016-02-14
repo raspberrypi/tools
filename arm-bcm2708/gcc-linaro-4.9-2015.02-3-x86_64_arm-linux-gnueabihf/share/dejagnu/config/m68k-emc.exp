@@ -1,0 +1,71 @@
+# Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+# 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+proc ${board}_init { dest } {
+    global doing_emc_init
+
+    if {[info exists doing_emc_init]} {
+	return
+    }
+    set doing_emc_init 1
+    remote_close $dest
+    set dos_host [board_info $dest dos_host]
+    remote_reboot $dos_host
+    unset doing_emc_init
+}
+
+proc m68k_emc_board_connect { dest } {
+    global board_info
+    set tname [board_info $dest name]
+
+    set board_info($tname,m68k_connected) 1
+    set dos_host [board_info $dest dos_host]
+
+    for { set x 0 } { $x < 3 } { incr x } {
+	set shell_id [remote_open $dos_host]
+	if { $shell_id == "" || $shell_id < 0 } {
+	    remote_reboot $dos_host
+	} else {
+	    break
+	}
+    }
+    remote_send $dos_host "c:\\symetrix.bat\n"
+    remote_expect $dos_host 300 {
+	-re "SymmComm.*Installed.*\033.2J.*\033.2J" { }
+	default {
+	    warning "Never got clear screen sequence from remote side."
+	}
+    }
+    # Flush the buffer.
+    remote_expect $dos_host 2 {
+	-re ".+" { exp_continue }
+    }
+    # Get past first menu.
+    remote_send $dos_host "\n"
+    remote_expect $dos_host 10 {
+	-re "\033.07;02H" { }
+	default { }
+    }
+    # We don't want a log file.
+    remote_send $dos_host "\n"
+    remote_expect $dos_host 10 {
+	-re "\033.02;24H" { }
+	default { }
+    }
+}

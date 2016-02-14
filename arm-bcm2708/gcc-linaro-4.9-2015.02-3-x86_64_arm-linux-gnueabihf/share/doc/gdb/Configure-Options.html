@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Free Software" and "Free Software Needs
+Free Documentation", with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.
+
+(a) The FSF's Back-Cover Text is: "You are free to copy and modify
+this GNU Manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom." -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Debugging with GDB: Configure Options</title>
+
+<meta name="description" content="Debugging with GDB: Configure Options">
+<meta name="keywords" content="Debugging with GDB: Configure Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Installing-GDB.html#Installing-GDB" rel="up" title="Installing GDB">
+<link href="System_002dwide-configuration.html#System_002dwide-configuration" rel="next" title="System-wide configuration">
+<link href="Config-Names.html#Config-Names" rel="prev" title="Config Names">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Configure-Options"></a>
+<div class="header">
+<p>
+Next: <a href="System_002dwide-configuration.html#System_002dwide-configuration" accesskey="n" rel="next">System-wide configuration</a>, Previous: <a href="Config-Names.html#Config-Names" accesskey="p" rel="prev">Config Names</a>, Up: <a href="Installing-GDB.html#Installing-GDB" accesskey="u" rel="up">Installing GDB</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="configure-Options"></a>
+<h3 class="section">C.5 <samp>configure</samp> Options</h3>
+
+<p>Here is a summary of the <samp>configure</samp> options and arguments that
+are most often useful for building <small>GDB</small>.  <samp>configure</samp> also has
+several other options not listed here.  See <a href="../configure/What-Configure-Does.html#What-Configure-Does">(configure.info)What Configure
+Does</a>, for a full explanation of <samp>configure</samp>.
+</p>
+<div class="smallexample">
+<pre class="smallexample">configure <span class="roman">[</span>--help<span class="roman">]</span>
+          <span class="roman">[</span>--prefix=<var>dir</var><span class="roman">]</span>
+          <span class="roman">[</span>--exec-prefix=<var>dir</var><span class="roman">]</span>
+          <span class="roman">[</span>--srcdir=<var>dirname</var><span class="roman">]</span>
+          <span class="roman">[</span>--norecursion<span class="roman">]</span> <span class="roman">[</span>--rm<span class="roman">]</span>
+          <span class="roman">[</span>--target=<var>target</var><span class="roman">]</span>
+          <var>host</var>
+</pre></div>
+
+<p>You may introduce options with a single &lsquo;<samp>-</samp>&rsquo; rather than
+&lsquo;<samp>--</samp>&rsquo; if you prefer; but you may abbreviate option names if you use
+&lsquo;<samp>--</samp>&rsquo;.
+</p>
+<dl compact="compact">
+<dt><code>--help</code></dt>
+<dd><p>Display a quick summary of how to invoke <samp>configure</samp>.
+</p>
+</dd>
+<dt><code>--prefix=<var>dir</var></code></dt>
+<dd><p>Configure the source to install programs and files under directory
+<samp><var>dir</var></samp>.
+</p>
+</dd>
+<dt><code>--exec-prefix=<var>dir</var></code></dt>
+<dd><p>Configure the source to install programs under directory
+<samp><var>dir</var></samp>.
+</p>
+</dd>
+<dt><code>--srcdir=<var>dirname</var></code></dt>
+<dd><p><strong>Warning: using this option requires <small>GNU</small> <code>make</code>, or another
+<code>make</code> that implements the <code>VPATH</code> feature.</strong><br>
+Use this option to make configurations in directories separate from the
+<small>GDB</small> source directories.  Among other things, you can use this to
+build (or maintain) several configurations simultaneously, in separate
+directories.  <samp>configure</samp> writes configuration-specific files in
+the current directory, but arranges for them to use the source in the
+directory <var>dirname</var>.  <samp>configure</samp> creates directories under
+the working directory in parallel to the source directories below
+<var>dirname</var>.
+</p>
+</dd>
+<dt><code>--norecursion</code></dt>
+<dd><p>Configure only the directory level where <samp>configure</samp> is executed; do not
+propagate configuration to subdirectories.
+</p>
+</dd>
+<dt><code>--target=<var>target</var></code></dt>
+<dd><p>Configure <small>GDB</small> for cross-debugging programs running on the specified
+<var>target</var>.  Without this option, <small>GDB</small> is configured to debug
+programs that run on the same machine (<var>host</var>) as <small>GDB</small> itself.
+</p>
+<p>There is no convenient way to generate a list of all available targets.
+</p>
+</dd>
+<dt><code><var>host</var> &hellip;</code></dt>
+<dd><p>Configure <small>GDB</small> to run on the specified <var>host</var>.
+</p>
+<p>There is no convenient way to generate a list of all available hosts.
+</p></dd>
+</dl>
+
+<p>There are many other options available as well, but they are generally
+needed for special purposes only.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="System_002dwide-configuration.html#System_002dwide-configuration" accesskey="n" rel="next">System-wide configuration</a>, Previous: <a href="Config-Names.html#Config-Names" accesskey="p" rel="prev">Config Names</a>, Up: <a href="Installing-GDB.html#Installing-GDB" accesskey="u" rel="up">Installing GDB</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Compiler Collection (GCC) Internals: Constant expressions</title>
+
+<meta name="description" content="GNU Compiler Collection (GCC) Internals: Constant expressions">
+<meta name="keywords" content="GNU Compiler Collection (GCC) Internals: Constant expressions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Expression-trees.html#Expression-trees" rel="up" title="Expression trees">
+<link href="Storage-References.html#Storage-References" rel="next" title="Storage References">
+<link href="Expression-trees.html#Expression-trees" rel="prev" title="Expression trees">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Constant-expressions"></a>
+<div class="header">
+<p>
+Next: <a href="Storage-References.html#Storage-References" accesskey="n" rel="next">Storage References</a>, Up: <a href="Expression-trees.html#Expression-trees" accesskey="u" rel="up">Expression trees</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Constant-expressions-1"></a>
+<h4 class="subsection">10.6.1 Constant expressions</h4>
+<a name="index-INTEGER_005fCST"></a>
+<a name="index-TREE_005fINT_005fCST_005fHIGH"></a>
+<a name="index-TREE_005fINT_005fCST_005fLOW"></a>
+<a name="index-tree_005fint_005fcst_005flt"></a>
+<a name="index-tree_005fint_005fcst_005fequal"></a>
+<a name="index-REAL_005fCST"></a>
+<a name="index-FIXED_005fCST"></a>
+<a name="index-COMPLEX_005fCST"></a>
+<a name="index-VECTOR_005fCST"></a>
+<a name="index-STRING_005fCST"></a>
+<a name="index-TREE_005fSTRING_005fLENGTH"></a>
+<a name="index-TREE_005fSTRING_005fPOINTER"></a>
+
+<p>The table below begins with constants, moves on to unary expressions,
+then proceeds to binary expressions, and concludes with various other
+kinds of expressions:
+</p>
+<dl compact="compact">
+<dt><code>INTEGER_CST</code></dt>
+<dd><p>These nodes represent integer constants.  Note that the type of these
+constants is obtained with <code>TREE_TYPE</code>; they are not always of type
+<code>int</code>.  In particular, <code>char</code> constants are represented with
+<code>INTEGER_CST</code> nodes.  The value of the integer constant <code>e</code> is
+given by
+</p><div class="smallexample">
+<pre class="smallexample">((TREE_INT_CST_HIGH (e) &lt;&lt; HOST_BITS_PER_WIDE_INT)
++ TREE_INST_CST_LOW (e))
+</pre></div>
+<p>HOST_BITS_PER_WIDE_INT is at least thirty-two on all platforms.  Both
+<code>TREE_INT_CST_HIGH</code> and <code>TREE_INT_CST_LOW</code> return a
+<code>HOST_WIDE_INT</code>.  The value of an <code>INTEGER_CST</code> is interpreted
+as a signed or unsigned quantity depending on the type of the constant.
+In general, the expression given above will overflow, so it should not
+be used to calculate the value of the constant.
+</p>
+<p>The variable <code>integer_zero_node</code> is an integer constant with value
+zero.  Similarly, <code>integer_one_node</code> is an integer constant with
+value one.  The <code>size_zero_node</code> and <code>size_one_node</code> variables
+are analogous, but have type <code>size_t</code> rather than <code>int</code>.
+</p>
+<p>The function <code>tree_int_cst_lt</code> is a predicate which holds if its
+first argument is less than its second.  Both constants are assumed to
+have the same signedness (i.e., either both should be signed or both
+should be unsigned.)  The full width of the constant is used when doing
+the comparison; the usual rules about promotions and conversions are
+ignored.  Similarly, <code>tree_int_cst_equal</code> holds if the two
+constants are equal.  The <code>tree_int_cst_sgn</code> function returns the
+sign of a constant.  The value is <code>1</code>, <code>0</code>, or <code>-1</code>
+according on whether the constant is greater than, equal to, or less
+than zero.  Again, the signedness of the constant&rsquo;s type is taken into
+account; an unsigned constant is never less than zero, no matter what
+its bit-pattern.
+</p>
+</dd>
+<dt><code>REAL_CST</code></dt>
+<dd>
+<p>FIXME: Talk about how to obtain representations of this constant, do
+comparisons, and so forth.
+</p>
+</dd>
+<dt><code>FIXED_CST</code></dt>
+<dd>
+<p>These nodes represent fixed-point constants.  The type of these constants
+is obtained with <code>TREE_TYPE</code>.  <code>TREE_FIXED_CST_PTR</code> points to
+a <code>struct fixed_value</code>;  <code>TREE_FIXED_CST</code> returns the structure
+itself.  <code>struct fixed_value</code> contains <code>data</code> with the size of two
+<code>HOST_BITS_PER_WIDE_INT</code> and <code>mode</code> as the associated fixed-point
+machine mode for <code>data</code>.
+</p>
+</dd>
+<dt><code>COMPLEX_CST</code></dt>
+<dd><p>These nodes are used to represent complex number constants, that is a
+<code>__complex__</code> whose parts are constant nodes.  The
+<code>TREE_REALPART</code> and <code>TREE_IMAGPART</code> return the real and the
+imaginary parts respectively.
+</p>
+</dd>
+<dt><code>VECTOR_CST</code></dt>
+<dd><p>These nodes are used to represent vector constants, whose parts are
+constant nodes.  Each individual constant node is either an integer or a
+double constant node.  The first operand is a <code>TREE_LIST</code> of the
+constant nodes and is accessed through <code>TREE_VECTOR_CST_ELTS</code>.
+</p>
+</dd>
+<dt><code>STRING_CST</code></dt>
+<dd><p>These nodes represent string-constants.  The <code>TREE_STRING_LENGTH</code>
+returns the length of the string, as an <code>int</code>.  The
+<code>TREE_STRING_POINTER</code> is a <code>char*</code> containing the string
+itself.  The string may not be <code>NUL</code>-terminated, and it may contain
+embedded <code>NUL</code> characters.  Therefore, the
+<code>TREE_STRING_LENGTH</code> includes the trailing <code>NUL</code> if it is
+present.
+</p>
+<p>For wide string constants, the <code>TREE_STRING_LENGTH</code> is the number
+of bytes in the string, and the <code>TREE_STRING_POINTER</code>
+points to an array of the bytes of the string, as represented on the
+target system (that is, as integers in the target endianness).  Wide and
+non-wide string constants are distinguished only by the <code>TREE_TYPE</code>
+of the <code>STRING_CST</code>.
+</p>
+<p>FIXME: The formats of string constants are not well-defined when the
+target system bytes are not the same width as host system bytes.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Storage-References.html#Storage-References" accesskey="n" rel="next">Storage References</a>, Up: <a href="Expression-trees.html#Expression-trees" accesskey="u" rel="up">Expression trees</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

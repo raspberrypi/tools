@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using the GNU Compiler Collection (GCC): Language Independent Options</title>
+
+<meta name="description" content="Using the GNU Compiler Collection (GCC): Language Independent Options">
+<meta name="keywords" content="Using the GNU Compiler Collection (GCC): Language Independent Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Invoking-GCC.html#Invoking-GCC" rel="up" title="Invoking GCC">
+<link href="Warning-Options.html#Warning-Options" rel="next" title="Warning Options">
+<link href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html#Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options" rel="prev" title="Objective-C and Objective-C++ Dialect Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Language-Independent-Options"></a>
+<div class="header">
+<p>
+Next: <a href="Warning-Options.html#Warning-Options" accesskey="n" rel="next">Warning Options</a>, Previous: <a href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html#Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options" accesskey="p" rel="prev">Objective-C and Objective-C++ Dialect Options</a>, Up: <a href="Invoking-GCC.html#Invoking-GCC" accesskey="u" rel="up">Invoking GCC</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Options-to-Control-Diagnostic-Messages-Formatting"></a>
+<h3 class="section">3.7 Options to Control Diagnostic Messages Formatting</h3>
+<a name="index-options-to-control-diagnostics-formatting"></a>
+<a name="index-diagnostic-messages"></a>
+<a name="index-message-formatting"></a>
+
+<p>Traditionally, diagnostic messages have been formatted irrespective of
+the output device&rsquo;s aspect (e.g. its width, &hellip;).  You can use the
+options described below
+to control the formatting algorithm for diagnostic messages, 
+e.g. how many characters per line, how often source location
+information should be reported.  Note that some language front ends may not
+honor these options.
+</p>
+<dl compact="compact">
+<dt><code>-fmessage-length=<var>n</var></code></dt>
+<dd><a name="index-fmessage_002dlength"></a>
+<p>Try to format error messages so that they fit on lines of about <var>n</var>
+characters.  The default is 72 characters for <code>g++</code> and 0 for the rest of
+the front ends supported by GCC.  If <var>n</var> is zero, then no
+line-wrapping is done; each error message appears on a single
+line.
+</p>
+</dd>
+<dt><code>-fdiagnostics-show-location=once</code></dt>
+<dd><a name="index-fdiagnostics_002dshow_002dlocation"></a>
+<p>Only meaningful in line-wrapping mode.  Instructs the diagnostic messages
+reporter to emit source location information <em>once</em>; that is, in
+case the message is too long to fit on a single physical line and has to
+be wrapped, the source location won&rsquo;t be emitted (as prefix) again,
+over and over, in subsequent continuation lines.  This is the default
+behavior.
+</p>
+</dd>
+<dt><code>-fdiagnostics-show-location=every-line</code></dt>
+<dd><p>Only meaningful in line-wrapping mode.  Instructs the diagnostic
+messages reporter to emit the same source location information (as
+prefix) for physical lines that result from the process of breaking
+a message which is too long to fit on a single line.
+</p>
+</dd>
+<dt><code>-fdiagnostics-color[=<var>WHEN</var>]</code></dt>
+<dt><code>-fno-diagnostics-color</code></dt>
+<dd><a name="index-fdiagnostics_002dcolor"></a>
+<a name="index-highlight_002c-color_002c-colour"></a>
+<a name="index-GCC_005fCOLORS-environment-variable"></a>
+<p>Use color in diagnostics.  <var>WHEN</var> is &lsquo;<samp>never</samp>&rsquo;, &lsquo;<samp>always</samp>&rsquo;,
+or &lsquo;<samp>auto</samp>&rsquo;.  The default is &lsquo;<samp>never</samp>&rsquo; if <code>GCC_COLORS</code> environment
+variable isn&rsquo;t present in the environment, and &lsquo;<samp>auto</samp>&rsquo; otherwise.
+&lsquo;<samp>auto</samp>&rsquo; means to use color only when the standard error is a terminal.
+The forms <samp>-fdiagnostics-color</samp> and <samp>-fno-diagnostics-color</samp> are
+aliases for <samp>-fdiagnostics-color=always</samp> and
+<samp>-fdiagnostics-color=never</samp>, respectively.
+</p>
+<p>The colors are defined by the environment variable <code>GCC_COLORS</code>.
+Its value is a colon-separated list of capabilities and Select Graphic
+Rendition (SGR) substrings. SGR commands are interpreted by the
+terminal or terminal emulator.  (See the section in the documentation
+of your text terminal for permitted values and their meanings as
+character attributes.)  These substring values are integers in decimal
+representation and can be concatenated with semicolons.
+Common values to concatenate include
+&lsquo;<samp>1</samp>&rsquo; for bold,
+&lsquo;<samp>4</samp>&rsquo; for underline,
+&lsquo;<samp>5</samp>&rsquo; for blink,
+&lsquo;<samp>7</samp>&rsquo; for inverse,
+&lsquo;<samp>39</samp>&rsquo; for default foreground color,
+&lsquo;<samp>30</samp>&rsquo; to &lsquo;<samp>37</samp>&rsquo; for foreground colors,
+&lsquo;<samp>90</samp>&rsquo; to &lsquo;<samp>97</samp>&rsquo; for 16-color mode foreground colors,
+&lsquo;<samp>38;5;0</samp>&rsquo; to &lsquo;<samp>38;5;255</samp>&rsquo;
+for 88-color and 256-color modes foreground colors,
+&lsquo;<samp>49</samp>&rsquo; for default background color,
+&lsquo;<samp>40</samp>&rsquo; to &lsquo;<samp>47</samp>&rsquo; for background colors,
+&lsquo;<samp>100</samp>&rsquo; to &lsquo;<samp>107</samp>&rsquo; for 16-color mode background colors,
+and &lsquo;<samp>48;5;0</samp>&rsquo; to &lsquo;<samp>48;5;255</samp>&rsquo;
+for 88-color and 256-color modes background colors.
+</p>
+<p>The default <code>GCC_COLORS</code> is
+&lsquo;<samp>error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01</samp>&rsquo;
+where &lsquo;<samp>01;31</samp>&rsquo; is bold red, &lsquo;<samp>01;35</samp>&rsquo; is bold magenta,
+&lsquo;<samp>01;36</samp>&rsquo; is bold cyan, &lsquo;<samp>01;32</samp>&rsquo; is bold green and
+&lsquo;<samp>01</samp>&rsquo; is bold. Setting <code>GCC_COLORS</code> to the empty
+string disables colors.
+Supported capabilities are as follows.
+</p>
+<dl compact="compact">
+<dt><code>error=</code></dt>
+<dd><a name="index-error-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for error: markers.
+</p>
+</dd>
+<dt><code>warning=</code></dt>
+<dd><a name="index-warning-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for warning: markers.
+</p>
+</dd>
+<dt><code>note=</code></dt>
+<dd><a name="index-note-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for note: markers.
+</p>
+</dd>
+<dt><code>caret=</code></dt>
+<dd><a name="index-caret-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for caret line.
+</p>
+</dd>
+<dt><code>locus=</code></dt>
+<dd><a name="index-locus-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for location information, &lsquo;<samp>file:line</samp>&rsquo; or
+&lsquo;<samp>file:line:column</samp>&rsquo; etc.
+</p>
+</dd>
+<dt><code>quote=</code></dt>
+<dd><a name="index-quote-GCC_005fCOLORS-capability"></a>
+<p>SGR substring for information printed within quotes.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>-fno-diagnostics-show-option</code></dt>
+<dd><a name="index-fno_002ddiagnostics_002dshow_002doption"></a>
+<a name="index-fdiagnostics_002dshow_002doption"></a>
+<p>By default, each diagnostic emitted includes text indicating the
+command-line option that directly controls the diagnostic (if such an
+option is known to the diagnostic machinery).  Specifying the
+<samp>-fno-diagnostics-show-option</samp> flag suppresses that behavior.
+</p>
+</dd>
+<dt><code>-fno-diagnostics-show-caret</code></dt>
+<dd><a name="index-fno_002ddiagnostics_002dshow_002dcaret"></a>
+<a name="index-fdiagnostics_002dshow_002dcaret"></a>
+<p>By default, each diagnostic emitted includes the original source line
+and a caret &rsquo;^&rsquo; indicating the column.  This option suppresses this
+information.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Warning-Options.html#Warning-Options" accesskey="n" rel="next">Warning Options</a>, Previous: <a href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html#Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options" accesskey="p" rel="prev">Objective-C and Objective-C++ Dialect Options</a>, Up: <a href="Invoking-GCC.html#Invoking-GCC" accesskey="u" rel="up">Invoking GCC</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

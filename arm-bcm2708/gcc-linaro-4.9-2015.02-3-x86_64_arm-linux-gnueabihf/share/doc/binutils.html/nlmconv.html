@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1991-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Binary Utilities: nlmconv</title>
+
+<meta name="description" content="GNU Binary Utilities: nlmconv">
+<meta name="keywords" content="GNU Binary Utilities: nlmconv">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Binutils-Index.html#Binutils-Index" rel="index" title="Binutils Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="windmc.html#windmc" rel="next" title="windmc">
+<link href="addr2line.html#addr2line" rel="prev" title="addr2line">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="nlmconv"></a>
+<div class="header">
+<p>
+Next: <a href="windmc.html#windmc" accesskey="n" rel="next">windmc</a>, Previous: <a href="addr2line.html#addr2line" accesskey="p" rel="prev">addr2line</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Binutils-Index.html#Binutils-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="nlmconv-1"></a>
+<h2 class="chapter">11 nlmconv</h2>
+
+<p><code>nlmconv</code> converts a relocatable object file into a NetWare
+Loadable Module.
+</p>
+
+<blockquote>
+<p><em>Warning:</em> <code>nlmconv</code> is not always built as part of the binary
+utilities, since it is only useful for NLM targets.
+</p></blockquote>
+
+
+<div class="smallexample">
+<pre class="smallexample">nlmconv [<samp>-I</samp> <var>bfdname</var>|<samp>--input-target=</samp><var>bfdname</var>]
+        [<samp>-O</samp> <var>bfdname</var>|<samp>--output-target=</samp><var>bfdname</var>]
+        [<samp>-T</samp> <var>headerfile</var>|<samp>--header-file=</samp><var>headerfile</var>]
+        [<samp>-d</samp>|<samp>--debug</samp>] [<samp>-l</samp> <var>linker</var>|<samp>--linker=</samp><var>linker</var>]
+        [<samp>-h</samp>|<samp>--help</samp>] [<samp>-V</samp>|<samp>--version</samp>]
+        <var>infile</var> <var>outfile</var>
+</pre></div>
+
+
+<p><code>nlmconv</code> converts the relocatable &lsquo;<samp>i386</samp>&rsquo; object file
+<var>infile</var> into the NetWare Loadable Module <var>outfile</var>, optionally
+reading <var>headerfile</var> for NLM header information.  For instructions
+on writing the NLM command file language used in header files, see the
+&lsquo;<samp>linkers</samp>&rsquo; section, &lsquo;<samp>NLMLINK</samp>&rsquo; in particular, of the <cite>NLM
+Development and Tools Overview</cite>, which is part of the NLM Software
+Developer&rsquo;s Kit (&ldquo;NLM SDK&rdquo;), available from Novell, Inc.
+<code>nlmconv</code> uses the <small>GNU</small> Binary File Descriptor library to read
+<var>infile</var>;
+see <a href="http://sourceware.org/binutils/docs/ld/BFD.html#BFD">BFD</a> in <cite>Using LD</cite>, for more information.
+</p>
+<p><code>nlmconv</code> can perform a link step.  In other words, you can list
+more than one object file for input if you list them in the definitions
+file (rather than simply specifying one input file on the command line).
+In this case, <code>nlmconv</code> calls the linker for you.
+</p>
+
+
+<dl compact="compact">
+<dt><code>-I <var>bfdname</var></code></dt>
+<dt><code>--input-target=<var>bfdname</var></code></dt>
+<dd><p>Object format of the input file.  <code>nlmconv</code> can usually determine
+the format of a given file (so no default is necessary).
+See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
+</p>
+</dd>
+<dt><code>-O <var>bfdname</var></code></dt>
+<dt><code>--output-target=<var>bfdname</var></code></dt>
+<dd><p>Object format of the output file.  <code>nlmconv</code> infers the output
+format based on the input format, e.g. for a &lsquo;<samp>i386</samp>&rsquo; input file the
+output format is &lsquo;<samp>nlm32-i386</samp>&rsquo;.
+See <a href="Target-Selection.html#Target-Selection">Target Selection</a>, for more information.
+</p>
+</dd>
+<dt><code>-T <var>headerfile</var></code></dt>
+<dt><code>--header-file=<var>headerfile</var></code></dt>
+<dd><p>Reads <var>headerfile</var> for NLM header information.  For instructions on
+writing the NLM command file language used in header files, see&nbsp;see the
+&lsquo;<samp>linkers</samp>&rsquo; section, of the <cite>NLM Development and Tools
+Overview</cite>, which is part of the NLM Software Developer&rsquo;s Kit, available
+from Novell, Inc.
+</p>
+</dd>
+<dt><code>-d</code></dt>
+<dt><code>--debug</code></dt>
+<dd><p>Displays (on standard error) the linker command line used by <code>nlmconv</code>.
+</p>
+</dd>
+<dt><code>-l <var>linker</var></code></dt>
+<dt><code>--linker=<var>linker</var></code></dt>
+<dd><p>Use <var>linker</var> for any linking.  <var>linker</var> can be an absolute or a
+relative pathname.
+</p>
+</dd>
+<dt><code>-h</code></dt>
+<dt><code>--help</code></dt>
+<dd><p>Prints a usage summary.
+</p>
+</dd>
+<dt><code>-V</code></dt>
+<dt><code>--version</code></dt>
+<dd><p>Prints the version number for <code>nlmconv</code>.
+</p></dd>
+</dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="windmc.html#windmc" accesskey="n" rel="next">windmc</a>, Previous: <a href="addr2line.html#addr2line" accesskey="p" rel="prev">addr2line</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Binutils-Index.html#Binutils-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

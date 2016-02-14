@@ -1,0 +1,248 @@
+# Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+# 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# Connect to HOSTNAME using ssh(1).
+#
+
+set ssh_initialized "no"
+set ssh_useropts " -o ControlPersist=yes -o ControlMaster=auto -o ControlPath=\"/tmp/ssh-%r@%h:%p\""
+
+# Default to the ssh and scp in the users path.
+set SSH ssh
+set SCP scp
+
+# Download SRCFILE to DESTFILE on DESTHOST.
+#
+proc ssh_download {desthost srcfile destfile} {
+    global SSH SCP ssh_initialized timeout
+
+    set ssh_port ""
+    set ssh_user ""
+    set ssh_useropts ""
+    set name ""
+    set hostname ""
+
+#    if { $ssh_initialized == "no" } {
+#	ssh_close $desthost
+#    }
+
+    if {[board_info $desthost exists scp_prog]} {
+	set SCP [board_info $desthost scp_prog]
+    }
+
+    if {[board_info $desthost exists ssh_prog]} {
+	set SSH [board_info $desthost ssh_prog]
+    }
+
+    # The default user name is the person running the tests
+    if {[board_info $desthost exists username]} {
+	set ssh_user "[board_info $desthost username]@"
+    }
+
+    if {[board_info $desthost exists ssh_opts]} {
+	append ssh_useropts " [board_info $desthost ssh_opts]"
+    }
+
+    # The default SSH port is 22
+    if {[board_info $desthost exists port]} {
+	set ssh_port "[board_info $desthost port]"
+    } else {
+	set ssh_port 22
+    }
+
+    if {[board_info $desthost exists name]} {
+	set name [board_info $desthost name]
+    }
+
+    if {[board_info $desthost exists hostname]} {
+	set hostname [board_info $desthost hostname]
+    } else {
+	set hostname $desthost
+    }
+
+    append ssh_useropts " -o ControlPersist=yes -o ControlMaster=auto -o ControlPath=/tmp/ssh-%r@%h:%p"
+
+    set ret [local_exec "$SCP -P $ssh_port $ssh_useropts $srcfile $ssh_user$hostname:$destfile" "" "" $timeout]
+    set status [lindex $ret 0]
+    set output [lindex $ret 1]
+    if { $status == 0 } {
+	set ssh_initialized "yes"
+	verbose "Copied $srcfile to $desthost:$destfile" 2
+	return $destfile
+    } else {
+	verbose "Download via ssh to $desthost failed."
+	return ""
+    }
+}
+
+proc ssh_upload {desthost srcfile destfile} {
+    global SSH SCP
+
+    if {[board_info $desthost exists scp_prog]} {
+	set SCP [board_info $desthost scp_prog]
+    }
+
+    if {[board_info $desthost exists username]} {
+	set ssh_user "[board_info $desthost username]@"
+    } else {
+	set ssh_user ""
+    }
+
+    if {[board_info $desthost exists name]} {
+	set desthost [board_info $desthost name]
+    }
+
+    if {[board_info $desthost exists hostname]} {
+	set desthost [board_info $desthost hostname]
+    }
+
+    set status [catch "exec $SCP $ssh_user$desthost:$srcfile $destfile" output]
+    if { $status == 0 } {
+	verbose "Copied $desthost:$srcfile to $destfile" 2
+	return $destfile
+    } else {
+	verbose "Upload from $desthost failed, $output."
+	return ""
+    }
+}
+
+# Execute CMD on BOARDNAME.
+#
+proc ssh_exec { boardname program pargs inp outp } {
+    global SSH timeout
+
+    set ssh_port ""
+    set scp_port ""
+    set ssh_user ""
+    set ssh_useropts ""
+    set name ""
+    set hostname ""
+
+    verbose "Executing $boardname:$program $pargs"
+
+    if {![board_info $boardname exists ssh_prog]} {
+	set SSH ssh
+    } else {
+	set SSH [board_info $boardname ssh_prog]
+    }
+
+    if {[board_info $boardname exists username]} {
+	set ssh_user "[board_info $boardname username]@"
+    } else {
+	set ssh_user ""
+    }
+
+    if {[board_info $boardname exists ssh_useropts]} {
+	append ssh_useropts " [board_info $boardname ssh_opts]"
+    }
+
+    if {[board_info $boardname exists name]} {
+	set boardname [board_info $boardname name]
+    }
+
+    if {[board_info $boardname exists hostname]} {
+	set hostname [board_info $boardname hostname]
+    } else {
+	set hostname $boardname
+    }
+
+    if {[board_info $boardname  exists port]} {
+	append ssh_useropts " -p [board_info $boardname port]"
+    }
+
+    append ssh_useropts " -o ControlPersist=yes -o ControlMaster=auto -o ControlPath=\"/tmp/ssh-%r@%h:%p\""
+
+    # If CMD sends any output to stderr, exec will think it failed.
+    # More often than not that will be true, but it doesn't catch the
+    # case where there is no output but the exit code is non-zero.
+    if { $inp == "" } {
+	set inp "/dev/null"
+    }
+
+    # We use && here, as otherwise the echo always works, which makes it look
+    # like execution succeeded when in reality it failed.
+    set ret [local_exec "$SSH $ssh_useropts $ssh_user$hostname sh -c '$program $pargs && echo XYZ\\\${?}ZYX \\; rm -f $program'" $inp $outp $timeout]
+    set status [lindex $ret 0]
+    set output [lindex $ret 1]
+
+    verbose "$SSH status is $status, output is $output"
+
+    # `status' doesn't mean much here other than ssh worked ok.
+    # What we want is whether $program ran ok.  Return $status
+    # if the program timed out, status will be 1 indicating that
+    # ssh ran and failed.  If ssh fails, we will get FAIL rather
+    # than UNRESOLVED - this will help the problem be noticed.
+    if { $status != 0 } {
+	regsub "XYZ(\[0-9\]*)ZYX\n?" $output "" output
+	return [list $status "$SSH to $boardname failed for $program, $output"]
+    }
+    regexp "XYZ(\[0-9\]*)ZYX" $output junk status
+    verbose "ssh_exec: status:$status text:$output" 4
+    if { $status == "" } {
+	return [list -1 "Couldn't parse $SSH output, $output."]
+    }
+    regsub "XYZ(\[0-9\]*)ZYX\n?" $output "" output
+    # Delete one trailing \n because that is what `exec' will do and we want
+    # to behave identical to it.
+    regsub "\n$" $output "" output
+    return [list [expr {$status != 0}] $output]
+}
+
+proc ssh_close { desthost } {
+    global SSH ssh_initialized
+
+    verbose "Closing the SSH connection to $desthost"
+    
+    set ssh_port ""
+    set scp_port ""
+    set ssh_user ""
+    set ssh_useropts ""
+    set name ""
+    set hostname ""
+
+    if {[board_info $desthost exists username]} {
+	set ssh_useropts "-l [board_info $desthost username]"
+	set ssh_user "[board_info $desthost username]@"
+    } else {
+	set ssh_user ""
+	set ssh_useropts ""
+    }
+
+    if {[board_info $desthost exists hostname]} {
+	set hostname [board_info $desthost hostname]
+    }
+
+    if {[board_info $desthost exists ssh_opts]} {
+	append ssh_useropts " [board_info $desthost ssh_opts]"
+    }
+
+    if {[board_info $desthost exists port]} {
+	set ssh_port " -p [board_info $desthost port]"
+    } else {
+	set ssh_port ""
+    }
+
+    set args "$ssh_user$hostname $ssh_port"
+
+   # Kill the remote server
+    set status [catch "exec ssh $ssh_port -o ControlPath=/tmp/ssh-%r@%h:%p -O exit $args"]
+    set ssh_initialized "no"
+
+     return ""
+}

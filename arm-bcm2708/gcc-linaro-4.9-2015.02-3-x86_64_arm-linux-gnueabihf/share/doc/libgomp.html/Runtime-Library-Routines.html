@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2006-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU libgomp: Runtime Library Routines</title>
+
+<meta name="description" content="GNU libgomp: Runtime Library Routines">
+<meta name="keywords" content="GNU libgomp: Runtime Library Routines">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Library-Index.html#Library-Index" rel="index" title="Library Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="omp_005fget_005factive_005flevel.html#omp_005fget_005factive_005flevel" rel="next" title="omp_get_active_level">
+<link href="Enabling-OpenMP.html#Enabling-OpenMP" rel="prev" title="Enabling OpenMP">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Runtime-Library-Routines"></a>
+<div class="header">
+<p>
+Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" rel="next">Environment Variables</a>, Previous: <a href="Enabling-OpenMP.html#Enabling-OpenMP" accesskey="p" rel="prev">Enabling OpenMP</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Runtime-Library-Routines-1"></a>
+<h2 class="chapter">2 Runtime Library Routines</h2>
+
+<p>The runtime routines described here are defined by Section 3 of the OpenMP
+specification in version 4.0.  The routines are structured in following
+three parts:
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">Control threads, processors and the parallel environment.  They have C
+linkage, and do not throw exceptions.
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="omp_005fget_005factive_005flevel.html#omp_005fget_005factive_005flevel" accesskey="1">omp_get_active_level</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of active parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fancestor_005fthread_005fnum.html#omp_005fget_005fancestor_005fthread_005fnum" accesskey="2">omp_get_ancestor_thread_num</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ancestor thread ID
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fcancellation.html#omp_005fget_005fcancellation" accesskey="3">omp_get_cancellation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether cancellation support is enabled
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fdefault_005fdevice.html#omp_005fget_005fdefault_005fdevice" accesskey="4">omp_get_default_device</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Get the default device for target regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fdynamic.html#omp_005fget_005fdynamic" accesskey="5">omp_get_dynamic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Dynamic teams setting
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005flevel.html#omp_005fget_005flevel" accesskey="6">omp_get_level</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fmax_005factive_005flevels.html#omp_005fget_005fmax_005factive_005flevels" accesskey="7">omp_get_max_active_levels</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Maximum number of active regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fmax_005fthreads.html#omp_005fget_005fmax_005fthreads" accesskey="8">omp_get_max_threads</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Maximum number of threads of parallel region
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fnested.html#omp_005fget_005fnested" accesskey="9">omp_get_nested</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Nested parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fnum_005fdevices.html#omp_005fget_005fnum_005fdevices">omp_get_num_devices</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of target devices
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fnum_005fprocs.html#omp_005fget_005fnum_005fprocs">omp_get_num_procs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of processors online
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fnum_005fteams.html#omp_005fget_005fnum_005fteams">omp_get_num_teams</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of teams
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fnum_005fthreads.html#omp_005fget_005fnum_005fthreads">omp_get_num_threads</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Size of the active team
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fproc_005fbind.html#omp_005fget_005fproc_005fbind">omp_get_proc_bind</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether theads may be moved between CPUs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fschedule.html#omp_005fget_005fschedule">omp_get_schedule</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Obtain the runtime scheduling method
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fteam_005fnum.html#omp_005fget_005fteam_005fnum">omp_get_team_num</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Get team number
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fteam_005fsize.html#omp_005fget_005fteam_005fsize">omp_get_team_size</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Number of threads in a team
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fthread_005flimit.html#omp_005fget_005fthread_005flimit">omp_get_thread_limit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Maximum number of threads
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fthread_005fnum.html#omp_005fget_005fthread_005fnum">omp_get_thread_num</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Current thread ID
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fin_005fparallel.html#omp_005fin_005fparallel">omp_in_parallel</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether a parallel region is active
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fin_005ffinal.html#omp_005fin_005ffinal">omp_in_final</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether in final or included task region
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fis_005finitial_005fdevice.html#omp_005fis_005finitial_005fdevice">omp_is_initial_device</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether executing on the host device
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fdefault_005fdevice.html#omp_005fset_005fdefault_005fdevice">omp_set_default_device</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the default device for target regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fdynamic.html#omp_005fset_005fdynamic">omp_set_dynamic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Enable/disable dynamic teams
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fmax_005factive_005flevels.html#omp_005fset_005fmax_005factive_005flevels">omp_set_max_active_levels</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Limits the number of active parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fnested.html#omp_005fset_005fnested">omp_set_nested</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Enable/disable nested parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fnum_005fthreads.html#omp_005fset_005fnum_005fthreads">omp_set_num_threads</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set upper team size limit
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fschedule.html#omp_005fset_005fschedule">omp_set_schedule</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the runtime scheduling method
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Initialize, set, test, unset and destroy simple and nested locks.
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="omp_005finit_005flock.html#omp_005finit_005flock">omp_init_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Initialize simple lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005flock.html#omp_005fset_005flock">omp_set_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Wait for and set simple lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005ftest_005flock.html#omp_005ftest_005flock">omp_test_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Test and set simple lock if available
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005funset_005flock.html#omp_005funset_005flock">omp_unset_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Unset simple lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fdestroy_005flock.html#omp_005fdestroy_005flock">omp_destroy_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Destroy simple lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005finit_005fnest_005flock.html#omp_005finit_005fnest_005flock">omp_init_nest_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Initialize nested lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fset_005fnest_005flock.html#omp_005fset_005fnest_005flock">omp_set_nest_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Wait for and set simple lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005ftest_005fnest_005flock.html#omp_005ftest_005fnest_005flock">omp_test_nest_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Test and set nested lock if available
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005funset_005fnest_005flock.html#omp_005funset_005fnest_005flock">omp_unset_nest_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Unset nested lock
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fdestroy_005fnest_005flock.html#omp_005fdestroy_005fnest_005flock">omp_destroy_nest_lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Destroy nested lock
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Portable, thread-based, wall clock timer.
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fwtick.html#omp_005fget_005fwtick">omp_get_wtick</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Get timer precision.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="omp_005fget_005fwtime.html#omp_005fget_005fwtime">omp_get_wtime</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Elapsed wall clock time.
+</td></tr>
+</table>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" rel="next">Environment Variables</a>, Previous: <a href="Enabling-OpenMP.html#Enabling-OpenMP" accesskey="p" rel="prev">Enabling OpenMP</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

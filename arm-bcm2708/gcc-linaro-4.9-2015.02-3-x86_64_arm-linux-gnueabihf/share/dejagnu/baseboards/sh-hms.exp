@@ -1,0 +1,66 @@
+# Copyright (C) 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+# 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This is a list of toolchains that are supported on this board.
+set_board_info target_install  {sh-hms}
+
+# Load the generic configuration for this board. This will define a basic
+# set of routines needed by the tool to communicate with the board.
+load_generic_config "sh"
+
+# Default to SH2.
+process_multilib_options "-m2"
+
+# The compiler used to build for this board. This has *nothing* to do
+# with what compiler is tested if we're testing gcc.
+set_board_info compiler "[find_gcc]"
+
+# We only support newlib on this target.
+# However, we include libgloss so we can find the linker scripts.
+set_board_info cflags "[newlib_include_flags]"
+set_board_info ldflags "[newlib_link_flags] [libgloss_link_flags]"
+
+# Linker script for the SH2 board.
+set_board_info ldscript "-Tsh2lcevb.ld"
+
+# Can't pass arguments to this target.
+set_board_info noargs  1
+# And it can't call functions.
+set_board_info gdb,cannot_call_functions  1
+
+# We use the remote GDB protocol.
+set_board_info gdb_protocol "remote"
+# Jumping to start is how we get the program started in GDB.
+set_board_info gdb_run_command  "jump start"
+# The remote target uses a GDB stub.
+set_board_info use_gdb_stub 1
+# We can't do I/O.
+set_board_info gdb,noinferiorio  1
+# Or signals.
+set_board_info gdb,nosignals  1
+
+# Used by a few gcc.c-torture testcases to delimit how large the stack can
+# be.
+set_board_info gcc,stack_size  16384
+
+# Exit statuses returned from GDB are sometimes faulty.
+set_board_info exit_statuses_bad 1
+
+# Need to pass -mieee in order to for the compiler to be IEEE-fp compliant.
+set_board_info ieee_multilib_flags "-mieee"

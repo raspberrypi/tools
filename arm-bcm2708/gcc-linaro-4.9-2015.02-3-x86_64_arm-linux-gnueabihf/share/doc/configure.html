@@ -1,0 +1,3334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>The GNU configure and build system</title>
+
+<meta name="description" content="The GNU configure and build system">
+<meta name="keywords" content="The GNU configure and build system">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<h1 class="settitle" align="center">The GNU configure and build system</h1>
+
+
+<p>This file documents the GNU configure and build system.
+</p>
+<p>Copyright (C) 1998 Cygnus Solutions.
+</p>
+<p>Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+</p>
+<p>Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+</p>
+<p>Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Foundation.
+</p>
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-configure-and-build-system"></a>
+<h1 class="top">GNU configure and build system</h1>
+
+<p>The GNU configure and build system.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Introduction.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started" accesskey="2">Getting Started</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Getting Started.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Files" accesskey="3">Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Configuration-Names" accesskey="4">Configuration Names</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration Names.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cross-Compilation-Tools" accesskey="5">Cross Compilation Tools</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cross Compilation Tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Canadian-Cross" accesskey="6">Canadian Cross</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Canadian Cross.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cygnus-Configure" accesskey="7">Cygnus Configure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cygnus Configure.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Multilibs" accesskey="8">Multilibs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Multilibs.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#FAQ" accesskey="9">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Frequently Asked Questions.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index.
+</td></tr>
+</table>
+
+
+<hr>
+<a name="Introduction"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-Started" accesskey="n" rel="next">Getting Started</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Introduction-1"></a>
+<h2 class="chapter">1 Introduction</h2>
+
+<p>This document describes the GNU configure and build systems.  It
+describes how autoconf, automake, libtool, and make fit together.  It
+also includes a discussion of the older Cygnus configure system.
+</p>
+<p>This document does not describe in detail how to use each of the tools;
+see the respective manuals for that.  Instead, it describes which files
+the developer must write, which files are machine generated and how they
+are generated, and where certain common problems should be addressed.
+</p>
+<p>This document draws on several sources, including
+<a href="http://www.delorie.com/gnu/docs/autoconf/autoconf_toc.html">the
+autoconf manual</a> by David MacKenzie,
+<a href="http://www.delorie.com/gnu/docs/automake/automake_toc.html">the
+automake manual</a> by David MacKenzie and Tom Tromey,
+<a href="http://www.delorie.com/gnu/docs/libtool/libtool_toc.html">the
+libtool manual</a> by Gordon Matzigkeit, and the Cygnus configure manual by
+K. Richard Pixley.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Goals" accesskey="1">Goals</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Goals.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tools" accesskey="2">Tools</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History" accesskey="3">History</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">History.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Building" accesskey="4">Building</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building.
+</td></tr>
+</table>
+
+<hr>
+<a name="Goals"></a>
+<div class="header">
+<p>
+Next: <a href="#Tools" accesskey="n" rel="next">Tools</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Goals-1"></a>
+<h3 class="section">1.1 Goals</h3>
+<a name="index-goals"></a>
+
+<p>The GNU configure and build system has two main goals.
+</p>
+<p>The first is to simplify the development of portable programs.  The
+system permits the developer to concentrate on writing the program,
+simplifying many details of portability across Unix and even Windows
+systems, and permitting the developer to describe how to build the
+program using simple rules rather than complex Makefiles.
+</p>
+<p>The second is to simplify the building of programs distributed as source
+code.  All programs are built using a simple, standardized, two step
+process.  The program builder need not install any special tools in
+order to build the program.
+</p>
+<hr>
+<a name="Tools"></a>
+<div class="header">
+<p>
+Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Goals" accesskey="p" rel="prev">Goals</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Tools-1"></a>
+<h3 class="section">1.2 Tools</h3>
+
+<p>The GNU configure and build system is comprised of several different
+tools.  Program developers must build and install all of these tools.
+</p>
+<p>People who just want to build programs from distributed sources normally
+do not need any special tools beyond a Unix shell, a make program, and a
+C compiler.
+</p>
+<dl compact="compact">
+<dt>autoconf</dt>
+<dd><p>provides a general portability framework, based on testing the features
+of the host system at build time.
+</p></dd>
+<dt>automake</dt>
+<dd><p>a system for describing how to build a program, permitting the developer
+to write a simplified <samp>Makefile</samp>.
+</p></dd>
+<dt>libtool</dt>
+<dd><p>a standardized approach to building shared libraries.
+</p></dd>
+<dt>gettext</dt>
+<dd><p>provides a framework for translation of text messages into other
+languages; not really discussed in this document.
+</p></dd>
+<dt>m4</dt>
+<dd><p>autoconf requires the GNU version of m4; the standard Unix m4 does not
+suffice.
+</p></dd>
+<dt>perl</dt>
+<dd><p>automake requires perl.
+</p></dd>
+</dl>
+
+<hr>
+<a name="History"></a>
+<div class="header">
+<p>
+Next: <a href="#Building" accesskey="n" rel="next">Building</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="History-1"></a>
+<h3 class="section">1.3 History</h3>
+<a name="index-history"></a>
+
+<p>This is a very brief and probably inaccurate history.
+</p>
+<p>As the number of Unix variants increased during the 1980s, it became
+harder to write programs which could run on all variants.  While it was
+often possible to use <code>#ifdef</code> to identify particular systems,
+developers frequently did not have access to every system, and the
+characteristics of some systems changed from version to version.
+</p>
+<p>By 1992, at least three different approaches had been developed:
+</p><ul>
+<li> The Metaconfig program, by Larry Wall, Harlan Stenn, and Raphael
+Manfredi.
+</li><li> The Cygnus configure script, by K. Richard Pixley, and the gcc configure
+script, by Richard Stallman.  These use essentially the same approach,
+and the developers communicated regularly.
+</li><li> The autoconf program, by David MacKenzie.
+</li></ul>
+
+<p>The Metaconfig program is still used for Perl and a few other programs.
+It is part of the Dist package.  I do not know if it is being developed.
+</p>
+<p>In 1994, David MacKenzie and others modified autoconf to incorporate all
+the features of Cygnus configure.  Since then, there has been a slow but
+steady conversion of GNU programs from Cygnus configure to autoconf. gcc
+has been converted, eliminating the gcc configure script.
+</p>
+<p>GNU autoconf was regularly maintained until late 1996.  As of this
+writing in June, 1998, it has no public maintainer.
+</p>
+<p>Most programs are built using the make program, which requires the
+developer to write Makefiles describing how to build the programs.
+Since most programs are built in pretty much the same way, this led to a
+lot of duplication.
+</p>
+<p>The X Window system is built using the imake tool, which uses a database
+of rules to eliminate the duplication.  However, building a tool which
+was developed using imake requires that the builder have imake
+installed, violating one of the goals of the GNU system.
+</p>
+<p>The new BSD make provides a standard library of Makefile fragments,
+which permits developers to write very simple Makefiles.  However, this
+requires that the builder install the new BSD make program.
+</p>
+<p>In 1994, David MacKenzie wrote the first version of automake, which
+permitted writing a simple build description which was converted into a
+Makefile which could be used by the standard make program.  In 1995, Tom
+Tromey completely rewrote automake in Perl, and he continues to enhance
+it.
+</p>
+<p>Various free packages built libraries, and by around 1995 several
+included support to build shared libraries on various platforms.
+However, there was no consistent approach.  In early 1996, Gordon
+Matzigkeit began working on libtool, which provided a standardized
+approach to building shared libraries.  This was integrated into
+automake from the start.
+</p>
+<p>The development of automake and libtool was driven by the GNITS project,
+a group of GNU maintainers who designed standardized tools to help meet
+the GNU coding standards.
+</p>
+<hr>
+<a name="Building"></a>
+<div class="header">
+<p>
+Previous: <a href="#History" accesskey="p" rel="prev">History</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Building-1"></a>
+<h3 class="section">1.4 Building</h3>
+
+<p>Most readers of this document should already know how to build a tool by
+running &lsquo;<samp>configure</samp>&rsquo; and &lsquo;<samp>make</samp>&rsquo;.  This section may serve as a
+quick introduction or reminder.
+</p>
+<p>Building a tool is normally as simple as running &lsquo;<samp>configure</samp>&rsquo;
+followed by &lsquo;<samp>make</samp>&rsquo;.  You should normally run &lsquo;<samp>configure</samp>&rsquo; from
+an empty directory, using some path to refer to the &lsquo;<samp>configure</samp>&rsquo;
+script in the source directory.  The directory in which you run
+&lsquo;<samp>configure</samp>&rsquo; is called the <em>object directory</em>.
+</p>
+<p>In order to use a object directory which is different from the source
+directory, you must be using the GNU version of &lsquo;<samp>make</samp>&rsquo;, which has
+the required &lsquo;<samp>VPATH</samp>&rsquo; support.  Despite this restriction, using a
+different object directory is highly recommended:
+</p><ul>
+<li> It keeps the files generated during the build from cluttering up your
+sources.
+</li><li> It permits you to remove the built files by simply removing the entire
+build directory.
+</li><li> It permits you to build from the same sources with several sets of
+configure options simultaneously.
+</li></ul>
+
+<p>If you don&rsquo;t have GNU &lsquo;<samp>make</samp>&rsquo;, you will have to run &lsquo;<samp>configure</samp>&rsquo;
+in the source directory.  All GNU packages should support this; in
+particular, GNU packages should not assume the presence of GNU
+&lsquo;<samp>make</samp>&rsquo;.
+</p>
+<p>After running &lsquo;<samp>configure</samp>&rsquo;, you can build the tools by running
+&lsquo;<samp>make</samp>&rsquo;.
+</p>
+<p>To install the tools, run &lsquo;<samp>make install</samp>&rsquo;.  Installing the tools
+will copy the programs and any required support files to the
+<em>installation directory</em>.  The location of the installation
+directory is controlled by &lsquo;<samp>configure</samp>&rsquo; options, as described below.
+</p>
+<p>In the Cygnus tree at present, the info files are built and installed as
+a separate step.  To build them, run &lsquo;<samp>make info</samp>&rsquo;.  To install them,
+run &lsquo;<samp>make install-info</samp>&rsquo;. The equivalent html files are also built
+and installed in a separate step. To build the html files, run
+&lsquo;<samp>make html</samp>&rsquo;. To install the html files run &lsquo;<samp>make install-html</samp>&rsquo;.
+</p>
+<p>All &lsquo;<samp>configure</samp>&rsquo; scripts support a wide variety of options.  The
+most interesting ones are &lsquo;<samp>--with</samp>&rsquo; and &lsquo;<samp>--enable</samp>&rsquo; options
+which are generally specific to particular tools.  You can usually use
+the &lsquo;<samp>--help</samp>&rsquo; option to get a list of interesting options for a
+particular configure script.
+</p>
+<p>The only generic options you are likely to use are the &lsquo;<samp>--prefix</samp>&rsquo;
+and &lsquo;<samp>--exec-prefix</samp>&rsquo; options.  These options are used to specify the
+installation directory.
+</p>
+<p>The directory named by the &lsquo;<samp>--prefix</samp>&rsquo; option will hold machine
+independent files such as info files.
+</p>
+<p>The directory named by the &lsquo;<samp>--exec-prefix</samp>&rsquo; option, which is
+normally a subdirectory of the &lsquo;<samp>--prefix</samp>&rsquo; directory, will hold
+machine dependent files such as executables.
+</p>
+<p>The default for &lsquo;<samp>--prefix</samp>&rsquo; is <samp>/usr/local</samp>.  The default for
+&lsquo;<samp>--exec-prefix</samp>&rsquo; is the value used for &lsquo;<samp>--prefix</samp>&rsquo;.
+</p>
+<p>The convention used in Cygnus releases is to use a &lsquo;<samp>--prefix</samp>&rsquo;
+option of <samp>/usr/cygnus/<var>release</var></samp>, where <var>release</var> is the
+name of the release, and to use a &lsquo;<samp>--exec-prefix</samp>&rsquo; option of
+<samp>/usr/cygnus/<var>release</var>/H-<var>host</var></samp>, where <var>host</var> is the
+configuration name of the host system (see <a href="#Configuration-Names">Configuration Names</a>).
+</p>
+<p>Do not use either the source or the object directory as the installation
+directory.  That will just lead to confusion.
+</p>
+<hr>
+<a name="Getting-Started"></a>
+<div class="header">
+<p>
+Next: <a href="#Files" accesskey="n" rel="next">Files</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Getting-Started-1"></a>
+<h2 class="chapter">2 Getting Started</h2>
+
+<p>To start using the GNU configure and build system with your software
+package, you must write three files, and you must run some tools to
+manually generate additional files.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Write-configure_002ein" accesskey="1">Write configure.in</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Write configure.in.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Write-Makefile_002eam" accesskey="2">Write Makefile.am</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Write Makefile.am.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Write-acconfig_002eh" accesskey="3">Write acconfig.h</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Write acconfig.h.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Generate-files" accesskey="4">Generate files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Generate files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started-Example" accesskey="5">Getting Started Example</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Example.
+</td></tr>
+</table>
+
+<hr>
+<a name="Write-configure_002ein"></a>
+<div class="header">
+<p>
+Next: <a href="#Write-Makefile_002eam" accesskey="n" rel="next">Write Makefile.am</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Write-configure_002ein-1"></a>
+<h3 class="section">2.1 Write configure.in</h3>
+<a name="index-configure_002ein_002c-writing"></a>
+
+<p>You must first write the file <samp>configure.in</samp>.  This is an autoconf
+input file, and the autoconf manual describes in detail what this file
+should look like.
+</p>
+<p>You will write tests in your <samp>configure.in</samp> file to check for
+conditions that may change from one system to another, such as the
+presence of particular header files or functions.
+</p>
+<p>For example, not all systems support the &lsquo;<samp>gettimeofday</samp>&rsquo; function.
+If you want to use the &lsquo;<samp>gettimeofday</samp>&rsquo; function when it is
+available, and to use some other function when it is not, you would
+check for this by putting &lsquo;<samp>AC_CHECK_FUNCS(gettimeofday)</samp>&rsquo; in
+<samp>configure.in</samp>.
+</p>
+<p>When the configure script is run at build time, this will arrange to
+define the preprocessor macro &lsquo;<samp>HAVE_GETTIMEOFDAY</samp>&rsquo; to the value 1 if
+the &lsquo;<samp>gettimeofday</samp>&rsquo; function is available, and to not define the
+macro at all if the function is not available.  Your code can then use
+&lsquo;<samp>#ifdef</samp>&rsquo; to test whether it is safe to call &lsquo;<samp>gettimeofday</samp>&rsquo;.
+</p>
+<p>If you have an existing body of code, the &lsquo;<samp>autoscan</samp>&rsquo; program may
+help identify potential portability problems, and hence configure tests
+that you will want to use.
+See <a href="http://www.delorie.com/gnu/docs/autoconf/autoconf_4.html">the
+autoscan documentation</a>.
+</p>
+<p>Another handy tool for an existing body of code is &lsquo;<samp>ifnames</samp>&rsquo;.  This
+will show you all the preprocessor conditionals that the code already
+uses.
+See <a href="http://www.delorie.com/gnu/docs/autoconf/autoconf_5.html">the
+ifnames documentation</a>.
+</p>
+<p>Besides the portability tests which are specific to your particular
+package, every <samp>configure.in</samp> file should contain the following
+macros.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>AC_INIT</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fINIT"></a>
+<p>This macro takes a single argument, which is the name of a file in your
+package.  For example, &lsquo;<samp>AC_INIT(foo.c)</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_PREREQ(<var>VERSION</var>)</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fPREREQ"></a>
+<p>This macro is optional.  It may be used to indicate the version of
+&lsquo;<samp>autoconf</samp>&rsquo; that you are using.  This will prevent users from
+running an earlier version of &lsquo;<samp>autoconf</samp>&rsquo; and perhaps getting an
+invalid <samp>configure</samp> script.  For example, &lsquo;<samp>AC_PREREQ(2.12)</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp>AM_INIT_AUTOMAKE</samp>&rsquo;</dt>
+<dd><a name="index-AM_005fINIT_005fAUTOMAKE"></a>
+<p>This macro takes two arguments: the name of the package, and a version
+number.  For example, &lsquo;<samp>AM_INIT_AUTOMAKE(foo, 1.0)</samp>&rsquo;.  (This macro is
+not needed if you are not using automake).
+</p>
+</dd>
+<dt>&lsquo;<samp>AM_CONFIG_HEADER</samp>&rsquo;</dt>
+<dd><a name="index-AM_005fCONFIG_005fHEADER"></a>
+<p>This macro names the header file which will hold the preprocessor macro
+definitions at run time.  Normally this should be <samp>config.h</samp>.  Your
+sources would then use &lsquo;<samp>#include &quot;config.h&quot;</samp>&rsquo; to include it.
+</p>
+<p>This macro may optionally name the input file for that header file; by
+default, this is <samp>config.h.in</samp>, but that file name works poorly on
+DOS filesystems.  Therefore, it is often better to name it explicitly as
+<samp>config.in</samp>.
+</p>
+<p>This is what you should normally put in <samp>configure.in</samp>:
+</p><div class="example">
+<pre class="example">AM_CONFIG_HEADER(config.h:config.in)
+</pre></div>
+
+<a name="index-AC_005fCONFIG_005fHEADER"></a>
+<p>(If you are not using automake, use &lsquo;<samp>AC_CONFIG_HEADER</samp>&rsquo; rather than
+&lsquo;<samp>AM_CONFIG_HEADER</samp>&rsquo;).
+</p>
+</dd>
+<dt>&lsquo;<samp>AM_MAINTAINER_MODE</samp>&rsquo;</dt>
+<dd><a name="index-AM_005fMAINTAINER_005fMODE"></a>
+<p>This macro always appears in Cygnus configure scripts.  Other programs
+may or may not use it.
+</p>
+<p>If this macro is used, the &lsquo;<samp>--enable-maintainer-mode</samp>&rsquo; option is
+required to enable automatic rebuilding of generated files used by the
+configure system.  This of course requires that developers be aware of,
+and use, that option.
+</p>
+<p>If this macro is not used, then the generated files will always be
+rebuilt automatically.  This will cause problems if the wrong versions
+of autoconf, automake, or others are in the builder&rsquo;s &lsquo;<samp>PATH</samp>&rsquo;.
+</p>
+<p>(If you are not using automake, you do not need to use this macro).
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_EXEEXT</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fEXEEXT"></a>
+<a name="index-AM_005fEXEEXT"></a>
+<p>Either this macro or &lsquo;<samp>AM_EXEEXT</samp>&rsquo; always appears in Cygnus configure
+files.  Other programs may or may not use one of them.
+</p>
+<p>This macro looks for the executable suffix used on the host system.  On
+Unix systems, this is the empty string.  On Windows systems, this is
+&lsquo;<samp>.exe</samp>&rsquo;.  This macro directs automake to use the executable suffix
+as appropriate when creating programs.  This macro does not take any
+arguments.
+</p>
+<p>The &lsquo;<samp>AC_EXEEXT</samp>&rsquo; form is new, and is part of a Cygnus patch to
+autoconf to support compiling with Visual C++.  Older programs use
+&lsquo;<samp>AM_EXEEXT</samp>&rsquo; instead.
+</p>
+<p>(Programs which do not use automake use neither &lsquo;<samp>AC_EXEEXT</samp>&rsquo; nor
+&lsquo;<samp>AM_EXEEXT</samp>&rsquo;).
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_PROG_CC</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fPROG_005fCC"></a>
+<p>If you are writing C code, you will normally want to use this macro.  It
+locates the C compiler to use.  It does not take any arguments.
+</p>
+<p>However, if this <samp>configure.in</samp> file is for a library which is to
+be compiled by a cross compiler which may not fully work, then you will
+not want to use &lsquo;<samp>AC_PROG_CC</samp>&rsquo;.  Instead, you will want to use a
+variant which does not call the macro &lsquo;<samp>AC_PROG_CC_WORKS</samp>&rsquo;.  Examples
+can be found in various <samp>configure.in</samp> files for libraries that are
+compiled with cross compilers, such as libiberty or libgloss.  This is
+essentially a bug in autoconf, and there will probably be a better
+workaround at some point.
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_PROG_CXX</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fPROG_005fCXX"></a>
+<p>If you are writing C++ code, you will want to use this macro.  It
+locates the C++ compiler to use.  It does not take any arguments.  The
+same cross compiler comments apply as for &lsquo;<samp>AC_PROG_CC</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo;</dt>
+<dd><a name="index-AM_005fPROG_005fLIBTOOL"></a>
+<p>If you want to build libraries, and you want to permit them to be
+shared, or you want to link against libraries which were built using
+libtool, then you will need this macro.  This macro is required in order
+to use libtool.
+</p>
+<a name="index-AM_005fDISABLE_005fSHARED"></a>
+<p>By default, this will cause all libraries to be built as shared
+libraries.  To prevent this&ndash;to change the default&ndash;use
+&lsquo;<samp>AM_DISABLE_SHARED</samp>&rsquo; before &lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo;.  The configure
+options &lsquo;<samp>--enable-shared</samp>&rsquo; and &lsquo;<samp>--disable-shared</samp>&rsquo; may be used
+to override the default at build time.
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_DEFINE(_GNU_SOURCE)</samp>&rsquo;</dt>
+<dd><a name="index-_005fGNU_005fSOURCE"></a>
+<p>GNU packages should normally include this line before any other feature
+tests.  This defines the macro &lsquo;<samp>_GNU_SOURCE</samp>&rsquo; when compiling, which
+directs the libc header files to provide the standard GNU system
+interfaces including all GNU extensions.  If this macro is not defined,
+certain GNU extensions may not be available.
+</p>
+</dd>
+<dt>&lsquo;<samp>AC_OUTPUT</samp>&rsquo;</dt>
+<dd><a name="index-AC_005fOUTPUT"></a>
+<p>This macro takes a list of file names which the configure process should
+produce.  This is normally a list of one or more <samp>Makefile</samp> files
+in different directories.  If your package lives entirely in a single
+directory, you would use simply &lsquo;<samp>AC_OUTPUT(Makefile)</samp>&rsquo;.  If you also
+have, for example, a <samp>lib</samp> subdirectory, you would use
+&lsquo;<samp>AC_OUTPUT(Makefile lib/Makefile)</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>If you want to use locally defined macros in your <samp>configure.in</samp>
+file, then you will need to write a <samp>acinclude.m4</samp> file which
+defines them (if not using automake, this file is called
+<samp>aclocal.m4</samp>).  Alternatively, you can put separate macros in an
+<samp>m4</samp> subdirectory, and put &lsquo;<samp>ACLOCAL_AMFLAGS = -I m4</samp>&rsquo; in your
+<samp>Makefile.am</samp> file so that the &lsquo;<samp>aclocal</samp>&rsquo; program will be able
+to find them.
+</p>
+<p>The different macro prefixes indicate which tool defines the macro.
+Macros which start with &lsquo;<samp>AC_</samp>&rsquo; are part of autoconf.  Macros which
+start with &lsquo;<samp>AM_</samp>&rsquo; are provided by automake or libtool.
+</p>
+<hr>
+<a name="Write-Makefile_002eam"></a>
+<div class="header">
+<p>
+Next: <a href="#Write-acconfig_002eh" accesskey="n" rel="next">Write acconfig.h</a>, Previous: <a href="#Write-configure_002ein" accesskey="p" rel="prev">Write configure.in</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Write-Makefile_002eam-1"></a>
+<h3 class="section">2.2 Write Makefile.am</h3>
+<a name="index-Makefile_002eam_002c-writing"></a>
+
+<p>You must write the file <samp>Makefile.am</samp>.  This is an automake input
+file, and the automake manual describes in detail what this file should
+look like.
+</p>
+<p>The automake commands in <samp>Makefile.am</samp> mostly look like variable
+assignments in a <samp>Makefile</samp>.  automake recognizes special variable
+names, and automatically add make rules to the output as needed.
+</p>
+<p>There will be one <samp>Makefile.am</samp> file for each directory in your
+package.  For each directory with subdirectories, the <samp>Makefile.am</samp>
+file should contain the line
+</p><div class="smallexample">
+<pre class="smallexample">SUBDIRS = <var>dir</var> <var>dir</var> &hellip;
+</pre></div>
+<p>where each <var>dir</var> is the name of a subdirectory.
+</p>
+<p>For each <samp>Makefile.am</samp>, there should be a corresponding
+<samp>Makefile</samp> in the &lsquo;<samp>AC_OUTPUT</samp>&rsquo; macro in <samp>configure.in</samp>.
+</p>
+<p>Every <samp>Makefile.am</samp> written at Cygnus should contain the line
+</p><div class="smallexample">
+<pre class="smallexample">AUTOMAKE_OPTIONS = cygnus
+</pre></div>
+<p>This puts automake into Cygnus mode.  See the automake manual for
+details.
+</p>
+<p>You may to include the version number of &lsquo;<samp>automake</samp>&rsquo; that you are
+using on the &lsquo;<samp>AUTOMAKE_OPTIONS</samp>&rsquo; line.  For example,
+</p><div class="smallexample">
+<pre class="smallexample">AUTOMAKE_OPTIONS = cygnus 1.3
+</pre></div>
+<p>This will prevent users from running an earlier version of
+&lsquo;<samp>automake</samp>&rsquo; and perhaps getting an invalid <samp>Makefile.in</samp>.
+</p>
+<p>If your package builds a program, then in the directory where that
+program is built you will normally want a line like
+</p><div class="smallexample">
+<pre class="smallexample">bin_PROGRAMS = <var>program</var>
+</pre></div>
+<p>where <var>program</var> is the name of the program.  You will then want a
+line like
+</p><div class="smallexample">
+<pre class="smallexample"><var>program</var>_SOURCES = <var>file</var> <var>file</var> &hellip;
+</pre></div>
+<p>where each <var>file</var> is the name of a source file to link into the
+program (e.g., &lsquo;<samp>foo.c</samp>&rsquo;).
+</p>
+<p>If your package builds a library, and you do not want the library to
+ever be built as a shared library, then in the directory where that
+library is built you will normally want a line like
+</p><div class="smallexample">
+<pre class="smallexample">lib_LIBRARIES = lib<var>name</var>.a
+</pre></div>
+<p>where &lsquo;<samp>lib<var>name</var>.a</samp>&rsquo; is the name of the library.  You will then
+want a line like
+</p><div class="smallexample">
+<pre class="smallexample">lib<var>name</var>_a_SOURCES = <var>file</var> <var>file</var> &hellip;
+</pre></div>
+<p>where each <var>file</var> is the name of a source file to add to the
+library.
+</p>
+<p>If your package builds a library, and you want to permit building the
+library as a shared library, then in the directory where that library is
+built you will normally want a line like
+</p><div class="smallexample">
+<pre class="smallexample">lib_LTLIBRARIES = lib<var>name</var>.la
+</pre></div>
+<p>The use of &lsquo;<samp>LTLIBRARIES</samp>&rsquo;, and the &lsquo;<samp>.la</samp>&rsquo; extension, indicate a
+library to be built using libtool.  As usual, you will then want a line
+like
+</p><div class="smallexample">
+<pre class="smallexample">lib<var>name</var>_la_SOURCES = <var>file</var> <var>file</var> &hellip;
+</pre></div>
+
+<p>The strings &lsquo;<samp>bin</samp>&rsquo; and &lsquo;<samp>lib</samp>&rsquo; that appear above in
+&lsquo;<samp>bin_PROGRAMS</samp>&rsquo; and &lsquo;<samp>lib_LIBRARIES</samp>&rsquo; are not arbitrary.  They
+refer to particular directories, which may be set by the &lsquo;<samp>--bindir</samp>&rsquo;
+and &lsquo;<samp>--libdir</samp>&rsquo; options to <samp>configure</samp>.  If those options are
+not used, the default values are based on the &lsquo;<samp>--prefix</samp>&rsquo; or
+&lsquo;<samp>--exec-prefix</samp>&rsquo; options to <samp>configure</samp>.  It is possible to use
+other names if the program or library should be installed in some other
+directory.
+</p>
+<p>The <samp>Makefile.am</samp> file may also contain almost anything that may
+appear in a normal <samp>Makefile</samp>.  automake also supports many other
+special variables, as well as conditionals.
+</p>
+<p>See the automake manual for more information.
+</p>
+<hr>
+<a name="Write-acconfig_002eh"></a>
+<div class="header">
+<p>
+Next: <a href="#Generate-files" accesskey="n" rel="next">Generate files</a>, Previous: <a href="#Write-Makefile_002eam" accesskey="p" rel="prev">Write Makefile.am</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Write-acconfig_002eh-1"></a>
+<h3 class="section">2.3 Write acconfig.h</h3>
+<a name="index-acconfig_002eh_002c-writing"></a>
+
+<p>If you are generating a portability header file, (i.e., you are using
+&lsquo;<samp>AM_CONFIG_HEADER</samp>&rsquo; in <samp>configure.in</samp>), then you will have to
+write a <samp>acconfig.h</samp> file.  It will have to contain the following
+lines.
+</p>
+<div class="smallexample">
+<pre class="smallexample">/* Name of package.  */
+#undef PACKAGE
+
+/* Version of package.  */
+#undef VERSION
+</pre></div>
+
+<p>This requirement is really a bug in the system, and the requirement may
+be eliminated at some later date.
+</p>
+<p>The <samp>acconfig.h</samp> file will also similar comment and &lsquo;<samp>#undef</samp>&rsquo;
+lines for any unusual macros in the <samp>configure.in</samp> file, including
+any macro which appears in a &lsquo;<samp>AC_DEFINE</samp>&rsquo; macro.
+</p>
+<p>In particular, if you are writing a GNU package and therefore include
+&lsquo;<samp>AC_DEFINE(_GNU_SOURCE)</samp>&rsquo; in <samp>configure.in</samp> as suggested above,
+you will need lines like this in <samp>acconfig.h</samp>:
+</p><div class="smallexample">
+<pre class="smallexample">/* Enable GNU extensions.  */
+#undef _GNU_SOURCE
+</pre></div>
+
+<p>Normally the &lsquo;<samp>autoheader</samp>&rsquo; program will inform you of any such
+requirements by printing an error message when it is run.  However, if
+you do anything particular odd in your <samp>configure.in</samp> file, you
+will have to make sure that the right entries appear in
+<samp>acconfig.h</samp>, since otherwise the results of the tests may not be
+available in the <samp>config.h</samp> file which your code will use.
+</p>
+<p>(Thee &lsquo;<samp>PACKAGE</samp>&rsquo; and &lsquo;<samp>VERSION</samp>&rsquo; lines are not required if you
+are not using automake, and in that case you may not need a
+<samp>acconfig.h</samp> file at all).
+</p>
+<hr>
+<a name="Generate-files"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-Started-Example" accesskey="n" rel="next">Getting Started Example</a>, Previous: <a href="#Write-acconfig_002eh" accesskey="p" rel="prev">Write acconfig.h</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Generate-files-1"></a>
+<h3 class="section">2.4 Generate files</h3>
+
+<p>Once you have written <samp>configure.in</samp>, <samp>Makefile.am</samp>,
+<samp>acconfig.h</samp>, and possibly <samp>acinclude.m4</samp>, you must use
+autoconf and automake programs to produce the first versions of the
+generated files.  This is done by executing the following sequence of
+commands.
+</p>
+<div class="smallexample">
+<pre class="smallexample">aclocal
+autoconf
+autoheader
+automake
+</pre></div>
+
+<p>The &lsquo;<samp>aclocal</samp>&rsquo; and &lsquo;<samp>automake</samp>&rsquo; commands are part of the automake
+package, and the &lsquo;<samp>autoconf</samp>&rsquo; and &lsquo;<samp>autoheader</samp>&rsquo; commands are part
+of the autoconf package.
+</p>
+<p>If you are using a <samp>m4</samp> subdirectory for your macros, you will need
+to use the &lsquo;<samp>-I m4</samp>&rsquo; option when you run &lsquo;<samp>aclocal</samp>&rsquo;.
+</p>
+<p>If you are not using the Cygnus tree, use the &lsquo;<samp>-a</samp>&rsquo; option when
+running &lsquo;<samp>automake</samp>&rsquo; command in order to copy the required support
+files into your source directory.
+</p>
+<p>If you are using libtool, you must build and install the libtool package
+with the same &lsquo;<samp>--prefix</samp>&rsquo; and &lsquo;<samp>--exec-prefix</samp>&rsquo; options as you
+used with the autoconf and automake packages.  You must do this before
+running any of the above commands.  If you are not using the Cygnus
+tree, you will need to run the &lsquo;<samp>libtoolize</samp>&rsquo; program to copy the
+libtool support files into your directory.
+</p>
+<p>Once you have managed to run these commands without getting any errors,
+you should create a new empty directory, and run the &lsquo;<samp>configure</samp>&rsquo;
+script which will have been created by &lsquo;<samp>autoconf</samp>&rsquo; with the
+&lsquo;<samp>--enable-maintainer-mode</samp>&rsquo; option.  This will give you a set of
+Makefiles which will include rules to automatically rebuild all the
+generated files.
+</p>
+<p>After doing that, whenever you have changed some of the input files and
+want to regenerated the other files, go to your object directory and run
+&lsquo;<samp>make</samp>&rsquo;.  Doing this is more reliable than trying to rebuild the
+files manually, because there are complex order dependencies and it is
+easy to forget something.
+</p>
+<hr>
+<a name="Getting-Started-Example"></a>
+<div class="header">
+<p>
+Previous: <a href="#Generate-files" accesskey="p" rel="prev">Generate files</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Example"></a>
+<h3 class="section">2.5 Example</h3>
+
+<p>Let&rsquo;s consider a trivial example.
+</p>
+<p>Suppose we want to write a simple version of &lsquo;<samp>touch</samp>&rsquo;.  Our program,
+which we will call &lsquo;<samp>poke</samp>&rsquo;, will take a single file name argument,
+and use the &lsquo;<samp>utime</samp>&rsquo; system call to set the modification and access
+times of the file to the current time.  We want this program to be
+highly portable.
+</p>
+<p>We&rsquo;ll first see what this looks like without using autoconf and
+automake, and then see what it looks like with them.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started-Example-1" accesskey="1">Getting Started Example 1</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">First Try.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started-Example-2" accesskey="2">Getting Started Example 2</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Second Try.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started-Example-3" accesskey="3">Getting Started Example 3</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Third Try.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Generate-Files-in-Example" accesskey="4">Generate Files in Example</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Generate Files.
+</td></tr>
+</table>
+
+<hr>
+<a name="Getting-Started-Example-1"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-Started-Example-2" accesskey="n" rel="next">Getting Started Example 2</a>, Up: <a href="#Getting-Started-Example" accesskey="u" rel="up">Getting Started Example</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="First-Try"></a>
+<h4 class="subsection">2.5.1 First Try</h4>
+
+<p>Here is our first try at &lsquo;<samp>poke.c</samp>&rsquo;.  Note that we&rsquo;ve written it
+without ANSI/ISO C prototypes, since we want it to be highly portable.
+</p>
+<div class="example">
+<pre class="example">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;utime.h&gt;
+
+int
+main (argc, argv)
+     int argc;
+     char **argv;
+{
+  if (argc != 2)
+    {
+      fprintf (stderr, &quot;Usage: poke file\n&quot;);
+      exit (1);
+    }
+
+  if (utime (argv[1], NULL) &lt; 0)
+    {
+      perror (&quot;utime&quot;);
+      exit (1);
+    }
+
+  exit (0);
+}
+</pre></div>
+
+<p>We also write a simple <samp>Makefile</samp>.
+</p>
+<div class="example">
+<pre class="example">CC = gcc
+CFLAGS = -g -O2
+
+all: poke
+
+poke: poke.o
+	$(CC) -o poke $(CFLAGS) $(LDFLAGS) poke.o
+</pre></div>
+
+<p>So far, so good.
+</p>
+<p>Unfortunately, there are a few problems.
+</p>
+<p>On older Unix systems derived from BSD 4.3, the &lsquo;<samp>utime</samp>&rsquo; system call
+does not accept a second argument of &lsquo;<samp>NULL</samp>&rsquo;.  On those systems, we
+need to pass a pointer to &lsquo;<samp>struct utimbuf</samp>&rsquo; structure.
+Unfortunately, even older systems don&rsquo;t define that structure; on those
+systems, we need to pass an array of two &lsquo;<samp>long</samp>&rsquo; values.
+</p>
+<p>The header file <samp>stdlib.h</samp> was invented by ANSI C, and older
+systems don&rsquo;t have a copy.  We included it above to get a declaration of
+&lsquo;<samp>exit</samp>&rsquo;.
+</p>
+<p>We can find some of these portability problems by running
+&lsquo;<samp>autoscan</samp>&rsquo;, which will create a <samp>configure.scan</samp> file which we
+can use as a prototype for our <samp>configure.in</samp> file.  I won&rsquo;t show
+the output, but it will notice the potential problems with &lsquo;<samp>utime</samp>&rsquo;
+and <samp>stdlib.h</samp>.
+</p>
+<p>In our <samp>Makefile</samp>, we don&rsquo;t provide any way to install the program.
+This doesn&rsquo;t matter much for such a simple example, but a real program
+will need an &lsquo;<samp>install</samp>&rsquo; target.  For that matter, we will also want
+a &lsquo;<samp>clean</samp>&rsquo; target.
+</p>
+<hr>
+<a name="Getting-Started-Example-2"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-Started-Example-3" accesskey="n" rel="next">Getting Started Example 3</a>, Previous: <a href="#Getting-Started-Example-1" accesskey="p" rel="prev">Getting Started Example 1</a>, Up: <a href="#Getting-Started-Example" accesskey="u" rel="up">Getting Started Example</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Second-Try"></a>
+<h4 class="subsection">2.5.2 Second Try</h4>
+
+<p>Here is our second try at this program.
+</p>
+<p>We modify <samp>poke.c</samp> to use preprocessor macros to control what
+features are available.  (I&rsquo;ve cheated a bit by using the same macro
+names which autoconf will use).
+</p>
+<div class="example">
+<pre class="example">#include &lt;stdio.h&gt;
+
+#ifdef STDC_HEADERS
+#include &lt;stdlib.h&gt;
+#endif
+
+#include &lt;sys/types.h&gt;
+
+#ifdef HAVE_UTIME_H
+#include &lt;utime.h&gt;
+#endif
+
+#ifndef HAVE_UTIME_NULL
+
+#include &lt;time.h&gt;
+
+#ifndef HAVE_STRUCT_UTIMBUF
+
+struct utimbuf
+{
+  long actime;
+  long modtime;
+};
+
+#endif
+
+static int
+utime_now (file)
+     char *file;
+{
+  struct utimbuf now;
+
+  now.actime = now.modtime = time (NULL);
+  return utime (file, &amp;now);
+}
+
+#define utime(f, p) utime_now (f)
+
+#endif /* HAVE_UTIME_NULL  */
+
+int
+main (argc, argv)
+     int argc;
+     char **argv;
+{
+  if (argc != 2)
+    {
+      fprintf (stderr, &quot;Usage: poke file\n&quot;);
+      exit (1);
+    }
+
+  if (utime (argv[1], NULL) &lt; 0)
+    {
+      perror (&quot;utime&quot;);
+      exit (1);
+    }
+
+  exit (0);
+}
+</pre></div>
+
+<p>Here is the associated <samp>Makefile</samp>.  We&rsquo;ve added support for the
+preprocessor flags we use.  We&rsquo;ve also added &lsquo;<samp>install</samp>&rsquo; and
+&lsquo;<samp>clean</samp>&rsquo; targets.
+</p>
+<div class="example">
+<pre class="example"># Set this to your installation directory.
+bindir = /usr/local/bin
+
+# Uncomment this if you have the standard ANSI/ISO C header files.
+# STDC_HDRS = -DSTDC_HEADERS
+
+# Uncomment this if you have utime.h.
+# UTIME_H = -DHAVE_UTIME_H
+
+# Uncomment this if utime (FILE, NULL) works on your system.
+# UTIME_NULL = -DHAVE_UTIME_NULL
+
+# Uncomment this if struct utimbuf is defined in utime.h.
+# UTIMBUF = -DHAVE_STRUCT_UTIMBUF
+
+CC = gcc
+CFLAGS = -g -O2
+
+ALL_CFLAGS = $(STDC_HDRS) $(UTIME_H) $(UTIME_NULL) $(UTIMBUF) $(CFLAGS)
+
+all: poke
+
+poke: poke.o
+	$(CC) -o poke $(ALL_CFLAGS) $(LDFLAGS) poke.o
+
+.c.o:
+	$(CC) -c $(ALL_CFLAGS) poke.c
+
+install: poke
+	cp poke $(bindir)/poke
+
+clean:
+	rm poke poke.o
+</pre></div>
+
+<p>Some problems with this approach should be clear.
+</p>
+<p>Users who want to compile poke will have to know how &lsquo;<samp>utime</samp>&rsquo; works
+on their systems, so that they can uncomment the <samp>Makefile</samp>
+correctly.
+</p>
+<p>The installation is done using &lsquo;<samp>cp</samp>&rsquo;, but many systems have an
+&lsquo;<samp>install</samp>&rsquo; program which may be used, and which supports optional
+features such as stripping debugging information out of the installed
+binary.
+</p>
+<p>The use of <samp>Makefile</samp> variables like &lsquo;<samp>CC</samp>&rsquo;, &lsquo;<samp>CFLAGS</samp>&rsquo; and
+&lsquo;<samp>LDFLAGS</samp>&rsquo; follows the requirements of the GNU standards.  This is
+convenient for all packages, since it reduces surprises for users.
+However, it is easy to get the details wrong, and wind up with a
+slightly nonstandard distribution.
+</p>
+<hr>
+<a name="Getting-Started-Example-3"></a>
+<div class="header">
+<p>
+Next: <a href="#Generate-Files-in-Example" accesskey="n" rel="next">Generate Files in Example</a>, Previous: <a href="#Getting-Started-Example-2" accesskey="p" rel="prev">Getting Started Example 2</a>, Up: <a href="#Getting-Started-Example" accesskey="u" rel="up">Getting Started Example</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Third-Try"></a>
+<h4 class="subsection">2.5.3 Third Try</h4>
+
+<p>For our third try at this program, we will write a <samp>configure.in</samp>
+script to discover the configuration features on the host system, rather
+than requiring the user to edit the <samp>Makefile</samp>.  We will also write
+a <samp>Makefile.am</samp> rather than a <samp>Makefile</samp>.
+</p>
+<p>The only change to <samp>poke.c</samp> is to add a line at the start of the
+file:
+</p><div class="smallexample">
+<pre class="smallexample">#include &quot;config.h&quot;
+</pre></div>
+
+<p>The new <samp>configure.in</samp> file is as follows.
+</p>
+<div class="example">
+<pre class="example">AC_INIT(poke.c)
+AM_INIT_AUTOMAKE(poke, 1.0)
+AM_CONFIG_HEADER(config.h:config.in)
+AC_PROG_CC
+AC_HEADER_STDC
+AC_CHECK_HEADERS(utime.h)
+AC_EGREP_HEADER(utimbuf, utime.h, AC_DEFINE(HAVE_STRUCT_UTIMBUF))
+AC_FUNC_UTIME_NULL
+AC_OUTPUT(Makefile)
+</pre></div>
+
+<p>The first four macros in this file, and the last one, were described
+above; see <a href="#Write-configure_002ein">Write configure.in</a>.  If we omit these macros, then when
+we run &lsquo;<samp>automake</samp>&rsquo; we will get a reminder that we need them.
+</p>
+<p>The other macros are standard autoconf macros.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>AC_HEADER_STDC</samp>&rsquo;</dt>
+<dd><p>Check for standard C headers.
+</p></dd>
+<dt>&lsquo;<samp>AC_CHECK_HEADERS</samp>&rsquo;</dt>
+<dd><p>Check whether a particular header file exists.
+</p></dd>
+<dt>&lsquo;<samp>AC_EGREP_HEADER</samp>&rsquo;</dt>
+<dd><p>Check for a particular string in a particular header file, in this case
+checking for &lsquo;<samp>utimbuf</samp>&rsquo; in <samp>utime.h</samp>.
+</p></dd>
+<dt>&lsquo;<samp>AC_FUNC_UTIME_NULL</samp>&rsquo;</dt>
+<dd><p>Check whether &lsquo;<samp>utime</samp>&rsquo; accepts a NULL second argument to set the
+file change time to the current time.
+</p></dd>
+</dl>
+
+<p>See the autoconf manual for a more complete description.
+</p>
+<p>The new <samp>Makefile.am</samp> file is as follows.  Note how simple this is
+compared to our earlier <samp>Makefile</samp>.
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = poke
+
+poke_SOURCES = poke.c
+</pre></div>
+
+<p>This means that we should build a single program name &lsquo;<samp>poke</samp>&rsquo;.  It
+should be installed in the binary directory, which we called
+&lsquo;<samp>bindir</samp>&rsquo; earlier.  The program &lsquo;<samp>poke</samp>&rsquo; is built from the source
+file <samp>poke.c</samp>.
+</p>
+<p>We must also write a <samp>acconfig.h</samp> file.  Besides &lsquo;<samp>PACKAGE</samp>&rsquo; and
+&lsquo;<samp>VERSION</samp>&rsquo;, which must be mentioned for all packages which use
+automake, we must include &lsquo;<samp>HAVE_STRUCT_UTIMBUF</samp>&rsquo;, since we mentioned
+it in an &lsquo;<samp>AC_DEFINE</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">/* Name of package.  */
+#undef PACKAGE
+
+/* Version of package.  */
+#undef VERSION
+
+/* Whether utime.h defines struct utimbuf.  */
+#undef HAVE_STRUCT_UTIMBUF
+</pre></div>
+
+<hr>
+<a name="Generate-Files-in-Example"></a>
+<div class="header">
+<p>
+Previous: <a href="#Getting-Started-Example-3" accesskey="p" rel="prev">Getting Started Example 3</a>, Up: <a href="#Getting-Started-Example" accesskey="u" rel="up">Getting Started Example</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Generate-Files"></a>
+<h4 class="subsection">2.5.4 Generate Files</h4>
+
+<p>We must now generate the other files, using the following commands.
+</p>
+<div class="smallexample">
+<pre class="smallexample">aclocal
+autoconf
+autoheader
+automake
+</pre></div>
+
+<p>When we run &lsquo;<samp>autoheader</samp>&rsquo;, it will remind us of any macros we forgot
+to add to <samp>acconfig.h</samp>.
+</p>
+<p>When we run &lsquo;<samp>automake</samp>&rsquo;, it will want to add some files to our
+distribution.  It will add them automatically if we use the
+&lsquo;<samp>--add-missing</samp>&rsquo; option.
+</p>
+<p>By default, &lsquo;<samp>automake</samp>&rsquo; will run in GNU mode, which means that it
+will want us to create certain additional files; as of this writing, it
+will want <samp>NEWS</samp>, <samp>README</samp>, <samp>AUTHORS</samp>, and
+<samp>ChangeLog</samp>, all of which are files which should appear in a
+standard GNU distribution.  We can either add those files, or run
+&lsquo;<samp>automake</samp>&rsquo; with the &lsquo;<samp>--foreign</samp>&rsquo; option.
+</p>
+<p>Running these tools will generate the following files, all of which are
+described in the next chapter.
+</p>
+<ul>
+<li> <samp>aclocal.m4</samp>
+</li><li> <samp>configure</samp>
+</li><li> <samp>config.in</samp>
+</li><li> <samp>Makefile.in</samp>
+</li><li> <samp>stamp-h.in</samp>
+</li></ul>
+
+<hr>
+<a name="Files"></a>
+<div class="header">
+<p>
+Next: <a href="#Configuration-Names" accesskey="n" rel="next">Configuration Names</a>, Previous: <a href="#Getting-Started" accesskey="p" rel="prev">Getting Started</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Files-1"></a>
+<h2 class="chapter">3 Files</h2>
+
+<p>As was seen in the previous chapter, the GNU configure and build system
+uses a number of different files.  The developer must write a few files.
+The others are generated by various tools.
+</p>
+<p>The system is rather flexible, and can be used in many different ways.
+In describing the files that it uses, I will describe the common case,
+and mention some other cases that may arise.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Developer-Files" accesskey="1">Developer Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Developer Files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Build-Files" accesskey="2">Build Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Build Files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Support-Files" accesskey="3">Support Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Support Files.
+</td></tr>
+</table>
+
+<hr>
+<a name="Developer-Files"></a>
+<div class="header">
+<p>
+Next: <a href="#Build-Files" accesskey="n" rel="next">Build Files</a>, Up: <a href="#Files" accesskey="u" rel="up">Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Developer-Files-1"></a>
+<h3 class="section">3.1 Developer Files</h3>
+
+<p>This section describes the files written or generated by the developer
+of a package.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Developer-Files-Picture" accesskey="1">Developer Files Picture</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Developer Files Picture.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Written-Developer-Files" accesskey="2">Written Developer Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Written Developer Files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Generated-Developer-Files" accesskey="3">Generated Developer Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Generated Developer Files.
+</td></tr>
+</table>
+
+<hr>
+<a name="Developer-Files-Picture"></a>
+<div class="header">
+<p>
+Next: <a href="#Written-Developer-Files" accesskey="n" rel="next">Written Developer Files</a>, Up: <a href="#Developer-Files" accesskey="u" rel="up">Developer Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Developer-Files-Picture-1"></a>
+<h4 class="subsection">3.1.1 Developer Files Picture</h4>
+
+<p>Here is a picture of the files which are written by the developer, the
+generated files which would be included with a complete source
+distribution, and the tools which create those files.
+The file names are in rectangles with square corners and the tool names
+are in rectangles with rounded corners
+(e.g., &lsquo;<samp>autoheader</samp>&rsquo; is the name of a tool, not the name of a file).
+</p>
+<img src="configdev.jpg" alt="configdev">
+
+<hr>
+<a name="Written-Developer-Files"></a>
+<div class="header">
+<p>
+Next: <a href="#Generated-Developer-Files" accesskey="n" rel="next">Generated Developer Files</a>, Previous: <a href="#Developer-Files-Picture" accesskey="p" rel="prev">Developer Files Picture</a>, Up: <a href="#Developer-Files" accesskey="u" rel="up">Developer Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Written-Developer-Files-1"></a>
+<h4 class="subsection">3.1.2 Written Developer Files</h4>
+
+<p>The following files would be written by the developer.
+</p>
+<dl compact="compact">
+<dt><samp>configure.in</samp></dt>
+<dd><a name="index-configure_002ein"></a>
+<p>This is the configuration script.  This script contains invocations of
+autoconf macros.  It may also contain ordinary shell script code.  This
+file will contain feature tests for portability issues.  The last thing
+in the file will normally be an &lsquo;<samp>AC_OUTPUT</samp>&rsquo; macro listing which
+files to create when the builder runs the configure script.  This file
+is always required when using the GNU configure system.  See <a href="#Write-configure_002ein">Write configure.in</a>.
+</p>
+</dd>
+<dt><samp>Makefile.am</samp></dt>
+<dd><a name="index-Makefile_002eam"></a>
+<p>This is the automake input file.  It describes how the code should be
+built.  It consists of definitions of automake variables.  It may also
+contain ordinary Makefile targets.  This file is only needed when using
+automake (newer tools normally use automake, but there are still older
+tools which have not been converted, in which the developer writes
+<samp>Makefile.in</samp> directly).  See <a href="#Write-Makefile_002eam">Write Makefile.am</a>.
+</p>
+</dd>
+<dt><samp>acconfig.h</samp></dt>
+<dd><a name="index-acconfig_002eh"></a>
+<p>When the configure script creates a portability header file, by using
+&lsquo;<samp>AM_CONFIG_HEADER</samp>&rsquo; (or, if not using automake,
+&lsquo;<samp>AC_CONFIG_HEADER</samp>&rsquo;), this file is used to describe macros which are
+not recognized by the &lsquo;<samp>autoheader</samp>&rsquo; command.  This is normally a
+fairly uninteresting file, consisting of a collection of &lsquo;<samp>#undef</samp>&rsquo;
+lines with comments.  Normally any call to &lsquo;<samp>AC_DEFINE</samp>&rsquo; in
+<samp>configure.in</samp> will require a line in this file. See <a href="#Write-acconfig_002eh">Write acconfig.h</a>.
+</p>
+</dd>
+<dt><samp>acinclude.m4</samp></dt>
+<dd><a name="index-acinclude_002em4"></a>
+<p>This file is not always required.  It defines local autoconf macros.
+These macros may then be used in <samp>configure.in</samp>.  If you don&rsquo;t need
+any local autoconf macros, then you don&rsquo;t need this file at all.  In
+fact, in general, you never need local autoconf macros, since you can
+put everything in <samp>configure.in</samp>, but sometimes a local macro is
+convenient.
+</p>
+<p>Newer tools may omit <samp>acinclude.m4</samp>, and instead use a
+subdirectory, typically named <samp>m4</samp>, and define
+&lsquo;<samp>ACLOCAL_AMFLAGS = -I m4</samp>&rsquo; in <samp>Makefile.am</samp> to force
+&lsquo;<samp>aclocal</samp>&rsquo; to look there for macro definitions.  The macro
+definitions are then placed in separate files in that directory.
+</p>
+<p>The <samp>acinclude.m4</samp> file is only used when using automake; in older
+tools, the developer writes <samp>aclocal.m4</samp> directly, if it is needed.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Generated-Developer-Files"></a>
+<div class="header">
+<p>
+Previous: <a href="#Written-Developer-Files" accesskey="p" rel="prev">Written Developer Files</a>, Up: <a href="#Developer-Files" accesskey="u" rel="up">Developer Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Generated-Developer-Files-1"></a>
+<h4 class="subsection">3.1.3 Generated Developer Files</h4>
+
+<p>The following files would be generated by the developer.
+</p>
+<p>When using automake, these files are normally not generated manually
+after the first time.  Instead, the generated <samp>Makefile</samp> contains
+rules to automatically rebuild the files as required.  When
+&lsquo;<samp>AM_MAINTAINER_MODE</samp>&rsquo; is used in <samp>configure.in</samp> (the normal
+case in Cygnus code), the automatic rebuilding rules will only be
+defined if you configure using the &lsquo;<samp>--enable-maintainer-mode</samp>&rsquo;
+option.
+</p>
+<p>When using automatic rebuilding, it is important to ensure that all the
+various tools have been built and installed on your &lsquo;<samp>PATH</samp>&rsquo;.  Using
+automatic rebuilding is highly recommended, so much so that I&rsquo;m not
+going to explain what you have to do if you don&rsquo;t use it.
+</p>
+<dl compact="compact">
+<dt><samp>configure</samp></dt>
+<dd><a name="index-configure"></a>
+<p>This is the configure script which will be run when building the
+package.  This is generated by &lsquo;<samp>autoconf</samp>&rsquo; from <samp>configure.in</samp>
+and <samp>aclocal.m4</samp>.  This is a shell script.
+</p>
+</dd>
+<dt><samp>Makefile.in</samp></dt>
+<dd><a name="index-Makefile_002ein"></a>
+<p>This is the file which the configure script will turn into the
+<samp>Makefile</samp> at build time.  This file is generated by
+&lsquo;<samp>automake</samp>&rsquo; from <samp>Makefile.am</samp>.  If you aren&rsquo;t using automake,
+you must write this file yourself.  This file is pretty much a normal
+<samp>Makefile</samp>, with some configure substitutions for certain
+variables.
+</p>
+</dd>
+<dt><samp>aclocal.m4</samp></dt>
+<dd><a name="index-aclocal_002em4"></a>
+<p>This file is created by the &lsquo;<samp>aclocal</samp>&rsquo; program, based on the
+contents of <samp>configure.in</samp> and <samp>acinclude.m4</samp> (or, as noted in
+the description of <samp>acinclude.m4</samp> above, on the contents of an
+<samp>m4</samp> subdirectory).  This file contains definitions of autoconf
+macros which &lsquo;<samp>autoconf</samp>&rsquo; will use when generating the file
+<samp>configure</samp>.  These autoconf macros may be defined by you in
+<samp>acinclude.m4</samp> or they may be defined by other packages such as
+automake, libtool or gettext.  If you aren&rsquo;t using automake, you will
+normally write this file yourself; in that case, if <samp>configure.in</samp>
+uses only standard autoconf macros, this file will not be needed at all.
+</p>
+</dd>
+<dt><samp>config.in</samp></dt>
+<dd><a name="index-config_002ein"></a>
+<a name="index-config_002eh_002ein"></a>
+<p>This file is created by &lsquo;<samp>autoheader</samp>&rsquo; based on <samp>acconfig.h</samp> and
+<samp>configure.in</samp>.  At build time, the configure script will define
+some of the macros in it to create <samp>config.h</samp>, which may then be
+included by your program.  This permits your C code to use preprocessor
+conditionals to change its behaviour based on the characteristics of the
+host system.  This file may also be called <samp>config.h.in</samp>.
+</p>
+</dd>
+<dt><samp>stamp.h-in</samp></dt>
+<dd><a name="index-stamp_002dh_002ein"></a>
+<p>This rather uninteresting file, which I omitted from the picture, is
+generated by &lsquo;<samp>automake</samp>&rsquo;.  It always contains the string
+&lsquo;<samp>timestamp</samp>&rsquo;.  It is used as a timestamp file indicating whether
+<samp>config.in</samp> is up to date.  Using a timestamp file means that
+<samp>config.in</samp> can be marked as up to date without actually changing
+its modification time.  This is useful since <samp>config.in</samp> depends
+upon <samp>configure.in</samp>, but it is easy to change <samp>configure.in</samp>
+in a way which does not affect <samp>config.in</samp>.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Build-Files"></a>
+<div class="header">
+<p>
+Next: <a href="#Support-Files" accesskey="n" rel="next">Support Files</a>, Previous: <a href="#Developer-Files" accesskey="p" rel="prev">Developer Files</a>, Up: <a href="#Files" accesskey="u" rel="up">Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Build-Files-1"></a>
+<h3 class="section">3.2 Build Files</h3>
+
+<p>This section describes the files which are created at configure and
+build time.  These are the files which somebody who builds the package
+will see.
+</p>
+<p>Of course, the developer will also build the package.  The distinction
+between developer files and build files is not that the developer does
+not see the build files, but that somebody who only builds the package
+does not have to worry about the developer files.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Build-Files-Picture" accesskey="1">Build Files Picture</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Build Files Picture.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Build-Files-Description" accesskey="2">Build Files Description</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Build Files Description.
+</td></tr>
+</table>
+
+<hr>
+<a name="Build-Files-Picture"></a>
+<div class="header">
+<p>
+Next: <a href="#Build-Files-Description" accesskey="n" rel="next">Build Files Description</a>, Up: <a href="#Build-Files" accesskey="u" rel="up">Build Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Build-Files-Picture-1"></a>
+<h4 class="subsection">3.2.1 Build Files Picture</h4>
+
+<p>Here is a picture of the files which will be created at build time.
+<samp>config.status</samp> is both a created file and a shell script which is
+run to create other files, and the picture attempts to show that.
+</p>
+<img src="configbuild.jpg" alt="configbuild">
+
+<hr>
+<a name="Build-Files-Description"></a>
+<div class="header">
+<p>
+Previous: <a href="#Build-Files-Picture" accesskey="p" rel="prev">Build Files Picture</a>, Up: <a href="#Build-Files" accesskey="u" rel="up">Build Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Build-Files-Description-1"></a>
+<h4 class="subsection">3.2.2 Build Files Description</h4>
+
+<p>This is a description of the files which are created at build time.
+</p>
+<dl compact="compact">
+<dt><samp>config.status</samp></dt>
+<dd><a name="index-config_002estatus"></a>
+<p>The first step in building a package is to run the <samp>configure</samp>
+script.  The <samp>configure</samp> script will create the file
+<samp>config.status</samp>, which is itself a shell script.  When you first
+run <samp>configure</samp>, it will automatically run <samp>config.status</samp>.
+An <samp>Makefile</samp> derived from an automake generated <samp>Makefile.in</samp>
+will contain rules to automatically run <samp>config.status</samp> again when
+necessary to recreate certain files if their inputs change.
+</p>
+</dd>
+<dt><samp>Makefile</samp></dt>
+<dd><a name="index-Makefile"></a>
+<p>This is the file which make will read to build the program.  The
+<samp>config.status</samp> script will transform <samp>Makefile.in</samp> into
+<samp>Makefile</samp>.
+</p>
+</dd>
+<dt><samp>config.h</samp></dt>
+<dd><a name="index-config_002eh"></a>
+<p>This file defines C preprocessor macros which C code can use to adjust
+its behaviour on different systems.  The <samp>config.status</samp> script
+will transform <samp>config.in</samp> into <samp>config.h</samp>.
+</p>
+</dd>
+<dt><samp>config.cache</samp></dt>
+<dd><a name="index-config_002ecache"></a>
+<p>This file did not fit neatly into the picture, and I omitted it.  It is
+used by the <samp>configure</samp> script to cache results between runs.  This
+can be an important speedup.  If you modify <samp>configure.in</samp> in such
+a way that the results of old tests should change (perhaps you have
+added a new library to &lsquo;<samp>LDFLAGS</samp>&rsquo;), then you will have to remove
+<samp>config.cache</samp> to force the tests to be rerun.
+</p>
+<p>The autoconf manual explains how to set up a site specific cache file.
+This can speed up running <samp>configure</samp> scripts on your system.
+</p>
+</dd>
+<dt><samp>stamp.h</samp></dt>
+<dd><a name="index-stamp_002dh"></a>
+<p>This file, which I omitted from the picture, is similar to
+<samp>stamp-h.in</samp>.  It is used as a timestamp file indicating whether
+<samp>config.h</samp> is up to date.  This is useful since <samp>config.h</samp>
+depends upon <samp>config.status</samp>, but it is easy for
+<samp>config.status</samp> to change in a way which does not affect
+<samp>config.h</samp>.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Support-Files"></a>
+<div class="header">
+<p>
+Previous: <a href="#Build-Files" accesskey="p" rel="prev">Build Files</a>, Up: <a href="#Files" accesskey="u" rel="up">Files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Support-Files-1"></a>
+<h3 class="section">3.3 Support Files</h3>
+
+<p>The GNU configure and build system requires several support files to be
+included with your distribution.  You do not normally need to concern
+yourself with these.  If you are using the Cygnus tree, most are already
+present.  Otherwise, they will be installed with your source by
+&lsquo;<samp>automake</samp>&rsquo; (with the &lsquo;<samp>--add-missing</samp>&rsquo; option) and
+&lsquo;<samp>libtoolize</samp>&rsquo;.
+</p>
+<p>You don&rsquo;t have to put the support files in the top level directory.  You
+can put them in a subdirectory, and use the &lsquo;<samp>AC_CONFIG_AUX_DIR</samp>&rsquo;
+macro in <samp>configure.in</samp> to tell &lsquo;<samp>automake</samp>&rsquo; and the
+<samp>configure</samp> script where they are.
+</p>
+<p>In this section, I describe the support files, so that you can know what
+they are and why they are there.
+</p>
+<dl compact="compact">
+<dt><samp>ABOUT-NLS</samp></dt>
+<dd><p>Added by automake if you are using gettext.  This is a documentation
+file about the gettext project.
+</p></dd>
+<dt><samp>ansi2knr.c</samp></dt>
+<dd><p>Used by an automake generated <samp>Makefile</samp> if you put &lsquo;<samp>ansi2knr</samp>&rsquo;
+in &lsquo;<samp>AUTOMAKE_OPTIONS</samp>&rsquo; in <samp>Makefile.am</samp>.  This permits
+compiling ANSI C code with a K&amp;R C compiler.
+</p></dd>
+<dt><samp>ansi2knr.1</samp></dt>
+<dd><p>The man page which goes with <samp>ansi2knr.c</samp>.
+</p></dd>
+<dt><samp>config.guess</samp></dt>
+<dd><p>A shell script which determines the configuration name for the system on
+which it is run.
+</p></dd>
+<dt><samp>config.sub</samp></dt>
+<dd><p>A shell script which canonicalizes a configuration name entered by a
+user.
+</p></dd>
+<dt><samp>elisp-comp</samp></dt>
+<dd><p>Used to compile Emacs LISP files.
+</p></dd>
+<dt><samp>install-sh</samp></dt>
+<dd><p>A shell script which installs a program.  This is used if the configure
+script can not find an install binary.
+</p></dd>
+<dt><samp>ltconfig</samp></dt>
+<dd><p>Used by libtool.  This is a shell script which configures libtool for
+the particular system on which it is used.
+</p></dd>
+<dt><samp>ltmain.sh</samp></dt>
+<dd><p>Used by libtool.  This is the actual libtool script which is used, after
+it is configured by <samp>ltconfig</samp> to build a library.
+</p></dd>
+<dt><samp>mdate-sh</samp></dt>
+<dd><p>A shell script used by an automake generated <samp>Makefile</samp> to pretty
+print the modification time of a file.  This is used to maintain version
+numbers for texinfo files.
+</p></dd>
+<dt><samp>missing</samp></dt>
+<dd><p>A shell script used if some tool is missing entirely.  This is used by
+an automake generated <samp>Makefile</samp> to avoid certain sorts of
+timestamp problems.
+</p></dd>
+<dt><samp>mkinstalldirs</samp></dt>
+<dd><p>A shell script which creates a directory, including all parent
+directories.  This is used by an automake generated <samp>Makefile</samp>
+during installation.
+</p></dd>
+<dt><samp>texinfo.tex</samp></dt>
+<dd><p>Required if you have any texinfo files.  This is used when converting
+Texinfo files into DVI using &lsquo;<samp>texi2dvi</samp>&rsquo; and TeX.
+</p></dd>
+<dt><samp>ylwrap</samp></dt>
+<dd><p>A shell script used by an automake generated <samp>Makefile</samp> to run
+programs like &lsquo;<samp>bison</samp>&rsquo;, &lsquo;<samp>yacc</samp>&rsquo;, &lsquo;<samp>flex</samp>&rsquo;, and &lsquo;<samp>lex</samp>&rsquo;.
+These programs default to producing output files with a fixed name, and
+the <samp>ylwrap</samp> script runs them in a subdirectory to avoid file name
+conflicts when using a parallel make program.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Configuration-Names"></a>
+<div class="header">
+<p>
+Next: <a href="#Cross-Compilation-Tools" accesskey="n" rel="next">Cross Compilation Tools</a>, Previous: <a href="#Files" accesskey="p" rel="prev">Files</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Configuration-Names-1"></a>
+<h2 class="chapter">4 Configuration Names</h2>
+<a name="index-configuration-names"></a>
+<a name="index-configuration-triplets"></a>
+<a name="index-triplets"></a>
+<a name="index-host-names"></a>
+<a name="index-host-triplets"></a>
+<a name="index-canonical-system-names"></a>
+<a name="index-system-names"></a>
+<a name="index-system-types"></a>
+
+<p>The GNU configure system names all systems using a <em>configuration
+name</em>.  All such names used to be triplets (they may now contain four
+parts in certain cases), and the term <em>configuration triplet</em> is
+still seen.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Configuration-Name-Definition" accesskey="1">Configuration Name Definition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration Name Definition.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Using-Configuration-Names" accesskey="2">Using Configuration Names</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using Configuration Names.
+</td></tr>
+</table>
+
+<hr>
+<a name="Configuration-Name-Definition"></a>
+<div class="header">
+<p>
+Next: <a href="#Using-Configuration-Names" accesskey="n" rel="next">Using Configuration Names</a>, Up: <a href="#Configuration-Names" accesskey="u" rel="up">Configuration Names</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Configuration-Name-Definition-1"></a>
+<h3 class="section">4.1 Configuration Name Definition</h3>
+
+<p>This is a string of the form
+<var>cpu</var>-<var>manufacturer</var>-<var>operating_system</var>.  In some cases,
+this is extended to a four part form:
+<var>cpu</var>-<var>manufacturer</var>-<var>kernel</var>-<var>operating_system</var>.
+</p>
+<p>When using a configuration name in a configure option, it is normally
+not necessary to specify an entire name.  In particular, the
+<var>manufacturer</var> field is often omitted, leading to strings such as
+&lsquo;<samp>i386-linux</samp>&rsquo; or &lsquo;<samp>sparc-sunos</samp>&rsquo;.  The shell script
+<samp>config.sub</samp> will translate these shortened strings into the
+canonical form.  autoconf will arrange for <samp>config.sub</samp> to be run
+automatically when it is needed.
+</p>
+<p>The fields of a configuration name are as follows:
+</p>
+<dl compact="compact">
+<dt><var>cpu</var></dt>
+<dd><p>The type of processor.  This is typically something like &lsquo;<samp>i386</samp>&rsquo; or
+&lsquo;<samp>sparc</samp>&rsquo;.  More specific variants are used as well, such as
+&lsquo;<samp>mipsel</samp>&rsquo; to indicate a little endian MIPS processor.
+</p></dd>
+<dt><var>manufacturer</var></dt>
+<dd><p>A somewhat freeform field which indicates the manufacturer of the
+system.  This is often simply &lsquo;<samp>unknown</samp>&rsquo;.  Other common strings are
+&lsquo;<samp>pc</samp>&rsquo; for an IBM PC compatible system, or the name of a workstation
+vendor, such as &lsquo;<samp>sun</samp>&rsquo;.
+</p></dd>
+<dt><var>operating_system</var></dt>
+<dd><p>The name of the operating system which is run on the system.  This will
+be something like &lsquo;<samp>solaris2.5</samp>&rsquo; or &lsquo;<samp>irix6.3</samp>&rsquo;.  There is no
+particular restriction on the version number, and strings like
+&lsquo;<samp>aix4.1.4.0</samp>&rsquo; are seen.  For an embedded system, which has no
+operating system, this field normally indicates the type of object file
+format, such as &lsquo;<samp>elf</samp>&rsquo; or &lsquo;<samp>coff</samp>&rsquo;.
+</p></dd>
+<dt><var>kernel</var></dt>
+<dd><p>This is used mainly for GNU/Linux.  A typical GNU/Linux configuration
+name is &lsquo;<samp>i586-pc-linux-gnulibc1</samp>&rsquo;.  In this case the kernel,
+&lsquo;<samp>linux</samp>&rsquo;, is separated from the operating system, &lsquo;<samp>gnulibc1</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>The shell script <samp>config.guess</samp> will normally print the correct
+configuration name for the system on which it is run.  It does by
+running &lsquo;<samp>uname</samp>&rsquo; and by examining other characteristics of the
+system.
+</p>
+<p>Because <samp>config.guess</samp> can normally determine the configuration
+name for a machine, it is normally only necessary to specify a
+configuration name when building a cross-compiler or when building using
+a cross-compiler.
+</p>
+<hr>
+<a name="Using-Configuration-Names"></a>
+<div class="header">
+<p>
+Previous: <a href="#Configuration-Name-Definition" accesskey="p" rel="prev">Configuration Name Definition</a>, Up: <a href="#Configuration-Names" accesskey="u" rel="up">Configuration Names</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-Configuration-Names-1"></a>
+<h3 class="section">4.2 Using Configuration Names</h3>
+
+<p>A configure script will sometimes have to make a decision based on a
+configuration name.  You will need to do this if you have to compile
+code differently based on something which can not be tested using a
+standard autoconf feature test.
+</p>
+<p>It is normally better to test for particular features, rather than to
+test for a particular system.  This is because as Unix evolves,
+different systems copy features from one another.  Even if you need to
+determine whether the feature is supported based on a configuration
+name, you should define a macro which describes the feature, rather than
+defining a macro which describes the particular system you are on.
+</p>
+<p>Testing for a particular system is normally done using a case statement
+in <samp>configure.in</samp>.  The case statement might look something like
+the following, assuming that &lsquo;<samp>host</samp>&rsquo; is a shell variable holding a
+canonical configuration name (which will be the case if
+<samp>configure.in</samp> uses the &lsquo;<samp>AC_CANONICAL_HOST</samp>&rsquo; or
+&lsquo;<samp>AC_CANONICAL_SYSTEM</samp>&rsquo; macro).
+</p>
+<div class="smallexample">
+<pre class="smallexample">case &quot;${host}&quot; in
+i[3-7]86-*-linux-gnu*) do something ;;
+sparc*-sun-solaris2.[56789]*) do something ;;
+sparc*-sun-solaris*) do something ;;
+mips*-*-elf*) do something ;;
+esac
+</pre></div>
+
+<p>It is particularly important to use &lsquo;<samp>*</samp>&rsquo; after the operating system
+field, in order to match the version number which will be generated by
+<samp>config.guess</samp>.
+</p>
+<p>In most cases you must be careful to match a range of processor types.
+For most processor families, a trailing &lsquo;<samp>*</samp>&rsquo; suffices, as in
+&lsquo;<samp>mips*</samp>&rsquo; above.  For the i386 family, something along the lines of
+&lsquo;<samp>i[3-7]86</samp>&rsquo; suffices at present.  For the m68k family, you will
+need something like &lsquo;<samp>m68*</samp>&rsquo;.  Of course, if you do not need to match
+on the processor, it is simpler to just replace the entire field by a
+&lsquo;<samp>*</samp>&rsquo;, as in &lsquo;<samp>*-*-irix*</samp>&rsquo;.
+</p>
+<hr>
+<a name="Cross-Compilation-Tools"></a>
+<div class="header">
+<p>
+Next: <a href="#Canadian-Cross" accesskey="n" rel="next">Canadian Cross</a>, Previous: <a href="#Configuration-Names" accesskey="p" rel="prev">Configuration Names</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cross-Compilation-Tools-1"></a>
+<h2 class="chapter">5 Cross Compilation Tools</h2>
+<a name="index-cross-tools"></a>
+
+<p>The GNU configure and build system can be used to build <em>cross
+compilation</em> tools.  A cross compilation tool is a tool which runs on
+one system and produces code which runs on another system.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Cross-Compilation-Concepts" accesskey="1">Cross Compilation Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cross Compilation Concepts.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Host-and-Target" accesskey="2">Host and Target</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Host and Target.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Using-the-Host-Type" accesskey="3">Using the Host Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using the Host Type.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Specifying-the-Target" accesskey="4">Specifying the Target</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Specifying the Target.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Using-the-Target-Type" accesskey="5">Using the Target Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using the Target Type.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="6">Cross Tools in the Cygnus Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cross Tools in the Cygnus Tree
+</td></tr>
+</table>
+
+<hr>
+<a name="Cross-Compilation-Concepts"></a>
+<div class="header">
+<p>
+Next: <a href="#Host-and-Target" accesskey="n" rel="next">Host and Target</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cross-Compilation-Concepts-1"></a>
+<h3 class="section">5.1 Cross Compilation Concepts</h3>
+
+<a name="index-cross-compiler"></a>
+<p>A compiler which produces programs which run on a different system is a
+cross compilation compiler, or simply a <em>cross compiler</em>.
+Similarly, we speak of cross assemblers, cross linkers, etc.
+</p>
+<p>In the normal case, a compiler produces code which runs on the same
+system as the one on which the compiler runs.  When it is necessary to
+distinguish this case from the cross compilation case, such a compiler
+is called a <em>native compiler</em>.  Similarly, we speak of native
+assemblers, etc.
+</p>
+<p>Although the debugger is not strictly speaking a compilation tool, it is
+nevertheless meaningful to speak of a cross debugger: a debugger which
+is used to debug code which runs on another system.  Everything that is
+said below about configuring cross compilation tools applies to the
+debugger as well.
+</p>
+<hr>
+<a name="Host-and-Target"></a>
+<div class="header">
+<p>
+Next: <a href="#Using-the-Host-Type" accesskey="n" rel="next">Using the Host Type</a>, Previous: <a href="#Cross-Compilation-Concepts" accesskey="p" rel="prev">Cross Compilation Concepts</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Host-and-Target-1"></a>
+<h3 class="section">5.2 Host and Target</h3>
+<a name="index-host-system"></a>
+<a name="index-target-system"></a>
+
+<p>When building cross compilation tools, there are two different systems
+involved: the system on which the tools will run, and the system for
+which the tools generate code.
+</p>
+<p>The system on which the tools will run is called the <em>host</em> system.
+</p>
+<p>The system for which the tools generate code is called the <em>target</em>
+system.
+</p>
+<p>For example, suppose you have a compiler which runs on a GNU/Linux
+system and generates ELF programs for a MIPS embedded system.  In this
+case the GNU/Linux system is the host, and the MIPS ELF system is the
+target.  Such a compiler could be called a GNU/Linux cross MIPS ELF
+compiler, or, equivalently, a &lsquo;<samp>i386-linux-gnu</samp>&rsquo; cross
+&lsquo;<samp>mips-elf</samp>&rsquo; compiler.
+</p>
+<p>Naturally, most programs are not cross compilation tools.  For those
+programs, it does not make sense to speak of a target.  It only makes
+sense to speak of a target for tools like &lsquo;<samp>gcc</samp>&rsquo; or the
+&lsquo;<samp>binutils</samp>&rsquo; which actually produce running code.  For example, it
+does not make sense to speak of the target of a tool like &lsquo;<samp>bison</samp>&rsquo;
+or &lsquo;<samp>make</samp>&rsquo;.
+</p>
+<p>Most cross compilation tools can also serve as native tools.  For a
+native compilation tool, it is still meaningful to speak of a target.
+For a native tool, the target is the same as the host.  For example, for
+a GNU/Linux native compiler, the host is GNU/Linux, and the target is
+also GNU/Linux.
+</p>
+<hr>
+<a name="Using-the-Host-Type"></a>
+<div class="header">
+<p>
+Next: <a href="#Specifying-the-Target" accesskey="n" rel="next">Specifying the Target</a>, Previous: <a href="#Host-and-Target" accesskey="p" rel="prev">Host and Target</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-the-Host-Type-1"></a>
+<h3 class="section">5.3 Using the Host Type</h3>
+
+<p>In almost all cases the host system is the system on which you run the
+&lsquo;<samp>configure</samp>&rsquo; script, and on which you build the tools (for the case
+when they differ, see <a href="#Canadian-Cross">Canadian Cross</a>).
+</p>
+<a name="index-AC_005fCANONICAL_005fHOST"></a>
+<p>If your configure script needs to know the configuration name of the
+host system, and the package is not a cross compilation tool and
+therefore does not have a target, put &lsquo;<samp>AC_CANONICAL_HOST</samp>&rsquo; in
+<samp>configure.in</samp>.  This macro will arrange to define a few shell
+variables when the &lsquo;<samp>configure</samp>&rsquo; script is run.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>host</samp>&rsquo;</dt>
+<dd><p>The canonical configuration name of the host.  This will normally be
+determined by running the <samp>config.guess</samp> shell script, although the
+user is permitted to override this by using an explicit &lsquo;<samp>--host</samp>&rsquo;
+option.
+</p></dd>
+<dt>&lsquo;<samp>host_alias</samp>&rsquo;</dt>
+<dd><p>In the unusual case that the user used an explicit &lsquo;<samp>--host</samp>&rsquo; option,
+this will be the argument to &lsquo;<samp>--host</samp>&rsquo;.  In the normal case, this
+will be the same as the &lsquo;<samp>host</samp>&rsquo; variable.
+</p></dd>
+<dt>&lsquo;<samp>host_cpu</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>host_vendor</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>host_os</samp>&rsquo;</dt>
+<dd><p>The first three parts of the canonical configuration name.
+</p></dd>
+</dl>
+
+<p>The shell variables may be used by putting shell code in
+<samp>configure.in</samp>.  For an example, see <a href="#Using-Configuration-Names">Using Configuration Names</a>.
+</p>
+<hr>
+<a name="Specifying-the-Target"></a>
+<div class="header">
+<p>
+Next: <a href="#Using-the-Target-Type" accesskey="n" rel="next">Using the Target Type</a>, Previous: <a href="#Using-the-Host-Type" accesskey="p" rel="prev">Using the Host Type</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Specifying-the-Target-1"></a>
+<h3 class="section">5.4 Specifying the Target</h3>
+
+<p>By default, the &lsquo;<samp>configure</samp>&rsquo; script will assume that the target is
+the same as the host.  This is the more common case; for example, it
+leads to a native compiler rather than a cross compiler.
+</p>
+<a name="index-_002d_002dtarget-option"></a>
+<a name="index-target-option"></a>
+<a name="index-configure-target"></a>
+<p>If you want to build a cross compilation tool, you must specify the
+target explicitly by using the &lsquo;<samp>--target</samp>&rsquo; option when you run
+&lsquo;<samp>configure</samp>&rsquo;.  The argument to &lsquo;<samp>--target</samp>&rsquo; is the configuration
+name of the system for which you wish to generate code.
+See <a href="#Configuration-Names">Configuration Names</a>.
+</p>
+<p>For example, to build tools which generate code for a MIPS ELF embedded
+system, you would use &lsquo;<samp>--target mips-elf</samp>&rsquo;.
+</p>
+<hr>
+<a name="Using-the-Target-Type"></a>
+<div class="header">
+<p>
+Next: <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="n" rel="next">Cross Tools in the Cygnus Tree</a>, Previous: <a href="#Specifying-the-Target" accesskey="p" rel="prev">Specifying the Target</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-the-Target-Type-1"></a>
+<h3 class="section">5.5 Using the Target Type</h3>
+
+<a name="index-AC_005fCANONICAL_005fSYSTEM"></a>
+<p>When writing <samp>configure.in</samp> for a cross compilation tool, you will
+need to use information about the target.  To do this, put
+&lsquo;<samp>AC_CANONICAL_SYSTEM</samp>&rsquo; in <samp>configure.in</samp>.
+</p>
+<p>&lsquo;<samp>AC_CANONICAL_SYSTEM</samp>&rsquo; will look for a &lsquo;<samp>--target</samp>&rsquo; option and
+canonicalize it using the <samp>config.sub</samp> shell script.  It will also
+run &lsquo;<samp>AC_CANONICAL_HOST</samp>&rsquo; (see <a href="#Using-the-Host-Type">Using the Host Type</a>).
+</p>
+<p>The target type will be recorded in the following shell variables.  Note
+that the host versions of these variables will also be defined by
+&lsquo;<samp>AC_CANONICAL_HOST</samp>&rsquo;.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>target</samp>&rsquo;</dt>
+<dd><p>The canonical configuration name of the target.
+</p></dd>
+<dt>&lsquo;<samp>target_alias</samp>&rsquo;</dt>
+<dd><p>The argument to the &lsquo;<samp>--target</samp>&rsquo; option.  If the user did not specify
+a &lsquo;<samp>--target</samp>&rsquo; option, this will be the same as &lsquo;<samp>host_alias</samp>&rsquo;.
+</p></dd>
+<dt>&lsquo;<samp>target_cpu</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>target_vendor</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>target_os</samp>&rsquo;</dt>
+<dd><p>The first three parts of the canonical target configuration name.
+</p></dd>
+</dl>
+
+<p>Note that if &lsquo;<samp>host</samp>&rsquo; and &lsquo;<samp>target</samp>&rsquo; are the same string, you can
+assume a native configuration.  If they are different, you can assume a
+cross configuration.
+</p>
+<p>It is arguably possible for &lsquo;<samp>host</samp>&rsquo; and &lsquo;<samp>target</samp>&rsquo; to represent
+the same system, but for the strings to not be identical.  For example,
+if &lsquo;<samp>config.guess</samp>&rsquo; returns &lsquo;<samp>sparc-sun-sunos4.1.4</samp>&rsquo;, and somebody
+configures with &lsquo;<samp>--target sparc-sun-sunos4.1</samp>&rsquo;, then the slight
+differences between the two versions of SunOS may be unimportant for
+your tool.  However, in the general case it can be quite difficult to
+determine whether the differences between two configuration names are
+significant or not.  Therefore, by convention, if the user specifies a
+&lsquo;<samp>--target</samp>&rsquo; option without specifying a &lsquo;<samp>--host</samp>&rsquo; option, it is
+assumed that the user wants to configure a cross compilation tool.
+</p>
+<p>The variables &lsquo;<samp>target</samp>&rsquo; and &lsquo;<samp>target_alias</samp>&rsquo; should be handled
+differently.
+</p>
+<p>In general, whenever the user may actually see a string,
+&lsquo;<samp>target_alias</samp>&rsquo; should be used.  This includes anything which may
+appear in the file system, such as a directory name or part of a tool
+name.  It also includes any tool output, unless it is clearly labelled
+as the canonical target configuration name.  This permits the user to
+use the &lsquo;<samp>--target</samp>&rsquo; option to specify how the tool will appear to
+the outside world.
+</p>
+<p>On the other hand, when checking for characteristics of the target
+system, &lsquo;<samp>target</samp>&rsquo; should be used.  This is because a wide variety of
+&lsquo;<samp>--target</samp>&rsquo; options may map into the same canonical configuration
+name.  You should not attempt to duplicate the canonicalization done by
+&lsquo;<samp>config.sub</samp>&rsquo; in your own code.
+</p>
+<p>By convention, cross tools are installed with a prefix of the argument
+used with the &lsquo;<samp>--target</samp>&rsquo; option, also known as &lsquo;<samp>target_alias</samp>&rsquo;
+(see <a href="#Using-the-Target-Type">Using the Target Type</a>).  If the user does not use the
+&lsquo;<samp>--target</samp>&rsquo; option, and thus is building a native tool, no prefix is
+used.
+</p>
+<p>For example, if gcc is configured with &lsquo;<samp>--target mips-elf</samp>&rsquo;, then
+the installed binary will be named &lsquo;<samp>mips-elf-gcc</samp>&rsquo;.  If gcc is
+configured without a &lsquo;<samp>--target</samp>&rsquo; option, then the installed binary
+will be named &lsquo;<samp>gcc</samp>&rsquo;.
+</p>
+<p>The autoconf macro &lsquo;<samp>AC_ARG_PROGRAM</samp>&rsquo; will handle this for you.  If
+you are using automake, no more need be done; the programs will
+automatically be installed with the correct prefixes.  Otherwise, see
+the autoconf documentation for &lsquo;<samp>AC_ARG_PROGRAM</samp>&rsquo;.
+</p>
+<hr>
+<a name="Cross-Tools-in-the-Cygnus-Tree"></a>
+<div class="header">
+<p>
+Previous: <a href="#Using-the-Target-Type" accesskey="p" rel="prev">Using the Target Type</a>, Up: <a href="#Cross-Compilation-Tools" accesskey="u" rel="up">Cross Compilation Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cross-Tools-in-the-Cygnus-Tree-1"></a>
+<h3 class="section">5.6 Cross Tools in the Cygnus Tree</h3>
+
+<p>The Cygnus tree is used for various packages including gdb, the GNU
+binutils, and egcs.  It is also, of course, used for Cygnus releases.
+</p>
+<p>In the Cygnus tree, the top level <samp>configure</samp> script uses the old
+Cygnus configure system, not autoconf.  The top level <samp>Makefile.in</samp>
+is written to build packages based on what is in the source tree, and
+supports building a large number of tools in a single
+&lsquo;<samp>configure</samp>&rsquo;/&lsquo;<samp>make</samp>&rsquo; step.
+</p>
+<p>The Cygnus tree may be configured with a &lsquo;<samp>--target</samp>&rsquo; option.  The
+&lsquo;<samp>--target</samp>&rsquo; option applies recursively to every subdirectory, and
+permits building an entire set of cross tools at once.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Host-and-Target-Libraries" accesskey="1">Host and Target Libraries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Host and Target Libraries.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Target-Library-Configure-Scripts" accesskey="2">Target Library Configure Scripts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Target Library Configure Scripts.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Make-Targets-in-Cygnus-Tree" accesskey="3">Make Targets in Cygnus Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Make Targets in Cygnus Tree.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Target-libiberty" accesskey="4">Target libiberty</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Target libiberty
+</td></tr>
+</table>
+
+<hr>
+<a name="Host-and-Target-Libraries"></a>
+<div class="header">
+<p>
+Next: <a href="#Target-Library-Configure-Scripts" accesskey="n" rel="next">Target Library Configure Scripts</a>, Up: <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="u" rel="up">Cross Tools in the Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Host-and-Target-Libraries-1"></a>
+<h4 class="subsection">5.6.1 Host and Target Libraries</h4>
+
+<p>The Cygnus tree distinguishes host libraries from target libraries.
+</p>
+<p>Host libraries are built with the compiler used to build the programs
+which run on the host, which is called the host compiler.  This includes
+libraries such as &lsquo;<samp>bfd</samp>&rsquo; and &lsquo;<samp>tcl</samp>&rsquo;.  These libraries are built
+with the host compiler, and are linked into programs like the binutils
+or gcc which run on the host.
+</p>
+<p>Target libraries are built with the target compiler.  If gcc is present
+in the source tree, then the target compiler is the gcc that is built
+using the host compiler.  Target libraries are libraries such as
+&lsquo;<samp>newlib</samp>&rsquo; and &lsquo;<samp>libstdc++</samp>&rsquo;.  These libraries are not linked into
+the host programs, but are instead made available for use with programs
+built with the target compiler.
+</p>
+<p>For the rest of this section, assume that gcc is present in the source
+tree, so that it will be used to build the target libraries.
+</p>
+<p>There is a complication here.  The configure process needs to know which
+compiler you are going to use to build a tool; otherwise, the feature
+tests will not work correctly.  The Cygnus tree handles this by not
+configuring the target libraries until the target compiler is built.  In
+order to permit everything to build using a single
+&lsquo;<samp>configure</samp>&rsquo;/&lsquo;<samp>make</samp>&rsquo;, the configuration of the target libraries
+is actually triggered during the make step.
+</p>
+<p>When the target libraries are configured, the &lsquo;<samp>--target</samp>&rsquo; option is
+not used.  Instead, the &lsquo;<samp>--host</samp>&rsquo; option is used with the argument
+of the &lsquo;<samp>--target</samp>&rsquo; option for the overall configuration.  If no
+&lsquo;<samp>--target</samp>&rsquo; option was used for the overall configuration, the
+&lsquo;<samp>--host</samp>&rsquo; option will be passed with the output of the
+<samp>config.guess</samp> shell script.  Any &lsquo;<samp>--build</samp>&rsquo; option is passed
+down unchanged.
+</p>
+<p>This translation of configuration options is done because since the
+target libraries are compiled with the target compiler, they are being
+built in order to run on the target of the overall configuration.  By
+the definition of host, this means that their host system is the same as
+the target system of the overall configuration.
+</p>
+<p>The same process is used for both a native configuration and a cross
+configuration.  Even when using a native configuration, the target
+libraries will be configured and built using the newly built compiler.
+This is particularly important for the C++ libraries, since there is no
+reason to assume that the C++ compiler used to build the host tools (if
+there even is one) uses the same ABI as the g++ compiler which will be
+used to build the target libraries.
+</p>
+<p>There is one difference between a native configuration and a cross
+configuration.  In a native configuration, the target libraries are
+normally configured and built as siblings of the host tools.  In a cross
+configuration, the target libraries are normally built in a subdirectory
+whose name is the argument to &lsquo;<samp>--target</samp>&rsquo;.  This is mainly for
+historical reasons.
+</p>
+<p>To summarize, running &lsquo;<samp>configure</samp>&rsquo; in the Cygnus tree configures all
+the host libraries and tools, but does not configure any of the target
+libraries.  Running &lsquo;<samp>make</samp>&rsquo; then does the following steps:
+</p>
+<ul>
+<li> Build the host libraries.
+</li><li> Build the host programs, including gcc.  Note that we call gcc both a
+host program (since it runs on the host) and a target compiler (since it
+generates code for the target).
+</li><li> Using the newly built target compiler, configure the target libraries.
+</li><li> Build the target libraries.
+</li></ul>
+
+<p>The steps need not be done in precisely this order, since they are
+actually controlled by <samp>Makefile</samp> targets.
+</p>
+<hr>
+<a name="Target-Library-Configure-Scripts"></a>
+<div class="header">
+<p>
+Next: <a href="#Make-Targets-in-Cygnus-Tree" accesskey="n" rel="next">Make Targets in Cygnus Tree</a>, Previous: <a href="#Host-and-Target-Libraries" accesskey="p" rel="prev">Host and Target Libraries</a>, Up: <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="u" rel="up">Cross Tools in the Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Target-Library-Configure-Scripts-1"></a>
+<h4 class="subsection">5.6.2 Target Library Configure Scripts</h4>
+
+<p>There are a few things you must know in order to write a configure
+script for a target library.  This is just a quick sketch, and beginners
+shouldn&rsquo;t worry if they don&rsquo;t follow everything here.
+</p>
+<p>The target libraries are configured and built using a newly built target
+compiler.  There may not be any startup files or libraries for this
+target compiler.  In fact, those files will probably be built as part of
+some target library, which naturally means that they will not exist when
+your target library is configured.
+</p>
+<p>This means that the configure script for a target library may not use
+any test which requires doing a link.  This unfortunately includes many
+useful autoconf macros, such as &lsquo;<samp>AC_CHECK_FUNCS</samp>&rsquo;.  autoconf macros
+which do a compile but not a link, such as &lsquo;<samp>AC_CHECK_HEADERS</samp>&rsquo;, may
+be used.
+</p>
+<p>This is a severe restriction, but normally not a fatal one, as target
+libraries can often assume the presence of other target libraries, and
+thus know which functions will be available.
+</p>
+<p>As of this writing, the autoconf macro &lsquo;<samp>AC_PROG_CC</samp>&rsquo; does a link to
+make sure that the compiler works.  This may fail in a target library,
+so target libraries must use a different set of macros to locate the
+compiler.  See the <samp>configure.in</samp> file in a directory like
+<samp>libiberty</samp> or <samp>libgloss</samp> for an example.
+</p>
+<p>As noted in the previous section, target libraries are sometimes built
+in directories which are siblings to the host tools, and are sometimes
+built in a subdirectory.  The &lsquo;<samp>--with-target-subdir</samp>&rsquo; configure
+option will be passed when the library is configured.  Its value will be
+an empty string if the target library is a sibling.  Its value will be
+the name of the subdirectory if the target library is in a subdirectory.
+</p>
+<p>If the overall build is not a native build (i.e., the overall configure
+used the &lsquo;<samp>--target</samp>&rsquo; option), then the library will be configured
+with the &lsquo;<samp>--with-cross-host</samp>&rsquo; option.  The value of this option will
+be the host system of the overall build.  Recall that the host system of
+the library will be the target of the overall build.  If the overall
+build is a native build, the &lsquo;<samp>--with-cross-host</samp>&rsquo; option will not be
+used.
+</p>
+<p>A library which can be built both standalone and as a target library may
+want to install itself into different directories depending upon the
+case.  When built standalone, or when built native, the library should
+be installed in &lsquo;<samp>$(libdir)</samp>&rsquo;.  When built as a target library which
+is not native, the library should be installed in &lsquo;<samp>$(tooldir)/lib</samp>&rsquo;.
+The &lsquo;<samp>--with-cross-host</samp>&rsquo; option may be used to distinguish these
+cases.
+</p>
+<p>This same test of &lsquo;<samp>--with-cross-host</samp>&rsquo; may be used to see whether it
+is OK to use link tests in the configure script.  If the
+&lsquo;<samp>--with-cross-host</samp>&rsquo; option is not used, then the library is being
+built either standalone or native, and a link should work.
+</p>
+<hr>
+<a name="Make-Targets-in-Cygnus-Tree"></a>
+<div class="header">
+<p>
+Next: <a href="#Target-libiberty" accesskey="n" rel="next">Target libiberty</a>, Previous: <a href="#Target-Library-Configure-Scripts" accesskey="p" rel="prev">Target Library Configure Scripts</a>, Up: <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="u" rel="up">Cross Tools in the Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Make-Targets-in-Cygnus-Tree-1"></a>
+<h4 class="subsection">5.6.3 Make Targets in Cygnus Tree</h4>
+
+<p>The top level <samp>Makefile</samp> in the Cygnus tree defines targets for
+every known subdirectory.
+</p>
+<p>For every subdirectory <var>dir</var> which holds a host library or program,
+the <samp>Makefile</samp> target &lsquo;<samp>all-<var>dir</var></samp>&rsquo; will build that library
+or program.
+</p>
+<p>There are dependencies among host tools.  For example, building gcc
+requires first building gas, because the gcc build process invokes the
+target assembler.  These dependencies are reflected in the top level
+<samp>Makefile</samp>.
+</p>
+<p>For every subdirectory <var>dir</var> which holds a target library, the
+<samp>Makefile</samp> target &lsquo;<samp>configure-target-<var>dir</var></samp>&rsquo; will configure
+that library.  The <samp>Makefile</samp> target &lsquo;<samp>all-target-<var>dir</var></samp>&rsquo;
+will build that library.
+</p>
+<p>Every &lsquo;<samp>configure-target-<var>dir</var></samp>&rsquo; target depends upon
+&lsquo;<samp>all-gcc</samp>&rsquo;, since gcc, the target compiler, is required to configure
+the tool.  Every &lsquo;<samp>all-target-<var>dir</var></samp>&rsquo; target depends upon the
+corresponding &lsquo;<samp>configure-target-<var>dir</var></samp>&rsquo; target.
+</p>
+<p>There are several other targets which may be of interest for each
+directory: &lsquo;<samp>install-<var>dir</var></samp>&rsquo;, &lsquo;<samp>clean-<var>dir</var></samp>&rsquo;, and
+&lsquo;<samp>check-<var>dir</var></samp>&rsquo;.  There are also corresponding &lsquo;<samp>target</samp>&rsquo;
+versions of these for the target libraries , such as
+&lsquo;<samp>install-target-<var>dir</var></samp>&rsquo;.
+</p>
+<hr>
+<a name="Target-libiberty"></a>
+<div class="header">
+<p>
+Previous: <a href="#Make-Targets-in-Cygnus-Tree" accesskey="p" rel="prev">Make Targets in Cygnus Tree</a>, Up: <a href="#Cross-Tools-in-the-Cygnus-Tree" accesskey="u" rel="up">Cross Tools in the Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Target-libiberty-1"></a>
+<h4 class="subsection">5.6.4 Target libiberty</h4>
+
+<p>The <samp>libiberty</samp> subdirectory is currently a special case, in that
+it is the only directory which is built both using the host compiler and
+using the target compiler.
+</p>
+<p>This is because the files in <samp>libiberty</samp> are used when building the
+host tools, and they are also incorporated into the <samp>libstdc++</samp>
+target library as support code.
+</p>
+<p>This duality does not pose any particular difficulties.  It means that
+there are targets for both &lsquo;<samp>all-libiberty</samp>&rsquo; and
+&lsquo;<samp>all-target-libiberty</samp>&rsquo;.
+</p>
+<p>In a native configuration, when target libraries are not built in a
+subdirectory, the same objects are normally used as both the host build
+and the target build.  This is normally OK, since libiberty contains
+only C code, and in a native configuration the results of the host
+compiler and the target compiler are normally interoperable.
+</p>
+<p>Irix 6 is again an exception here, since the SGI native compiler
+defaults to using the &lsquo;<samp>O32</samp>&rsquo; ABI, and gcc defaults to using the
+&lsquo;<samp>N32</samp>&rsquo; ABI.  On Irix 6, the target libraries are built in a
+subdirectory even for a native configuration, avoiding this problem.
+</p>
+<p>There are currently no other libraries built for both the host and the
+target, but there is no conceptual problem with adding more.
+</p>
+<hr>
+<a name="Canadian-Cross"></a>
+<div class="header">
+<p>
+Next: <a href="#Cygnus-Configure" accesskey="n" rel="next">Cygnus Configure</a>, Previous: <a href="#Cross-Compilation-Tools" accesskey="p" rel="prev">Cross Compilation Tools</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Canadian-Cross-1"></a>
+<h2 class="chapter">6 Canadian Cross</h2>
+<a name="index-canadian-cross"></a>
+<a name="index-building-with-a-cross-compiler"></a>
+<a name="index-cross-compiler_002c-building-with"></a>
+
+<p>It is possible to use the GNU configure and build system to build a
+program which will run on a system which is different from the system on
+which the tools are built.  In other words, it is possible to build
+programs using a cross compiler.
+</p>
+<p>This is referred to as a <em>Canadian Cross</em>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Canadian-Cross-Example" accesskey="1">Canadian Cross Example</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Canadian Cross Example.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Canadian-Cross-Concepts" accesskey="2">Canadian Cross Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Canadian Cross Concepts.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Build-Cross-Host-Tools" accesskey="3">Build Cross Host Tools</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Build Cross Host Tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Build-and-Host-Options" accesskey="4">Build and Host Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Build and Host Options.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CCross-not-in-Cygnus-Tree" accesskey="5">CCross not in Cygnus Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Canadian Cross not in Cygnus Tree.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CCross-in-Cygnus-Tree" accesskey="6">CCross in Cygnus Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Canadian Cross in Cygnus Tree.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Supporting-Canadian-Cross" accesskey="7">Supporting Canadian Cross</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Supporting Canadian Cross.
+</td></tr>
+</table>
+
+<hr>
+<a name="Canadian-Cross-Example"></a>
+<div class="header">
+<p>
+Next: <a href="#Canadian-Cross-Concepts" accesskey="n" rel="next">Canadian Cross Concepts</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Canadian-Cross-Example-1"></a>
+<h3 class="section">6.1 Canadian Cross Example</h3>
+
+<p>Here is an example of a Canadian Cross.
+</p>
+<p>While running on a GNU/Linux, you can build a program which will run on
+a Solaris system.  You would use a GNU/Linux cross Solaris compiler to
+build the program.
+</p>
+<p>Of course, you could not run the resulting program on your GNU/Linux
+system.  You would have to copy it over to a Solaris system before you
+would run it.
+</p>
+<p>Of course, you could also simply build the programs on the Solaris
+system in the first place.  However, perhaps the Solaris system is not
+available for some reason; perhaps you actually don&rsquo;t have one, but you
+want to build the tools for somebody else to use.  Or perhaps your
+GNU/Linux system is much faster than your Solaris system.
+</p>
+<p>A Canadian Cross build is most frequently used when building programs to
+run on a non-Unix system, such as DOS or Windows.  It may be simpler to
+configure and build on a Unix system than to support the configuration
+machinery on a non-Unix system.
+</p>
+<hr>
+<a name="Canadian-Cross-Concepts"></a>
+<div class="header">
+<p>
+Next: <a href="#Build-Cross-Host-Tools" accesskey="n" rel="next">Build Cross Host Tools</a>, Previous: <a href="#Canadian-Cross-Example" accesskey="p" rel="prev">Canadian Cross Example</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Canadian-Cross-Concepts-1"></a>
+<h3 class="section">6.2 Canadian Cross Concepts</h3>
+
+<p>When building a Canadian Cross, there are at least two different systems
+involved: the system on which the tools are being built, and the system
+on which the tools will run.
+</p>
+<p>The system on which the tools are being built is called the <em>build</em>
+system.
+</p>
+<p>The system on which the tools will run is called the host system.
+</p>
+<p>For example, if you are building a Solaris program on a GNU/Linux
+system, as in the previous section, the build system would be GNU/Linux,
+and the host system would be Solaris.
+</p>
+<p>It is, of course, possible to build a cross compiler using a Canadian
+Cross (i.e., build a cross compiler using a cross compiler).  In this
+case, the system for which the resulting cross compiler generates code
+is called the target system.  (For a more complete discussion of host
+and target systems, see <a href="#Host-and-Target">Host and Target</a>).
+</p>
+<p>An example of building a cross compiler using a Canadian Cross would be
+building a Windows cross MIPS ELF compiler on a GNU/Linux system.  In
+this case the build system would be GNU/Linux, the host system would be
+Windows, and the target system would be MIPS ELF.
+</p>
+<p>The name Canadian Cross comes from the case when the build, host, and
+target systems are all different.  At the time that these issues were
+all being hashed out, Canada had three national political parties.
+</p>
+<hr>
+<a name="Build-Cross-Host-Tools"></a>
+<div class="header">
+<p>
+Next: <a href="#Build-and-Host-Options" accesskey="n" rel="next">Build and Host Options</a>, Previous: <a href="#Canadian-Cross-Concepts" accesskey="p" rel="prev">Canadian Cross Concepts</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Build-Cross-Host-Tools-1"></a>
+<h3 class="section">6.3 Build Cross Host Tools</h3>
+
+<p>In order to configure a program for a Canadian Cross build, you must
+first build and install the set of cross tools you will use to build the
+program.
+</p>
+<p>These tools will be build cross host tools.  That is, they will run on
+the build system, and will produce code that runs on the host system.
+</p>
+<p>It is easy to confuse the meaning of build and host here.  Always
+remember that the build system is where you are doing the build, and the
+host system is where the resulting program will run.  Therefore, you
+need a build cross host compiler.
+</p>
+<p>In general, you must have a complete cross environment in order to do
+the build.  This normally means a cross compiler, cross assembler, and
+so forth, as well as libraries and include files for the host system.
+</p>
+<hr>
+<a name="Build-and-Host-Options"></a>
+<div class="header">
+<p>
+Next: <a href="#CCross-not-in-Cygnus-Tree" accesskey="n" rel="next">CCross not in Cygnus Tree</a>, Previous: <a href="#Build-Cross-Host-Tools" accesskey="p" rel="prev">Build Cross Host Tools</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Build-and-Host-Options-1"></a>
+<h3 class="section">6.4 Build and Host Options</h3>
+<a name="index-configuring-a-canadian-cross"></a>
+<a name="index-canadian-cross_002c-configuring"></a>
+
+<p>When you run <samp>configure</samp>, you must use both the &lsquo;<samp>--build</samp>&rsquo; and
+&lsquo;<samp>--host</samp>&rsquo; options.
+</p>
+<a name="index-_002d_002dbuild-option"></a>
+<a name="index-build-option"></a>
+<a name="index-configure-build-system"></a>
+<p>The &lsquo;<samp>--build</samp>&rsquo; option is used to specify the configuration name of
+the build system.  This can normally be the result of running the
+<samp>config.guess</samp> shell script, and it is reasonable to use
+&lsquo;<samp>--build=`config.guess`</samp>&rsquo;.
+</p>
+<a name="index-_002d_002dhost-option"></a>
+<a name="index-host-option"></a>
+<a name="index-configure-host"></a>
+<p>The &lsquo;<samp>--host</samp>&rsquo; option is used to specify the configuration name of
+the host system.
+</p>
+<p>As we explained earlier, <samp>config.guess</samp> is used to set the default
+value for the &lsquo;<samp>--host</samp>&rsquo; option (see <a href="#Using-the-Host-Type">Using the Host Type</a>).  We
+can now see that since <samp>config.guess</samp> returns the type of system on
+which it is run, it really identifies the build system.  Since the host
+system is normally the same as the build system (i.e., people do not
+normally build using a cross compiler), it is reasonable to use the
+result of <samp>config.guess</samp> as the default for the host system when
+the &lsquo;<samp>--host</samp>&rsquo; option is not used.
+</p>
+<p>It might seem that if the &lsquo;<samp>--host</samp>&rsquo; option were used without the
+&lsquo;<samp>--build</samp>&rsquo; option that the configure script could run
+<samp>config.guess</samp> to determine the build system, and presume a
+Canadian Cross if the result of <samp>config.guess</samp> differed from the
+&lsquo;<samp>--host</samp>&rsquo; option.  However, for historical reasons, some configure
+scripts are routinely run using an explicit &lsquo;<samp>--host</samp>&rsquo; option, rather
+than using the default from <samp>config.guess</samp>.  As noted earlier, it
+is difficult or impossible to reliably compare configuration names
+(see <a href="#Using-the-Target-Type">Using the Target Type</a>).  Therefore, by convention, if the
+&lsquo;<samp>--host</samp>&rsquo; option is used, but the &lsquo;<samp>--build</samp>&rsquo; option is not used,
+then the build system defaults to the host system.
+</p>
+<hr>
+<a name="CCross-not-in-Cygnus-Tree"></a>
+<div class="header">
+<p>
+Next: <a href="#CCross-in-Cygnus-Tree" accesskey="n" rel="next">CCross in Cygnus Tree</a>, Previous: <a href="#Build-and-Host-Options" accesskey="p" rel="prev">Build and Host Options</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Canadian-Cross-not-in-Cygnus-Tree_002e"></a>
+<h3 class="section">6.5 Canadian Cross not in Cygnus Tree.</h3>
+
+<p>If you are not using the Cygnus tree, you must explicitly specify the
+cross tools which you want to use to build the program.  This is done by
+setting environment variables before running the <samp>configure</samp>
+script.
+</p>
+<p>You must normally set at least the environment variables &lsquo;<samp>CC</samp>&rsquo;,
+&lsquo;<samp>AR</samp>&rsquo;, and &lsquo;<samp>RANLIB</samp>&rsquo; to the cross tools which you want to use to
+build.
+</p>
+<p>For some programs, you must set additional cross tools as well, such as
+&lsquo;<samp>AS</samp>&rsquo;, &lsquo;<samp>LD</samp>&rsquo;, or &lsquo;<samp>NM</samp>&rsquo;.
+</p>
+<p>You would set these environment variables to the build cross tools which
+you are going to use.
+</p>
+<p>For example, if you are building a Solaris program on a GNU/Linux
+system, and your GNU/Linux cross Solaris compiler were named
+&lsquo;<samp>solaris-gcc</samp>&rsquo;, then you would set the environment variable
+&lsquo;<samp>CC</samp>&rsquo; to &lsquo;<samp>solaris-gcc</samp>&rsquo;.
+</p>
+<hr>
+<a name="CCross-in-Cygnus-Tree"></a>
+<div class="header">
+<p>
+Next: <a href="#Supporting-Canadian-Cross" accesskey="n" rel="next">Supporting Canadian Cross</a>, Previous: <a href="#CCross-not-in-Cygnus-Tree" accesskey="p" rel="prev">CCross not in Cygnus Tree</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Canadian-Cross-in-Cygnus-Tree"></a>
+<h3 class="section">6.6 Canadian Cross in Cygnus Tree</h3>
+<a name="index-canadian-cross-in-cygnus-tree"></a>
+
+<p>This section describes configuring and building a Canadian Cross when
+using the Cygnus tree.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Standard-Cygnus-CCross" accesskey="1">Standard Cygnus CCross</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building a Normal Program.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cross-Cygnus-CCross" accesskey="2">Cross Cygnus CCross</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building a Cross Program.
+</td></tr>
+</table>
+
+<hr>
+<a name="Standard-Cygnus-CCross"></a>
+<div class="header">
+<p>
+Next: <a href="#Cross-Cygnus-CCross" accesskey="n" rel="next">Cross Cygnus CCross</a>, Up: <a href="#CCross-in-Cygnus-Tree" accesskey="u" rel="up">CCross in Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Building-a-Normal-Program"></a>
+<h4 class="subsection">6.6.1 Building a Normal Program</h4>
+
+<p>When configuring a Canadian Cross in the Cygnus tree, all the
+appropriate environment variables are automatically set to
+&lsquo;<samp><var>host</var>-<var>tool</var></samp>&rsquo;, where <var>host</var> is the value used for the
+&lsquo;<samp>--host</samp>&rsquo; option, and <var>tool</var> is the name of the tool (e.g.,
+&lsquo;<samp>gcc</samp>&rsquo;, &lsquo;<samp>as</samp>&rsquo;, etc.).  These tools must be on your &lsquo;<samp>PATH</samp>&rsquo;.
+</p>
+<p>Adding a prefix of <var>host</var> will give the usual name for the build
+cross host tools.  To see this, consider that when these cross tools
+were built, they were configured to run on the build system and to
+produce code for the host system.  That is, they were configured with a
+&lsquo;<samp>--target</samp>&rsquo; option that is the same as the system which we are now
+calling the host.  Recall that the default name for installed cross
+tools uses the target system as a prefix (see <a href="#Using-the-Target-Type">Using the Target Type</a>).  Since that is the system which we are now calling the host,
+<var>host</var> is the right prefix to use.
+</p>
+<p>For example, if you configure with &lsquo;<samp>--build=i386-linux-gnu</samp>&rsquo; and
+&lsquo;<samp>--host=solaris</samp>&rsquo;, then the Cygnus tree will automatically default
+to using the compiler &lsquo;<samp>solaris-gcc</samp>&rsquo;.  You must have previously
+built and installed this compiler, probably by doing a build with no
+&lsquo;<samp>--host</samp>&rsquo; option and with a &lsquo;<samp>--target</samp>&rsquo; option of
+&lsquo;<samp>solaris</samp>&rsquo;.
+</p>
+<hr>
+<a name="Cross-Cygnus-CCross"></a>
+<div class="header">
+<p>
+Previous: <a href="#Standard-Cygnus-CCross" accesskey="p" rel="prev">Standard Cygnus CCross</a>, Up: <a href="#CCross-in-Cygnus-Tree" accesskey="u" rel="up">CCross in Cygnus Tree</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Building-a-Cross-Program"></a>
+<h4 class="subsection">6.6.2 Building a Cross Program</h4>
+
+<p>There are additional considerations if you want to build a cross
+compiler, rather than a native compiler, in the Cygnus tree using a
+Canadian Cross.
+</p>
+<p>When you build a cross compiler using the Cygnus tree, then the target
+libraries will normally be built with the newly built target compiler
+(see <a href="#Host-and-Target-Libraries">Host and Target Libraries</a>).  However, this will not work when
+building with a Canadian Cross.  This is because the newly built target
+compiler will be a program which runs on the host system, and therefore
+will not be able to run on the build system.
+</p>
+<p>Therefore, when building a cross compiler with the Cygnus tree, you must
+first install a set of build cross target tools.  These tools will be
+used when building the target libraries.
+</p>
+<p>Note that this is not a requirement of a Canadian Cross in general.  For
+example, it would be possible to build just the host cross target tools
+on the build system, to copy the tools to the host system, and to build
+the target libraries on the host system.  The requirement for build
+cross target tools is imposed by the Cygnus tree, which expects to be
+able to build both host programs and target libraries in a single
+&lsquo;<samp>configure</samp>&rsquo;/&lsquo;<samp>make</samp>&rsquo; step.  Because it builds these in a single
+step, it expects to be able to build the target libraries on the build
+system, which means that it must use a build cross target toolchain.
+</p>
+<p>For example, suppose you want to build a Windows cross MIPS ELF compiler
+on a GNU/Linux system.  You must have previously installed both a
+GNU/Linux cross Windows compiler and a GNU/Linux cross MIPS ELF
+compiler.
+</p>
+<p>In order to build the Windows (configuration name &lsquo;<samp>i386-cygwin32</samp>&rsquo;)
+cross MIPS ELF (configure name &lsquo;<samp>mips-elf</samp>&rsquo;) compiler, you might
+execute the following commands (long command lines are broken across
+lines with a trailing backslash as a continuation character).
+</p>
+<div class="example">
+<pre class="example">mkdir linux-x-cygwin32
+cd linux-x-cygwin32
+<var>srcdir</var>/configure --target i386-cygwin32 --prefix=<var>installdir</var> \
+  --exec-prefix=<var>installdir</var>/H-i386-linux
+make
+make install
+cd ..
+mkdir linux-x-mips-elf
+cd linux-x-mips-elf
+<var>srcdir</var>/configure --target mips-elf --prefix=<var>installdir</var> \
+  --exec-prefix=<var>installdir</var>/H-i386-linux
+make
+make install
+cd ..
+mkdir cygwin32-x-mips-elf
+cd cygwin32-x-mips-elf
+<var>srcdir</var>/configure --build=i386-linux-gnu --host=i386-cygwin32 \
+  --target=mips-elf --prefix=<var>wininstalldir</var> \
+  --exec-prefix=<var>wininstalldir</var>/H-i386-cygwin32
+make
+make install
+</pre></div>
+
+<p>You would then copy the contents of <var>wininstalldir</var> over to the
+Windows machine, and run the resulting programs.
+</p>
+<hr>
+<a name="Supporting-Canadian-Cross"></a>
+<div class="header">
+<p>
+Previous: <a href="#CCross-in-Cygnus-Tree" accesskey="p" rel="prev">CCross in Cygnus Tree</a>, Up: <a href="#Canadian-Cross" accesskey="u" rel="up">Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Supporting-Canadian-Cross-1"></a>
+<h3 class="section">6.7 Supporting Canadian Cross</h3>
+
+<p>If you want to make it possible to build a program you are developing
+using a Canadian Cross, you must take some care when writing your
+configure and make rules.  Simple cases will normally work correctly.
+However, it is not hard to write configure and make tests which will
+fail in a Canadian Cross.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#CCross-in-Configure" accesskey="1">CCross in Configure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Supporting Canadian Cross in Configure Scripts.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CCross-in-Make" accesskey="2">CCross in Make</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Supporting Canadian Cross in Makefiles.
+</td></tr>
+</table>
+
+<hr>
+<a name="CCross-in-Configure"></a>
+<div class="header">
+<p>
+Next: <a href="#CCross-in-Make" accesskey="n" rel="next">CCross in Make</a>, Up: <a href="#Supporting-Canadian-Cross" accesskey="u" rel="up">Supporting Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Supporting-Canadian-Cross-in-Configure-Scripts"></a>
+<h4 class="subsection">6.7.1 Supporting Canadian Cross in Configure Scripts</h4>
+<a name="index-canadian-cross-in-configure"></a>
+
+<p>In a <samp>configure.in</samp> file, after calling &lsquo;<samp>AC_PROG_CC</samp>&rsquo;, you can
+find out whether this is a Canadian Cross configure by examining the
+shell variable &lsquo;<samp>cross_compiling</samp>&rsquo;.  In a Canadian Cross, which means
+that the compiler is a cross compiler, &lsquo;<samp>cross_compiling</samp>&rsquo; will be
+&lsquo;<samp>yes</samp>&rsquo;.  In a normal configuration, &lsquo;<samp>cross_compiling</samp>&rsquo; will be
+&lsquo;<samp>no</samp>&rsquo;.
+</p>
+<p>You ordinarily do not need to know the type of the build system in a
+configure script.  However, if you do need that information, you can get
+it by using the macro &lsquo;<samp>AC_CANONICAL_SYSTEM</samp>&rsquo;, the same macro that is
+used to determine the target system.  This macro will set the variables
+&lsquo;<samp>build</samp>&rsquo;, &lsquo;<samp>build_alias</samp>&rsquo;, &lsquo;<samp>build_cpu</samp>&rsquo;, &lsquo;<samp>build_vendor</samp>&rsquo;,
+and &lsquo;<samp>build_os</samp>&rsquo;, which correspond to the similar &lsquo;<samp>target</samp>&rsquo; and
+&lsquo;<samp>host</samp>&rsquo; variables, except that they describe the build system.
+</p>
+<p>When writing tests in <samp>configure.in</samp>, you must remember that you
+want to test the host environment, not the build environment.
+</p>
+<p>Macros like &lsquo;<samp>AC_CHECK_FUNCS</samp>&rsquo; which use the compiler will test the
+host environment.  That is because the tests will be done by running the
+compiler, which is actually a build cross host compiler.  If the
+compiler can find the function, that means that the function is present
+in the host environment.
+</p>
+<p>Tests like &lsquo;<samp>test -f /dev/ptyp0</samp>&rsquo;, on the other hand, will test the
+build environment.  Remember that the configure script is running on the
+build system, not the host system.  If your configure scripts examines
+files, those files will be on the build system.  Whatever you determine
+based on those files may or may not be the case on the host system.
+</p>
+<p>Most autoconf macros will work correctly for a Canadian Cross.  The main
+exception is &lsquo;<samp>AC_TRY_RUN</samp>&rsquo;.  This macro tries to compile and run a
+test program.  This will fail in a Canadian Cross, because the program
+will be compiled for the host system, which means that it will not run
+on the build system.
+</p>
+<p>The &lsquo;<samp>AC_TRY_RUN</samp>&rsquo; macro provides an optional argument to tell the
+configure script what to do in a Canadian Cross.  If that argument is
+not present, you will get a warning when you run &lsquo;<samp>autoconf</samp>&rsquo;:
+</p><div class="smallexample">
+<pre class="smallexample">warning: AC_TRY_RUN called without default to allow cross compiling
+</pre></div>
+<p>This tells you that the resulting <samp>configure</samp> script will not work
+with a Canadian Cross.
+</p>
+<p>In some cases while it may better to perform a test at configure time,
+it is also possible to perform the test at run time.  In such a case you
+can use the cross compiling argument to &lsquo;<samp>AC_TRY_RUN</samp>&rsquo; to tell your
+program that the test could not be performed at configure time.
+</p>
+<p>There are a few other autoconf macros which will not work correctly with
+a Canadian Cross: a partial list is &lsquo;<samp>AC_FUNC_GETPGRP</samp>&rsquo;,
+&lsquo;<samp>AC_FUNC_SETPGRP</samp>&rsquo;, &lsquo;<samp>AC_FUNC_SETVBUF_REVERSED</samp>&rsquo;, and
+&lsquo;<samp>AC_SYS_RESTARTABLE_SYSCALLS</samp>&rsquo;.  The &lsquo;<samp>AC_CHECK_SIZEOF</samp>&rsquo; macro is
+generally not very useful with a Canadian Cross; it permits an optional
+argument indicating the default size, but there is no way to know what
+the correct default should be.
+</p>
+<hr>
+<a name="CCross-in-Make"></a>
+<div class="header">
+<p>
+Previous: <a href="#CCross-in-Configure" accesskey="p" rel="prev">CCross in Configure</a>, Up: <a href="#Supporting-Canadian-Cross" accesskey="u" rel="up">Supporting Canadian Cross</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Supporting-Canadian-Cross-in-Makefiles_002e"></a>
+<h4 class="subsection">6.7.2 Supporting Canadian Cross in Makefiles.</h4>
+<a name="index-canadian-cross-in-makefile"></a>
+
+<p>The main Canadian Cross issue in a <samp>Makefile</samp> arises when you want
+to use a subsidiary program to generate code or data which you will then
+include in your real program.
+</p>
+<p>If you compile this subsidiary program using &lsquo;<samp>$(CC)</samp>&rsquo; in the usual
+way, you will not be able to run it.  This is because &lsquo;<samp>$(CC)</samp>&rsquo; will
+build a program for the host system, but the program is being built on
+the build system.
+</p>
+<p>You must instead use a compiler for the build system, rather than the
+host system.  In the Cygnus tree, this make variable
+&lsquo;<samp>$(CC_FOR_BUILD)</samp>&rsquo; will hold a compiler for the build system.
+</p>
+<p>Note that you should not include <samp>config.h</samp> in a file you are
+compiling with &lsquo;<samp>$(CC_FOR_BUILD)</samp>&rsquo;.  The <samp>configure</samp> script will
+build <samp>config.h</samp> with information for the host system.  However,
+you are compiling the file using a compiler for the build system (a
+native compiler).  Subsidiary programs are normally simple filters which
+do no user interaction, and it is normally possible to write them in a
+highly portable fashion so that the absence of <samp>config.h</samp> is not
+crucial.
+</p>
+<a name="index-HOST_005fCC"></a>
+<p>The gcc <samp>Makefile.in</samp> shows a complex situation in which certain
+files, such as <samp>rtl.c</samp>, must be compiled into both subsidiary
+programs run on the build system and into the final program.  This
+approach may be of interest for advanced build system hackers.  Note
+that the build system compiler is rather confusingly called
+&lsquo;<samp>HOST_CC</samp>&rsquo;.
+</p>
+<hr>
+<a name="Cygnus-Configure"></a>
+<div class="header">
+<p>
+Next: <a href="#Multilibs" accesskey="n" rel="next">Multilibs</a>, Previous: <a href="#Canadian-Cross" accesskey="p" rel="prev">Canadian Cross</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cygnus-Configure-1"></a>
+<h2 class="chapter">7 Cygnus Configure</h2>
+<a name="index-cygnus-configure"></a>
+
+<p>The Cygnus configure script predates autoconf.  All of its interesting
+features have been incorporated into autoconf.  No new programs should
+be written to use the Cygnus configure script.
+</p>
+<p>However, the Cygnus configure script is still used in a few places: at
+the top of the Cygnus tree and in a few target libraries in the Cygnus
+tree.  Until those uses have been replaced with autoconf, some brief
+notes are appropriate here.  This is not complete documentation, but it
+should be possible to use this as a guide while examining the scripts
+themselves.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Cygnus-Configure-Basics" accesskey="1">Cygnus Configure Basics</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cygnus Configure Basics.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cygnus-Configure-in-C_002b_002b-Libraries" accesskey="2">Cygnus Configure in C++ Libraries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cygnus Configure in C++ Libraries.
+</td></tr>
+</table>
+
+<hr>
+<a name="Cygnus-Configure-Basics"></a>
+<div class="header">
+<p>
+Next: <a href="#Cygnus-Configure-in-C_002b_002b-Libraries" accesskey="n" rel="next">Cygnus Configure in C++ Libraries</a>, Up: <a href="#Cygnus-Configure" accesskey="u" rel="up">Cygnus Configure</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cygnus-Configure-Basics-1"></a>
+<h3 class="section">7.1 Cygnus Configure Basics</h3>
+
+<p>Cygnus configure does not use any generated files; there is no program
+corresponding to &lsquo;<samp>autoconf</samp>&rsquo;.  Instead, there is a single shell
+script named &lsquo;<samp>configure</samp>&rsquo; which may be found at the top of the
+Cygnus tree.  This shell script was written by hand; it was not
+generated by autoconf, and it is incorrect, and indeed harmful, to run
+&lsquo;<samp>autoconf</samp>&rsquo; in the top level of a Cygnus tree.
+</p>
+<p>Cygnus configure works in a particular directory by examining the file
+<samp>configure.in</samp> in that directory.  That file is broken into four
+separate shell scripts.
+</p>
+<p>The first is the contents of <samp>configure.in</samp> up to a line that
+starts with &lsquo;<samp># per-host:</samp>&rsquo;.  This is the common part.
+</p>
+<p>The second is the rest of <samp>configure.in</samp> up to a line that starts
+with &lsquo;<samp># per-target:</samp>&rsquo;.  This is the per host part.
+</p>
+<p>The third is the rest of <samp>configure.in</samp> up to a line that starts
+with &lsquo;<samp># post-target:</samp>&rsquo;.  This is the per target part.
+</p>
+<p>The fourth is the remainder of <samp>configure.in</samp>.  This is the post
+target part.
+</p>
+<p>If any of these comment lines are missing, the corresponding shell
+script is empty.
+</p>
+<p>Cygnus configure will first execute the common part.  This must set the
+shell variable &lsquo;<samp>srctrigger</samp>&rsquo; to the name of a source file, to
+confirm that Cygnus configure is looking at the right directory.  This
+may set the shell variables &lsquo;<samp>package_makefile_frag</samp>&rsquo; and
+&lsquo;<samp>package_makefile_rules_frag</samp>&rsquo;.
+</p>
+<p>Cygnus configure will next set the &lsquo;<samp>build</samp>&rsquo; and &lsquo;<samp>host</samp>&rsquo; shell
+variables, and execute the per host part.  This may set the shell
+variable &lsquo;<samp>host_makefile_frag</samp>&rsquo;.
+</p>
+<p>Cygnus configure will next set the &lsquo;<samp>target</samp>&rsquo; variable, and execute
+the per target part.  This may set the shell variable
+&lsquo;<samp>target_makefile_frag</samp>&rsquo;.
+</p>
+<p>Any of these scripts may set the &lsquo;<samp>subdirs</samp>&rsquo; shell variable.  This
+variable is a list of subdirectories where a <samp>Makefile.in</samp> file may
+be found.  Cygnus configure will automatically look for a
+<samp>Makefile.in</samp> file in the current directory.  The &lsquo;<samp>subdirs</samp>&rsquo;
+shell variable is not normally used, and I believe that the only
+directory which uses it at present is <samp>newlib</samp>.
+</p>
+<p>For each <samp>Makefile.in</samp>, Cygnus configure will automatically create
+a <samp>Makefile</samp> by adding definitions for &lsquo;<samp>make</samp>&rsquo; variables such
+as &lsquo;<samp>host</samp>&rsquo; and &lsquo;<samp>target</samp>&rsquo;, and automatically editing the values
+of &lsquo;<samp>make</samp>&rsquo; variables such as &lsquo;<samp>prefix</samp>&rsquo; if they are present.
+</p>
+<p>Also, if any of the &lsquo;<samp>makefile_frag</samp>&rsquo; shell variables are set, Cygnus
+configure will interpret them as file names relative to either the
+working directory or the source directory, and will read the contents of
+the file into the generated <samp>Makefile</samp>.  The file contents will be
+read in after the first line in <samp>Makefile.in</samp> which starts with
+&lsquo;<samp>####</samp>&rsquo;.
+</p>
+<p>These <samp>Makefile</samp> fragments are used to customize behaviour for a
+particular host or target.  They serve to select particular files to
+compile, and to define particular preprocessor macros by providing
+values for &lsquo;<samp>make</samp>&rsquo; variables which are then used during compilation.
+Cygnus configure, unlike autoconf, normally does not do feature tests,
+and normally requires support to be added manually for each new host.
+</p>
+<p>The <samp>Makefile</samp> fragment support is similar to the autoconf
+&lsquo;<samp>AC_SUBST_FILE</samp>&rsquo; macro.
+</p>
+<p>After creating each <samp>Makefile</samp>, the post target script will be run
+(i.e., it may be run several times).  This script may further customize
+the <samp>Makefile</samp>.  When it is run, the shell variable &lsquo;<samp>Makefile</samp>&rsquo;
+will hold the name of the <samp>Makefile</samp>, including the appropriate
+directory component.
+</p>
+<p>Like an autoconf generated <samp>configure</samp> script, Cygnus configure
+will create a file named <samp>config.status</samp> which, when run, will
+automatically recreate the configuration.  The <samp>config.status</samp> file
+will simply execute the Cygnus configure script again with the
+appropriate arguments.
+</p>
+<p>Any of the parts of <samp>configure.in</samp> may set the shell variables
+&lsquo;<samp>files</samp>&rsquo; and &lsquo;<samp>links</samp>&rsquo;.  Cygnus configure will set up symlinks
+from the names in &lsquo;<samp>links</samp>&rsquo; to the files named in &lsquo;<samp>files</samp>&rsquo;.  This
+is similar to the autoconf &lsquo;<samp>AC_LINK_FILES</samp>&rsquo; macro.
+</p>
+<p>Finally, any of the parts of <samp>configure.in</samp> may set the shell
+variable &lsquo;<samp>configdirs</samp>&rsquo; to a set of subdirectories.  If it is set,
+Cygnus configure will recursively run the configure process in each
+subdirectory.  If the subdirectory uses Cygnus configure, it will
+contain a <samp>configure.in</samp> file but no <samp>configure</samp> file, in
+which case Cygnus configure will invoke itself recursively.  If the
+subdirectory has a <samp>configure</samp> file, Cygnus configure assumes that
+it is an autoconf generated <samp>configure</samp> script, and simply invokes
+it directly.
+</p>
+<hr>
+<a name="Cygnus-Configure-in-C_002b_002b-Libraries"></a>
+<div class="header">
+<p>
+Previous: <a href="#Cygnus-Configure-Basics" accesskey="p" rel="prev">Cygnus Configure Basics</a>, Up: <a href="#Cygnus-Configure" accesskey="u" rel="up">Cygnus Configure</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cygnus-Configure-in-C_002b_002b-Libraries-1"></a>
+<h3 class="section">7.2 Cygnus Configure in C++ Libraries</h3>
+<a name="index-libstdc_002b_002b-configure"></a>
+<a name="index-libio-configure"></a>
+<a name="index-libg_002b_002b-configure"></a>
+
+<p>The C++ library configure system, written by Per Bothner, deserves
+special mention.  It uses Cygnus configure, but it does feature testing
+like that done by autoconf generated <samp>configure</samp> scripts.  This
+approach is used in the libraries <samp>libio</samp>, <samp>libstdc++</samp>, and
+<samp>libg++</samp>.
+</p>
+<p>Most of the <samp>Makefile</samp> information is written out by the shell
+script <samp>libio/config.shared</samp>.  Each <samp>configure.in</samp> file sets
+certain shell variables, and then invokes <samp>config.shared</samp> to create
+two package <samp>Makefile</samp> fragments.  These fragments are then
+incorporated into the resulting <samp>Makefile</samp> by the Cygnus configure
+script.
+</p>
+<p>The file <samp>_G_config.h</samp> is created in the <samp>libio</samp> object
+directory by running the shell script <samp>libio/gen-params</samp>.  This
+shell script uses feature tests to define macros and typedefs in
+<samp>_G_config.h</samp>.
+</p>
+<hr>
+<a name="Multilibs"></a>
+<div class="header">
+<p>
+Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Cygnus-Configure" accesskey="p" rel="prev">Cygnus Configure</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Multilibs-1"></a>
+<h2 class="chapter">8 Multilibs</h2>
+<a name="index-multilibs"></a>
+
+<p>For some targets gcc may have different processor requirements depending
+upon command line options.  An obvious example is the
+&lsquo;<samp>-msoft-float</samp>&rsquo; option supported on several processors.  This option
+means that the floating point registers are not available, which means
+that floating point operations must be done by calling an emulation
+subroutine rather than by using machine instructions.
+</p>
+<p>For such options, gcc is often configured to compile target libraries
+twice: once with &lsquo;<samp>-msoft-float</samp>&rsquo; and once without.  When gcc
+compiles target libraries more than once, the resulting libraries are
+called <em>multilibs</em>.
+</p>
+<p>Multilibs are not really part of the GNU configure and build system, but
+we discuss them here since they require support in the <samp>configure</samp>
+scripts and <samp>Makefile</samp>s used for target libraries.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Multilibs-in-gcc" accesskey="1">Multilibs in gcc</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Multilibs in gcc.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Multilibs-in-Target-Libraries" accesskey="2">Multilibs in Target Libraries</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Multilibs in Target Libraries.
+</td></tr>
+</table>
+
+<hr>
+<a name="Multilibs-in-gcc"></a>
+<div class="header">
+<p>
+Next: <a href="#Multilibs-in-Target-Libraries" accesskey="n" rel="next">Multilibs in Target Libraries</a>, Up: <a href="#Multilibs" accesskey="u" rel="up">Multilibs</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Multilibs-in-gcc-1"></a>
+<h3 class="section">8.1 Multilibs in gcc</h3>
+
+<p>In gcc, multilibs are defined by setting the variable
+&lsquo;<samp>MULTILIB_OPTIONS</samp>&rsquo; in the target <samp>Makefile</samp> fragment.  Several
+other &lsquo;<samp>MULTILIB</samp>&rsquo; variables may also be defined there.  See <a href="http://gcc.gnu.org/onlinedocs/gcc/Target-Fragment.html#Target-Fragment">The Target Makefile Fragment</a> in <cite>Using and Porting GNU
+CC</cite>.
+</p>
+<p>If you have built gcc, you can see what multilibs it uses by running it
+with the &lsquo;<samp>-print-multi-lib</samp>&rsquo; option.  The output &lsquo;<samp>.;</samp>&rsquo; means
+that no multilibs are used.  In general, the output is a sequence of
+lines, one per multilib.  The first part of each line, up to the
+&lsquo;<samp>;</samp>&rsquo;, is the name of the multilib directory.  The second part is a
+list of compiler options separated by &lsquo;<samp>@</samp>&rsquo; characters.
+</p>
+<p>Multilibs are built in a tree of directories.  The top of the tree,
+represented by &lsquo;<samp>.</samp>&rsquo; in the list of multilib directories, is the
+default library to use when no special compiler options are used.  The
+subdirectories of the tree hold versions of the library to use when
+particular compiler options are used.
+</p>
+<hr>
+<a name="Multilibs-in-Target-Libraries"></a>
+<div class="header">
+<p>
+Previous: <a href="#Multilibs-in-gcc" accesskey="p" rel="prev">Multilibs in gcc</a>, Up: <a href="#Multilibs" accesskey="u" rel="up">Multilibs</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Multilibs-in-Target-Libraries-1"></a>
+<h3 class="section">8.2 Multilibs in Target Libraries</h3>
+
+<p>The target libraries in the Cygnus tree are automatically built with
+multilibs.  That means that each library is built multiple times.
+</p>
+<p>This default is set in the top level <samp>configure.in</samp> file, by adding
+&lsquo;<samp>--enable-multilib</samp>&rsquo; to the list of arguments passed to configure
+when it is run for the target libraries (see <a href="#Host-and-Target-Libraries">Host and Target Libraries</a>).
+</p>
+<p>Each target library uses the shell script <samp>config-ml.in</samp>, written
+by Doug Evans, to prepare to build target libraries.  This shell script
+is invoked after the <samp>Makefile</samp> has been created by the
+<samp>configure</samp> script.  If multilibs are not enabled, it does nothing,
+otherwise it modifies the <samp>Makefile</samp> to support multilibs.
+</p>
+<p>The <samp>config-ml.in</samp> script makes one copy of the <samp>Makefile</samp> for
+each multilib in the appropriate subdirectory.  When configuring in the
+source directory (which is not recommended), it will build a symlink
+tree of the sources in each subdirectory.
+</p>
+<p>The <samp>config-ml.in</samp> script sets several variables in the various
+<samp>Makefile</samp>s.  The <samp>Makefile.in</samp> must have definitions for
+these variables already; <samp>config-ml.in</samp> simply changes the existing
+values.  The <samp>Makefile</samp> should use default values for these
+variables which will do the right thing in the subdirectories.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>MULTISRCTOP</samp>&rsquo;</dt>
+<dd><p><samp>config-ml.in</samp> will set this to a sequence of &lsquo;<samp>../</samp>&rsquo; strings,
+where the number of strings is the number of multilib levels in the
+source tree.  The default value should be the empty string.
+</p></dd>
+<dt>&lsquo;<samp>MULTIBUILDTOP</samp>&rsquo;</dt>
+<dd><p><samp>config-ml.in</samp> will set this to a sequence of &lsquo;<samp>../</samp>&rsquo; strings,
+where the number of strings is number of multilib levels in the object
+directory.  The default value should be the empty string.  This will
+differ from &lsquo;<samp>MULTISRCTOP</samp>&rsquo; when configuring in the source tree
+(which is not recommended).
+</p></dd>
+<dt>&lsquo;<samp>MULTIDIRS</samp>&rsquo;</dt>
+<dd><p>In the top level <samp>Makefile</samp> only, <samp>config-ml.in</samp> will set this
+to the list of multilib subdirectories.  The default value should be the
+empty string.
+</p></dd>
+<dt>&lsquo;<samp>MULTISUBDIR</samp>&rsquo;</dt>
+<dd><p><samp>config-ml.in</samp> will set this to the installed subdirectory name to
+use for this subdirectory, with a leading &lsquo;<samp>/</samp>&rsquo;.  The default value
+shold be the empty string.
+</p></dd>
+<dt>&lsquo;<samp>MULTIDO</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>MULTICLEAN</samp>&rsquo;</dt>
+<dd><p>In the top level <samp>Makefile</samp> only, <samp>config-ml.in</samp> will set
+these variables to commands to use when doing a recursive make.  These
+variables should both default to the string &lsquo;<samp>true</samp>&rsquo;, so that by
+default nothing happens.
+</p></dd>
+</dl>
+
+<p>All references to the parent of the source directory should use the
+variable &lsquo;<samp>MULTISRCTOP</samp>&rsquo;.  Instead of writing &lsquo;<samp>$(srcdir)/..</samp>&rsquo;,
+you must write &lsquo;<samp>$(srcdir)/$(MULTISRCTOP)..</samp>&rsquo;.
+</p>
+<p>Similarly, references to the parent of the object directory should use
+the variable &lsquo;<samp>MULTIBUILDTOP</samp>&rsquo;.
+</p>
+<p>In the installation target, the libraries should be installed in the
+subdirectory &lsquo;<samp>MULTISUBDIR</samp>&rsquo;.  Instead of installing
+&lsquo;<samp>$(libdir)/libfoo.a</samp>&rsquo;, install
+&lsquo;<samp>$(libdir)$(MULTISUBDIR)/libfoo.a</samp>&rsquo;.
+</p>
+<p>The <samp>config-ml.in</samp> script also modifies the top level
+<samp>Makefile</samp> to add &lsquo;<samp>multi-do</samp>&rsquo; and &lsquo;<samp>multi-clean</samp>&rsquo; targets
+which are used when building multilibs.
+</p>
+<p>The default target of the <samp>Makefile</samp> should include the following
+command:
+</p><div class="smallexample">
+<pre class="smallexample">@$(MULTIDO) $(FLAGS_TO_PASS) DO=all multi-do
+</pre></div>
+<p>This assumes that &lsquo;<samp>$(FLAGS_TO_PASS)</samp>&rsquo; is defined as a set of
+variables to pass to a recursive invocation of &lsquo;<samp>make</samp>&rsquo;.  This will
+build all the multilibs.  Note that the default value of &lsquo;<samp>MULTIDO</samp>&rsquo;
+is &lsquo;<samp>true</samp>&rsquo;, so by default this command will do nothing.  It will
+only do something in the top level <samp>Makefile</samp> if multilibs were
+enabled.
+</p>
+<p>The &lsquo;<samp>install</samp>&rsquo; target of the <samp>Makefile</samp> should include the
+following command:
+</p><div class="smallexample">
+<pre class="smallexample">@$(MULTIDO) $(FLAGS_TO_PASS) DO=install multi-do
+</pre></div>
+
+<p>In general, any operation, other than clean, which should be performed
+on all the multilibs should use a &lsquo;<samp>$(MULTIDO)</samp>&rsquo; line, setting the
+variable &lsquo;<samp>DO</samp>&rsquo; to the target of each recursive call to &lsquo;<samp>make</samp>&rsquo;.
+</p>
+<p>The &lsquo;<samp>clean</samp>&rsquo; targets (&lsquo;<samp>clean</samp>&rsquo;, &lsquo;<samp>mostlyclean</samp>&rsquo;, etc.) should
+use &lsquo;<samp>$(MULTICLEAN)</samp>&rsquo;.  For example, the &lsquo;<samp>clean</samp>&rsquo; target should
+do this:
+</p><div class="smallexample">
+<pre class="smallexample">@$(MULTICLEAN) DO=clean multi-clean
+</pre></div>
+
+<hr>
+<a name="FAQ"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Multilibs" accesskey="p" rel="prev">Multilibs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Frequently-Asked-Questions"></a>
+<h2 class="chapter">9 Frequently Asked Questions</h2>
+
+<dl compact="compact">
+<dt>Which do I run first, &lsquo;<samp>autoconf</samp>&rsquo; or &lsquo;<samp>automake</samp>&rsquo;?</dt>
+<dd><p>Except when you first add autoconf or automake support to a package, you
+shouldn&rsquo;t run either by hand.  Instead, configure with the
+&lsquo;<samp>--enable-maintainer-mode</samp>&rsquo; option, and let &lsquo;<samp>make</samp>&rsquo; take care of
+it.
+</p>
+<a name="index-undefined-macros"></a>
+</dd>
+<dt>&lsquo;<samp>autoconf</samp>&rsquo; says something about undefined macros.</dt>
+<dd><p>This means that you have macros in your <samp>configure.in</samp> which are
+not defined by &lsquo;<samp>autoconf</samp>&rsquo;.  You may be using an old version of
+&lsquo;<samp>autoconf</samp>&rsquo;; try building and installing a newer one.  Make sure the
+newly installled &lsquo;<samp>autoconf</samp>&rsquo; is first on your &lsquo;<samp>PATH</samp>&rsquo;.  Also,
+see the next question.
+</p>
+<a name="index-CY_005fGNU_005fGETTEXT-in-configure"></a>
+<a name="index-AM_005fPROG_005fLIBTOOL-in-configure"></a>
+</dd>
+<dt>My <samp>configure</samp> script has stuff like &lsquo;<samp>CY_GNU_GETTEXT</samp>&rsquo; in it.</dt>
+<dd><p>This means that you have macros in your <samp>configure.in</samp> which should
+be defined in your <samp>aclocal.m4</samp> file, but aren&rsquo;t.  This usually
+means that &lsquo;<samp>aclocal</samp>&rsquo; was not able to appropriate definitions of the
+macros.  Make sure that you have installed all the packages you need.
+In particular, make sure that you have installed libtool (this is where
+&lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo; is defined) and gettext (this is where
+&lsquo;<samp>CY_GNU_GETTEXT</samp>&rsquo; is defined, at least in the Cygnus version of
+gettext).
+</p>
+<a name="index-Makefile_002c-garbage-characters"></a>
+</dd>
+<dt>My <samp>Makefile</samp> has &lsquo;<samp>@</samp>&rsquo; characters in it.</dt>
+<dd><p>This may mean that you tried to use an autoconf substitution in your
+<samp>Makefile.in</samp> without adding the appropriate &lsquo;<samp>AC_SUBST</samp>&rsquo; call
+to your <samp>configure</samp> script.  Or it may just mean that you need to
+rebuild <samp>Makefile</samp> in your build directory.  To rebuild
+<samp>Makefile</samp> from <samp>Makefile.in</samp>, run the shell script
+<samp>config.status</samp> with no arguments.  If you need to force
+<samp>configure</samp> to run again, first run &lsquo;<samp>config.status --recheck</samp>&rsquo;.
+These runs are normally done automatically by <samp>Makefile</samp> targets,
+but if your <samp>Makefile</samp> has gotten messed up you&rsquo;ll need to help
+them along.
+</p>
+<a name="index-config_002estatus-_002d_002drecheck"></a>
+</dd>
+<dt>Why do I have to run both &lsquo;<samp>config.status --recheck</samp>&rsquo; and &lsquo;<samp>config.status</samp>&rsquo;?</dt>
+<dd><p>Normally, you don&rsquo;t; they will be run automatically by <samp>Makefile</samp>
+targets.  If you do need to run them, use &lsquo;<samp>config.status --recheck</samp>&rsquo;
+to run the <samp>configure</samp> script again with the same arguments as the
+first time you ran it.  Use &lsquo;<samp>config.status</samp>&rsquo; (with no arguments) to
+regenerate all files (<samp>Makefile</samp>, <samp>config.h</samp>, etc.) based on
+the results of the configure script.  The two cases are separate because
+it isn&rsquo;t always necessary to regenerate all the files after running
+&lsquo;<samp>config.status --recheck</samp>&rsquo;.  The <samp>Makefile</samp> targets generated
+by automake will use the environment variables &lsquo;<samp>CONFIG_FILES</samp>&rsquo; and
+&lsquo;<samp>CONFIG_HEADERS</samp>&rsquo; to only regenerate files as they are needed.
+</p>
+</dd>
+<dt>What is the Cygnus tree?</dt>
+<dd><p>The Cygnus tree is used for various packages including gdb, the GNU
+binutils, and egcs.  It is also, of course, used for Cygnus releases.
+It is the build system which was developed at Cygnus, using the Cygnus
+configure script.  It permits building many different packages with a
+single configure and make.  The configure scripts in the tree are being
+converted to autoconf, but the general build structure remains intact.
+</p>
+</dd>
+<dt>Why do I have to keep rebuilding and reinstalling the tools?</dt>
+<dd><p>I know, it&rsquo;s a pain.  Unfortunately, there are bugs in the tools
+themselves which need to be fixed, and each time that happens everybody
+who uses the tools need to reinstall new versions of them.  I don&rsquo;t know
+if there is going to be a clever fix until the tools stabilize.
+</p>
+</dd>
+<dt>Why not just have a Cygnus tree &lsquo;<samp>make</samp>&rsquo; target to update the tools?</dt>
+<dd><p>The tools unfortunately need to be installed before they can be used.
+That means that they must be built using an appropriate prefix, and it
+seems unwise to assume that every configuration uses an appropriate
+prefix.  It might be possible to make them work in place, or it might be
+possible to install them in some subdirectory; so far these approaches
+have not been implemented.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#FAQ" accesskey="p" rel="prev">FAQ</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
+<h2 class="unnumbered">Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>-</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>_</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-1">-</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002d_002dbuild-option">&lsquo;<samp>--build</samp>&rsquo; option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002d_002dhost-option">&lsquo;<samp>--host</samp>&rsquo; option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002d_002dtarget-option">&lsquo;<samp>--target</samp>&rsquo; option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Specifying-the-Target">Specifying the Target</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-2">_</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005fGNU_005fSOURCE">&lsquo;<samp>_GNU_SOURCE</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-A">A</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-acconfig_002eh"><samp>acconfig.h</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Written-Developer-Files">Written Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-acconfig_002eh_002c-writing"><samp>acconfig.h</samp>, writing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-acconfig_002eh">Write acconfig.h</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-acinclude_002em4"><samp>acinclude.m4</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Written-Developer-Files">Written Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aclocal_002em4"><samp>aclocal.m4</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCANONICAL_005fHOST">&lsquo;<samp>AC_CANONICAL_HOST</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-the-Host-Type">Using the Host Type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCANONICAL_005fSYSTEM">&lsquo;<samp>AC_CANONICAL_SYSTEM</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-the-Target-Type">Using the Target Type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCONFIG_005fHEADER">&lsquo;<samp>AC_CONFIG_HEADER</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fEXEEXT">&lsquo;<samp>AC_EXEEXT</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fINIT">&lsquo;<samp>AC_INIT</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fOUTPUT">&lsquo;<samp>AC_OUTPUT</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPREREQ">&lsquo;<samp>AC_PREREQ</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fCC">&lsquo;<samp>AC_PROG_CC</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fCXX">&lsquo;<samp>AC_PROG_CXX</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fCONFIG_005fHEADER">&lsquo;<samp>AM_CONFIG_HEADER</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fDISABLE_005fSHARED">&lsquo;<samp>AM_DISABLE_SHARED</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fEXEEXT">&lsquo;<samp>AM_EXEEXT</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fINIT_005fAUTOMAKE">&lsquo;<samp>AM_INIT_AUTOMAKE</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fMAINTAINER_005fMODE">&lsquo;<samp>AM_MAINTAINER_MODE</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fPROG_005fLIBTOOL">&lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fPROG_005fLIBTOOL-in-configure">&lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo; in <samp>configure</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#FAQ">FAQ</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-build-option">build option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-building-with-a-cross-compiler">building with a cross compiler</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Canadian-Cross">Canadian Cross</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canadian-cross">canadian cross</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Canadian-Cross">Canadian Cross</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canadian-cross-in-configure">canadian cross in configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#CCross-in-Configure">CCross in Configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canadian-cross-in-cygnus-tree">canadian cross in cygnus tree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#CCross-in-Cygnus-Tree">CCross in Cygnus Tree</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canadian-cross-in-makefile">canadian cross in makefile</a>:</td><td>&nbsp;</td><td valign="top"><a href="#CCross-in-Make">CCross in Make</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canadian-cross_002c-configuring">canadian cross, configuring</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-canonical-system-names">canonical system names</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002ecache"><samp>config.cache</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-Files-Description">Build Files Description</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002eh"><samp>config.h</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-Files-Description">Build Files Description</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002eh_002ein"><samp>config.h.in</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002ein"><samp>config.in</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002estatus"><samp>config.status</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-Files-Description">Build Files Description</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002estatus-_002d_002drecheck">&lsquo;<samp>config.status --recheck</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#FAQ">FAQ</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configuration-names">configuration names</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configuration-triplets">configuration triplets</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure"><samp>configure</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure-build-system">configure build system</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure-host">configure host</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure-target">configure target</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Specifying-the-Target">Specifying the Target</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure_002ein"><samp>configure.in</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Written-Developer-Files">Written Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configure_002ein_002c-writing"><samp>configure.in</samp>, writing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-configure_002ein">Write configure.in</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-configuring-a-canadian-cross">configuring a canadian cross</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cross-compiler">cross compiler</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cross-Compilation-Concepts">Cross Compilation Concepts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cross-compiler_002c-building-with">cross compiler, building with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Canadian-Cross">Canadian Cross</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cross-tools">cross tools</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cross-Compilation-Tools">Cross Compilation Tools</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cygnus-configure">cygnus configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cygnus-Configure">Cygnus Configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CY_005fGNU_005fGETTEXT-in-configure">&lsquo;<samp>CY_GNU_GETTEXT</samp>&rsquo; in <samp>configure</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#FAQ">FAQ</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-G">G</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-goals">goals</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Goals">Goals</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-H">H</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history">history</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History">History</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host-names">host names</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host-option">host option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-and-Host-Options">Build and Host Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host-system">host system</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Host-and-Target">Host and Target</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host-triplets">host triplets</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-HOST_005fCC">&lsquo;<samp>HOST_CC</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#CCross-in-Make">CCross in Make</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-L">L</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libg_002b_002b-configure"><samp>libg++</samp> configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cygnus-Configure-in-C_002b_002b-Libraries">Cygnus Configure in C++ Libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libio-configure"><samp>libio</samp> configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cygnus-Configure-in-C_002b_002b-Libraries">Cygnus Configure in C++ Libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libstdc_002b_002b-configure"><samp>libstdc++</samp> configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cygnus-Configure-in-C_002b_002b-Libraries">Cygnus Configure in C++ Libraries</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile"><samp>Makefile</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-Files-Description">Build Files Description</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002c-garbage-characters"><samp>Makefile</samp>, garbage characters</a>:</td><td>&nbsp;</td><td valign="top"><a href="#FAQ">FAQ</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002eam"><samp>Makefile.am</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Written-Developer-Files">Written Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002eam_002c-writing"><samp>Makefile.am</samp>, writing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Write-Makefile_002eam">Write Makefile.am</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002ein"><samp>Makefile.in</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-multilibs">multilibs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multilibs">Multilibs</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-stamp_002dh"><samp>stamp-h</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Build-Files-Description">Build Files Description</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-stamp_002dh_002ein"><samp>stamp-h.in</samp></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generated-Developer-Files">Generated Developer Files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-system-names">system names</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-system-types">system types</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-target-option">target option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Specifying-the-Target">Specifying the Target</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-target-system">target system</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Host-and-Target">Host and Target</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-triplets">triplets</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration-Names">Configuration Names</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-undefined-macros">undefined macros</a>:</td><td>&nbsp;</td><td valign="top"><a href="#FAQ">FAQ</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>-</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>_</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction-1" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Goals-1" href="#Goals">1.1 Goals</a></li>
+    <li><a name="toc-Tools-1" href="#Tools">1.2 Tools</a></li>
+    <li><a name="toc-History-1" href="#History">1.3 History</a></li>
+    <li><a name="toc-Building-1" href="#Building">1.4 Building</a></li>
+  </ul></li>
+  <li><a name="toc-Getting-Started-1" href="#Getting-Started">2 Getting Started</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Write-configure_002ein-1" href="#Write-configure_002ein">2.1 Write configure.in</a></li>
+    <li><a name="toc-Write-Makefile_002eam-1" href="#Write-Makefile_002eam">2.2 Write Makefile.am</a></li>
+    <li><a name="toc-Write-acconfig_002eh-1" href="#Write-acconfig_002eh">2.3 Write acconfig.h</a></li>
+    <li><a name="toc-Generate-files-1" href="#Generate-files">2.4 Generate files</a></li>
+    <li><a name="toc-Example" href="#Getting-Started-Example">2.5 Example</a>
+    <ul class="no-bullet">
+      <li><a name="toc-First-Try" href="#Getting-Started-Example-1">2.5.1 First Try</a></li>
+      <li><a name="toc-Second-Try" href="#Getting-Started-Example-2">2.5.2 Second Try</a></li>
+      <li><a name="toc-Third-Try" href="#Getting-Started-Example-3">2.5.3 Third Try</a></li>
+      <li><a name="toc-Generate-Files" href="#Generate-Files-in-Example">2.5.4 Generate Files</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Files-1" href="#Files">3 Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Developer-Files-1" href="#Developer-Files">3.1 Developer Files</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Developer-Files-Picture-1" href="#Developer-Files-Picture">3.1.1 Developer Files Picture</a></li>
+      <li><a name="toc-Written-Developer-Files-1" href="#Written-Developer-Files">3.1.2 Written Developer Files</a></li>
+      <li><a name="toc-Generated-Developer-Files-1" href="#Generated-Developer-Files">3.1.3 Generated Developer Files</a></li>
+    </ul></li>
+    <li><a name="toc-Build-Files-1" href="#Build-Files">3.2 Build Files</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Build-Files-Picture-1" href="#Build-Files-Picture">3.2.1 Build Files Picture</a></li>
+      <li><a name="toc-Build-Files-Description-1" href="#Build-Files-Description">3.2.2 Build Files Description</a></li>
+    </ul></li>
+    <li><a name="toc-Support-Files-1" href="#Support-Files">3.3 Support Files</a></li>
+  </ul></li>
+  <li><a name="toc-Configuration-Names-1" href="#Configuration-Names">4 Configuration Names</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Configuration-Name-Definition-1" href="#Configuration-Name-Definition">4.1 Configuration Name Definition</a></li>
+    <li><a name="toc-Using-Configuration-Names-1" href="#Using-Configuration-Names">4.2 Using Configuration Names</a></li>
+  </ul></li>
+  <li><a name="toc-Cross-Compilation-Tools-1" href="#Cross-Compilation-Tools">5 Cross Compilation Tools</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Cross-Compilation-Concepts-1" href="#Cross-Compilation-Concepts">5.1 Cross Compilation Concepts</a></li>
+    <li><a name="toc-Host-and-Target-1" href="#Host-and-Target">5.2 Host and Target</a></li>
+    <li><a name="toc-Using-the-Host-Type-1" href="#Using-the-Host-Type">5.3 Using the Host Type</a></li>
+    <li><a name="toc-Specifying-the-Target-1" href="#Specifying-the-Target">5.4 Specifying the Target</a></li>
+    <li><a name="toc-Using-the-Target-Type-1" href="#Using-the-Target-Type">5.5 Using the Target Type</a></li>
+    <li><a name="toc-Cross-Tools-in-the-Cygnus-Tree-1" href="#Cross-Tools-in-the-Cygnus-Tree">5.6 Cross Tools in the Cygnus Tree</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Host-and-Target-Libraries-1" href="#Host-and-Target-Libraries">5.6.1 Host and Target Libraries</a></li>
+      <li><a name="toc-Target-Library-Configure-Scripts-1" href="#Target-Library-Configure-Scripts">5.6.2 Target Library Configure Scripts</a></li>
+      <li><a name="toc-Make-Targets-in-Cygnus-Tree-1" href="#Make-Targets-in-Cygnus-Tree">5.6.3 Make Targets in Cygnus Tree</a></li>
+      <li><a name="toc-Target-libiberty-1" href="#Target-libiberty">5.6.4 Target libiberty</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Canadian-Cross-1" href="#Canadian-Cross">6 Canadian Cross</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Canadian-Cross-Example-1" href="#Canadian-Cross-Example">6.1 Canadian Cross Example</a></li>
+    <li><a name="toc-Canadian-Cross-Concepts-1" href="#Canadian-Cross-Concepts">6.2 Canadian Cross Concepts</a></li>
+    <li><a name="toc-Build-Cross-Host-Tools-1" href="#Build-Cross-Host-Tools">6.3 Build Cross Host Tools</a></li>
+    <li><a name="toc-Build-and-Host-Options-1" href="#Build-and-Host-Options">6.4 Build and Host Options</a></li>
+    <li><a name="toc-Canadian-Cross-not-in-Cygnus-Tree_002e" href="#CCross-not-in-Cygnus-Tree">6.5 Canadian Cross not in Cygnus Tree.</a></li>
+    <li><a name="toc-Canadian-Cross-in-Cygnus-Tree" href="#CCross-in-Cygnus-Tree">6.6 Canadian Cross in Cygnus Tree</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Building-a-Normal-Program" href="#Standard-Cygnus-CCross">6.6.1 Building a Normal Program</a></li>
+      <li><a name="toc-Building-a-Cross-Program" href="#Cross-Cygnus-CCross">6.6.2 Building a Cross Program</a></li>
+    </ul></li>
+    <li><a name="toc-Supporting-Canadian-Cross-1" href="#Supporting-Canadian-Cross">6.7 Supporting Canadian Cross</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Supporting-Canadian-Cross-in-Configure-Scripts" href="#CCross-in-Configure">6.7.1 Supporting Canadian Cross in Configure Scripts</a></li>
+      <li><a name="toc-Supporting-Canadian-Cross-in-Makefiles_002e" href="#CCross-in-Make">6.7.2 Supporting Canadian Cross in Makefiles.</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Cygnus-Configure-1" href="#Cygnus-Configure">7 Cygnus Configure</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Cygnus-Configure-Basics-1" href="#Cygnus-Configure-Basics">7.1 Cygnus Configure Basics</a></li>
+    <li><a name="toc-Cygnus-Configure-in-C_002b_002b-Libraries-1" href="#Cygnus-Configure-in-C_002b_002b-Libraries">7.2 Cygnus Configure in C++ Libraries</a></li>
+  </ul></li>
+  <li><a name="toc-Multilibs-1" href="#Multilibs">8 Multilibs</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Multilibs-in-gcc-1" href="#Multilibs-in-gcc">8.1 Multilibs in gcc</a></li>
+    <li><a name="toc-Multilibs-in-Target-Libraries-1" href="#Multilibs-in-Target-Libraries">8.2 Multilibs in Target Libraries</a></li>
+  </ul></li>
+  <li><a name="toc-Frequently-Asked-Questions" href="#FAQ">9 Frequently Asked Questions</a></li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
+</ul>
+</div>
+
+<hr>
+
+
+
+</body>
+</html>

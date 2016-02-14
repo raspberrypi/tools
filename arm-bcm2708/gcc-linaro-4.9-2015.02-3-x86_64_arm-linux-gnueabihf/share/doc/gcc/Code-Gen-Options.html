@@ -1,0 +1,817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using the GNU Compiler Collection (GCC): Code Gen Options</title>
+
+<meta name="description" content="Using the GNU Compiler Collection (GCC): Code Gen Options">
+<meta name="keywords" content="Using the GNU Compiler Collection (GCC): Code Gen Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Invoking-GCC.html#Invoking-GCC" rel="up" title="Invoking GCC">
+<link href="Environment-Variables.html#Environment-Variables" rel="next" title="Environment Variables">
+<link href="zSeries-Options.html#zSeries-Options" rel="prev" title="zSeries Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Code-Gen-Options"></a>
+<div class="header">
+<p>
+Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" rel="next">Environment Variables</a>, Previous: <a href="Submodel-Options.html#Submodel-Options" accesskey="p" rel="prev">Submodel Options</a>, Up: <a href="Invoking-GCC.html#Invoking-GCC" accesskey="u" rel="up">Invoking GCC</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Options-for-Code-Generation-Conventions"></a>
+<h3 class="section">3.18 Options for Code Generation Conventions</h3>
+<a name="index-code-generation-conventions"></a>
+<a name="index-options_002c-code-generation"></a>
+<a name="index-run_002dtime-options"></a>
+
+<p>These machine-independent options control the interface conventions
+used in code generation.
+</p>
+<p>Most of them have both positive and negative forms; the negative form
+of <samp>-ffoo</samp> is <samp>-fno-foo</samp>.  In the table below, only
+one of the forms is listed&mdash;the one that is not the default.  You
+can figure out the other form by either removing &lsquo;<samp>no-</samp>&rsquo; or adding
+it.
+</p>
+<dl compact="compact">
+<dt><code>-fbounds-check</code></dt>
+<dd><a name="index-fbounds_002dcheck"></a>
+<p>For front ends that support it, generate additional code to check that
+indices used to access arrays are within the declared range.  This is
+currently only supported by the Java and Fortran front ends, where
+this option defaults to true and false respectively.
+</p>
+</dd>
+<dt><code>-fstack-reuse=<var>reuse-level</var></code></dt>
+<dd><a name="index-fstack_005freuse"></a>
+<p>This option controls stack space reuse for user declared local/auto variables
+and compiler generated temporaries.  <var>reuse_level</var> can be &lsquo;<samp>all</samp>&rsquo;,
+&lsquo;<samp>named_vars</samp>&rsquo;, or &lsquo;<samp>none</samp>&rsquo;. &lsquo;<samp>all</samp>&rsquo; enables stack reuse for all
+local variables and temporaries, &lsquo;<samp>named_vars</samp>&rsquo; enables the reuse only for
+user defined local variables with names, and &lsquo;<samp>none</samp>&rsquo; disables stack reuse
+completely. The default value is &lsquo;<samp>all</samp>&rsquo;. The option is needed when the
+program extends the lifetime of a scoped local variable or a compiler generated
+temporary beyond the end point defined by the language.  When a lifetime of
+a variable ends, and if the variable lives in memory, the optimizing compiler
+has the freedom to reuse its stack space with other temporaries or scoped
+local variables whose live range does not overlap with it. Legacy code extending
+local lifetime will likely to break with the stack reuse optimization.
+</p>
+<p>For example,
+</p>
+<div class="smallexample">
+<pre class="smallexample">   int *p;
+   {
+     int local1;
+
+     p = &amp;local1;
+     local1 = 10;
+     ....
+   }
+   {
+      int local2;
+      local2 = 20;
+      ...
+   }
+
+   if (*p == 10)  // out of scope use of local1
+     {
+
+     }
+</pre></div>
+
+<p>Another example:
+</p><div class="smallexample">
+<pre class="smallexample">
+   struct A
+   {
+       A(int k) : i(k), j(k) { }
+       int i;
+       int j;
+   };
+
+   A *ap;
+
+   void foo(const A&amp; ar)
+   {
+      ap = &amp;ar;
+   }
+
+   void bar()
+   {
+      foo(A(10)); // temp object's lifetime ends when foo returns
+
+      {
+        A a(20);
+        ....
+      }
+      ap-&gt;i+= 10;  // ap references out of scope temp whose space
+                   // is reused with a. What is the value of ap-&gt;i?
+   }
+
+</pre></div>
+
+<p>The lifetime of a compiler generated temporary is well defined by the C++
+standard. When a lifetime of a temporary ends, and if the temporary lives
+in memory, the optimizing compiler has the freedom to reuse its stack
+space with other temporaries or scoped local variables whose live range
+does not overlap with it. However some of the legacy code relies on
+the behavior of older compilers in which temporaries&rsquo; stack space is
+not reused, the aggressive stack reuse can lead to runtime errors. This
+option is used to control the temporary stack reuse optimization.
+</p>
+</dd>
+<dt><code>-ftrapv</code></dt>
+<dd><a name="index-ftrapv"></a>
+<p>This option generates traps for signed overflow on addition, subtraction,
+multiplication operations.
+</p>
+</dd>
+<dt><code>-fwrapv</code></dt>
+<dd><a name="index-fwrapv"></a>
+<p>This option instructs the compiler to assume that signed arithmetic
+overflow of addition, subtraction and multiplication wraps around
+using twos-complement representation.  This flag enables some optimizations
+and disables others.  This option is enabled by default for the Java
+front end, as required by the Java language specification.
+</p>
+</dd>
+<dt><code>-fexceptions</code></dt>
+<dd><a name="index-fexceptions"></a>
+<p>Enable exception handling.  Generates extra code needed to propagate
+exceptions.  For some targets, this implies GCC generates frame
+unwind information for all functions, which can produce significant data
+size overhead, although it does not affect execution.  If you do not
+specify this option, GCC enables it by default for languages like
+C++ that normally require exception handling, and disables it for
+languages like C that do not normally require it.  However, you may need
+to enable this option when compiling C code that needs to interoperate
+properly with exception handlers written in C++.  You may also wish to
+disable this option if you are compiling older C++ programs that don&rsquo;t
+use exception handling.
+</p>
+</dd>
+<dt><code>-fnon-call-exceptions</code></dt>
+<dd><a name="index-fnon_002dcall_002dexceptions"></a>
+<p>Generate code that allows trapping instructions to throw exceptions.
+Note that this requires platform-specific runtime support that does
+not exist everywhere.  Moreover, it only allows <em>trapping</em>
+instructions to throw exceptions, i.e. memory references or floating-point
+instructions.  It does not allow exceptions to be thrown from
+arbitrary signal handlers such as <code>SIGALRM</code>.
+</p>
+</dd>
+<dt><code>-fdelete-dead-exceptions</code></dt>
+<dd><a name="index-fdelete_002ddead_002dexceptions"></a>
+<p>Consider that instructions that may throw exceptions but don&rsquo;t otherwise
+contribute to the execution of the program can be optimized away.
+This option is enabled by default for the Ada front end, as permitted by
+the Ada language specification.
+Optimization passes that cause dead exceptions to be removed are enabled independently at different optimization levels.
+</p>
+</dd>
+<dt><code>-funwind-tables</code></dt>
+<dd><a name="index-funwind_002dtables"></a>
+<p>Similar to <samp>-fexceptions</samp>, except that it just generates any needed
+static data, but does not affect the generated code in any other way.
+You normally do not need to enable this option; instead, a language processor
+that needs this handling enables it on your behalf.
+</p>
+</dd>
+<dt><code>-fasynchronous-unwind-tables</code></dt>
+<dd><a name="index-fasynchronous_002dunwind_002dtables"></a>
+<p>Generate unwind table in DWARF 2 format, if supported by target machine.  The
+table is exact at each instruction boundary, so it can be used for stack
+unwinding from asynchronous events (such as debugger or garbage collector).
+</p>
+</dd>
+<dt><code>-fno-gnu-unique</code></dt>
+<dd><a name="index-fno_002dgnu_002dunique"></a>
+<p>On systems with recent GNU assembler and C library, the C++ compiler
+uses the <code>STB_GNU_UNIQUE</code> binding to make sure that definitions
+of template static data members and static local variables in inline
+functions are unique even in the presence of <code>RTLD_LOCAL</code>; this
+is necessary to avoid problems with a library used by two different
+<code>RTLD_LOCAL</code> plugins depending on a definition in one of them and
+therefore disagreeing with the other one about the binding of the
+symbol.  But this causes <code>dlclose</code> to be ignored for affected
+DSOs; if your program relies on reinitialization of a DSO via
+<code>dlclose</code> and <code>dlopen</code>, you can use
+<samp>-fno-gnu-unique</samp>.
+</p>
+</dd>
+<dt><code>-fpcc-struct-return</code></dt>
+<dd><a name="index-fpcc_002dstruct_002dreturn"></a>
+<p>Return &ldquo;short&rdquo; <code>struct</code> and <code>union</code> values in memory like
+longer ones, rather than in registers.  This convention is less
+efficient, but it has the advantage of allowing intercallability between
+GCC-compiled files and files compiled with other compilers, particularly
+the Portable C Compiler (pcc).
+</p>
+<p>The precise convention for returning structures in memory depends
+on the target configuration macros.
+</p>
+<p>Short structures and unions are those whose size and alignment match
+that of some integer type.
+</p>
+<p><strong>Warning:</strong> code compiled with the <samp>-fpcc-struct-return</samp>
+switch is not binary compatible with code compiled with the
+<samp>-freg-struct-return</samp> switch.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-freg-struct-return</code></dt>
+<dd><a name="index-freg_002dstruct_002dreturn"></a>
+<p>Return <code>struct</code> and <code>union</code> values in registers when possible.
+This is more efficient for small structures than
+<samp>-fpcc-struct-return</samp>.
+</p>
+<p>If you specify neither <samp>-fpcc-struct-return</samp> nor
+<samp>-freg-struct-return</samp>, GCC defaults to whichever convention is
+standard for the target.  If there is no standard convention, GCC
+defaults to <samp>-fpcc-struct-return</samp>, except on targets where GCC is
+the principal compiler.  In those cases, we can choose the standard, and
+we chose the more efficient register return alternative.
+</p>
+<p><strong>Warning:</strong> code compiled with the <samp>-freg-struct-return</samp>
+switch is not binary compatible with code compiled with the
+<samp>-fpcc-struct-return</samp> switch.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-fshort-enums</code></dt>
+<dd><a name="index-fshort_002denums"></a>
+<p>Allocate to an <code>enum</code> type only as many bytes as it needs for the
+declared range of possible values.  Specifically, the <code>enum</code> type
+is equivalent to the smallest integer type that has enough room.
+</p>
+<p><strong>Warning:</strong> the <samp>-fshort-enums</samp> switch causes GCC to generate
+code that is not binary compatible with code generated without that switch.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-fshort-double</code></dt>
+<dd><a name="index-fshort_002ddouble"></a>
+<p>Use the same size for <code>double</code> as for <code>float</code>.
+</p>
+<p><strong>Warning:</strong> the <samp>-fshort-double</samp> switch causes GCC to generate
+code that is not binary compatible with code generated without that switch.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-fshort-wchar</code></dt>
+<dd><a name="index-fshort_002dwchar"></a>
+<p>Override the underlying type for &lsquo;<samp>wchar_t</samp>&rsquo; to be &lsquo;<samp>short
+unsigned int</samp>&rsquo; instead of the default for the target.  This option is
+useful for building programs to run under WINE.
+</p>
+<p><strong>Warning:</strong> the <samp>-fshort-wchar</samp> switch causes GCC to generate
+code that is not binary compatible with code generated without that switch.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-fno-common</code></dt>
+<dd><a name="index-fno_002dcommon"></a>
+<p>In C code, controls the placement of uninitialized global variables.
+Unix C compilers have traditionally permitted multiple definitions of
+such variables in different compilation units by placing the variables
+in a common block.
+This is the behavior specified by <samp>-fcommon</samp>, and is the default
+for GCC on most targets.
+On the other hand, this behavior is not required by ISO C, and on some
+targets may carry a speed or code size penalty on variable references.
+The <samp>-fno-common</samp> option specifies that the compiler should place
+uninitialized global variables in the data section of the object file,
+rather than generating them as common blocks.
+This has the effect that if the same variable is declared
+(without <code>extern</code>) in two different compilations,
+you get a multiple-definition error when you link them.
+In this case, you must compile with <samp>-fcommon</samp> instead.
+Compiling with <samp>-fno-common</samp> is useful on targets for which
+it provides better performance, or if you wish to verify that the
+program will work on other systems that always treat uninitialized
+variable declarations this way.
+</p>
+</dd>
+<dt><code>-fno-ident</code></dt>
+<dd><a name="index-fno_002dident"></a>
+<p>Ignore the &lsquo;<samp>#ident</samp>&rsquo; directive.
+</p>
+</dd>
+<dt><code>-finhibit-size-directive</code></dt>
+<dd><a name="index-finhibit_002dsize_002ddirective"></a>
+<p>Don&rsquo;t output a <code>.size</code> assembler directive, or anything else that
+would cause trouble if the function is split in the middle, and the
+two halves are placed at locations far apart in memory.  This option is
+used when compiling <samp>crtstuff.c</samp>; you should not need to use it
+for anything else.
+</p>
+</dd>
+<dt><code>-fverbose-asm</code></dt>
+<dd><a name="index-fverbose_002dasm"></a>
+<p>Put extra commentary information in the generated assembly code to
+make it more readable.  This option is generally only of use to those
+who actually need to read the generated assembly code (perhaps while
+debugging the compiler itself).
+</p>
+<p><samp>-fno-verbose-asm</samp>, the default, causes the
+extra information to be omitted and is useful when comparing two assembler
+files.
+</p>
+</dd>
+<dt><code>-frecord-gcc-switches</code></dt>
+<dd><a name="index-frecord_002dgcc_002dswitches"></a>
+<p>This switch causes the command line used to invoke the
+compiler to be recorded into the object file that is being created.
+This switch is only implemented on some targets and the exact format
+of the recording is target and binary file format dependent, but it
+usually takes the form of a section containing ASCII text.  This
+switch is related to the <samp>-fverbose-asm</samp> switch, but that
+switch only records information in the assembler output file as
+comments, so it never reaches the object file.
+See also <samp>-grecord-gcc-switches</samp> for another
+way of storing compiler options into the object file.
+</p>
+</dd>
+<dt><code>-fpic</code></dt>
+<dd><a name="index-fpic"></a>
+<a name="index-global-offset-table"></a>
+<a name="index-PIC"></a>
+<p>Generate position-independent code (PIC) suitable for use in a shared
+library, if supported for the target machine.  Such code accesses all
+constant addresses through a global offset table (GOT).  The dynamic
+loader resolves the GOT entries when the program starts (the dynamic
+loader is not part of GCC; it is part of the operating system).  If
+the GOT size for the linked executable exceeds a machine-specific
+maximum size, you get an error message from the linker indicating that
+<samp>-fpic</samp> does not work; in that case, recompile with <samp>-fPIC</samp>
+instead.  (These maximums are 8k on the SPARC and 32k
+on the m68k and RS/6000.  The 386 has no such limit.)
+</p>
+<p>Position-independent code requires special support, and therefore works
+only on certain machines.  For the 386, GCC supports PIC for System V
+but not for the Sun 386i.  Code generated for the IBM RS/6000 is always
+position-independent.
+</p>
+<p>When this flag is set, the macros <code>__pic__</code> and <code>__PIC__</code>
+are defined to 1.
+</p>
+</dd>
+<dt><code>-fPIC</code></dt>
+<dd><a name="index-fPIC"></a>
+<p>If supported for the target machine, emit position-independent code,
+suitable for dynamic linking and avoiding any limit on the size of the
+global offset table.  This option makes a difference on the m68k,
+PowerPC and SPARC.
+</p>
+<p>Position-independent code requires special support, and therefore works
+only on certain machines.
+</p>
+<p>When this flag is set, the macros <code>__pic__</code> and <code>__PIC__</code>
+are defined to 2.
+</p>
+</dd>
+<dt><code>-fpie</code></dt>
+<dt><code>-fPIE</code></dt>
+<dd><a name="index-fpie"></a>
+<a name="index-fPIE"></a>
+<p>These options are similar to <samp>-fpic</samp> and <samp>-fPIC</samp>, but
+generated position independent code can be only linked into executables.
+Usually these options are used when <samp>-pie</samp> GCC option is
+used during linking.
+</p>
+<p><samp>-fpie</samp> and <samp>-fPIE</samp> both define the macros
+<code>__pie__</code> and <code>__PIE__</code>.  The macros have the value 1
+for <samp>-fpie</samp> and 2 for <samp>-fPIE</samp>.
+</p>
+</dd>
+<dt><code>-fno-jump-tables</code></dt>
+<dd><a name="index-fno_002djump_002dtables"></a>
+<p>Do not use jump tables for switch statements even where it would be
+more efficient than other code generation strategies.  This option is
+of use in conjunction with <samp>-fpic</samp> or <samp>-fPIC</samp> for
+building code that forms part of a dynamic linker and cannot
+reference the address of a jump table.  On some targets, jump tables
+do not require a GOT and this option is not needed.
+</p>
+</dd>
+<dt><code>-ffixed-<var>reg</var></code></dt>
+<dd><a name="index-ffixed"></a>
+<p>Treat the register named <var>reg</var> as a fixed register; generated code
+should never refer to it (except perhaps as a stack pointer, frame
+pointer or in some other fixed role).
+</p>
+<p><var>reg</var> must be the name of a register.  The register names accepted
+are machine-specific and are defined in the <code>REGISTER_NAMES</code>
+macro in the machine description macro file.
+</p>
+<p>This flag does not have a negative form, because it specifies a
+three-way choice.
+</p>
+</dd>
+<dt><code>-fcall-used-<var>reg</var></code></dt>
+<dd><a name="index-fcall_002dused"></a>
+<p>Treat the register named <var>reg</var> as an allocable register that is
+clobbered by function calls.  It may be allocated for temporaries or
+variables that do not live across a call.  Functions compiled this way
+do not save and restore the register <var>reg</var>.
+</p>
+<p>It is an error to use this flag with the frame pointer or stack pointer.
+Use of this flag for other registers that have fixed pervasive roles in
+the machine&rsquo;s execution model produces disastrous results.
+</p>
+<p>This flag does not have a negative form, because it specifies a
+three-way choice.
+</p>
+</dd>
+<dt><code>-fcall-saved-<var>reg</var></code></dt>
+<dd><a name="index-fcall_002dsaved"></a>
+<p>Treat the register named <var>reg</var> as an allocable register saved by
+functions.  It may be allocated even for temporaries or variables that
+live across a call.  Functions compiled this way save and restore
+the register <var>reg</var> if they use it.
+</p>
+<p>It is an error to use this flag with the frame pointer or stack pointer.
+Use of this flag for other registers that have fixed pervasive roles in
+the machine&rsquo;s execution model produces disastrous results.
+</p>
+<p>A different sort of disaster results from the use of this flag for
+a register in which function values may be returned.
+</p>
+<p>This flag does not have a negative form, because it specifies a
+three-way choice.
+</p>
+</dd>
+<dt><code>-fpack-struct[=<var>n</var>]</code></dt>
+<dd><a name="index-fpack_002dstruct"></a>
+<p>Without a value specified, pack all structure members together without
+holes.  When a value is specified (which must be a small power of two), pack
+structure members according to this value, representing the maximum
+alignment (that is, objects with default alignment requirements larger than
+this are output potentially unaligned at the next fitting location.
+</p>
+<p><strong>Warning:</strong> the <samp>-fpack-struct</samp> switch causes GCC to generate
+code that is not binary compatible with code generated without that switch.
+Additionally, it makes the code suboptimal.
+Use it to conform to a non-default application binary interface.
+</p>
+</dd>
+<dt><code>-finstrument-functions</code></dt>
+<dd><a name="index-finstrument_002dfunctions"></a>
+<p>Generate instrumentation calls for entry and exit to functions.  Just
+after function entry and just before function exit, the following
+profiling functions are called with the address of the current
+function and its call site.  (On some platforms,
+<code>__builtin_return_address</code> does not work beyond the current
+function, so the call site information may not be available to the
+profiling functions otherwise.)
+</p>
+<div class="smallexample">
+<pre class="smallexample">void __cyg_profile_func_enter (void *this_fn,
+                               void *call_site);
+void __cyg_profile_func_exit  (void *this_fn,
+                               void *call_site);
+</pre></div>
+
+<p>The first argument is the address of the start of the current function,
+which may be looked up exactly in the symbol table.
+</p>
+<p>This instrumentation is also done for functions expanded inline in other
+functions.  The profiling calls indicate where, conceptually, the
+inline function is entered and exited.  This means that addressable
+versions of such functions must be available.  If all your uses of a
+function are expanded inline, this may mean an additional expansion of
+code size.  If you use &lsquo;<samp>extern inline</samp>&rsquo; in your C code, an
+addressable version of such functions must be provided.  (This is
+normally the case anyway, but if you get lucky and the optimizer always
+expands the functions inline, you might have gotten away without
+providing static copies.)
+</p>
+<p>A function may be given the attribute <code>no_instrument_function</code>, in
+which case this instrumentation is not done.  This can be used, for
+example, for the profiling functions listed above, high-priority
+interrupt routines, and any functions from which the profiling functions
+cannot safely be called (perhaps signal handlers, if the profiling
+routines generate output or allocate memory).
+</p>
+</dd>
+<dt><code>-finstrument-functions-exclude-file-list=<var>file</var>,<var>file</var>,&hellip;</code></dt>
+<dd><a name="index-finstrument_002dfunctions_002dexclude_002dfile_002dlist"></a>
+
+<p>Set the list of functions that are excluded from instrumentation (see
+the description of <code>-finstrument-functions</code>).  If the file that
+contains a function definition matches with one of <var>file</var>, then
+that function is not instrumented.  The match is done on substrings:
+if the <var>file</var> parameter is a substring of the file name, it is
+considered to be a match.
+</p>
+<p>For example:
+</p>
+<div class="smallexample">
+<pre class="smallexample">-finstrument-functions-exclude-file-list=/bits/stl,include/sys
+</pre></div>
+
+<p>excludes any inline function defined in files whose pathnames
+contain <code>/bits/stl</code> or <code>include/sys</code>.
+</p>
+<p>If, for some reason, you want to include letter <code>','</code> in one of
+<var>sym</var>, write <code>'\,'</code>. For example,
+<code>-finstrument-functions-exclude-file-list='\,\,tmp'</code>
+(note the single quote surrounding the option).
+</p>
+</dd>
+<dt><code>-finstrument-functions-exclude-function-list=<var>sym</var>,<var>sym</var>,&hellip;</code></dt>
+<dd><a name="index-finstrument_002dfunctions_002dexclude_002dfunction_002dlist"></a>
+
+<p>This is similar to <code>-finstrument-functions-exclude-file-list</code>,
+but this option sets the list of function names to be excluded from
+instrumentation.  The function name to be matched is its user-visible
+name, such as <code>vector&lt;int&gt; blah(const vector&lt;int&gt; &amp;)</code>, not the
+internal mangled name (e.g., <code>_Z4blahRSt6vectorIiSaIiEE</code>).  The
+match is done on substrings: if the <var>sym</var> parameter is a substring
+of the function name, it is considered to be a match.  For C99 and C++
+extended identifiers, the function name must be given in UTF-8, not
+using universal character names.
+</p>
+</dd>
+<dt><code>-fstack-check</code></dt>
+<dd><a name="index-fstack_002dcheck"></a>
+<p>Generate code to verify that you do not go beyond the boundary of the
+stack.  You should specify this flag if you are running in an
+environment with multiple threads, but you only rarely need to specify it in
+a single-threaded environment since stack overflow is automatically
+detected on nearly all systems if there is only one stack.
+</p>
+<p>Note that this switch does not actually cause checking to be done; the
+operating system or the language runtime must do that.  The switch causes
+generation of code to ensure that they see the stack being extended.
+</p>
+<p>You can additionally specify a string parameter: <code>no</code> means no
+checking, <code>generic</code> means force the use of old-style checking,
+<code>specific</code> means use the best checking method and is equivalent
+to bare <samp>-fstack-check</samp>.
+</p>
+<p>Old-style checking is a generic mechanism that requires no specific
+target support in the compiler but comes with the following drawbacks:
+</p>
+<ol>
+<li> Modified allocation strategy for large objects: they are always
+allocated dynamically if their size exceeds a fixed threshold.
+
+</li><li> Fixed limit on the size of the static frame of functions: when it is
+topped by a particular function, stack checking is not reliable and
+a warning is issued by the compiler.
+
+</li><li> Inefficiency: because of both the modified allocation strategy and the
+generic implementation, code performance is hampered.
+</li></ol>
+
+<p>Note that old-style stack checking is also the fallback method for
+<code>specific</code> if no target support has been added in the compiler.
+</p>
+</dd>
+<dt><code>-fstack-limit-register=<var>reg</var></code></dt>
+<dt><code>-fstack-limit-symbol=<var>sym</var></code></dt>
+<dt><code>-fno-stack-limit</code></dt>
+<dd><a name="index-fstack_002dlimit_002dregister"></a>
+<a name="index-fstack_002dlimit_002dsymbol"></a>
+<a name="index-fno_002dstack_002dlimit"></a>
+<p>Generate code to ensure that the stack does not grow beyond a certain value,
+either the value of a register or the address of a symbol.  If a larger
+stack is required, a signal is raised at run time.  For most targets,
+the signal is raised before the stack overruns the boundary, so
+it is possible to catch the signal without taking special precautions.
+</p>
+<p>For instance, if the stack starts at absolute address &lsquo;<samp>0x80000000</samp>&rsquo;
+and grows downwards, you can use the flags
+<samp>-fstack-limit-symbol=__stack_limit</samp> and
+<samp>-Wl,--defsym,__stack_limit=0x7ffe0000</samp> to enforce a stack limit
+of 128KB.  Note that this may only work with the GNU linker.
+</p>
+</dd>
+<dt><code>-fsplit-stack</code></dt>
+<dd><a name="index-fsplit_002dstack"></a>
+<p>Generate code to automatically split the stack before it overflows.
+The resulting program has a discontiguous stack which can only
+overflow if the program is unable to allocate any more memory.  This
+is most useful when running threaded programs, as it is no longer
+necessary to calculate a good stack size to use for each thread.  This
+is currently only implemented for the i386 and x86_64 back ends running
+GNU/Linux.
+</p>
+<p>When code compiled with <samp>-fsplit-stack</samp> calls code compiled
+without <samp>-fsplit-stack</samp>, there may not be much stack space
+available for the latter code to run.  If compiling all code,
+including library code, with <samp>-fsplit-stack</samp> is not an option,
+then the linker can fix up these calls so that the code compiled
+without <samp>-fsplit-stack</samp> always has a large stack.  Support for
+this is implemented in the gold linker in GNU binutils release 2.21
+and later.
+</p>
+</dd>
+<dt><code>-fleading-underscore</code></dt>
+<dd><a name="index-fleading_002dunderscore"></a>
+<p>This option and its counterpart, <samp>-fno-leading-underscore</samp>, forcibly
+change the way C symbols are represented in the object file.  One use
+is to help link with legacy assembly code.
+</p>
+<p><strong>Warning:</strong> the <samp>-fleading-underscore</samp> switch causes GCC to
+generate code that is not binary compatible with code generated without that
+switch.  Use it to conform to a non-default application binary interface.
+Not all targets provide complete support for this switch.
+</p>
+</dd>
+<dt><code>-ftls-model=<var>model</var></code></dt>
+<dd><a name="index-ftls_002dmodel"></a>
+<p>Alter the thread-local storage model to be used (see <a href="Thread_002dLocal.html#Thread_002dLocal">Thread-Local</a>).
+The <var>model</var> argument should be one of <code>global-dynamic</code>,
+<code>local-dynamic</code>, <code>initial-exec</code> or <code>local-exec</code>.
+Note that the choice is subject to optimization: the compiler may use
+a more efficient model for symbols not visible outside of the translation
+unit, or if <samp>-fpic</samp> is not given on the command line.
+</p>
+<p>The default without <samp>-fpic</samp> is <code>initial-exec</code>; with
+<samp>-fpic</samp> the default is <code>global-dynamic</code>.
+</p>
+</dd>
+<dt><code>-fvisibility=<var>default|internal|hidden|protected</var></code></dt>
+<dd><a name="index-fvisibility"></a>
+<p>Set the default ELF image symbol visibility to the specified option&mdash;all
+symbols are marked with this unless overridden within the code.
+Using this feature can very substantially improve linking and
+load times of shared object libraries, produce more optimized
+code, provide near-perfect API export and prevent symbol clashes.
+It is <strong>strongly</strong> recommended that you use this in any shared objects
+you distribute.
+</p>
+<p>Despite the nomenclature, <code>default</code> always means public; i.e.,
+available to be linked against from outside the shared object.
+<code>protected</code> and <code>internal</code> are pretty useless in real-world
+usage so the only other commonly used option is <code>hidden</code>.
+The default if <samp>-fvisibility</samp> isn&rsquo;t specified is
+<code>default</code>, i.e., make every
+symbol public&mdash;this causes the same behavior as previous versions of
+GCC.
+</p>
+<p>A good explanation of the benefits offered by ensuring ELF
+symbols have the correct visibility is given by &ldquo;How To Write
+Shared Libraries&rdquo; by Ulrich Drepper (which can be found at
+<a href="http://people.redhat.com/~drepper/">http://people.redhat.com/~drepper/</a><!-- /@w -->)&mdash;however a superior
+solution made possible by this option to marking things hidden when
+the default is public is to make the default hidden and mark things
+public.  This is the norm with DLLs on Windows and with <samp>-fvisibility=hidden</samp>
+and <code>__attribute__ ((visibility(&quot;default&quot;)))</code> instead of
+<code>__declspec(dllexport)</code> you get almost identical semantics with
+identical syntax.  This is a great boon to those working with
+cross-platform projects.
+</p>
+<p>For those adding visibility support to existing code, you may find
+&lsquo;<samp>#pragma GCC visibility</samp>&rsquo; of use.  This works by you enclosing
+the declarations you wish to set visibility for with (for example)
+&lsquo;<samp>#pragma GCC visibility push(hidden)</samp>&rsquo; and
+&lsquo;<samp>#pragma GCC visibility pop</samp>&rsquo;.
+Bear in mind that symbol visibility should be viewed <strong>as
+part of the API interface contract</strong> and thus all new code should
+always specify visibility when it is not the default; i.e., declarations
+only for use within the local DSO should <strong>always</strong> be marked explicitly
+as hidden as so to avoid PLT indirection overheads&mdash;making this
+abundantly clear also aids readability and self-documentation of the code.
+Note that due to ISO C++ specification requirements, <code>operator new</code> and
+<code>operator delete</code> must always be of default visibility.
+</p>
+<p>Be aware that headers from outside your project, in particular system
+headers and headers from any other library you use, may not be
+expecting to be compiled with visibility other than the default.  You
+may need to explicitly say &lsquo;<samp>#pragma GCC visibility push(default)</samp>&rsquo;
+before including any such headers.
+</p>
+<p>&lsquo;<samp>extern</samp>&rsquo; declarations are not affected by <samp>-fvisibility</samp>, so
+a lot of code can be recompiled with <samp>-fvisibility=hidden</samp> with
+no modifications.  However, this means that calls to <code>extern</code>
+functions with no explicit visibility use the PLT, so it is more
+effective to use <code>__attribute ((visibility))</code> and/or
+<code>#pragma GCC visibility</code> to tell the compiler which <code>extern</code>
+declarations should be treated as hidden.
+</p>
+<p>Note that <samp>-fvisibility</samp> does affect C++ vague linkage
+entities. This means that, for instance, an exception class that is
+be thrown between DSOs must be explicitly marked with default
+visibility so that the &lsquo;<samp>type_info</samp>&rsquo; nodes are unified between
+the DSOs.
+</p>
+<p>An overview of these techniques, their benefits and how to use them
+is at <a href="http://gcc.gnu.org/wiki/Visibility">http://gcc.gnu.org/wiki/Visibility</a>.
+</p>
+</dd>
+<dt><code>-fstrict-volatile-bitfields</code></dt>
+<dd><a name="index-fstrict_002dvolatile_002dbitfields"></a>
+<p>This option should be used if accesses to volatile bit-fields (or other
+structure fields, although the compiler usually honors those types
+anyway) should use a single access of the width of the
+field&rsquo;s type, aligned to a natural alignment if possible.  For
+example, targets with memory-mapped peripheral registers might require
+all such accesses to be 16 bits wide; with this flag you can
+declare all peripheral bit-fields as <code>unsigned short</code> (assuming short
+is 16 bits on these targets) to force GCC to use 16-bit accesses
+instead of, perhaps, a more efficient 32-bit access.
+</p>
+<p>If this option is disabled, the compiler uses the most efficient
+instruction.  In the previous example, that might be a 32-bit load
+instruction, even though that accesses bytes that do not contain
+any portion of the bit-field, or memory-mapped registers unrelated to
+the one being updated.
+</p>
+<p>In some cases, such as when the <code>packed</code> attribute is applied to a 
+structure field, it may not be possible to access the field with a single
+read or write that is correctly aligned for the target machine.  In this
+case GCC falls back to generating multiple accesses rather than code that 
+will fault or truncate the result at run time.
+</p>
+<p>Note:  Due to restrictions of the C/C++11 memory model, write accesses are
+not allowed to touch non bit-field members.  It is therefore recommended
+to define all bits of the field&rsquo;s type as bit-field members.
+</p>
+<p>The default value of this option is determined by the application binary
+interface for the target processor.
+</p>
+</dd>
+<dt><code>-fsync-libcalls</code></dt>
+<dd><a name="index-fsync_002dlibcalls"></a>
+<p>This option controls whether any out-of-line instance of the <code>__sync</code>
+family of functions may be used to implement the C++11 <code>__atomic</code>
+family of functions.
+</p>
+<p>The default value of this option is enabled, thus the only useful form
+of the option is <samp>-fno-sync-libcalls</samp>.  This option is used in
+the implementation of the <samp>libatomic</samp> runtime library.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" rel="next">Environment Variables</a>, Previous: <a href="Submodel-Options.html#Submodel-Options" accesskey="p" rel="prev">Submodel Options</a>, Up: <a href="Invoking-GCC.html#Invoking-GCC" accesskey="u" rel="up">Invoking GCC</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

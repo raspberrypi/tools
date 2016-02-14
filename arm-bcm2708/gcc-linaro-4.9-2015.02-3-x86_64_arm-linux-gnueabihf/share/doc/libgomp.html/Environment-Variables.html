@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2006-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU libgomp: Environment Variables</title>
+
+<meta name="description" content="GNU libgomp: Environment Variables">
+<meta name="keywords" content="GNU libgomp: Environment Variables">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Library-Index.html#Library-Index" rel="index" title="Library Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="OMP_005fCANCELLATION.html#OMP_005fCANCELLATION" rel="next" title="OMP_CANCELLATION">
+<link href="omp_005fget_005fwtime.html#omp_005fget_005fwtime" rel="prev" title="omp_get_wtime">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Environment-Variables"></a>
+<div class="header">
+<p>
+Next: <a href="The-libgomp-ABI.html#The-libgomp-ABI" accesskey="n" rel="next">The libgomp ABI</a>, Previous: <a href="Runtime-Library-Routines.html#Runtime-Library-Routines" accesskey="p" rel="prev">Runtime Library Routines</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Environment-Variables-1"></a>
+<h2 class="chapter">3 Environment Variables</h2>
+
+<p>The environment variables which beginning with <code>OMP_</code> are defined by
+section 4 of the OpenMP specification in version 4.0, while those
+beginning with <code>GOMP_</code> are GNU extensions.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fCANCELLATION.html#OMP_005fCANCELLATION" accesskey="1">OMP_CANCELLATION</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set whether cancellation is activated
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fDISPLAY_005fENV.html#OMP_005fDISPLAY_005fENV" accesskey="2">OMP_DISPLAY_ENV</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Show OpenMP version and environment variables
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fDEFAULT_005fDEVICE.html#OMP_005fDEFAULT_005fDEVICE" accesskey="3">OMP_DEFAULT_DEVICE</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the device used in target regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fDYNAMIC.html#OMP_005fDYNAMIC" accesskey="4">OMP_DYNAMIC</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Dynamic adjustment of threads
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fMAX_005fACTIVE_005fLEVELS.html#OMP_005fMAX_005fACTIVE_005fLEVELS" accesskey="5">OMP_MAX_ACTIVE_LEVELS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the maximum number of nested parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fNESTED.html#OMP_005fNESTED" accesskey="6">OMP_NESTED</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Nested parallel regions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fNUM_005fTHREADS.html#OMP_005fNUM_005fTHREADS" accesskey="7">OMP_NUM_THREADS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Specifies the number of threads to use
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fPROC_005fBIND.html#OMP_005fPROC_005fBIND" accesskey="8">OMP_PROC_BIND</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Whether theads may be moved between CPUs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fPLACES.html#OMP_005fPLACES" accesskey="9">OMP_PLACES</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Specifies on which CPUs the theads should be placed
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fSTACKSIZE.html#OMP_005fSTACKSIZE">OMP_STACKSIZE</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set default thread stack size
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fSCHEDULE.html#OMP_005fSCHEDULE">OMP_SCHEDULE</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How threads are scheduled
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fTHREAD_005fLIMIT.html#OMP_005fTHREAD_005fLIMIT">OMP_THREAD_LIMIT</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the maximum number of threads
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OMP_005fWAIT_005fPOLICY.html#OMP_005fWAIT_005fPOLICY">OMP_WAIT_POLICY</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How waiting threads are handled
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GOMP_005fCPU_005fAFFINITY.html#GOMP_005fCPU_005fAFFINITY">GOMP_CPU_AFFINITY</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Bind threads to specific CPUs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GOMP_005fSTACKSIZE.html#GOMP_005fSTACKSIZE">GOMP_STACKSIZE</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set default thread stack size
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GOMP_005fSPINCOUNT.html#GOMP_005fSPINCOUNT">GOMP_SPINCOUNT</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Set the busy-wait spin count
+</td></tr>
+</table>
+
+
+
+
+
+</body>
+</html>

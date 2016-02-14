@@ -1,0 +1,6 @@
+GLIBC_2.4 {
+  global:
+    forkpty; login; login_tty; logout; logwtmp; openpty;
+  local:
+    *;
+};

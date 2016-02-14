@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents the GNU Assembler "as".
+
+Copyright (C) 1991-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using as: Compare-and-branch-i960</title>
+
+<meta name="description" content="Using as: Compare-and-branch-i960">
+<meta name="keywords" content="Using as: Compare-and-branch-i960">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="AS-Index.html#AS-Index" rel="index" title="AS Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Opcodes-for-i960.html#Opcodes-for-i960" rel="up" title="Opcodes for i960">
+<link href="Syntax-of-i960.html#Syntax-of-i960" rel="next" title="Syntax of i960">
+<link href="callj_002di960.html#callj_002di960" rel="prev" title="callj-i960">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Compare_002dand_002dbranch_002di960"></a>
+<div class="header">
+<p>
+Previous: <a href="callj_002di960.html#callj_002di960" accesskey="p" rel="prev">callj-i960</a>, Up: <a href="Opcodes-for-i960.html#Opcodes-for-i960" accesskey="u" rel="up">Opcodes for i960</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="AS-Index.html#AS-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Compare_002dand_002dBranch"></a>
+<h4 class="subsubsection">9.17.4.2 Compare-and-Branch</h4>
+
+<a name="index-i960-compare_002fbranch-instructions"></a>
+<a name="index-compare_002fbranch-instructions_002c-i960"></a>
+<p>The 960 architectures provide combined Compare-and-Branch instructions
+that permit you to store the branch target in the lower 13 bits of the
+instruction word itself.  However, if you specify a branch target far
+enough away that its address won&rsquo;t fit in 13 bits, the assembler can
+either issue an error, or convert your Compare-and-Branch instruction
+into separate instructions to do the compare and the branch.
+</p>
+<a name="index-compare-and-jump-expansions_002c-i960"></a>
+<a name="index-i960-compare-and-jump-expansions"></a>
+<p>Whether <code>as</code> gives an error or expands the instruction depends
+on two choices you can make: whether you use the &lsquo;<samp>-no-relax</samp>&rsquo; option,
+and whether you use a &ldquo;Compare and Branch&rdquo; instruction or a &ldquo;Compare
+and Jump&rdquo; instruction.  The &ldquo;Jump&rdquo; instructions are <em>always</em>
+expanded if necessary; the &ldquo;Branch&rdquo; instructions are expanded when
+necessary <em>unless</em> you specify <code>-no-relax</code>&mdash;in which case
+<code>as</code> gives an error instead.
+</p>
+<p>These are the Compare-and-Branch instructions, their &ldquo;Jump&rdquo; variants,
+and the instruction pairs they may expand into:
+</p>
+
+
+
+
+</body>
+</html>

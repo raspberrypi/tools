@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using the GNU Compiler Collection (GCC): AArch64 Options</title>
+
+<meta name="description" content="Using the GNU Compiler Collection (GCC): AArch64 Options">
+<meta name="keywords" content="Using the GNU Compiler Collection (GCC): AArch64 Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html#Submodel-Options" rel="up" title="Submodel Options">
+<link href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" rel="next" title="Adapteva Epiphany Options">
+<link href="Submodel-Options.html#Submodel-Options" rel="prev" title="Submodel Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="AArch64-Options"></a>
+<div class="header">
+<p>
+Next: <a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" accesskey="n" rel="next">Adapteva Epiphany Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="AArch64-Options-1"></a>
+<h4 class="subsection">3.17.1 AArch64 Options</h4>
+<a name="index-AArch64-Options"></a>
+
+<p>These options are defined for AArch64 implementations:
+</p>
+<dl compact="compact">
+<dt><code>-mabi=<var>name</var></code></dt>
+<dd><a name="index-mabi"></a>
+<p>Generate code for the specified data model.  Permissible values
+are &lsquo;<samp>ilp32</samp>&rsquo; for SysV-like data model where int, long int and pointer
+are 32-bit, and &lsquo;<samp>lp64</samp>&rsquo; for SysV-like data model where int is 32-bit,
+but long int and pointer are 64-bit.
+</p>
+<p>The default depends on the specific target configuration.  Note that
+the LP64 and ILP32 ABIs are not link-compatible; you must compile your
+entire program with the same ABI, and link with a compatible set of libraries.
+</p>
+</dd>
+<dt><code>-mbig-endian</code></dt>
+<dd><a name="index-mbig_002dendian"></a>
+<p>Generate big-endian code.  This is the default when GCC is configured for an
+&lsquo;<samp>aarch64_be-*-*</samp>&rsquo; target.
+</p>
+</dd>
+<dt><code>-mgeneral-regs-only</code></dt>
+<dd><a name="index-mgeneral_002dregs_002donly"></a>
+<p>Generate code which uses only the general registers.
+</p>
+</dd>
+<dt><code>-mlittle-endian</code></dt>
+<dd><a name="index-mlittle_002dendian"></a>
+<p>Generate little-endian code.  This is the default when GCC is configured for an
+&lsquo;<samp>aarch64-*-*</samp>&rsquo; but not an &lsquo;<samp>aarch64_be-*-*</samp>&rsquo; target.
+</p>
+</dd>
+<dt><code>-mcmodel=tiny</code></dt>
+<dd><a name="index-mcmodel_003dtiny"></a>
+<p>Generate code for the tiny code model.  The program and its statically defined
+symbols must be within 1GB of each other.  Pointers are 64 bits.  Programs can
+be statically or dynamically linked.  This model is not fully implemented and
+mostly treated as &lsquo;<samp>small</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>-mcmodel=small</code></dt>
+<dd><a name="index-mcmodel_003dsmall"></a>
+<p>Generate code for the small code model.  The program and its statically defined
+symbols must be within 4GB of each other.  Pointers are 64 bits.  Programs can
+be statically or dynamically linked.  This is the default code model.
+</p>
+</dd>
+<dt><code>-mcmodel=large</code></dt>
+<dd><a name="index-mcmodel_003dlarge"></a>
+<p>Generate code for the large code model.  This makes no assumptions about
+addresses and sizes of sections.  Pointers are 64 bits.  Programs can be
+statically linked only.
+</p>
+</dd>
+<dt><code>-mstrict-align</code></dt>
+<dd><a name="index-mstrict_002dalign"></a>
+<p>Do not assume that unaligned memory references will be handled by the system.
+</p>
+</dd>
+<dt><code>-momit-leaf-frame-pointer</code></dt>
+<dt><code>-mno-omit-leaf-frame-pointer</code></dt>
+<dd><a name="index-momit_002dleaf_002dframe_002dpointer"></a>
+<a name="index-mno_002domit_002dleaf_002dframe_002dpointer"></a>
+<p>Omit or keep the frame pointer in leaf functions.  The former behaviour is the
+default.
+</p>
+</dd>
+<dt><code>-mtls-dialect=desc</code></dt>
+<dd><a name="index-mtls_002ddialect_003ddesc"></a>
+<p>Use TLS descriptors as the thread-local storage mechanism for dynamic accesses
+of TLS variables.  This is the default.
+</p>
+</dd>
+<dt><code>-mtls-dialect=traditional</code></dt>
+<dd><a name="index-mtls_002ddialect_003dtraditional"></a>
+<p>Use traditional TLS as the thread-local storage mechanism for dynamic accesses
+of TLS variables.
+</p>
+</dd>
+<dt><code>-mfix-cortex-a53-835769</code></dt>
+<dt><code>-mno-fix-cortex-a53-835769</code></dt>
+<dd><a name="index-_002dmfix_002dcortex_002da53_002d835769"></a>
+<a name="index-_002dmno_002dfix_002dcortex_002da53_002d835769"></a>
+<p>Enable or disable the workaround for the ARM Cortex-A53 erratum number 835769.
+This will involve inserting a NOP instruction between memory instructions and
+64-bit integer multiply-accumulate instructions.
+</p>
+</dd>
+<dt><code>-mfix-cortex-a53-843419</code></dt>
+<dt><code>-mno-fix-cortex-a53-843419</code></dt>
+<dd><a name="index-mfix_002dcortex_002da53_002d843419"></a>
+<a name="index-mno_002dfix_002dcortex_002da53_002d843419"></a>
+<p>Enable or disable the workaround for the ARM Cortex-A53 erratum number 843419.
+This erratum workaround is made at link time and this will only pass the
+corresponding flag to the linker.
+</p>
+</dd>
+<dt><code>-march=<var>name</var></code></dt>
+<dd><a name="index-march"></a>
+<p>Specify the name of the target architecture, optionally suffixed by one or
+more feature modifiers.  This option has the form
+<samp>-march=<var>arch</var><span class="roman">{</span>+<span class="roman">[</span>no<span class="roman">]</span><var>feature</var><span class="roman">}*</span></samp>, where the
+only permissible value for <var>arch</var> is &lsquo;<samp>armv8-a</samp>&rsquo;.  The permissible
+values for <var>feature</var> are documented in the sub-section below.
+</p>
+<p>Where conflicting feature modifiers are specified, the right-most feature is
+used.
+</p>
+<p>GCC uses this name to determine what kind of instructions it can emit when
+generating assembly code.
+</p>
+<p>Where <samp>-march</samp> is specified without either of <samp>-mtune</samp>
+or <samp>-mcpu</samp> also being specified, the code will be tuned to perform
+well across a range of target processors implementing the target
+architecture.
+</p>
+</dd>
+<dt><code>-mtune=<var>name</var></code></dt>
+<dd><a name="index-mtune"></a>
+<p>Specify the name of the target processor for which GCC should tune the
+performance of the code.  Permissible values for this option are:
+&lsquo;<samp>generic</samp>&rsquo;, &lsquo;<samp>cortex-a53</samp>&rsquo;, &lsquo;<samp>cortex-a57</samp>&rsquo;, &lsquo;<samp>thunderx</samp>&rsquo;.
+</p>
+<p>Additionally, this option can specify that GCC should tune the performance
+of the code for a big.LITTLE system.  The only permissible value is
+&lsquo;<samp>cortex-a57.cortex-a53</samp>&rsquo;.
+</p>
+<p>Where none of <samp>-mtune=</samp>, <samp>-mcpu=</samp> or <samp>-march=</samp>
+are specified, the code will be tuned to perform well across a range
+of target processors.
+</p>
+<p>This option cannot be suffixed by feature modifiers.
+</p>
+</dd>
+<dt><code>-mcpu=<var>name</var></code></dt>
+<dd><a name="index-mcpu"></a>
+<p>Specify the name of the target processor, optionally suffixed by one or more
+feature modifiers.  This option has the form
+<samp>-mcpu=<var>cpu</var><span class="roman">{</span>+<span class="roman">[</span>no<span class="roman">]</span><var>feature</var><span class="roman">}*</span></samp>, where the
+permissible values for <var>cpu</var> are the same as those available for
+<samp>-mtune</samp>.
+</p>
+<p>The permissible values for <var>feature</var> are documented in the sub-section
+below.
+</p>
+<p>Where conflicting feature modifiers are specified, the right-most feature is
+used.
+</p>
+<p>GCC uses this name to determine what kind of instructions it can emit when
+generating assembly code (as if by <samp>-march</samp>) and to determine
+the target processor for which to tune for performance (as if
+by <samp>-mtune</samp>).  Where this option is used in conjunction
+with <samp>-march</samp> or <samp>-mtune</samp>, those options take precedence
+over the appropriate part of this option.
+</p></dd>
+</dl>
+
+<a name="g_t_002dmarch-and-_002dmcpu-feature-modifiers"></a>
+<h4 class="subsubsection">3.17.1.1 <samp>-march</samp> and <samp>-mcpu</samp> feature modifiers</h4>
+<a name="index-_002dmarch-feature-modifiers"></a>
+<a name="index-_002dmcpu-feature-modifiers"></a>
+<p>Feature modifiers used with <samp>-march</samp> and <samp>-mcpu</samp> can be one
+the following:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>crc</samp>&rsquo;</dt>
+<dd><p>Enable CRC extension.
+</p></dd>
+<dt>&lsquo;<samp>crypto</samp>&rsquo;</dt>
+<dd><p>Enable Crypto extension.  This implies Advanced SIMD is enabled.
+</p></dd>
+<dt>&lsquo;<samp>fp</samp>&rsquo;</dt>
+<dd><p>Enable floating-point instructions.
+</p></dd>
+<dt>&lsquo;<samp>simd</samp>&rsquo;</dt>
+<dd><p>Enable Advanced SIMD instructions.  This implies floating-point instructions
+are enabled.  This is the default for all current possible values for options
+<samp>-march</samp> and <samp>-mcpu=</samp>.
+</p></dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" accesskey="n" rel="next">Adapteva Epiphany Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2011-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU libitm: Top</title>
+
+<meta name="description" content="GNU libitm: Top">
+<meta name="keywords" content="GNU libitm: Top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="Library-Index.html#Library-Index" rel="index" title="Library Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Enabling-libitm.html#Enabling-libitm" rel="next" title="Enabling libitm">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<h1 class="settitle" align="center">GNU libitm</h1>
+
+
+
+
+
+
+
+<a name="SEC_Overview"></a>
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a name="stoc-Enabling-libitm-1" href="#toc-Enabling-libitm-1">1 Enabling libitm</a></li>
+<li><a name="stoc-C_002fC_002b_002b-Language-Constructs-for-TM-1" href="#toc-C_002fC_002b_002b-Language-Constructs-for-TM-1">2 C/C++ Language Constructs for TM</a></li>
+<li><a name="stoc-The-libitm-ABI-1" href="#toc-The-libitm-ABI-1">3 The libitm ABI</a></li>
+<li><a name="stoc-Internals-1" href="#toc-Internals-1">4 Internals</a></li>
+<li><a name="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">GNU Free Documentation License</a></li>
+<li><a name="stoc-Library-Index-1" href="#toc-Library-Index-1">Library Index</a></li>
+</ul>
+</div>
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Enabling-libitm-1" href="Enabling-libitm.html#Enabling-libitm">1 Enabling libitm</a></li>
+  <li><a name="toc-C_002fC_002b_002b-Language-Constructs-for-TM-1" href="C_002fC_002b_002b-Language-Constructs-for-TM.html#C_002fC_002b_002b-Language-Constructs-for-TM">2 C/C++ Language Constructs for TM</a></li>
+  <li><a name="toc-The-libitm-ABI-1" href="The-libitm-ABI.html#The-libitm-ABI">3 The libitm ABI</a>
+  <ul class="no-bullet">
+    <li><a name="toc-_005bNo-changes_005d-Objectives" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Objectives">3.1 [No changes] Objectives</a></li>
+    <li><a name="toc-_005bNo-changes_005d-Non_002dobjectives" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Non_002dobjectives">3.2 [No changes] Non-objectives</a></li>
+    <li><a name="toc-Library-design-principles" href="The-libitm-ABI.html#Library-design-principles">3.3 Library design principles</a>
+    <ul class="no-bullet">
+      <li><a name="toc-_005bNo-changes_005d-Calling-conventions" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Calling-conventions">3.3.1 [No changes] Calling conventions</a></li>
+      <li><a name="toc-_005bNo-changes_005d-TM-library-algorithms" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-TM-library-algorithms">3.3.2 [No changes] TM library algorithms</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Optimized-load-and-store-routines" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Optimized-load-and-store-routines">3.3.3 [No changes] Optimized load and store routines</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Aligned-load-and-store-routines" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Aligned-load-and-store-routines">3.3.4 [No changes] Aligned load and store routines</a></li>
+      <li><a name="toc-Data-logging-functions" href="The-libitm-ABI.html#Data-logging-functions">3.3.5 Data logging functions</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Scatter_002fgather-calls" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Scatter_002fgather-calls">3.3.6 [No changes] Scatter/gather calls</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Serial-and-irrevocable-mode" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Serial-and-irrevocable-mode">3.3.7 [No changes] Serial and irrevocable mode</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Transaction-descriptor" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Transaction-descriptor">3.3.8 [No changes] Transaction descriptor</a></li>
+      <li><a name="toc-Store-allocation" href="The-libitm-ABI.html#Store-allocation">3.3.9 Store allocation</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Naming-conventions" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Naming-conventions">3.3.10 [No changes] Naming conventions</a></li>
+      <li><a name="toc-Function-pointer-encryption" href="The-libitm-ABI.html#Function-pointer-encryption">3.3.11 Function pointer encryption</a></li>
+    </ul></li>
+    <li><a name="toc-Types-and-macros-list" href="The-libitm-ABI.html#Types-and-macros-list">3.4 Types and macros list</a></li>
+    <li><a name="toc-Function-list" href="The-libitm-ABI.html#Function-list">3.5 Function list</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Initialization-and-finalization-functions" href="The-libitm-ABI.html#Initialization-and-finalization-functions">3.5.1 Initialization and finalization functions</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Version-checking" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Version-checking">3.5.2 [No changes] Version checking</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Error-reporting" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Error-reporting">3.5.3 [No changes] Error reporting</a></li>
+      <li><a name="toc-_005bNo-changes_005d-inTransaction-call" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-inTransaction-call">3.5.4 [No changes] inTransaction call</a></li>
+      <li><a name="toc-State-manipulation-functions" href="The-libitm-ABI.html#State-manipulation-functions">3.5.5 State manipulation functions</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Source-locations" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Source-locations">3.5.6 [No changes] Source locations</a></li>
+      <li><a name="toc-Starting-a-transaction" href="The-libitm-ABI.html#Starting-a-transaction">3.5.7 Starting a transaction</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Transaction-code-properties" href="The-libitm-ABI.html#Transaction-code-properties">3.5.7.1 Transaction code properties</a></li>
+        <li><a name="toc-_005bNo-changes_005d-Windows-exception-state" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Windows-exception-state">3.5.7.2 [No changes] Windows exception state</a></li>
+        <li><a name="toc-_005bNo-changes_005d-Other-machine-state" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Other-machine-state">3.5.7.3 [No changes] Other machine state</a></li>
+        <li><a name="toc-_005bNo-changes_005d-Results-from-beginTransaction" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Results-from-beginTransaction">3.5.7.4 [No changes] Results from beginTransaction</a></li>
+      </ul></li>
+      <li><a name="toc-Aborting-a-transaction" href="The-libitm-ABI.html#Aborting-a-transaction">3.5.8 Aborting a transaction</a></li>
+      <li><a name="toc-Committing-a-transaction" href="The-libitm-ABI.html#Committing-a-transaction">3.5.9 Committing a transaction</a></li>
+      <li><a name="toc-Exception-handling-support" href="The-libitm-ABI.html#Exception-handling-support">3.5.10 Exception handling support</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Transition-to-serial_002d_002dirrevocable-mode" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Transition-to-serial_002d_002dirrevocable-mode">3.5.11 [No changes] Transition to serial&ndash;irrevocable mode</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Data-transfer-functions" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Data-transfer-functions">3.5.12 [No changes] Data transfer functions</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Transactional-memory-copies" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Transactional-memory-copies">3.5.13 [No changes] Transactional memory copies</a></li>
+      <li><a name="toc-Transactional-versions-of-memmove" href="The-libitm-ABI.html#Transactional-versions-of-memmove">3.5.14 Transactional versions of memmove</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Transactional-versions-of-memset" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Transactional-versions-of-memset">3.5.15 [No changes] Transactional versions of memset</a></li>
+      <li><a name="toc-_005bNo-changes_005d-Logging-functions" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Logging-functions">3.5.16 [No changes] Logging functions</a></li>
+      <li><a name="toc-User_002dregistered-commit-and-undo-actions" href="The-libitm-ABI.html#User_002dregistered-commit-and-undo-actions">3.5.17 User-registered commit and undo actions</a></li>
+      <li><a name="toc-_005bNew_005d-Transactional-indirect-calls" href="The-libitm-ABI.html#g_t_005bNew_005d-Transactional-indirect-calls">3.5.18 [New] Transactional indirect calls</a></li>
+      <li><a name="toc-_005bNew_005d-Transactional-dynamic-memory-management" href="The-libitm-ABI.html#g_t_005bNew_005d-Transactional-dynamic-memory-management">3.5.19 [New] Transactional dynamic memory management</a></li>
+    </ul></li>
+    <li><a name="toc-_005bNo-changes_005d-Future-Enhancements-to-the-ABI" href="The-libitm-ABI.html#g_t_005bNo-changes_005d-Future-Enhancements-to-the-ABI">3.6 [No changes] Future Enhancements to the ABI</a></li>
+    <li><a name="toc-Sample-code" href="The-libitm-ABI.html#Sample-code">3.7 Sample code</a></li>
+    <li><a name="toc-_005bNew_005d-Memory-model" href="The-libitm-ABI.html#g_t_005bNew_005d-Memory-model">3.8 [New] Memory model</a></li>
+  </ul></li>
+  <li><a name="toc-Internals-1" href="Internals.html#Internals">4 Internals</a>
+  <ul class="no-bullet">
+    <li><a name="toc-TM-methods-and-method-groups" href="Internals.html#TM-methods-and-method-groups">4.1 TM methods and method groups</a>
+    <ul class="no-bullet">
+      <li><a name="toc-TM-method-life-cycle" href="Internals.html#TM-method-life-cycle">4.1.1 TM method life cycle</a></li>
+      <li><a name="toc-Selecting-the-default-method" href="Internals.html#Selecting-the-default-method">4.1.2 Selecting the default method</a></li>
+    </ul></li>
+    <li><a name="toc-Nesting_003a-flat-vs_002e-closed" href="Internals.html#Nesting_003a-flat-vs_002e-closed">4.2 Nesting: flat vs. closed</a></li>
+    <li><a name="toc-Locking-conventions" href="Internals.html#Locking-conventions">4.3 Locking conventions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-State_002dto_002dlock-mapping" href="Internals.html#State_002dto_002dlock-mapping">4.3.1 State-to-lock mapping</a></li>
+      <li><a name="toc-Lock-acquisition-order" href="Internals.html#Lock-acquisition-order">4.3.2 Lock acquisition order</a></li>
+      <li><a name="toc-Serial-lock-implementation" href="Internals.html#Serial-lock-implementation">4.3.3 Serial lock implementation</a></li>
+      <li><a name="toc-Reentrancy" href="Internals.html#Reentrancy">4.3.4 Reentrancy</a></li>
+      <li><a name="toc-Privatization-safety" href="Internals.html#Privatization-safety">4.3.5 Privatization safety</a></li>
+      <li><a name="toc-Progress-guarantees" href="Internals.html#Progress-guarantees">4.3.6 Progress guarantees</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>
+  <ul class="no-bullet">
+    <li><a name="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="GNU-Free-Documentation-License.html#ADDENDUM_003a-How-to-use-this-License-for-your-documents">ADDENDUM: How to use this License for your documents</a></li>
+  </ul></li>
+  <li><a name="toc-Library-Index-1" href="Library-Index.html#Library-Index">Library Index</a></li>
+</ul>
+</div>
+
+
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="Enabling-libitm.html#Enabling-libitm" accesskey="n" rel="next">Enabling libitm</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Introduction"></a>
+<h1 class="top">Introduction</h1>
+<a name="index-Introduction"></a>
+
+<p>This manual documents the usage and internals of libitm, the GNU Transactional
+Memory Library. It provides transaction support for accesses to a process&rsquo;
+memory, enabling easy-to-use synchronization of accesses to shared memory by
+several threads.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Enabling-libitm.html#Enabling-libitm" accesskey="1">Enabling libitm</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to enable libitm for your applications.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="C_002fC_002b_002b-Language-Constructs-for-TM.html#C_002fC_002b_002b-Language-Constructs-for-TM" accesskey="2">C/C++ Language Constructs for TM</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+                               Notes on the language-level interface supported
+                               by gcc.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-libitm-ABI.html#The-libitm-ABI" accesskey="3">The libitm ABI</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Notes on the external ABI provided by libitm.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Internals.html#Internals" accesskey="4">Internals</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Notes on libitm&rsquo;s internal synchronization.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License" accesskey="5">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+                               How you can copy and share this manual.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Library-Index.html#Library-Index" accesskey="6">Library Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of this documentation.
+</td></tr>
+</table>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Enabling-libitm.html#Enabling-libitm" accesskey="n" rel="next">Enabling libitm</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

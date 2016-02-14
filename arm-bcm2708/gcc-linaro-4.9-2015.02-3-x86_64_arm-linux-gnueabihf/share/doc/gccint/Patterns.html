@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Compiler Collection (GCC) Internals: Patterns</title>
+
+<meta name="description" content="GNU Compiler Collection (GCC) Internals: Patterns">
+<meta name="keywords" content="GNU Compiler Collection (GCC) Internals: Patterns">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Machine-Desc.html#Machine-Desc" rel="up" title="Machine Desc">
+<link href="Example.html#Example" rel="next" title="Example">
+<link href="Overview.html#Overview" rel="prev" title="Overview">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Patterns"></a>
+<div class="header">
+<p>
+Next: <a href="Example.html#Example" accesskey="n" rel="next">Example</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="Machine-Desc.html#Machine-Desc" accesskey="u" rel="up">Machine Desc</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Everything-about-Instruction-Patterns"></a>
+<h3 class="section">16.2 Everything about Instruction Patterns</h3>
+<a name="index-patterns"></a>
+<a name="index-instruction-patterns"></a>
+
+<a name="index-define_005finsn"></a>
+<p>Each instruction pattern contains an incomplete RTL expression, with pieces
+to be filled in later, operand constraints that restrict how the pieces can
+be filled in, and an output pattern or C code to generate the assembler
+output, all wrapped up in a <code>define_insn</code> expression.
+</p>
+<p>A <code>define_insn</code> is an RTL expression containing four or five operands:
+</p>
+<ol>
+<li> An optional name.  The presence of a name indicate that this instruction
+pattern can perform a certain standard job for the RTL-generation
+pass of the compiler.  This pass knows certain names and will use
+the instruction patterns with those names, if the names are defined
+in the machine description.
+
+<p>The absence of a name is indicated by writing an empty string
+where the name should go.  Nameless instruction patterns are never
+used for generating RTL code, but they may permit several simpler insns
+to be combined later on.
+</p>
+<p>Names that are not thus known and used in RTL-generation have no
+effect; they are equivalent to no name at all.
+</p>
+<p>For the purpose of debugging the compiler, you may also specify a
+name beginning with the &lsquo;<samp>*</samp>&rsquo; character.  Such a name is used only
+for identifying the instruction in RTL dumps; it is entirely equivalent
+to having a nameless pattern for all other purposes.
+</p>
+</li><li> The <em>RTL template</em> (see <a href="RTL-Template.html#RTL-Template">RTL Template</a>) is a vector of incomplete
+RTL expressions which show what the instruction should look like.  It is
+incomplete because it may contain <code>match_operand</code>,
+<code>match_operator</code>, and <code>match_dup</code> expressions that stand for
+operands of the instruction.
+
+<p>If the vector has only one element, that element is the template for the
+instruction pattern.  If the vector has multiple elements, then the
+instruction pattern is a <code>parallel</code> expression containing the
+elements described.
+</p>
+</li><li> <a name="index-pattern-conditions"></a>
+<a name="index-conditions_002c-in-patterns"></a>
+A condition.  This is a string which contains a C expression that is
+the final test to decide whether an insn body matches this pattern.
+
+<a name="index-named-patterns-and-conditions"></a>
+<p>For a named pattern, the condition (if present) may not depend on
+the data in the insn being matched, but only the target-machine-type
+flags.  The compiler needs to test these conditions during
+initialization in order to learn exactly which named instructions are
+available in a particular run.
+</p>
+<a name="index-operands-1"></a>
+<p>For nameless patterns, the condition is applied only when matching an
+individual insn, and only after the insn has matched the pattern&rsquo;s
+recognition template.  The insn&rsquo;s operands may be found in the vector
+<code>operands</code>.  For an insn where the condition has once matched, it
+can&rsquo;t be used to control register allocation, for example by excluding
+certain hard registers or hard register combinations.
+</p>
+</li><li> The <em>output template</em>: a string that says how to output matching
+insns as assembler code.  &lsquo;<samp>%</samp>&rsquo; in this string specifies where
+to substitute the value of an operand.  See <a href="Output-Template.html#Output-Template">Output Template</a>.
+
+<p>When simple substitution isn&rsquo;t general enough, you can specify a piece
+of C code to compute the output.  See <a href="Output-Statement.html#Output-Statement">Output Statement</a>.
+</p>
+</li><li> Optionally, a vector containing the values of attributes for insns matching
+this pattern.  See <a href="Insn-Attributes.html#Insn-Attributes">Insn Attributes</a>.
+</li></ol>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Example.html#Example" accesskey="n" rel="next">Example</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="Machine-Desc.html#Machine-Desc" accesskey="u" rel="up">Machine Desc</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

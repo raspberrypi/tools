@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Compiler Collection (GCC) Internals: Old Constraints</title>
+
+<meta name="description" content="GNU Compiler Collection (GCC) Internals: Old Constraints">
+<meta name="keywords" content="GNU Compiler Collection (GCC) Internals: Old Constraints">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Target-Macros.html#Target-Macros" rel="up" title="Target Macros">
+<link href="Stack-and-Calling.html#Stack-and-Calling" rel="next" title="Stack and Calling">
+<link href="Register-Classes.html#Register-Classes" rel="prev" title="Register Classes">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Old-Constraints"></a>
+<div class="header">
+<p>
+Next: <a href="Stack-and-Calling.html#Stack-and-Calling" accesskey="n" rel="next">Stack and Calling</a>, Previous: <a href="Register-Classes.html#Register-Classes" accesskey="p" rel="prev">Register Classes</a>, Up: <a href="Target-Macros.html#Target-Macros" accesskey="u" rel="up">Target Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Obsolete-Macros-for-Defining-Constraints"></a>
+<h3 class="section">17.9 Obsolete Macros for Defining Constraints</h3>
+<a name="index-defining-constraints_002c-obsolete-method"></a>
+<a name="index-constraints_002c-defining_002c-obsolete-method"></a>
+
+<p>Machine-specific constraints can be defined with these macros instead
+of the machine description constructs described in <a href="Define-Constraints.html#Define-Constraints">Define Constraints</a>.  This mechanism is obsolete.  New ports should not use
+it; old ports should convert to the new mechanism.
+</p>
+<dl>
+<dt><a name="index-CONSTRAINT_005fLEN"></a>Macro: <strong>CONSTRAINT_LEN</strong> <em>(<var>char</var>, <var>str</var>)</em></dt>
+<dd><p>For the constraint at the start of <var>str</var>, which starts with the letter
+<var>c</var>, return the length.  This allows you to have register class /
+constant / extra constraints that are longer than a single letter;
+you don&rsquo;t need to define this macro if you can do with single-letter
+constraints only.  The definition of this macro should use
+DEFAULT_CONSTRAINT_LEN for all the characters that you don&rsquo;t want
+to handle specially.
+There are some sanity checks in genoutput.c that check the constraint lengths
+for the md file, so you can also use this macro to help you while you are
+transitioning from a byzantine single-letter-constraint scheme: when you
+return a negative length for a constraint you want to re-use, genoutput
+will complain about every instance where it is used in the md file.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-REG_005fCLASS_005fFROM_005fLETTER"></a>Macro: <strong>REG_CLASS_FROM_LETTER</strong> <em>(<var>char</var>)</em></dt>
+<dd><p>A C expression which defines the machine-dependent operand constraint
+letters for register classes.  If <var>char</var> is such a letter, the
+value should be the register class corresponding to it.  Otherwise,
+the value should be <code>NO_REGS</code>.  The register letter &lsquo;<samp>r</samp>&rsquo;,
+corresponding to class <code>GENERAL_REGS</code>, will not be passed
+to this macro; you do not need to handle it.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-REG_005fCLASS_005fFROM_005fCONSTRAINT"></a>Macro: <strong>REG_CLASS_FROM_CONSTRAINT</strong> <em>(<var>char</var>, <var>str</var>)</em></dt>
+<dd><p>Like <code>REG_CLASS_FROM_LETTER</code>, but you also get the constraint string
+passed in <var>str</var>, so that you can use suffixes to distinguish between
+different variants.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-CONST_005fOK_005fFOR_005fLETTER_005fP"></a>Macro: <strong>CONST_OK_FOR_LETTER_P</strong> <em>(<var>value</var>, <var>c</var>)</em></dt>
+<dd><p>A C expression that defines the machine-dependent operand constraint
+letters (&lsquo;<samp>I</samp>&rsquo;, &lsquo;<samp>J</samp>&rsquo;, &lsquo;<samp>K</samp>&rsquo;, &hellip; &lsquo;<samp>P</samp>&rsquo;) that specify
+particular ranges of integer values.  If <var>c</var> is one of those
+letters, the expression should check that <var>value</var>, an integer, is in
+the appropriate range and return 1 if so, 0 otherwise.  If <var>c</var> is
+not one of those letters, the value should be 0 regardless of
+<var>value</var>.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-CONST_005fOK_005fFOR_005fCONSTRAINT_005fP"></a>Macro: <strong>CONST_OK_FOR_CONSTRAINT_P</strong> <em>(<var>value</var>, <var>c</var>, <var>str</var>)</em></dt>
+<dd><p>Like <code>CONST_OK_FOR_LETTER_P</code>, but you also get the constraint
+string passed in <var>str</var>, so that you can use suffixes to distinguish
+between different variants.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-CONST_005fDOUBLE_005fOK_005fFOR_005fLETTER_005fP"></a>Macro: <strong>CONST_DOUBLE_OK_FOR_LETTER_P</strong> <em>(<var>value</var>, <var>c</var>)</em></dt>
+<dd><p>A C expression that defines the machine-dependent operand constraint
+letters that specify particular ranges of <code>const_double</code> values
+(&lsquo;<samp>G</samp>&rsquo; or &lsquo;<samp>H</samp>&rsquo;).
+</p>
+<p>If <var>c</var> is one of those letters, the expression should check that
+<var>value</var>, an RTX of code <code>const_double</code>, is in the appropriate
+range and return 1 if so, 0 otherwise.  If <var>c</var> is not one of those
+letters, the value should be 0 regardless of <var>value</var>.
+</p>
+<p><code>const_double</code> is used for all floating-point constants and for
+<code>DImode</code> fixed-point constants.  A given letter can accept either
+or both kinds of values.  It can use <code>GET_MODE</code> to distinguish
+between these kinds.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-CONST_005fDOUBLE_005fOK_005fFOR_005fCONSTRAINT_005fP"></a>Macro: <strong>CONST_DOUBLE_OK_FOR_CONSTRAINT_P</strong> <em>(<var>value</var>, <var>c</var>, <var>str</var>)</em></dt>
+<dd><p>Like <code>CONST_DOUBLE_OK_FOR_LETTER_P</code>, but you also get the constraint
+string passed in <var>str</var>, so that you can use suffixes to distinguish
+between different variants.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-EXTRA_005fCONSTRAINT"></a>Macro: <strong>EXTRA_CONSTRAINT</strong> <em>(<var>value</var>, <var>c</var>)</em></dt>
+<dd><p>A C expression that defines the optional machine-dependent constraint
+letters that can be used to segregate specific types of operands, usually
+memory references, for the target machine.  Any letter that is not
+elsewhere defined and not matched by <code>REG_CLASS_FROM_LETTER</code> /
+<code>REG_CLASS_FROM_CONSTRAINT</code>
+may be used.  Normally this macro will not be defined.
+</p>
+<p>If it is required for a particular target machine, it should return 1
+if <var>value</var> corresponds to the operand type represented by the
+constraint letter <var>c</var>.  If <var>c</var> is not defined as an extra
+constraint, the value returned should be 0 regardless of <var>value</var>.
+</p>
+<p>For example, on the ROMP, load instructions cannot have their output
+in r0 if the memory reference contains a symbolic address.  Constraint
+letter &lsquo;<samp>Q</samp>&rsquo; is defined as representing a memory address that does
+<em>not</em> contain a symbolic address.  An alternative is specified with
+a &lsquo;<samp>Q</samp>&rsquo; constraint on the input and &lsquo;<samp>r</samp>&rsquo; on the output.  The next
+alternative specifies &lsquo;<samp>m</samp>&rsquo; on the input and a register class that
+does not include r0 on the output.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-EXTRA_005fCONSTRAINT_005fSTR"></a>Macro: <strong>EXTRA_CONSTRAINT_STR</strong> <em>(<var>value</var>, <var>c</var>, <var>str</var>)</em></dt>
+<dd><p>Like <code>EXTRA_CONSTRAINT</code>, but you also get the constraint string passed
+in <var>str</var>, so that you can use suffixes to distinguish between different
+variants.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-EXTRA_005fMEMORY_005fCONSTRAINT"></a>Macro: <strong>EXTRA_MEMORY_CONSTRAINT</strong> <em>(<var>c</var>, <var>str</var>)</em></dt>
+<dd><p>A C expression that defines the optional machine-dependent constraint
+letters, amongst those accepted by <code>EXTRA_CONSTRAINT</code>, that should
+be treated like memory constraints by the reload pass.
+</p>
+<p>It should return 1 if the operand type represented by the constraint
+at the start of <var>str</var>, the first letter of which is the letter <var>c</var>,
+comprises a subset of all memory references including
+all those whose address is simply a base register.  This allows the reload
+pass to reload an operand, if it does not directly correspond to the operand
+type of <var>c</var>, by copying its address into a base register.
+</p>
+<p>For example, on the S/390, some instructions do not accept arbitrary
+memory references, but only those that do not make use of an index
+register.  The constraint letter &lsquo;<samp>Q</samp>&rsquo; is defined via
+<code>EXTRA_CONSTRAINT</code> as representing a memory address of this type.
+If the letter &lsquo;<samp>Q</samp>&rsquo; is marked as <code>EXTRA_MEMORY_CONSTRAINT</code>,
+a &lsquo;<samp>Q</samp>&rsquo; constraint can handle any memory operand, because the
+reload pass knows it can be reloaded by copying the memory address
+into a base register if required.  This is analogous to the way
+an &lsquo;<samp>o</samp>&rsquo; constraint can handle any memory operand.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-EXTRA_005fADDRESS_005fCONSTRAINT"></a>Macro: <strong>EXTRA_ADDRESS_CONSTRAINT</strong> <em>(<var>c</var>, <var>str</var>)</em></dt>
+<dd><p>A C expression that defines the optional machine-dependent constraint
+letters, amongst those accepted by <code>EXTRA_CONSTRAINT</code> /
+<code>EXTRA_CONSTRAINT_STR</code>, that should
+be treated like address constraints by the reload pass.
+</p>
+<p>It should return 1 if the operand type represented by the constraint
+at the start of <var>str</var>, which starts with the letter <var>c</var>, comprises
+a subset of all memory addresses including
+all those that consist of just a base register.  This allows the reload
+pass to reload an operand, if it does not directly correspond to the operand
+type of <var>str</var>, by copying it into a base register.
+</p>
+<p>Any constraint marked as <code>EXTRA_ADDRESS_CONSTRAINT</code> can only
+be used with the <code>address_operand</code> predicate.  It is treated
+analogously to the &lsquo;<samp>p</samp>&rsquo; constraint.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Stack-and-Calling.html#Stack-and-Calling" accesskey="n" rel="next">Stack and Calling</a>, Previous: <a href="Register-Classes.html#Register-Classes" accesskey="p" rel="prev">Register Classes</a>, Up: <a href="Target-Macros.html#Target-Macros" accesskey="u" rel="up">Target Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Build machine data
+build=x86_64-unknown-linux-gnu
+host=x86_64-unknown-linux-gnu
+target=arm-linux-gnueabihf
+kernel=3.16.0-4-amd64
+hostname=ex40-06
+distribution=jessie
+host_gcc=gcc version 4.9.2 (Debian 4.9.2-10) 
+
+Component versions
+gmp_versionnum=5.1.3
+mpc_versionnum=1.0.1
+mpfr_versionnum=3.1.2
+
+# Binutils
+binutils_branch=binutils-gdb.git/linaro_binutils-2_24-branch@a93e252ee5250dba831e54f98336b40c7210dac7
+binutils_revision=a93e252ee5250dba831e54f98336b40c7210dac7
+binutils_version=binutils-gdb.git@a93e252ee5250dba831e54f98336b40c7210dac7
+
+# DejaGnu
+dejagnu_version=dejagnu.git/linaro
+
+# GDB
+gdb_branch=binutils-gdb.git~linaro_gdb-7.8-branch
+gdb_revision=9eeaee5bc19f820c026a29c3cb655c0ba41a4920
+gdb_version=binutils-gdb.git@9eeaee5bc19f820c026a29c3cb655c0ba41a4920
+
+# GCC
+gcc_branch=gcc-linaro-4.9-2015.01-3
+gcc_versionnum=4.9.3
+gcc_revision=
+gcc_version=gcc.git@
+
+# C Library
+clibrary=eglibc
+libc_version=1abd3076dde39628e418fa64fb1c323f14ef1ae4
+
+# Kernel
+linux_version=linux-linaro-3.17-2014.10
+
+# Abe revision used
+abe_revision=1abd3076dde39628e418fa64fb1c323f14ef1ae4
+abe_version="abe.git@1abd3076dde39628e418fa64fb1c323f14ef1ae4"
+
+eglibc_version=eglibc.git/linaro_eglibc-2_19
+eglibc_revision=c3653569b6cae4b97a61afcadb07334fe97b3a08
+---------------------------------------------

@@ -1,0 +1,6 @@
+GLIBC_2.4 {
+  global:
+    __ctype_get_mb_cur_max;
+  local:
+    *;
+};

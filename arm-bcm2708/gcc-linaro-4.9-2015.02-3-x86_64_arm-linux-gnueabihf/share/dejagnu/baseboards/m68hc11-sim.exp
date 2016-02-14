@@ -1,0 +1,90 @@
+# Copyright (C) 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+# 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This is a list of toolchains that are supported on this board.
+set_board_info target_install  {m6811-elf}
+
+# Load the generic configuration for this board. This will define any
+# routines needed to communicate with the board.
+load_generic_config "sim"
+
+# basic-sim.exp is a basic description for the standard Cygnus simulator.
+load_base_board_description "basic-sim"
+
+# The name of the simulator directory is "m68hc11".
+setup_sim m68hc11
+
+# The compiler used to build for this board. This has *nothing* to do
+# with what compiler is tested if we're testing gcc.
+set_board_info compiler  "[find_gcc]"
+
+# We only support newlib on this target. We assume that all multilib
+# options have been specified before we get here.
+set_board_info cflags "[libgloss_include_flags] [newlib_include_flags]"
+
+# The GCC testsuite programs create quite large executables for the 68HC11.
+# We have to give enough room for the text section and we must make sure
+# that the data section does not overlay the 68HC11 IO registers. We could
+# relocate the IO registers but this would add some complexity to the crt0.
+set_board_info ldflags "[libgloss_link_flags] [newlib_link_flags] -Wl,-Ttext,0x2000 -Wl,-Tdata,0x1100"
+# No linker script needed.
+set_board_info ldscript "-Wl,--script,sim-valid.x"
+
+# Can't pass arguments to programs on this target..
+set_board_info noargs  1
+# And there's no support for signals.
+set_board_info gdb,nosignals  1
+set_board_info gdb,skip_float_tests 1
+set_board_info gdb,nomalloc 1
+set_board_info gdb,nointerrupts 1
+# Don't do inferiorio
+#set_board_info gdb,noinferiorio 1
+
+# Data section is not installed by loading the program.  The data
+# section is installed at run time by the crt0 (copied from text/ROM
+# to RAM).
+set_board_info gdb,noloaddata 1
+
+# printf does not support %f, don't execute gdb tests that rely on this.
+set_board_info gdb,skip_float_tests 1
+
+# Disable the 68HC11 EEPROM to avoid problems with GCC testsuite
+# programs and map them in 0x8000..0xffff.
+set_board_info sim,options "--cpu-config=0xe"
+
+# Used by a few gcc.c-torture testcases to delimit how large the stack can
+# be.
+set_board_info gcc,stack_size  1024
+
+# Used by a few gcc.c-torture testcases when varargs are used (stdarg is ok).
+set_board_info gcc,no_varargs  1
+
+# Torture test gcc.c-torture/execute/920501-6.c takes about 300 seconds on a
+# 700 Mhz Pentium, so up the time limit.
+set board_info($board,sim_time_limit) 400
+
+set_board_info mathlib ""
+
+# The first -lbcc is here to get the small implementation of printf.
+# The second -lbcc provides the system calls (write, read) used in -lc.
+# The last -lc defines the __errno used in -lbcc.
+set_board_info libs "-lbcc -lc -lgcc -lc -lbcc"
+
+# sizeof int != sizeof long.
+set_board_info gdb,short_int 1

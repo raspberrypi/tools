@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1999-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>The GNU Fortran Compiler: RANDOM_SEED</title>
+
+<meta name="description" content="The GNU Fortran Compiler: RANDOM_SEED">
+<meta name="keywords" content="The GNU Fortran Compiler: RANDOM_SEED">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Intrinsic-Procedures.html#Intrinsic-Procedures" rel="up" title="Intrinsic Procedures">
+<link href="RANGE.html#RANGE" rel="next" title="RANGE">
+<link href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER" rel="prev" title="RANDOM_NUMBER">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="RANDOM_005fSEED"></a>
+<div class="header">
+<p>
+Next: <a href="RANGE.html#RANGE" accesskey="n" rel="next">RANGE</a>, Previous: <a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER" accesskey="p" rel="prev">RANDOM_NUMBER</a>, Up: <a href="Intrinsic-Procedures.html#Intrinsic-Procedures" accesskey="u" rel="up">Intrinsic Procedures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="RANDOM_005fSEED-_002d_002d_002d-Initialize-a-pseudo_002drandom-number-sequence"></a>
+<h3 class="section">8.201 <code>RANDOM_SEED</code> &mdash; Initialize a pseudo-random number sequence</h3>
+<a name="index-RANDOM_005fSEED"></a>
+<a name="index-random-number-generation_002c-seeding"></a>
+<a name="index-seeding-a-random-number-generator"></a>
+
+<dl compact="compact">
+<dt><em>Description</em>:</dt>
+<dd><p>Restarts or queries the state of the pseudorandom number generator used by 
+<code>RANDOM_NUMBER</code>.
+</p>
+<p>If <code>RANDOM_SEED</code> is called without arguments, it is initialized
+to a default state. The example below shows how to initialize the
+random seed with a varying seed in order to ensure a different random
+number sequence for each invocation of the program. Note that setting
+any of the seed values to zero should be avoided as it can result in
+poor quality random numbers being generated.
+</p>
+</dd>
+<dt><em>Standard</em>:</dt>
+<dd><p>Fortran 95 and later
+</p>
+</dd>
+<dt><em>Class</em>:</dt>
+<dd><p>Subroutine
+</p>
+</dd>
+<dt><em>Syntax</em>:</dt>
+<dd><p><code>CALL RANDOM_SEED([SIZE, PUT, GET])</code>
+</p>
+</dd>
+<dt><em>Arguments</em>:</dt>
+<dd><table>
+<tr><td width="15%"><var>SIZE</var></td><td width="70%">(Optional) Shall be a scalar and of type default 
+<code>INTEGER</code>, with <code>INTENT(OUT)</code>. It specifies the minimum size 
+of the arrays used with the <var>PUT</var> and <var>GET</var> arguments.</td></tr>
+<tr><td width="15%"><var>PUT</var></td><td width="70%">(Optional) Shall be an array of type default 
+<code>INTEGER</code> and rank one. It is <code>INTENT(IN)</code> and the size of 
+the array must be larger than or equal to the number returned by the 
+<var>SIZE</var> argument.</td></tr>
+<tr><td width="15%"><var>GET</var></td><td width="70%">(Optional) Shall be an array of type default 
+<code>INTEGER</code> and rank one. It is <code>INTENT(OUT)</code> and the size 
+of the array must be larger than or equal to the number returned by 
+the <var>SIZE</var> argument.</td></tr>
+</table>
+
+</dd>
+<dt><em>Example</em>:</dt>
+<dd><div class="smallexample">
+<pre class="smallexample">subroutine init_random_seed()
+  use iso_fortran_env, only: int64
+  implicit none
+  integer, allocatable :: seed(:)
+  integer :: i, n, un, istat, dt(8), pid
+  integer(int64) :: t
+
+  call random_seed(size = n)
+  allocate(seed(n))
+  ! First try if the OS provides a random number generator
+  open(newunit=un, file=&quot;/dev/urandom&quot;, access=&quot;stream&quot;, &amp;
+       form=&quot;unformatted&quot;, action=&quot;read&quot;, status=&quot;old&quot;, iostat=istat)
+  if (istat == 0) then
+     read(un) seed
+     close(un)
+  else
+     ! Fallback to XOR:ing the current time and pid. The PID is
+     ! useful in case one launches multiple instances of the same
+     ! program in parallel.
+     call system_clock(t)
+     if (t == 0) then
+        call date_and_time(values=dt)
+        t = (dt(1) - 1970) * 365_int64 * 24 * 60 * 60 * 1000 &amp;
+             + dt(2) * 31_int64 * 24 * 60 * 60 * 1000 &amp;
+             + dt(3) * 24_int64 * 60 * 60 * 1000 &amp;
+             + dt(5) * 60 * 60 * 1000 &amp;
+             + dt(6) * 60 * 1000 + dt(7) * 1000 &amp;
+             + dt(8)
+     end if
+     pid = getpid()
+     t = ieor(t, int(pid, kind(t)))
+     do i = 1, n
+        seed(i) = lcg(t)
+     end do
+  end if
+  call random_seed(put=seed)
+contains
+  ! This simple PRNG might not be good enough for real work, but is
+  ! sufficient for seeding a better PRNG.
+  function lcg(s)
+    integer :: lcg
+    integer(int64) :: s
+    if (s == 0) then
+       s = 104729
+    else
+       s = mod(s, 4294967296_int64)
+    end if
+    s = mod(s * 279470273_int64, 4294967291_int64)
+    lcg = int(mod(s, int(huge(0), int64)), kind(0))
+  end function lcg
+end subroutine init_random_seed
+</pre></div>
+
+</dd>
+<dt><em>See also</em>:</dt>
+<dd><p><a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER">RANDOM_NUMBER</a>
+</p></dd>
+</dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="RANGE.html#RANGE" accesskey="n" rel="next">RANGE</a>, Previous: <a href="RANDOM_005fNUMBER.html#RANDOM_005fNUMBER" accesskey="p" rel="prev">RANDOM_NUMBER</a>, Up: <a href="Intrinsic-Procedures.html#Intrinsic-Procedures" accesskey="u" rel="up">Intrinsic Procedures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

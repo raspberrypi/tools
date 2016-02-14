@@ -1,0 +1,13 @@
+GLIBC_2.4 {
+  global:
+    dladdr1; dlinfo;
+    dladdr; dlclose; dlerror; dlopen; dlsym;
+    dlmopen;
+    dlopen; dlvsym;
+  local:
+    *;
+};
+GLIBC_PRIVATE {
+  global:
+    _dlfcn_hook;
+} GLIBC_2.4;

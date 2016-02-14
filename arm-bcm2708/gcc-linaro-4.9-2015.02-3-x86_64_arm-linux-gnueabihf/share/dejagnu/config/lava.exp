@@ -1,0 +1,116 @@
+# Copyright (C) 2014 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This is a list of toolchains that are supported on this board.
+
+process_multilib_options ""
+
+# Connect to a LAVA build slave
+proc ${board}_init { hostname } {
+    global board_info board srcdir
+    global libdir
+
+    # process the template into a JSON file for LAVA
+    set json /tmp/$hostname.json
+    lava_json $hostname $libdir/config/lava.json $json
+
+    if {[board_info $hostname exists server]} {
+	set server [board_info $hostname server]
+    }
+
+    # FIXME: right now I get SSH errors, so we hardcode the few things we need for
+    # debugging.
+
+    # Submit the json job to boot the remote slave
+    spawn lava-tool submit-job $server $json
+     expect {
+	"EXPERIMENTAL" {
+	    exp_continue
+	}
+	"submitted as job id:" {
+	    puts "FIXME: JOB ID"
+	    set jobid "124248"		# FIXME: till parsing works
+	    set_board_info jobid "$jobid"
+	}
+	timeout {
+	    puts "FIXME: TIMEOUT"
+	}
+	eof {
+	    puts "FIXME: EOF"
+	    perror "lava-tool failure! Can't submit job"
+#	    puts "$expect_out(buffer)"
+	}
+    }
+
+    # Get output file for the job, at the end we need the SSH settings. We
+    # Unfortunately have to poll the file till we get the whole thing, 
+    # which requires multiple downloading of the output file. Luckily it's
+    # reasonably small.
+    set out ""
+    while { $out == ""} {
+	set jobid "124248";		# FIXME: till parsing works
+	spawn lava-tool job-output --overwrite $server $jobid
+	expect {
+	    "Downloaded job output " {
+		puts "FIXME: got output"
+		# Get the SSH settings out of the output file
+		set out [grep ${jobid}_output.txt "Please connect to:"]
+		break
+	    }
+	    timeout {
+		puts "FIXME: TIMEOUT"
+		break
+	    }
+	    eof {
+		puts "FIXME: EOF"
+		perror "lava-tool failure! Can't get job output"
+#		puts "$expect_out(buffer)"
+		break
+	    }
+	}	
+    }
+
+    # Get the ssh user and IP number from the output file
+    # Please connect to: ssh -o StrictHostKeyChecking=no root@10.254.0.67 (kvm01)^M
+#    set out [grep ${jobid}_output.txt "Please connect to.* \[a-z\]*\@\[a-z0-9\.\-\]* .*"]
+    set out [grep /linaro/shared/snapshots/gcc.git/124075_output.txt "Please connect to.* \[a-z\]*\@\[a-z0-9\.\-\]* .*"]
+    regexp " \[a-z\]*\@\[a-z0-9\.\-\]* " $out login
+    set login [ string trimright [string trimleft $login " "] " "]
+    set board $hostname;	# FIXME: why does the value of board need to be set here
+                                # so set_board_info works ?
+    if {[info exists login]} {
+	set_board_info login "$login"
+    }
+    # Get the hostname, which follow the user and IP number
+    set start [expr {[string last " " $out] + 2}]
+    set end [expr {[string length $out] - 3}]
+    set host [string range $out $start $end]
+    if {[info exists host]} {
+	set_board_info host "$host"
+    }
+
+    verbose "LAVA Target is: $login ($host)" 1
+}
+
+proc ${board}_open { hostname } {
+    rsh_open $hostname
+}
+
+proc ${board}_download { dest file args } {
+    rsh_download [board_info $dest login] $file $args
+}

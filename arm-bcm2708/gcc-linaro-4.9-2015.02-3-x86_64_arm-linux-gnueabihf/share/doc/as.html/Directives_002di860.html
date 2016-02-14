@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents the GNU Assembler "as".
+
+Copyright (C) 1991-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using as: Directives-i860</title>
+
+<meta name="description" content="Using as: Directives-i860">
+<meta name="keywords" content="Using as: Directives-i860">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="AS-Index.html#AS-Index" rel="index" title="AS Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="i860_002dDependent.html#i860_002dDependent" rel="up" title="i860-Dependent">
+<link href="Opcodes-for-i860.html#Opcodes-for-i860" rel="next" title="Opcodes for i860">
+<link href="Options_002di860.html#Options_002di860" rel="prev" title="Options-i860">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Directives_002di860"></a>
+<div class="header">
+<p>
+Next: <a href="Opcodes-for-i860.html#Opcodes-for-i860" accesskey="n" rel="next">Opcodes for i860</a>, Previous: <a href="Options_002di860.html#Options_002di860" accesskey="p" rel="prev">Options-i860</a>, Up: <a href="i860_002dDependent.html#i860_002dDependent" accesskey="u" rel="up">i860-Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="AS-Index.html#AS-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="i860-Machine-Directives"></a>
+<h4 class="subsection">9.16.3 i860 Machine Directives</h4>
+
+<a name="index-machine-directives_002c-i860"></a>
+<a name="index-i860-machine-directives"></a>
+
+<dl compact="compact">
+<dd><a name="index-dual-directive_002c-i860"></a>
+</dd>
+<dt><code>.dual</code></dt>
+<dd><p>Enter dual instruction mode. While this directive is supported, the
+preferred way to use dual instruction mode is to explicitly code
+the dual bit with the <code>d.</code> prefix.
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dd><a name="index-enddual-directive_002c-i860"></a>
+</dd>
+<dt><code>.enddual</code></dt>
+<dd><p>Exit dual instruction mode. While this directive is supported, the
+preferred way to use dual instruction mode is to explicitly code
+the dual bit with the <code>d.</code> prefix.
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dd><a name="index-atmp-directive_002c-i860"></a>
+</dd>
+<dt><code>.atmp</code></dt>
+<dd><p>Change the temporary register used when expanding pseudo operations. The
+default register is <code>r31</code>.
+</p></dd>
+</dl>
+
+<p>The <code>.dual</code>, <code>.enddual</code>, and <code>.atmp</code> directives are available only in the Intel syntax mode.
+</p>
+<p>Both syntaxes allow for the standard <code>.align</code> directive.  However,
+the Intel syntax additionally allows keywords for the alignment
+parameter: &quot;<code>.align type</code>&quot;, where &lsquo;type&rsquo; is one of <code>.short</code>, <code>.long</code>,
+<code>.quad</code>, <code>.single</code>, <code>.double</code> representing alignments of 2, 4,
+16, 4, and 8, respectively.
+</p>
+
+
+
+</body>
+</html>

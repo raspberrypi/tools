@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Free Software" and "Free Software Needs
+Free Documentation", with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.
+
+(a) The FSF's Back-Cover Text is: "You are free to copy and modify
+this GNU Manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom." -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Debugging with GDB: Progspaces In Python</title>
+
+<meta name="description" content="Debugging with GDB: Progspaces In Python">
+<meta name="keywords" content="Debugging with GDB: Progspaces In Python">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Python-API.html#Python-API" rel="up" title="Python API">
+<link href="Objfiles-In-Python.html#Objfiles-In-Python" rel="next" title="Objfiles In Python">
+<link href="Functions-In-Python.html#Functions-In-Python" rel="prev" title="Functions In Python">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Progspaces-In-Python"></a>
+<div class="header">
+<p>
+Next: <a href="Objfiles-In-Python.html#Objfiles-In-Python" accesskey="n" rel="next">Objfiles In Python</a>, Previous: <a href="Functions-In-Python.html#Functions-In-Python" accesskey="p" rel="prev">Functions In Python</a>, Up: <a href="Python-API.html#Python-API" accesskey="u" rel="up">Python API</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Program-Spaces-In-Python"></a>
+<h4 class="subsubsection">23.2.2.21 Program Spaces In Python</h4>
+
+<a name="index-progspaces-in-python"></a>
+<a name="index-gdb_002eProgspace"></a>
+<a name="index-Progspace"></a>
+<p>A program space, or <em>progspace</em>, represents a symbolic view
+of an address space.
+It consists of all of the objfiles of the program.
+See <a href="Objfiles-In-Python.html#Objfiles-In-Python">Objfiles In Python</a>.
+See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">program spaces</a>, for more details
+about program spaces.
+</p>
+<p>The following progspace-related functions are available in the
+<code>gdb</code> module:
+</p>
+<a name="index-gdb_002ecurrent_005fprogspace"></a>
+<dl>
+<dt><a name="index-gdb_002ecurrent_005fprogspace-1"></a>Function: <strong>gdb.current_progspace</strong> <em>()</em></dt>
+<dd><p>This function returns the program space of the currently selected inferior.
+See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">Inferiors and Programs</a>.
+</p></dd></dl>
+
+<a name="index-gdb_002eprogspaces"></a>
+<dl>
+<dt><a name="index-gdb_002eprogspaces-1"></a>Function: <strong>gdb.progspaces</strong> <em>()</em></dt>
+<dd><p>Return a sequence of all the progspaces currently known to <small>GDB</small>.
+</p></dd></dl>
+
+<p>Each progspace is represented by an instance of the <code>gdb.Progspace</code>
+class.
+</p>
+<dl>
+<dt><a name="index-Progspace_002efilename"></a>Variable: <strong>Progspace.filename</strong></dt>
+<dd><p>The file name of the progspace as a string.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-Progspace_002epretty_005fprinters"></a>Variable: <strong>Progspace.pretty_printers</strong></dt>
+<dd><p>The <code>pretty_printers</code> attribute is a list of functions.  It is
+used to look up pretty-printers.  A <code>Value</code> is passed to each
+function in order; if the function returns <code>None</code>, then the
+search continues.  Otherwise, the return value should be an object
+which is used to format the value.  See <a href="Pretty-Printing-API.html#Pretty-Printing-API">Pretty Printing API</a>, for more
+information.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-Progspace_002etype_005fprinters"></a>Variable: <strong>Progspace.type_printers</strong></dt>
+<dd><p>The <code>type_printers</code> attribute is a list of type printer objects.
+See <a href="Type-Printing-API.html#Type-Printing-API">Type Printing API</a>, for more information.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-Progspace_002eframe_005ffilters"></a>Variable: <strong>Progspace.frame_filters</strong></dt>
+<dd><p>The <code>frame_filters</code> attribute is a dictionary of frame filter
+objects.  See <a href="Frame-Filter-API.html#Frame-Filter-API">Frame Filter API</a>, for more information.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2011-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU libitm: The libitm ABI</title>
+
+<meta name="description" content="GNU libitm: The libitm ABI">
+<meta name="keywords" content="GNU libitm: The libitm ABI">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Library-Index.html#Library-Index" rel="index" title="Library Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Internals.html#Internals" rel="next" title="Internals">
+<link href="C_002fC_002b_002b-Language-Constructs-for-TM.html#C_002fC_002b_002b-Language-Constructs-for-TM" rel="prev" title="C/C++ Language Constructs for TM">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="The-libitm-ABI"></a>
+<div class="header">
+<p>
+Next: <a href="Internals.html#Internals" accesskey="n" rel="next">Internals</a>, Previous: <a href="C_002fC_002b_002b-Language-Constructs-for-TM.html#C_002fC_002b_002b-Language-Constructs-for-TM" accesskey="p" rel="prev">C/C++ Language Constructs for TM</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="The-libitm-ABI-1"></a>
+<h2 class="chapter">3 The libitm ABI</h2>
+
+<p>The ABI provided by libitm is basically equal to the Linux variant of Intel&rsquo;s
+current TM ABI specification document (Revision 1.1, May 6 2009) but with the
+differences listed in this chapter. It would be good if these changes would
+eventually be merged into a future version of this specification. To ease
+look-up, the following subsections mirror the structure of this specification.
+</p>
+<a name="g_t_005bNo-changes_005d-Objectives"></a>
+<h3 class="section">3.1 [No changes] Objectives</h3>
+<a name="g_t_005bNo-changes_005d-Non_002dobjectives"></a>
+<h3 class="section">3.2 [No changes] Non-objectives</h3>
+
+<a name="Library-design-principles"></a>
+<h3 class="section">3.3 Library design principles</h3>
+<a name="g_t_005bNo-changes_005d-Calling-conventions"></a>
+<h4 class="subsection">3.3.1 [No changes] Calling conventions</h4>
+<a name="g_t_005bNo-changes_005d-TM-library-algorithms"></a>
+<h4 class="subsection">3.3.2 [No changes] TM library algorithms</h4>
+<a name="g_t_005bNo-changes_005d-Optimized-load-and-store-routines"></a>
+<h4 class="subsection">3.3.3 [No changes] Optimized load and store routines</h4>
+<a name="g_t_005bNo-changes_005d-Aligned-load-and-store-routines"></a>
+<h4 class="subsection">3.3.4 [No changes] Aligned load and store routines</h4>
+
+<a name="Data-logging-functions"></a>
+<h4 class="subsection">3.3.5 Data logging functions</h4>
+
+<p>The memory locations accessed with transactional loads and stores and the
+memory locations whose values are logged must not overlap. This required
+separation only extends to the scope of the execution of one transaction
+including all the executions of all nested transactions.
+</p>
+<p>The compiler must be consistent (within the scope of a single transaction)
+about which memory locations are shared and which are not shared with other
+threads (i.e., data must be accessed either transactionally or
+nontransactionally). Otherwise, non-write-through TM algorithms would not work.
+</p>
+<p>For memory locations on the stack, this requirement extends to only the
+lifetime of the stack frame that the memory location belongs to (or the
+lifetime of the transaction, whichever is shorter).  Thus, memory that is
+reused for several stack frames could be target of both data logging and
+transactional accesses; however, this is harmless because these stack frames&rsquo;
+lifetimes will end before the transaction finishes.
+</p>
+<a name="g_t_005bNo-changes_005d-Scatter_002fgather-calls"></a>
+<h4 class="subsection">3.3.6 [No changes] Scatter/gather calls</h4>
+<a name="g_t_005bNo-changes_005d-Serial-and-irrevocable-mode"></a>
+<h4 class="subsection">3.3.7 [No changes] Serial and irrevocable mode</h4>
+<a name="g_t_005bNo-changes_005d-Transaction-descriptor"></a>
+<h4 class="subsection">3.3.8 [No changes] Transaction descriptor</h4>
+<a name="Store-allocation"></a>
+<h4 class="subsection">3.3.9 Store allocation</h4>
+
+<p>There is no <code>getTransaction</code> function. 
+</p>
+<a name="g_t_005bNo-changes_005d-Naming-conventions"></a>
+<h4 class="subsection">3.3.10 [No changes] Naming conventions</h4>
+
+<a name="Function-pointer-encryption"></a>
+<h4 class="subsection">3.3.11 Function pointer encryption</h4>
+
+<p>Currently, this is not implemented.
+</p>
+
+<a name="Types-and-macros-list"></a>
+<h3 class="section">3.4 Types and macros list</h3>
+
+<p><code>_ITM_codeProperties</code> has changed, see <a href="#txn_002dcode_002dproperties">Starting a
+transaction</a>.
+<code>_ITM_srcLocation</code> is not used. 
+</p>
+
+<a name="Function-list"></a>
+<h3 class="section">3.5 Function list</h3>
+
+<a name="Initialization-and-finalization-functions"></a>
+<h4 class="subsection">3.5.1 Initialization and finalization functions</h4>
+<p>These functions are not part of the ABI.
+</p>
+<a name="g_t_005bNo-changes_005d-Version-checking"></a>
+<h4 class="subsection">3.5.2 [No changes] Version checking</h4>
+<a name="g_t_005bNo-changes_005d-Error-reporting"></a>
+<h4 class="subsection">3.5.3 [No changes] Error reporting</h4>
+<a name="g_t_005bNo-changes_005d-inTransaction-call"></a>
+<h4 class="subsection">3.5.4 [No changes] inTransaction call</h4>
+
+<a name="State-manipulation-functions"></a>
+<h4 class="subsection">3.5.5 State manipulation functions</h4>
+<p>There is no <code>getTransaction</code> function. Transaction identifiers for
+nested transactions will be ordered but not necessarily sequential (i.e., for
+a nested transaction&rsquo;s identifier <var>IN</var> and its enclosing transaction&rsquo;s
+identifier <var>IE</var>, it is guaranteed that <em>IN &gt;= IE</em>).
+</p>
+<a name="g_t_005bNo-changes_005d-Source-locations"></a>
+<h4 class="subsection">3.5.6 [No changes] Source locations</h4>
+
+<a name="Starting-a-transaction"></a>
+<h4 class="subsection">3.5.7 Starting a transaction</h4>
+
+<a name="Transaction-code-properties"></a>
+<h4 class="subsubsection">3.5.7.1 Transaction code properties</h4>
+
+<a name="txn_002dcode_002dproperties"></a><p>The bit <code>hasNoXMMUpdate</code> is instead called <code>hasNoVectorUpdate</code>.
+Iff it is set, vector register save/restore is not necessary for any target
+machine.
+</p>
+<p>The <code>hasNoFloatUpdate</code> bit (<code>0x0010</code>) is new. Iff it is set, floating
+point register save/restore is not necessary for any target machine.
+</p>
+<p><code>undoLogCode</code> is not supported and a fatal runtime error will be raised
+if this bit is set. It is not properly defined in the ABI why barriers
+other than undo logging are not present; Are they not necessary (e.g., a
+transaction operating purely on thread-local data) or have they been omitted by
+the compiler because it thinks that some kind of global synchronization
+(e.g., serial mode) might perform better? The specification suggests that the
+latter might be the case, but the former seems to be more useful.
+</p>
+<p>The <code>readOnly</code> bit (<code>0x4000</code>) is new. <strong>TODO</strong> Lexical or dynamic
+scope?
+</p>
+<p><code>hasNoRetry</code> is not supported. If this bit is not set, but
+<code>hasNoAbort</code> is set, the library can assume that transaction
+rollback will not be requested.
+</p>
+<p>It would be useful if the absence of externally-triggered rollbacks would be
+reported for the dynamic scope as well, not just for the lexical scope
+(<code>hasNoAbort</code>). Without this, a library cannot exploit this together
+with flat nesting.
+</p>
+<p><code>exceptionBlock</code> is not supported because exception blocks are not used.
+</p>
+<a name="g_t_005bNo-changes_005d-Windows-exception-state"></a>
+<h4 class="subsubsection">3.5.7.2 [No changes] Windows exception state</h4>
+<a name="g_t_005bNo-changes_005d-Other-machine-state"></a>
+<h4 class="subsubsection">3.5.7.3 [No changes] Other machine state</h4>
+
+<a name="g_t_005bNo-changes_005d-Results-from-beginTransaction"></a>
+<h4 class="subsubsection">3.5.7.4 [No changes] Results from beginTransaction</h4>
+
+<a name="Aborting-a-transaction"></a>
+<h4 class="subsection">3.5.8 Aborting a transaction</h4>
+
+<p><code>_ITM_rollbackTransaction</code> is not supported. <code>_ITM_abortTransaction</code>
+is supported but the abort reasons <code>exceptionBlockAbort</code>,
+<code>TMConflict</code>, and <code>userRetry</code> are not supported. There are no
+exception blocks in general, so the related cases also do not have to be
+considered. To encode <code>__transaction_cancel [[outer]]</code>, compilers must
+set the new <code>outerAbort</code> bit (<code>0x10</code>) additionally to the
+<code>userAbort</code> bit in the abort reason.
+</p>
+<a name="Committing-a-transaction"></a>
+<h4 class="subsection">3.5.9 Committing a transaction</h4>
+
+<p>The exception handling (EH) scheme is different. The Intel ABI requires the
+<code>_ITM_tryCommitTransaction</code> function that will return even when the
+commit failed and will have to be matched with calls to either
+<code>_ITM_abortTransaction</code> or <code>_ITM_commitTransaction</code>. In contrast,
+gcc relies on transactional wrappers for the functions of the Exception
+Handling ABI and on one additional commit function (shown below). This allows
+the TM to keep track of EH internally and thus it does not have to embed the
+cleanup of EH state into the existing EH code in the program.
+<code>_ITM_tryCommitTransaction</code> is not supported.
+<code>_ITM_commitTransactionToId</code> is also not supported because the
+propagation of thrown exceptions will not bypass commits of nested
+transactions.
+</p>
+<div class="example">
+<pre class="example">void _ITM_commitTransactionEH(void *exc_ptr) ITM_REGPARM;
+void *_ITM_cxa_allocate_exception (size_t);
+void _ITM_cxa_throw (void *obj, void *tinfo, void *dest);
+void *_ITM_cxa_begin_catch (void *exc_ptr);
+void _ITM_cxa_end_catch (void);
+</pre></div>
+
+<p><code>_ITM_commitTransactionEH</code> must be called to commit a transaction if an
+exception could be in flight at this position in the code. <code>exc_ptr</code> is
+the current exception or zero if there is no current exception.
+The <code>_ITM_cxa...</code> functions are transactional wrappers for the respective
+<code>__cxa...</code> functions and must be called instead of these in transactional
+code.
+</p>
+<p>To support this EH scheme, libstdc++ needs to provide one additional function
+(<code>_cxa_tm_cleanup</code>), which is used by the TM to clean up the exception
+handling state while rolling back a transaction:
+</p>
+<div class="example">
+<pre class="example">void __cxa_tm_cleanup (void *unthrown_obj, void *cleanup_exc,
+                       unsigned int caught_count);
+</pre></div>
+
+<p><code>unthrown_obj</code> is non-null if the program called
+<code>__cxa_allocate_exception</code> for this exception but did not yet called
+<code>__cxa_throw</code> for it. <code>cleanup_exc</code> is non-null if the program is
+currently processing a cleanup along an exception path but has not caught this
+exception yet. <code>caught_count</code> is the nesting depth of
+<code>__cxa_begin_catch</code> within the transaction (which can be counted by the TM
+using <code>_ITM_cxa_begin_catch</code> and <code>_ITM_cxa_end_catch</code>);
+<code>__cxa_tm_cleanup</code> then performs rollback by essentially performing
+<code>__cxa_end_catch</code> that many times.
+</p>
+
+
+<a name="Exception-handling-support"></a>
+<h4 class="subsection">3.5.10 Exception handling support</h4>
+
+<p>Currently, there is no support for functionality like
+<code>__transaction_cancel throw</code> as described in the C++ TM specification.
+Supporting this should be possible with the EH scheme explained previously
+because via the transactional wrappers for the EH ABI, the TM is able to
+observe and intercept EH.
+</p>
+
+<a name="g_t_005bNo-changes_005d-Transition-to-serial_002d_002dirrevocable-mode"></a>
+<h4 class="subsection">3.5.11 [No changes] Transition to serial&ndash;irrevocable mode</h4>
+<a name="g_t_005bNo-changes_005d-Data-transfer-functions"></a>
+<h4 class="subsection">3.5.12 [No changes] Data transfer functions</h4>
+<a name="g_t_005bNo-changes_005d-Transactional-memory-copies"></a>
+<h4 class="subsection">3.5.13 [No changes] Transactional memory copies</h4>
+
+<a name="Transactional-versions-of-memmove"></a>
+<h4 class="subsection">3.5.14 Transactional versions of memmove</h4>
+
+<p>If either the source or destination memory region is to be accessed
+nontransactionally, then source and destination regions must not be
+overlapping. The respective <code>_ITM_memmove</code> functions are still
+available but a fatal runtime error will be raised if such regions do overlap.
+To support this functionality, the ABI would have to specify how the
+intersection of the regions has to be accessed (i.e., transactionally or
+nontransactionally).
+</p>
+<a name="g_t_005bNo-changes_005d-Transactional-versions-of-memset"></a>
+<h4 class="subsection">3.5.15 [No changes] Transactional versions of memset</h4>
+<a name="g_t_005bNo-changes_005d-Logging-functions"></a>
+<h4 class="subsection">3.5.16 [No changes] Logging functions</h4>
+
+<a name="User_002dregistered-commit-and-undo-actions"></a>
+<h4 class="subsection">3.5.17 User-registered commit and undo actions</h4>
+
+<p>Commit actions will get executed in the same order in which the respective
+calls to <code>_ITM_addUserCommitAction</code> happened. Only
+<code>_ITM_noTransactionId</code> is allowed as value for the
+<code>resumingTransactionId</code> argument. Commit actions get executed after
+privatization safety has been ensured.
+</p>
+<p>Undo actions will get executed in reverse order compared to the order in which
+the respective calls to <code>_ITM_addUserUndoAction</code> happened. The ordering of
+undo actions w.r.t. the roll-back of other actions (e.g., data transfers or
+memory allocations) is undefined.
+</p>
+<p><code>_ITM_getThreadnum</code> is not supported currently because its only purpose
+is to provide a thread ID that matches some assumed performance tuning output,
+but this output is not part of the ABI nor further defined by it.
+</p>
+<p><code>_ITM_dropReferences</code> is not supported currently because its semantics and
+the intention behind it is not entirely clear. The
+specification suggests that this function is necessary because of certain
+orderings of data transfer undos and the releasing of memory regions (i.e.,
+privatization). However, this ordering is never defined, nor is the ordering of
+dropping references w.r.t. other events.
+</p>
+<a name="g_t_005bNew_005d-Transactional-indirect-calls"></a>
+<h4 class="subsection">3.5.18 [New] Transactional indirect calls</h4>
+
+<p>Indirect calls (i.e., calls through a function pointer) within transactions
+should execute the transactional clone of the original function (i.e., a clone
+of the original that has been fully instrumented to use the TM runtime), if
+such a clone is available. The runtime provides two functions to
+register/deregister clone tables:
+</p>
+<div class="example">
+<pre class="example">struct clone_entry
+{
+  void *orig, *clone;
+};
+
+void _ITM_registerTMCloneTable (clone_entry *table, size_t entries);
+void _ITM_deregisterTMCloneTable (clone_entry *table);
+</pre></div>
+
+<p>Registered tables must be writable by the TM runtime, and must be live
+throughout the life-time of the TM runtime.
+</p>
+<p><strong>TODO</strong> The intention was always to drop the registration functions
+entirely, and create a new ELF Phdr describing the linker-sorted table.  Much
+like what currently happens for <code>PT_GNU_EH_FRAME</code>.
+This work kept getting bogged down in how to represent the <var>N</var> different
+code generation variants.  We clearly needed at least two&mdash;SW and HW
+transactional clones&mdash;but there was always a suggestion of more variants for
+different TM assumptions/invariants.
+</p>
+<p>The compiler can then use two TM runtime functions to perform indirect calls in
+transactions:
+</p><div class="example">
+<pre class="example">void *_ITM_getTMCloneOrIrrevocable (void *function) ITM_REGPARM;
+void *_ITM_getTMCloneSafe (void *function) ITM_REGPARM;
+</pre></div>
+
+<p>If there is a registered clone for supplied function, both will return a
+pointer to the clone. If not, the first runtime function will attempt to switch
+to serial&ndash;irrevocable mode and return the original pointer, whereas the second
+will raise a fatal runtime error.
+</p>
+<a name="g_t_005bNew_005d-Transactional-dynamic-memory-management"></a>
+<h4 class="subsection">3.5.19 [New] Transactional dynamic memory management</h4>
+
+<div class="example">
+<pre class="example">void *_ITM_malloc (size_t)
+       __attribute__((__malloc__)) ITM_PURE;
+void *_ITM_calloc (size_t, size_t)
+       __attribute__((__malloc__)) ITM_PURE;
+void _ITM_free (void *) ITM_PURE;
+</pre></div>
+
+<p>These functions are essentially transactional wrappers for <code>malloc</code>,
+<code>calloc</code>, and <code>free</code>. Within transactions, the compiler should
+replace calls to the original functions with calls to the wrapper functions.
+</p>
+
+<a name="g_t_005bNo-changes_005d-Future-Enhancements-to-the-ABI"></a>
+<h3 class="section">3.6 [No changes] Future Enhancements to the ABI</h3>
+
+<a name="Sample-code"></a>
+<h3 class="section">3.7 Sample code</h3>
+
+<p>The code examples might not be correct w.r.t. the current version of the ABI,
+especially everything related to exception handling.
+</p>
+
+<a name="g_t_005bNew_005d-Memory-model"></a>
+<h3 class="section">3.8 [New] Memory model</h3>
+
+<p>The ABI should define a memory model and the ordering that is guaranteed for
+data transfers and commit/undo actions, or at least refer to another memory
+model that needs to be preserved. Without that, the compiler cannot ensure the
+memory model specified on the level of the programming language (e.g., by the
+C++ TM specification).
+</p>
+<p>For example, if a transactional load is ordered before another load/store, then
+the TM runtime must also ensure this ordering when accessing shared state. If
+not, this might break the kind of publication safety used in the C++ TM
+specification. Likewise, the TM runtime must ensure privatization safety.
+</p>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Internals.html#Internals" accesskey="n" rel="next">Internals</a>, Previous: <a href="C_002fC_002b_002b-Language-Constructs-for-TM.html#C_002fC_002b_002b-Language-Constructs-for-TM" accesskey="p" rel="prev">C/C++ Language Constructs for TM</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

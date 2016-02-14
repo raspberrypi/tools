@@ -1,0 +1,323 @@
+# Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+# 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This file was written by Bob Manson (manson@cygnus.com)
+# based on earlier work by JT Conklin (jtc@cygnus.com)
+
+#
+# base68k_load -- load the program and execute it
+#
+
+proc base68k_ld { dest prog } {
+    global tmpdir
+
+    set shell_prompt [board_info $dest shell_prompt]
+
+    if {![file exists $prog]} then {
+	verbose -log "$prog does not exist."
+	return "untested"
+    }
+    if {[is_remote host]} {
+	set prog [remote_download host $prog]
+	if { $prog == "" } {
+	    verbose -log "Unable to download $prog to host."
+	    return "untested"
+	}
+    }
+
+    if {[board_info $dest exists objcopy]} {
+	set OBJCOPY [board_info $dest objcopy]
+	set exec_file "${prog}.srec"
+	set objcopy_args ""
+	if {[board_info $dest exists use_vma_offset]} {
+	    set objcopy_args "--adjust-vma=[board_info $dest hex_startaddr]"
+	}
+	set status [remote_exec host "$OBJCOPY $objcopy_args -O srec $prog ${prog}.srec"]
+	set result [lindex $status 1]
+	regsub -all -- "\[\r\n\]*" $result "" result
+	if { $result != ""  || [lindex $status 0] != 0 } {
+	    warning "Got \"$result\" from $OBJCOPY"
+	    verbose -log "Couldn't convert to srecord for downloading"
+	    remote_close $dest
+	    return "untested"
+	} else {
+	    verbose "Converted $prog to an srecord." 2
+	}
+    } else {
+	set exec_file $prog
+    }
+
+    set value 0
+    if {![board_info $dest exists fileid]} {
+	while { $value < 2 } {
+	    set rom68k_shell_id [remote_open $dest]
+	    if { $rom68k_shell_id < 0 } {
+		if { $value > 0 || ![remote_reboot $dest] } {
+		    verbose -log "$prog not executed, couldn't connect to target."
+		    return "untested"
+		}
+		incr value
+	    } else {
+		break
+	    }
+	}
+	# dbug has problems if we go into binary mode, so this allows us to
+	# disable entry into binary mode.
+	if {![board_info $dest exists no_binary_mode]} {
+	    remote_binary $dest
+	}
+    }
+
+    # if we built the srecord on a remote host, copy it back here so we
+    # can load it
+    if {[is_remote host]} {
+	global objdir
+	set exec_file [remote_upload host ${exec_file} "${objdir}/a.out"]
+    }
+
+    set got_p 0
+    for { set tries 0 } { (! $got_p) && $tries < 5 } { incr tries } {
+	remote_send $dest "\r\n\r\n"
+	remote_expect $dest 5 {
+	    -re "${shell_prompt}$" {
+		verbose "Got prompt."
+		set result 0
+		set got_p 1
+	    }
+	    timeout {
+		warning "Never got prompt."
+	    }
+	}
+	if { ! $got_p } {
+	    if { $tries <= 4 } then {
+		if { $tries == 3 } then {
+		    remote_reboot $dest
+		} else {
+		    remote_send $dest "\r\n"
+		}
+	    }
+	}
+    }
+
+    # We need to do this in case the connection to the remote side is
+    # scrogged -- the remote_expect above will fail in a lot of
+    # non-clean ways.
+    if { ! $got_p } {
+	remote_close $dest
+	remote_reboot $dest
+	return "unresolved"
+    } else {
+	# Flush out any remaining cruft.
+	remote_expect $dest 2 {
+	    timeout { }
+	    -re ".+" { exp_continue }
+	    default { }
+	}
+    }
+
+    if {[board_info $dest exists download_command]} {
+	# Load the program.
+	remote_send $dest "\r\n"
+	# dbug has problems sending download command immediately after a
+	# newline, so we wait for the prompt to come back first.
+	remote_expect $dest 5 {
+	    -re "${shell_prompt}$" {
+		verbose -log "Got prompt."
+	    }
+	    timeout {
+		warning "Never got prompt."
+	    }
+	}
+	remote_send $dest [board_info $dest download_command]
+	if {[board_info $dest exists download_response]} {
+	    remote_expect $dest 5 {
+		[board_info $dest download_response] { }
+		timeout {
+		    perror "Download command never responded."
+		    return "unresolved"
+		}
+	    }
+	}
+    }
+
+    verbose "Writing records to target..."
+    set status [remote_transmit $dest $exec_file]
+    if { $exec_file != $prog } {
+	remote_file build delete $exec_file
+    }
+    if { $status != 0 } {
+	remote_close $dest
+	verbose -log "Transmission of $exec_file to the target failed." 3
+	return "unresolved"
+    }
+    verbose "Wrote records to target...waiting for prompt."
+    remote_send $dest "\n"
+    set got_p 0
+    remote_expect $dest 50 {
+	-re "$shell_prompt$" {
+	    verbose "Got prompt."
+	    set got_p 1
+	}
+	timeout { }
+    }
+    if { $got_p } {
+	# Flush any remaining cruft. 2 seconds may be too long, dunno.
+	remote_expect $dest 2 {
+	    timeout { }
+	    -re ".+" { exp_continue }
+	    default { }
+	}
+	return "pass"
+    } else {
+	remote_close $dest
+	remote_reboot $dest
+	return "unresolved"
+    }
+
+}
+
+
+proc base68k_spawn { dest prog args } {
+    set shell_prompt [board_info $dest shell_prompt]
+
+    set result [remote_ld $dest $prog]
+    if { $result != "pass" } {
+	return [list $result ""]
+    }
+
+    if {[board_info $dest exists startaddr]} {
+	set go_command "[board_info $dest go_command] [board_info $dest startaddr]"
+    } else {
+	set go_command "[board_info $dest go_command]"
+    }
+
+    verbose "Sending $go_command, waiting for results."
+    remote_send $dest "${go_command}\n"
+    return { "pass" "" }
+}
+
+proc base68k_wait { dest timeout } {
+    set shell_prompt [board_info $dest shell_prompt]
+    set noappend 0
+    set result -1
+
+    set output ""
+
+    remote_expect $dest $timeout {
+	-re [board_info $dest go_response] {
+	    append output $expect_out(buffer)
+	    set noappend 1
+	    set result 0
+	    exp_continue -continue_timer
+	}
+	-re "$shell_prompt$" {
+	    verbose "Got prompt."
+	    set result 0
+	}
+	-re "\[\r\n\]+" {
+	    if { ! $noappend } {
+		append output $expect_out(buffer)
+		if { [string length $output] < 512000 } {
+		    exp_continue -continue_timer
+		} else {
+		    set result -1
+		}
+	    }
+	}
+	timeout {
+	    warning "Nothing ever came back."
+	    set result -1
+	}
+    }
+
+    if {[board_info $dest exists output_end]} {
+	regsub "[board_info $dest output_end]" "$output" "\n" output
+    }
+
+    # There has got to be a better way. (We need to do this in order to remove
+    # the echoed "go command".
+    if {[board_info $dest exists startaddr]} {
+	set go_command "[board_info $dest go_command] [board_info $dest startaddr]"
+    } else {
+	set go_command "[board_info $dest go_command]"
+    }
+
+    regsub "^.*$go_command\[\r\n\]*" "$output" "" output
+    regsub "^.*$go_command\[\r\n\]*" "$output" "" output
+
+    # We always want to check for a status, even if there was a funky weird
+    # failure above.
+    set status [check_for_board_status output]
+    if { $result == 0 } {
+	set result $status
+	verbose -log "exit status was $status"
+    }
+    # A negative value indicates that we should reboot. Otherwise, return
+    # the exit status from the program if we got one (and we should have).
+    return [list $result "$output"]
+}
+
+proc base68k_load { dest prog args } {
+    global base68k_retry
+
+    set shell_prompt [board_info $dest shell_prompt]
+
+    if { [llength $args] > 0 } {
+	for { set x 0 } { $x < [llength $args] } { incr x } {
+	    if { [lindex $args $x] != "" } {
+		verbose -log "Cannot pass parameters or input file to this target"
+		return [list "unsupported" ""]
+	    }
+	}
+    }
+
+    set result [remote_spawn $dest $prog]
+    if { [lindex $result 0] != "pass" } {
+	return $result
+    }
+
+    # FIXME: The value 360 below should be a parameter.
+
+    set result [remote_wait $dest 360]
+    set output [lindex $result 1]
+    set status [lindex $result 0]
+
+    verbose "output from board is $output"
+
+    # Make sure there's a newline before the PASS/FAIL/whatever for the log.
+    send_log "\n"
+
+    if { $status > 0 } {
+	return [list "fail" $output]
+    } elseif { $status == 0 } {
+	return [list "pass" $output]
+    } else {
+	if {[info exists base68k_retry]} {
+	    return [list "fail" $output]
+	}
+	set base68k_retry 1
+	remote_reboot $dest
+	set status [eval base68k_load \{$dest\} \{$prog\} $args]
+	unset base68k_retry
+	return $status
+    }
+}
+
+set_board_info protocol "base68k"
+set_board_info send_initial_cr 1

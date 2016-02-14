@@ -1,0 +1,3 @@
+@set version-GCC 4.9.3
+@clear DEVELOPMENT
+@set srcdir /home/buildslave/workspace/BinaryRelease/label/hetzner/target/arm-linux-gnueabihf/snapshots/gcc-linaro-4.9-2015.01-3/gcc/doc/..

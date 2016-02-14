@@ -1,0 +1,153 @@
+# Copyright (C) 2014 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# Connect to HOSTNAME using rsh or ssh(1).
+#
+proc docker_open { hostname } {
+    global spawn_id
+
+    # Get the hostname and port number from the config array.
+    if {[board_info $hostname exists name]} {
+	set hostname [board_info $hostname name]
+    }
+    spawn $DOCKER $hostname
+    if { $spawn_id < 0 } {
+	perror "invalid spawn id from $RSH"
+	return -1
+    }
+
+    while { $tries <= 3 } {
+	expect {
+	    -re ".*$shell_prompt.*$" {
+		verbose "Got prompt\n"
+		set result 0
+		break
+	    }
+	incr tries
+    }
+
+    if { $result < 0 } {
+	catch close -i $spawn_id
+	set spawn_id -1
+    } else {
+	set board_info($hostname,fileid) $spawn_id
+    }
+
+    return $spawn_id
+}
+
+# Download SRCFILE to DESTFILE on DESTHOST.
+#
+proc docker_download {desthost srcfile destfile} {
+    verbose "FIXME: docker_download $RSH $desthost $srcfile $destfile"
+
+    if {[board_info $desthost exists hostname]} {
+	set desthost [board_info $desthost hostname]
+    }
+
+    # rm has no output, which causes problems with ssh using ControlMaster
+    set status [catch "exec $DOCKER $srcfile $rcp_user$desthost:$destfile |& cat" output]
+    if { $status == 0 } {
+	verbose "Copied $srcfile to $desthost:$destfile" 2
+	return $destfile
+    } else {
+	verbose "Download to $desthost failed, $output."
+	return ""
+    }
+}
+
+proc docker_upload {desthost srcfile destfile} {
+    verbose "FIXME: docker_upload $desthost $srcfile $destfile"
+}
+
+# Execute CMD on BOARDNAME.
+#
+proc docker_exec { boardname program pargs inp outp } {
+    global timeout
+    global RSH RCP
+
+    verbose "FIXME: docker_exec $RSH $boardname:$program $pargs"
+    verbose "Executing $boardname:$program $pargs < $inp"
+
+    if {![board_info $boardname exists docker_prog]} {
+	if { [which remsh] != 0 } {
+	    set RSH remsh
+	} else {
+	    set RSH rsh
+	}
+    } else {
+	set RSH [board_info $boardname docker_prog]
+    }
+
+    if {[board_info $boardname exists username]} {
+	set docker_useropts "-l [board_info $boardname username]"
+    } else {
+	set docker_useropts ""
+    }
+
+    if {[board_info $boardname exists docker_opts]} {
+	append docker_useropts " [board_info $boardname docker_opts]"
+    }
+
+    if {[board_info $boardname exists name]} {
+	set boardname [board_info $boardname name]
+    }
+
+    if {[board_info $boardname exists hostname]} {
+	set hostname [board_info $boardname hostname]
+    } else {
+	set hostname $boardname
+    }
+
+    # If CMD sends any output to stderr, exec will think it failed.
+    # More often than not that will be true, but it doesn't catch the
+    # case where there is no output but the exit code is non-zero.
+    if { $inp == "" } {
+	set inp "/dev/null"
+    }
+
+    set ret [local_exec "$RSH $docker_useropts $hostname sh -c '$program $pargs \\; echo XYZ\\\${?}ZYX'" $inp $outp $timeout]
+    set status [lindex $ret 0]
+    set output [lindex $ret 1]
+
+    verbose "$RSH status is $status, output is $output"
+
+    # `status' doesn't mean much here other than rsh worked ok.
+    # What we want is whether $program ran ok.  Return $status
+    # if the program timed out, status will be 1 indicating that
+    # rsh ran and failed.  If rsh fails, we will get FAIL rather
+    # than UNRESOLVED - this will help the problem be noticed.
+    if { $status != 0 } {
+	regsub "XYZ(\[0-9\]*)ZYX\n?" $output "" output
+	return [list $status "$RSH to $boardname failed for $program, $output"]
+    }
+    regexp "XYZ(\[0-9\]*)ZYX" $output junk status
+    verbose "docker_exec: status:$status text:$output" 4
+    if { $status == "" } {
+	return [list -1 "Couldn't parse $RSH output, $output."]
+    }
+    regsub "XYZ(\[0-9\]*)ZYX\n?" $output "" output
+    # Delete one trailing \n because that is what `exec' will do and we want
+    # to behave identical to it.
+    regsub "\n$" $output "" output
+    return [list [expr {$status != 0}] $output]
+}
+
+proc docker_close { dest } {
+    verbose "FIXME: docker_close: $dest"
+}

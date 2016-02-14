@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using the GNU Compiler Collection (GCC): ARC Options</title>
+
+<meta name="description" content="Using the GNU Compiler Collection (GCC): ARC Options">
+<meta name="keywords" content="Using the GNU Compiler Collection (GCC): ARC Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html#Submodel-Options" rel="up" title="Submodel Options">
+<link href="ARM-Options.html#ARM-Options" rel="next" title="ARM Options">
+<link href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" rel="prev" title="Adapteva Epiphany Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="ARC-Options"></a>
+<div class="header">
+<p>
+Next: <a href="ARM-Options.html#ARM-Options" accesskey="n" rel="next">ARM Options</a>, Previous: <a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" accesskey="p" rel="prev">Adapteva Epiphany Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="ARC-Options-1"></a>
+<h4 class="subsection">3.17.3 ARC Options</h4>
+<a name="index-ARC-options"></a>
+
+<p>The following options control the architecture variant for which code
+is being compiled:
+</p>
+<dl compact="compact">
+<dt><code>-mbarrel-shifter</code></dt>
+<dd><a name="index-mbarrel_002dshifter"></a>
+<p>Generate instructions supported by barrel shifter.  This is the default
+unless &lsquo;<samp>-mcpu=ARC601</samp>&rsquo; is in effect.
+</p>
+</dd>
+<dt><code>-mcpu=<var>cpu</var></code></dt>
+<dd><a name="index-mcpu-1"></a>
+<p>Set architecture type, register usage, and instruction scheduling
+parameters for <var>cpu</var>.  There are also shortcut alias options
+available for backward compatibility and convenience.  Supported
+values for <var>cpu</var> are
+</p>
+<dl compact="compact">
+<dd><a name="index-mA6"></a>
+<a name="index-mARC600"></a>
+</dd>
+<dt>&lsquo;<samp>ARC600</samp>&rsquo;</dt>
+<dd><p>Compile for ARC600.  Aliases: <samp>-mA6</samp>, <samp>-mARC600</samp>.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC601</samp>&rsquo;</dt>
+<dd><a name="index-mARC601"></a>
+<p>Compile for ARC601.  Alias: <samp>-mARC601</samp>.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC700</samp>&rsquo;</dt>
+<dd><a name="index-mA7"></a>
+<a name="index-mARC700"></a>
+<p>Compile for ARC700.  Aliases: <samp>-mA7</samp>, <samp>-mARC700</samp>.
+This is the default when configured with &lsquo;<samp>--with-cpu=arc700</samp>&rsquo;.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>-mdpfp</code></dt>
+<dd><a name="index-mdpfp"></a>
+</dd>
+<dt><code>-mdpfp-compact</code></dt>
+<dd><a name="index-mdpfp_002dcompact"></a>
+<p>FPX: Generate Double Precision FPX instructions, tuned for the compact
+implementation.
+</p>
+</dd>
+<dt><code>-mdpfp-fast</code></dt>
+<dd><a name="index-mdpfp_002dfast"></a>
+<p>FPX: Generate Double Precision FPX instructions, tuned for the fast
+implementation.
+</p>
+</dd>
+<dt><code>-mno-dpfp-lrsr</code></dt>
+<dd><a name="index-mno_002ddpfp_002dlrsr"></a>
+<p>Disable LR and SR instructions from using FPX extension aux registers.
+</p>
+</dd>
+<dt><code>-mea</code></dt>
+<dd><a name="index-mea"></a>
+<p>Generate Extended arithmetic instructions.  Currently only
+<code>divaw</code>, <code>adds</code>, <code>subs</code>, and <code>sat16</code> are
+supported.  This is always enabled for &lsquo;<samp>-mcpu=ARC700</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>-mno-mpy</code></dt>
+<dd><a name="index-mno_002dmpy"></a>
+<p>Do not generate mpy instructions for ARC700.
+</p>
+</dd>
+<dt><code>-mmul32x16</code></dt>
+<dd><a name="index-mmul32x16"></a>
+<p>Generate 32x16 bit multiply and mac instructions.
+</p>
+</dd>
+<dt><code>-mmul64</code></dt>
+<dd><a name="index-mmul64"></a>
+<p>Generate mul64 and mulu64 instructions.  Only valid for &lsquo;<samp>-mcpu=ARC600</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>-mnorm</code></dt>
+<dd><a name="index-mnorm"></a>
+<p>Generate norm instruction.  This is the default if &lsquo;<samp>-mcpu=ARC700</samp>&rsquo;
+is in effect.
+</p>
+</dd>
+<dt><code>-mspfp</code></dt>
+<dd><a name="index-mspfp"></a>
+</dd>
+<dt><code>-mspfp-compact</code></dt>
+<dd><a name="index-mspfp_002dcompact"></a>
+<p>FPX: Generate Single Precision FPX instructions, tuned for the compact
+implementation.
+</p>
+</dd>
+<dt><code>-mspfp-fast</code></dt>
+<dd><a name="index-mspfp_002dfast"></a>
+<p>FPX: Generate Single Precision FPX instructions, tuned for the fast
+implementation.
+</p>
+</dd>
+<dt><code>-msimd</code></dt>
+<dd><a name="index-msimd"></a>
+<p>Enable generation of ARC SIMD instructions via target-specific
+builtins.  Only valid for &lsquo;<samp>-mcpu=ARC700</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>-msoft-float</code></dt>
+<dd><a name="index-msoft_002dfloat"></a>
+<p>This option ignored; it is provided for compatibility purposes only.
+Software floating point code is emitted by default, and this default
+can overridden by FPX options; &lsquo;<samp>mspfp</samp>&rsquo;, &lsquo;<samp>mspfp-compact</samp>&rsquo;, or
+&lsquo;<samp>mspfp-fast</samp>&rsquo; for single precision, and &lsquo;<samp>mdpfp</samp>&rsquo;,
+&lsquo;<samp>mdpfp-compact</samp>&rsquo;, or &lsquo;<samp>mdpfp-fast</samp>&rsquo; for double precision.
+</p>
+</dd>
+<dt><code>-mswap</code></dt>
+<dd><a name="index-mswap"></a>
+<p>Generate swap instructions.
+</p>
+</dd>
+</dl>
+
+<p>The following options are passed through to the assembler, and also
+define preprocessor macro symbols.
+</p>
+<dl compact="compact">
+<dt><code>-mdsp-packa</code></dt>
+<dd><a name="index-mdsp_002dpacka"></a>
+<p>Passed down to the assembler to enable the DSP Pack A extensions.
+Also sets the preprocessor symbol <code>__Xdsp_packa</code>.
+</p>
+</dd>
+<dt><code>-mdvbf</code></dt>
+<dd><a name="index-mdvbf"></a>
+<p>Passed down to the assembler to enable the dual viterbi butterfly
+extension.  Also sets the preprocessor symbol <code>__Xdvbf</code>.
+</p>
+</dd>
+<dt><code>-mlock</code></dt>
+<dd><a name="index-mlock"></a>
+<p>Passed down to the assembler to enable the Locked Load/Store
+Conditional extension.  Also sets the preprocessor symbol
+<code>__Xlock</code>.
+</p>
+</dd>
+<dt><code>-mmac-d16</code></dt>
+<dd><a name="index-mmac_002dd16"></a>
+<p>Passed down to the assembler.  Also sets the preprocessor symbol
+<code>__Xxmac_d16</code>.
+</p>
+</dd>
+<dt><code>-mmac-24</code></dt>
+<dd><a name="index-mmac_002d24"></a>
+<p>Passed down to the assembler.  Also sets the preprocessor symbol
+<code>__Xxmac_24</code>.
+</p>
+</dd>
+<dt><code>-mrtsc</code></dt>
+<dd><a name="index-mrtsc"></a>
+<p>Passed down to the assembler to enable the 64-bit Time-Stamp Counter
+extension instruction.  Also sets the preprocessor symbol
+<code>__Xrtsc</code>.
+</p>
+</dd>
+<dt><code>-mswape</code></dt>
+<dd><a name="index-mswape"></a>
+<p>Passed down to the assembler to enable the swap byte ordering
+extension instruction.  Also sets the preprocessor symbol
+<code>__Xswape</code>.
+</p>
+</dd>
+<dt><code>-mtelephony</code></dt>
+<dd><a name="index-mtelephony"></a>
+<p>Passed down to the assembler to enable dual and single operand
+instructions for telephony.  Also sets the preprocessor symbol
+<code>__Xtelephony</code>.
+</p>
+</dd>
+<dt><code>-mxy</code></dt>
+<dd><a name="index-mxy"></a>
+<p>Passed down to the assembler to enable the XY Memory extension.  Also
+sets the preprocessor symbol <code>__Xxy</code>.
+</p>
+</dd>
+</dl>
+
+<p>The following options control how the assembly code is annotated:
+</p>
+<dl compact="compact">
+<dt><code>-misize</code></dt>
+<dd><a name="index-misize"></a>
+<p>Annotate assembler instructions with estimated addresses.
+</p>
+</dd>
+<dt><code>-mannotate-align</code></dt>
+<dd><a name="index-mannotate_002dalign"></a>
+<p>Explain what alignment considerations lead to the decision to make an
+instruction short or long.
+</p>
+</dd>
+</dl>
+
+<p>The following options are passed through to the linker:
+</p>
+<dl compact="compact">
+<dt><code>-marclinux</code></dt>
+<dd><a name="index-marclinux"></a>
+<p>Passed through to the linker, to specify use of the <code>arclinux</code> emulation.
+This option is enabled by default in tool chains built for
+<code><span class="nolinebreak">arc-linux-uclibc</span></code><!-- /@w --> and <code><span class="nolinebreak">arceb-linux-uclibc</span></code><!-- /@w --> targets
+when profiling is not requested.
+</p>
+</dd>
+<dt><code>-marclinux_prof</code></dt>
+<dd><a name="index-marclinux_005fprof"></a>
+<p>Passed through to the linker, to specify use of the
+<code>arclinux_prof</code> emulation.  This option is enabled by default in
+tool chains built for <code><span class="nolinebreak">arc-linux-uclibc</span></code><!-- /@w --> and
+<code><span class="nolinebreak">arceb-linux-uclibc</span></code><!-- /@w --> targets when profiling is requested.
+</p>
+</dd>
+</dl>
+
+<p>The following options control the semantics of generated code:
+</p>
+<dl compact="compact">
+<dt><code>-mepilogue-cfi</code></dt>
+<dd><a name="index-mepilogue_002dcfi"></a>
+<p>Enable generation of call frame information for epilogues.
+</p>
+</dd>
+<dt><code>-mno-epilogue-cfi</code></dt>
+<dd><a name="index-mno_002depilogue_002dcfi"></a>
+<p>Disable generation of call frame information for epilogues.
+</p>
+</dd>
+<dt><code>-mlong-calls</code></dt>
+<dd><a name="index-mlong_002dcalls-1"></a>
+<p>Generate call insns as register indirect calls, thus providing access
+to the full 32-bit address range.
+</p>
+</dd>
+<dt><code>-mmedium-calls</code></dt>
+<dd><a name="index-mmedium_002dcalls"></a>
+<p>Don&rsquo;t use less than 25 bit addressing range for calls, which is the
+offset available for an unconditional branch-and-link
+instruction.  Conditional execution of function calls is suppressed, to
+allow use of the 25-bit range, rather than the 21-bit range with
+conditional branch-and-link.  This is the default for tool chains built
+for <code><span class="nolinebreak">arc-linux-uclibc</span></code><!-- /@w --> and <code><span class="nolinebreak">arceb-linux-uclibc</span></code><!-- /@w --> targets.
+</p>
+</dd>
+<dt><code>-mno-sdata</code></dt>
+<dd><a name="index-mno_002dsdata"></a>
+<p>Do not generate sdata references.  This is the default for tool chains
+built for <code><span class="nolinebreak">arc-linux-uclibc</span></code><!-- /@w --> and <code><span class="nolinebreak">arceb-linux-uclibc</span></code><!-- /@w -->
+targets.
+</p>
+</dd>
+<dt><code>-mucb-mcount</code></dt>
+<dd><a name="index-mucb_002dmcount"></a>
+<p>Instrument with mcount calls as used in UCB code.  I.e. do the
+counting in the callee, not the caller.  By default ARC instrumentation
+counts in the caller.
+</p>
+</dd>
+<dt><code>-mvolatile-cache</code></dt>
+<dd><a name="index-mvolatile_002dcache"></a>
+<p>Use ordinarily cached memory accesses for volatile references.  This is the
+default.
+</p>
+</dd>
+<dt><code>-mno-volatile-cache</code></dt>
+<dd><a name="index-mno_002dvolatile_002dcache"></a>
+<p>Enable cache bypass for volatile references.
+</p>
+</dd>
+</dl>
+
+<p>The following options fine tune code generation:
+</p><dl compact="compact">
+<dt><code>-malign-call</code></dt>
+<dd><a name="index-malign_002dcall"></a>
+<p>Do alignment optimizations for call instructions.
+</p>
+</dd>
+<dt><code>-mauto-modify-reg</code></dt>
+<dd><a name="index-mauto_002dmodify_002dreg"></a>
+<p>Enable the use of pre/post modify with register displacement.
+</p>
+</dd>
+<dt><code>-mbbit-peephole</code></dt>
+<dd><a name="index-mbbit_002dpeephole"></a>
+<p>Enable bbit peephole2.
+</p>
+</dd>
+<dt><code>-mno-brcc</code></dt>
+<dd><a name="index-mno_002dbrcc"></a>
+<p>This option disables a target-specific pass in <samp>arc_reorg</samp> to
+generate <code>BRcc</code> instructions.  It has no effect on <code>BRcc</code>
+generation driven by the combiner pass.
+</p>
+</dd>
+<dt><code>-mcase-vector-pcrel</code></dt>
+<dd><a name="index-mcase_002dvector_002dpcrel"></a>
+<p>Use pc-relative switch case tables - this enables case table shortening.
+This is the default for <samp>-Os</samp>.
+</p>
+</dd>
+<dt><code>-mcompact-casesi</code></dt>
+<dd><a name="index-mcompact_002dcasesi"></a>
+<p>Enable compact casesi pattern.
+This is the default for <samp>-Os</samp>.
+</p>
+</dd>
+<dt><code>-mno-cond-exec</code></dt>
+<dd><a name="index-mno_002dcond_002dexec"></a>
+<p>Disable ARCompact specific pass to generate conditional execution instructions.
+Due to delay slot scheduling and interactions between operand numbers,
+literal sizes, instruction lengths, and the support for conditional execution,
+the target-independent pass to generate conditional execution is often lacking,
+so the ARC port has kept a special pass around that tries to find more
+conditional execution generating opportunities after register allocation,
+branch shortening, and delay slot scheduling have been done.  This pass
+generally, but not always, improves performance and code size, at the cost of
+extra compilation time, which is why there is an option to switch it off.
+If you have a problem with call instructions exceeding their allowable
+offset range because they are conditionalized, you should consider using
+<samp>-mmedium-calls</samp> instead.
+</p>
+</dd>
+<dt><code>-mearly-cbranchsi</code></dt>
+<dd><a name="index-mearly_002dcbranchsi"></a>
+<p>Enable pre-reload use of the cbranchsi pattern.
+</p>
+</dd>
+<dt><code>-mexpand-adddi</code></dt>
+<dd><a name="index-mexpand_002dadddi"></a>
+<p>Expand <code>adddi3</code> and <code>subdi3</code> at rtl generation time into
+<code>add.f</code>, <code>adc</code> etc.
+</p>
+</dd>
+<dt><code>-mindexed-loads</code></dt>
+<dd><a name="index-mindexed_002dloads"></a>
+<p>Enable the use of indexed loads.  This can be problematic because some
+optimizers will then assume the that indexed stores exist, which is not
+the case.
+</p>
+</dd>
+<dt><code>-mlra</code></dt>
+<dd><a name="index-mlra"></a>
+<p>Enable Local Register Allocation.  This is still experimental for ARC,
+so by default the compiler uses standard reload
+(i.e. &lsquo;<samp>-mno-lra</samp>&rsquo;).
+</p>
+</dd>
+<dt><code>-mlra-priority-none</code></dt>
+<dd><a name="index-mlra_002dpriority_002dnone"></a>
+<p>Don&rsquo;t indicate any priority for target registers.
+</p>
+</dd>
+<dt><code>-mlra-priority-compact</code></dt>
+<dd><a name="index-mlra_002dpriority_002dcompact"></a>
+<p>Indicate target register priority for r0..r3 / r12..r15.
+</p>
+</dd>
+<dt><code>-mlra-priority-noncompact</code></dt>
+<dd><a name="index-mlra_002dpriority_002dnoncompact"></a>
+<p>Reduce target regsiter priority for r0..r3 / r12..r15.
+</p>
+</dd>
+<dt><code>-mno-millicode</code></dt>
+<dd><a name="index-mno_002dmillicode"></a>
+<p>When optimizing for size (using <samp>-Os</samp>), prologues and epilogues
+that have to save or restore a large number of registers are often
+shortened by using call to a special function in libgcc; this is
+referred to as a <em>millicode</em> call.  As these calls can pose
+performance issues, and/or cause linking issues when linking in a
+nonstandard way, this option is provided to turn off millicode call
+generation.
+</p>
+</dd>
+<dt><code>-mmixed-code</code></dt>
+<dd><a name="index-mmixed_002dcode"></a>
+<p>Tweak register allocation to help 16-bit instruction generation.
+This generally has the effect of decreasing the average instruction size
+while increasing the instruction count.
+</p>
+</dd>
+<dt><code>-mq-class</code></dt>
+<dd><a name="index-mq_002dclass"></a>
+<p>Enable &rsquo;q&rsquo; instruction alternatives.
+This is the default for <samp>-Os</samp>.
+</p>
+</dd>
+<dt><code>-mRcq</code></dt>
+<dd><a name="index-mRcq"></a>
+<p>Enable Rcq constraint handling - most short code generation depends on this.
+This is the default.
+</p>
+</dd>
+<dt><code>-mRcw</code></dt>
+<dd><a name="index-mRcw"></a>
+<p>Enable Rcw constraint handling - ccfsm condexec mostly depends on this.
+This is the default.
+</p>
+</dd>
+<dt><code>-msize-level=<var>level</var></code></dt>
+<dd><a name="index-msize_002dlevel"></a>
+<p>Fine-tune size optimization with regards to instruction lengths and alignment.
+The recognized values for <var>level</var> are:
+</p><dl compact="compact">
+<dt>&lsquo;<samp>0</samp>&rsquo;</dt>
+<dd><p>No size optimization.  This level is deprecated and treated like &lsquo;<samp>1</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp>1</samp>&rsquo;</dt>
+<dd><p>Short instructions are used opportunistically.
+</p>
+</dd>
+<dt>&lsquo;<samp>2</samp>&rsquo;</dt>
+<dd><p>In addition, alignment of loops and of code after barriers are dropped.
+</p>
+</dd>
+<dt>&lsquo;<samp>3</samp>&rsquo;</dt>
+<dd><p>In addition, optional data alignment is dropped, and the option <samp>Os</samp> is enabled.
+</p>
+</dd>
+</dl>
+
+<p>This defaults to &lsquo;<samp>3</samp>&rsquo; when <samp>-Os</samp> is in effect.  Otherwise,
+the behavior when this is not set is equivalent to level &lsquo;<samp>1</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>-mtune=<var>cpu</var></code></dt>
+<dd><a name="index-mtune-1"></a>
+<p>Set instruction scheduling parameters for <var>cpu</var>, overriding any implied
+by <samp>-mcpu=</samp>.
+</p>
+<p>Supported values for <var>cpu</var> are
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>ARC600</samp>&rsquo;</dt>
+<dd><p>Tune for ARC600 cpu.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC601</samp>&rsquo;</dt>
+<dd><p>Tune for ARC601 cpu.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC700</samp>&rsquo;</dt>
+<dd><p>Tune for ARC700 cpu with standard multiplier block.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC700-xmac</samp>&rsquo;</dt>
+<dd><p>Tune for ARC700 cpu with XMAC block.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC725D</samp>&rsquo;</dt>
+<dd><p>Tune for ARC725D cpu.
+</p>
+</dd>
+<dt>&lsquo;<samp>ARC750D</samp>&rsquo;</dt>
+<dd><p>Tune for ARC750D cpu.
+</p>
+</dd>
+</dl>
+
+</dd>
+<dt><code>-mmultcost=<var>num</var></code></dt>
+<dd><a name="index-mmultcost"></a>
+<p>Cost to assume for a multiply instruction, with &lsquo;<samp>4</samp>&rsquo; being equal to a
+normal instruction.
+</p>
+</dd>
+<dt><code>-munalign-prob-threshold=<var>probability</var></code></dt>
+<dd><a name="index-munalign_002dprob_002dthreshold"></a>
+<p>Set probability threshold for unaligning branches.
+When tuning for &lsquo;<samp>ARC700</samp>&rsquo; and optimizing for speed, branches without
+filled delay slot are preferably emitted unaligned and long, unless
+profiling indicates that the probability for the branch to be taken
+is below <var>probability</var>.  See <a href="Cross_002dprofiling.html#Cross_002dprofiling">Cross-profiling</a>.
+The default is (REG_BR_PROB_BASE/2), i.e. 5000.
+</p>
+</dd>
+</dl>
+
+<p>The following options are maintained for backward compatibility, but
+are now deprecated and will be removed in a future release:
+</p>
+<dl compact="compact">
+<dt><code>-margonaut</code></dt>
+<dd><a name="index-margonaut"></a>
+<p>Obsolete FPX.
+</p>
+</dd>
+<dt><code>-mbig-endian</code></dt>
+<dd><a name="index-mbig_002dendian-1"></a>
+</dd>
+<dt><code>-EB</code></dt>
+<dd><a name="index-EB"></a>
+<p>Compile code for big endian targets.  Use of these options is now
+deprecated.  Users wanting big-endian code, should use the
+<code><span class="nolinebreak">arceb-elf32</span></code><!-- /@w --> and <code><span class="nolinebreak">arceb-linux-uclibc</span></code><!-- /@w --> targets when
+building the tool chain, for which big-endian is the default.
+</p>
+</dd>
+<dt><code>-mlittle-endian</code></dt>
+<dd><a name="index-mlittle_002dendian-1"></a>
+</dd>
+<dt><code>-EL</code></dt>
+<dd><a name="index-EL"></a>
+<p>Compile code for little endian targets.  Use of these options is now
+deprecated.  Users wanting little-endian code should use the
+<code><span class="nolinebreak">arc-elf32</span></code><!-- /@w --> and <code><span class="nolinebreak">arc-linux-uclibc</span></code><!-- /@w --> targets when
+building the tool chain, for which little-endian is the default.
+</p>
+</dd>
+<dt><code>-mbarrel_shifter</code></dt>
+<dd><a name="index-mbarrel_005fshifter"></a>
+<p>Replaced by &lsquo;<samp>-mbarrel-shifter</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mdpfp_compact</code></dt>
+<dd><a name="index-mdpfp_005fcompact"></a>
+<p>Replaced by &lsquo;<samp>-mdpfp-compact</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mdpfp_fast</code></dt>
+<dd><a name="index-mdpfp_005ffast"></a>
+<p>Replaced by &lsquo;<samp>-mdpfp-fast</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mdsp_packa</code></dt>
+<dd><a name="index-mdsp_005fpacka"></a>
+<p>Replaced by &lsquo;<samp>-mdsp-packa</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mEA</code></dt>
+<dd><a name="index-mEA"></a>
+<p>Replaced by &lsquo;<samp>-mea</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mmac_24</code></dt>
+<dd><a name="index-mmac_005f24"></a>
+<p>Replaced by &lsquo;<samp>-mmac-24</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mmac_d16</code></dt>
+<dd><a name="index-mmac_005fd16"></a>
+<p>Replaced by &lsquo;<samp>-mmac-d16</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mspfp_compact</code></dt>
+<dd><a name="index-mspfp_005fcompact"></a>
+<p>Replaced by &lsquo;<samp>-mspfp-compact</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mspfp_fast</code></dt>
+<dd><a name="index-mspfp_005ffast"></a>
+<p>Replaced by &lsquo;<samp>-mspfp-fast</samp>&rsquo;
+</p>
+</dd>
+<dt><code>-mtune=<var>cpu</var></code></dt>
+<dd><a name="index-mtune-2"></a>
+<p>Values &lsquo;<samp>arc600</samp>&rsquo;, &lsquo;<samp>arc601</samp>&rsquo;, &lsquo;<samp>arc700</samp>&rsquo; and
+&lsquo;<samp>arc700-xmac</samp>&rsquo; for <var>cpu</var> are replaced by &lsquo;<samp>ARC600</samp>&rsquo;,
+&lsquo;<samp>ARC601</samp>&rsquo;, &lsquo;<samp>ARC700</samp>&rsquo; and &lsquo;<samp>ARC700-xmac</samp>&rsquo; respectively
+</p>
+</dd>
+<dt><code>-multcost=<var>num</var></code></dt>
+<dd><a name="index-multcost"></a>
+<p>Replaced by &lsquo;<samp>-mmultcost</samp>&rsquo;.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="ARM-Options.html#ARM-Options" accesskey="n" rel="next">ARM Options</a>, Previous: <a href="Adapteva-Epiphany-Options.html#Adapteva-Epiphany-Options" accesskey="p" rel="prev">Adapteva Epiphany Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

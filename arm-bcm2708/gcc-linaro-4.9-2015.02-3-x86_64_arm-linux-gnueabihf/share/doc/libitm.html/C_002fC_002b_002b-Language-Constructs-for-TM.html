@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2011-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU libitm: C/C++ Language Constructs for TM</title>
+
+<meta name="description" content="GNU libitm: C/C++ Language Constructs for TM">
+<meta name="keywords" content="GNU libitm: C/C++ Language Constructs for TM">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Library-Index.html#Library-Index" rel="index" title="Library Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="The-libitm-ABI.html#The-libitm-ABI" rel="next" title="The libitm ABI">
+<link href="Enabling-libitm.html#Enabling-libitm" rel="prev" title="Enabling libitm">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="C_002fC_002b_002b-Language-Constructs-for-TM"></a>
+<div class="header">
+<p>
+Next: <a href="The-libitm-ABI.html#The-libitm-ABI" accesskey="n" rel="next">The libitm ABI</a>, Previous: <a href="Enabling-libitm.html#Enabling-libitm" accesskey="p" rel="prev">Enabling libitm</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Library-Index.html#Library-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="C_002fC_002b_002b-Language-Constructs-for-TM-1"></a>
+<h2 class="chapter">2 C/C++ Language Constructs for TM</h2>
+
+<p>Transactions are supported in C++ and C in the form of transaction statements,
+transaction expressions, and function transactions. In the following example,
+both <code>a</code> and <code>b</code> will be read and the difference will be written to
+<code>c</code>, all atomically and isolated from other transactions:
+</p>
+<div class="example">
+<pre class="example">__transaction_atomic { c = a - b; }
+</pre></div>
+
+<p>Therefore, another thread can use the following code to concurrently update
+<code>b</code> without ever causing <code>c</code> to hold a negative value (and without
+having to use other synchronization constructs such as locks or C++11
+atomics):
+</p>
+<div class="example">
+<pre class="example">__transaction_atomic { if (a &gt; b) b++; }
+</pre></div>
+
+<p>GCC follows the <a href="https://sites.google.com/site/tmforcplusplus/">Draft
+Specification of Transactional Language Constructs for C++ (v1.1)</a> in its
+implementation of transactions.
+</p>
+<p>The precise semantics of transactions are defined in terms of the C++11/C11
+memory model (see the specification). Roughly, transactions provide
+synchronization guarantees that are similar to what would be guaranteed when
+using a single global lock as a guard for all transactions. Note that like
+other synchronization constructs in C/C++, transactions rely on a
+data-race-free program (e.g., a nontransactional write that is concurrent
+with a transactional read to the same memory location is a data race).
+</p>
+
+
+
+
+</body>
+</html>

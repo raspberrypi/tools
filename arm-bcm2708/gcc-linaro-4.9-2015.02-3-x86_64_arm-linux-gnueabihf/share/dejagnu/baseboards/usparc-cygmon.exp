@@ -1,0 +1,67 @@
+# Copyright (C) 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004
+# 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+load_base_board_description "cygmon"
+
+set_board_info testcase_timeout 30
+
+proc ${board}_init { dest } {
+    global usparc_init_count
+    set shell_prompt [board_info $dest shell_prompt]
+
+    if {![info exists usparc_init_count]} {
+	set usparc_init_count 0
+    } else {
+	incr usparc_init_count
+	if { $usparc_init_count == 3 } {
+	    return -1
+	}
+
+    }
+    remote_close $dest
+    set shell_id [remote_open $dest]
+    if { $shell_id == "" || $shell_id < 0 } {
+	return [remote_reboot $dest]
+    } else {
+	remote_binary $dest
+	remote_send $dest "\n"
+	set got_one 0
+	remote_expect $dest 5 {
+	    -re "$shell_prompt" { set got_one 1; exp_continue }
+	    default {
+		if { ! $got_one } {
+		    remote_close $dest
+		    return [remote_reboot $dest]
+		}
+	    }
+	}
+    	remote_send $dest "m \[15\]1fff1001f00 32\n"
+	remote_expect $dest 5 {
+	    -re "$shell_prompt" {
+		unset usparc_init_count
+		remote_close $dest
+		return 0
+	    }
+	    default {
+		remote_close $dest
+		return [remote_reboot $dest]
+	    }
+	}
+    }
+}

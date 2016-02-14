@@ -1,0 +1,67 @@
+# Copyright (C) 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004
+# 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+# This is a list of toolchains that are supported on this board.
+set_board_info target_install {mips-tx39-elf mips-elf}
+
+# Load the generic configuration for this board. This will define a basic
+# set of routines needed by the tool to communicate with the board.
+if { [board_info $board cygmon] == "yes" } {
+    load_generic_config "cygmon"
+} else {
+    load_generic_config "dve"
+}
+
+# It's a big-endian board.
+process_multilib_options "big-endian"
+
+# We only support newlib on this target. We assume that all multilib
+# options have been specified before we get here.
+set_board_info compiler "[find_gcc]"
+set_board_info cflags "[libgloss_include_flags] [newlib_include_flags]"
+set_board_info ldflags "[libgloss_link_flags] [newlib_link_flags]"
+# DDB linker script.
+set_board_info ldscript "-Tdve.ld"
+
+# GDB doesn't return exit statuses and we need to indicate this;
+# the standard GCC wrapper will work with this target.
+set_board_info needs_status_wrapper 1
+
+# The GDB protocol used with this board.
+if { [board_info $board cygmon] == "yes" } {
+    set_board_info gdb_protocol "remote"
+} else {
+    set_board_info gdb_protocol "r3900"
+}
+
+# This is needed for compiling nullstone.
+set_board_info nullstone,lib "mips-clock.c"
+set_board_info nullstone,ticks_per_sec 3782018
+
+# Sometimes the board gets into a state where it always generates SIGFPE.
+#set_board_info unreliable 1
+
+# Can't pass arguments to the program.
+set_board_info noargs 1
+
+# No support for signals.
+set_board_info gdb,nosignals 1
+
+# We need to clear the floating-point status register before running.
+#set_board_info gdb_init_command "print/x \$fsr = 0x0"

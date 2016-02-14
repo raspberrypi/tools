@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents the GNU linker LD
+(Linaro GDB 2015.02-3)
+version 2.24.51.
+
+Copyright (C) 1991-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>LD: i960</title>
+
+<meta name="description" content="LD: i960">
+<meta name="keywords" content="LD: i960">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="LD-Index.html#LD-Index" rel="index" title="LD Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Machine-Dependent.html#Machine-Dependent" rel="up" title="Machine Dependent">
+<link href="M68HC11_002f68HC12.html#M68HC11_002f68HC12" rel="next" title="M68HC11/68HC12">
+<link href="H8_002f300.html#H8_002f300" rel="prev" title="H8/300">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="i960"></a>
+<div class="header">
+<p>
+Next: <a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12" accesskey="n" rel="next">M68HC11/68HC12</a>, Previous: <a href="H8_002f300.html#H8_002f300" accesskey="p" rel="prev">H8/300</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="ld-and-the-Intel-960-Family"></a>
+<h3 class="section">4.2 <code>ld</code> and the Intel 960 Family</h3>
+
+<a name="index-i960-support"></a>
+
+<p>You can use the &lsquo;<samp>-A<var>architecture</var></samp>&rsquo; command line option to
+specify one of the two-letter names identifying members of the 960
+family; the option specifies the desired output target, and warns of any
+incompatible instructions in the input files.  It also modifies the
+linker&rsquo;s search strategy for archive libraries, to support the use of
+libraries specific to each particular architecture, by including in the
+search loop names suffixed with the string identifying the architecture.
+</p>
+<p>For example, if your <code>ld</code> command line included &lsquo;<samp><span class="nolinebreak">-ACA</span></samp>&rsquo;<!-- /@w --> as
+well as &lsquo;<samp><span class="nolinebreak">-ltry</span></samp>&rsquo;<!-- /@w -->, the linker would look (in its built-in search
+paths, and in any paths you specify with &lsquo;<samp>-L</samp>&rsquo;) for a library with
+the names
+</p>
+<div class="smallexample">
+<pre class="smallexample">try
+libtry.a
+tryca
+libtryca.a
+</pre></div>
+
+<p>The first two possibilities would be considered in any event; the last
+two are due to the use of &lsquo;<samp><span class="nolinebreak">-ACA</span></samp>&rsquo;<!-- /@w -->.
+</p>
+<p>You can meaningfully use &lsquo;<samp>-A</samp>&rsquo; more than once on a command line, since
+the 960 architecture family allows combination of target architectures; each
+use will add another pair of name variants to search for when &lsquo;<samp><span class="nolinebreak">-l</span></samp>&rsquo;<!-- /@w -->
+specifies a library.
+</p>
+<a name="index-_002d_002drelax-on-i960"></a>
+<a name="index-relaxing-on-i960"></a>
+<p><code>ld</code> supports the &lsquo;<samp>--relax</samp>&rsquo; option for the i960 family.  If
+you specify &lsquo;<samp>--relax</samp>&rsquo;, <code>ld</code> finds all <code>balx</code> and
+<code>calx</code> instructions whose targets are within 24 bits, and turns
+them into 24-bit program-counter relative <code>bal</code> and <code>cal</code>
+instructions, respectively.  <code>ld</code> also turns <code>cal</code>
+instructions into <code>bal</code> instructions when it determines that the
+target subroutine is a leaf routine (that is, the target subroutine does
+not itself call any subroutines).
+</p>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12" accesskey="n" rel="next">M68HC11/68HC12</a>, Previous: <a href="H8_002f300.html#H8_002f300" accesskey="p" rel="prev">H8/300</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

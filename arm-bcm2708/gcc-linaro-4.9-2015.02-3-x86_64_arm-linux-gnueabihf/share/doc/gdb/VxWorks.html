@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Free Software" and "Free Software Needs
+Free Documentation", with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.
+
+(a) The FSF's Back-Cover Text is: "You are free to copy and modify
+this GNU Manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom." -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Debugging with GDB: VxWorks</title>
+
+<meta name="description" content="Debugging with GDB: VxWorks">
+<meta name="keywords" content="Debugging with GDB: VxWorks">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Embedded-OS.html#Embedded-OS" rel="up" title="Embedded OS">
+<link href="VxWorks-Connection.html#VxWorks-Connection" rel="next" title="VxWorks Connection">
+<link href="Embedded-OS.html#Embedded-OS" rel="prev" title="Embedded OS">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="VxWorks"></a>
+<div class="header">
+<p>
+Up: <a href="Embedded-OS.html#Embedded-OS" accesskey="u" rel="up">Embedded OS</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Using-GDB-with-VxWorks"></a>
+<h4 class="subsection">21.2.1 Using <small>GDB</small> with VxWorks</h4>
+
+<a name="index-VxWorks"></a>
+
+<dl compact="compact">
+<dd>
+<a name="index-target-vxworks"></a>
+</dd>
+<dt><code>target vxworks <var>machinename</var></code></dt>
+<dd><p>A VxWorks system, attached via TCP/IP.  The argument <var>machinename</var>
+is the target system&rsquo;s machine name or IP address.
+</p>
+</dd>
+</dl>
+
+<p>On VxWorks, <code>load</code> links <var>filename</var> dynamically on the
+current target system as well as adding its symbols in <small>GDB</small>.
+</p>
+<p><small>GDB</small> enables developers to spawn and debug tasks running on networked
+VxWorks targets from a Unix host.  Already-running tasks spawned from
+the VxWorks shell can also be debugged.  <small>GDB</small> uses code that runs on
+both the Unix host and on the VxWorks target.  The program
+<code>gdb</code> is installed and executed on the Unix host.  (It may be
+installed with the name <code>vxgdb</code>, to distinguish it from a
+<small>GDB</small> for debugging programs on the host itself.)
+</p>
+<dl compact="compact">
+<dt><code>VxWorks-timeout <var>args</var></code></dt>
+<dd><a name="index-vxworks_002dtimeout"></a>
+<p>All VxWorks-based targets now support the option <code>vxworks-timeout</code>.
+This option is set by the user, and <var>args</var> represents the number of
+seconds <small>GDB</small> waits for responses to rpc&rsquo;s.  You might use this if
+your VxWorks target is a slow software simulator or is on the far side
+of a thin network line.
+</p></dd>
+</dl>
+
+<p>The following information on connecting to VxWorks was current when
+this manual was produced; newer releases of VxWorks may use revised
+procedures.
+</p>
+<a name="index-INCLUDE_005fRDB"></a>
+<p>To use <small>GDB</small> with VxWorks, you must rebuild your VxWorks kernel
+to include the remote debugging interface routines in the VxWorks
+library <samp>rdb.a</samp>.  To do this, define <code>INCLUDE_RDB</code> in the
+VxWorks configuration file <samp>configAll.h</samp> and rebuild your VxWorks
+kernel.  The resulting kernel contains <samp>rdb.a</samp>, and spawns the
+source debugging task <code>tRdbTask</code> when VxWorks is booted.  For more
+information on configuring and remaking VxWorks, see the manufacturer&rsquo;s
+manual.
+</p>
+<p>Once you have included <samp>rdb.a</samp> in your VxWorks system image and set
+your Unix execution search path to find <small>GDB</small>, you are ready to
+run <small>GDB</small>.  From your Unix host, run <code>gdb</code> (or
+<code>vxgdb</code>, depending on your installation).
+</p>
+<p><small>GDB</small> comes up showing the prompt:
+</p>
+<div class="smallexample">
+<pre class="smallexample">(vxgdb)
+</pre></div>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="VxWorks-Connection.html#VxWorks-Connection" accesskey="1">VxWorks Connection</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Connecting to VxWorks
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="VxWorks-Download.html#VxWorks-Download" accesskey="2">VxWorks Download</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">VxWorks download
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="VxWorks-Attach.html#VxWorks-Attach" accesskey="3">VxWorks Attach</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Running tasks
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Up: <a href="Embedded-OS.html#Embedded-OS" accesskey="u" rel="up">Embedded OS</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

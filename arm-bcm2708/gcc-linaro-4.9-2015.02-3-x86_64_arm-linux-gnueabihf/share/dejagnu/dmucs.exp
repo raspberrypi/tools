@@ -1,0 +1,60 @@
+# Copyright (C) 2014 Free Software Foundation, Inc.
+#
+# This file is part of DejaGnu.
+#
+# DejaGnu is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# DejaGnu is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with DejaGnu; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+# This file requires a slightly modified dmucs, which has been modified
+# to support mutiple architectures for toolchain testing. Dmucs sends
+# the cpu load to a server, which we can query using the 'gethost' command
+# to get the next available slave for a remote test based on which one is
+# the less busy. The code for this enhanced dmuc is at:
+# http://git.linaro.org/git/toolchain/dmucs.git
+#
+
+proc gethost { server arch } {
+    
+    if {"$server" == ""} {
+	set server "localhost";
+    }
+    set slave ""
+    # gethost in debug mode returns this output:
+    #
+    # Writing -->host 127.0.1.1 <-- to the server
+    # Calling Sgets
+    # Got -->10.6.1.24<-- from the server
+    # tmp is -->DISTCC_HOSTS=10.6.1.24/100<--
+    # --node and --arch are unique to the linaro branch of dmucs
+    spawn gethost -s $server --node --arch $arch
+    expect {
+	# We only get this string when gethost is run in debug mode
+	"Got -->*<-- from the server" {
+	    puts "FIXME: $expect_out(buffer)"
+	}
+	# This is the IP number we want.
+	"^\[0-9\]*.\[0-9\]*.\[0-9\]*.\[0-9\]*" {
+	    set pos [expr { [string first "/"  $expect_out(buffer)] - 1}]
+	    set slave [string range $expect_out(buffer) 0 $pos]
+	}
+	timeout {
+	    perror "gethost command failed!"
+	}
+	eof {
+	    perror "dmucs failure! Can't connect to dmcus server!"
+	}
+    }
+    return "$slave"
+}
