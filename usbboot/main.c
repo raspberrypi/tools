@@ -6,6 +6,8 @@
 #include <unistd.h>
 
 int verbose = 0;
+int out_ep = 1;
+int in_ep = 2;
 
 void usage(int error)
 {
@@ -28,35 +30,105 @@ void usage(int error)
 	exit(-1);
 }
 
+libusb_device_handle * LIBUSB_CALL open_device_with_vid(
+	libusb_context *ctx, uint16_t vendor_id)
+{
+	struct libusb_device **devs;
+	struct libusb_device *found = NULL;
+	struct libusb_device *dev;
+	struct libusb_device_handle *handle = NULL;
+	size_t i = 0;
+	int r;
+
+	if (libusb_get_device_list(ctx, &devs) < 0)
+		return NULL;
+
+	while ((dev = devs[i++]) != NULL) {
+		struct libusb_device_descriptor desc;
+		r = libusb_get_device_descriptor(dev, &desc);
+		if (r < 0)
+			goto out;
+		if(verbose)
+			printf("Found device %d idVendor=0x%04x idProduct=0x%04x\n", i, desc.idVendor, desc.idProduct);
+		if (desc.idVendor == vendor_id) {
+			if(desc.idProduct == 0x2763 ||
+			   desc.idProduct == 0x2764)
+			{
+				if(verbose) printf("Device located successfully\n");
+				found = dev;
+				break;
+			}
+		}
+	}
+
+	if (found) {
+		r = libusb_open(found, &handle);
+		if (r < 0)
+		{
+			if(verbose) printf("Failed to open the requested device\n");
+			handle = NULL;
+		}
+	}
+
+out:
+	libusb_free_device_list(devs, 1);
+	return handle;
+
+}
 
 int Initialize_Device(libusb_context ** ctx, libusb_device_handle ** usb_device)
 {
 	int ret = 0;
+	int interface;
+	struct libusb_config_descriptor *config;
 
-	*usb_device = libusb_open_device_with_vid_pid(*ctx, 0x0a5c, 0x2763);
+	*usb_device = open_device_with_vid(*ctx, 0x0a5c);
 	if (*usb_device == NULL)
 	{
 		return -1;
 	}
 
-	ret = libusb_claim_interface(*usb_device, 0);
+	libusb_get_active_config_descriptor(libusb_get_device(*usb_device), &config);
+
+	if(config->bNumInterfaces == 1)
+	{
+		interface = 0;
+		out_ep = 1;
+		in_ep = 2;
+	}
+	else
+	{
+		interface = 1;
+		out_ep = 3;
+		in_ep = 4;
+	}
+
+	ret = libusb_claim_interface(*usb_device, interface);
 	if (ret)
 	{
 		printf("Failed to claim interface\n");
 		return ret;
 	}
 
+	printf("Initialised device correctly\n");
+
 	return ret;
 }
 
 int ep_write(unsigned char *buf, int len, libusb_device_handle * usb_device)
 {
+	int a_len;
 	int ret =
 	    libusb_control_transfer(usb_device, LIBUSB_REQUEST_TYPE_VENDOR, 0,
 				    len & 0xffff, len >> 16, NULL, 0, 1000);
-	int a_len;
 
-	ret = libusb_bulk_transfer(usb_device, 0x01, buf, len, &a_len, 100000);
+	if(ret != 0)
+	{
+		printf("Failed control transfer\n");
+		return ret;
+	}
+
+	ret = libusb_bulk_transfer(usb_device, out_ep, buf, len, &a_len, 100000);
 	if(verbose)
 		printf("libusb_bulk_transfer returned %d\n", ret);
 
@@ -187,12 +259,13 @@ int main(int argc, char *argv[])
 		exit(-1);
 	}
 
-	libusb_set_debug(ctx, 0);
+	libusb_set_debug(ctx, verbose ? LIBUSB_LOG_LEVEL_WARNING : 0);
 
 	do
 	{
 		FILE *fp_img = NULL;
 		struct libusb_device_descriptor desc;
+		struct libusb_config_descriptor *config;
 
 		printf("Waiting for BCM2835 ...\n");
 
@@ -204,12 +277,15 @@ int main(int argc, char *argv[])
 			{
 				libusb_get_device_descriptor(libusb_get_device
 								 (usb_device), &desc);
+				printf("Found serial number %d\n", desc.iSerialNumber);
 				// Make sure we've re-enumerated since the last time
 				if(desc.iSerialNumber == last_serial)
 				{
 					result = -1;
 					libusb_close(usb_device);
 				}			
+
+				libusb_get_active_config_descriptor(libusb_get_device(usb_device), &config);
 			}
 
 			if (result)
@@ -275,13 +351,14 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 
+		sleep(1);
 		size =
 		    ep_read((unsigned char *)&retcode, sizeof(retcode),
 			    usb_device);
 
 		if (retcode == 0)
 		{
-			if(verbose) printf("Successful\n");
+			printf("Successful read %d bytes \n", size);
 
 			if(fp == fp2 && executable)
 			{
@@ -292,6 +369,7 @@ int main(int argc, char *argv[])
 			printf("Failed : 0x%x", retcode);
 
 		libusb_close(usb_device);
+		sleep(1);
 	}
 	while(fp == fp1 || loop);
 
