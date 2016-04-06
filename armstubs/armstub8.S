@@ -92,7 +92,7 @@ in_el2:
 	and x6, x6, #0x3
 	cbz x6, primary_cpu
 
-	adr x5, spin_table - 8
+	adr x5, spin_table
 secondary_spin:
 	wfe
 	ldr x4, [x5, x6, lsl #3]
@@ -101,7 +101,7 @@ secondary_spin:
 	b boot_kernel
 
 primary_cpu:
-	adr x4, kernel_entry
+	ldr x4, kernel_entry
 	ldr x0, dtb_ptr
 
 boot_kernel:
@@ -112,9 +112,15 @@ boot_kernel:
 
 .ltorg
 
-.org 0xe0
+.org 0xd0
+.globl kernel_entry
+kernel_entry:
+	.quad 0x8000
+
+.org 0xd8
 .globl spin_table
 spin_table:
+	.quad 0 // CPU 0 @ 0xd8
 	.quad 0 // CPU 1 @ 0xe0
 	.quad 0 // CPU 2 @ 0xe8
 	.quad 0 // CPU 3 @ 0xf0
@@ -127,6 +133,3 @@ dtb_ptr:
 .org 0x100
 .globl dtb_space
 dtb_space:
-
-.org 0x8000
-kernel_entry:
