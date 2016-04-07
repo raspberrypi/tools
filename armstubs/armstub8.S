@@ -29,7 +29,10 @@
 
 #define BIT(x) (1 << (x))
 
-#define OSC_FREQ		1000000
+#define LOCAL_CONTROL		0x40000000
+#define LOCAL_PRESCALER		0x40000008
+
+#define OSC_FREQ		19200000
 
 #define SCR_RW			BIT(10)
 #define SCR_HCE			BIT(8)
@@ -53,6 +56,17 @@
 
 .globl _start
 _start:
+	/*
+	 * LOCAL_CONTROL:
+	 * Bit 9 clear: Increment by 1 (vs. 2).
+	 * Bit 8 clear: Timer source is 19.2MHz crystal (vs. APB).
+	 */
+	mov x0, LOCAL_CONTROL
+	str wzr, [x0]
+	/* LOCAL_PRESCALER; divide-by (0x80000000 / register_val) == 1 */
+	mov w1, 0x80000000
+	str w1, [x0, #(LOCAL_PRESCALER - LOCAL_CONTROL)]
+
 	/* Set up CNTFRQ_EL0 */
 	ldr x0, =OSC_FREQ
 	msr CNTFRQ_EL0, x0
