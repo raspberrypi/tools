@@ -30,7 +30,7 @@ clean :
 	$(LD) --section-start=.init=0 $< -o $@
 
 %8.elf: %8.o
-	$(LD8) --section-start=.init=0 $< -o $@
+	$(LD8) --section-start=.text=0 $< -o $@
 
 %.tmp: %.elf
 	$(OBJCOPY) $< -O binary $@
