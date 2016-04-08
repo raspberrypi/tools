@@ -29,21 +29,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .globl _start
 /* the vector table */
 _start:
-	b jmp_loader 	/* reset */
-	mov r0, r0
-	mov r0, r0
-	mov r0, r0
-	mov r0, r0
-	mov r0, r0
-	mov r0, r0
-	mov r0, r0
-
-jmp_loader:
 	mov	r0, #0
-	mov	r1, #0x42
-	orr	r1, r1, #0xC, 24
+	ldr	r1, machid
 	ldr	r2, atags
-	ldr	pc, start
-atags:	.word	0x100
-start:	.word	0x8000
+	ldr	pc, kernel
 
+machid:	.word 3138
+
+.org 0xf0
+.word 0x5afe570b	@ magic value to indicate firmware should overwrite atags and kernel
+.word 0			@ version
+atags:	.word 0x100	@ device tree address
+kernel:	.word 0x8000	@ kernel start address

@@ -25,12 +25,6 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#define HYP_MODE        0x1a
-#define T_BIT           0x20
-#define F_BIT           0x40
-#define I_BIT           0x80
-#define A_BIT           0x100
-
 .arch_extension sec
 .arch_extension virt
 
@@ -39,13 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* the vector table for secure state and HYP mode */
 _start:
 	b jmp_loader 	/* reset */
-	.word 0 /* undef */
-	adr pc, _secure_monitor
-	.word 0
-	.word 0
-atags:	.word 0x100 /* Reserved */
-value:	.word 0x63fff /* irq will be overwritten later */
-osc:	.word 19200000 /* fiq will be overwritten later */
+osc:	.word 19200000
 
 /*
  * secure monitor handler
@@ -55,21 +43,16 @@ osc:	.word 19200000 /* fiq will be overwritten later */
  * We use only r0 and r1 here, due to constraints in the caller.
  */
 _secure_monitor:
-	mrc	p15, 0, r1, c1, c1, 0		@ read SCR
-	bic	r1, r1, #0x4e			@ clear IRQ, FIQ, EA, nET bits
-	orr	r1, r1, #0x31			@ enable NS, AW, FW bits
-	orr	r1, r1, #0x100			@ allow HVC instruction
-
+	movw	r1, #0x131			@ set NS, AW, FW, HVC
 	mcr	p15, 0, r1, c1, c1, 0		@ write SCR (with NS bit set)
 
-	mov     r0, #(F_BIT | I_BIT | A_BIT)    @ Set A, I and F
-	orr     r0, r0, #HYP_MODE               @ Slot target mode in
+	movw	r0, #0x1da			@ Set HYP_MODE | F_BIT | I_BIT | A_BIT
 	msr     spsr_cxfs, r0                   @ Set full SPSR
-
-	@ Reset CNTVOFF to 0 before leaving monitor mode
-	mov	r0, #0
-	mcrr	p15, 4, r0, r0, c14		@ Reset CNTVOFF to zero
 	movs	pc, lr				@ return to non-secure SVC
+
+value:	.word 0x63fff
+machid:	.word 3138
+mbox: 	.word 0x4000008C
 
 jmp_loader:
 @ Check which proc we are and run proc 0 only
@@ -107,7 +90,7 @@ jmp_loader:
 
 	mcr	p15, 0, ip, c12, c0, 0		@ write non-secure copy of VBAR
 
-	mov	r4, #0x8000
+	ldr	r4, kernel			@ kernel address to execute from
 	mrc     p15, 0, r0, c0, c0, 5
 	ubfx    r0, r0, #0, #2
 	cmp     r0, #0                          @ primary core
@@ -119,7 +102,7 @@ jmp_loader:
 	tst	r5, #0xff                       @ enabled cores
 	beq	10f
 
-	ldr	r5, =0x4000008C		@ mbox
+	ldr	r5, mbox		@ mbox
 	mov	r3, #0			@ magic
 	str	r3, [r5, r0, lsl #4]
 
@@ -132,9 +115,15 @@ jmp_loader:
 	str	r4, [r5, r0, lsl #4]
 9:
 	mov	r0, #0
-	ldr	r1, =3138		@ BCM2708 machine id
+	ldr	r1, machid		@ BCM2708 machine id
 	ldr	r2, atags		@ ATAGS
 	bx	r4
 10:
 	wfi
 	b	10b
+
+.org 0xf0
+.word 0x5afe570b	@ magic value to indicate firmware should overwrite atags and kernel
+.word 0			@ version
+atags:	.word 0x100	@ device tree address
+kernel:	.word 0x8000	@ kernel start address
