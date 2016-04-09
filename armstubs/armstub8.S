@@ -106,7 +106,7 @@ in_el2:
 	and x6, x6, #0x3
 	cbz x6, primary_cpu
 
-	adr x5, spin_table
+	adr x5, spin_cpu0
 secondary_spin:
 	wfe
 	ldr x4, [x5, x6, lsl #3]
@@ -115,8 +115,8 @@ secondary_spin:
 	b boot_kernel
 
 primary_cpu:
-	ldr x4, kernel_entry
-	ldr x0, dtb_ptr
+	ldr w4, kernel_entry32
+	ldr w0, dtb_ptr32
 
 boot_kernel:
 	mov x1, #0
@@ -126,23 +126,40 @@ boot_kernel:
 
 .ltorg
 
-.org 0xd0
-.globl kernel_entry
-kernel_entry:
-	.quad 0x8000
-
 .org 0xd8
-.globl spin_table
-spin_table:
-	.quad 0 // CPU 0 @ 0xd8
-	.quad 0 // CPU 1 @ 0xe0
-	.quad 0 // CPU 2 @ 0xe8
-	.quad 0 // CPU 3 @ 0xf0
-
+.globl spin_cpu0
+spin_cpu0:
+	.quad 0
+.org 0xe0
+.globl spin_cpu1
+spin_cpu1:
+	.quad 0
+.org 0xe8
+.globl spin_cpu2
+spin_cpu2:
+	.quad 0
+.org 0xf0
+.globl spin_cpu3
+spin_cpu3:
+	# Shared with next two symbols/.word
+	# FW clears the next 8 bytes after reading the initial value, leaving
+	# the location suitable for use as spin_cpu3
+.org 0xf0
+.globl stub_magic
+stub_magic:
+	.word 0x5afe570b
+.org 0xf4
+.globl stub_version
+stub_version:
+	.word 0
 .org 0xf8
-.globl dtb_ptr
-dtb_ptr:
-	.quad 0x100
+.globl dtb_ptr32
+dtb_ptr32:
+	.word 0x100
+.org 0xfc
+.globl kernel_entry32
+kernel_entry32:
+	.word 0x8000
 
 .org 0x100
 .globl dtb_space
