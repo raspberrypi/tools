@@ -39,5 +39,5 @@ machid:	.word 3138
 .org 0xf0
 .word 0x5afe570b	@ magic value to indicate firmware should overwrite atags and kernel
 .word 0			@ version
-atags:	.word 0x100	@ device tree address
-kernel:	.word 0x8000	@ kernel start address
+atags:	.word 0x0	@ device tree address
+kernel:	.word 0x0	@ kernel start address

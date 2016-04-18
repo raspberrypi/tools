@@ -155,11 +155,11 @@ stub_version:
 .org 0xf8
 .globl dtb_ptr32
 dtb_ptr32:
-	.word 0x100
+	.word 0x0
 .org 0xfc
 .globl kernel_entry32
 kernel_entry32:
-	.word 0x8000
+	.word 0x0
 
 .org 0x100
 .globl dtb_space
