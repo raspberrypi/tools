@@ -1,0 +1,6 @@
+The mkknlimg and knlinfo utilities are now found in the scripts directory
+of the Linux tree, where they are covered by the kernel licence.
+
+Note also that the firmware shipped with 4.4 kernels now assumes the kernel
+is Device Tree-capable unless there is a trailer to say otherwise, meaning
+that these tools aren't needed for most situations.
