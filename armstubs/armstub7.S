@@ -104,7 +104,6 @@ jmp_loader:
 
 	ldr	r5, mbox		@ mbox
 	mov	r3, #0			@ magic
-	str	r3, [r5, r0, lsl #4]
 
 	add	r5, #(0x400000CC-0x4000008C)	@ mbox
 1:
