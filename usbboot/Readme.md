@@ -44,6 +44,7 @@ Patch with Pi patches (requires raspberrypi/tools from above)
 ```
 cd buildroot
 patch -p1 < ../tools/usbboot/buildroot.patch
+chmod +x board/raspberrypi/usb_test/post_build.sh
 make raspberrypi_defconfig
 make
 ```
