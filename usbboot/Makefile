@@ -1,5 +1,5 @@
 rpiboot: main.c
-	$(CC) -g -o $@ $< -lusb-1.0
+	$(CC) -g $(CFLAGS) -o $@ $< -lusb-1.0 $(LDFLAGS)
 
 install: rpiboot
 	cp rpiboot /usr/bin
