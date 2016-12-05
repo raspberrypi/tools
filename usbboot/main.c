@@ -1,9 +1,11 @@
-#include "libusb-1.0/libusb.h"
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <libgen.h>
 #include <unistd.h>
+
+#include "libusb-1.0/libusb.h"
 
 int verbose = 0;
 int out_ep = 1;
@@ -146,6 +148,37 @@ int ep_read(unsigned char *buf, int len, libusb_device_handle * usb_device)
 	return len;
 }
 
+char *getfilepath(char *filename)
+{
+	char *progpath, *filepath, *progdir;
+	ssize_t len;
+
+	/* If file is available locally, use it */
+	if (access(filename, F_OK) != -1)
+		return filename;
+
+	/* Otherwise, use the installed version */
+	progpath = malloc(PATH_MAX);
+	len = readlink("/proc/self/exe", progpath, PATH_MAX - 1);
+	if (len == -1)
+	{
+		free(progpath);
+		return NULL;
+	}
+
+	progpath[len] = '\0';
+	progdir = dirname(progpath);
+	if (asprintf(&filepath, "%s/../share/rpiboot/%s", progdir, filename) < 0)
+	{
+		free(progpath);
+		return NULL;
+	}
+
+	free(progpath);
+
+	return filepath;
+}
+
 int main(int argc, char *argv[])
 {
 	int result;
@@ -157,13 +190,9 @@ int main(int argc, char *argv[])
 	int last_serial = -1;
 	FILE *fp1, *fp2, *fp;
 
-	char def1_inst[] = "/usr/share/rpiboot/usbbootcode.bin";
-	char def2_inst[] = "/usr/share/rpiboot/msd.elf";
-	char def3_inst[] = "/usr/share/rpiboot/buildroot.elf";
-
-	char def1_loc[] = "./usbbootcode.bin";
-	char def2_loc[] = "./msd.elf";
-	char def3_loc[] = "./buildroot.elf";
+	char def1_name[] = "usbbootcode.bin";
+	char def2_name[] = "msd.elf";
+	char def3_name[] = "buildroot.elf";
 
 	char *def1, *def2, *def3;
 
@@ -171,10 +200,16 @@ int main(int argc, char *argv[])
 	char *fatimage = NULL, *executable = NULL;
 	int loop       = 0;
 
-// if local file version exists use it else use installed
-	if( access( def1_loc, F_OK ) != -1 ) { def1 = def1_loc; } else { def1 = def1_inst; }
-	if( access( def2_loc, F_OK ) != -1 ) { def2 = def2_loc; } else { def2 = def2_inst; }
-	if( access( def3_loc, F_OK ) != -1 ) { def3 = def3_loc; } else { def3 = def3_inst; }
+	def1 = getfilepath(def1_name);
+	def2 = getfilepath(def2_name);
+	def3 = getfilepath(def3_name);
+
+	if (!def1 || !def2 || !def3)
+	{
+		fprintf(stderr, "One of %s, %s or %s cannot be found\n",
+			def1_name, def2_name, def3_name);
+		exit(1);
+	}
 
 	stage1   = def1;
 	stage2   = def2;
