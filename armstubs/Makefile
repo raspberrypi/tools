@@ -17,35 +17,35 @@ all : $(BINS)
 clean :
 	rm -f *.o *.out *.tmp *.bin *.ds *.C armstubs.h bin2c *~
 
-%.o: %.S
-	$(CC) -DBCM2710=0 -c $< -o $@
-
 %8.o: %8.S
 	$(CC8) -c $< -o $@
 
 %8-32.o: %7.S
 	$(CC) -DBCM2710=1 -c $< -o $@
 
-%.elf: %.o
-	$(LD) --section-start=.init=0 $< -o $@
+%.o: %.S
+	$(CC) -DBCM2710=0 -c $< -o $@
 
 %8.elf: %8.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
+%.elf: %.o
+	$(LD) --section-start=.init=0 $< -o $@
+%8.tmp: %8.elf
+	$(OBJCOPY8) $< -O binary $@
+
 %.tmp: %.elf
 	$(OBJCOPY) $< -O binary $@
 
-%8.tmp: %8.elf
-	$(OBJCOPY8) $< -O binary $@
 
 %.bin: %.tmp
 	dd if=$< ibs=256 count=1 of=$@ conv=sync
 
-%.ds: %.bin
-	$(OBJDUMP) -D --target binary $< > $@
-
 %8.ds: %8.bin
 	$(OBJDUMP8) -D --target binary $< > $@
+
+%.ds: %.bin
+	$(OBJDUMP) -D --target binary $< > $@
 
 %.C: %.bin bin2c
 	$(BIN2C) $< > $@
