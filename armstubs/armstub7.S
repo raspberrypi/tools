@@ -107,6 +107,7 @@ jmp_loader:
 
 	add	r5, #(0x400000CC-0x4000008C)	@ mbox
 1:
+	wfe
 	ldr	r4, [r5, r0, lsl #4]
 	cmp	r4, r3
 	beq	1b
