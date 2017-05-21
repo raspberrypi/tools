@@ -1,45 +1,67 @@
 #!/usr/bin/env python2
 
 import os
+import os.path
 import re
+import shutil
 import sys
 
-try:
-   kernel_image = sys.argv[1]
-except:
-   kernel_image = ""
+app = sys.argv.pop(0)
+appdir = os.path.dirname(app)
 
-if kernel_image == "":
-  print("usage : imagetool-uncompressed.py <kernel image>");
-  sys.exit(0)
-   
-re_line = re.compile(r"0x(?P<value>[0-9a-f]{8})")
+bootloader_fn = os.path.join(appdir, "boot-uncompressed.txt")
+atags_fn = os.path.join(appdir, "args-uncompressed.txt")
+
+if len(sys.argv) < 1:
+    print >>sys.stderr, "usage: imagetool-uncompressed.py kernel [image]";
+    sys.exit(1)
+
+kernel_fn = sys.argv.pop(0)
+if len(sys.argv):
+    image_fn = sys.argv.pop(0)
+else:
+    image_fn = "kernel.img"
 
 mem = [0 for i in range(32768)]
 
 def load_to_mem(name, addr):
    f = open(name)
 
+   line = 0
    for l in f.readlines():
-      m = re_line.match(l)
+      line = line + 1
+      try:
+         semi = l.index(";")
+         l = l[:semi]
+      except:
+         pass
 
-      if m:
-         value = int(m.group("value"), 16)
+      l = l.strip()
+      if not l:
+         continue
 
-         for i in range(4):
-            mem[addr] = int(value >> i * 8 & 0xff)
-            addr += 1
+      try:
+         value = int(l, 16)
+      except:
+         print >>sys.stderr, name + ":" + str(line) + ": syntax error"
+         sys.exit(1)
+
+      for i in range(4):
+         mem[addr] = int(value >> i * 8 & 0xff)
+         addr += 1
 
    f.close()
 
-load_to_mem("boot-uncompressed.txt", 0x00000000)
-load_to_mem("args-uncompressed.txt", 0x00000100)
+load_to_mem(bootloader_fn, 0x00000000)
+load_to_mem(atags_fn, 0x00000100)
 
-f = open("first32k.bin", "wb")
+image_f = open(image_fn, "wb")
 
 for m in mem:
-   f.write(chr(m))
+   image_f.write(chr(m))
 
-f.close()
+kernel_f = open(kernel_fn, "rb")
+shutil.copyfileobj(kernel_f, image_f)
+kernel_f.close()
 
-os.system("cat first32k.bin " + kernel_image + " > kernel.img")
+image_f.close()
