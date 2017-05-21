@@ -12,7 +12,9 @@ except:
 if kernel_image == "":
   print("usage : imagetool-uncompressed.py <kernel image>");
   sys.exit(0)
-   
+
+mydir=os.path.dirname(__file__)
+
 re_line = re.compile(r"0x(?P<value>[0-9a-f]{8})")
 
 mem = [0 for i in range(32768)]
@@ -32,14 +34,14 @@ def load_to_mem(name, addr):
 
    f.close()
 
-load_to_mem("boot-uncompressed.txt", 0x00000000)
-load_to_mem("args-uncompressed.txt", 0x00000100)
+load_to_mem(os.path.join(mydir, "boot-uncompressed.txt"), 0x00000000)
+load_to_mem(os.path.join(mydir, "args-uncompressed.txt"), 0x00000100)
 
-f = open("first32k.bin", "wb")
+f = open(os.path.join(mydir, "first32k.bin"), "wb")
 
 for m in mem:
    f.write(chr(m))
 
 f.close()
 
-os.system("cat first32k.bin " + kernel_image + " > kernel.img")
+os.system("cat %s %s > kernel.img" % (os.path.join(mydir, "first32k.bin"), kernel_image))
