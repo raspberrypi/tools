@@ -58,7 +58,7 @@ jmp_loader:
 @ Check which proc we are and run proc 0 only
 
 	mrc p15, 0, r0, c1, c0, 0 @ Read System Control Register
-	orr r0, r0, #(1<<2)       @ cache enable
+	bic r0, r0, #((1<<2)|(1<<0)) @ dcache and MMU disable
 	orr r0, r0, #(1<<12)      @ icache enable
 	mcr p15, 0, r0, c1, c0, 0 @ Write System Control Register
 .if !BCM2710
