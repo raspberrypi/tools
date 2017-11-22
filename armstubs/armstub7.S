@@ -57,10 +57,6 @@ mbox: 	.word 0x4000008C
 jmp_loader:
 @ Check which proc we are and run proc 0 only
 
-	mrc p15, 0, r0, c1, c0, 0 @ Read System Control Register
-	bic r0, r0, #((1<<2)|(1<<0)) @ dcache and MMU disable
-	orr r0, r0, #(1<<12)      @ icache enable
-	mcr p15, 0, r0, c1, c0, 0 @ Write System Control Register
 .if !BCM2710
 	mrc p15, 0, r0, c1, c0, 1 @ Read Auxiliary Control Register
 	orr r0, r0, #(1<<6)       @ SMP
@@ -70,6 +66,12 @@ jmp_loader:
 	orr r0, r0, #(1<<6)       @ SMP
 	mcrr p15, 1, r0, r1, c15  @ CPU Extended Control Register
 .endif
+
+@ SMP must be set before enabling the caches in both A7 and A53
+	mrc p15, 0, r0, c1, c0, 0 @ Read System Control Register
+	bic r0, r0, #((1<<2)|(1<<0)) @ dcache and MMU disable
+	orr r0, r0, #(1<<12)      @ icache enable
+	mcr p15, 0, r0, c1, c0, 0 @ Write System Control Register
 
 	mov r0, #1
 	mcr p15, 0, r0, c14, c3, 1 @ CNTV_CTL (enable=1, imask=0)
