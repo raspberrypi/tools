@@ -78,9 +78,6 @@ jmp_loader:
 	orr r0, r0, #(1<<12)      @ icache enable
 	mcr p15, 0, r0, c1, c0, 0 @ Write System Control Register
 
-	mov r0, #1
-	mcr p15, 0, r0, c14, c3, 1 @ CNTV_CTL (enable=1, imask=0)
-
 @ set to non-sec
 	ldr	r1, value			@ value = 0x60c00 in A7, 0xc00 in A53
 	mcr	p15, 0, r1, c1, c1, 2		@ NSACR = all copros to non-sec
