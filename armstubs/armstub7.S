@@ -50,7 +50,12 @@ _secure_monitor:
 	msr     spsr_cxfs, r0                   @ Set full SPSR
 	movs	pc, lr				@ return to non-secure SVC
 
-value:	.word 0x63fff
+.if !BCM2710
+value:	.word 0x60c00
+.else
+value:	.word 0xc00
+.endif
+
 machid:	.word 3138
 mbox: 	.word 0x4000008C
 
@@ -77,7 +82,7 @@ jmp_loader:
 	mcr p15, 0, r0, c14, c3, 1 @ CNTV_CTL (enable=1, imask=0)
 
 @ set to non-sec
-	ldr	r1, value			@ value = 0x63fff
+	ldr	r1, value			@ value = 0x60c00 in A7, 0xc00 in A53
 	mcr	p15, 0, r1, c1, c1, 2		@ NSACR = all copros to non-sec
 @ timer frequency
 	ldr	r1, osc				@ osc = 19200000
