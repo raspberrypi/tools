@@ -1,4 +1,4 @@
-Installation instructions from [Stack Overflow](https://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715)
+Cross-compile instructions from [Stack Overflow](https://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715)
 
 Pre-requirements
 ----------------
