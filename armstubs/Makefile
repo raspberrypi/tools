@@ -15,7 +15,7 @@ BIN2C=./bin2c
 all : $(BINS)
 
 clean :
-	rm -f *.o *.out *.tmp *.bin *.ds *.C armstubs.h bin2c *~
+	rm -f *.o *.out *.tmp *.bin *.elf *.ds *.C armstubs.h bin2c *~
 
 %8.o: %8.S
 	$(CC8) -c $< -o $@
@@ -52,7 +52,7 @@ clean :
 
 
 %.bin: %.tmp
-	dd if=$< ibs=512 count=1 of=$@ conv=sync
+	dd if=$< ibs=256 of=$@ conv=sync
 
 %8.ds: %8.bin
 	$(OBJDUMP8) -D --target binary $< > $@
