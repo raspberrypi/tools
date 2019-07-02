@@ -1,14 +1,14 @@
 BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin
 
-CC8=aarch64-linux-gnu-gcc
-LD8=aarch64-linux-gnu-ld
-OBJCOPY8=aarch64-linux-gnu-objcopy
-OBJDUMP8=aarch64-linux-gnu-objdump -maarch64
+CC8?=aarch64-linux-gnu-gcc
+LD8?=aarch64-linux-gnu-ld
+OBJCOPY8?=aarch64-linux-gnu-objcopy
+OBJDUMP8?=aarch64-linux-gnu-objdump -maarch64
 
-CC=arm-linux-gnueabihf-gcc -march=armv7-a
-LD=arm-linux-gnueabihf-ld
-OBJCOPY=arm-linux-gnueabihf-objcopy
-OBJDUMP=arm-linux-gnueabihf-objdump -marm
+CC?=arm-linux-gnueabihf-gcc -march=armv7-a
+LD?=arm-linux-gnueabihf-ld
+OBJCOPY?=arm-linux-gnueabihf-objcopy
+OBJDUMP?=arm-linux-gnueabihf-objdump -marm
 
 BIN2C=./bin2c
 
