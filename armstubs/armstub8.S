@@ -78,7 +78,7 @@ _start:
 	mov w1, 0x80000000
 	str w1, [x0, #(LOCAL_PRESCALER - LOCAL_CONTROL)]
 
-	/* Set L2 read/write cache latency to 2 */
+	/* Set L2 read/write cache latency to 3 */
 	mrs x0, L2CTLR_EL1
 	mov x1, #0x22
 	orr x0, x0, x1
