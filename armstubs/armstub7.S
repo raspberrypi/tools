@@ -54,7 +54,7 @@ _secure_monitor:
 	msr     spsr_cxfs, r0                   @ Set full SPSR
 
 #if defined(BCM2711) && (BCM2711 == 1)
-	mov r1, #0x22       			@ Set L2 read/write latency to 2
+	mov r1, #0x22       			@ Set L2 read/write latency to 3
 	mcr	p15, 1, r1, c9, c0, 2		@ Write L2CTLR
 #endif
 
