@@ -5,10 +5,10 @@ LD8?=aarch64-linux-gnu-ld
 OBJCOPY8?=aarch64-linux-gnu-objcopy
 OBJDUMP8?=aarch64-linux-gnu-objdump -maarch64
 
-CC?=arm-linux-gnueabihf-gcc -march=armv7-a
-LD?=arm-linux-gnueabihf-ld
-OBJCOPY?=arm-linux-gnueabihf-objcopy
-OBJDUMP?=arm-linux-gnueabihf-objdump -marm
+CC7?=arm-linux-gnueabihf-gcc -march=armv7-a
+LD7?=arm-linux-gnueabihf-ld
+OBJCOPY7?=arm-linux-gnueabihf-objcopy
+OBJDUMP7?=arm-linux-gnueabihf-objdump -marm
 
 BIN2C=./bin2c
 
@@ -24,13 +24,13 @@ clean :
 	$(CC8) -DGIC=1 -DBCM2711=1 -c $< -o $@
 
 %8-32.o: %7.S
-	$(CC) -DBCM2710=1 -c $< -o $@
+	$(CC7) -DBCM2710=1 -c $< -o $@
 
 %8-32-gic.o: %7.S
-	$(CC) -DGIC=1 -DBCM2710=1 -DBCM2711=1 -c $< -o $@
+	$(CC7) -DGIC=1 -DBCM2710=1 -DBCM2711=1 -c $< -o $@
 
 %.o: %.S
-	$(CC) -DBCM2710=0 -c $< -o $@
+	$(CC7) -DBCM2710=0 -c $< -o $@
 
 %8-gic.elf: %8-gic.o
 	$(LD8) --section-start=.text=0 $< -o $@
@@ -39,7 +39,7 @@ clean :
 	$(LD8) --section-start=.text=0 $< -o $@
 
 %.elf: %.o
-	$(LD) --section-start=.init=0 $< -o $@
+	$(LD7) --section-start=.init=0 $< -o $@
 
 %8-gic.tmp: %8-gic.elf
 	$(OBJCOPY8) $< -O binary $@
@@ -48,7 +48,7 @@ clean :
 	$(OBJCOPY8) $< -O binary $@
 
 %.tmp: %.elf
-	$(OBJCOPY) $< -O binary $@
+	$(OBJCOPY7) $< -O binary $@
 
 
 %.bin: %.tmp
@@ -58,7 +58,7 @@ clean :
 	$(OBJDUMP8) -D --target binary $< > $@
 
 %.ds: %.bin
-	$(OBJDUMP) -D --target binary $< > $@
+	$(OBJDUMP7) -D --target binary $< > $@
 
 %.C: %.bin bin2c
 	$(BIN2C) $< > $@
