@@ -21,7 +21,7 @@ clean :
 	$(CC8) -c $< -o $@
 
 %8-gic.o: %8.S
-	$(CC8) -DGIC=1 -c $< -o $@
+	$(CC8) -DGIC=1 -DBCM2711=1 -c $< -o $@
 
 %8-32.o: %7.S
 	$(CC) -DBCM2710=1 -c $< -o $@

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Raspberry Pi (Trading) Ltd.
+ * Copyright (c) 2016-2019 Raspberry Pi (Trading) Ltd.
  * Copyright (c) 2016 Stephen Warren <swarren@wwwdotorg.org>
  * All rights reserved.
  *
@@ -29,12 +29,21 @@
 
 #define BIT(x) (1 << (x))
 
+#if BCM2711
 #define LOCAL_CONTROL		0xff800000
 #define LOCAL_PRESCALER		0xff800008
+#else
+#define LOCAL_CONTROL		0x40000000
+#define LOCAL_PRESCALER		0x40000008
+#endif
 #define GIC_DISTB		0xff841000
 #define GIC_CPUB		0xff842000
 
+#if BCM2711
 #define OSC_FREQ		54000000
+#else
+#define OSC_FREQ		19200000
+#endif
 
 #define SCR_RW			BIT(10)
 #define SCR_HCE			BIT(8)
