@@ -66,6 +66,9 @@ clean :
 %8.ds: %8.bin
 	$(OBJDUMP8) -D --target binary $< > $@
 
+%8-gic.ds: %8-gic.bin
+	$(OBJDUMP8) -D --target binary $< > $@
+
 %.ds: %.bin
 	$(OBJDUMP7) -D --target binary $< > $@
 
