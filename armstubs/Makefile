@@ -1,4 +1,4 @@
-BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin
+BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin armstub8-gic-highperi.bin
 
 CC8?=aarch64-linux-gnu-gcc
 LD8?=aarch64-linux-gnu-ld
@@ -23,6 +23,9 @@ clean :
 %8-gic.o: %8.S
 	$(CC8) -DGIC=1 -DBCM2711=1 -c $< -o $@
 
+%8-gic-highperi.o: %8.S
+	$(CC8) -DGIC=1 -DHIGH_PERI=1 -DBCM2711=1 -c $< -o $@
+
 %8-32.o: %7.S
 	$(CC7) -DBCM2710=1 -c $< -o $@
 
@@ -35,6 +38,9 @@ clean :
 %8-gic.elf: %8-gic.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
+%8-gic-highperi.elf: %8-gic-highperi.o
+	$(LD8) --section-start=.text=0 $< -o $@
+
 %8.elf: %8.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
@@ -42,6 +48,9 @@ clean :
 	$(LD7) --section-start=.init=0 $< -o $@
 
 %8-gic.tmp: %8-gic.elf
+	$(OBJCOPY8) $< -O binary $@
+
+%8-gic-highperi.tmp: %8-gic-highperi.elf
 	$(OBJCOPY8) $< -O binary $@
 
 %8.tmp: %8.elf
@@ -66,7 +75,7 @@ clean :
 $(BIN2C): bin2c.c
 	gcc $< -o $@
 
-armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C armstub8-gic.C
+armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C armstub8-gic.C armstub8-gic-highperi.C
 	echo 'static const unsigned armstub[] = {' > $@
 	cat armstub.C >> $@
 	echo '};' >> $@
@@ -84,5 +93,8 @@ armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C arms
 	echo '};' >> $@
 	echo 'static const unsigned armstub8_gic[] = {' >> $@
 	cat armstub8-gic.C >> $@
+	echo '};' >> $@
+	echo 'static const unsigned armstub8_gic_highperi[] = {' >> $@
+	cat armstub8-gic-highperi.C >> $@
 	echo '};' >> $@
 

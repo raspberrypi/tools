@@ -30,14 +30,25 @@
 #define BIT(x) (1 << (x))
 
 #if BCM2711
+#ifdef HIGH_PERI
+#define LOCAL_CONTROL		0x4c0000000
+#define LOCAL_PRESCALER		0x4c0000008
+#else
 #define LOCAL_CONTROL		0xff800000
 #define LOCAL_PRESCALER		0xff800008
+#endif
 #else
 #define LOCAL_CONTROL		0x40000000
 #define LOCAL_PRESCALER		0x40000008
 #endif
+
+#ifdef HIGH_PERI
+#define GIC_DISTB		0x4c0041000
+#define GIC_CPUB		0x4c0042000
+#else
 #define GIC_DISTB		0xff841000
 #define GIC_CPUB		0xff842000
+#endif
 
 #if BCM2711
 #define OSC_FREQ		54000000
@@ -81,7 +92,7 @@ _start:
 	 * Bit 9 clear: Increment by 1 (vs. 2).
 	 * Bit 8 clear: Timer source is 19.2MHz crystal (vs. APB).
 	 */
-	mov x0, LOCAL_CONTROL
+	ldr x0, =LOCAL_CONTROL
 	str wzr, [x0]
 	/* LOCAL_PRESCALER; divide-by (0x80000000 / register_val) == 1 */
 	mov w1, 0x80000000
