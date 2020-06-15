@@ -93,37 +93,8 @@ jmp_loader:
 	mrc p15, 0, r7, c0, c0, 5 @ Put core number into R7
 
 #ifdef GIC
-
-#define GIC_CPUB_offset 0x1000
-
-#define GICC_CTRLR	0x0
-#define GICC_PMR	0x4
-#define IT_NR		0x8		@ Number of interrupt enable registers (256 total irqs)
-#define GICD_CTRLR	0x0
-#define GICD_IGROUPR	0x80
-
-setup_gic:				@ Called from secure mode - set all interrupts to group 1 and enable.
-	ldr	r2, GIC_DISTB
-
-	ands    r7,r7, #3		@ primary core
-
-	movne	r0, #3			@ Enable group 0 and 1 IRQs from distributor
-	strne	r0, [r2,  #GICD_CTRLR]
-
-	mov     r0, #~0
-	mov	    r1, #~0			@ group 1 all the things
-	strd    r0, r1, [r2,#(GICD_IGROUPR)]!	@ update to bring the CPU registers within range
-	strd    r0, r1, [r2,#8]
-	strd    r0, r1, [r2,#16]
-
-	movw	r1, #0x1e7
-	str	r1, [r2, #(GIC_CPUB_offset - GICD_IGROUPR) ]! @ Enable group  1 IRQs from CPU interface
-
-	movw	r1, #0xff
-	str	r1, [r2, #GICC_PMR] @ priority mask
-
+	bl      setup_gic
 #endif
-
 	mov r0, #1
 	mcr p15, 0, r0, c14, c3, 1 @ CNTV_CTL (enable=1, imask=0)
 
@@ -171,3 +142,37 @@ setup_gic:				@ Called from secure mode - set all interrupts to group 1 and enab
 .word 0			@ version
 atags:	.word 0x0	@ device tree address
 kernel:	.word 0x0	@ kernel start address
+
+.org 0x100
+
+#ifdef GIC
+
+#define GIC_CPUB_offset 0x1000
+
+#define GICC_CTRLR	0x0
+#define GICC_PMR	0x4
+#define IT_NR		0x8		@ Number of interrupt enable registers (256 total irqs)
+#define GICD_CTRLR	0x0
+#define GICD_IGROUPR	0x80
+
+setup_gic:				@ Called from secure mode - set all interrupts to group 1 and enable.
+	ldr	r2, GIC_DISTB
+
+	ands    r7,r7, #3		@ primary core
+
+	movne	r0, #3			@ Enable group 0 and 1 IRQs from distributor
+	strne	r0, [r2,  #GICD_CTRLR]
+
+	mov     r0, #~0
+	mov	    r1, #~0			@ group 1 all the things
+	strd    r0, r1, [r2,#(GICD_IGROUPR)]!	@ update to bring the CPU registers within range
+	strd    r0, r1, [r2,#8]
+	strd    r0, r1, [r2,#16]
+
+	movw	r1, #0x1e7
+	str	r1, [r2, #(GIC_CPUB_offset - GICD_IGROUPR) ]! @ Enable group  1 IRQs from CPU interface
+
+	movw	r1, #0xff
+	str	r1, [r2, #GICC_PMR] @ priority mask
+	bx	lr
+#endif
