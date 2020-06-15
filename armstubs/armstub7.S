@@ -58,6 +58,9 @@ _secure_monitor:
 	mcr	p15, 1, r1, c9, c0, 2		@ Write L2CTLR
 #endif
 
+	@ Reset CNTVOFF to 0 before leaving monitor mode
+	mov     r0, #0
+	mcrr    p15, 4, r0, r0, c14		@ Reset CNTVOFF to zero
 	movs	pc, lr				@ return to non-secure SVC
 
 value:		.word 0x63fff
