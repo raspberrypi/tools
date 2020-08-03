@@ -115,6 +115,7 @@ setup_gic:				@ Called from secure mode - set all interrupts to group 1 and enab
 	strd    r0, r1, [r2,#(GICD_IGROUPR)]!	@ update to bring the CPU registers within range
 	strd    r0, r1, [r2,#8]
 	strd    r0, r1, [r2,#16]
+	strd    r0, r1, [r2,#24]
 
 	movw	r1, #0x1e7
 	str	r1, [r2, #(GIC_CPUB_offset - GICD_IGROUPR) ]! @ Enable group  1 IRQs from CPU interface
