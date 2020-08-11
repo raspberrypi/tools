@@ -65,6 +65,9 @@
 #define SCR_VAL \
     (SCR_RW | SCR_HCE | SCR_SMD | SCR_RES1_5 | SCR_RES1_4 | SCR_NS)
 
+#define CPUACTLR_EL1		S3_1_C15_C2_0
+#define CPUACTLR_EL1_DLPS	BIT(55)
+
 #define CPUECTLR_EL1		S3_1_C15_C2_1
 #define CPUECTLR_EL1_SMPEN	BIT(6)
 
@@ -123,6 +126,12 @@ _start:
 	/* Set SMPEN */
 	mov x0, #CPUECTLR_EL1_SMPEN
 	msr CPUECTLR_EL1, x0
+
+#ifdef SPECTRE_V4
+	/* mitigate Spectre v4 */
+	mov x0, #CPUACTLR_EL1_DLPS
+	msr CPUACTLR_EL1, x0
+#endif
 
 #ifdef GIC
         bl      setup_gic
