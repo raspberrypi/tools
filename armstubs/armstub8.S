@@ -65,6 +65,9 @@
 #define SCR_VAL \
     (SCR_RW | SCR_HCE | SCR_SMD | SCR_RES1_5 | SCR_RES1_4 | SCR_NS)
 
+#define ACTLR_VAL \
+	(BIT(0) | BIT(1) | BIT(4) | BIT(5) | BIT(6))
+
 #define CPUECTLR_EL1		S3_1_C15_C2_1
 #define CPUECTLR_EL1_SMPEN	BIT(6)
 
@@ -119,6 +122,10 @@ _start:
 	/* Set up SCR */
 	mov x0, #SCR_VAL
 	msr SCR_EL3, x0
+
+	/* Set up ACTLR */
+	mov x0, #ACTLR_VAL
+	msr ACTLR_EL3, x0
 
 	/* Set SMPEN */
 	mov x0, #CPUECTLR_EL1_SMPEN
