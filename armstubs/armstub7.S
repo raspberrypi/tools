@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2016 Raspberry Pi (Trading) Ltd.
+Copyright (c) 2016-2020 Raspberry Pi (Trading) Ltd.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -27,145 +27,166 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .arch_extension sec
 .arch_extension virt
+.syntax unified
+
+#define MACHINE_ID	3138
+
+#if BCM2711
+#define OSC_FREQ	54000000
+#define LOCAL_BASE	0xff800000
+#else
+#define OSC_FREQ	19200000
+#define LOCAL_BASE	0x40000000
+#endif
+
+#define ARML_PRESCALER	0x08
+#define ARML_MBOX_CLR03	0xcc
+
+#ifdef GIC
+/* Distributor */
+#define GIC_DISTB	0x41000
+#define GICD_CTLR	0x0
+#define GICD_IGROUPR	0x80
+#define IT_NR		0x8			/* Number of interrupt enable registers (256 total irqs) */
+
+/* CPU interface */
+#define GIC_CPUB	0x42000
+#define GICC_CTRLR	0x0
+#define GICC_PMR	0x4
+#endif
+
+#if BCM2710
+#define NSACR_VAL	0xc00
+#else
+#define NSACR_VAL	0x60c00
+#endif
 
 .section .init
-.globl _start
-/* the vector table for secure state and HYP mode */
+.global _start
+
+/* Vector table for secure state and HYP mode */
 _start:
-	b jmp_loader 	/* reset */
-#if defined(BCM2711) && (BCM2711 == 1)
-osc:	.word 54000000
-#else
-osc:	.word 19200000
-#endif
+	mrc	p15, 0, r6, c0, c0, 5		@ Read MPIDR into r6
+	blx	_main				@ Jump to bootstub entrypoint (Thumb-2)
 
 /*
- * secure monitor handler
- * U-boot calls this "software interrupt" in start.S
+ * Secure monitor handler
  * This is executed on a "smc" instruction, we use a "smc #0" to switch
  * to non-secure state.
- * We use only r0 and r1 here, due to constraints in the caller.
+ * We only clobber ip (r12) here, so that the caller's r0-r7 remain valid.
  */
 _secure_monitor:
-	movw	r1, #0x131			@ set NS, AW, FW, HVC
-	mcr	p15, 0, r1, c1, c1, 0		@ write SCR (with NS bit set)
-
-	movw	r0, #0x1da			@ Set HYP_MODE | F_BIT | I_BIT | A_BIT
-	msr     spsr_cxfs, r0                   @ Set full SPSR
-
-#if defined(BCM2711) && (BCM2711 == 1)
-	mov r1, #0x22       			@ Set L2 read/write latency to 3
-	mcr	p15, 1, r1, c9, c0, 2		@ Write L2CTLR
+#if BCM2710
+	mcr	p15, 0, r1, c1, c0, 1		@ Write ACTLR (Secure)
 #endif
+	mov	ip, #0x1b1			@ Set NS, AW, FW, SCD, HVC
+	mcr	p15, 0, ip, c1, c1, 0		@ Write SCR (which sets the NS bit)
+	mov	ip, #0x1fa			@ Set HYP_MODE | T_BIT | F_BIT | I_BIT | A_BIT
+	msr     spsr_cxfs, ip                   @ Set full SPSR
+	movs	pc, lr				@ Return to non-secure HYP
 
-	movs	pc, lr				@ return to non-secure SVC
+/*
+ * Main bootstub entrypoint (entered in secure SVC mode)
+ * This code is Thumb-2 in order to save space.
+ */
+.thumb_func
+_main:
+	movs	r0, #0				@ Set r0 to zero (used by code below and also as a kernel argument)
+	lsls	r6, r6, #30			@ Extract processor number field from MPIDR (shifted left by 30)
+	ldr	r7, =LOCAL_BASE			@ Load ARM local peripherals base address for later use
 
-value:		.word 0x63fff
-#define machid 3138
-#if defined(BCM2711) && (BCM2711 == 1)
-
-#define PRESCALER_2711	0xff800008
-#define MBOX_2711	0xff8000cc
-
-mbox:		.word MBOX_2711
-GIC_DISTB:	.word 0xff841000
+#if !BCM2710
+	mrc	p15, 0, r1, c1, c0, 1		@ Read Auxiliary Control Register
+	orr	r1, r1, #(1<<6)			@ Enable SMP
+	mcr	p15, 0, r1, c1, c0, 1		@ Write Auxiliary Control Register
 #else
-mbox:		.word 0x400000cc
+	mrrc	p15, 1, r1, r2, c15		@ CPU Extended Control Register
+	orr	r1, r1, #(1<<6)			@ Enable SMP
+#if BCM2711
+	bic	r2, r2, #3			@ Set L2 load data prefetch to 0b00 = 16 requests (A72-specific)
 #endif
-jmp_loader:
-@ Check which proc we are and run proc 0 only
+	mcrr	p15, 1, r1, r2, c15		@ CPU Extended Control Register
+#endif
 
-.if !BCM2710
-	mrc p15, 0, r0, c1, c0, 1 @ Read Auxiliary Control Register
-	orr r0, r0, #(1<<6)       @ SMP
-	mcr p15, 0, r0, c1, c0, 1 @ Write Auxiliary Control Register
-.else
-	mrrc p15, 1, r0, r1, c15  @ CPU Extended Control Register
-	orr r0, r0, #(1<<6)       @ SMP
-	and r1, r1, #(~3)         @ Set L2 load data prefetch to 0b00 = 16
-	mcrr p15, 1, r0, r1, c15  @ CPU Extended Control Register
-.endif
-	mrc p15, 0, r0, c1, c0, 0 @ Read System Control Register
+	mrc	p15, 0, r1, c1, c0, 0		@ Read System Control Register
 	/* Cortex A72 manual 4.3.67 says SMP must be set before enabling the cache. */
-	orr r0, r0, #(1<<12)      @ icache enable
-	mcr p15, 0, r0, c1, c0, 0 @ Write System Control Register
-
-	mrc p15, 0, r7, c0, c0, 5 @ Put core number into R7
+	orr	r1, r1, #(1<<12)		@ Enable icache
+	mcr	p15, 0, r1, c1, c0, 0		@ Write System Control Register
 
 #ifdef GIC
 
-#define GIC_CPUB_offset 0x1000
-
-#define GICC_CTRLR	0x0
-#define GICC_PMR	0x4
-#define IT_NR		0x8		@ Number of interrupt enable registers (256 total irqs)
-#define GICD_CTRLR	0x0
-#define GICD_IGROUPR	0x80
-
-setup_gic:				@ Called from secure mode - set all interrupts to group 1 and enable.
-	ldr	r2, GIC_DISTB
-
-	ands    r7,r7, #3		@ primary core
-
-	movne	r0, #3			@ Enable group 0 and 1 IRQs from distributor
-	strne	r0, [r2,  #GICD_CTRLR]
-
-	mov     r0, #~0
-	mov	    r1, #~0			@ group 1 all the things
-	strd    r0, r1, [r2,#(GICD_IGROUPR)]!	@ update to bring the CPU registers within range
-	strd    r0, r1, [r2,#8]
-	strd    r0, r1, [r2,#16]
-	strd    r0, r1, [r2,#24]
-
-	movw	r1, #0x1e7
-	str	r1, [r2, #(GIC_CPUB_offset - GICD_IGROUPR) ]! @ Enable group  1 IRQs from CPU interface
-
-	movw	r1, #0xff
-	str	r1, [r2, #GICC_PMR] @ priority mask
-
-#endif
-
-	mov r0, #1
-	mcr p15, 0, r0, c14, c3, 1 @ CNTV_CTL (enable=1, imask=0)
-
-@ set to non-sec
-	ldr	r1, value			@ value = 0x63fff
-	mcr	p15, 0, r1, c1, c1, 2		@ NSACR = all copros to non-sec
-@ timer frequency
-	ldr	r1, osc				@ osc = 19.2 / 54MHz
-	mcr	p15, 0, r1, c14, c0, 0		@ write CNTFRQ
-#if defined(BCM2711) && (BCM2711 == 1)
-	mov	r1, #0x80000000			@ Set ARM_LOCAL_TIMER_PRE_ADD to 1
-	ldr	r2, mbox
-	str	r1, [r2, #(PRESCALER_2711 - MBOX_2711)]
-#endif
-
-	adr	ip, _start
-	mcr	p15, 0, ip, c12, c0, 1		@ set MVBAR to secure vectors
-
-	isb
-	smc	#0				@ call into MONITOR mode
-
-	mcr	p15, 0, ip, c12, c0, 0		@ write non-secure copy of VBAR
-
-	ldrd	r2,r3, atags		@ ATAGS and kernel
-
-	ands    r7,r7, #3                          @ primary core
-	beq     9f
-
-	ldr	r5, mbox		@ mbox
-
-1:
-	wfe
-	ldr	r3, [r5, r7, lsl #4]
-	cmp	r3, #0          @ magic
-	beq	1b
-@ clear mailbox
-	str	r3, [r5, r7, lsl #4]
+@ Configure the GIC Distributor
+	add	r5, r7, #GIC_DISTB		@ Get base address of GIC_DISTB
+	cbnz	r6, 9f				@ Skip setting GICD_CTLR if we are not core 0
+	movs	r1, #3
+	str	r1, [r5, #GICD_CTLR]		@ Enable group 0 and 1 IRQs from distributor
 9:
-	mov	r0, #0
-	movw  r1, #machid		@ BCM2708 machine id
+	mov	r1, #~0				@ Route all interrupts to group 1
+	movs	r2, #IT_NR
+	add	r5, r5, #GICD_IGROUPR		@ Note: GICD_IGROUPR0 is banked for each core so all cores must set it
+0:	str	r1, [r5], #4
+	subs	r2, r2, #1
+	bne	0b
+
+@ Enable all interrupts coming from group 1 on this core
+	add	r5, r7, #GIC_CPUB		@ Get base address of GIC_CPUB
+	mov	r1, #0x1e7
+	str	r1, [r5, #GICC_CTRLR]		@ Enable group 1 IRQs from CPU interface
+
+	movs	r1, #0xff
+	str	r1, [r5, #GICC_PMR]		@ Set priority mask
+
+#endif
+
+@ Allow non-secure access to coprocessors
+	ldr	r1, =NSACR_VAL
+	mcr	p15, 0, r1, c1, c1, 2		@ NSACR = all copros to non-sec
+
+@ Initialize the architectural timer
+	ldr	r1, =OSC_FREQ			@ osc = 19.2 or 54MHz
+	mcr	p15, 0, r1, c14, c0, 0		@ Write CNTFRQ
+#if BCM2711
+	mov	r1, #0x80000000			@ Set ARM_LOCAL_TIMER_PRE_ADD to 1
+	str	r1, [r7, #ARML_PRESCALER]
+#endif
+	movs	r1, #1
+	mcr	p15, 0, r1, c14, c3, 1		@ CNTV_CTL (enable=1, imask=0)
+
+@ Initialize exception vectors and switch to non-secure HYP mode
+	mcr	p15, 0, r0, c12, c0, 1		@ Set MVBAR to secure vectors (i.e. zero)
+	isb
+#if BCM2710
+	movs	r1, #0x73			@ Value for ACTLR: enable non-secure access to CPUACTLR/CPUECTLR/L2CTLR/L2ECTLR/L2ACTLR
+#endif
+	smc	#0				@ Call into MONITOR mode
+	mcr	p15, 0, r0, c12, c0, 0		@ Write non-secure copy of VBAR
+	mcrr	p15, 4, r0, r0, c14		@ Reset CNTVOFF to zero (must be done now in non-secure HYP mode)
+
+#if BCM2711
+	movs	r1, #0x22			@ Value for L2CTLR: set L2 read/write latency to 3
+	mcr	p15, 1, r1, c9, c0, 2		@ Write L2CTLR
+#endif
+
+@ Set kernel entrypoint arguments
+	mov	r1, #MACHINE_ID			@ BCM2708 machine id
+	ldrd	r2, r3, atags			@ ATAGS and kernel
+
+@ Secondary cores only: synchronize with core 0 using the mailbox
+	cbz	r6, 9f				@ Skip this section if we are core 0
+	lsrs	r6, r6, #(30-4)			@ Calculate offset to mailbox register (i.e. ARML_MBOX_CLR03 + coreid*0x10)
+	adds	r6, r6, #ARML_MBOX_CLR03
+0:	wfe
+	ldr	r3, [r7, r6]			@ Read message (secondary kernel entrypoint)
+	cmp	r3, #0				@ If zero, there is no message
+	beq	0b
+	str	r3, [r7, r6]			@ Clear mailbox
+9:
+
+@ Jump to kernel
 	bx	r3
+
+@ Assembler generated constant pool goes here
+.pool
 
 .org 0xf0
 .word 0x5afe570b	@ magic value to indicate firmware should overwrite atags and kernel
