@@ -193,7 +193,8 @@ sysidk_setup()
     if [ "_$1" = "_-l" -o "_$1" = "_--local" ]; then
         cmd_sudo=
         scripts="$default_dir_localbin"
-        scripts="$default_dir_localpkg"
+        pkgs="$default_dir_localpkg"
+        shift
     fi
     [ "_$1" = "_-p" -o "_$1" = "_--package" ] && { pkgs="$1"; shift; }
     [ "_$1" = "_-b" -o "_$1" = "_--bin" ] && { scripts="$1"; shift; }
