@@ -29,10 +29,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .globl _start
 /* the vector table */
 _start:
+	ldrd	r2, r3, atags @ loads atags into r2 and kernel into r3
 	mov	r0, #0
 	ldr	r1, machid
-	ldr	r2, atags
-	ldr	pc, kernel
+	bx	pc, r3
 
 machid:	.word 3138
 
