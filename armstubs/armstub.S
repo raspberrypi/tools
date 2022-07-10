@@ -32,7 +32,7 @@ _start:
 	ldrd	r2, r3, atags @ loads atags into r2 and kernel into r3
 	mov	r0, #0
 	ldr	r1, machid
-	bx	pc, r3
+	bx	r3
 
 machid:	.word 3138
 
