@@ -133,6 +133,11 @@ _start:
 #ifdef GIC
         bl      setup_gic
 #endif
+#ifdef PSCIMON8
+.globl in_el3
+	bl setup_psci_monitor
+in_el3:
+#endif
 	/*
 	 * Set up SCTLR_EL2
 	 * All set bits below are res1. LE, no WXN/I/SA/C/A/M

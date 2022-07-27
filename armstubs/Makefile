@@ -1,4 +1,4 @@
-BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin armstub8-gic-highperi.bin
+BINS+=armstub8-gic-highperi-psci.bin armstub8-gic-psci.bin
 
 CC8?=aarch64-linux-gnu-gcc
 LD8?=aarch64-linux-gnu-ld
@@ -17,6 +17,9 @@ all : $(BINS)
 clean :
 	rm -f *.o *.out *.tmp *.bin *.elf *.ds *.C armstubs.h bin2c *~
 
+fdtpatch.o: fdtpatch.c
+	$(CC8) -Os -fomit-frame-pointer -fno-builtin -c $< -o $@
+
 %8.o: %8.S
 	$(CC8) -c $< -o $@
 
@@ -25,6 +28,12 @@ clean :
 
 %8-gic-highperi.o: %8.S
 	$(CC8) -DGIC=1 -DHIGH_PERI=1 -DBCM2711=1 -c $< -o $@
+
+%8-gic-psci.o: %8.S
+	$(CC8) -DGIC=1 -DBCM2711=1 -DPSCIMON8=1 -c $< -o $@
+
+%8-gic-highperi-psci.o: %8.S
+	$(CC8) -DGIC=1 -DBCM2711=1 -DPSCIMON8=1 -DHIGH_PERI=1 -c $< -o $@
 
 %8-32.o: %7.S
 	$(CC7) -DBCM2710=1 -c $< -o $@
@@ -41,6 +50,12 @@ clean :
 %8-gic-highperi.elf: %8-gic-highperi.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
+%8-gic-psci.elf: %8-gic-psci.o fdtpatch.o pscimon8.o
+	$(LD8) --section-start=.text=0 $^ -o $@
+
+%8-gic-highperi-psci.elf: %8-gic-highperi-psci.o fdtpatch.o pscimon8.o
+	$(LD8) --section-start=.text=0 $^ -o $@
+
 %8.elf: %8.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
@@ -51,6 +66,12 @@ clean :
 	$(OBJCOPY8) $< -O binary $@
 
 %8-gic-highperi.tmp: %8-gic-highperi.elf
+	$(OBJCOPY8) $< -O binary $@
+
+%8-gic-psci.tmp: %8-gic-psci.elf
+	$(OBJCOPY8) $< -O binary $@
+
+%8-gic-highperi-psci.tmp: %8-gic-highperi-psci.elf
 	$(OBJCOPY8) $< -O binary $@
 
 %8.tmp: %8.elf
@@ -75,7 +96,8 @@ clean :
 $(BIN2C): bin2c.c
 	gcc $< -o $@
 
-armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C armstub8-gic.C armstub8-gic-highperi.C
+armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C armstub8-gic.C armstub8-gic-highperi.C \
+	armstub8-gic-highperi-psci.C armstub8-gic-psci.C
 	echo 'static const unsigned armstub[] = {' > $@
 	cat armstub.C >> $@
 	echo '};' >> $@
@@ -97,4 +119,9 @@ armstubs.h: armstub.C armstub7.C armstub8-32.C armstub8-32-gic.C armstub8.C arms
 	echo 'static const unsigned armstub8_gic_highperi[] = {' >> $@
 	cat armstub8-gic-highperi.C >> $@
 	echo '};' >> $@
-
+	echo 'static const unsigned armstub8_gic_psci[] = {' >> $@
+	cat armstub8-gic-psci.C >> $@
+	echo '};' >> $@
+	echo 'static const unsigned armstub8_gic_highperi_psci[] = {' >> $@
+	cat armstub8-gic-highperi-psci.C >> $@
+	echo '};' >> $@
