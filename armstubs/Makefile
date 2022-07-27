@@ -1,4 +1,4 @@
-BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin armstub8-gic-highperi.bin
+BINS=armstub.bin armstub7.bin armstub8-32.bin armstub8-32-gic.bin armstub8.bin armstub8-gic.bin armstub8-gic-highperi.bin armstub8-gic-spectrev4.bin
 
 CC8?=aarch64-linux-gnu-gcc
 LD8?=aarch64-linux-gnu-ld
@@ -26,6 +26,9 @@ clean :
 %8-gic-highperi.o: %8.S
 	$(CC8) -DGIC=1 -DHIGH_PERI=1 -DBCM2711=1 -c $< -o $@
 
+%8-gic-spectrev4.o: %8.S
+	$(CC8) -DGIC=1 -DSPECTRE_V4=1 -DBCM2711=1 -c $< -o $@
+
 %8-32.o: %7.S
 	$(CC7) -DBCM2710=1 -c $< -o $@
 
@@ -41,6 +44,9 @@ clean :
 %8-gic-highperi.elf: %8-gic-highperi.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
+%8-gic-spectrev4.elf: %8-gic-spectrev4.o
+	$(LD8) --section-start=.text=0 $< -o $@
+
 %8.elf: %8.o
 	$(LD8) --section-start=.text=0 $< -o $@
 
@@ -51,6 +57,9 @@ clean :
 	$(OBJCOPY8) $< -O binary $@
 
 %8-gic-highperi.tmp: %8-gic-highperi.elf
+	$(OBJCOPY8) $< -O binary $@
+
+%8-gic-spectrev4.tmp: %8-gic-spectrev4.elf
 	$(OBJCOPY8) $< -O binary $@
 
 %8.tmp: %8.elf
